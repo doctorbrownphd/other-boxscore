@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" role="img"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>The Other Box Score -- baseball mark</title>
+  <desc>Baseball with stitching in gold on dark background</desc>
+
+  <!-- Ball outline -->
+  <circle cx="100" cy="100" r="78"
+    fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+
+  <!-- Left stitching arc -->
+  <path d="M 62 42 Q 38 72 38 100 Q 38 128 62 158"
+    fill="none" stroke="#d4a64a" stroke-width="2.2"
+    stroke-linecap="round"/>
+
+  <!-- Left stitch marks -->
+  <line x1="55" y1="52" x2="45" y2="60"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="50" y1="66" x2="40" y2="72"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="46" y1="82" x2="37" y2="86"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="46" y1="118" x2="37" y2="114"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="50" y1="134" x2="40" y2="128"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="55" y1="148" x2="45" y2="140"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Right stitching arc -->
+  <path d="M 138 42 Q 162 72 162 100 Q 162 128 138 158"
+    fill="none" stroke="#d4a64a" stroke-width="2.2"
+    stroke-linecap="round"/>
+
+  <!-- Right stitch marks -->
+  <line x1="145" y1="52" x2="155" y2="60"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="150" y1="66" x2="160" y2="72"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="154" y1="82" x2="163" y2="86"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="154" y1="118" x2="163" y2="114"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="150" y1="134" x2="160" y2="128"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="145" y1="148" x2="155" y2="140"
+    stroke="#d4a64a" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
