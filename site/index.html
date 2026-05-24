@@ -1204,10 +1204,11 @@ body::before {
   var INTERVAL_MS = 7000;
 
   var carousel = document.getElementById("hook-carousel");
+  var section  = carousel.closest(".hook");
   var slides   = carousel.querySelectorAll(".hook__slide");
-  var dots     = carousel.querySelectorAll(".hook__dot");
+  var dots     = section.querySelectorAll(".hook__dot");
   var liveRegion = document.getElementById("hook-live");
-  var navBtns  = carousel.parentElement.querySelectorAll(".hook__nav-btn");
+  var navBtns  = section.querySelectorAll(".hook__nav-btn");
   var cta      = document.getElementById("hook-cta");
 
   var count   = slides.length;
@@ -1269,13 +1270,13 @@ body::before {
   });
 
   /* Pause when any child receives focus (keyboard navigation) */
-  carousel.parentElement.addEventListener("focusin", function () {
+  section.addEventListener("focusin", function () {
     paused = true;
     stopTimer();
   });
 
-  carousel.parentElement.addEventListener("focusout", function (e) {
-    if (!carousel.parentElement.contains(e.relatedTarget)) {
+  section.addEventListener("focusout", function (e) {
+    if (!section.contains(e.relatedTarget)) {
       paused = false;
       startTimer();
     }
@@ -1307,7 +1308,7 @@ body::before {
   });
 
   /* Keyboard navigation within the carousel region */
-  carousel.parentElement.addEventListener("keydown", function (e) {
+  section.addEventListener("keydown", function (e) {
     var handled = false;
     if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
       goTo(current - 1);
