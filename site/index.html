@@ -141,7 +141,7 @@ body::before {
 
 .hook-player-wrap {
   position: relative;
-  min-height: 260px;
+  min-height: 310px;
   width: 100%;
   max-width: 680px;
   display: flex;
@@ -193,6 +193,38 @@ body::before {
   color: var(--vellum-dim);
   max-width: 500px;
 }
+
+/* Stat chips that flash in around the player name */
+.hook-stats {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.hook-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  border: 1px solid rgba(212,166,74,0.25);
+  padding: 4px 10px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hook-slide.active .hook-chip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hook-slide.active .hook-chip:nth-child(1) { transition-delay: 0.3s; }
+.hook-slide.active .hook-chip:nth-child(2) { transition-delay: 0.45s; }
+.hook-slide.active .hook-chip:nth-child(3) { transition-delay: 0.6s; }
+.hook-slide.active .hook-chip:nth-child(4) { transition-delay: 0.75s; }
 
 .hook-controls {
   display: flex;
@@ -670,36 +702,72 @@ body::before {
 
     <div class="hook-slide active">
       <div class="hook-headline">Have you heard<br>of Pumpsie Green?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">Infielder</span>
+        <span class="hook-chip">Red Sox . 1959</span>
+        <span class="hook-chip">Team #16 of 16</span>
+        <span class="hook-chip">4,480 days late</span>
+      </div>
       <div class="hook-gold">He was the last man. July 21, 1959.</div>
       <div class="hook-body">The Boston Red Sox became the final major league team to integrate -- twelve years, three months, and six days after Jackie Robinson. Pumpsie Green entered as a pinch runner. Tom Yawkey had owned the team the entire time.</div>
     </div>
 
     <div class="hook-slide">
       <div class="hook-headline">Have you heard<br>of Cool Papa Bell?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">CF . 1922--1946</span>
+        <span class="hook-chip">.325 career avg</span>
+        <span class="hook-chip">175+ SB in one season</span>
+        <span class="hook-chip">HOF 1974</span>
+      </div>
       <div class="hook-gold">He could flip the light and be in bed before the room went dark.</div>
       <div class="hook-body">James "Cool Papa" Bell stole over 175 bases in a single season. He spent 29 years in the Negro Leagues. He never played a major league game. He made the Hall of Fame in 1974 -- on the testimony of Satchel Paige, who said Bell was the fastest man alive.</div>
     </div>
 
     <div class="hook-slide">
       <div class="hook-headline">Have you heard<br>of Leon Day?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">RHP . 1934--1946</span>
+        <span class="hook-chip">7 All-Star games</span>
+        <span class="hook-chip">D-Day veteran</span>
+        <span class="hook-chip">HOF 1995</span>
+      </div>
       <div class="hook-gold">He pitched on the morning of D-Day.</div>
       <div class="hook-body">June 6, 1944, in a military game in England. He came home and threw an Opening Day no-hitter in 1946. He never started a major league game. He made the Hall of Fame in 1995 -- one year before he died.</div>
     </div>
 
     <div class="hook-slide">
       <div class="hook-headline">Have you heard<br>of Cristobal Torriente?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">OF . 1913--1932</span>
+        <span class="hook-chip">.333 career avg</span>
+        <span class="hook-chip">Outhit Ruth in Cuba</span>
+        <span class="hook-chip">HOF 2006</span>
+      </div>
       <div class="hook-gold">He outhit Babe Ruth in Havana, 1920.</div>
       <div class="hook-body">In a barnstorming series that October, Ruth batted .345. Torriente batted .433. The mainstream American press did not file a story. He is now third all-time in career batting average. He always was.</div>
     </div>
 
     <div class="hook-slide">
       <div class="hook-headline">Have you heard<br>of Biz Mackey?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">C . 1920--1947</span>
+        <span class="hook-chip">.322 career avg</span>
+        <span class="hook-chip">Taught Campanella</span>
+        <span class="hook-chip">HOF 2006</span>
+      </div>
       <div class="hook-gold">He taught Roy Campanella to catch.</div>
       <div class="hook-body">Campanella went to the Hall of Fame in 1969. Mackey waited until 2006 -- sixteen years after he died. He was the finest defensive catcher of his generation. His generation was not allowed to play in the major leagues.</div>
     </div>
 
     <div class="hook-slide">
       <div class="hook-headline">Have you heard<br>of Frank Grant?</div>
+      <div class="hook-stats">
+        <span class="hook-chip">2B . 1886--1903</span>
+        <span class="hook-chip">.337 in white minors</span>
+        <span class="hook-chip">Last man before the ban</span>
+        <span class="hook-chip">HOF 2006</span>
+      </div>
       <div class="hook-gold">He was the last one in before the door closed.</div>
       <div class="hook-body">The last Black player in white organized baseball before the gentleman's agreement locked him out -- 1903. He batted .337 in the minors when they still let him play. Then they stopped letting him. He never got back in.</div>
     </div>
