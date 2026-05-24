@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score</title>
+<meta name="description" content="A museum-quality, open-source data journalism platform dedicated to the Negro Leagues. Fourteen chapters. One question: why don't you know their names?">
+<meta property="og:title" content="The Other Box Score">
+<meta property="og:description" content="The other box score was always there. Fourteen chapters dedicated to the Negro Leagues.">
+<meta property="og:url" content="https://theotherboxscore.org">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+:root {
+  /* Backgrounds */
+  --ink:        #13110d;
+  --ink-2:      #1a1812;
+  --ink-3:      #221f17;
+  --rule:       #2a261d;
+  --shell-bg:   #232318;
+
+  /* Text */
+  --vellum:     #e8e0cf;
+  --vellum-dim: #c4bda9;
+  --muted:      #8a8270;
+  --muted-2:    #5e5849;
+
+  /* Accent colors */
+  --amber:      #d4a64a;
+  --amber-2:    #f0c878;
+  --oxblood:    #a14545;
+  --slate:      #6f8aa8;
+
+  /* Semantic */
+  --color-locked: rgba(161,69,69,0.6);
+  --color-live:   rgba(212,166,74,0.9);
+
+  /* Type */
+  --serif:    "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono:     "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display:  "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--shell-bg);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Paper grain -- shell uses 0.08 opacity (lighter than chapters) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image:
+    radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.08;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+
+/* ========================================
+   Platform Mark / Header
+   ======================================== */
+
+.tobs-mark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 56px;
+  border-bottom: 1px solid rgba(212,166,74,0.12);
+  background: var(--ink);
+}
+
+.mark-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.mark-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--vellum);
+  text-transform: uppercase;
+}
+
+.mark-domain {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+}
+
+.mark-right {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   Hook -- "Have you heard of..."
+   ======================================== */
+
+.tobs-hook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 64px;
+  text-align: center;
+  border-bottom: 1px solid rgba(212,166,74,0.08);
+}
+
+.hook-hey {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hook-player-wrap {
+  position: relative;
+  min-height: 260px;
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hook-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+
+.hook-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hook-headline {
+  font-family: var(--display);
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.hook-gold {
+  font-family: var(--display);
+  font-size: 19px;
+  font-style: italic;
+  color: var(--amber);
+  margin-bottom: 24px;
+  line-height: 1.4;
+  max-width: 560px;
+}
+
+.hook-body {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--vellum-dim);
+  max-width: 500px;
+}
+
+.hook-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hook-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hook-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(212,166,74,0.22);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background 0.3s;
+}
+
+.hook-dot.active {
+  background: var(--amber);
+}
+
+.hook-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.hook-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(212,166,74,0.45);
+  text-transform: uppercase;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.hook-btn:hover {
+  color: var(--amber);
+}
+
+.hook-cta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid rgba(212,166,74,0.3);
+  padding: 11px 26px;
+  margin-top: 36px;
+  transition: border-color 0.2s, background 0.2s;
+  background: none;
+}
+
+.hook-cta:hover {
+  border-color: rgba(212,166,74,0.7);
+  background: rgba(212,166,74,0.06);
+}
+
+/* ========================================
+   Intro / About
+   ======================================== */
+
+.tobs-intro {
+  background: var(--ink-3);
+  padding: 56px 40px;
+  border-bottom: 1px solid rgba(212,166,74,0.08);
+}
+
+.intro-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.intro-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.intro-header {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+.intro-header em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.intro-body {
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--vellum-dim);
+}
+
+.intro-body p + p {
+  margin-top: 12px;
+}
+
+.intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 6px;
+}
+
+.stat-block {
+  border-left: 1px solid rgba(212,166,74,0.22);
+  padding-left: 18px;
+}
+
+.stat-num {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: var(--serif);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ========================================
+   Chapters Grid
+   ======================================== */
+
+.tobs-chapters {
+  padding: 64px 40px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.part-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  margin-top: 52px;
+}
+
+.part-header:first-child {
+  margin-top: 0;
+}
+
+.part-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--slate);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.part-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(212,166,74,0.18);
+}
+
+.part-hook {
+  font-family: var(--display);
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(212,166,74,0.65);
+  margin-bottom: 20px;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.chapter-card {
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.chapter-card.live {
+  cursor: pointer;
+}
+
+.chapter-card.live:hover {
+  border-color: rgba(212,166,74,0.45);
+}
+
+.chapter-card.locked {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.card-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(212,166,74,0.55);
+  letter-spacing: 0.1em;
+}
+
+.badge-live {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  border: 1px solid rgba(212,166,74,0.32);
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+.badge-locked {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--oxblood);
+  border: 1px solid rgba(161,69,69,0.28);
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.card-rule {
+  height: 1px;
+  background: rgba(212,166,74,0.12);
+  margin-bottom: 14px;
+}
+
+.card-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--slate);
+  letter-spacing: 0.07em;
+  margin-bottom: 12px;
+}
+
+.card-cta {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.card-cta-locked {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: rgba(161,69,69,0.55);
+  text-transform: uppercase;
+}
+
+/* ========================================
+   Coda Card
+   ======================================== */
+
+.coda-card {
+  background: var(--ink);
+  border: 1px solid rgba(161,69,69,0.18);
+  padding: 28px 36px;
+  margin-top: 52px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.coda-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--oxblood);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+.coda-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.coda-desc {
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted-2);
+  max-width: 580px;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.tobs-footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(212,166,74,0.1);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--vellum);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-domain {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--amber);
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-license {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--slate);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.footer-sub {
+  font-family: var(--serif);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted-2);
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(212,166,74,0.6);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--amber);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 900px) {
+  .chapter-grid { grid-template-columns: repeat(2, 1fr); }
+  .intro-inner { grid-template-columns: 1fr; gap: 36px; }
+}
+
+@media (max-width: 600px) {
+  .chapter-grid { grid-template-columns: 1fr; }
+  .tobs-mark { padding: 0 20px; }
+  .tobs-hook { padding: 56px 20px 48px; }
+  .hook-headline { font-size: 36px; }
+  .tobs-intro { padding: 40px 20px; }
+  .tobs-chapters { padding: 40px 20px 64px; }
+  .coda-card { flex-direction: column; gap: 16px; padding: 22px; }
+  .tobs-footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+  .footer-right { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====================== PLATFORM MARK ====================== -->
+<header class="tobs-mark">
+  <a href="https://theotherboxscore.org" class="mark-left" style="text-decoration:none;">
+    <svg width="10" height="40" viewBox="0 0 18 72" aria-hidden="true" focusable="false">
+      <line x1="0" y1="0"  x2="0"  y2="72" stroke="#d4a64a" stroke-width="1.2"/>
+      <line x1="0" y1="0"  x2="12" y2="0"  stroke="#d4a64a" stroke-width="1.2"/>
+      <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="16" x2="7"  y2="16" stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="24" x2="12" y2="24" stroke="#d4a64a" stroke-width="1.2"/>
+      <line x1="0" y1="32" x2="7"  y2="32" stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="40" x2="7"  y2="40" stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="48" x2="12" y2="48" stroke="#d4a64a" stroke-width="1.2"/>
+      <line x1="0" y1="56" x2="7"  y2="56" stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="64" x2="7"  y2="64" stroke="#d4a64a" stroke-width="0.8"/>
+      <line x1="0" y1="72" x2="12" y2="72" stroke="#d4a64a" stroke-width="1.2"/>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <span class="mark-name">The Other Box Score</span>
+      <span class="mark-domain">theotherboxscore.org</span>
+    </div>
+  </a>
+  <div class="mark-right">MIT . CC0 . Open Data</div>
+</header>
+
+<!-- ====================== THE HOOK ====================== -->
+<section class="tobs-hook">
+  <div class="hook-hey">Hey --</div>
+  <div class="hook-player-wrap">
+
+    <div class="hook-slide active">
+      <div class="hook-headline">Have you heard<br>of Pumpsie Green?</div>
+      <div class="hook-gold">He was the last man. July 21, 1959.</div>
+      <div class="hook-body">The Boston Red Sox became the final major league team to integrate -- twelve years, three months, and six days after Jackie Robinson. Pumpsie Green entered as a pinch runner. Tom Yawkey had owned the team the entire time.</div>
+    </div>
+
+    <div class="hook-slide">
+      <div class="hook-headline">Have you heard<br>of Cool Papa Bell?</div>
+      <div class="hook-gold">He could flip the light and be in bed before the room went dark.</div>
+      <div class="hook-body">James "Cool Papa" Bell stole over 175 bases in a single season. He spent 29 years in the Negro Leagues. He never played a major league game. He made the Hall of Fame in 1974 -- on the testimony of Satchel Paige, who said Bell was the fastest man alive.</div>
+    </div>
+
+    <div class="hook-slide">
+      <div class="hook-headline">Have you heard<br>of Leon Day?</div>
+      <div class="hook-gold">He pitched on the morning of D-Day.</div>
+      <div class="hook-body">June 6, 1944, in a military game in England. He came home and threw an Opening Day no-hitter in 1946. He never started a major league game. He made the Hall of Fame in 1995 -- one year before he died.</div>
+    </div>
+
+    <div class="hook-slide">
+      <div class="hook-headline">Have you heard<br>of Cristobal Torriente?</div>
+      <div class="hook-gold">He outhit Babe Ruth in Havana, 1920.</div>
+      <div class="hook-body">In a barnstorming series that October, Ruth batted .345. Torriente batted .433. The mainstream American press did not file a story. He is now third all-time in career batting average. He always was.</div>
+    </div>
+
+    <div class="hook-slide">
+      <div class="hook-headline">Have you heard<br>of Biz Mackey?</div>
+      <div class="hook-gold">He taught Roy Campanella to catch.</div>
+      <div class="hook-body">Campanella went to the Hall of Fame in 1969. Mackey waited until 2006 -- sixteen years after he died. He was the finest defensive catcher of his generation. His generation was not allowed to play in the major leagues.</div>
+    </div>
+
+    <div class="hook-slide">
+      <div class="hook-headline">Have you heard<br>of Frank Grant?</div>
+      <div class="hook-gold">He was the last one in before the door closed.</div>
+      <div class="hook-body">The last Black player in white organized baseball before the gentleman's agreement locked him out -- 1903. He batted .337 in the minors when they still let him play. Then they stopped letting him. He never got back in.</div>
+    </div>
+
+  </div>
+
+  <div class="hook-controls">
+    <div class="hook-dots" id="hookDots">
+      <button class="hook-dot active" data-i="0" aria-label="Player 1"></button>
+      <button class="hook-dot" data-i="1" aria-label="Player 2"></button>
+      <button class="hook-dot" data-i="2" aria-label="Player 3"></button>
+      <button class="hook-dot" data-i="3" aria-label="Player 4"></button>
+      <button class="hook-dot" data-i="4" aria-label="Player 5"></button>
+      <button class="hook-dot" data-i="5" aria-label="Player 6"></button>
+    </div>
+    <div class="hook-nav">
+      <button class="hook-btn" id="hookPrev" aria-label="Previous player">&#8592; Prev</button>
+      <button class="hook-btn" id="hookNext" aria-label="Next player">Next &#8594;</button>
+    </div>
+  </div>
+
+  <button class="hook-cta" onclick="document.getElementById('chapters').scrollIntoView({behavior:'smooth'})">Read the record &#8594;</button>
+</section>
+
+<!-- ====================== INTRO / ABOUT ====================== -->
+<section class="tobs-intro">
+  <div class="intro-inner">
+    <div>
+      <div class="intro-label">About this project</div>
+      <div class="intro-header">The other box score<br><em>was always there.</em></div>
+      <div class="intro-body">
+        <p>For fifty years, the best baseball players in the world played in leagues the official record refused to count. The Pittsburgh Courier covered every game. The crowds came. The statistics accumulated.</p>
+        <p>Nobody was writing them down in a book that counted.</p>
+        <p>This platform is that book. Fourteen chapters organized as five parts and a coda. Each one answers the same question from a different direction: why don't you know their names?</p>
+        <p>Everything here is open. The data, the code, the methodology. MIT license on the software. CC0 on the data. Free forever.</p>
+      </div>
+    </div>
+    <div class="intro-stats">
+      <div class="stat-block">
+        <div class="stat-num">2,300+</div>
+        <div class="stat-label">careers finally counted<br>May 29, 2024</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">889</div>
+        <div class="stat-label">player-seasons lost<br>across the fifty</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">85 days</div>
+        <div class="stat-label">Gibson to Robinson</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">12 yrs</div>
+        <div class="stat-label">Robinson to Green<br>first team to last</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CHAPTERS ====================== -->
+<main class="tobs-chapters" id="chapters">
+
+  <!-- Part One -->
+  <div class="part-header"><span class="part-label">Part One . The world they played in</span><div class="part-rule"></div></div>
+  <div class="part-hook">"Have you heard how they got there?"</div>
+  <div class="chapter-grid">
+    <a href="/chapters/the-color-line/" class="chapter-card live" style="text-decoration:none;color:inherit;">
+      <div class="card-top"><span class="card-num">CH . 01</span><span class="badge-live">Live</span></div>
+      <div class="card-title">The Color Line</div>
+      <div class="card-desc">The barrier held for forty-seven years. The record corrected itself seventy-seven years late. Josh Gibson now holds every batting record. He always did.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">9 sections . 5 ML models . 2,300+ players</div>
+      <div class="card-cta">Enter the record &#8594;</div>
+    </a>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 02</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Green Book Route</div>
+      <div class="card-desc">Every Negro Leagues road trip overlaid with Green Book safe establishment listings. Cities with no listings go dark. The darkness is the argument.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Animated map . Public domain data</div>
+      <div class="card-cta-locked">In build</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 03</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Sundown Corridor</div>
+      <div class="card-desc">Team schedules overlaid with the Loewen Sundown Towns database. Every night a Negro Leagues team was in danger, mapped.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Choropleth . Loewen database</div>
+      <div class="card-cta-locked">In build</div>
+    </div>
+  </div>
+
+  <!-- Part Two -->
+  <div class="part-header"><span class="part-label">Part Two . The game they played</span><div class="part-rule"></div></div>
+  <div class="part-hook">"Have you heard what they built?"</div>
+  <div class="chapter-grid">
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 04</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Crowd That Came</div>
+      <div class="card-desc">The East-West All-Star Game outdrew MLB ten times. 51,723 in 1943 -- more than 20,000 more than the MLB version that year.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Paired bar . SABR attendance data</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 05</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Winter Map</div>
+      <div class="card-desc">After the American season ended, where did they go? Twelve months a year, multiple countries, the best players in the world. Invisible to the history books.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Flow map . Seamheads data</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 06</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Collapse</div>
+      <div class="card-desc">Every Negro Leagues franchise. When it started. When it died. Why. Integration killed the leagues. That sentence needs a chart.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Timeline . Franchise data</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+  </div>
+
+  <!-- Part Three -->
+  <div class="part-header"><span class="part-label">Part Three . The record that wasn't kept</span><div class="part-rule"></div></div>
+  <div class="part-hook">"Have you heard what was taken?"</div>
+  <div class="chapter-grid">
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 07</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Unsigned Letter</div>
+      <div class="card-desc">Every documented pre-1947 MLB tryout given to a Black player. What happened after. The doors that opened and closed.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Research . SABR archives</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 08</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Salary Ledger</div>
+      <div class="card-desc">Total wages stolen, in 2024 dollars. Same position, same performance, different paycheck. A number. Numbers are hard to argue with.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Compensation data . ML imputation</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 09</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Last Team</div>
+      <div class="card-desc">The Red Sox integrated July 21, 1959. Twelve years after Robinson. Every team. Every player passed over. Every year of delay accounted for.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Survival analysis . Cox model</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+  </div>
+
+  <!-- Part Four -->
+  <div class="part-header"><span class="part-label">Part Four . What the numbers say</span><div class="part-rule"></div></div>
+  <div class="part-hook">"Have you heard what the numbers say?"</div>
+  <div class="chapter-grid">
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 10</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Ledger</div>
+      <div class="card-desc">Input a player. Receive a career WAR, a Hall of Fame probability, and a stolen seasons figure. The advocacy spine of the platform.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">ML engine . 500-trajectory ensemble</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 11</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">Cooperstown</div>
+      <div class="card-desc">Every Negro Leagues player ranked by the same methodology used to exclude them. Published with receipts. Timed for January ballot season.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">HOF model . Full ranked output</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 12</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Other Hall</div>
+      <div class="card-desc">Players enshrined in the Cuban, Mexican, Venezuelan, and Dominican halls of fame that Cooperstown never counted. The dots with no US dot are the argument.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Dot matrix . 5 national halls</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+  </div>
+
+  <!-- Part Five -->
+  <div class="part-header"><span class="part-label">Part Five . What remains</span><div class="part-rule"></div></div>
+  <div class="part-hook">"Have you heard who kept the record?"</div>
+  <div class="chapter-grid">
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 13</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Voice</div>
+      <div class="card-desc">A structured oral history collection. Submit a memory, a name, a city, a year. AI contextualizes each submission against the actual game schedule. The witnesses are still here.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">Oral history . NLBM partnership</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div class="chapter-card locked">
+      <div class="card-top"><span class="card-num">CH . 14</span><span class="badge-locked">Coming</span></div>
+      <div class="card-title">The Courier Archive</div>
+      <div class="card-desc">Seventy-five years of Black baseball journalism, finally searchable. The Pittsburgh Courier. The Chicago Defender. The papers that kept the record when no one else would.</div>
+      <div class="card-rule"></div>
+      <div class="card-meta">NLP . 75yr corpus . Semantic search</div>
+      <div class="card-cta-locked">Coming</div>
+    </div>
+    <div style="background:transparent;border:none;"></div>
+  </div>
+
+  <!-- Coda -->
+  <div class="coda-card">
+    <div class="coda-label">Coda</div>
+    <div>
+      <div class="coda-title">The Parallel League</div>
+      <div class="coda-desc">The hardest question, asked last. What would baseball have looked like if none of this had happened? The answer is uncomfortable. The answer is that it would have looked completely different. That is the last page of the book.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="tobs-footer">
+  <div class="footer-left">
+    <span class="footer-name">The Other Box Score</span>
+    <span class="footer-domain">theotherboxscore.org</span>
+  </div>
+  <div class="footer-center">
+    <div class="footer-license">MIT License . CC0 Data</div>
+    <div class="footer-sub">Open source. Free forever.</div>
+  </div>
+  <div class="footer-right">
+    <a href="https://github.com/other-boxscore/chapters/01-the-color-line" class="footer-link">GitHub &#8594;</a>
+    <a href="/chapters/the-color-line/method.html" class="footer-link">Methodology &#8594;</a>
+  </div>
+</footer>
+
+<!-- ====================== HOOK ROTATION ====================== -->
+<script>
+(function() {
+  var slides = document.querySelectorAll('.hook-slide');
+  var dots = document.querySelectorAll('.hook-dot');
+  var current = 0;
+  var timer;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = ((n % slides.length) + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() { goTo(current + 1); }, 7000);
+  }
+
+  document.getElementById('hookNext').addEventListener('click', function() { goTo(current + 1); });
+  document.getElementById('hookPrev').addEventListener('click', function() { goTo(current - 1); });
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() { goTo(parseInt(d.dataset.i)); });
+  });
+
+  resetTimer();
+})();
+</script>
+</body>
+</html>
