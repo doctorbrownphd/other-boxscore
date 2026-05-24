@@ -1,4 +1,4 @@
-# The Other Box Score — Global Methodology
+# The Other Box Score -- Global Methodology
 ## theotherboxscore.org
 
 This document describes the data sources, analytical methods, and epistemological standards that govern the entire platform. Each chapter has its own METHODOLOGY.md with chapter-specific details. This document covers what is common across all chapters.

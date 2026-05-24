@@ -178,7 +178,7 @@
   fill: rgba(212, 166, 74, 0.06);
 }
 
-/* The right panel — player record */
+/* The right panel -- player record */
 .pc-side {
   font-family: var(--serif);
   color: var(--vellum-dim);

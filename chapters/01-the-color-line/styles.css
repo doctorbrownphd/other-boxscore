@@ -787,7 +787,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   background: #F5F0E3;
 }
 
-/* Light theme — SVG overrides */
+/* Light theme -- SVG overrides */
 [data-theme="light"] .tl text        { fill: var(--muted); }
 [data-theme="light"] .tl .nl-bar     { stroke: var(--nl-track); }
 [data-theme="light"] .tl .ml-pre-bar { stroke: var(--ml-pre); }

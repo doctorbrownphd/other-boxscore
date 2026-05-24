@@ -9,7 +9,7 @@ window.BREACH_TEAMS = [
     what:"Ebbets Field, Opening Day. Branch Rickey's decision; Robinson's discipline. 0-for-3, one run scored, one stolen base.",
     passed:"" },
   { id:"nyg", league:"NL", team:"New York Giants",        dt:"Jul 8, 1949",  day:815,  player:"Monte Irvin & Hank Thompson",
-    what:"Two on the same day at the Polo Grounds. Irvin was already 30 — eight years past where his career should have started.",
+    what:"Two on the same day at the Polo Grounds. Irvin was already 30 -- eight years past where his career should have started.",
     passed:"" },
   { id:"bsn", league:"NL", team:"Boston Braves",          dt:"Apr 18, 1950", day:1099, player:"Sam Jethroe",
     what:"Already 32. Three full seasons. Rookie of the Year anyway. Hit 35 HR before they sent him to the minors.",
@@ -18,7 +18,7 @@ window.BREACH_TEAMS = [
     what:"Banks would hit five hundred and twelve home runs. The Cubs had passed on him as a 19-year-old Monarch.",
     passed:"Ernie Banks (KC Monarchs, 1950-52)" },
   { id:"pit", league:"NL", team:"Pittsburgh Pirates",     dt:"Apr 13, 1954", day:2555, player:"Curt Roberts",
-    what:"Second base. One full season. Branch Rickey ran the front office now — seven years after Brooklyn.",
+    what:"Second base. One full season. Branch Rickey ran the front office now -- seven years after Brooklyn.",
     passed:"" },
   { id:"stl", league:"NL", team:"St. Louis Cardinals",    dt:"Apr 13, 1954", day:2555, player:"Tom Alston",
     what:"First base. Ninety-one games in four seasons. Stan Musial's team integrated last in the NL except the Phillies.",
@@ -32,7 +32,7 @@ window.BREACH_TEAMS = [
 
   // === AL ===
   { id:"cle", league:"AL", team:"Cleveland Indians",      dt:"Jul 5, 1947",  day:81,   player:"Larry Doby",
-    what:"Bill Veeck signed him eleven weeks after Robinson. No minor-league assignment — straight to the majors at 23.",
+    what:"Bill Veeck signed him eleven weeks after Robinson. No minor-league assignment -- straight to the majors at 23.",
     passed:"" },
   { id:"slb", league:"AL", team:"St. Louis Browns",       dt:"Jul 17, 1947", day:93,   player:"Hank Thompson & Willard Brown",
     what:"Two together. Brown homered, the only one of his 21 AL games. Both released within six weeks.",

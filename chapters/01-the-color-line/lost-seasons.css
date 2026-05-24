@@ -62,7 +62,7 @@
 .ls-head .key .v   { color: var(--vellum-dim); font-family: var(--serif); font-size: 24px; letter-spacing: -0.01em; line-height: 1; }
 .ls-head .key .v.red { color: var(--barrier-hot); }
 
-/* === Total bar — a sidebar tally over the grid === */
+/* === Total bar -- a sidebar tally over the grid === */
 .ls-tally {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -219,7 +219,7 @@
 }
 .card.feature .note { font-size: 12px; line-height: 1.55; }
 
-/* The "0" for Gibson (no MLB games) — show as visual zero with a strike */
+/* The "0" for Gibson (no MLB games) -- show as visual zero with a strike */
 .card .lost-num.zero {
   color: var(--barrier);
 }
@@ -279,7 +279,7 @@
 }
 .dist svg { width: 100%; height: auto; display: block; }
 
-/* === Player photo — baseball-card treatment === */
+/* === Player photo -- baseball-card treatment === */
 .card-photo {
   width: 100%;
   aspect-ratio: 3 / 4;

@@ -36,7 +36,7 @@
       lastX = x;
     });
 
-    // Build markers — label only top 3 MLB + top 2 NL per lane, rest are unlabeled dots
+    // Build markers -- label only top 3 MLB + top 2 NL per lane, rest are unlabeled dots
     const topPre = c.pre.slice(0, 3);
     const topPost = c.addPost.slice(0, 2);
     const labeled = new Set([

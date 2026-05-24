@@ -42,7 +42,7 @@
   line-height: 1.4;
 }
 
-/* Play deck — controls on the right of the head */
+/* Play deck -- controls on the right of the head */
 .deck-ctrl {
   display: flex;
   align-items: center;
@@ -332,7 +332,7 @@
   color: var(--barrier);
 }
 
-/* Sequence index in corner — 01..16 */
+/* Sequence index in corner -- 01..16 */
 .cell .seq {
   position: absolute;
   top: 8px;
@@ -344,12 +344,12 @@
 }
 .cell.lit .seq { color: var(--amber); }
 
-/* Dark cell while others around glow — the visual argument */
+/* Dark cell while others around glow -- the visual argument */
 .cell:not(.lit) .glyph .field {
   stroke-dasharray: 1 2.5;
 }
 
-/* === Hover panel — slide-in tooltip === */
+/* === Hover panel -- slide-in tooltip === */
 .cell .tip {
   position: absolute;
   inset: 0;
@@ -403,7 +403,7 @@
   font-weight: 400;
 }
 
-/* === Footer of the chart — the argument === */
+/* === Footer of the chart -- the argument === */
 .argument {
   margin-top: 26px;
   padding-top: 22px;

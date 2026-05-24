@@ -69,7 +69,7 @@
   const head  = document.getElementById("head");
   function dayToPct(d) { return Math.min(100, Math.max(0, d / MAX_DAY * 100)); }
 
-  // Year markers — Apr 15 of each year, 1947 to 1959
+  // Year markers -- Apr 15 of each year, 1947 to 1959
   for (let y = 1947; y <= 1959; y++) {
     const day = (y - 1947) * 365.25;
     const pct = dayToPct(day);
@@ -102,7 +102,7 @@
     const yrFloat = 1947 + day / 365.25;
     let year = Math.floor(yrFloat);
     let dayOfYr = (day - (year - 1947) * 365.25);
-    // Convert dayOfYr to month label (rough — calendar dates per team are authoritative on the cells)
+    // Convert dayOfYr to month label (rough -- calendar dates per team are authoritative on the cells)
     let monthLabel;
     if (day === 0) { monthLabel = "April · pre-play"; }
     else if (day >= MAX_DAY) { monthLabel = "July · the last cell"; }
@@ -209,7 +209,7 @@
   window.addEventListener("mousemove", (e) => { if (dragging) scrubAt(e.clientX); });
   window.addEventListener("mouseup",   () => { dragging = false; });
 
-  // Initial paint — all dark (day < 0 so even Brooklyn at day=0 is unlit)
+  // Initial paint -- all dark (day < 0 so even Brooklyn at day=0 is unlit)
   setDay(-1, { silent: true });
   // After initial paint, restore counter to 0 explicitly
   document.getElementById("cnt-n").textContent = 0;
