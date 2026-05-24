@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 200 200" role="img"
+  xmlns="http://www.w3.org/2000/svg">
+  <title>The Other Box Score — diamond mark</title>
+  <desc>Baseball diamond mark in gold on dark background</desc>
+
+  <rect width="200" height="200" fill="#13110d"/>
+
+  <g transform="translate(100, 100)">
+
+    <polygon points="0,-72 72,0 0,72 -72,0"
+      fill="none" stroke="#d4a64a" stroke-width="2.4"/>
+
+    <rect x="-8" y="60" width="16" height="16" fill="#d4a64a"/>
+
+    <polygon points="0,-60 7,-52 -7,-52"
+      fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+    <rect x="-4" y="-66" width="8" height="8"
+      fill="none" stroke="#d4a64a" stroke-width="1.6"/>
+
+    <g transform="translate(72,0)">
+      <polygon points="8,0 0,-6 0,6"
+        fill="none" stroke="#d4a64a" stroke-width="1.6"/>
+      <line x1="0" y1="0" x2="12" y2="0"
+        stroke="#d4a64a" stroke-width="1.4"/>
+    </g>
+
+    <g transform="translate(-72,0)">
+      <polygon points="-8,0 0,-6 0,6"
+        fill="none" stroke="#d4a64a" stroke-width="1.6"/>
+      <line x1="0" y1="0" x2="-12" y2="0"
+        stroke="#d4a64a" stroke-width="1.4"/>
+    </g>
+
+    <circle cx="0" cy="0" r="6" fill="#d4a64a"/>
+
+    <line x1="-52" y1="-52" x2="52" y2="-52"
+      stroke="#d4a64a" stroke-width="0.5" opacity="0.22"/>
+    <line x1="-52" y1="52" x2="52" y2="52"
+      stroke="#d4a64a" stroke-width="0.5" opacity="0.22"/>
+    <line x1="-52" y1="-52" x2="-52" y2="52"
+      stroke="#d4a64a" stroke-width="0.5" opacity="0.22"/>
+    <line x1="52" y1="-52" x2="52" y2="52"
+      stroke="#d4a64a" stroke-width="0.5" opacity="0.22"/>
+
+  </g>
+</svg>
