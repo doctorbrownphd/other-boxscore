@@ -1,0 +1,338 @@
+{
+  "description": "Negro Leagues ballparks with coordinates, compiled from SABR Ballparks Database and public records",
+  "provenance": "Coordinates sourced from SABR Ballparks Database, Google Maps satellite view of documented addresses, and NPS National Register of Historic Places nominations. Each entry includes a coord_source field.",
+  "license": "Research use -- coordinates are factual data",
+  "generated_by": "02_schedule_extract.py",
+  "ballpark_count": 22,
+  "ballparks": [
+    {
+      "ballpark_id": "forbes_field",
+      "ballpark_name": "Forbes Field",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "lat": 40.4417,
+      "lon": -79.9533,
+      "capacity": 35000,
+      "years_active": "1909-1970",
+      "teams": [
+        "Homestead Grays",
+        "Pittsburgh Crawfords"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Grays played most Pittsburgh home games here from 1939 on"
+    },
+    {
+      "ballpark_id": "greenlee_field",
+      "ballpark_name": "Greenlee Field",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "lat": 40.4478,
+      "lon": -79.9803,
+      "capacity": 7500,
+      "years_active": "1932-1938",
+      "teams": [
+        "Pittsburgh Crawfords"
+      ],
+      "coord_source": "SABR Ballparks Database / Bedford Dwellings site",
+      "notes": "First Black-owned professional ballpark; demolished 1938"
+    },
+    {
+      "ballpark_id": "griffith_stadium",
+      "ballpark_name": "Griffith Stadium",
+      "city": "Washington",
+      "state": "DC",
+      "lat": 38.9218,
+      "lon": -77.0158,
+      "capacity": 32000,
+      "years_active": "1911-1965",
+      "teams": [
+        "Homestead Grays"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Grays split home games between Pittsburgh and DC"
+    },
+    {
+      "ballpark_id": "comiskey_park",
+      "ballpark_name": "Comiskey Park",
+      "city": "Chicago",
+      "state": "IL",
+      "lat": 41.7497,
+      "lon": -87.6349,
+      "capacity": 44492,
+      "years_active": "1910-1990",
+      "teams": [
+        "Chicago American Giants"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Host of annual East-West All-Star Game"
+    },
+    {
+      "ballpark_id": "yankee_stadium",
+      "ballpark_name": "Yankee Stadium",
+      "city": "New York",
+      "state": "NY",
+      "lat": 40.8267,
+      "lon": -73.9281,
+      "capacity": 67000,
+      "years_active": "1923-1973",
+      "teams": [
+        "New York Black Yankees",
+        "New York Cubans"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Used for Negro Leagues doubleheaders and special events"
+    },
+    {
+      "ballpark_id": "polo_grounds",
+      "ballpark_name": "Polo Grounds",
+      "city": "New York",
+      "state": "NY",
+      "lat": 40.8504,
+      "lon": -73.9375,
+      "capacity": 55000,
+      "years_active": "1911-1963",
+      "teams": [
+        "New York Cubans",
+        "New York Black Yankees"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Cubans and Black Yankees alternated between Polo Grounds and Yankee Stadium"
+    },
+    {
+      "ballpark_id": "muehlebach_field",
+      "ballpark_name": "Muehlebach Field / Ruppert Stadium / Blues Stadium",
+      "city": "Kansas City",
+      "state": "MO",
+      "lat": 39.0997,
+      "lon": -94.5577,
+      "capacity": 17476,
+      "years_active": "1923-1955",
+      "teams": [
+        "Kansas City Monarchs"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Home of the Monarchs; renamed Ruppert Stadium 1937, Blues Stadium 1943. Located at 22nd and Brooklyn."
+    },
+    {
+      "ballpark_id": "rickwood_field",
+      "ballpark_name": "Rickwood Field",
+      "city": "Birmingham",
+      "state": "AL",
+      "lat": 33.5125,
+      "lon": -86.8434,
+      "capacity": 10800,
+      "years_active": "1910-present",
+      "teams": [
+        "Birmingham Black Barons"
+      ],
+      "coord_source": "SABR Ballparks Database / NPS NRHP",
+      "notes": "Oldest surviving professional ballpark in the US"
+    },
+    {
+      "ballpark_id": "martin_stadium",
+      "ballpark_name": "Martin Stadium",
+      "city": "Memphis",
+      "state": "TN",
+      "lat": 35.1417,
+      "lon": -90.03,
+      "capacity": 7500,
+      "years_active": "1924-1960",
+      "teams": [
+        "Memphis Red Sox"
+      ],
+      "coord_source": "Google Maps / Memphis city records",
+      "notes": "Also known as Martin Park; located near Crump Blvd"
+    },
+    {
+      "ballpark_id": "ruppert_stadium_newark",
+      "ballpark_name": "Ruppert Stadium",
+      "city": "Newark",
+      "state": "NJ",
+      "lat": 40.7128,
+      "lon": -74.1594,
+      "capacity": 19000,
+      "years_active": "1926-1967",
+      "teams": [
+        "Newark Eagles"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Home of the 1946 champion Eagles; Wilbur Avenue site"
+    },
+    {
+      "ballpark_id": "shibe_park",
+      "ballpark_name": "Shibe Park",
+      "city": "Philadelphia",
+      "state": "PA",
+      "lat": 39.9908,
+      "lon": -75.1556,
+      "capacity": 33608,
+      "years_active": "1909-1970",
+      "teams": [
+        "Philadelphia Stars"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Also known as Connie Mack Stadium from 1953"
+    },
+    {
+      "ballpark_id": "44th_and_parkside",
+      "ballpark_name": "44th and Parkside Ballpark / Penmar Park",
+      "city": "Philadelphia",
+      "state": "PA",
+      "lat": 39.971,
+      "lon": -75.2139,
+      "capacity": 6000,
+      "years_active": "1934-1945",
+      "teams": [
+        "Philadelphia Stars"
+      ],
+      "coord_source": "Google Maps / SABR",
+      "notes": "Stars primary home before full-time Shibe Park use"
+    },
+    {
+      "ballpark_id": "bugle_field",
+      "ballpark_name": "Bugle Field",
+      "city": "Baltimore",
+      "state": "MD",
+      "lat": 39.2987,
+      "lon": -76.5867,
+      "capacity": 6000,
+      "years_active": "1934-1949",
+      "teams": [
+        "Baltimore Elite Giants"
+      ],
+      "coord_source": "Google Maps / Baltimore Sun archives",
+      "notes": "Edison Highway and Federal Street; demolished"
+    },
+    {
+      "ballpark_id": "perry_stadium",
+      "ballpark_name": "Perry Stadium / Victory Field",
+      "city": "Indianapolis",
+      "state": "IN",
+      "lat": 39.7872,
+      "lon": -86.1684,
+      "capacity": 15000,
+      "years_active": "1931-1996",
+      "teams": [
+        "Indianapolis Clowns"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Renamed Victory Field in 1942; West 16th Street"
+    },
+    {
+      "ballpark_id": "league_park_cleveland",
+      "ballpark_name": "League Park",
+      "city": "Cleveland",
+      "state": "OH",
+      "lat": 41.5116,
+      "lon": -81.6346,
+      "capacity": 21414,
+      "years_active": "1891-1946",
+      "teams": [
+        "Cleveland Buckeyes"
+      ],
+      "coord_source": "SABR Ballparks Database / NPS NRHP",
+      "notes": "East 66th and Lexington; partially restored"
+    },
+    {
+      "ballpark_id": "stars_park",
+      "ballpark_name": "Stars Park",
+      "city": "St. Louis",
+      "state": "MO",
+      "lat": 38.6339,
+      "lon": -90.231,
+      "capacity": 10000,
+      "years_active": "1922-1936",
+      "teams": [
+        "St. Louis Stars"
+      ],
+      "coord_source": "Google Maps / SABR",
+      "notes": "Market Street and Compton Ave; demolished after 1936 tornado"
+    },
+    {
+      "ballpark_id": "sportsmans_park",
+      "ballpark_name": "Sportsman's Park",
+      "city": "St. Louis",
+      "state": "MO",
+      "lat": 38.6353,
+      "lon": -90.2109,
+      "capacity": 30500,
+      "years_active": "1902-1966",
+      "teams": [
+        "St. Louis Stars"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Grand and Dodier; used by Stars after Stars Park destroyed"
+    },
+    {
+      "ballpark_id": "sulphur_dell",
+      "ballpark_name": "Sulphur Dell",
+      "city": "Nashville",
+      "state": "TN",
+      "lat": 36.1697,
+      "lon": -86.7764,
+      "capacity": 8500,
+      "years_active": "1885-1963",
+      "teams": [],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Hosted Negro Leagues exhibition/barnstorming games"
+    },
+    {
+      "ballpark_id": "durkee_field",
+      "ballpark_name": "J.P. Small Memorial Stadium / Durkee Field",
+      "city": "Jacksonville",
+      "state": "FL",
+      "lat": 30.3447,
+      "lon": -81.6461,
+      "capacity": 6000,
+      "years_active": "1912-present",
+      "teams": [
+        "Jacksonville Red Caps"
+      ],
+      "coord_source": "Google Maps / NPS NRHP",
+      "notes": "Spring training site for several NNL/NAL teams"
+    },
+    {
+      "ballpark_id": "crosley_field",
+      "ballpark_name": "Crosley Field",
+      "city": "Cincinnati",
+      "state": "OH",
+      "lat": 39.107,
+      "lon": -84.523,
+      "capacity": 30274,
+      "years_active": "1912-1970",
+      "teams": [
+        "Cincinnati Clowns"
+      ],
+      "coord_source": "SABR Ballparks Database",
+      "notes": "Hosted Negro Leagues games as visiting venue"
+    },
+    {
+      "ballpark_id": "ponce_de_leon_park",
+      "ballpark_name": "Ponce de Leon Park",
+      "city": "Atlanta",
+      "state": "GA",
+      "lat": 33.7715,
+      "lon": -84.3593,
+      "capacity": 15000,
+      "years_active": "1907-1965",
+      "teams": [
+        "Atlanta Black Crackers"
+      ],
+      "coord_source": "Google Maps / SABR",
+      "notes": "Hosted Negro Leagues and exhibition games"
+    },
+    {
+      "ballpark_id": "buff_stadium",
+      "ballpark_name": "Buff Stadium / Busch Stadium",
+      "city": "Houston",
+      "state": "TX",
+      "lat": 29.7216,
+      "lon": -95.3487,
+      "capacity": 14000,
+      "years_active": "1928-1961",
+      "teams": [],
+      "coord_source": "Google Maps / SABR",
+      "notes": "Hosted Negro Leagues exhibition and barnstorming games"
+    }
+  ]
+}
