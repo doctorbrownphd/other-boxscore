@@ -683,6 +683,24 @@ a:hover { color: var(--amber-2); }
   text-transform: uppercase;
 }
 
+.route__log-header-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 80px 48px;
+  gap: 8px;
+  padding: 6px 20px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.route__log-header-row span:nth-child(3),
+.route__log-header-row span:nth-child(4) {
+  text-align: right;
+}
+
 .route__log-list {
   flex: 1;
   overflow-y: auto;
@@ -1618,6 +1636,9 @@ a:hover { color: var(--amber-2); }
         <div class="route__log-team" id="routeLogTeam">Kansas City Monarchs</div>
         <div class="route__log-season" id="routeLogSeason">1942 Season</div>
       </div>
+      <div class="route__log-header-row">
+        <span>DATE</span><span>CITY</span><span>OPP</span><span>1MI</span>
+      </div>
       <div class="route__log-list" id="routeLogList" role="list" aria-label="Route stops"></div>
     </div>
   </div>
@@ -1902,267 +1923,88 @@ a:hover { color: var(--amber-2); }
 
 var ROUTES = [
 {team:"Kansas City Monarchs",season:1942,stops:[
-{dt:"1942-05-03",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-03",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-05-04",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-07",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-05-08",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-09",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-14",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-05-17",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-17",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-21",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-21",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-05-22",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-25",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-05-31",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-06-05",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-12",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-06-12",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-13",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-18",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-19",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-06-20",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-06-21",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-21",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-06-22",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-06-25",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-06-25",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-06-27",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-07-02",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-07-03",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-07-06",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-07-06",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-07-10",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-07-18",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-07-19",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-07-23",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-08-02",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Chicago American Giants",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-08-03",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-08-09",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-08-09",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-08-10",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-08-13",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-08-13",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-08-16",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-08-22",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-08-24",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-08-27",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1942-08-30",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-08-30",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-09-06",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-09-07",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Birmingham Black Barons",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1942-09-07",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-09-10",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-09-24",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1942-09-25",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1942-09-28",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Birmingham Black Barons",l1:14,l5:31,dark:false,ss:0.344}
+{dt:"Jul 04",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.55},
+{dt:"Jul 06",city:"Sedalia",st:"MO",lat:38.7045,lon:-93.2283,opp:"Memphis Red Sox",l1:0,l5:0,dark:true,ss:0.08},
+{dt:"Jul 07",city:"St. Louis",st:"MO",lat:38.6270,lon:-90.1994,opp:"St. Louis Stars",l1:18,l5:42,dark:false,ss:0.58},
+{dt:"Jul 09",city:"Springfield",st:"MO",lat:37.2090,lon:-93.2923,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.05},
+{dt:"Jul 10",city:"Tulsa",st:"OK",lat:36.1540,lon:-95.9928,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
+{dt:"Jul 12",city:"Muskogee",st:"OK",lat:35.7479,lon:-95.3698,opp:"Houston Eagles",l1:1,l5:2,dark:false,ss:0.12},
+{dt:"Jul 14",city:"Little Rock",st:"AR",lat:34.7465,lon:-92.2896,opp:"Memphis Red Sox",l1:2,l5:4,dark:false,ss:0.15},
+{dt:"Jul 16",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
+{dt:"Jul 18",city:"Jackson",st:"MS",lat:32.2988,lon:-90.1848,opp:"Birmingham Barons",l1:1,l5:2,dark:false,ss:0.10},
+{dt:"Jul 19",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Birmingham Barons",l1:5,l5:12,dark:false,ss:0.35},
+{dt:"Jul 21",city:"Atlanta",st:"GA",lat:33.7490,lon:-84.3880,opp:"Atlanta Black Crackers",l1:8,l5:18,dark:false,ss:0.40},
+{dt:"Jul 23",city:"Nashville",st:"TN",lat:36.1627,lon:-86.7816,opp:"Memphis Red Sox",l1:3,l5:9,dark:false,ss:0.22},
+{dt:"Jul 24",city:"Louisville",st:"KY",lat:38.2527,lon:-85.7585,opp:"Chicago American Giants",l1:4,l5:11,dark:false,ss:0.25},
+{dt:"Jul 25",city:"Cincinnati",st:"OH",lat:39.1031,lon:-84.5120,opp:"Chicago American Giants",l1:6,l5:14,dark:false,ss:0.32},
+{dt:"Jul 26",city:"Indianapolis",st:"IN",lat:39.7684,lon:-86.1581,opp:"Indianapolis Clowns",l1:9,l5:19,dark:false,ss:0.38},
+{dt:"Jul 27",city:"Decatur",st:"IL",lat:39.8403,lon:-88.9548,opp:"Chicago American Giants",l1:0,l5:1,dark:true,ss:0.06},
+{dt:"Jul 28",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.65},
+{dt:"Jul 28",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Home",l1:14,l5:31,dark:false,ss:0.55}
 ]},
 {team:"Homestead Grays",season:1943,stops:[
-{dt:"1943-05-08",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Philadelphia Stars",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-05-13",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1943-05-23",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Black Yankees",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-05-24",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-05-27",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-05-28",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"New York Cubans",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-05-28",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1943-05-30",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-05-30",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Cubans",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-03",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Philadelphia Stars",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-04",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Baltimore Elite Giants",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-06-05",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-06-07",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Baltimore Elite Giants",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-11",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Baltimore Elite Giants",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-11",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Philadelphia Stars",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-12",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1943-06-13",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-06-14",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Newark Eagles",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-17",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1943-06-18",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1943-06-19",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Baltimore Elite Giants",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-06-21",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-06-25",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1943-06-27",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-07-03",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1943-07-05",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-07-08",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1943-07-09",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-07-09",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1943-07-16",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Black Yankees",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-07-23",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-07-25",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1943-07-30",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1943-07-30",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Black Yankees",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-08-01",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Cubans",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-08-02",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"New York Cubans",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-08-02",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1943-08-05",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1943-08-29",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Baltimore Elite Giants",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-08-29",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Newark Eagles",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-09-02",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-09-02",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-09-05",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1943-09-09",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1943-09-10",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1943-09-12",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Newark Eagles",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1943-09-16",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1943-09-26",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Philadelphia Stars",l1:12,l5:28,dark:false,ss:0.419}
+{dt:"Aug 02",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Home",l1:17,l5:38,dark:false,ss:0.52},
+{dt:"Aug 03",city:"Wheeling",st:"WV",lat:40.0640,lon:-80.7209,opp:"Newark Eagles",l1:0,l5:1,dark:true,ss:0.04},
+{dt:"Aug 04",city:"Columbus",st:"OH",lat:39.9612,lon:-82.9988,opp:"Cleveland Buckeyes",l1:3,l5:8,dark:false,ss:0.25},
+{dt:"Aug 06",city:"Cincinnati",st:"OH",lat:39.1031,lon:-84.5120,opp:"Cleveland Buckeyes",l1:6,l5:14,dark:false,ss:0.32},
+{dt:"Aug 08",city:"Louisville",st:"KY",lat:38.2527,lon:-85.7585,opp:"Memphis Red Sox",l1:4,l5:11,dark:false,ss:0.25},
+{dt:"Aug 10",city:"Charlotte",st:"NC",lat:35.2271,lon:-80.8431,opp:"Newark Eagles",l1:3,l5:7,dark:false,ss:0.20},
+{dt:"Aug 12",city:"Richmond",st:"VA",lat:37.5407,lon:-77.4360,opp:"Philadelphia Stars",l1:6,l5:13,dark:false,ss:0.30},
+{dt:"Aug 14",city:"Washington",st:"DC",lat:38.9072,lon:-77.0369,opp:"Home",l1:19,l5:41,dark:false,ss:0.60},
+{dt:"Aug 16",city:"Baltimore",st:"MD",lat:39.2904,lon:-76.6122,opp:"Baltimore Elite Giants",l1:13,l5:27,dark:false,ss:0.48},
+{dt:"Aug 17",city:"Hagerstown",st:"MD",lat:39.6418,lon:-77.7200,opp:"Newark Eagles",l1:0,l5:1,dark:true,ss:0.03},
+{dt:"Aug 19",city:"Philadelphia",st:"PA",lat:39.9526,lon:-75.1652,opp:"Philadelphia Stars",l1:22,l5:49,dark:false,ss:0.58},
+{dt:"Aug 21",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Newark Eagles",l1:8,l5:32,dark:false,ss:0.42},
+{dt:"Aug 22",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
+{dt:"Aug 24",city:"Erie",st:"PA",lat:42.1292,lon:-80.0851,opp:"Cleveland Buckeyes",l1:1,l5:3,dark:false,ss:0.12},
+{dt:"Aug 25",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Home",l1:17,l5:38,dark:false,ss:0.52}
 ]},
 {team:"Pittsburgh Crawfords",season:1936,stops:[
-{dt:"1936-05-02",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1936-05-23",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-05-25",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1936-05-30",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-01",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-05",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-05",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1936-06-08",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-12",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-06-13",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-14",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-18",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1936-06-20",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-06-22",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-06-25",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1936-06-27",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-06-27",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1936-07-10",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1936-07-11",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-11",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-07-13",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-17",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-19",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Cubans",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-23",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-24",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-07-27",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-27",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Cubans",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-07-31",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-01",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-02",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Cubans",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-02",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-08-02",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1936-08-06",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Cubans",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-08",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-13",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-08-21",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-21",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-24",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-24",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-27",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Newark Eagles",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1936-08-27",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-30",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-08-30",city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1936-09-12",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Philadelphia Stars",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-09-18",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"New York Black Yankees",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-09-18",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1936-09-19",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1936-09-25",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Newark Eagles",l1:17,l5:38,dark:false,ss:0.338}
+{dt:"Jun 14",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Home",l1:17,l5:38,dark:false,ss:0.52},
+{dt:"Jun 16",city:"Akron",st:"OH",lat:41.0814,lon:-81.5190,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.18},
+{dt:"Jun 17",city:"Cleveland",st:"OH",lat:41.4993,lon:-81.6944,opp:"Chicago American Giants",l1:11,l5:24,dark:false,ss:0.42},
+{dt:"Jun 19",city:"Toledo",st:"OH",lat:41.6528,lon:-83.5379,opp:"Chicago American Giants",l1:1,l5:4,dark:false,ss:0.14},
+{dt:"Jun 20",city:"Detroit",st:"MI",lat:42.3314,lon:-83.0458,opp:"Detroit Stars",l1:21,l5:47,dark:false,ss:0.55},
+{dt:"Jun 22",city:"Youngstown",st:"OH",lat:41.0998,lon:-80.6495,opp:"Cleveland Buckeyes",l1:1,l5:3,dark:false,ss:0.12},
+{dt:"Jun 24",city:"Cairo",st:"IL",lat:37.0053,lon:-89.1765,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.04},
+{dt:"Jun 26",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
+{dt:"Jun 28",city:"Tuscaloosa",st:"AL",lat:33.2098,lon:-87.5692,opp:"Birmingham Barons",l1:0,l5:1,dark:true,ss:0.03},
+{dt:"Jun 30",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Birmingham Barons",l1:5,l5:12,dark:false,ss:0.35},
+{dt:"Jul 02",city:"Quincy",st:"IL",lat:39.9356,lon:-91.4099,opp:"Chicago American Giants",l1:0,l5:0,dark:true,ss:0.02},
+{dt:"Jul 03",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Home",l1:17,l5:38,dark:false,ss:0.52}
 ]},
 {team:"Newark Eagles",season:1946,stops:[
-{dt:"1946-05-06",city:"Philadelphia",st:"PA",lat:39.9908,lon:-75.1556,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1946-05-06",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Black Yankees",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-05-11",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Homestead Grays",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-05-12",city:"Philadelphia",st:"PA",lat:39.9908,lon:-75.1556,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1946-05-12",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Homestead Grays",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-05-16",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-05-18",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-05-25",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Black Yankees",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-06-01",city:"Philadelphia",st:"PA",lat:39.9908,lon:-75.1556,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1946-06-02",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Homestead Grays",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-06-10",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Black Yankees",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-06-10",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Cubans",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-06-15",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-06-16",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Homestead Grays",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-06-16",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-06-29",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Homestead Grays",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1946-07-05",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1946-07-06",city:"Philadelphia",st:"PA",lat:39.9908,lon:-75.1556,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1946-07-06",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1946-07-11",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-07-12",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Cubans",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-14",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Homestead Grays",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-15",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Black Yankees",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-15",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1946-07-18",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Homestead Grays",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1946-07-18",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Philadelphia Stars",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-20",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.338},
-{dt:"1946-07-20",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Philadelphia Stars",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-21",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Philadelphia Stars",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-21",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-07-22",city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,opp:"Homestead Grays",l1:12,l5:28,dark:false,ss:0.419},
-{dt:"1946-07-27",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Baltimore Elite Giants",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-07-28",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-08-12",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Philadelphia Stars",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-08-16",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Cubans",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-08-17",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Black Yankees",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-08-18",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Philadelphia Stars",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-08-26",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1946-08-30",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-08-30",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Baltimore Elite Giants",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-09-01",city:"Philadelphia",st:"PA",lat:39.9908,lon:-75.1556,opp:"Philadelphia Stars",l1:15,l5:34,dark:false,ss:0.355},
-{dt:"1946-09-06",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Cubans",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-09-07",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Baltimore Elite Giants",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-09-08",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"New York Cubans",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-09-09",city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,opp:"Baltimore Elite Giants",l1:9,l5:19,dark:false,ss:0.345},
-{dt:"1946-09-12",city:"New York",st:"NY",lat:40.8267,lon:-73.9281,opp:"New York Black Yankees",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-09-21",city:"New York",st:"NY",lat:40.8504,lon:-73.9375,opp:"New York Cubans",l1:32,l5:71,dark:false,ss:0.325},
-{dt:"1946-09-26",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381},
-{dt:"1946-09-30",city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,opp:"Baltimore Elite Giants",l1:6,l5:14,dark:false,ss:0.381}
+{dt:"Aug 01",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Home",l1:8,l5:32,dark:false,ss:0.42},
+{dt:"Aug 02",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
+{dt:"Aug 04",city:"Philadelphia",st:"PA",lat:39.9526,lon:-75.1652,opp:"Philadelphia Stars",l1:22,l5:49,dark:false,ss:0.58},
+{dt:"Aug 06",city:"Baltimore",st:"MD",lat:39.2904,lon:-76.6122,opp:"Baltimore Elite Giants",l1:13,l5:27,dark:false,ss:0.48},
+{dt:"Aug 08",city:"Washington",st:"DC",lat:38.9072,lon:-77.0369,opp:"Homestead Grays",l1:19,l5:41,dark:false,ss:0.60},
+{dt:"Aug 09",city:"Norfolk",st:"VA",lat:36.8508,lon:-76.2859,opp:"Philadelphia Stars",l1:3,l5:7,dark:false,ss:0.20},
+{dt:"Aug 11",city:"Greensboro",st:"NC",lat:36.0726,lon:-79.7920,opp:"Philadelphia Stars",l1:1,l5:3,dark:false,ss:0.12},
+{dt:"Aug 13",city:"Charlotte",st:"NC",lat:35.2271,lon:-80.8431,opp:"Homestead Grays",l1:3,l5:7,dark:false,ss:0.20},
+{dt:"Aug 15",city:"Richmond",st:"VA",lat:37.5407,lon:-77.4360,opp:"Homestead Grays",l1:6,l5:13,dark:false,ss:0.30},
+{dt:"Aug 17",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.52},
+{dt:"Aug 19",city:"Buffalo",st:"NY",lat:42.8864,lon:-78.8784,opp:"Cleveland Buckeyes",l1:2,l5:6,dark:false,ss:0.15},
+{dt:"Aug 20",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
+{dt:"Aug 22",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Home",l1:8,l5:32,dark:false,ss:0.42}
 ]},
 {team:"Birmingham Black Barons",season:1948,stops:[
-{dt:"1948-05-01",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Kansas City Monarchs",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1948-05-03",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-05-07",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-05-14",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-05-15",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-05-17",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Kansas City Monarchs",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1948-05-28",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Cleveland Buckeyes",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-05-29",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Kansas City Monarchs",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-05-31",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Kansas City Monarchs",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-06-03",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1948-06-04",city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,opp:"Indianapolis Clowns",l1:7,l5:16,dark:false,ss:0.356},
-{dt:"1948-06-04",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-06-05",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1948-06-13",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-06-18",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Cleveland Buckeyes",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-06-21",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Cleveland Buckeyes",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-06-24",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-06-26",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1948-07-01",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-07-09",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1948-07-17",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-07-18",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1948-07-26",city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,opp:"Indianapolis Clowns",l1:7,l5:16,dark:false,ss:0.356},
-{dt:"1948-07-29",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-07-31",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-01",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Kansas City Monarchs",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1948-08-05",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Kansas City Monarchs",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1948-08-07",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-07",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-08-15",city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,opp:"Indianapolis Clowns",l1:7,l5:16,dark:false,ss:0.356},
-{dt:"1948-08-19",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-08-21",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Kansas City Monarchs",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-21",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Cleveland Buckeyes",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-23",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Cleveland Buckeyes",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-23",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-08-28",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-03",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-09-04",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Indianapolis Clowns",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-05",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Kansas City Monarchs",l1:14,l5:31,dark:false,ss:0.344},
-{dt:"1948-09-10",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-13",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1948-09-13",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-16",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1948-09-17",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1948-09-17",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-19",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Kansas City Monarchs",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-19",city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,opp:"Indianapolis Clowns",l1:7,l5:16,dark:false,ss:0.356},
-{dt:"1948-09-20",city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,opp:"Indianapolis Clowns",l1:7,l5:16,dark:false,ss:0.356},
-{dt:"1948-09-23",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.334},
-{dt:"1948-09-23",city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,opp:"Memphis Red Sox",l1:3,l5:8,dark:false,ss:0.475},
-{dt:"1948-09-23",city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,opp:"Cleveland Buckeyes",l1:11,l5:24,dark:false,ss:0.341},
-{dt:"1948-09-30",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Kansas City Monarchs",l1:2,l5:5,dark:false,ss:0.472},
-{dt:"1948-09-30",city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,opp:"Memphis Red Sox",l1:2,l5:5,dark:false,ss:0.472}
+{dt:"Jul 02",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Home",l1:5,l5:12,dark:false,ss:0.35},
+{dt:"Jul 03",city:"Tuscaloosa",st:"AL",lat:33.2098,lon:-87.5692,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.03},
+{dt:"Jul 04",city:"Jackson",st:"MS",lat:32.2988,lon:-90.1848,opp:"Memphis Red Sox",l1:1,l5:2,dark:false,ss:0.10},
+{dt:"Jul 06",city:"Shreveport",st:"LA",lat:32.5252,lon:-93.7502,opp:"Houston Eagles",l1:1,l5:3,dark:false,ss:0.12},
+{dt:"Jul 08",city:"New Orleans",st:"LA",lat:29.9511,lon:-90.0715,opp:"Houston Eagles",l1:9,l5:21,dark:false,ss:0.45},
+{dt:"Jul 10",city:"Mobile",st:"AL",lat:30.6954,lon:-88.0399,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
+{dt:"Jul 12",city:"Macon",st:"GA",lat:32.8407,lon:-83.6324,opp:"Atlanta Black Crackers",l1:1,l5:3,dark:false,ss:0.12},
+{dt:"Jul 14",city:"Savannah",st:"GA",lat:32.0809,lon:-81.0912,opp:"Atlanta Black Crackers",l1:2,l5:5,dark:false,ss:0.18},
+{dt:"Jul 16",city:"Atlanta",st:"GA",lat:33.7490,lon:-84.3880,opp:"Atlanta Black Crackers",l1:8,l5:18,dark:false,ss:0.40},
+{dt:"Jul 18",city:"Nashville",st:"TN",lat:36.1627,lon:-86.7816,opp:"Memphis Red Sox",l1:3,l5:9,dark:false,ss:0.22},
+{dt:"Jul 20",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
+{dt:"Jul 22",city:"Little Rock",st:"AR",lat:34.7465,lon:-92.2896,opp:"Memphis Red Sox",l1:2,l5:4,dark:false,ss:0.15},
+{dt:"Jul 23",city:"Dallas",st:"TX",lat:32.7767,lon:-96.7970,opp:"Houston Eagles",l1:4,l5:10,dark:false,ss:0.25},
+{dt:"Jul 25",city:"Houston",st:"TX",lat:29.7604,lon:-95.3698,opp:"Houston Eagles",l1:5,l5:12,dark:false,ss:0.32},
+{dt:"Jul 27",city:"San Antonio",st:"TX",lat:29.4241,lon:-98.4936,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
+{dt:"Jul 30",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Home",l1:5,l5:12,dark:false,ss:0.35}
 ]}
 ];
 
@@ -2358,15 +2200,15 @@ function buildRouteLog(route) {
 
   route.stops.forEach(function(stop, i) {
     var el = document.createElement('div');
-    el.className = 'route__log-stop' + (stop.dark ? ' route__log-stop--dark' : '');
+    el.className = 'route__log-stop' + (stop.dark === true ? ' route__log-stop--dark' : '');
     el.setAttribute('role', 'listitem');
     el.setAttribute('data-index', i);
 
-    var dateStr = stop.dt.substring(5).replace('-', '/');
+    var dateStr = stop.dt;
     el.innerHTML = '<span class="route__log-date">' + dateStr + '</span>' +
       '<span class="route__log-city">' + stop.city + ', ' + stop.st + '</span>' +
       '<span class="route__log-opp">' + stop.opp.split(' ').pop() + '</span>' +
-      '<span class="route__log-listings ' + (stop.dark ? 'route__log-listings--dark' : 'route__log-listings--safe') + '">' +
+      '<span class="route__log-listings ' + (stop.dark === true ? 'route__log-listings--dark' : 'route__log-listings--safe') + '">' +
       stop.l1 + '</span>';
 
     el.addEventListener('click', function() {
@@ -2449,7 +2291,7 @@ function renderStop(idx) {
   if (!routeState.visitedCities[cityKey]) {
     routeState.visitedCities[cityKey] = true;
 
-    if (stop.dark) {
+    if (stop.dark === true) {
       routeState.darkCities++;
       // Oxblood dot
       var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
