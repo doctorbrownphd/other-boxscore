@@ -673,6 +673,61 @@ body::before {
 
 
 /* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 40px 56px;
+  text-align: center;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(212,166,74,0.12);
+}
+
+.hero__mark {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 32px;
+}
+
+.hero__title {
+  margin-bottom: 20px;
+}
+
+.hero__title-upper {
+  display: block;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero__title-lower {
+  display: block;
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.hero__tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--vellum-dim);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
@@ -696,6 +751,11 @@ body::before {
     padding: 24px 20px;
   }
   .site-footer__links { justify-content: center; }
+  .hero { padding: 64px 20px 48px; }
+  .hero__mark { width: 100px; height: 100px; }
+  .hero__title-upper { font-size: 14px; letter-spacing: 0.35em; }
+  .hero__title-lower { font-size: 48px; }
+  .hero__tagline { font-size: 14px; }
 }
 
 </style>
@@ -721,6 +781,29 @@ body::before {
   </a>
   <span class="site-header__meta">MIT . CC0 . Open Data</span>
 </header>
+
+
+<!-- ====================================================================
+     Hero
+     ==================================================================== -->
+
+<section class="hero" aria-label="The Other Box Score">
+  <svg class="hero__mark" viewBox="-80 -80 160 160" role="img" aria-label="The Other Box Score diamond mark">
+    <title>The Other Box Score</title>
+    <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+    <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+    <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+    <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+    <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+    <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+    <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+  </svg>
+  <h1 class="hero__title">
+    <span class="hero__title-upper">The Other</span>
+    <span class="hero__title-lower">Box Score</span>
+  </h1>
+  <p class="hero__tagline">A museum-quality, open-source data journalism platform dedicated to the Negro Leagues. Fourteen chapters. One question: why don't you know their names?</p>
+</section>
 
 
 <!-- ====================================================================
