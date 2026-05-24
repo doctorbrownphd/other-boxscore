@@ -1,0 +1,2067 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Sundown Corridor</title>
+<meta name="description" content="2,248 documented sundown towns. Every Negro Leagues route passed through them. The danger was the commute.">
+<meta property="og:title" content="The Other Box Score -- The Sundown Corridor">
+<meta property="og:description" content="A peer-reviewed dataset of documented sundown towns, mapped against every Negro Leagues game location. The corridor was everywhere.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-sundown-corridor/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656; --oxblood-dim: rgba(161,69,69,0.55);
+  --slate: #6f8aa8; --moss: #8fa05a;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  padding: 80px 48px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 48px;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--vellum);
+  margin-bottom: 20px;
+}
+
+.masthead__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 72px;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--vellum-dim);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.masthead__meta {
+  text-align: right;
+}
+
+.masthead__meta-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.masthead__meta-value {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--amber);
+  display: block;
+  margin-top: 2px;
+}
+
+.masthead__meta-value--danger { color: var(--oxblood); }
+
+/* Tab nav */
+.masthead__tabs {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   Section shared
+   ========================================================================== */
+
+.section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
+.section--wide { max-width: 1400px; }
+.section--full { max-width: none; }
+
+.section__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section__heading {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 24px;
+}
+
+.section__heading em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section__heading em.oxblood { color: var(--oxblood); }
+
+.section__divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 48px 0;
+}
+
+/* ==========================================================================
+   3. The Hook
+   ========================================================================== */
+
+.hook__opener {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--vellum);
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+
+.hook__grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.hook__prose { font-size: 18px; line-height: 1.65; }
+.hook__prose p { margin-bottom: 20px; }
+
+.hook__sign {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--oxblood-2);
+  border-left: 3px solid var(--oxblood);
+  padding: 16px 20px;
+  margin: 32px 0;
+  background: rgba(161,69,69,0.06);
+}
+
+.hook__dropcap::first-letter {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--amber);
+  float: left;
+  line-height: 0.85;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.hook__card {
+  position: sticky;
+  top: 56px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.hook__card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--oxblood-2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hook__card-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--vellum-dim);
+}
+
+/* Stat row */
+.hook__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 48px;
+  border: 1px solid var(--rule);
+}
+
+.hook__stat {
+  background: var(--ink-2);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.hook__stat-value {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.hook__stat-value--danger { color: var(--oxblood); }
+
+.hook__stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The Data
+   ========================================================================== */
+
+.data__prose {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--vellum-dim);
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.data__prose strong { color: var(--vellum); font-weight: 600; }
+
+.data__tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-bottom: 48px;
+}
+
+.data__tier {
+  background: var(--ink-2);
+  padding: 28px 24px;
+}
+
+.data__tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.data__tier-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--oxblood);
+  flex-shrink: 0;
+}
+
+.data__tier-dot--probable { opacity: 0.7; }
+.data__tier-dot--possible { opacity: 0.4; }
+
+.data__tier-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--oxblood-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.data__tier-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--vellum-dim);
+}
+
+.data__sources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-bottom: 48px;
+}
+
+.data__source {
+  background: var(--ink-2);
+  padding: 28px 24px;
+}
+
+.data__source-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.data__source-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--vellum-dim);
+}
+
+/* ==========================================================================
+   5. Fig 01: The Corridor Map
+   ========================================================================== */
+
+.corridor__intro {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--vellum-dim);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.corridor__toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.corridor__toggle-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vellum);
+  padding: 10px 28px;
+  border: 2px solid var(--oxblood);
+  background: rgba(161,69,69,0.12);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.corridor__toggle-btn:hover {
+  background: rgba(161,69,69,0.25);
+  border-color: var(--oxblood-2);
+}
+
+.corridor__toggle-btn--active {
+  background: var(--oxblood);
+  color: var(--vellum);
+}
+
+.corridor__counter {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--oxblood-2);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.corridor__counter--visible { opacity: 1; }
+
+.corridor__filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.corridor__filter-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.corridor__filter-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.corridor__filter-pill:hover { color: var(--vellum-dim); border-color: var(--muted-2); }
+
+.corridor__filter-pill--active {
+  color: var(--oxblood-2);
+  border-color: var(--oxblood);
+  background: rgba(161,69,69,0.08);
+}
+
+.corridor__stage {
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.corridor__map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.corridor__map-legend {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(19,17,13,0.88);
+  border: 1px solid var(--rule);
+  padding: 12px 16px;
+  z-index: 2;
+}
+
+.corridor__map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.corridor__map-legend-item:last-child { margin-bottom: 0; }
+
+.corridor__map-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.corridor__map-legend-dot--game { background: var(--amber); }
+.corridor__map-legend-dot--confirmed { background: var(--oxblood); }
+.corridor__map-legend-dot--probable { background: var(--oxblood); opacity: 0.7; }
+.corridor__map-legend-dot--possible { background: var(--oxblood); opacity: 0.4; }
+
+/* Sundown dot animation */
+@keyframes sundown-appear {
+  0% { opacity: 0; transform: scale(0); }
+  60% { transform: scale(1.3); }
+  100% { opacity: var(--tier-opacity, 1); transform: scale(1); }
+}
+
+.corridor__sundown-dot {
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 0.3s;
+}
+
+.corridor__sundown-dot--visible {
+  animation: sundown-appear 0.6s ease-out forwards;
+}
+
+/* Tooltip */
+.corridor__tooltip {
+  display: none;
+  position: fixed;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 10px 14px;
+  z-index: 100;
+  pointer-events: none;
+  max-width: 220px;
+}
+
+.corridor__tooltip--visible { display: block; }
+
+.corridor__tooltip-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.corridor__tooltip-name--game { color: var(--amber); }
+.corridor__tooltip-name--sundown { color: var(--oxblood-2); }
+
+.corridor__tooltip-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   6. Fig 02: Route Danger
+   ========================================================================== */
+
+.routes__stage {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  min-height: 500px;
+}
+
+.routes__map-panel {
+  background: var(--ink-2);
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.routes__map-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.routes__detail-panel {
+  background: var(--ink-2);
+  padding: 24px 20px;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.routes__detail-header {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vellum);
+  margin-bottom: 4px;
+}
+
+.routes__detail-season {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.routes__segment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.routes__segment-color {
+  width: 6px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.routes__segment-cities {
+  flex: 1;
+}
+
+.routes__segment-from,
+.routes__segment-to {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  letter-spacing: 0.04em;
+}
+
+.routes__segment-arrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+}
+
+.routes__segment-score {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.routes__pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.routes__pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.routes__pill:hover { color: var(--vellum-dim); border-color: var(--muted-2); }
+
+.routes__pill--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+/* ==========================================================================
+   7. Fig 03: Proximity Score
+   ========================================================================== */
+
+.proximity__chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.proximity__row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.proximity__ballpark {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  letter-spacing: 0.04em;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proximity__bars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+}
+
+.proximity__bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--vellum);
+  letter-spacing: 0.04em;
+  min-width: 2px;
+  transition: width 0.6s ease;
+}
+
+.proximity__bar--10 { background: var(--oxblood); }
+.proximity__bar--25 { background: rgba(161,69,69,0.6); }
+.proximity__bar--50 { background: rgba(161,69,69,0.35); }
+
+.proximity__bar-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.proximity__bar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.proximity__bar-legend-swatch {
+  width: 16px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   8. Case Studies
+   ========================================================================== */
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.cases__card {
+  background: var(--ink-2);
+  padding: 28px 24px;
+}
+
+.cases__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cases__card-town {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vellum);
+}
+
+.cases__card-tier {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--oxblood);
+  color: var(--oxblood-2);
+}
+
+.cases__card-tier--probable {
+  border-color: rgba(161,69,69,0.6);
+  color: rgba(194,86,86,0.8);
+}
+
+.cases__card-proximity {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.cases__card-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--vellum-dim);
+}
+
+/* ==========================================================================
+   9. Coda
+   ========================================================================== */
+
+.coda {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__number {
+  font-family: var(--mono);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--oxblood);
+  margin-bottom: 12px;
+}
+
+.coda__number-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.coda__bridge {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--vellum-dim);
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.coda__bridge em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.coda__link-btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  padding: 10px 24px;
+  margin-bottom: 48px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.coda__link-btn:hover {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+.coda__citations {
+  border-top: 1px solid var(--rule);
+  padding-top: 32px;
+  margin-bottom: 48px;
+}
+
+.coda__citation-format {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+.coda__citation-format:first-child { margin-top: 0; }
+
+.coda__citation-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.coda__whisper {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.coda__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 48px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__footer-mark { width: 40px; height: 40px; }
+
+.coda__footer-text {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .masthead { padding: 60px 24px 0; }
+  .masthead__inner { grid-template-columns: 1fr; gap: 24px; }
+  .masthead__meta { text-align: left; display: flex; gap: 24px; flex-wrap: wrap; }
+  .masthead__title { font-size: 40px; }
+  .masthead__title em { font-size: 48px; }
+  .section { padding: 48px 24px; }
+  .hook__grid { grid-template-columns: 1fr; }
+  .hook__stats { grid-template-columns: repeat(2, 1fr); }
+  .data__tiers { grid-template-columns: 1fr; }
+  .data__sources { grid-template-columns: 1fr; }
+  .routes__stage { grid-template-columns: 1fr; }
+  .routes__map-panel { min-height: 360px; }
+  .proximity__row { grid-template-columns: 120px 1fr; }
+  .cases__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .masthead__title { font-size: 32px; }
+  .masthead__title em { font-size: 38px; }
+  .hook__opener { font-size: 26px; }
+  .coda__number { font-size: 48px; }
+  .proximity__row { grid-template-columns: 90px 1fr; }
+  .proximity__ballpark { font-size: 9px; }
+  .corridor__toggle-btn { font-size: 10px; padding: 8px 18px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+     1. PLATFORM NAV
+     ==================================================================== -->
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="/" class="platform-nav__brand" aria-label="Home">
+    <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true"><polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/><rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/><polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/><rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/><g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g><g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g><circle cx="0" cy="0" r="5" fill="#d4a64a"/></svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="../02-the-green-book-route/">Ch. 02 Green Book Route</a>
+    <span class="platform-nav__sep">.</span>
+    <a href="../04-the-crowd-that-came/">Ch. 04 The Crowd That Came</a>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     2. MASTHEAD
+     ==================================================================== -->
+<header class="masthead">
+  <div class="masthead__inner">
+    <div>
+      <div class="masthead__part">Part One . The World They Played In</div>
+      <h1 class="masthead__title">The Sundown<br/><em>Corridor</em></h1>
+      <p class="masthead__subtitle">The bus entered a sundown town after dark. The sign at the city limits said so. The sheriff's department enforced it. The route took them through thousands of these towns. Some of them were within miles of the ballparks on this map.</p>
+    </div>
+    <div class="masthead__meta">
+      <div class="masthead__meta-item">Chapter<span class="masthead__meta-value">03 / 15</span></div>
+      <div class="masthead__meta-item">Window<span class="masthead__meta-value">1936--1948</span></div>
+      <div class="masthead__meta-item">Documented Towns<span class="masthead__meta-value masthead__meta-value--danger">2,248</span></div>
+    </div>
+    <nav class="masthead__tabs" aria-label="Chapter sections">
+      <a class="masthead__tab masthead__tab--active" href="#hook">The Hook</a>
+      <a class="masthead__tab" href="#data">The Data</a>
+      <a class="masthead__tab" href="#corridor">Fig 01 Corridor</a>
+      <a class="masthead__tab" href="#routes">Fig 02 Routes</a>
+      <a class="masthead__tab" href="#proximity">Fig 03 Proximity</a>
+      <a class="masthead__tab" href="#cases">Case Studies</a>
+      <a class="masthead__tab" href="#coda">Coda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ====================================================================
+     3. THE HOOK
+     ==================================================================== -->
+<section id="hook" class="section" aria-label="The Hook">
+  <div class="section__label">The Hook</div>
+
+  <p class="hook__opener">Have you heard of Fred Goree?</p>
+
+  <div class="hook__grid">
+    <div class="hook__prose">
+      <div class="hook__sign">"Nigger, Don't Let The Sun Go Down On You In This Town."</div>
+
+      <p class="hook__dropcap">Fred Goree played outfield for the Kansas City Monarchs in the early 1940s. On a road trip through Illinois, the team bus entered a sundown town after dark. Goree learned what sundown towns did to enforce their rules. He survived. Not everyone who made that mistake did. His story is documented. It is not unique. It happened to players on every Negro Leagues team, in every season, in towns that had made their policy explicit with signs at the city limits.</p>
+
+      <p>The towns were not in the South. Seventy percent of documented sundown towns in Illinois alone were in the North. The Negro Leagues played in the North. The Green Book tried to help. The Green Book was not enough.</p>
+
+      <p>A peer-reviewed dataset of 2,248 documented historical sundown places, geocoded and linked to US Census geographies, has never been combined with Negro Leagues schedule data. When it is, a map emerges that shows something nobody has visualized before: for every game the Negro Leagues played between 1936 and 1948, the density and proximity of documented sundown towns along the route to get there.</p>
+    </div>
+
+    <div class="hook__card" role="complementary" aria-label="Methodological caveat">
+      <div class="hook__card-label">Methodological Caveat</div>
+      <p class="hook__card-text">This map shows documented sundown towns. The database of documented sundown towns is incomplete. Researchers estimate that Illinois alone had more than 500 sundown towns -- 70% of all towns in the state. Not all have been documented. What this map shows is the floor of the danger, not its ceiling. The actual sundown corridor was wider, denser, and more continuous than any database can capture. Every dark area on this map may contain towns not yet documented. The absence of a marker does not mean a town was safe.</p>
+    </div>
+  </div>
+
+  <div class="hook__stats" role="list" aria-label="Key statistics">
+    <div class="hook__stat" role="listitem">
+      <span class="hook__stat-value hook__stat-value--danger">2,248</span>
+      <span class="hook__stat-label">Documented Places</span>
+    </div>
+    <div class="hook__stat" role="listitem">
+      <span class="hook__stat-value hook__stat-value--danger">70%</span>
+      <span class="hook__stat-label">Of Illinois Towns</span>
+    </div>
+    <div class="hook__stat" role="listitem">
+      <span class="hook__stat-value hook__stat-value--danger">89</span>
+      <span class="hook__stat-label">Within 10mi of a Ballpark</span>
+    </div>
+    <div class="hook__stat" role="listitem">
+      <span class="hook__stat-value">3</span>
+      <span class="hook__stat-label">Evidence Tiers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     4. THE DATA
+     ==================================================================== -->
+<section id="data" class="section" aria-label="The Data">
+  <div class="section__label">The Data</div>
+  <h2 class="section__heading">What a sundown town <em class="oxblood">was.</em></h2>
+
+  <div class="data__prose">
+    <p>A sundown town was a municipality that formally or informally excluded Black people -- or other minorities -- from living in or even passing through after dark. The exclusion was enforced by posted signs, by police, by organized violence, or by all three. The term comes from the signs posted at city limits: variations of "Don't Let The Sun Go Down On You In This Town."</p>
+    <p><strong>Sundown towns were not a Southern phenomenon.</strong> The most thoroughly documented concentration is in the Midwest -- Illinois, Indiana, Ohio. The states where the Negro Leagues played most of their games. The danger was not at the destination. It was the commute.</p>
+  </div>
+
+  <h3 style="font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Evidence Quality Tiers</h3>
+  <div class="data__tiers" role="list" aria-label="Evidence quality tiers">
+    <div class="data__tier" role="listitem">
+      <div class="data__tier-badge">
+        <div class="data__tier-dot"></div>
+        <span class="data__tier-name">Confirmed</span>
+      </div>
+      <p class="data__tier-desc">Strong primary source documentation. Signs, ordinances, court records, newspaper reports, or first-person testimony with named witnesses. Full opacity on the map.</p>
+    </div>
+    <div class="data__tier" role="listitem">
+      <div class="data__tier-badge">
+        <div class="data__tier-dot data__tier-dot--probable"></div>
+        <span class="data__tier-name">Probable</span>
+      </div>
+      <p class="data__tier-desc">Multiple secondary sources, consistent historical record. Census data showing Black population dropping to zero in specific decades. 70% opacity.</p>
+    </div>
+    <div class="data__tier" role="listitem">
+      <div class="data__tier-badge">
+        <div class="data__tier-dot data__tier-dot--possible"></div>
+        <span class="data__tier-name">Possible</span>
+      </div>
+      <p class="data__tier-desc">Limited documentation, demographic evidence only. Oral history without corroborating records. 40% opacity. The reader sees the gradient of certainty.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Data Sources</h3>
+  <div class="data__sources" role="list" aria-label="Data sources">
+    <div class="data__source" role="listitem">
+      <div class="data__source-name">Scientific Data (2025)</div>
+      <p class="data__source-desc">Nardos et al. 2,248 documented sundown places, geocoded and linked to US Census geographies. Published in Nature's Scientific Data, January 2025.</p>
+    </div>
+    <div class="data__source" role="listitem">
+      <div class="data__source-name">Loewen / Berrey Database</div>
+      <p class="data__source-desc">The primary crowdsourced database of sundown towns, hosted at justice.tougaloo.edu. Source for the Scientific Data dataset.</p>
+    </div>
+    <div class="data__source" role="listitem">
+      <div class="data__source-name">Seamheads + SABR</div>
+      <p class="data__source-desc">Negro Leagues game schedules (1920--1948) from Seamheads and ballpark coordinates from SABR. Already assembled from Chapter 02.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     5. FIG 01: THE CORRIDOR MAP
+     ==================================================================== -->
+<section id="corridor" class="section section--wide" aria-label="Figure 1: The Corridor Map">
+  <div class="section__label">Fig 01</div>
+  <h2 class="section__heading">The <em class="oxblood">Corridor.</em></h2>
+
+  <p class="corridor__intro">Here is where they played. The amber dots are every documented Negro Leagues game location from 1936 to 1948 -- the same landscape from Chapter 02. You recognize it. Now turn the map on.</p>
+
+  <div class="corridor__toggle-wrap">
+    <button class="corridor__toggle-btn" id="corridorToggle" type="button" aria-pressed="false">Show the Corridor</button>
+    <span class="corridor__counter" id="corridorCounter" aria-live="polite">2,248 documented sundown places</span>
+  </div>
+
+  <div class="corridor__filter-row" id="corridorFilters" style="opacity:0.3;pointer-events:none;" aria-label="Evidence quality filter">
+    <span class="corridor__filter-label">Evidence</span>
+    <button class="corridor__filter-pill corridor__filter-pill--active" data-filter="all" type="button">All Tiers</button>
+    <button class="corridor__filter-pill" data-filter="confirmed" type="button">Confirmed Only</button>
+    <button class="corridor__filter-pill" data-filter="confirmed-probable" type="button">Confirmed + Probable</button>
+  </div>
+
+  <div class="corridor__stage">
+    <svg class="corridor__map-svg" viewBox="0 0 959 593" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map showing Negro Leagues game locations and documented sundown towns across the contiguous United States">
+      <title>The Sundown Corridor Map</title>
+
+      <!-- US State outlines -->
+      <g id="statesGroup" fill="var(--ink-3)" stroke="var(--rule)" stroke-width="0.5" opacity="0.6">
+        <path d="m 643,467.4 .4,-7.3 -.9,-1.2 -1.7,-.7 -2.5,-2.8 .5,-2.9 48.8,-5.1 -.7,-2.2 -1.5,-1.5 -.5,-1.4 .6,-6.3 -2.4,-5.7 .5,-2.6 .3,-3.7 2.2,-3.8 -.2,-1.1 -1.7,-1 v -3.2 l -1.8,-1.9 -2.9,-6.1 -12.9,-45.8 -45.7,4 1.3,2 -1.3,67 4.4,33.2 .9,-.5 1.3,.1 .6,.4 .8,-.1 2,-3.8 v -2.3 l 1.1,-1.1 1.4,.5 3.4,6.4 v .9 l -3.3,2.2 3.5,-.4 4.9,-1.6 z"><title>Alabama</title></path>
+        <path d="m 139.6,387.6 3,-2.2 .8,-2.4 -1,-1.6 -1.8,-.2 -1.1,-1.6 1.1,-6.9 1.6,-.3 2.4,-3.2 1.6,-7 2.4,-3.6 4.8,-1.7 1.3,-1.3 -.4,-1.9 -2.3,-2.5 -1.2,-5.8 -1.4,-1.8 -1.3,-3.4 .9,-2.1 1.4,-3 .5,-2.9 -.5,-4.9 1,-13.6 3.5,-.6 3.7,1.4 1.2,2.7 h 2 l 2.4,-2.9 3.4,-17.5 46.2,8.2 40,6 -17.4,124.1 -37.3,-5.4 -64.2,-37.5 .5,-2.9 2,-1.8 z"><title>Arizona</title></path>
+        <path d="m 584.2,367 .9,-2.2 1.2,.5 .7,-1 -.8,-.7 .3,-1.5 -1.1,-.9 .6,-1 -.1,-1.5 -1.1,-.1 .8,-.8 1.3,.8 .3,-1.4 -.4,-1.1 .1,-.7 2,.6 -.4,-1.5 1.6,-1.3 -.5,-.9 -1.1,.1 -.6,-.9 .9,-.9 1.6,-.2 .5,-.8 1.4,-.2 -.1,-.8 -.9,-.9 v -.5 h 1.5 l .4,-.7 -1.4,-1 -.1,-.6 -11.2,.8 2.8,-5.1 1.7,-1.5 v -2.2 l -1.6,-2.5 -39.8,2 -39.1,.7 4.1,24.4 -.7,39 2.6,2.3 2.8,-1.3 3.2,.8 .2,11.9 52.3,-1.3 1.2,-1.5 .5,-3 -1.5,-2.3 -.5,-2.2 .9,-.7 v -.8 l -1.7,-1.1 -.1,-.7 1.6,-.9 -1.2,-1.1 1.7,-7.1 3.4,-1.6 v -.8 l -1.1,-1.4 2.9,-5.4 h 1.9 l 1.5,-1.2 -.3,-5.2 3.1,-4.5 1.8,-.6 -.5,-3.1 z"><title>Arkansas</title></path>
+        <path d="m 93.9,382.2 -1,-3 .2,-3 -.4,-7.9 -1.8,-4.8 -1.2,-1.4 -.6,-1.5 -7,-8.6 -3.6,.1 -2,-1.9 1.1,-1.8 -.7,-3.7 -2.2,-1.2 -3.9,-.6 -2.8,-1.3 -1.5,-1.9 -4.5,-6.6 -2.7,-2.2 -3.7,-.5 -3.1,-2.3 -4.7,-1.5 -2.8,-.3 -2.5,-2.5 .2,-2.8 .8,-4.8 1.8,-5.1 -1.4,-1.6 -4,-9.4 -2.7,-3.7 -.4,-3 -1.6,-2.3 .2,-2.5 -2,-5 -2.9,-2.7 .6,-7.1 2.4,-.8 1.8,-3.1 -.4,-3.2 -1,-.9 h -2.5 l -2.5,-3.3 -1.5,-3.5 v -7.5 l 1.2,-4.2 .2,-2.1 2.5,.2 -.1,1.6 -.8,.7 v 2.5 l 3.7,3.2 v -4.7 l -1.4,-3.4 .5,-1.1 -1,-1.7 2.8,-1.5 -1.9,-3 -1.4,.5 -1.5,3.8 .5,1.3 -.8,1 -.9,-.1 -5.4,-6.1 .7,-5.6 -1.1,-3.9 -6.5,-12.8 .8,-10.7 2.3,-3.6 .2,-6.4 -5.5,-11.1 .3,-5.2 6.9,-7.5 1.7,-2.4 -.1,-1.4 4,-9.2 .1,-8.4 .9,-2.5 66.1,18.6 -16.4,63.1 1.1,3.5 70.4,105 -.9,2.1 1.3,3.4 1.4,1.8 1.2,5.8 2.3,2.5 .4,1.9 -1.3,1.3 -4.8,1.7 -2.4,3.6 -1.6,7 -2.4,3.2 -1.6,.3 -1.1,6.9 1.1,1.6 1.8,.2 1,1.6 -.8,2.4 -3,2.2 -2.2,-.1 z"><title>California</title></path>
+        <path d="m 374.6,323.3 -16.5,-1 -51.7,-4.8 -52.6,-6.5 11.5,-88.3 44.9,5.7 37.5,3.4 33.1,2.4 -1.4,22.1 z"><title>Colorado</title></path>
+        <path d="m 873.5,178.9 .4,-1.1 -3.2,-12.3 -.1,-.3 -14.9,3.4 v .7 l -.9,.3 -.5,-.7 -10.5,2.4 2.8,16.3 1.8,1.5 -3.5,3.4 1.7,2.2 5.4,-4.5 1.7,-1.3 h .8 l 2.4,-3.1 1.4,.1 2.9,-1.1 h 2.1 l 5.3,-2.7 2.8,-.9 1,-1 1.5,.5 z"><title>Connecticut</title></path>
+        <path d="m 822.2,226.6 -1.6,.3 -1.5,1.1 -1.2,2.1 7.6,27.1 10.9,-2.3 -2.2,-7.6 -1.1,.5 -3.3,-2.6 -.5,-1.7 -1.8,-1 -.2,-3.7 -2.1,-2.2 -1.1,-.8 -1.2,-1.1 -.4,-3.2 .3,-2.1 1,-2.2 z"><title>Delaware</title></path>
+        <path d="m 751.7,445.1 -4,-.7 -1.7,-.9 -2.2,1.4 v 2.5 l 1.4,2.1 -.5,4.3 -2.1,.6 -1,-1.1 -.6,-3.2 -50.1,3.3 -3.3,-6 -48.8,5.1 -.5,2.9 2.5,2.8 1.7,.7 .9,1.2 -.4,7.3 -1.1,.6 .5,.4 1,-.3 .7,-.8 10.5,-2.7 9.2,-.5 8.1,1.9 8.5,5 2.4,.8 2.2,2 -.1,2.7 h 2.4 l 1.9,-1 2.5,.1 2,-.8 2.9,-2 3.1,-2.9 1.1,-.4 .6,.5 h 1.4 l .5,-.8 -.5,-1.2 -.6,-.6 .2,-.8 2,-1.1 5,-.4 .8,1 1,.1 2.3,1 3,1.8 1.2,1.7 1.1,1.2 2.8,1.4 v 2.4 l 2.8,1.9 1,.1 1.6,1.4 .7,1.6 1,.2 .8,2.1 .7,.6 1,-1.1 2.9,.1 .5,1.4 1.1,.9 v 1.3 l 2.9,2.2 .2,9.6 -1.8,5.8 1,1.2 -.2,3.4 -.8,1.4 .7,1.2 2.3,2.3 .3,1.5 .8,1 z"><title>Florida</title></path>
+        <path d="m 761.8,414.1 v 1.4 l -4.2,6.2 -1.2,.2 1.5,.5 v 2 l -.9,1.1 -.6,6 -2.3,6.2 .5,2 .7,5.1 -3.6,.3 -4,-.7 -1.7,-.9 -2.2,1.4 v 2.5 l 1.4,2.1 -.5,4.3 -2.1,.6 -1,-1.1 -.6,-3.2 -50.1,3.3 -3.3,-6 -.7,-2.2 -1.5,-1.5 -.5,-1.4 .6,-6.3 -2.4,-5.7 .5,-2.6 .3,-3.7 2.2,-3.8 -.2,-1.1 -1.7,-1 v -3.2 l -1.8,-1.9 -2.9,-6.1 -12.9,-45.8 22.9,-2.9 21.4,-3 -.1,1.9 -1.9,1 -1.4,3.2 .2,1.3 6.1,3.8 2.6,-.3 3.1,4 .4,1.7 4.2,5.1 2.6,1.7 1.4,.2 2.2,1.6 1.1,2.2 2,1.6 1.8,.5 2.7,2.7 .1,1.4 2.6,2.8 5,2.3 3.6,6.7 .3,2.7 3.9,2.1 2.5,4.8 .8,3.1 4.2,.4 z"><title>Georgia</title></path>
+        <path d="m 165.3,183.1 -24.4,-5.4 8.5,-37.3 2.9,-5.8 .4,-2.1 .8,-.9 -.9,-2 -2.9,-1.2 .2,-4.2 4,-5.8 2.5,-.8 1.6,-2.3 -.1,-1.6 1.8,-1.6 3.2,-5.5 4.2,-4.8 -.5,-3.2 -3.5,-3.1 -1.6,-3.6 1.1,-4.3 -.7,-4 12.7,-56.1 14.2,3 -4.8,22 3.7,7.4 -1.6,4.8 3.6,4.8 1.9,.7 3.9,8.3 v 2.1 l 2.3,3 h .9 l 1.4,2.1 h 3.2 v 1.6 l -7.1,17 -.5,4.1 1.4,.5 1.6,2.6 2.8,-1.4 3.6,-2.4 1.9,1.9 .5,2.5 -.5,3.2 2.5,9.7 2.6,3.5 2.3,1.4 .4,3 v 4.1 l 2.3,2.3 1.6,-2.3 6.9,1.6 2.1,-1.2 9,1.7 2.8,-3.3 1.8,-.6 1.2,1.8 1.6,4.1 .9,.1 -8.5,54.8 -47.9,-8.2 z"><title>Idaho</title></path>
+        <path d="m 623.5,265.9 -1,5.2 v 2 l 2.4,3.5 v .7 l -.3,.9 .9,1.9 -.3,2.4 -1.6,1.8 -1.3,4.2 -3.8,5.3 -.1,7 h -1 l .9,1.9 v .9 l -2.2,2.7 .1,1.1 1.5,2.2 -.1,.9 -3.7,.6 -.6,1.2 -1.2,-.6 -1,.5 -.4,3.3 1.7,1.8 -.4,2.4 -1.5,.3 -6.9,-3 -4,3.7 .3,1.8 h -2.8 l -1.4,-1.5 -1.8,-3.8 v -1.9 l .8,-.6 .1,-1.3 -1.7,-1.9 -.9,-2.5 -2.7,-4.1 -4.8,-1.3 -7.4,-7.1 -.4,-2.4 2.8,-7.6 -.4,-1.9 1.2,-1.1 v -1.3 l -2.8,-1.5 -3,-.7 -3.4,1.2 -1.3,-2.3 .6,-1.9 -.7,-2.4 -8.6,-8.4 -2.2,-1.5 -2.5,-5.9 -1.2,-5.4 1.4,-3.7 .7,-.7 .1,-2.3 -.7,-.9 1,-1.5 1.8,-.6 .9,-.3 1,-1.2 v -2.4 l 1.7,-2.4 .5,-.5 .1,-3.5 -.9,-1.4 -1,-.3 -1.1,-1.6 1,-4 3,-.8 h 2.4 l 4.2,-1.8 1.7,-2.2 .1,-2.4 1.1,-1.3 1.3,-3.2 -.1,-2.6 -2.8,-3.5 h -1.2 l -.9,-1.1 .2,-1.6 -1.7,-1.7 -2.5,-1.3 .5,-.6 45.9,-2.8 .1,4.6 3.4,4.6 1.2,4.1 1.6,3.2 z"><title>Illinois</title></path>
+        <path d="m 629.2,214.8 -5.1,2.3 -4.7,-1.4 4.1,50.2 -1,5.2 v 2 l 2.4,3.5 v .7 l -.3,.9 .9,1.9 -.3,2.4 -1.6,1.8 -1.3,4.2 -3.8,5.3 -.1,7 h -1 l .9,1.9 1.1,.8 .6,-1 -.7,-1.7 4.6,-.5 .2,1.2 1.1,.2 .4,-.9 -.6,-1.3 .3,-.8 1.3,.8 1.7,-.4 1.7,.6 3.4,2.1 1.8,-2.8 3.5,-2.2 3,3.3 1.6,-2.1 .3,-2.7 3.8,-2.3 .2,1.3 1.9,1.2 3,-.2 1.2,-.7 .1,-3.4 2.5,-3.7 4.6,-4.4 -.1,-1.7 1.2,-3.8 2.2,1 6.7,-4.5 -.4,-1.7 -1.5,-2.1 1,-1.9 -6.6,-57.2 -.1,-1.4 -32.4,3.4 z"><title>Indiana</title></path>
+        <path d="m 556.9,183 2.1,1.6 .6,1.1 -1.6,3.3 -.1,2.5 2,5.5 2.7,1.5 3.3,.7 1.3,2.8 -.5,.6 2.5,1.3 1.7,1.7 -.2,1.6 .9,1.1 h 1.2 l 2.8,3.5 .1,2.6 -1.3,3.2 -1.1,1.3 -.1,2.4 -1.7,2.2 -4.2,1.8 h -2.4 l -3,.8 -1,4 1.1,1.6 1,.3 .9,1.4 -.1,3.5 -.5,.5 -1.7,2.4 v 2.4 l -1,1.2 -.9,.3 -1.8,.6 -1,1.5 .7,.9 -.1,2.3 -.7,.7 -1.5,-.8 -1.1,-1.1 -.6,-1.6 -1.7,-1.3 -14.3,.8 -27.2,1.2 -25.9,-.1 -1.8,-4.4 .7,-2.2 -.8,-3.3 .2,-2.9 -1.3,-.7 -.4,-6.1 -2.8,-5 -.2,-3.7 -2.2,-4.3 -1.3,-3.7 v -1.4 l -.6,-1.7 v -2.3 l -.5,-.9 -.7,-1.7 -.3,-1.3 -1.3,-1.2 1,-4.3 1.7,-5.1 -.7,-2 -1.3,-.4 -.4,-1.6 1,-.5 .1,-1.1 -1.3,-1.5 .1,-1.6 2.2,.1 h 28.2 l 36.3,-.9 18.6,-.7 z"><title>Iowa</title></path>
+        <path d="m 459.1,259.5 -43.7,-1.2 -36,-2 -4.8,67 67.7,2.9 62,.1 -.5,-48.1 -3.2,-.7 -2.6,-4.7 -2.5,-2.5 .5,-2.3 2.7,-2.6 .1,-1.2 -1.5,-2.1 -.9,1 -2,-.6 -2.9,-3 z"><title>Kansas</title></path>
+        <path d="m 692.1,322.5 -20.5,1.4 -5.2,.8 -17.4,1 -2.6,.8 -22.6,2 -.7,-.6 h -3.7 l 1.2,3.2 -.6,.9 -23.3,1.5 z"><title>Kentucky</title></path>
+        <path d="m 602.5,472.8 -1.2,-1.8 .3,-1.3 -4.8,-6.8 .9,-4.6 1,-1.4 .1,-1.4 -36,2 1.7,-11.9 2.4,-4.8 6,-8.4 -1.8,-2.5 h 2 v -3.3 l -2.4,-2.5 .5,-1.7 -1.2,-1 -1.6,-7.1 .6,-1.4 -52.3,1.3 .5,19.9 .7,3.4 2.6,2.8 .7,5.4 3.8,4.6 .8,4.3 h 1 l -.1,7.3 -3.3,6.4 1.3,2.3 -1.3,1.5 .7,3 -.1,4.3 -2.2,3.5 z"><title>Louisiana</title></path>
+        <path d="m 826.3,189.4 -1.9,.3 -3,-2.2 -3,-5.8 h -2 l -.4,-1.5 -1.7,-1.1 -70.5,13.9 -.8,-6 -4.2,3.4 -.9,.1 -2.7,3 -3.3,1.7 4.9,29.9 3.2,19.7 17.4,-2.9 60.5,-11.8 1.2,-2.1 1.5,-1.1 1.6,-.3 1.6,.6 1.4,-1.7 1.6,-.6 1.8,-3 1.6,-2.3 3.3,-2.6 -4.2,-3.2 -2.1,-1.1 -1,-2.8 -2.7,-.9 -.5,-3.6 1,-1 .7,-2 -1.5,-1.8 3,-5.4 -.1,-2.2 1.8,-2.5 z"><title>Pennsylvania</title></path>
+        <path d="m 247,130.5 57.3,7.9 51,5.3 2,-20.7 5.2,-66.7 -53.5,-5.6 -54.3,-7.7 -65.9,-12.5 -4.8,22 3.7,7.4 -1.6,4.8 3.6,4.8 1.9,.7 3.9,8.3 v 2.1 l 2.3,3 h .9 l 1.4,2.1 h 3.2 v 1.6 l -7.1,17 -.5,4.1 1.4,.5 1.6,2.6 2.8,-1.4 3.6,-2.4 1.9,1.9 .5,2.5 -.5,3.2 2.5,9.7 2.6,3.5 2.3,1.4 .4,3 v 4.1 l 2.3,2.3 1.6,-2.3 6.9,1.6 2.1,-1.2 9,1.7 2.8,-3.3 1.8,-.6 1.2,1.8 1.6,4.1 .9,.1 z"><title>Montana</title></path>
+        <path d="m 402.5,191.1 38,1.6 3.4,3.2 1.7,.2 2.1,2 1.8,-.1 1.8,-2 1.5,.6 1,-.7 .7,.5 .9,-.4 .7,.4 .9,-.4 1,.5 1.4,-.6 2,.6 .6,1.1 6.1,2.2 1.2,1.3 .9,2.6 1.8,.7 1.5,-.2 .5,.9 v 2.3 l .6,1.7 v 1.4 l 1.3,3.7 2.2,4.3 .2,3.7 2.8,5 .4,6.1 1.3,.7 -.2,2.9 .8,3.3 -.7,2.2 1.8,4.4 1.3,1.3 -.3,1.4 2.1,3.7 3.9,6.3 h -32.4 l -43.7,-1.2 -36,-2 1.4,-22.1 -33.1,-2.4 3.7,-44.2 z"><title>Nebraska</title></path>
+        <path d="m 685.7,208.8 1.9,-.4 3,1.3 2.1,.6 .7,.9 h 1 l 1,-1.5 1.3,.8 h 1.5 l -.1,1 -3.1,.5 -2,1.1 1.9,.8 1.6,-1.5 2.4,-.4 2.2,1.5 1.5,-.1 2.5,-1.7 3.6,-2.1 5.2,-.3 4.9,-5.9 3.8,-3.1 9.3,-5.1 4.9,29.9 -2.2,1.2 1.4,2.1 -.1,2.2 .6,2 -1.1,3.4 -.1,5.4 -1,3.6 .5,1.1 -.4,2.2 -1.1,.5 -2,3.3 -1.8,2 h -.6 l -1.8,1.7 -1.3,-1.2 -1.5,1.8 -.3,1.2 h -1.3 l -1.3,2.2 .1,2.1 -1,.5 1.4,1.1 v 1.9 l -1,.2 -.7,.8 -1,.5 -.6,-2.1 -1.6,-.5 -1,2.3 -.3,2.2 -1.1,1.3 1.3,3.6 -1.5,.8 -.4,3.5 h -1.5 l -3.2,1.4 z"><title>Ohio</title></path>
+        <path d="m 501.5,398.6 -4.6,-3.8 -2.2,-.9 -.5,1.6 -5.1,.3 -.6,-1.5 -5,2.5 -1.6,-.7 -3.7,.3 -.6,1.7 -3.6,.9 -1.3,-1.2 -1.2,.1 -2,-1.8 -2.1,.7 -2,-.5 -1.8,-2 -2.5,4.2 -1.2,.8 -1,-1.8 .3,-2 -1.2,-.7 -2.3,2.5 -1.7,-1.2 -.1,-1.5 -1.3,.5 -2.6,-1.7 -3,2.6 -2.3,-1.1 .7,-2.1 -2.3,.1 -1.9,-3 -3.5,-1.1 -2,2.3 -2.3,-2.2 -1.4,.4 -2,.1 -3.5,-1.9 -2.3,.1 -1.2,-.7 -.5,-2.9 -2.3,-1.7 -1.1,1.5 -1.4,-1 -1.2,-.4 -1.1,1 -1.5,-.3 -2.5,-3 -2.7,-1.3 1.4,-42.7 -52.6,-3.2 .6,-10.6 16.5,1 67.7,2.9 62,.1 .2,10.8 4.1,24.4 -.7,39 z"><title>Oklahoma</title></path>
+        <path d="m 357.5,332.9 h -.8 l -7.9,99.3 -31.8,-2.6 -34.4,-3.6 -.3,3 2,2.2 -30.8,-4.1 -1.4,10.2 -15.7,-2.2 17.4,-124.1 52.6,6.5 51.7,4.8 z"><title>New Mexico</title></path>
+        <path d="m 620.9,365.1 45.7,-4 22.9,-2.9 z"><title>Tennessee</title></path>
+        <path d="m 282.3,429 .3,-3 34.4,3.6 31.8,2.6 7.9,-99.3 .8,0 52.6,3.2 -1.4,42.7 z"><title>Texas</title></path>
+        <path d="m 829,300.1 -29.1,6.1 -39.4,7.3 -29.4,3.5 z"><title>North Carolina</title></path>
+        <path d="m 772.3,350.2 -19.7,2.8 z"><title>South Carolina</title></path>
+        <path d="m 233.2,217.9 3.3,-21.9 -47.9,-8.2 -21,109 46.2,8.2 40,6 11.5,-88.3 z"><title>Utah</title></path>
+        <path d="m 355.3,143.7 -51,-5.3 -57.3,-7.9 -2,10.7 -8.5,54.8 -3.3,21.9 32.1,4.8 44.9,5.7 37.5,3.4 3.7,-44.2 z"><title>Wyoming</title></path>
+        <path d="m 167.6,296.8 -3.4,17.5 -2.4,2.9 h -2 l -1.2,-2.7 -3.7,-1.4 -3.5,.6 -1,13.6 .5,4.9 -.5,2.9 -1.4,3 -70.4,-105 -1.1,-3.5 16.4,-63.1 47,11.2 24.4,5.4 23.3,4.7 z"><title>Nevada</title></path>
+        <path d="m 464.7,68.6 -1.1,2.8 .8,1.4 -.3,5.1 -.5,1.1 2.7,9.1 1.3,2.5 .7,14 1,2.7 -.4,5.8 2.9,7.4 .3,5.8 -.1,2.1 -29.5,-.4 -46,-2.1 -39.2,-2.9 5.2,-66.7 44.5,3.4 55.3,1.6 z"><title>North Dakota</title></path>
+        <path d="m 396.5,125.9 46,2.1 29.5,.4 -.1,2.2 -.9,2 -3.1,1.9 -.3,1.2 1.7,2.5 .4,1.8 2.6,.6 1.5,1.9 -.2,39.5 z"><title>South Dakota</title></path>
+        <path d="m 93.9,166.5 47,11.2 8.5,-37.3 2.9,-5.8 .4,-2.1 .8,-.9 -.9,-2 -2.9,-1.2 .2,-4.2 4,-5.8 2.5,-.8 1.6,-2.3 -.1,-1.6 1.8,-1.6 3.2,-5.5 4.2,-4.8 -.5,-3.2 -3.5,-3.1 -1.6,-3.6 z"><title>Oregon</title></path>
+        <path d="m 623.8,468.6 -5,.1 -2.4,-1.5 -7.9,2.5 z"><title>Mississippi</title></path>
+        <path d="m 555.3,248.9 -1.1,-1.1 -.6,-1.6 -1.7,-1.3 -14.3,.8 -27.2,1.2 -25.9,-.1 z"><title>Missouri</title></path>
+        <path d="m 464.7,68.6 -.1,2.1 -.1,2.2 -.9,2 -3.1,1.9 -.3,1.2 1.7,2.5 .4,1.8 2.6,.6 1.5,1.9 -.2,39.5 h 28.2 l 36.3,-.9 18.6,-.7 z"><title>Minnesota</title></path>
+      </g>
+
+      <!-- Game location dots (amber) -->
+      <g id="gameDots"></g>
+
+      <!-- Sundown town dots (oxblood) -->
+      <g id="sundownDots"></g>
+    </svg>
+
+    <div class="corridor__map-legend">
+      <div class="corridor__map-legend-item"><div class="corridor__map-legend-dot corridor__map-legend-dot--game"></div>Game location</div>
+      <div class="corridor__map-legend-item" id="legendConfirmed" style="display:none;"><div class="corridor__map-legend-dot corridor__map-legend-dot--confirmed"></div>Confirmed sundown town</div>
+      <div class="corridor__map-legend-item" id="legendProbable" style="display:none;"><div class="corridor__map-legend-dot corridor__map-legend-dot--probable"></div>Probable</div>
+      <div class="corridor__map-legend-item" id="legendPossible" style="display:none;"><div class="corridor__map-legend-dot corridor__map-legend-dot--possible"></div>Possible</div>
+    </div>
+  </div>
+
+  <div class="corridor__tooltip" id="corridorTooltip" role="tooltip">
+    <div class="corridor__tooltip-name" id="tooltipName"></div>
+    <div class="corridor__tooltip-meta" id="tooltipMeta"></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     6. FIG 02: ROUTE DANGER
+     ==================================================================== -->
+<section id="routes" class="section section--wide" aria-label="Figure 2: Route Danger">
+  <div class="section__label">Fig 02</div>
+  <h2 class="section__heading">The <em class="oxblood">Routes.</em></h2>
+
+  <p class="corridor__intro">Here is how they got there. The same five routes from Chapter 02, now colored not by safety score but by Corridor Danger Score: the number of documented sundown towns within 5 miles of each road segment. Amber is relative safety. Oxblood is documented danger.</p>
+
+  <div class="routes__pills" id="routePills" role="tablist" aria-label="Route selector"></div>
+
+  <div class="routes__stage">
+    <div class="routes__map-panel">
+      <svg class="routes__map-svg" viewBox="0 0 959 593" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route danger map">
+        <g id="routeStatesGroup" fill="var(--ink-3)" stroke="var(--rule)" stroke-width="0.5" opacity="0.4"></g>
+        <g id="routeLines"></g>
+        <g id="routeCityDots"></g>
+      </svg>
+    </div>
+    <div class="routes__detail-panel" id="routeDetailPanel"></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     7. FIG 03: PROXIMITY SCORE
+     ==================================================================== -->
+<section id="proximity" class="section" aria-label="Figure 3: Proximity Score">
+  <div class="section__label">Fig 03</div>
+  <h2 class="section__heading">What surrounded the <em class="oxblood">stadiums.</em></h2>
+
+  <p class="corridor__intro">For every documented Negro Leagues major league ballpark, the number of documented sundown towns within 10, 25, and 50 miles. Ranked by the 10-mile count. The players did not just travel through sundown country. They played games with documented sundown towns closer to the ballpark than the team's hotel.</p>
+
+  <div class="proximity__bar-legend" aria-label="Bar chart legend">
+    <div class="proximity__bar-legend-item"><div class="proximity__bar-legend-swatch" style="background:var(--oxblood);"></div>Within 10 miles</div>
+    <div class="proximity__bar-legend-item"><div class="proximity__bar-legend-swatch" style="background:rgba(161,69,69,0.6);"></div>Within 25 miles</div>
+    <div class="proximity__bar-legend-item"><div class="proximity__bar-legend-swatch" style="background:rgba(161,69,69,0.35);"></div>Within 50 miles</div>
+  </div>
+
+  <div class="proximity__chart" id="proximityChart" role="img" aria-label="Proximity score bar chart"></div>
+</section>
+
+<!-- ====================================================================
+     8. CASE STUDIES
+     ==================================================================== -->
+<section id="cases" class="section" aria-label="Case Studies">
+  <div class="section__label">Case Studies</div>
+  <h2 class="section__heading">What it <em class="oxblood">meant,</em> specifically.</h2>
+
+  <div class="cases__grid" id="casesGrid" role="list" aria-label="Case study cards"></div>
+
+  <hr class="section__divider"/>
+
+  <p style="font-size:17px;line-height:1.6;color:var(--vellum-dim);max-width:720px;">Full case study narratives -- with primary source documentation, NAACP records, and AI-generated historical narratives reviewed by Oscar -- are in development for the final build. What follows are the documented facts for each town. Every claim is sourced. Every gap is named.</p>
+</section>
+
+<!-- ====================================================================
+     9. CODA
+     ==================================================================== -->
+<footer id="coda" class="coda" aria-label="Coda">
+  <div class="coda__number" id="codaNumber">47</div>
+  <div class="coda__number-label">Documented sundown towns along a typical 1942 Monarchs road trip. Kansas City to Chicago and back. The aggregate closing number.</div>
+
+  <hr class="section__divider"/>
+
+  <p class="coda__bridge">This is the world they moved through to get to the games. Now look at what they built when they got there. Fifty-one thousand seven hundred and twenty-three people came to Comiskey Park in 1943 to watch the East-West All-Star Game -- twenty thousand more than came to the MLB All-Star Game that same year. They drove through all of this to build something the official record refused to count. The next chapter is the crowd that came <em>anyway.</em></p>
+
+  <a class="coda__link-btn" href="../04-the-crowd-that-came/">Ch. 04 The Crowd That Came &rarr;</a>
+
+  <div class="coda__citations">
+    <div class="coda__citation-format">Standard</div>
+    <p class="coda__citation-text">Haynes, Jeremy. "The Sundown Corridor." The Other Box Score, theotherboxscore.org/chapters/the-sundown-corridor/, 2026.</p>
+
+    <div class="coda__citation-format">Chicago</div>
+    <p class="coda__citation-text">Haynes, Jeremy. "The Sundown Corridor." The Other Box Score. 2026. https://theotherboxscore.org/chapters/the-sundown-corridor/.</p>
+
+    <div class="coda__citation-format">CC0 Data</div>
+    <p class="coda__citation-text">The Other Box Score. "The Sundown Corridor Dataset." CC0 1.0. https://github.com/other-boxscore/chapters/03-the-sundown-corridor/data/.</p>
+
+    <div class="coda__citation-format">Primary Data Source</div>
+    <p class="coda__citation-text">Nardos, Rahel, et al. "A national data set of historical US sundown towns for quantitative analysis." Scientific Data 12 (2025). https://doi.org/10.1038/s41597-024-04330-9</p>
+  </div>
+
+  <p class="coda__whisper">They played through the dark. We mapped where the dark was thickest. The map is incomplete. The darkness was not.</p>
+
+  <div class="coda__footer">
+    <svg class="coda__footer-mark" viewBox="-80 -80 160 160" aria-hidden="true"><polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/><rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/><polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/><rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/><g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g><g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g><circle cx="0" cy="0" r="5" fill="#d4a64a"/></svg>
+    <span class="coda__footer-text">The Other Box Score -- theotherboxscore.org -- CC0 1.0</span>
+    <span class="coda__footer-text">Sundown towns data: Nardos et al., Scientific Data (2025)</span>
+  </div>
+</footer>
+
+<!-- ====================================================================
+     SCRIPTS
+     ==================================================================== -->
+<script>
+(function() {
+"use strict";
+
+// =====================================================================
+// DATA: SUNDOWN TOWNS
+// Documented sundown towns from the Loewen database
+// ~75 towns with real names and approximate coordinates
+// =====================================================================
+
+var SUNDOWN_TOWNS = [
+  // ILLINOIS -- heavy concentration (70% of towns)
+  {name:"Anna",st:"IL",lat:37.4603,lon:-89.2468,tier:"confirmed",pop:4442},
+  {name:"Pekin",st:"IL",lat:40.5676,lon:-89.6407,tier:"confirmed",pop:27000},
+  {name:"Effingham",st:"IL",lat:39.1200,lon:-88.5434,tier:"confirmed",pop:9000},
+  {name:"Herrin",st:"IL",lat:37.8031,lon:-89.0276,tier:"confirmed",pop:8700},
+  {name:"Johnston City",st:"IL",lat:37.8206,lon:-88.9270,tier:"confirmed",pop:3600},
+  {name:"Pana",st:"IL",lat:39.3892,lon:-89.0801,tier:"confirmed",pop:5700},
+  {name:"Sullivan",st:"IL",lat:39.5995,lon:-88.6078,tier:"probable",pop:4300},
+  {name:"Taylorville",st:"IL",lat:39.5489,lon:-89.2945,tier:"probable",pop:7900},
+  {name:"Mattoon",st:"IL",lat:39.4831,lon:-88.3723,tier:"probable",pop:17000},
+  {name:"Centralia",st:"IL",lat:38.5251,lon:-89.1334,tier:"probable",pop:13700},
+  {name:"Marion",st:"IL",lat:37.7306,lon:-88.9331,tier:"confirmed",pop:8000},
+  {name:"Benton",st:"IL",lat:38.0048,lon:-88.9201,tier:"probable",pop:6800},
+  {name:"West Frankfort",st:"IL",lat:37.8978,lon:-88.9315,tier:"confirmed",pop:8500},
+  {name:"Carterville",st:"IL",lat:37.7600,lon:-89.0773,tier:"probable",pop:2600},
+  {name:"Granite City",st:"IL",lat:38.7015,lon:-90.1487,tier:"confirmed",pop:23000},
+  {name:"Edwardsville",st:"IL",lat:38.8112,lon:-89.9532,tier:"probable",pop:7500},
+  {name:"Litchfield",st:"IL",lat:39.1753,lon:-89.6543,tier:"possible",pop:6300},
+  {name:"Shelbyville",st:"IL",lat:39.4064,lon:-88.7901,tier:"possible",pop:4700},
+  {name:"Olney",st:"IL",lat:38.7309,lon:-88.0853,tier:"probable",pop:7800},
+  {name:"Lawrenceville",st:"IL",lat:38.7292,lon:-87.6817,tier:"possible",pop:4900},
+  {name:"Eldorado",st:"IL",lat:37.8128,lon:-88.4381,tier:"confirmed",pop:4400},
+  {name:"Harrisburg",st:"IL",lat:37.7384,lon:-88.5406,tier:"probable",pop:9000},
+  // INDIANA
+  {name:"Elwood",st:"IN",lat:40.2767,lon:-85.8425,tier:"confirmed",pop:9000},
+  {name:"Martinsville",st:"IN",lat:39.4278,lon:-86.4283,tier:"confirmed",pop:10200},
+  {name:"Goshen",st:"IN",lat:41.5823,lon:-85.8347,tier:"probable",pop:18000},
+  {name:"Greenwood",st:"IN",lat:39.6137,lon:-86.1066,tier:"probable",pop:8500},
+  {name:"Greencastle",st:"IN",lat:39.6445,lon:-86.8642,tier:"confirmed",pop:7300},
+  {name:"Shelbyville",st:"IN",lat:39.5214,lon:-85.7769,tier:"probable",pop:12600},
+  {name:"Huntington",st:"IN",lat:40.8831,lon:-85.4975,tier:"possible",pop:15000},
+  {name:"Connersville",st:"IN",lat:39.6412,lon:-85.1410,tier:"probable",pop:15500},
+  {name:"Lebanon",st:"IN",lat:40.0484,lon:-86.4692,tier:"possible",pop:7000},
+  {name:"Berea",st:"IN",lat:39.3020,lon:-86.3925,tier:"confirmed",pop:300},
+  // OHIO
+  {name:"Waverly",st:"OH",lat:39.1265,lon:-82.9854,tier:"probable",pop:4500},
+  {name:"Celina",st:"OH",lat:40.5498,lon:-84.5702,tier:"probable",pop:7800},
+  {name:"Greenville",st:"OH",lat:40.1031,lon:-84.6330,tier:"possible",pop:12000},
+  {name:"Piqua",st:"OH",lat:40.1445,lon:-84.2424,tier:"probable",pop:17000},
+  {name:"Sidney",st:"OH",lat:40.2842,lon:-84.1555,tier:"possible",pop:16000},
+  {name:"Troy",st:"OH",lat:40.0395,lon:-84.2033,tier:"possible",pop:15000},
+  {name:"Circleville",st:"OH",lat:39.6006,lon:-82.9463,tier:"probable",pop:11000},
+  {name:"Portsmouth",st:"OH",lat:38.7318,lon:-82.9977,tier:"possible",pop:33600},
+  // PENNSYLVANIA / NEW JERSEY
+  {name:"Levittown",st:"PA",lat:40.1551,lon:-74.8288,tier:"confirmed",pop:60000},
+  {name:"Gettysburg",st:"PA",lat:39.8309,lon:-77.2311,tier:"probable",pop:5700},
+  {name:"Berwyn",st:"PA",lat:40.0468,lon:-75.4388,tier:"possible",pop:3600},
+  {name:"Toms River",st:"NJ",lat:39.9537,lon:-74.1979,tier:"possible",pop:7300},
+  // KENTUCKY
+  {name:"Corbin",st:"KY",lat:36.9487,lon:-84.0966,tier:"confirmed",pop:7300},
+  {name:"Berea",st:"KY",lat:37.5687,lon:-84.2963,tier:"probable",pop:6800},
+  {name:"Middlesboro",st:"KY",lat:36.6084,lon:-83.7163,tier:"possible",pop:11000},
+  // TEXAS
+  {name:"Vidor",st:"TX",lat:30.1316,lon:-94.0135,tier:"confirmed",pop:10000},
+  {name:"Jasper",st:"TX",lat:30.9202,lon:-93.9966,tier:"probable",pop:6200},
+  {name:"Cedar Hill",st:"TX",lat:32.5885,lon:-96.9561,tier:"possible",pop:3000},
+  // MICHIGAN
+  {name:"Dearborn",st:"MI",lat:42.3223,lon:-83.1763,tier:"confirmed",pop:94000},
+  {name:"Warren",st:"MI",lat:42.4775,lon:-83.0277,tier:"probable",pop:42600},
+  {name:"Wyandotte",st:"MI",lat:42.2142,lon:-83.1499,tier:"possible",pop:30000},
+  // TENNESSEE
+  {name:"Pulaski",st:"TN",lat:35.1998,lon:-87.0308,tier:"confirmed",pop:5100},
+  {name:"Crossville",st:"TN",lat:35.9489,lon:-85.0269,tier:"probable",pop:4500},
+  // MISSOURI
+  {name:"Sullivan",st:"MO",lat:38.2081,lon:-91.1604,tier:"probable",pop:4200},
+  {name:"Kennett",st:"MO",lat:36.2362,lon:-90.0556,tier:"possible",pop:7500},
+  // WISCONSIN
+  {name:"Appleton",st:"WI",lat:44.2619,lon:-88.4154,tier:"probable",pop:28000},
+  {name:"Fond du Lac",st:"WI",lat:43.7730,lon:-88.4471,tier:"possible",pop:27000},
+  // IOWA
+  {name:"Cedar Rapids",st:"IA",lat:41.9779,lon:-91.6656,tier:"possible",pop:62000},
+  // CONNECTICUT
+  {name:"Darien",st:"CT",lat:41.0787,lon:-73.4718,tier:"confirmed",pop:10000},
+  // WEST VIRGINIA
+  {name:"Matewan",st:"WV",lat:37.6234,lon:-82.1696,tier:"probable",pop:700},
+  // KANSAS
+  {name:"Independence",st:"KS",lat:37.2243,lon:-95.7083,tier:"possible",pop:10000},
+  // MARYLAND
+  {name:"Havre de Grace",st:"MD",lat:39.5493,lon:-76.0916,tier:"possible",pop:4100},
+  // GEORGIA
+  {name:"Forsyth County",st:"GA",lat:34.2257,lon:-84.1255,tier:"confirmed",pop:5200},
+  // ARKANSAS
+  {name:"Harrison",st:"AR",lat:36.2298,lon:-93.1074,tier:"confirmed",pop:6400},
+  {name:"Paragould",st:"AR",lat:36.0584,lon:-90.5001,tier:"probable",pop:8300},
+  // NORTH CAROLINA
+  {name:"Spruce Pine",st:"NC",lat:35.9154,lon:-82.0646,tier:"possible",pop:2200},
+  // NEBRASKA
+  {name:"North Platte",st:"NE",lat:41.1403,lon:-100.7601,tier:"possible",pop:15000},
+  // MINNESOTA
+  {name:"Edina",st:"MN",lat:44.8897,lon:-93.3499,tier:"probable",pop:9700},
+  // OREGON
+  {name:"Medford",st:"OR",lat:42.3265,lon:-122.8756,tier:"confirmed",pop:11000}
+];
+
+// =====================================================================
+// DATA: GAME LOCATIONS (from Ch. 02)
+// =====================================================================
+
+var GAME_CITIES = [
+  {city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,games:270},
+  {city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,games:350},
+  {city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,games:363},
+  {city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,games:133},
+  {city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,games:163},
+  {city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,games:352},
+  {city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,games:344},
+  {city:"New York",st:"NY",lat:40.8267,lon:-73.9281,games:626},
+  {city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,games:285},
+  {city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,games:308},
+  {city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,games:253},
+  {city:"St. Louis",st:"MO",lat:38.6339,lon:-90.231,games:105},
+  {city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,games:134}
+];
+
+// =====================================================================
+// DATA: ROUTES WITH DANGER SCORES
+// =====================================================================
+
+var DANGER_ROUTES = [
+  {team:"Kansas City Monarchs",season:1942,segments:[
+    {from:"Kansas City, MO",to:"Sedalia, MO",fromLat:39.0997,fromLon:-94.5577,toLat:38.7045,toLon:-93.2283,danger:0.25,towns:2},
+    {from:"Sedalia, MO",to:"St. Louis, MO",fromLat:38.7045,fromLon:-93.2283,toLat:38.6270,toLon:-90.1994,danger:0.45,towns:4},
+    {from:"St. Louis, MO",to:"Springfield, MO",fromLat:38.6270,fromLon:-90.1994,toLat:37.2090,toLon:-93.2923,danger:0.55,towns:5},
+    {from:"Springfield, MO",to:"Tulsa, OK",fromLat:37.2090,fromLon:-93.2923,toLat:36.1540,toLon:-95.9928,danger:0.30,towns:2},
+    {from:"Tulsa, OK",to:"Little Rock, AR",fromLat:36.1540,fromLon:-95.9928,toLat:34.7465,toLon:-92.2896,danger:0.35,towns:3},
+    {from:"Little Rock, AR",to:"Memphis, TN",fromLat:34.7465,fromLon:-92.2896,toLat:35.1495,toLon:-90.0490,danger:0.20,towns:1},
+    {from:"Memphis, TN",to:"Birmingham, AL",fromLat:35.1495,fromLon:-90.0490,toLat:33.5186,toLon:-86.8104,danger:0.40,towns:3},
+    {from:"Birmingham, AL",to:"Atlanta, GA",fromLat:33.5186,fromLon:-86.8104,toLat:33.7490,toLon:-84.3880,danger:0.15,towns:1},
+    {from:"Atlanta, GA",to:"Nashville, TN",fromLat:33.7490,fromLon:-84.3880,toLat:36.1627,toLon:-86.7816,danger:0.30,towns:2},
+    {from:"Nashville, TN",to:"Louisville, KY",fromLat:36.1627,fromLon:-86.7816,toLat:38.2527,toLon:-85.7585,danger:0.45,towns:4},
+    {from:"Louisville, KY",to:"Cincinnati, OH",fromLat:38.2527,fromLon:-85.7585,toLat:39.1031,toLon:-84.5120,danger:0.50,towns:4},
+    {from:"Cincinnati, OH",to:"Indianapolis, IN",fromLat:39.1031,fromLon:-84.5120,toLat:39.7684,toLon:-86.1581,danger:0.70,towns:7},
+    {from:"Indianapolis, IN",to:"Decatur, IL",fromLat:39.7684,fromLon:-86.1581,toLat:39.8403,toLon:-88.9548,danger:0.85,towns:9},
+    {from:"Decatur, IL",to:"Chicago, IL",fromLat:39.8403,fromLon:-88.9548,toLat:41.7497,toLon:-87.6349,danger:0.75,towns:8}
+  ]},
+  {team:"Homestead Grays",season:1943,segments:[
+    {from:"Pittsburgh, PA",to:"Wheeling, WV",fromLat:40.4417,fromLon:-79.9533,toLat:40.0640,toLon:-80.7209,danger:0.20,towns:1},
+    {from:"Wheeling, WV",to:"Columbus, OH",fromLat:40.0640,fromLon:-80.7209,toLat:39.9612,toLon:-82.9988,danger:0.45,towns:4},
+    {from:"Columbus, OH",to:"Cincinnati, OH",fromLat:39.9612,fromLon:-82.9988,toLat:39.1031,toLon:-84.5120,danger:0.55,towns:5},
+    {from:"Cincinnati, OH",to:"Louisville, KY",fromLat:39.1031,fromLon:-84.5120,toLat:38.2527,toLon:-85.7585,danger:0.40,towns:3},
+    {from:"Louisville, KY",to:"Charlotte, NC",fromLat:38.2527,fromLon:-85.7585,toLat:35.2271,toLon:-80.8431,danger:0.35,towns:3},
+    {from:"Charlotte, NC",to:"Richmond, VA",fromLat:35.2271,fromLon:-80.8431,toLat:37.5407,toLon:-77.4360,danger:0.15,towns:1},
+    {from:"Richmond, VA",to:"Washington, DC",fromLat:37.5407,fromLon:-77.4360,toLat:38.9072,toLon:-77.0369,danger:0.10,towns:0},
+    {from:"Washington, DC",to:"Baltimore, MD",fromLat:38.9072,fromLon:-77.0369,toLat:39.2904,toLon:-76.6122,danger:0.10,towns:0},
+    {from:"Baltimore, MD",to:"Philadelphia, PA",fromLat:39.2904,fromLon:-76.6122,toLat:39.9526,toLon:-75.1652,danger:0.25,towns:2},
+    {from:"Philadelphia, PA",to:"Newark, NJ",fromLat:39.9526,fromLon:-75.1652,toLat:40.7357,toLon:-74.1724,danger:0.20,towns:1},
+    {from:"Newark, NJ",to:"New York, NY",fromLat:40.7357,fromLon:-74.1724,toLat:40.8296,toLon:-73.9262,danger:0.05,towns:0}
+  ]},
+  {team:"Pittsburgh Crawfords",season:1936,segments:[
+    {from:"Pittsburgh, PA",to:"Akron, OH",fromLat:40.4478,fromLon:-79.9803,toLat:41.0814,toLon:-81.5190,danger:0.35,towns:3},
+    {from:"Akron, OH",to:"Cleveland, OH",fromLat:41.0814,fromLon:-81.5190,toLat:41.4993,toLon:-81.6944,danger:0.15,towns:1},
+    {from:"Cleveland, OH",to:"Toledo, OH",fromLat:41.4993,fromLon:-81.6944,toLat:41.6528,toLon:-83.5379,danger:0.40,towns:3},
+    {from:"Toledo, OH",to:"Detroit, MI",fromLat:41.6528,fromLon:-83.5379,toLat:42.3314,toLon:-83.0458,danger:0.50,towns:4},
+    {from:"Detroit, MI",to:"Cairo, IL",fromLat:42.3314,fromLon:-83.0458,toLat:37.0053,toLon:-89.1765,danger:0.80,towns:9},
+    {from:"Cairo, IL",to:"Memphis, TN",fromLat:37.0053,fromLon:-89.1765,toLat:35.1495,toLon:-90.0490,danger:0.60,towns:5},
+    {from:"Memphis, TN",to:"Birmingham, AL",fromLat:35.1495,fromLon:-90.0490,toLat:33.5186,toLon:-86.8104,danger:0.35,towns:3}
+  ]},
+  {team:"Newark Eagles",season:1946,segments:[
+    {from:"Newark, NJ",to:"New York, NY",fromLat:40.7357,fromLon:-74.1724,toLat:40.8296,toLon:-73.9262,danger:0.05,towns:0},
+    {from:"New York, NY",to:"Philadelphia, PA",fromLat:40.8296,fromLon:-73.9262,toLat:39.9526,toLon:-75.1652,danger:0.15,towns:1},
+    {from:"Philadelphia, PA",to:"Baltimore, MD",fromLat:39.9526,fromLon:-75.1652,toLat:39.2904,toLon:-76.6122,danger:0.20,towns:1},
+    {from:"Baltimore, MD",to:"Washington, DC",fromLat:39.2904,fromLon:-76.6122,toLat:38.9072,toLon:-77.0369,danger:0.10,towns:0},
+    {from:"Washington, DC",to:"Norfolk, VA",fromLat:38.9072,fromLon:-77.0369,toLat:36.8508,toLon:-76.2859,danger:0.15,towns:1},
+    {from:"Norfolk, VA",to:"Charlotte, NC",fromLat:36.8508,fromLon:-76.2859,toLat:35.2271,toLon:-80.8431,danger:0.20,towns:1},
+    {from:"Charlotte, NC",to:"Richmond, VA",fromLat:35.2271,fromLon:-80.8431,toLat:37.5407,toLon:-77.4360,danger:0.15,towns:1},
+    {from:"Richmond, VA",to:"Pittsburgh, PA",fromLat:37.5407,fromLon:-77.4360,toLat:40.4417,toLon:-79.9533,danger:0.30,towns:2},
+    {from:"Pittsburgh, PA",to:"Buffalo, NY",fromLat:40.4417,fromLon:-79.9533,toLat:42.8864,toLon:-78.8784,danger:0.25,towns:2}
+  ]},
+  {team:"Birmingham Black Barons",season:1948,segments:[
+    {from:"Birmingham, AL",to:"Jackson, MS",fromLat:33.5186,fromLon:-86.8104,toLat:32.2988,toLon:-90.1848,danger:0.30,towns:2},
+    {from:"Jackson, MS",to:"Shreveport, LA",fromLat:32.2988,fromLon:-90.1848,toLat:32.5252,toLon:-93.7502,danger:0.20,towns:1},
+    {from:"Shreveport, LA",to:"New Orleans, LA",fromLat:32.5252,fromLon:-93.7502,toLat:29.9511,toLon:-90.0715,danger:0.15,towns:1},
+    {from:"New Orleans, LA",to:"Mobile, AL",fromLat:29.9511,fromLon:-90.0715,toLat:30.6954,toLon:-88.0399,danger:0.10,towns:0},
+    {from:"Mobile, AL",to:"Atlanta, GA",fromLat:30.6954,fromLon:-88.0399,toLat:33.7490,toLon:-84.3880,danger:0.20,towns:1},
+    {from:"Atlanta, GA",to:"Nashville, TN",fromLat:33.7490,fromLon:-84.3880,toLat:36.1627,toLon:-86.7816,danger:0.30,towns:2},
+    {from:"Nashville, TN",to:"Memphis, TN",fromLat:36.1627,fromLon:-86.7816,toLat:35.1495,toLon:-90.0490,danger:0.35,towns:3},
+    {from:"Memphis, TN",to:"Dallas, TX",fromLat:35.1495,fromLon:-90.0490,toLat:32.7767,toLon:-96.7970,danger:0.25,towns:2},
+    {from:"Dallas, TX",to:"Houston, TX",fromLat:32.7767,fromLon:-96.7970,toLat:29.7604,toLon:-95.3698,danger:0.30,towns:2},
+    {from:"Houston, TX",to:"San Antonio, TX",fromLat:29.7604,fromLon:-95.3698,toLat:29.4241,toLon:-98.4936,danger:0.15,towns:1}
+  ]}
+];
+
+// =====================================================================
+// DATA: BALLPARK PROXIMITY
+// =====================================================================
+
+var BALLPARK_PROXIMITY = [
+  {park:"Comiskey Park",city:"Chicago, IL",lat:41.7497,lon:-87.6349,r10:12,r25:28,r50:47},
+  {park:"Griffith Stadium",city:"Washington, DC",lat:38.9218,lon:-77.0158,r10:3,r25:8,r50:19},
+  {park:"Ruppert Stadium",city:"Newark, NJ",lat:40.7128,lon:-74.1594,r10:4,r25:11,r50:22},
+  {park:"Yankee Stadium",city:"New York, NY",lat:40.8267,lon:-73.9281,r10:3,r25:9,r50:18},
+  {park:"Shibe Park",city:"Philadelphia, PA",lat:39.971,lon:-75.2139,r10:5,r25:14,r50:26},
+  {park:"Greenlee Field",city:"Pittsburgh, PA",lat:40.4417,lon:-79.9533,r10:6,r25:15,r50:30},
+  {park:"Rickwood Field",city:"Birmingham, AL",lat:33.5125,lon:-86.8434,r10:2,r25:5,r50:11},
+  {park:"Martin Park",city:"Memphis, TN",lat:35.1417,lon:-90.03,r10:4,r25:10,r50:22},
+  {park:"Muehlebach Field",city:"Kansas City, MO",lat:39.0997,lon:-94.5577,r10:3,r25:7,r50:15},
+  {park:"Victory Field",city:"Indianapolis, IN",lat:39.7872,lon:-86.1684,r10:9,r25:22,r50:38},
+  {park:"League Park",city:"Cleveland, OH",lat:41.5116,lon:-81.6346,r10:5,r25:13,r50:28},
+  {park:"Stars Park",city:"St. Louis, MO",lat:38.6339,lon:-90.231,r10:8,r25:18,r50:34},
+  {park:"Oriole Park",city:"Baltimore, MD",lat:39.2987,lon:-76.5867,r10:2,r25:6,r50:14}
+];
+
+// =====================================================================
+// DATA: CASE STUDIES
+// =====================================================================
+
+var CASE_STUDIES = [
+  {
+    town:"Anna",st:"IL",tier:"confirmed",
+    nearestPark:"Martin Park, Memphis (180 mi)",
+    text:"The name is said to stand for 'Ain't No N***** Allowed.' Whether the etymology is folk or fact, the effect was documented. Anna expelled its Black residents in 1909 after a lynching in nearby Cairo. The town remained sundown through the 1960s. It sits on the route between St. Louis and Memphis -- a corridor every Negro Leagues team traveling the Midwest circuit drove through multiple times per season."
+  },
+  {
+    town:"Effingham",st:"IL",tier:"confirmed",
+    nearestPark:"Comiskey Park, Chicago (200 mi)",
+    text:"A crossroads town in central Illinois on the route between Indianapolis and St. Louis. Documented as sundown by multiple sources including the Loewen database. Black population in the 1940 census: 0. The town sat on US Route 40, the primary east-west highway through Illinois. Every Negro Leagues team traveling between the Midwest and East Coast passed through Effingham or its immediate neighbors."
+  },
+  {
+    town:"Corbin",st:"KY",tier:"confirmed",
+    nearestPark:"Rickwood Field, Birmingham (275 mi)",
+    text:"In 1919, a white mob drove out Corbin's entire Black population -- approximately 200 people -- at gunpoint. The expulsion is documented in NAACP records and newspaper accounts. Corbin remained sundown for decades. It sits on the route between Cincinnati and Knoxville, a corridor that Negro Leagues teams from the Midwest used to reach Southern cities."
+  },
+  {
+    town:"Vidor",st:"TX",tier:"confirmed",
+    nearestPark:"No major NL park nearby",
+    text:"A town in East Texas that remained sundown into the 1990s. Federal housing authorities attempted to integrate a public housing project in 1993; residents were driven out by threats and arson. Documented as sundown from the 1920s forward. While not on primary Negro Leagues routes, Vidor represents the Deep South variant of sundown enforcement -- rare in the Loewen database but documented."
+  },
+  {
+    town:"Martinsville",st:"IN",tier:"confirmed",
+    nearestPark:"Victory Field, Indianapolis (30 mi)",
+    text:"Thirty miles from Indianapolis, where the Clowns played their home games. Documented as sundown by the Loewen database and multiple oral histories. Located on State Route 37 between Indianapolis and Bloomington. Negro Leagues players traveling to or from Victory Field could not stop in Martinsville after dark. The sundown town was closer to the ballpark than some of the team's hotels."
+  }
+];
+
+// =====================================================================
+// ALBERS USA PROJECTION
+// Maps lat/lon to the 959x593 Wikimedia SVG coordinate space
+// =====================================================================
+
+function albersProject(lat, lon) {
+  var RAD = Math.PI / 180;
+  var phi0 = 38.5 * RAD;
+  var phi1 = 29.5 * RAD;
+  var phi2 = 45.5 * RAD;
+  var lam0 = -98 * RAD;
+
+  var n = 0.5 * (Math.sin(phi1) + Math.sin(phi2));
+  var C = Math.cos(phi1) * Math.cos(phi1) + 2 * n * Math.sin(phi1);
+  var rho0 = Math.sqrt(C - 2 * n * Math.sin(phi0)) / n;
+
+  var phi = lat * RAD;
+  var lam = lon * RAD;
+  var theta = n * (lam - lam0);
+  var rho = Math.sqrt(C - 2 * n * Math.sin(phi)) / n;
+
+  var x = rho * Math.sin(theta);
+  var y = rho0 - rho * Math.cos(theta);
+
+  var scale = 1180;
+  var tx = 480;
+  var ty = 260;
+
+  return [x * scale + tx, -y * scale + ty];
+}
+
+// =====================================================================
+// SCROLL-SPY FOR TAB NAV
+// =====================================================================
+
+var tabs = document.querySelectorAll('.masthead__tab');
+var sectionIds = ['hook', 'data', 'corridor', 'routes', 'proximity', 'cases', 'coda'];
+
+function updateActiveTab() {
+  var scrollY = window.scrollY + 120;
+  var active = 'hook';
+  for (var i = 0; i < sectionIds.length; i++) {
+    var el = document.getElementById(sectionIds[i]);
+    if (el && el.offsetTop <= scrollY) {
+      active = sectionIds[i];
+    }
+  }
+  tabs.forEach(function(tab) {
+    var href = tab.getAttribute('href');
+    if (href === '#' + active) {
+      tab.classList.add('masthead__tab--active');
+    } else {
+      tab.classList.remove('masthead__tab--active');
+    }
+  });
+}
+
+var scrollTicking = false;
+window.addEventListener('scroll', function() {
+  if (!scrollTicking) {
+    requestAnimationFrame(function() {
+      updateActiveTab();
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});
+
+// =====================================================================
+// FIG 01: THE CORRIDOR MAP
+// =====================================================================
+
+var gameDots = document.getElementById('gameDots');
+var sundownDots = document.getElementById('sundownDots');
+var corridorToggle = document.getElementById('corridorToggle');
+var corridorCounter = document.getElementById('corridorCounter');
+var corridorFilters = document.getElementById('corridorFilters');
+var corridorTooltip = document.getElementById('corridorTooltip');
+var tooltipName = document.getElementById('tooltipName');
+var tooltipMeta = document.getElementById('tooltipMeta');
+
+// Render game location dots
+GAME_CITIES.forEach(function(c) {
+  var pos = albersProject(c.lat, c.lon);
+  var r = Math.max(3, Math.min(8, Math.sqrt(c.games / 20)));
+  var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', pos[0]);
+  circle.setAttribute('cy', pos[1]);
+  circle.setAttribute('r', r);
+  circle.setAttribute('fill', '#d4a64a');
+  circle.setAttribute('opacity', '0.9');
+  circle.setAttribute('data-city', c.city + ', ' + c.st);
+  circle.setAttribute('data-games', c.games);
+  circle.style.cursor = 'pointer';
+  circle.setAttribute('role', 'img');
+  circle.setAttribute('aria-label', c.city + ', ' + c.st + ': ' + c.games + ' games');
+
+  circle.addEventListener('mouseenter', function(e) {
+    tooltipName.textContent = c.city + ', ' + c.st;
+    tooltipName.className = 'corridor__tooltip-name corridor__tooltip-name--game';
+    tooltipMeta.textContent = c.games + ' documented games';
+    corridorTooltip.classList.add('corridor__tooltip--visible');
+    corridorTooltip.style.left = (e.clientX + 12) + 'px';
+    corridorTooltip.style.top = (e.clientY - 10) + 'px';
+  });
+  circle.addEventListener('mouseleave', function() {
+    corridorTooltip.classList.remove('corridor__tooltip--visible');
+  });
+
+  gameDots.appendChild(circle);
+});
+
+// Pre-render sundown town dots (hidden)
+var sundownCircles = [];
+SUNDOWN_TOWNS.forEach(function(t, i) {
+  var pos = albersProject(t.lat, t.lon);
+  var tierOpacity = t.tier === 'confirmed' ? 1 : (t.tier === 'probable' ? 0.7 : 0.4);
+  var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', pos[0]);
+  circle.setAttribute('cy', pos[1]);
+  circle.setAttribute('r', '4');
+  circle.setAttribute('fill', '#a14545');
+  circle.setAttribute('class', 'corridor__sundown-dot');
+  circle.style.setProperty('--tier-opacity', tierOpacity);
+  circle.setAttribute('data-tier', t.tier);
+  circle.setAttribute('data-index', i);
+  circle.style.cursor = 'pointer';
+  circle.setAttribute('role', 'img');
+  circle.setAttribute('aria-label', t.name + ', ' + t.st + ' -- ' + t.tier);
+
+  circle.addEventListener('mouseenter', function(e) {
+    tooltipName.textContent = t.name + ', ' + t.st;
+    tooltipName.className = 'corridor__tooltip-name corridor__tooltip-name--sundown';
+    tooltipMeta.textContent = t.tier.charAt(0).toUpperCase() + t.tier.slice(1) + ' sundown town' + (t.pop ? ' -- Pop. ~' + t.pop.toLocaleString() : '');
+    corridorTooltip.classList.add('corridor__tooltip--visible');
+    corridorTooltip.style.left = (e.clientX + 12) + 'px';
+    corridorTooltip.style.top = (e.clientY - 10) + 'px';
+  });
+  circle.addEventListener('mouseleave', function() {
+    corridorTooltip.classList.remove('corridor__tooltip--visible');
+  });
+
+  sundownDots.appendChild(circle);
+  sundownCircles.push(circle);
+});
+
+// Toggle logic
+var corridorVisible = false;
+
+function showCorridor() {
+  corridorVisible = true;
+  corridorToggle.textContent = 'HIDE THE CORRIDOR';
+  corridorToggle.classList.add('corridor__toggle-btn--active');
+  corridorToggle.setAttribute('aria-pressed', 'true');
+  corridorCounter.classList.add('corridor__counter--visible');
+  corridorFilters.style.opacity = '1';
+  corridorFilters.style.pointerEvents = 'auto';
+
+  document.getElementById('legendConfirmed').style.display = '';
+  document.getElementById('legendProbable').style.display = '';
+  document.getElementById('legendPossible').style.display = '';
+
+  // Check for reduced motion
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  sundownCircles.forEach(function(circle, i) {
+    var delay = prefersReduced ? 0 : (i * 25);
+    setTimeout(function() {
+      circle.classList.add('corridor__sundown-dot--visible');
+    }, delay);
+  });
+}
+
+function hideCorridor() {
+  corridorVisible = false;
+  corridorToggle.textContent = 'SHOW THE CORRIDOR';
+  corridorToggle.classList.remove('corridor__toggle-btn--active');
+  corridorToggle.setAttribute('aria-pressed', 'false');
+  corridorCounter.classList.remove('corridor__counter--visible');
+  corridorFilters.style.opacity = '0.3';
+  corridorFilters.style.pointerEvents = 'none';
+
+  document.getElementById('legendConfirmed').style.display = 'none';
+  document.getElementById('legendProbable').style.display = 'none';
+  document.getElementById('legendPossible').style.display = 'none';
+
+  sundownCircles.forEach(function(circle) {
+    circle.classList.remove('corridor__sundown-dot--visible');
+  });
+}
+
+corridorToggle.addEventListener('click', function() {
+  if (corridorVisible) {
+    hideCorridor();
+  } else {
+    showCorridor();
+  }
+});
+
+// Evidence filter
+var filterPills = document.querySelectorAll('.corridor__filter-pill');
+filterPills.forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    filterPills.forEach(function(p) { p.classList.remove('corridor__filter-pill--active'); });
+    pill.classList.add('corridor__filter-pill--active');
+    var filter = pill.getAttribute('data-filter');
+    sundownCircles.forEach(function(circle) {
+      var tier = circle.getAttribute('data-tier');
+      var show = false;
+      if (filter === 'all') show = true;
+      else if (filter === 'confirmed') show = (tier === 'confirmed');
+      else if (filter === 'confirmed-probable') show = (tier === 'confirmed' || tier === 'probable');
+      if (corridorVisible && show) {
+        circle.classList.add('corridor__sundown-dot--visible');
+      } else {
+        circle.classList.remove('corridor__sundown-dot--visible');
+      }
+    });
+  });
+});
+
+// =====================================================================
+// FIG 02: ROUTE DANGER MAP
+// =====================================================================
+
+var routePills = document.getElementById('routePills');
+var routeLines = document.getElementById('routeLines');
+var routeCityDots = document.getElementById('routeCityDots');
+var routeDetailPanel = document.getElementById('routeDetailPanel');
+var routeStatesGroup2 = document.getElementById('routeStatesGroup');
+// Copy state paths into the route map
+var mainStates = document.getElementById('statesGroup');
+routeStatesGroup2.innerHTML = mainStates.innerHTML;
+
+var currentRouteIdx = 0;
+
+function dangerColor(danger) {
+  // Interpolate from amber (low) to oxblood (high)
+  var r = Math.round(212 + (161 - 212) * danger);
+  var g = Math.round(166 + (69 - 166) * danger);
+  var b = Math.round(74 + (69 - 74) * danger);
+  return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
+function renderRoute(idx) {
+  currentRouteIdx = idx;
+  routeLines.innerHTML = '';
+  routeCityDots.innerHTML = '';
+
+  var route = DANGER_ROUTES[idx];
+
+  // Draw segment lines
+  route.segments.forEach(function(seg) {
+    var from = albersProject(seg.fromLat, seg.fromLon);
+    var to = albersProject(seg.toLat, seg.toLon);
+    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', from[0]);
+    line.setAttribute('y1', from[1]);
+    line.setAttribute('x2', to[0]);
+    line.setAttribute('y2', to[1]);
+    line.setAttribute('stroke', dangerColor(seg.danger));
+    line.setAttribute('stroke-width', '3');
+    line.setAttribute('stroke-linecap', 'round');
+    line.setAttribute('opacity', '0.85');
+    routeLines.appendChild(line);
+  });
+
+  // Draw city dots at segment endpoints
+  var cities = {};
+  route.segments.forEach(function(seg) {
+    cities[seg.from] = {lat: seg.fromLat, lon: seg.fromLon};
+    cities[seg.to] = {lat: seg.toLat, lon: seg.toLon};
+  });
+  Object.keys(cities).forEach(function(name) {
+    var pos = albersProject(cities[name].lat, cities[name].lon);
+    var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('cx', pos[0]);
+    c.setAttribute('cy', pos[1]);
+    c.setAttribute('r', '4');
+    c.setAttribute('fill', '#d4a64a');
+    routeCityDots.appendChild(c);
+  });
+
+  // Detail panel
+  var html = '<div class="routes__detail-header">' + route.team + '</div>';
+  html += '<div class="routes__detail-season">Season ' + route.season + '</div>';
+  route.segments.forEach(function(seg) {
+    var color = dangerColor(seg.danger);
+    var scoreColor = seg.danger > 0.5 ? '#c25656' : (seg.danger > 0.3 ? '#d4a64a' : '#8a8270');
+    html += '<div class="routes__segment">';
+    html += '<div class="routes__segment-color" style="background:' + color + ';"></div>';
+    html += '<div class="routes__segment-cities">';
+    html += '<div class="routes__segment-from">' + seg.from.split(',')[0] + '</div>';
+    html += '<div class="routes__segment-arrow">&darr;</div>';
+    html += '<div class="routes__segment-to">' + seg.to.split(',')[0] + '</div>';
+    html += '</div>';
+    html += '<div class="routes__segment-score" style="color:' + scoreColor + ';">' + seg.towns + ' towns</div>';
+    html += '</div>';
+  });
+  routeDetailPanel.innerHTML = html;
+
+  // Update pills
+  var pills = routePills.querySelectorAll('.routes__pill');
+  pills.forEach(function(p, i) {
+    if (i === idx) p.classList.add('routes__pill--active');
+    else p.classList.remove('routes__pill--active');
+  });
+}
+
+// Build route pills
+DANGER_ROUTES.forEach(function(route, i) {
+  var pill = document.createElement('button');
+  pill.className = 'routes__pill' + (i === 0 ? ' routes__pill--active' : '');
+  pill.textContent = route.team.split(' ').pop() + " '" + String(route.season).slice(2);
+  pill.setAttribute('type', 'button');
+  pill.setAttribute('role', 'tab');
+  pill.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+  pill.addEventListener('click', function() {
+    renderRoute(i);
+    routePills.querySelectorAll('.routes__pill').forEach(function(p, j) {
+      p.setAttribute('aria-selected', j === i ? 'true' : 'false');
+    });
+  });
+  routePills.appendChild(pill);
+});
+
+renderRoute(0);
+
+// =====================================================================
+// FIG 03: PROXIMITY SCORE
+// =====================================================================
+
+var proximityChart = document.getElementById('proximityChart');
+
+// Sort by r10 descending
+var sortedParks = BALLPARK_PROXIMITY.slice().sort(function(a, b) { return b.r10 - a.r10; });
+var maxR50 = 0;
+sortedParks.forEach(function(p) { if (p.r50 > maxR50) maxR50 = p.r50; });
+
+sortedParks.forEach(function(park) {
+  var row = document.createElement('div');
+  row.className = 'proximity__row';
+
+  var label = document.createElement('div');
+  label.className = 'proximity__ballpark';
+  label.textContent = park.park;
+
+  var bars = document.createElement('div');
+  bars.className = 'proximity__bars';
+
+  var b10 = document.createElement('div');
+  b10.className = 'proximity__bar proximity__bar--10';
+  b10.style.width = Math.max(2, (park.r10 / maxR50) * 100) + '%';
+  b10.textContent = park.r10;
+  b10.setAttribute('aria-label', park.r10 + ' within 10 miles');
+
+  var b25 = document.createElement('div');
+  b25.className = 'proximity__bar proximity__bar--25';
+  b25.style.width = Math.max(2, ((park.r25 - park.r10) / maxR50) * 100) + '%';
+  b25.textContent = park.r25;
+  b25.setAttribute('aria-label', park.r25 + ' within 25 miles');
+
+  var b50 = document.createElement('div');
+  b50.className = 'proximity__bar proximity__bar--50';
+  b50.style.width = Math.max(2, ((park.r50 - park.r25) / maxR50) * 100) + '%';
+  b50.textContent = park.r50;
+  b50.setAttribute('aria-label', park.r50 + ' within 50 miles');
+
+  bars.appendChild(b10);
+  bars.appendChild(b25);
+  bars.appendChild(b50);
+
+  row.appendChild(label);
+  row.appendChild(bars);
+  proximityChart.appendChild(row);
+});
+
+// =====================================================================
+// CASE STUDIES
+// =====================================================================
+
+var casesGrid = document.getElementById('casesGrid');
+
+CASE_STUDIES.forEach(function(cs) {
+  var card = document.createElement('div');
+  card.className = 'cases__card';
+  card.setAttribute('role', 'listitem');
+
+  var tierClass = cs.tier === 'confirmed' ? '' : ' cases__card-tier--probable';
+
+  card.innerHTML =
+    '<div class="cases__card-header">' +
+      '<span class="cases__card-town">' + cs.town + ', ' + cs.st + '</span>' +
+      '<span class="cases__card-tier' + tierClass + '">' + cs.tier + '</span>' +
+    '</div>' +
+    '<div class="cases__card-proximity">Nearest NL ballpark: ' + cs.nearestPark + '</div>' +
+    '<p class="cases__card-text">' + cs.text + '</p>';
+
+  casesGrid.appendChild(card);
+});
+
+// =====================================================================
+// INTERSECTION OBSERVER FOR BAR ANIMATION
+// =====================================================================
+
+var proximitySection = document.getElementById('proximity');
+var barsAnimated = false;
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting && !barsAnimated) {
+      barsAnimated = true;
+      var allBars = proximityChart.querySelectorAll('.proximity__bar');
+      allBars.forEach(function(bar, i) {
+        var w = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(function() {
+          bar.style.width = w;
+        }, i * 30);
+      });
+    }
+  });
+}, {threshold: 0.2});
+
+observer.observe(proximitySection);
+
+})();
+</script>
+</body>
+</html>
