@@ -1,0 +1,38 @@
+/* The Other Box Score — Shared Design Tokens */
+/* Import this in every chapter and the shell */
+/* Full design system documented in docs/design.md */
+
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  /* Backgrounds */
+  --ink:        #13110d;
+  --ink-2:      #1a1812;
+  --ink-3:      #221f17;
+  --rule:       #2a261d;
+  --shell-bg:   #232318;
+
+  /* Text */
+  --vellum:     #e8e0cf;
+  --vellum-dim: #c4bda9;
+  --muted:      #8a8270;
+  --muted-2:    #5e5849;
+
+  /* Accents */
+  --amber:      #d4a64a;
+  --amber-2:    #f0c878;
+  --oxblood:    #a14545;
+  --slate:      #6f8aa8;
+  --moss:       #8fa05a;
+  --bronze:     #b96f4a;
+  --tan:        #a08456;
+
+  /* Semantic */
+  --color-live:   rgba(212,166,74,0.9);
+  --color-locked: rgba(161,69,69,0.6);
+
+  /* Typography */
+  --serif:   "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}

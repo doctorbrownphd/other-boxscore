@@ -1,0 +1,20 @@
+{
+  "_note": "Every image asset in the repo must have a complete entry here. Vera owns this file. No image ships without Oscar approval and Vera approval both documented.",
+  "_format": {
+    "filename": "filename.jpg",
+    "subject": "Player Name",
+    "source": "Institution name",
+    "source_url": "https://...",
+    "date_created": "YYYY or c. YYYY",
+    "pd_basis": "Reason PD status applies",
+    "legal_framework": "Specific legal determination",
+    "oscar_approval": "APPROVED | PENDING | BLOCKED",
+    "oscar_approval_date": "YYYY-MM-DD",
+    "vera_approval": "APPROVED | PENDING | BLOCKED",
+    "vera_approval_date": "YYYY-MM-DD",
+    "chapter_usage": ["chapter-slug"],
+    "caption": "Source · Year · Public Domain",
+    "notes": "Any additional provenance notes"
+  },
+  "assets": []
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+.vercel/
+.netlify/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# ML pipeline
+pipeline/models/checkpoints/
+pipeline/data/raw/
+pipeline/*.pkl
+pipeline/*.model
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# Large data files (tracked via Git LFS if needed)
+*.parquet
+*.feather
