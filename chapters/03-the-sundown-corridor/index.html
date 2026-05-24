@@ -1874,7 +1874,7 @@ function updateCorridorPanel(towns){
           '<div class="tier"><div class="tier__num" style="color:var(--muted)">'+evCounts.q+'</div><div class="tier__label">Possible</div></div>'+
         '</div>'+
       '</div>'+
-      '<button class="controls__toggle" style="width:100%;margin-top:28px;border-color:var(--amber);color:var(--amber);background:transparent" onclick="document.getElementById('corridor-toggle').click()">'+
+      '<button class="controls__toggle" style="width:100%;margin-top:28px;border-color:var(--amber);color:var(--amber);background:transparent" onclick="document.getElementById(\'corridor-toggle\').click()">'+
         'Reveal the corridor &#8594;</button>';
   } else {
     var n = towns ? towns.length : filterSundown(currentEvFilter).length;
@@ -1883,7 +1883,7 @@ function updateCorridorPanel(towns){
       '<p style="font-family:var(--display);font-style:italic;font-weight:400;font-size:22px;color:var(--vellum);margin-top:12px;line-height:1.4">'+
         n+'<span style="color:var(--muted)"> / '+evCounts.total+'</span> documented towns on the same continent the bus crossed.</p>'+
       '<p style="font-family:var(--serif);font-size:14px;color:var(--vellum-dim);margin-top:18px;line-height:1.55">'+
-        'The cluster across Illinois, Indiana, and Ohio is the cluster the schedule ran straight through. Every team's Midwest swing intersected it.</p>'+
+        'The cluster across Illinois, Indiana, and Ohio is the cluster the schedule ran straight through. Every team\'s Midwest swing intersected it.</p>'+
       '<p style="font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);margin-top:14px;line-height:1.55">'+
         'The South looks lighter in this view. It is not. The legal system there did the same enforcement work without needing the signs. The database documents what was named in writing.</p>'+
       '<div class="floor-ceiling">'+
