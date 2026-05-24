@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Lost Seasons · The Color Line</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+<link rel="stylesheet" href="lost-seasons.css" />
+</head>
+<body>
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72"><line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="0" x2="12" y2="0" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="8" x2="7" y2="8" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="16" x2="7" y2="16" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="32" x2="7" y2="32" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="40" x2="7" y2="40" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="56" x2="7" y2="56" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="64" x2="7" y2="64" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/></svg>
+    </a>
+  <div>
+    <div class="series">
+      <span>One Hundred Years of</span>
+      
+      
+    </div>
+    <h1>The Lost <em>Seasons</em></h1>
+    <div class="sub">
+      Not estimated stats. <em>Lost time.</em>
+      For every player whose Negro Leagues career overlapped with years he could have played
+      in the major leagues, the number of seasons he didn't.
+    </div>
+  </div>
+  <div class="meta" style="white-space:nowrap">
+    <div><span class="k">Section</span> &nbsp; <span class="v">02 / 07</span></div>
+    <div><span class="k">Players</span> &nbsp; <span class="v">50</span></div>
+    <div><span class="k">Window</span> &nbsp; <span class="v">1886 — 1955</span></div>
+    <div><span class="k">Ranked by</span> &nbsp; <span class="v">WAR equivalent</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Sections">
+  <a class="tab" href="index.html">Record Book</a>
+  <div class="tab active">Lost Seasons</div>
+  <a class="tab" href="breach.html">The Breach</a>
+  <a class="tab" href="numbers.html">The Numbers</a>
+  <a class="tab" href="careers.html">Parallel Careers</a>
+  <a class="tab" href="method.html">Method</a>
+  <a class="tab" href="voices.html">The Voices</a>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <a class="tab" href="synthesis.html">Synthesis</a>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- ====================== HEAD ====================== -->
+<section class="ls-shell">
+  <div class="ls-head">
+    <div>
+      <div class="label">Fig. 02  ·  50 players, in WAR-equivalent order  ·  No charts</div>
+      <h2>Fifty men. <em>Eight hundred and eighty-eight seasons.</em></h2>
+      <p class="deck">
+        Each card lists what is on record — name, position, years active, one statistic that
+        survived the gap — and one number, in barrier red, that does not appear in any official book:
+        the seasons each man spent excluded from the major leagues. Below each, in monospace, one
+        line about what he did with that time anyway.
+      </p>
+    </div>
+    <div class="key">
+      <div class="row">
+        <div class="lab">Largest single loss</div>
+        <div class="v red">27 yrs</div>
+      </div>
+      <div class="row">
+        <div class="lab">Median across the fifty</div>
+        <div class="v">18 yrs</div>
+      </div>
+      <div class="row">
+        <div class="lab">Players who later integrated</div>
+        <div class="v">7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The tally — the cumulative cost -->
+  <div class="ls-tally">
+    <div class="big" id="tally">888<span class="unit">player-seasons</span></div>
+    <div class="mid">
+      The sum, across these fifty names, of the years they spent at the top of their game and
+      outside the official record. Roughly enough to staff every Negro Leagues franchise of 1947
+      for a full decade. A statistical mass with no place to land in the books that ever counted it.
+    </div>
+    <div class="right">
+      <div>SUM &nbsp; &nbsp; ALL FIFTY</div>
+      <div>UNIT &nbsp; &nbsp; SEASONS</div>
+      <div>SCOPE &nbsp; PRE-INTEGRATION</div>
+    </div>
+  </div>
+
+  <!-- Cards · top row (featured) -->
+  <div class="cards featured" id="grid-feat"></div>
+
+  <!-- Cards · the rest -->
+  <div class="cards" id="grid-rest"></div>
+</section>
+
+<!-- ====================== CODA ====================== -->
+<section class="ls-coda">
+  <div class="pull">
+    <em>The last line</em> on Cool Papa Bell's card is not a statistic. It is what the statistics
+    could not contain. That is intentional, and Bell's is not the only card on which it applies.
+  </div>
+  <div class="attr">
+    <div class="nm">METHODOLOGICAL NOTE</div>
+    <div>— The Color Line, Report 04</div>
+  </div>
+</section>
+
+<!-- Distribution of lost seasons, drawn from the data -->
+<section class="dist">
+  <div class="h">Fig. 02b  ·  Distribution of lost seasons across the fifty</div>
+  <svg id="dist-svg" viewBox="0 0 1200 200" role="img" aria-label="Histogram of lost seasons across the fifty players"></svg>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT &middot; <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+<script src="lost-seasons-data.js"></script>
+<script>
+  // Render
+  const data = window.LOST_SEASONS;
+  const top5 = data.slice(0, 5);
+  const rest = data.slice(5);
+
+  function cardHTML(p, feature) {
+    const cls = "card" + (feature ? " feature" : "");
+    const zeroCls = p.lost === 0 ? " zero" : "";
+    const photoHTML = p.photo
+      ? `<div class="card-photo"><img src="${p.photo}" alt="${p.name}" loading="lazy" /><span class="photo-credit">${p.credit || ""}</span></div>`
+      : "";
+    return `
+      <article class="${cls}">
+        ${photoHTML}
+        <div class="rank">№ ${String(p.rank).padStart(2, "0")}</div>
+        <h3 class="name">${p.name}</h3>
+        <div class="meta">${p.pos}<span class="sep">·</span>${p.yrs}</div>
+        <div class="stat">${p.stat}</div>
+        <div class="lost-label">Lost seasons</div>
+        <div class="lost-num${zeroCls}">${p.lost}<span class="yr">yrs</span></div>
+        <div class="note">${p.note}</div>
+      </article>
+    `;
+  }
+
+  document.getElementById("grid-feat").innerHTML = top5.map(p => cardHTML(p, true)).join("");
+  document.getElementById("grid-rest").innerHTML = rest.map(p => cardHTML(p, false)).join("");
+
+  // === Distribution histogram (bottom Fig. 02b) ===
+  (function() {
+    const svg = document.getElementById("dist-svg");
+    const W = 1200, H = 200, padL = 36, padR = 36, padT = 22, padB = 36;
+    const buckets = {};
+    let max = 0;
+    for (const p of data) {
+      buckets[p.lost] = (buckets[p.lost] || 0) + 1;
+      if (buckets[p.lost] > max) max = buckets[p.lost];
+    }
+    const minLost = Math.min(...data.map(p => p.lost));
+    const maxLost = Math.max(...data.map(p => p.lost));
+    const range = maxLost - minLost;
+    const barW = (W - padL - padR) / (range + 1);
+
+    let s = "";
+    for (let v = minLost; v <= maxLost; v++) {
+      const n = buckets[v] || 0;
+      const x = padL + (v - minLost) * barW;
+      const h = (H - padT - padB) * n / max;
+      const y = H - padB - h;
+      if (n > 0) {
+        // Bar
+        s += `<rect x="${x + 2}" y="${y}" width="${barW - 4}" height="${h}" fill="#c25555" opacity="0.75" />`;
+        // count label
+        s += `<text x="${x + barW/2}" y="${y - 6}" fill="#c4bda9" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">${n}</text>`;
+      }
+      // axis tick
+      if (v % 2 === 0 || v === maxLost || v === minLost) {
+        s += `<text x="${x + barW/2}" y="${H - padB + 16}" fill="#8a8270" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle" letter-spacing="0.06em">${v}</text>`;
+      }
+    }
+    // baseline
+    s += `<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="#2a261d" stroke-width="1" />`;
+    // axis label
+    s += `<text x="${padL}" y="${H - 6}" fill="#5e5849" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.14em">LOST SEASONS  →</text>`;
+    s += `<text x="${W - padR}" y="${padT - 6}" fill="#5e5849" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.14em" text-anchor="end">PLAYERS</text>`;
+    svg.innerHTML = s;
+  })();
+
+  // Tally — sum across all
+  document.getElementById("tally").innerHTML =
+    data.reduce((s, p) => s + p.lost, 0) + `<span class="unit">player-seasons</span>`;
+</script>
+
+</main>
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</body>
+</html>

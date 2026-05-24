@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Synthesis · The Color Line</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+<style>
+.synth-wrap { margin-top: 14px; border-top: 1px solid var(--rule); padding-top: 22px; }
+.synth-input-row { display: flex; gap: 10px; align-items: center; max-width: 640px; margin-bottom: 14px; }
+.synth-input {
+  flex: 1; background: var(--ink-2); border: 1px solid var(--rule); border-radius: 3px;
+  color: var(--vellum); font-family: var(--mono); font-size: 13px; padding: 10px 14px;
+  outline: none; letter-spacing: 0.02em;
+}
+.synth-input:focus { border-color: var(--amber); }
+.synth-btn {
+  padding: 10px 18px; border-radius: 3px; border: 1px solid var(--amber);
+  background: var(--amber); color: var(--ink); font-family: var(--mono); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+}
+.synth-btn:disabled { background: var(--ink-2); color: var(--muted); border-color: var(--rule); cursor: wait; }
+.synth-suggestions { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.synth-chip {
+  padding: 4px 10px; border-radius: 3px; border: 1px solid var(--rule); background: var(--ink-2);
+  color: var(--muted); font-family: var(--mono); font-size: 11px; cursor: pointer; letter-spacing: 0.02em;
+}
+.synth-chip:hover { color: var(--vellum-dim); border-color: var(--muted); }
+.synth-result { margin-top: 16px; }
+.synth-meta {
+  font-family: var(--mono); font-size: 10px; color: var(--muted-2); letter-spacing: 0.08em; margin-bottom: 10px;
+}
+.synth-text {
+  padding: 18px 22px; border-radius: 3px; border: 1px solid var(--rule); background: var(--ink-2);
+  font-family: var(--serif); font-size: 16px; line-height: 1.65; color: var(--vellum-dim); margin-bottom: 12px;
+}
+.synth-conf {
+  display: inline-block; padding: 2px 8px; border-radius: 3px; font-family: var(--mono);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.synth-conf.high { background: rgba(76,175,80,0.15); border: 1px solid rgba(76,175,80,0.4); color: #4CAF50; }
+.synth-conf.moderate { background: rgba(255,183,77,0.15); border: 1px solid rgba(255,183,77,0.4); color: #FFB74D; }
+.synth-conf.candidate { background: rgba(144,164,174,0.15); border: 1px solid rgba(144,164,174,0.4); color: #90A4AE; }
+.synth-sources { font-family: var(--mono); font-size: 10px; color: var(--muted-2); margin-left: 12px; }
+.synth-raw { margin-top: 12px; }
+.synth-raw button {
+  padding: 4px 10px; border-radius: 3px; border: 1px solid var(--rule); background: var(--ink-2);
+  color: var(--muted); font-family: var(--mono); font-size: 11px; cursor: pointer;
+}
+.synth-raw-table {
+  margin-top: 8px; max-height: 280px; overflow-y: auto; border: 1px solid var(--rule); border-radius: 3px;
+  font-family: var(--mono); font-size: 11px;
+}
+.synth-raw-table table { width: 100%; border-collapse: collapse; }
+.synth-raw-table th, .synth-raw-table td { text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--rule); }
+.synth-raw-table th { color: var(--muted-2); font-weight: 500; position: sticky; top: 0; background: var(--ink-2); }
+.synth-raw-table td.k { color: var(--muted); white-space: nowrap; }
+.synth-raw-table td.v { color: var(--vellum-dim); }
+.synth-error {
+  padding: 12px 16px; border-radius: 3px; border: 1px solid rgba(244,67,54,0.3);
+  background: rgba(244,67,54,0.08); font-family: var(--mono); font-size: 12px; color: #EF5350;
+}
+.synth-loading {
+  padding: 20px; text-align: center; font-family: var(--mono); font-size: 12px;
+  color: var(--muted); letter-spacing: 0.1em;
+}
+
+/* Method panel */
+.synth-method { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.synth-method .h {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted-2); margin-bottom: 10px;
+}
+.synth-method .body {
+  font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 720px;
+}
+.synth-method .body p { margin: 0 0 10px; }
+.synth-method .body em { color: var(--vellum-dim); }
+.synth-conf-row { display: flex; gap: 20px; flex-wrap: wrap; margin: 12px 0; }
+.synth-conf-item { display: flex; align-items: center; gap: 8px; }
+.synth-conf-item span:last-child { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="shell">
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="16" x2="7"  y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="32" x2="7"  y2="32" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="40" x2="7"  y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="56" x2="7"  y2="56" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="64" x2="7"  y2="64" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <div>
+      <div class="series"><span>One Hundred Years of</span></div>
+      <h1>The Color <em>Line</em></h1>
+      <div class="sub">
+        Plain-language findings from the pre-computed model outputs, at any resolution.
+        <em>The engine synthesizes; it does not invent.</em>
+      </div>
+    </div>
+  </div>
+  <div class="meta" style="white-space:nowrap">
+    <div><span class="k">Section</span> &nbsp; <span class="v">09 / 09</span></div>
+    <div><span class="k">Engine</span> &nbsp; <span class="v">Claude · Anthropic</span></div>
+    <div><span class="k">Method</span> &nbsp; <span class="v">Grounded synthesis</span></div>
+  </div>
+</header>
+
+<!-- TAB STRIP -->
+<nav class="tabs" aria-label="Sections">
+  <a class="tab" href="index.html">Record Book</a>
+  <a class="tab" href="lost-seasons.html">Lost Seasons</a>
+  <a class="tab" href="breach.html">The Breach</a>
+  <a class="tab" href="numbers.html">The Numbers</a>
+  <a class="tab" href="careers.html">Parallel Careers</a>
+  <a class="tab" href="method.html">Method</a>
+  <a class="tab" href="voices.html">The Voices</a>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <div class="tab active">Synthesis</div>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- SYNTHESIS ENGINE -->
+<div class="synth-wrap">
+  <div class="section-head">
+    <div class="label">Extension 03 &middot; Synthesis engine</div>
+    <div class="rule"></div>
+  </div>
+  <div class="section-lede">
+    Type a player name, team, stat category, or year. The synthesis engine translates
+    pre-computed model outputs into plain-language findings.
+  </div>
+
+  <div class="synth-input-row">
+    <input class="synth-input" id="synth-q" type="text"
+           placeholder="e.g. Josh Gibson, Brooklyn Dodgers, career batting average, 1947" />
+    <button class="synth-btn" id="synth-go">Synthesize</button>
+  </div>
+
+  <div class="synth-suggestions" id="synth-chips"></div>
+  <div id="synth-output"></div>
+
+  <!-- Method -->
+  <div class="synth-method">
+    <div class="h">How it works</div>
+    <div class="body">
+      <p>
+        The synthesis engine receives pre-computed data from the Color Line analysis pipeline
+        and translates it into plain-language findings using Claude (Anthropic). <em>Every numerical
+        claim is grounded in the data visible in the raw data panel below each finding.</em>
+      </p>
+      <div class="synth-conf-row">
+        <div class="synth-conf-item"><span class="synth-conf high">HIGH CONFIDENCE</span><span>directly in the data</span></div>
+        <div class="synth-conf-item"><span class="synth-conf moderate">MODERATE CONFIDENCE</span><span>minimal inference</span></div>
+        <div class="synth-conf-item"><span class="synth-conf candidate">CANDIDATE</span><span>requires assumptions</span></div>
+      </div>
+      <p>Responses are cached for 24 hours. The same query returns the same synthesis.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT &middot; <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+<!-- Data sources -->
+<script src="lost-seasons-data.js"></script>
+<script src="numbers-data.js"></script>
+<script src="breach-data.js"></script>
+<script src="careers-data.js"></script>
+<script src="gibson-data.js"></script>
+<script src="voices-data.js"></script>
+
+<script>
+(function() {
+  var WORKER = 'https://ohy-synthesis.jeremyhaynes.workers.dev';
+
+  var suggestions = [
+    { label: 'Josh Gibson', type: 'player' },
+    { label: 'Jackie Robinson', type: 'player' },
+    { label: 'Brooklyn Dodgers', type: 'team' },
+    { label: 'career batting average', type: 'stat' },
+    { label: '1947', type: 'year' },
+    { label: 'Satchel Paige', type: 'player' },
+    { label: 'Boston Red Sox', type: 'team' },
+    { label: 'Roy Campanella', type: 'player' },
+  ];
+
+  // Render suggestion chips
+  var chipsEl = document.getElementById('synth-chips');
+  chipsEl.innerHTML = '<span style="font-family:var(--mono);font-size:10px;color:var(--muted-2);letter-spacing:0.1em;margin-right:4px;align-self:center;">TRY:</span>' +
+    suggestions.map(function(s) {
+      return '<span class="synth-chip" data-q="' + s.label + '">' + s.label + '</span>';
+    }).join('');
+  chipsEl.addEventListener('click', function(e) {
+    var chip = e.target.closest('.synth-chip');
+    if (!chip) return;
+    document.getElementById('synth-q').value = chip.dataset.q;
+    runSynthesis(chip.dataset.q);
+  });
+
+  // Query matcher
+  function matchQuery(q) {
+    var ql = q.trim().toLowerCase();
+    if (!ql) return null;
+
+    // Match player in LOST_SEASONS
+    var playerMatch = window.LOST_SEASONS.find(function(p) {
+      return p.name.toLowerCase().includes(ql);
+    });
+    if (playerMatch) {
+      // Check if they're also in LANES
+      var inLanes = [];
+      window.LANES.forEach(function(lane) {
+        lane.players.forEach(function(p) {
+          if (p.name.toLowerCase().includes(ql)) inLanes.push({ cat: lane.cat, value: p.v, league: p.league });
+        });
+      });
+      // Check CAREERS
+      var inCareers = window.CAREERS.find(function(c) { return c.name.toLowerCase().includes(ql); });
+      // Check GIBSON
+      var isGibson = window.GIBSON && window.GIBSON.name.toLowerCase().includes(ql);
+
+      return {
+        type: 'player', label: playerMatch.name,
+        context: {
+          player: playerMatch,
+          records: inLanes,
+          career: inCareers ? { name: inCareers.name, careerWAR: inCareers.careerWAR, modelWAR: inCareers.modelWAR, stolen: inCareers.stolen } : null,
+          gibson: isGibson ? { ensemble: window.GIBSON.ensemble, nl: window.GIBSON.nl, records: window.GIBSON.records } : null
+        }
+      };
+    }
+
+    // Match player in CAREERS
+    var careerMatch = window.CAREERS.find(function(c) { return c.name.toLowerCase().includes(ql); });
+    if (careerMatch) {
+      return {
+        type: 'player', label: careerMatch.name,
+        context: {
+          player: { name: careerMatch.name, pos: careerMatch.role },
+          career: { name: careerMatch.name, careerWAR: careerMatch.careerWAR, modelWAR: careerMatch.modelWAR, stolen: careerMatch.stolen, debutActual: careerMatch.debutActual, debutModel: careerMatch.debutModel }
+        }
+      };
+    }
+
+    // Match team in BREACH_TEAMS
+    var teamMatch = window.BREACH_TEAMS.find(function(t) {
+      return t.team.toLowerCase().includes(ql) || t.id === ql;
+    });
+    if (teamMatch) {
+      return {
+        type: 'team', label: teamMatch.team,
+        context: { team: teamMatch }
+      };
+    }
+
+    // Match stat category in LANES
+    var laneMatch = window.LANES.find(function(l) { return l.cat.toLowerCase().includes(ql); });
+    if (laneMatch) {
+      return {
+        type: 'stat', label: laneMatch.cat,
+        context: { lane: { cat: laneMatch.cat, unit: laneMatch.unit, players: laneMatch.players } }
+      };
+    }
+
+    // Match year
+    var yearNum = parseInt(ql, 10);
+    if (yearNum >= 1880 && yearNum <= 2024) {
+      var yearTeams = window.BREACH_TEAMS.filter(function(t) { return t.dt.includes(String(yearNum)); });
+      var yearPlayers = window.LOST_SEASONS.filter(function(p) { return p.yrs.includes(String(yearNum)); });
+      return {
+        type: 'year', label: String(yearNum),
+        context: { year: yearNum, teams: yearTeams, players: yearPlayers.slice(0, 10) }
+      };
+    }
+
+    // Fuzzy — try partial on players again
+    var fuzzyPlayer = window.LOST_SEASONS.find(function(p) {
+      return p.name.toLowerCase().split(' ').some(function(w) { return w.startsWith(ql); });
+    });
+    if (fuzzyPlayer) {
+      return { type: 'player', label: fuzzyPlayer.name, context: { player: fuzzyPlayer } };
+    }
+
+    return null;
+  }
+
+  // Flatten object for raw data table
+  function flattenObj(obj, prefix, rows) {
+    if (Array.isArray(obj)) {
+      obj.forEach(function(item, i) {
+        if (typeof item === 'object' && item !== null) flattenObj(item, prefix + '[' + i + ']', rows);
+        else rows.push({ key: prefix + '[' + i + ']', value: String(item) });
+      });
+    } else if (typeof obj === 'object' && obj !== null) {
+      Object.keys(obj).forEach(function(k) {
+        var v = obj[k];
+        var pk = prefix ? prefix + '.' + k : k;
+        if (typeof v === 'object' && v !== null) flattenObj(v, pk, rows);
+        else rows.push({ key: pk, value: String(v) });
+      });
+    }
+  }
+
+  function renderRawTable(context) {
+    var rows = [];
+    flattenObj(context, '', rows);
+    var display = rows.slice(0, 40);
+    var html = '<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>';
+    display.forEach(function(r) {
+      html += '<tr><td class="k">' + r.key + '</td><td class="v">' + r.value + '</td></tr>';
+    });
+    html += '</tbody></table>';
+    if (rows.length > 40) html += '<div style="padding:4px 8px;color:var(--muted-2);font-size:10px;">+ ' + (rows.length - 40) + ' more</div>';
+    return html;
+  }
+
+  // Run synthesis
+  function runSynthesis(queryStr) {
+    var q = queryStr || document.getElementById('synth-q').value;
+    if (!q.trim()) return;
+
+    var out = document.getElementById('synth-output');
+    var match = matchQuery(q);
+
+    if (!match) {
+      out.innerHTML = '<div class="synth-error">No matching data for "' + q + '." Try a player name, team, stat category, or year.</div>';
+      return;
+    }
+
+    out.innerHTML = '<div class="synth-loading">analyzing corpus data\u2026<br><span style="font-size:10px;color:var(--muted-2);">matched: ' + match.type + ' \u2192 ' + match.label + '</span></div>';
+
+    fetch(WORKER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: q.trim(), context: match.context })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.error) { out.innerHTML = '<div class="synth-error">' + data.error + '</div>'; return; }
+
+      var confClass = (data.confidence || '').toLowerCase().includes('high') ? 'high' :
+                      (data.confidence || '').toLowerCase().includes('moderate') ? 'moderate' : 'candidate';
+
+      out.innerHTML =
+        '<div class="synth-result">' +
+          '<div class="synth-meta">QUERY TYPE: ' + (data.query_type || match.type).toUpperCase() +
+            ' &middot; MATCHED: ' + match.label + (data.cached ? ' &middot; CACHED' : '') + '</div>' +
+          '<div class="synth-text">' + data.synthesis + '</div>' +
+          '<div><span class="synth-conf ' + confClass + '">' + (data.confidence || 'CANDIDATE') + '</span>' +
+            (data.sources && data.sources.length ? '<span class="synth-sources">SOURCES: ' + data.sources.join(', ') + '</span>' : '') +
+          '</div>' +
+          '<div class="synth-raw"><button id="raw-toggle">show raw data \u25BE</button>' +
+            '<div class="synth-raw-table" id="raw-table" style="display:none;">' + renderRawTable(match.context) + '</div>' +
+          '</div>' +
+        '</div>';
+
+      document.getElementById('raw-toggle').addEventListener('click', function() {
+        var tbl = document.getElementById('raw-table');
+        var showing = tbl.style.display !== 'none';
+        tbl.style.display = showing ? 'none' : 'block';
+        this.textContent = showing ? 'show raw data \u25BE' : 'hide raw data \u25B4';
+      });
+    })
+    .catch(function(err) {
+      out.innerHTML = '<div class="synth-error">' + (err.message || 'Failed to reach synthesis service') + '</div>';
+    });
+  }
+
+  // Event listeners
+  document.getElementById('synth-go').addEventListener('click', function() { runSynthesis(); });
+  document.getElementById('synth-q').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); runSynthesis(); }
+  });
+})();
+</script>
+
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</main>
+</body>
+</html>

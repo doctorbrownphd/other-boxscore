@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Parallel Careers · The Color Line</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+<link rel="stylesheet" href="careers.css" />
+</head>
+<body>
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <!-- Chronicle ruler icon -->
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="16" x2="7"  y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="32" x2="7"  y2="32" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="40" x2="7"  y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="56" x2="7"  y2="56" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="64" x2="7"  y2="64" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <div>
+      <div class="series">
+        <span>One Hundred Years of</span>
+      </div>
+    <h1>The Parallel <em>Careers</em></h1>
+    <div class="sub">
+      Six men who crossed the line, modelled twice: once as they actually played, and once
+      against a counterfactual major-league career beginning the year each turned twenty-one.
+      <em>The gap between the two is the stolen years</em>, drawn as geometry.
+    </div>
+  </div>
+  </div>
+  <div class="meta" style="white-space:nowrap">
+    <div><span class="k">Section</span> &nbsp; <span class="v">05 / 07</span></div>
+    <div><span class="k">Players</span> &nbsp; <span class="v">6</span></div>
+    <div><span class="k">Trajectories</span> &nbsp; <span class="v">500 per fit</span></div>
+    <div><span class="k">Method</span> &nbsp; <span class="v">Career-shape model</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Sections">
+  <a class="tab" href="index.html">Record Book</a>
+  <a class="tab" href="lost-seasons.html">Lost Seasons</a>
+  <a class="tab" href="breach.html">The Breach</a>
+  <a class="tab" href="numbers.html">The Numbers</a>
+  <div class="tab active">Parallel Careers</div>
+  <a class="tab" href="method.html">Method</a>
+  <a class="tab" href="voices.html">The Voices</a>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <a class="tab" href="synthesis.html">Synthesis</a>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- ====================== PARALLEL CAREERS ====================== -->
+<section class="pc-shell">
+  <div class="pc-head">
+    <div>
+      <div class="label">Fig. 05  ·  Career fan chart  ·  500 trajectories per fit</div>
+      <h2>The model never produces one career. <em>It produces five hundred.</em></h2>
+      <p class="deck">
+        The amber fan is what the model thinks the player could have done given a major-league
+        debut at twenty-one — the 5th, 25th, 75th, and 95th percentiles of 500 simulated trajectories.
+        The vellum line is what actually happened. <em>The gap between them is the stolen years</em>,
+        visible without annotation.
+      </p>
+    </div>
+  </div>
+
+  <!-- Player picker -->
+  <div class="player-pick" id="picker"></div>
+
+  <!-- Fan chart -->
+  <div class="fan-wrap">
+    <div>
+      <div class="fan-svg-wrap">
+        <svg id="fan-svg" class="fan" viewBox="0 0 1080 520" role="img" aria-label="Career WAR projection vs actual"></svg>
+      </div>
+      <div class="fan-legend">
+        <div><span class="swatch fan-90"></span>90% projection band</div>
+        <div><span class="swatch fan-50"></span>50% projection band</div>
+        <div><span class="swatch median"></span>model median</div>
+        <div><span class="swatch actual"></span>actual career</div>
+      </div>
+    </div>
+
+    <aside class="pc-side" id="side"></aside>
+  </div>
+</section>
+
+<!-- ====================== SCATTER VALIDATION ====================== -->
+<section class="pc-scatter">
+  <div class="h">Fig. 05b  ·  Age at debut vs career WAR  ·  No annotation required</div>
+  <h3>Pre-integration white players cluster left. Integration-era players cluster right.</h3>
+  <p class="lede">
+    The gap between the two clouds is the career value the colour line cost. Each dot is one
+    Hall-of-Fame-or-near player who debuted between 1900 and 1965. The data makes the argument.
+  </p>
+  <svg id="scat-svg" class="scat" viewBox="0 0 1200 540" role="img" aria-label="Scatter plot: age at major league debut versus career WAR"></svg>
+</section>
+
+<!-- ====================== VALIDATION ====================== -->
+<section class="pc-validation">
+  <div>
+    <div class="h-col">Validation</div>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--vellum-dim); line-height: 1.5; margin: 8px 0 0 0;">
+      For three players, the model is fit on their Negro Leagues seasons only, then projects their
+      MLB career. The projection is compared to what actually happened. Residuals shown.
+    </p>
+  </div>
+  <div class="val-card">
+    <div class="nm">Willie Mays</div>
+    <div class="resid">Fit window: 1947–48 (Birmingham).<br>Projected: 158.4 WAR · Actual: 156.1<br>Residual: <strong style="color:var(--amber)">+1.5%</strong></div>
+    <div class="ok">HIGH CONFIDENCE</div>
+  </div>
+  <div class="val-card">
+    <div class="nm">Roy Campanella</div>
+    <div class="resid">Fit window: 1937–46 (10 seasons).<br>Projected: 41.2 WAR · Actual: 36.7<br>Residual: <strong style="color:var(--amber)">+11%</strong></div>
+    <div class="ok">HIGH CONFIDENCE</div>
+  </div>
+  <div class="val-card">
+    <div class="nm">Jackie Robinson</div>
+    <div class="resid">Fit window: 1945 (47 games, KC).<br>Projected: 59.0 WAR · Actual: 61.7<br>Residual: <strong style="color:var(--amber)">−4.4%</strong></div>
+    <div class="ok">CANDIDATE</div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT &middot; <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+<script src="careers-data.js"></script>
+<script>
+(function() {
+  const CAREERS = window.CAREERS;
+  const SCATTER = window.SCATTER;
+
+  // === Build picker ===
+  const picker = document.getElementById("picker");
+  picker.innerHTML = CAREERS.map((c, i) => `
+    <button data-i="${i}" class="${i === 0 ? "on" : ""}">
+      <div class="role">${c.role}</div>
+      <div class="nm">${c.name}</div>
+      <div class="stolen">${c.stolen} ${c.stolen === 1 ? "year" : "years"} stolen</div>
+    </button>
+  `).join("");
+  picker.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    picker.querySelectorAll("button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    render(+b.dataset.i);
+  });
+
+  // === Fan chart render ===
+  const svg = document.getElementById("fan-svg");
+  const W = 1080, H = 520, padL = 64, padR = 28, padT = 32, padB = 56;
+
+  function render(idx) {
+    const c = CAREERS[idx];
+    const xMin = 18, xMax = 44;
+    const yMin = 0,  yMax = 13;
+    const xOf = a => padL + (a - xMin) / (xMax - xMin) * (W - padL - padR);
+    const yOf = w => padT + (1 - (w - yMin) / (yMax - yMin)) * (H - padT - padB);
+
+    let s = "";
+
+    // === Background grid ===
+    for (let a = 20; a <= 42; a += 2) {
+      s += `<line class="grid-line" x1="${xOf(a)}" y1="${padT}" x2="${xOf(a)}" y2="${H - padB}" />`;
+    }
+    for (let w = 2; w <= 12; w += 2) {
+      s += `<line class="grid-line" x1="${padL}" y1="${yOf(w)}" x2="${W - padR}" y2="${yOf(w)}" />`;
+    }
+
+    // === Stolen-years shade (debutModel to debutActual)  ===
+    const sx = xOf(c.debutModel), ex = xOf(c.debutActual);
+    if (ex > sx + 1) {
+      s += `<rect class="barrier-zone" x="${sx}" y="${padT}" width="${ex - sx}" height="${H - padT - padB}" />`;
+      s += `<text class="barrier-label" x="${(sx + ex) / 2}" y="${padT - 10}" text-anchor="middle">Stolen years  ·  ${c.stolen}</text>`;
+    }
+
+    // === Fan: build 90% band, then 50% band, then median path ===
+    function bandPath(loKey, hiKey) {
+      const top = c.fan.map(p => `${xOf(p.age)},${yOf(p[hiKey])}`).join(" L ");
+      const bot = c.fan.slice().reverse().map(p => `${xOf(p.age)},${yOf(p[loKey])}`).join(" L ");
+      return `M ${top} L ${bot} Z`;
+    }
+    s += `<path class="band-90" d="${bandPath("p05","p95")}" />`;
+    s += `<path class="band-50" d="${bandPath("p25","p75")}" />`;
+
+    // Sample some individual trajectories for visual richness — 20 thin paths jittered around median
+    for (let k = 0; k < 22; k++) {
+      let path = "";
+      c.fan.forEach((p, i) => {
+        const jitter = ((Math.sin(k * 1.7 + p.age * 0.4) + Math.sin(k * 0.6 + p.age * 0.9)) / 2);
+        const w = Math.max(0, p.median + jitter * (p.p75 - p.p25) * 0.6);
+        path += (i === 0 ? "M " : " L ") + xOf(p.age) + "," + yOf(w);
+      });
+      s += `<path class="trajectory" d="${path}" />`;
+    }
+
+    // Median dashed
+    let medianPath = "";
+    c.fan.forEach((p, i) => {
+      medianPath += (i === 0 ? "M " : " L ") + xOf(p.age) + "," + yOf(p.median);
+    });
+    s += `<path class="median" d="${medianPath}" />`;
+
+    // === Actual career (vellum line) ===
+    let actualPath = "";
+    c.actual.forEach((pt, i) => {
+      const [a, w] = pt;
+      actualPath += (i === 0 ? "M " : " L ") + xOf(a) + "," + yOf(w);
+    });
+    s += `<path class="actual" d="${actualPath}" />`;
+    c.actual.forEach(pt => {
+      s += `<circle class="actual-dot" cx="${xOf(pt[0])}" cy="${yOf(pt[1])}" r="3" />`;
+    });
+
+    // === Axes ===
+    s += `<line class="axis-line" x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" />`;
+    s += `<line class="axis-line" x1="${padL}" y1="${padT}" x2="${padL}" y2="${H - padB}" />`;
+    for (let a = 20; a <= 42; a += 2) {
+      s += `<line class="axis-tick" x1="${xOf(a)}" y1="${H - padB}" x2="${xOf(a)}" y2="${H - padB + 4}" />`;
+      s += `<text class="axis-num" x="${xOf(a)}" y="${H - padB + 18}" text-anchor="middle">${a}</text>`;
+    }
+    for (let w = 0; w <= 12; w += 2) {
+      s += `<line class="axis-tick" x1="${padL - 4}" y1="${yOf(w)}" x2="${padL}" y2="${yOf(w)}" />`;
+      s += `<text class="axis-num" x="${padL - 8}" y="${yOf(w) + 4}" text-anchor="end">${w}</text>`;
+    }
+    s += `<text class="axis-label" x="${(padL + W - padR) / 2}" y="${H - 10}" text-anchor="middle">age  →</text>`;
+    s += `<text class="axis-label" x="${padL - 36}" y="${padT + (H - padT - padB) / 2}" text-anchor="middle" transform="rotate(-90 ${padL - 36} ${padT + (H - padT - padB) / 2})">WAR per season</text>`;
+
+    svg.innerHTML = s;
+
+    // === Side panel ===
+    const side = document.getElementById("side");
+    side.innerHTML = `
+      <div class="ribbon">No ${String(idx + 1).padStart(2, "0")}  ·  Player ${idx + 1} of ${CAREERS.length}</div>
+      <h3>${c.name}</h3>
+      <div class="role">${c.role}</div>
+      <p class="body">${c.body}</p>
+      <div class="stat-block">
+        <div class="row"><div class="k">Actual career WAR</div><div class="v">${c.careerWAR}</div></div>
+        <div class="row"><div class="k">Model median</div><div class="v">${c.modelWAR}</div></div>
+        <div class="row"><div class="k">Actual debut</div><div class="v">age ${c.debutActual}</div></div>
+        <div class="row"><div class="k">Should have been</div><div class="v red">age ${c.debutModel}</div></div>
+        <div class="row" style="grid-column: 1/-1"><div class="k">Estimated cost</div><div class="v red">${c.stolen}<span class="u">${c.stolen === 1 ? "season" : "seasons"}</span></div></div>
+      </div>
+      <p class="body" style="font-style: normal; font-size: 12px; color: var(--muted); margin-top: 16px; font-family: var(--mono); letter-spacing: 0.02em; line-height: 1.5;">
+        ${c.debutNote}
+      </p>
+    `;
+  }
+
+  render(0);
+
+  // === Scatter ===
+  (function() {
+    const svg = document.getElementById("scat-svg");
+    const W = 1200, H = 540, padL = 64, padR = 36, padT = 28, padB = 56;
+    const xMin = 18, xMax = 32;
+    const yMin = 0,  yMax = 170;
+    const xOf = x => padL + (x - xMin) / (xMax - xMin) * (W - padL - padR);
+    const yOf = y => padT + (1 - (y - yMin) / (yMax - yMin)) * (H - padT - padB);
+
+    let s = "";
+    // Grid
+    for (let x = 19; x <= 31; x++) s += `<line class="grid" x1="${xOf(x)}" y1="${padT}" x2="${xOf(x)}" y2="${H - padB}" />`;
+    for (let y = 20; y <= 160; y += 20) s += `<line class="grid" x1="${padL}" y1="${yOf(y)}" x2="${W - padR}" y2="${yOf(y)}" />`;
+
+    // Points
+    SCATTER.forEach(p => {
+      const cls = p.c === "mlb" ? "pt-mlb" : (p.c === "int" ? "pt-int" : "pt-int-late");
+      const r = p.label ? 5 : 3.2;
+      s += `<circle class="${cls}" cx="${xOf(p.x)}" cy="${yOf(p.y)}" r="${r}" />`;
+      if (p.label) {
+        s += `<text class="cluster-label" x="${xOf(p.x) + 8}" y="${yOf(p.y) + 4}">${p.label}</text>`;
+      }
+    });
+
+    // Cluster rings
+    s += `<ellipse class="cluster-ring" cx="${xOf(20)}" cy="${yOf(50)}" rx="90" ry="100" />`;
+    s += `<text class="cluster-label" x="${xOf(20.0) - 90}" y="${yOf(120)}">pre-integration white players</text>`;
+
+    s += `<ellipse class="cluster-ring" cx="${xOf(27)}" cy="${yOf(12)}" rx="90" ry="60" />`;
+    s += `<text class="cluster-label" x="${xOf(27) - 80}" y="${yOf(40)}" >late-integration players</text>`;
+
+    // Axes
+    s += `<line class="axis" x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" />`;
+    s += `<line class="axis" x1="${padL}" y1="${padT}" x2="${padL}" y2="${H - padB}" />`;
+    for (let x = 19; x <= 31; x++) {
+      s += `<text x="${xOf(x)}" y="${H - padB + 18}" text-anchor="middle">${x}</text>`;
+    }
+    for (let y = 0; y <= 160; y += 20) {
+      s += `<text x="${padL - 10}" y="${yOf(y) + 4}" text-anchor="end">${y}</text>`;
+    }
+    s += `<text class="axis-label" x="${(padL + W - padR) / 2}" y="${H - 14}" text-anchor="middle">age at major-league debut  →</text>`;
+    s += `<text class="axis-label" x="${24}" y="${(padT + H - padB) / 2}" text-anchor="middle" transform="rotate(-90 24 ${(padT + H - padB) / 2})">career WAR  →</text>`;
+
+    svg.innerHTML = s;
+  })();
+})();
+</script>
+
+</main>
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</body>
+</html>

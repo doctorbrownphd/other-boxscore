@@ -1,0 +1,269 @@
+/* === The Numbers They Kept · leaderboard lanes === */
+
+.lanes-shell {
+  margin-top: 14px;
+  padding: 26px 0 8px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.lanes-head {
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.lanes-head > div:first-child { min-width: 0; }
+.toggle button { padding: 13px 22px; font-size: 10.5px; letter-spacing: 0.14em; white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  .lanes-head { grid-template-columns: 1fr; }
+  .toggle-block { align-items: flex-start; }
+}
+.lanes-head .label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.lanes-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.02;
+  margin: 0;
+  letter-spacing: -0.012em;
+  max-width: 940px;
+}
+.lanes-head h2 em { color: var(--amber); font-style: italic; }
+.lanes-head .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--vellum-dim);
+  font-size: 18px;
+  max-width: 720px;
+  margin: 14px 0 0;
+  line-height: 1.42;
+}
+
+/* === The big toggle === */
+.toggle-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+.toggle-block .h {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.toggle {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--amber);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.toggle button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 13px 28px;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.toggle button.on {
+  background: var(--amber);
+  color: var(--ink);
+}
+.toggle button:not(.on):hover {
+  color: var(--vellum);
+}
+
+/* === The lane chart === */
+.lane-svg-wrap {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 0;
+}
+.lane-svg-wrap svg { display: block; width: 100%; height: auto; }
+
+.lane text { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
+.lane .cat-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--vellum-dim);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.lane .lane-line { stroke: var(--rule); stroke-width: 1; }
+.lane .lane-tick { stroke: var(--muted-2); stroke-width: 1; }
+.lane .axis-num { fill: var(--muted); }
+.lane .dot {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  transition: cx 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+              fill 800ms ease,
+              r 600ms ease;
+}
+.lane .dot.mlb     { fill: var(--mlb-post); }
+.lane .dot.mlb.lead{ fill: var(--vellum); r: 7; }
+.lane .dot.nl      { fill: var(--amber); r: 7; }
+.lane .dot.nl.dim  { opacity: 0; pointer-events: none; }
+.lane .dot.demoted { fill: var(--mlb-post); opacity: 0.45; }
+
+.lane .name {
+  font-family: var(--serif);
+  font-size: 13px;
+  fill: var(--vellum-dim);
+  letter-spacing: 0;
+  transition: x 1500ms cubic-bezier(0.4, 0, 0.2, 1),
+              fill 800ms ease;
+}
+.lane .name.lead { fill: var(--vellum); font-style: italic; }
+.lane .name.nl   { fill: var(--amber); font-style: italic; }
+.lane .name.nl.hidden { opacity: 0; }
+.lane .name.demoted { fill: var(--muted-2); }
+
+.lane .val {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  fill: var(--muted);
+  letter-spacing: 0.04em;
+}
+.lane .val.lead { fill: var(--vellum); }
+.lane .val.nl   { fill: var(--amber); }
+.lane .val.nl.hidden { opacity: 0; }
+
+.lane .new-leader-ring {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.lane .new-leader-ring.on { opacity: 0.8; }
+
+.lane .barrier-zone {
+  fill: rgba(212,166,74,0.04);
+}
+.lane .axis-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  fill: var(--muted-2);
+  text-transform: uppercase;
+}
+
+/* === The reshuffle ledger === */
+.ledger {
+  margin-top: 28px;
+}
+.ledger .h {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+.ledger-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 32px;
+  padding: 18px 0;
+  border-bottom: 1px dotted var(--rule);
+  align-items: baseline;
+}
+.ledger-row:first-of-type { border-top: 1px solid var(--rule); }
+.ledger-row .cat {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ledger-row .side {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+}
+.ledger-row .pos {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.ledger-row .pos.new { color: var(--amber); }
+.ledger-row .pos.dropped { color: var(--barrier-hot); }
+.ledger-row .nm {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--vellum-dim);
+}
+.ledger-row .nm.gibson { color: var(--amber); font-style: italic; }
+.ledger-row .v {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--vellum-dim);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* === Pull quote === */
+.lanes-quote {
+  margin: 56px 0 0;
+  padding: 30px 0 26px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 56px;
+  align-items: end;
+}
+.lanes-quote .q {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.22;
+  color: var(--vellum);
+  letter-spacing: -0.008em;
+  max-width: 920px;
+  margin: 0;
+}
+.lanes-quote .q::before {
+  content: "\201C";
+  display: inline-block;
+  font-size: 56px;
+  line-height: 0;
+  color: var(--amber);
+  vertical-align: -16px;
+  margin-right: 8px;
+  font-style: normal;
+}
+.lanes-quote .attr {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+.lanes-quote .attr .nm { color: var(--vellum-dim); }

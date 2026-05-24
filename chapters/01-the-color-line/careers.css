@@ -1,0 +1,359 @@
+/* === The Parallel Careers · fan charts === */
+
+.pc-shell {
+  margin-top: 14px;
+  padding: 26px 0 8px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.pc-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+.pc-head .label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.pc-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.02;
+  margin: 0;
+  letter-spacing: -0.012em;
+  max-width: 940px;
+}
+.pc-head h2 em { color: var(--amber); font-style: italic; }
+.pc-head .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--vellum-dim);
+  font-size: 18px;
+  max-width: 720px;
+  margin: 14px 0 0;
+  line-height: 1.42;
+}
+
+/* Player selector tabs */
+.player-pick {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 8px 0 28px;
+}
+.player-pick button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule);
+  padding: 18px 16px 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--serif);
+  color: var(--muted);
+  transition: background 120ms, color 120ms;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-height: 92px;
+}
+.player-pick button .nm {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--muted);
+  letter-spacing: -0.006em;
+  white-space: nowrap;
+}
+.player-pick button .role {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+@media (max-width: 1100px) {
+  .player-pick { grid-template-columns: repeat(3, 1fr); }
+  .player-pick button:nth-child(3n) { border-right: none; }
+  .player-pick button:nth-child(-n+3) { border-bottom: 1px solid var(--rule); }
+}
+.player-pick button:last-child { border-right: none; }
+.fan-wrap {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 22px;
+}
+@media (max-width: 1100px) {
+  .fan-wrap { grid-template-columns: 1fr; }
+}
+.player-pick button:hover { background: rgba(212,166,74,0.05); color: var(--vellum); }
+.player-pick button.on {
+  background: rgba(212,166,74,0.10);
+  color: var(--vellum);
+}
+.player-pick button.on .nm { color: var(--vellum); }
+.player-pick button.on .role { color: var(--amber); }
+.player-pick button .role {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.player-pick button .nm {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--muted);
+  letter-spacing: -0.006em;
+}
+.player-pick button .stolen {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--barrier-hot);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* === The fan chart === */
+.fan-svg-wrap {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0 12px;
+}
+.fan-svg-wrap svg { display: block; width: 100%; height: auto; }
+
+.fan text { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
+.fan .axis-line { stroke: var(--rule); stroke-width: 1; }
+.fan .axis-tick { stroke: var(--muted-2); stroke-width: 1; }
+.fan .axis-num  { fill: var(--muted); }
+.fan .grid-line { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
+.fan .axis-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--muted-2);
+}
+.fan .trajectory {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1;
+  opacity: 0.06;
+}
+.fan .band-90 { fill: rgba(212,166,74,0.10); }
+.fan .band-50 { fill: rgba(212,166,74,0.18); }
+.fan .median  { fill: none; stroke: var(--amber); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.fan .actual  {
+  fill: none;
+  stroke: var(--vellum);
+  stroke-width: 2.5;
+}
+.fan .actual-dot { fill: var(--vellum); stroke: var(--ink); stroke-width: 1.5; }
+.fan .barrier-zone {
+  fill: rgba(161,69,69,0.06);
+}
+.fan .barrier-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  fill: var(--barrier-hot);
+  text-transform: uppercase;
+}
+.fan .gap-shade {
+  fill: rgba(212, 166, 74, 0.06);
+}
+
+/* The right panel — player record */
+.pc-side {
+  font-family: var(--serif);
+  color: var(--vellum-dim);
+  padding-top: 18px;
+}
+.pc-side .ribbon {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pc-side h3 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--vellum);
+  letter-spacing: -0.012em;
+  margin: 0 0 4px;
+}
+.pc-side .role {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.pc-side .body {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  color: var(--vellum-dim);
+}
+.pc-side .body em { color: var(--amber); font-style: italic; }
+
+.pc-side .stat-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 24px;
+  border-top: 1px solid var(--rule);
+  padding: 14px 0 0;
+}
+.pc-side .stat-block .row .k {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.pc-side .stat-block .row .v {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--vellum);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.pc-side .stat-block .row .v.red { color: var(--barrier-hot); }
+.pc-side .stat-block .row .v .u { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 6px; letter-spacing: 0.06em; }
+
+/* === Legend === */
+.fan-legend {
+  display: flex;
+  gap: 26px;
+  margin: 10px 0 4px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  align-items: center;
+}
+.fan-legend .swatch {
+  display: inline-block;
+  width: 24px;
+  height: 8px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.fan-legend .swatch.actual { background: var(--vellum); height: 3px; }
+.fan-legend .swatch.median { background: transparent; border-top: 1px dashed var(--amber); height: 1px; margin-top: 4px; }
+.fan-legend .swatch.fan-50 { background: rgba(212,166,74,0.28); }
+.fan-legend .swatch.fan-90 { background: rgba(212,166,74,0.12); }
+
+/* === Scatter validation === */
+.pc-scatter {
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+}
+.pc-scatter .h {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.pc-scatter h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  line-height: 1.1;
+  color: var(--vellum);
+  margin: 0 0 4px;
+  max-width: 880px;
+}
+.pc-scatter .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--vellum-dim);
+  max-width: 720px;
+  margin: 8px 0 22px;
+  line-height: 1.45;
+}
+.pc-scatter svg { display: block; width: 100%; height: auto; }
+
+.scat .grid { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
+.scat .axis { stroke: var(--muted-2); stroke-width: 1; }
+.scat text  { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
+.scat .axis-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; fill: var(--muted-2); text-transform: uppercase; }
+.scat .pt-mlb { fill: rgba(196, 189, 169, 0.55); }
+.scat .pt-int { fill: var(--amber); }
+.scat .pt-int-late { fill: var(--barrier-hot); }
+.scat .cluster-ring { fill: none; stroke: var(--muted-2); stroke-width: 1; stroke-dasharray: 2 3; }
+.scat .cluster-label { font-family: var(--serif); font-style: italic; font-size: 14px; fill: var(--vellum-dim); }
+
+/* === Validation block === */
+.pc-validation {
+  margin-top: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 1fr;
+  gap: 28px;
+}
+.pc-validation .h-col {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  align-self: start;
+}
+.pc-validation .val-card {
+  border-left: 1px dotted var(--rule);
+  padding-left: 22px;
+}
+.pc-validation .val-card .nm {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--vellum);
+  margin-bottom: 6px;
+}
+.pc-validation .val-card .resid {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.pc-validation .val-card .ok {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--amber);
+  margin-top: 8px;
+}

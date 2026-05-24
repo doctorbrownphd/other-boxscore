@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Numbers They Kept · The Color Line</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+<link rel="stylesheet" href="numbers.css" />
+</head>
+<body>
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <!-- Chronicle ruler icon -->
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="16" x2="7"  y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="32" x2="7"  y2="32" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="40" x2="7"  y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="56" x2="7"  y2="56" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="64" x2="7"  y2="64" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <div>
+      <div class="series">
+        <span>One Hundred Years of</span>
+      </div>
+    <h1>The Numbers They <em>Kept</em></h1>
+    <div class="sub">
+      Five record categories, drawn as lanes. Players positioned along each by stat value.
+      Flip the switch. <em>Watch the leaderboard correct itself</em> — slowly, the way the record
+      book did in May 2024, seventy-seven years late.
+    </div>
+  </div>
+  </div>
+  <div class="meta" style="white-space:nowrap">
+    <div><span class="k">Section</span> &nbsp; <span class="v">04 / 07</span></div>
+    <div><span class="k">Categories</span> &nbsp; <span class="v">5</span></div>
+    <div><span class="k">Source</span> &nbsp; <span class="v">MLB · 29 May 2024</span></div>
+    <div><span class="k">New entries</span> &nbsp; <span class="v">2,300+</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Sections">
+  <a class="tab" href="index.html">Record Book</a>
+  <a class="tab" href="lost-seasons.html">Lost Seasons</a>
+  <a class="tab" href="breach.html">The Breach</a>
+  <div class="tab active">The Numbers</div>
+  <a class="tab" href="careers.html">Parallel Careers</a>
+  <a class="tab" href="method.html">Method</a>
+  <a class="tab" href="voices.html">The Voices</a>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <a class="tab" href="synthesis.html">Synthesis</a>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- ====================== LANES ====================== -->
+<section class="lanes-shell">
+  <div class="lanes-head">
+    <div>
+      <div class="label">Fig. 04  ·  Five categories, drawn as lanes</div>
+      <h2>The names on the left held the records. <em>The names on the right always earned them.</em></h2>
+      <p class="deck">
+        Each lane is a category. Each dot is a player, placed at the position his number puts him on the axis.
+        Pre-2024, the lanes carry only Major League players. Flip the switch, and the dots appear that
+        the bookkeepers had not been counting. None of them moves. They were already there.
+      </p>
+    </div>
+    <div class="toggle-block">
+      <div class="h">Include Negro Leagues</div>
+      <div class="toggle" role="radiogroup" aria-label="Statistical scope">
+        <button class="on" id="btn-pre"  data-mode="pre">Pre-2024</button>
+        <button id="btn-post" data-mode="post">Post-2024 →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane-svg-wrap">
+    <svg id="lanes-svg" class="lane" viewBox="0 0 1480 720" role="img" aria-label="Leaderboard lane chart, five categories, before and after the May 2024 statistical merger"></svg>
+  </div>
+
+  <!-- The reshuffle ledger -->
+  <section class="ledger">
+    <div class="h">Fig. 04b  ·  How the rankings rearranged</div>
+    <div id="ledger-rows"></div>
+  </section>
+
+  <!-- Pull -->
+  <section class="lanes-quote">
+    <p class="q">
+      These numbers were always true.<br>
+      We just weren't looking at them.
+    </p>
+    <div class="attr">
+      <div class="nm">SEAN GIBSON</div>
+      <div>great-grandson of Josh Gibson</div>
+      <div>quoted on the May 2024 merger</div>
+    </div>
+  </section>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT &middot; <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+<script src="numbers-data.js"></script>
+<script>
+(function() {
+  const svg = document.getElementById("lanes-svg");
+  const LANES = window.LANES;
+  const W = 1480, H = 720;
+  const padL = 260, padR = 200, padT = 50, padB = 36;
+  const innerW = W - padL - padR;
+  const laneH = (H - padT - padB) / LANES.length;
+
+  let mode = "pre";
+
+  function xOf(lane, v) {
+    return padL + (v - lane.min) / (lane.max - lane.min) * innerW;
+  }
+
+  function fmt(lane, v) { return lane.fmt(v); }
+
+  // === Render lanes ===
+  // We pre-render every node and just toggle classes / styles.
+  let html = "";
+
+  LANES.forEach((lane, li) => {
+    const y = padT + li * laneH + laneH / 2;
+    // Category label (left)
+    html += `<text class="cat-label" x="${padL - 24}" y="${y - laneH/2 + 22}" text-anchor="end">${String(li+1).padStart(2,"0")}</text>`;
+    html += `<text class="cat-label" x="${padL - 24}" y="${y - 8}" text-anchor="end">${lane.cat}</text>`;
+    html += `<text class="axis-label" x="${padL - 24}" y="${y + 10}" text-anchor="end">${lane.unit}</text>`;
+
+    // The lane line
+    html += `<line class="lane-line" x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" />`;
+
+    // axis ticks (5)
+    const steps = 5;
+    for (let i = 0; i <= steps; i++) {
+      const v = lane.min + (lane.max - lane.min) * i / steps;
+      const x = xOf(lane, v);
+      html += `<line class="lane-tick" x1="${x}" y1="${y - 4}" x2="${x}" y2="${y + 4}" />`;
+      html += `<text class="axis-num" x="${x}" y="${y + 18}" text-anchor="middle">${lane.fmt(v)}</text>`;
+    }
+
+    // === Sort players by value descending for ranking ===
+    const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => b.v - a.v);
+
+    // Only label the top 3 MLB + top 2 NL players per lane; rest are unlabeled dots
+    const mlbLabeled = sorted.filter(p => p.league !== "nl").slice(0, 3);
+    const nlLabeled = sorted.filter(p => p.league === "nl").slice(0, 2);
+    const labeledSet = new Set([...mlbLabeled, ...nlLabeled].map(p => p.name + "|" + p.v));
+
+    // Re-sort ascending for placement
+    const byVal = [...sorted].sort((a, b) => a.v - b.v);
+    let labelCount = 0;
+
+    byVal.forEach((p, i) => {
+      const x = xOf(lane, p.v);
+      const isNL = p.league === "nl";
+      const leagueCls = isNL ? "nl" : "mlb";
+      const showLabel = labeledSet.has(p.name + "|" + p.v);
+
+      // Dot — always shown
+      html += `<circle class="dot ${leagueCls}" data-li="${li}" data-i="${i}" data-league="${p.league}" cx="${x}" cy="${y}" r="${showLabel ? 5 : 3.5}" />`;
+
+      if (showLabel) {
+        // Alternate above/below for labeled players
+        const above = (labelCount % 2 === 0);
+        labelCount++;
+        const labY = above ? (y - 20) : (y + 30);
+        const valY = above ? (labY + 12) : (labY + 12);
+        const yearStr = p.year ? `  ${p.year}` : "";
+
+        html += `<text class="name ${leagueCls}" data-li="${li}" data-i="${i}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
+        html += `<text class="val ${leagueCls}" data-li="${li}" data-i="${i}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearStr}</text>`;
+      }
+    });
+  });
+
+  svg.innerHTML = html;
+
+  // === Apply mode ===
+  function applyMode(m) {
+    mode = m;
+    document.getElementById("btn-pre").classList.toggle("on",  m === "pre");
+    document.getElementById("btn-post").classList.toggle("on", m === "post");
+
+    LANES.forEach((lane, li) => {
+      const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => a.v - b.v);
+      // In pre mode: hide NL nodes; in post: show
+      sorted.forEach((p, i) => {
+        const dot   = svg.querySelector(`.dot[data-li="${li}"][data-i="${i}"]`);
+        const name  = svg.querySelector(`.name[data-li="${li}"][data-i="${i}"]`);
+        const val   = svg.querySelector(`.val[data-li="${li}"][data-i="${i}"]`);
+        const isNL = p.league === "nl";
+        if (isNL) {
+          dot.style.opacity  = (m === "post") ? "1" : "0";
+          name.style.opacity = (m === "post") ? "1" : "0";
+          val.style.opacity  = (m === "post") ? "1" : "0";
+        }
+      });
+
+      // Determine the leader in current mode
+      const visible = sorted.filter(p => m === "post" || p.league !== "nl");
+      const leader = visible.reduce((a, b) => a.v > b.v ? a : b);
+      // Toggle 'lead' class on leader's elements, clear others
+      sorted.forEach((p, i) => {
+        const dot   = svg.querySelector(`.dot[data-li="${li}"][data-i="${i}"]`);
+        const name  = svg.querySelector(`.name[data-li="${li}"][data-i="${i}"]`);
+        const val   = svg.querySelector(`.val[data-li="${li}"][data-i="${i}"]`);
+        const isLeader = (p.name === leader.name && p.v === leader.v && p.year === leader.year);
+        dot.classList.toggle("lead", isLeader);
+        name.classList.toggle("lead", isLeader);
+        val.classList.toggle("lead", isLeader);
+        // demoted = was top MLB and post mode now shows NL ahead
+        const wasMLBLeader = m === "post" && p.league === "mlb" &&
+            p.v === sorted.filter(q => q.league === "mlb").reduce((a, b) => a.v > b.v ? a : b).v;
+        dot.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
+        name.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
+      });
+    });
+
+    // Update ledger
+    renderLedger();
+  }
+
+  function renderLedger() {
+    const rows = LANES.map((lane, li) => {
+      const sortedDesc = [...lane.players].sort((a, b) => b.v - a.v);
+      const preTop  = sortedDesc.filter(p => p.league === "mlb")[0];
+      const postTop = sortedDesc[0];
+      const preTopRankInPost = sortedDesc.findIndex(p => p === preTop) + 1;
+      const yrPre  = preTop.year  ? `  (${preTop.year})`  : "";
+      const yrPost = postTop.year ? `  (${postTop.year})` : "";
+      const swap = preTop !== postTop;
+      return `
+        <div class="ledger-row">
+          <div class="cat">${lane.cat}</div>
+          <div class="side">
+            <div class="pos">${swap ? "→ #" + preTopRankInPost : "#1"}</div>
+            <div class="nm">${preTop.name}</div>
+            <div class="v">${lane.fmt(preTop.v)}${yrPre}</div>
+          </div>
+          <div class="side">
+            <div class="pos new">#1 ${swap ? "↑" : ""}</div>
+            <div class="nm ${postTop.league === "nl" ? "gibson" : ""}">${postTop.name}</div>
+            <div class="v">${lane.fmt(postTop.v)}${yrPost}</div>
+          </div>
+        </div>
+      `;
+    }).join("");
+    document.getElementById("ledger-rows").innerHTML = rows;
+  }
+
+  document.getElementById("btn-pre").addEventListener("click", () => applyMode("pre"));
+  document.getElementById("btn-post").addEventListener("click", () => applyMode("post"));
+
+  // Initial
+  applyMode("pre");
+
+  // After 1.5s, auto-flip to "post" once for first impression (cool reveal)
+  setTimeout(() => {
+    if (mode === "pre") applyMode("post");
+  }, 2200);
+})();
+</script>
+
+</main>
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Voices · The Color Line</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+<link rel="stylesheet" href="voices.css" />
+</head>
+<body>
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72"><line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="0" x2="12" y2="0" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="8" x2="7" y2="8" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="16" x2="7" y2="16" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="32" x2="7" y2="32" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="40" x2="7" y2="40" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/><line x1="0" y1="56" x2="7" y2="56" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="64" x2="7" y2="64" stroke="#C9A84C" stroke-width="0.8"/><line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/></svg>
+    </a>
+  <div>
+    <div class="series">
+      <span>One Hundred Years of</span>
+
+
+    </div>
+    <h1>The <em>Voices</em></h1>
+    <div class="sub">
+      The Pittsburgh Courier. The Chicago Defender. The papers that covered the game the rest of the press refused to see.
+    </div>
+  </div>
+  <div class="meta" style="white-space:nowrap">
+    <div><span class="k">Section</span> &nbsp; <span class="v">07 / 07</span></div>
+    <div><span class="k">Sources</span> &nbsp; <span class="v">2</span></div>
+    <div><span class="k">Window</span> &nbsp; <span class="v">1920 — 1960</span></div>
+    <div><span class="k">Excerpts</span> &nbsp; <span class="v" id="excerpt-count">27</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Sections">
+  <a class="tab" href="index.html">Record Book</a>
+  <a class="tab" href="lost-seasons.html">Lost Seasons</a>
+  <a class="tab" href="breach.html">The Breach</a>
+  <a class="tab" href="numbers.html">The Numbers</a>
+  <a class="tab" href="careers.html">Parallel Careers</a>
+  <a class="tab" href="method.html">Method</a>
+  <div class="tab active">The Voices</div>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <a class="tab" href="synthesis.html">Synthesis</a>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- ====================== MAIN CONTENT ====================== -->
+<section class="voices-shell">
+  <div class="voices-head">
+    <div>
+      <div class="label">Section 07 &middot; Curated excerpts from the Black press</div>
+      <h2>The papers that <em>kept the record.</em></h2>
+      <p class="deck">
+        The Pittsburgh Courier. The Chicago Defender. The papers that covered the game
+        the rest of the press refused to see. Twenty-seven excerpts across three eras,
+        from the founding of the Negro National League to the last game played.
+      </p>
+    </div>
+    <div class="key">
+      <div>PITTSBURGH COURIER</div>
+      <div>CHICAGO DEFENDER</div>
+      <div>1920 &ndash; 1960</div>
+    </div>
+  </div>
+
+  <div id="voices-content"></div>
+</section>
+
+<!-- ====================== CODA ====================== -->
+<section class="voices-coda">
+  <div class="pull">
+    These words were published in newspapers that no longer exist, about leagues that were dismantled,
+    covering players whose statistics were not counted for seventy-seven years.
+    <em>The game was played. The words were written. Both survived.</em>
+  </div>
+  <div class="attr">
+    <div>THE VOICES</div>
+    <div>Section 07 / 07</div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT &middot; <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+<script src="voices-data.js"></script>
+<script>
+  const data = window.VOICES_DATA;
+  const container = document.getElementById("voices-content");
+
+  // Update excerpt count from data
+  document.getElementById("excerpt-count").textContent = data.length;
+
+  const eras = [
+    { key: "pride",    years: "1920 \u2013 1940", title: "The Language of Excellence",
+      desc: "Before the argument for integration, there was the argument for existence." },
+    { key: "pressure", years: "1940 \u2013 1947", title: "The Language of Pressure",
+      desc: "The Double V campaign. If a man is good enough to fight for his country, he is good enough to play baseball in it." },
+    { key: "breach",   years: "1947 \u2013 1960", title: "The Language of Breakthrough and Loss",
+      desc: "Integration saved the players and killed the leagues. The reporters covered both things at once." }
+  ];
+
+  let html = "";
+  for (const era of eras) {
+    const items = data.filter(d => d.era === era.key);
+    html += `
+      <div class="era-header">
+        <div class="era-years">${era.years}</div>
+        <div class="era-title">${era.title}</div>
+        <div class="era-sub">${era.desc}</div>
+      </div>`;
+    for (const v of items) {
+      html += `
+      <div class="voice">
+        <div class="quote">${v.text}</div>
+        <div class="attr">
+          <span class="year-tag">${v.year}</span>
+          <div class="source">${v.source}</div>
+          <div class="author">${v.author}</div>
+          <div class="note">${v.note}</div>
+        </div>
+      </div>`;
+    }
+  }
+  container.innerHTML = html;
+</script>
+
+</main>
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</body>
+</html>

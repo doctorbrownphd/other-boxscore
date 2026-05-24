@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>One Hundred Years · The Color Line</title>
+<meta name="description" content="The barrier held for forty-seven years. 2,300+ Negro Leagues careers, finally counted. A civil rights document written in statistics.">
+<meta property="og:title" content="One Hundred Years — The Color Line">
+<meta property="og:description" content="The greatest players in the history of the game were not allowed to play in it. The numbers were always there.">
+<meta property="og:url" content="https://baseball.onehundredyears.report">
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="baseball.css" />
+</head>
+<body>
+
+<!-- ====================== SPLASH SCREEN ====================== -->
+<div id="splash" class="splash" style="display:none;">
+  <!-- Chronicle ruler icon — top left -->
+  <a href="https://onehundredyears.report" class="splash-ruler" style="text-decoration:none;">
+    <svg width="14" height="56" viewBox="0 0 18 72">
+      <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+      <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.2"/>
+      <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="16" x2="7"  y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.2"/>
+      <line x1="0" y1="32" x2="7"  y2="32" stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="40" x2="7"  y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.2"/>
+      <line x1="0" y1="56" x2="7"  y2="56" stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="64" x2="7"  y2="64" stroke="#C9A84C" stroke-width="0.8"/>
+      <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+    </svg>
+  </a>
+
+  <!-- Beat 1: the year -->
+  <div class="splash-number" style="font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:min(140px,20vw);font-weight:900;color:#1C1C18;letter-spacing:-0.02em;text-shadow:0 0 0 transparent;-webkit-text-stroke:0;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%224%22 height=%224%22><rect width=%224%22 height=%224%22 fill=%22%23EDE8DC%22/><rect width=%221%22 height=%221%22 fill=%22%23E5DFD0%22 x=%221%22 y=%221%22/></svg>') repeat;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1947</div>
+
+  <!-- Beat 2: the tagline -->
+  <div class="splash-label" style="font-family:'Space Mono',monospace;font-size:15px;color:rgba(237,232,220,0.4);letter-spacing:0.08em;margin-top:14px;">the door opened.</div>
+
+  <!-- Beat 3: the full title -->
+  <div class="splash-title" style="font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:min(36px,5vw);font-weight:700;color:#EDE8DC;margin-top:56px;text-align:center;max-width:640px;line-height:1.15;">One Hundred Years of The Color Line</div>
+
+  <div class="splash-thesis" style="font-family:'EB Garamond',Georgia,serif;font-size:16px;color:rgba(237,232,220,0.45);text-align:center;max-width:540px;line-height:1.65;margin-top:18px;font-style:italic;">The greatest players in the history of the game were not allowed to play in it. The numbers were always there. We just weren't counting them.</div>
+
+  <!-- Beat 4: enter CTA -->
+  <div class="splash-enter" style="font-family:'Space Mono','IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(237,232,220,0.4);margin-top:64px;">ENTER THE RECORD &rarr;</div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'corpus_baseball_seen';
+  if (sessionStorage.getItem(KEY)) return;
+  var splash = document.getElementById('splash');
+  splash.style.display = '';
+  var ready = false;
+  setTimeout(function(){ ready = true; }, 3500);
+  function dismiss(){
+    if (!ready) return;
+    splash.classList.add('out');
+    sessionStorage.setItem(KEY, '1');
+    setTimeout(function(){ splash.style.display = 'none'; }, 520);
+  }
+  splash.addEventListener('click', dismiss);
+  document.addEventListener('keydown', function handler(e){
+    if (!ready) return;
+    dismiss();
+    document.removeEventListener('keydown', handler);
+  });
+})();
+</script>
+
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div style="display:flex;align-items:flex-start;gap:16px;">
+    <!-- Chronicle ruler icon -->
+    <a href="https://onehundredyears.report" style="text-decoration:none;flex-shrink:0;margin-top:4px;">
+      <svg width="14" height="56" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="8"  x2="7"  y2="8"  stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="16" x2="7"  y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="32" x2="7"  y2="32" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="40" x2="7"  y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="56" x2="7"  y2="56" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="64" x2="7"  y2="64" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+      </svg>
+    </a>
+    <div>
+      <div class="series">
+        <span>One Hundred Years of</span>
+      </div>
+    <h1 style="display:flex;align-items:center;gap:16px;">The Color <em>Line</em>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.25;flex-shrink:0;">
+        <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/>
+      </svg>
+    </h1>
+    <div class="sub">
+      The barrier held for forty-seven years.
+      It came down in eighty-five seconds on the afternoon of April 15, 1947 —
+      and twelve years, three months, six days later, the last team still hadn't moved.
+    </div>
+  </div>
+  <div class="meta">
+    <div><span class="k">Issue</span> &nbsp; <span class="v">04 / 12</span></div>
+    <div><span class="k">Window</span> &nbsp; <span class="v">1920 — 2024</span></div>
+    <div><span class="k">Players</span> &nbsp; <span class="v">2,300+</span></div>
+    <div><span class="k">Updated</span> &nbsp; <span class="v">29 May 2024</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Sections">
+  <div class="tab active">Record Book</div>
+  <a class="tab" href="lost-seasons.html">Lost Seasons</a>
+  <a class="tab" href="breach.html">The Breach</a>
+  <a class="tab" href="numbers.html">The Numbers</a>
+  <a class="tab" href="careers.html">Parallel Careers</a>
+  <a class="tab" href="method.html">Method</a>
+  <a class="tab" href="voices.html">The Voices</a>
+  <a class="tab" href="gibson.html">Gibson</a>
+  <a class="tab" href="synthesis.html">Synthesis</a>
+  <a class="tab" href="gallery.html">Gallery</a>
+</nav>
+
+<!-- ====================== HEADLINE STATS ====================== -->
+<section class="statrow six">
+  <div class="stat">
+    <div class="label">Gibson · 1943</div>
+    <div class="value">.466</div>
+    <div class="foot">single-season batting record</div>
+  </div>
+  <div class="stat">
+    <div class="label">Careers counted</div>
+    <div class="value">2,300<span class="unit">+</span></div>
+    <div class="foot">added to MLB books · 29 May 2024</div>
+  </div>
+  <div class="stat">
+    <div class="label">Gibson ↦ Robinson</div>
+    <div class="value">85<span class="unit">days</span></div>
+    <div class="foot">Gibson died, Robinson signed</div>
+  </div>
+  <div class="stat">
+    <div class="label">Robinson ↦ Green</div>
+    <div class="value">12<span class="unit">yrs</span></div>
+    <div class="foot">first team to last team</div>
+  </div>
+  <div class="stat">
+    <div class="label">Barrier held</div>
+    <div class="value">47<span class="unit">yrs</span></div>
+    <div class="foot">1900 — Apr 15, 1947</div>
+  </div>
+  <div class="stat">
+    <div class="label">Record corrected</div>
+    <div class="value">2024</div>
+    <div class="foot">seventy-seven years late</div>
+  </div>
+</section>
+
+<!-- ====================== EPIGRAPH ====================== -->
+<aside class="bb-epi">
+  <p class="q">
+    They were not waiting for someone to let them in.
+    They had been playing the entire time, in front of crowds, on tour buses,
+    on diamonds the bookkeepers refused to count.
+  </p>
+  <div class="attr">
+    <div class="nm">EDITORIAL</div>
+    <div class="ds">on the May 2024 statistical merger</div>
+    <div class="ds">— One Hundred Years</div>
+  </div>
+</aside>
+
+
+<!-- ====================== THE RECORD BOOK · PARALLEL TRACKS ====================== -->
+<section class="section" id="record-book">
+  <div class="section-head">
+    <div class="label" style="white-space:nowrap">Fig. 01  ·  The parallel tracks</div>
+    <div class="rule"></div>
+    <div class="aside" style="white-space:nowrap">1875 — 1970  ·  16 franchises  ·  12 clubs</div>
+  </div>
+  <h2 class="section-title">Two leagues, one game, kept apart on the page.</h2>
+  <p class="section-lede">
+    Each line is a club's life. The top band is the Negro Leagues — twelve clubs of record. The bottom is Major League Baseball — its sixteen 1947 franchises, ordered top-to-bottom by the date each one signed its first Black player. The vertical red line is the moment the barrier fell. The dim segment of every MLB row is what the team had been for a half-century before.
+  </p>
+
+  <div class="tl">
+<svg viewBox="0 0 1480 852" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parallel tracks of Negro Leagues and Major League Baseball, 1875 through 1970">
+  <rect class="barrier-band" x="508.42105263157896" y="58" width="507.76315789473756" height="716" />
+  <line class="grid-y" x1="293.6842105263158" y1="58" x2="293.6842105263158" y2="778" />
+  <line class="grid-y" x1="401.0526315789474" y1="58" x2="401.0526315789474" y2="778" />
+  <line class="grid-y" x1="508.42105263157896" y1="58" x2="508.42105263157896" y2="778" />
+  <line class="grid-y" x1="615.7894736842105" y1="58" x2="615.7894736842105" y2="778" />
+  <line class="grid-y" x1="723.1578947368421" y1="58" x2="723.1578947368421" y2="778" />
+  <line class="grid-y" x1="830.5263157894738" y1="58" x2="830.5263157894738" y2="778" />
+  <line class="grid-y" x1="937.8947368421053" y1="58" x2="937.8947368421053" y2="778" />
+  <line class="grid-y" x1="1045.2631578947369" y1="58" x2="1045.2631578947369" y2="778" />
+  <line class="grid-y" x1="1152.6315789473683" y1="58" x2="1152.6315789473683" y2="778" />
+  <line class="grid-y" x1="1260" y1="58" x2="1260" y2="778" />
+  <text class="banner gold" x="240" y="36">Negro Leagues  ·  twelve clubs of record</text>
+  <text class="banner" x="1260" y="36" text-anchor="end">— never officially major until 2020</text>
+  <text class="banner" x="240" y="392">Major League Baseball  ·  the sixteen franchises of 1947, in order of integration</text>
+  <text class="banner" x="1260" y="392" text-anchor="end">last team integrates 12 years later →</text>
+  <line class="nl-bar" x1="615.7894736842105" y1="97" x2="1109.6842105263158" y2="97" stroke-linecap="butt" />
+  <text class="team" x="226" y="101" text-anchor="end">Chicago American Giants</text>
+  <text class="team-meta" x="1117.6842105263158" y="100">Foster</text>
+  <line class="nl-bar" x1="637.2631578947369" y1="119" x2="1045.2631578947369" y2="119" stroke-linecap="butt" />
+  <text class="team" x="226" y="123" text-anchor="end">Homestead Grays</text>
+  <text class="team-meta" x="1053.2631578947369" y="122">Gibson · Bell · Leonard</text>
+  <line class="nl-end-tick" x1="1045.2631578947369" y1="112" x2="1045.2631578947369" y2="126" />
+  <line class="nl-bar" x1="723.1578947368421" y1="141" x2="1206.3157894736842" y2="141" stroke-linecap="butt" />
+  <text class="team" x="226" y="145" text-anchor="end">Kansas City Monarchs</text>
+  <text class="team-meta" x="1214.3157894736842" y="144">Paige · Robinson · Banks</text>
+  <line class="nl-bar" x1="723.1578947368421" y1="163" x2="1152.6315789473683" y2="163" stroke-linecap="butt" />
+  <text class="team" x="226" y="167" text-anchor="end">Birmingham Black Barons</text>
+  <text class="team-meta" x="1160.6315789473683" y="166">Mays · Davis</text>
+  <line class="nl-bar" x1="733.8947368421052" y1="185" x2="1056" y2="185" stroke-linecap="butt" />
+  <text class="team" x="226" y="189" text-anchor="end">Baltimore Elite Giants</text>
+  <text class="team-meta" x="1064" y="188">Campanella · Wells</text>
+  <line class="nl-end-tick" x1="1056" y1="178" x2="1056" y2="192" />
+  <line class="nl-bar" x1="755.3684210526316" y1="207" x2="1141.8947368421052" y2="207" stroke-linecap="butt" />
+  <text class="team" x="226" y="211" text-anchor="end">Memphis Red Sox</text>
+  <text class="team-meta" x="1149.8947368421052" y="210">Boyd · Neil</text>
+  <line class="nl-bar" x1="819.7894736842105" y1="229" x2="1217.0526315789475" y2="229" stroke-linecap="butt" />
+  <text class="team" x="226" y="233" text-anchor="end">Indianapolis Clowns</text>
+  <text class="team-meta" x="1225.0526315789475" y="232">Aaron · Stone</text>
+  <line class="nl-bar" x1="841.2631578947368" y1="251" x2="937.8947368421053" y2="251" stroke-linecap="butt" />
+  <text class="team" x="226" y="255" text-anchor="end">Pittsburgh Crawfords</text>
+  <text class="team-meta" x="945.8947368421053" y="254">Gibson · Charleston · Paige</text>
+  <line class="nl-bar" x1="862.7368421052631" y1="273" x2="1066.7368421052631" y2="273" stroke-linecap="butt" />
+  <text class="team" x="226" y="277" text-anchor="end">Philadelphia Stars</text>
+  <text class="team-meta" x="1074.7368421052631" y="276">Mackey · Pearson</text>
+  <line class="nl-end-tick" x1="1066.7368421052631" y1="266" x2="1066.7368421052631" y2="280" />
+  <line class="nl-bar" x1="884.2105263157895" y1="295" x2="1045.2631578947369" y2="295" stroke-linecap="butt" />
+  <text class="team" x="226" y="299" text-anchor="end">New York Cubans</text>
+  <text class="team-meta" x="1053.2631578947369" y="298">Miñoso · Pedroso</text>
+  <line class="nl-end-tick" x1="1045.2631578947369" y1="288" x2="1045.2631578947369" y2="302" />
+  <line class="nl-bar" x1="894.9473684210526" y1="317" x2="1023.7894736842105" y2="317" stroke-linecap="butt" />
+  <text class="team" x="226" y="321" text-anchor="end">Newark Eagles</text>
+  <text class="team-meta" x="1031.7894736842104" y="320">Doby · Irvin · Day</text>
+  <line class="nl-end-tick" x1="1023.7894736842105" y1="310" x2="1023.7894736842105" y2="324" />
+  <line class="nl-bar" x1="959.3684210526316" y1="339" x2="1045.2631578947369" y2="339" stroke-linecap="butt" />
+  <text class="team" x="226" y="343" text-anchor="end">Cleveland Buckeyes</text>
+  <text class="team-meta" x="1053.2631578947369" y="342">Bremmer · Jefferson</text>
+  <line class="nl-end-tick" x1="1045.2631578947369" y1="332" x2="1045.2631578947369" y2="346" />
+  <line class="ml-pre-bar" x1="336.63157894736844" y1="425" x2="1016.1842105263165" y2="425" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1016.1842105263165" y1="425" x2="1260" y2="425" stroke-linecap="butt" />
+  <text class="team" x="226" y="429" text-anchor="end">Brooklyn Dodgers</text>
+  <circle class="integration-dot first" cx="1016.1842105263165" cy="425" r="4.5" />
+  <text class="team-meta" x="1268" y="428">Apr 15, 1947  ·  Jackie Robinson</text>
+  <circle class="robinson-halo" cx="1016.1842105263165" cy="425" r="9" />
+  <circle class="robinson-halo" cx="1016.1842105263165" cy="425" r="14" />
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="447" x2="1018.5701754385967" y2="447" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1018.5701754385967" y1="447" x2="1260" y2="447" stroke-linecap="butt" />
+  <text class="team" x="226" y="451" text-anchor="end">Cleveland Indians</text>
+  <circle class="integration-dot" cx="1018.5701754385967" cy="447" r="4.5" />
+  <text class="team-meta" x="1268" y="450">Jul 5, 1947  ·  Larry Doby</text>
+  <line class="ml-pre-bar" x1="529.8947368421052" y1="469" x2="1018.9280701754386" y2="469" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1018.9280701754386" y1="469" x2="1260" y2="469" stroke-linecap="butt" />
+  <text class="team" x="226" y="473" text-anchor="end">St. Louis Browns</text>
+  <circle class="integration-dot" cx="1018.9280701754386" cy="469" r="4.5" />
+  <text class="team-meta" x="1268" y="472">Jul 17, 1947  ·  Hank Thompson</text>
+  <line class="ml-pre-bar" x1="325.89473684210526" y1="491" x2="1040.1333333333323" y2="491" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1040.1333333333323" y1="491" x2="1260" y2="491" stroke-linecap="butt" />
+  <text class="team" x="226" y="495" text-anchor="end">New York Giants</text>
+  <circle class="integration-dot" cx="1040.1333333333323" cy="491" r="4.5" />
+  <text class="team-meta" x="1268" y="494">Jul 8, 1949  ·  Monte Irvin</text>
+  <line class="ml-pre-bar" x1="250.73684210526315" y1="513" x2="1048.484210526315" y2="513" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1048.484210526315" y1="513" x2="1260" y2="513" stroke-linecap="butt" />
+  <text class="team" x="226" y="517" text-anchor="end">Boston Braves</text>
+  <circle class="integration-dot" cx="1048.484210526315" cy="513" r="4.5" />
+  <text class="team-meta" x="1268" y="516">Apr 18, 1950  ·  Sam Jethroe</text>
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="535" x2="1059.6087719298257" y2="535" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1059.6087719298257" y1="535" x2="1260" y2="535" stroke-linecap="butt" />
+  <text class="team" x="226" y="539" text-anchor="end">Chicago White Sox</text>
+  <circle class="integration-dot" cx="1059.6087719298257" cy="535" r="4.5" />
+  <text class="team-meta" x="1268" y="538">May 1, 1951  ·  Minnie Miñoso</text>
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="557" x2="1085.0192982456142" y2="557" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1085.0192982456142" y1="557" x2="1260" y2="557" stroke-linecap="butt" />
+  <text class="team" x="226" y="561" text-anchor="end">Philadelphia Athletics</text>
+  <circle class="integration-dot" cx="1085.0192982456142" cy="557" r="4.5" />
+  <text class="team-meta" x="1268" y="560">Sep 13, 1953  ·  Bob Trice</text>
+  <line class="ml-pre-bar" x1="250.73684210526315" y1="579" x2="1085.1385964912288" y2="579" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1085.1385964912288" y1="579" x2="1260" y2="579" stroke-linecap="butt" />
+  <text class="team" x="226" y="583" text-anchor="end">Chicago Cubs</text>
+  <circle class="integration-dot" cx="1085.1385964912288" cy="579" r="4.5" />
+  <text class="team-meta" x="1268" y="582">Sep 17, 1953  ·  Ernie Banks</text>
+  <line class="ml-pre-bar" x1="315.1578947368421" y1="601" x2="1091.2824561403502" y2="601" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1091.2824561403502" y1="601" x2="1260" y2="601" stroke-linecap="butt" />
+  <text class="team" x="226" y="605" text-anchor="end">Pittsburgh Pirates</text>
+  <circle class="integration-dot" cx="1091.2824561403502" cy="601" r="4.5" />
+  <text class="team-meta" x="1268" y="604">Apr 13, 1954  ·  Curt Roberts</text>
+  <line class="ml-pre-bar" x1="315.1578947368421" y1="623" x2="1091.2824561403502" y2="623" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1091.2824561403502" y1="623" x2="1260" y2="623" stroke-linecap="butt" />
+  <text class="team" x="226" y="627" text-anchor="end">St. Louis Cardinals</text>
+  <circle class="integration-dot" cx="1091.2824561403502" cy="623" r="4.5" />
+  <text class="team-meta" x="1268" y="626">Apr 13, 1954  ·  Tom Alston</text>
+  <line class="ml-pre-bar" x1="315.1578947368421" y1="645" x2="1091.401754385965" y2="645" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1091.401754385965" y1="645" x2="1260" y2="645" stroke-linecap="butt" />
+  <text class="team" x="226" y="649" text-anchor="end">Cincinnati Reds</text>
+  <circle class="integration-dot" cx="1091.401754385965" cy="645" r="4.5" />
+  <text class="team-meta" x="1268" y="648">Apr 17, 1954  ·  Nino Escalera</text>
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="667" x2="1095.5473684210533" y2="667" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1095.5473684210533" y1="667" x2="1260" y2="667" stroke-linecap="butt" />
+  <text class="team" x="226" y="671" text-anchor="end">Washington Senators</text>
+  <circle class="integration-dot" cx="1095.5473684210533" cy="667" r="4.5" />
+  <text class="team-meta" x="1268" y="670">Sep 6, 1954  ·  Carlos Paula</text>
+  <line class="ml-pre-bar" x1="540.6315789473683" y1="689" x2="1102.0491228070164" y2="689" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1102.0491228070164" y1="689" x2="1260" y2="689" stroke-linecap="butt" />
+  <text class="team late" x="226" y="693" text-anchor="end">New York Yankees</text>
+  <circle class="integration-dot" cx="1102.0491228070164" cy="689" r="4.5" />
+  <text class="team-meta" x="1268" y="692">Apr 14, 1955  ·  Elston Howard</text>
+  <line class="ml-pre-bar" x1="325.89473684210526" y1="711" x2="1123.7614035087722" y2="711" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1123.7614035087722" y1="711" x2="1260" y2="711" stroke-linecap="butt" />
+  <text class="team late" x="226" y="715" text-anchor="end">Philadelphia Phillies</text>
+  <circle class="integration-dot" cx="1123.7614035087722" cy="711" r="4.5" />
+  <text class="team-meta" x="1268" y="714">Apr 22, 1957  ·  John Kennedy</text>
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="733" x2="1135.8105263157902" y2="733" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1135.8105263157902" y1="733" x2="1260" y2="733" stroke-linecap="butt" />
+  <text class="team late" x="226" y="737" text-anchor="end">Detroit Tigers</text>
+  <circle class="integration-dot" cx="1135.8105263157902" cy="733" r="4.5" />
+  <text class="team-meta" x="1268" y="736">Jun 6, 1958  ·  Ozzie Virgil Sr.</text>
+  <line class="ml-pre-bar" x1="519.1578947368421" y1="755" x2="1147.8894736842112" y2="755" stroke-linecap="butt" />
+  <line class="ml-post-bar" x1="1147.8894736842112" y1="755" x2="1260" y2="755" stroke-linecap="butt" />
+  <text class="team late" x="226" y="759" text-anchor="end">Boston Red Sox</text>
+  <circle class="integration-dot last" cx="1147.8894736842112" cy="755" r="4.5" />
+  <text class="team-meta" x="1268" y="758">Jul 21, 1959  ·  Pumpsie Green</text>
+  <line class="barrier-fade" x1="508.42105263157896" y1="54" x2="508.42105263157896" y2="782" />
+  <line class="barrier" x1="1016.1842105263165" y1="54" x2="1016.1842105263165" y2="782" />
+  <text class="banner red" x="1006.1842105263165" y="18" text-anchor="end">The barrier  ·  1900 — Apr 15, 1947</text>
+  <text class="event" x="1026.1842105263165" y="18">April 15, 1947  ·  Ebbets Field</text>
+  <line class="annot-leader" x1="723.1578947368421" y1="372" x2="723.1578947368421" y2="388" />
+  <text class="event-tag" x="729.1578947368421" y="378">A · Negro National League founded · 1920</text>
+  <line class="annot-leader" x1="1013.6491228070187" y1="392" x2="1013.6491228070187" y2="380" />
+  <text class="event-tag" x="1007.6491228070187" y="402" text-anchor="end">B · Josh Gibson dies · Jan 20, 1947 · 85 days before</text>
+  <path d="M 1016.1842105263165 784 L 1016.1842105263165 794 L 1147.8894736842112 794 L 1147.8894736842112 784" class="annot-bracket" />
+  <text class="event-tag" x="1082.036842105264" y="810" text-anchor="middle">12 years, 3 months, 6 days  ·  Robinson to Green</text>
+  <line class="axis-rule" x1="240" y1="816" x2="1260" y2="816" />
+  <line class="axis-tick" x1="293.6842105263158" y1="816" x2="293.6842105263158" y2="821" />
+  <text class="year-axis" x="293.6842105263158" y="834" text-anchor="middle">1880</text>
+  <line class="axis-tick" x1="401.0526315789474" y1="816" x2="401.0526315789474" y2="821" />
+  <text class="year-axis" x="401.0526315789474" y="834" text-anchor="middle">1890</text>
+  <line class="axis-tick" x1="508.42105263157896" y1="816" x2="508.42105263157896" y2="821" />
+  <text class="year-axis" x="508.42105263157896" y="834" text-anchor="middle">1900</text>
+  <line class="axis-tick" x1="615.7894736842105" y1="816" x2="615.7894736842105" y2="821" />
+  <text class="year-axis" x="615.7894736842105" y="834" text-anchor="middle">1910</text>
+  <line class="axis-tick" x1="723.1578947368421" y1="816" x2="723.1578947368421" y2="821" />
+  <text class="year-axis" x="723.1578947368421" y="834" text-anchor="middle">1920</text>
+  <line class="axis-tick" x1="830.5263157894738" y1="816" x2="830.5263157894738" y2="821" />
+  <text class="year-axis" x="830.5263157894738" y="834" text-anchor="middle">1930</text>
+  <line class="axis-tick" x1="937.8947368421053" y1="816" x2="937.8947368421053" y2="821" />
+  <text class="year-axis" x="937.8947368421053" y="834" text-anchor="middle">1940</text>
+  <line class="axis-tick" x1="1045.2631578947369" y1="816" x2="1045.2631578947369" y2="821" />
+  <text class="year-axis" x="1045.2631578947369" y="834" text-anchor="middle">1950</text>
+  <line class="axis-tick" x1="1152.6315789473683" y1="816" x2="1152.6315789473683" y2="821" />
+  <text class="year-axis" x="1152.6315789473683" y="834" text-anchor="middle">1960</text>
+  <line class="axis-tick" x1="1260" y1="816" x2="1260" y2="821" />
+  <text class="year-axis" x="1260" y="834" text-anchor="middle">1970</text>
+</svg>
+  </div>
+</section>
+
+
+<!-- ====================== INTEGRATION WAVE ====================== -->
+<section class="section" id="wave">
+  <div class="section-head">
+    <div class="label" style="white-space:nowrap">Fig. 02  ·  The wave, written out</div>
+    <div class="rule"></div>
+    <div class="aside" style="white-space:nowrap">16 franchises  ·  the order they came</div>
+  </div>
+  <h2 class="section-title">Sixteen teams, sixteen first days.</h2>
+  <p class="section-lede">
+    The chart compresses it. The list spells it. Three teams in 1947. Then a two-year pause. Then six in a single month in 1954. And then — a long, thin tail.
+  </p>
+
+  <div class="wave">
+    <div class="wave-row first">
+      <div class="idx">01</div>
+      <div class="dt">Apr 15, 1947<span class="lag">day 0</span></div>
+      <div class="tm">Brooklyn Dodgers</div>
+      <div class="pl">Jackie Robinson</div>
+      <div class="nt">Ebbets Field. 0-for-3, scored the winning run.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">02</div>
+      <div class="dt">Jul 5, 1947<span class="lag">+81 d</span></div>
+      <div class="tm">Cleveland Indians</div>
+      <div class="pl">Larry Doby</div>
+      <div class="nt">Eleven weeks behind. American League's first.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">03</div>
+      <div class="dt">Jul 17, 1947<span class="lag">+93 d</span></div>
+      <div class="tm">St. Louis Browns</div>
+      <div class="pl">Hank Thompson</div>
+      <div class="nt">Released within six weeks.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">04</div>
+      <div class="dt">Jul 8, 1949<span class="lag">+2 yr 3 mo</span></div>
+      <div class="tm">New York Giants</div>
+      <div class="pl">Monte Irvin · Hank Thompson</div>
+      <div class="nt">Two on the same day.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">05</div>
+      <div class="dt">Apr 18, 1950<span class="lag">+3 yr 0 mo</span></div>
+      <div class="tm">Boston Braves</div>
+      <div class="pl">Sam Jethroe</div>
+      <div class="nt">Already thirty-two. Rookie of the Year anyway.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">06</div>
+      <div class="dt">May 1, 1951<span class="lag">+4 yr 0 mo</span></div>
+      <div class="tm">Chicago White Sox</div>
+      <div class="pl">Minnie Miñoso</div>
+      <div class="nt">Cuban League star, lost his early prime.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">07</div>
+      <div class="dt">Sep 13, 1953<span class="lag">+6 yr 4 mo</span></div>
+      <div class="tm">Philadelphia Athletics</div>
+      <div class="pl">Bob Trice</div>
+      <div class="nt">Pitched three seasons. Career total: nine wins.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">08</div>
+      <div class="dt">Sep 17, 1953<span class="lag">+6 yr 5 mo</span></div>
+      <div class="tm">Chicago Cubs</div>
+      <div class="pl">Ernie Banks · Gene Baker</div>
+      <div class="nt">Banks would hit five hundred and twelve.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">09</div>
+      <div class="dt">Apr 13, 1954<span class="lag">+7 yr 0 mo</span></div>
+      <div class="tm">Pittsburgh Pirates</div>
+      <div class="pl">Curt Roberts</div>
+      <div class="nt">Second base. One full season.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">10</div>
+      <div class="dt">Apr 13, 1954<span class="lag">+7 yr 0 mo</span></div>
+      <div class="tm">St. Louis Cardinals</div>
+      <div class="pl">Tom Alston</div>
+      <div class="nt">First base. Ninety-one games total.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">11</div>
+      <div class="dt">Apr 17, 1954<span class="lag">+7 yr 0 mo</span></div>
+      <div class="tm">Cincinnati Reds</div>
+      <div class="pl">Nino Escalera · Chuck Harmon</div>
+      <div class="nt">Pinch-hit, ninth inning, Crosley Field.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">12</div>
+      <div class="dt">Sep 6, 1954<span class="lag">+7 yr 5 mo</span></div>
+      <div class="tm">Washington Senators</div>
+      <div class="pl">Carlos Paula</div>
+      <div class="nt">Three seasons, then released.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">13</div>
+      <div class="dt">Apr 14, 1955<span class="lag">+8 yr 0 mo</span></div>
+      <div class="tm">New York Yankees</div>
+      <div class="pl">Elston Howard</div>
+      <div class="nt">Catcher. Eight years after Robinson.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">14</div>
+      <div class="dt">Apr 22, 1957<span class="lag">+10 yr 0 mo</span></div>
+      <div class="tm">Philadelphia Phillies</div>
+      <div class="pl">John Kennedy</div>
+      <div class="nt">Five games. No hits.</div>
+    </div>
+    <div class="wave-row">
+      <div class="idx">15</div>
+      <div class="dt">Jun 6, 1958<span class="lag">+11 yr 2 mo</span></div>
+      <div class="tm">Detroit Tigers</div>
+      <div class="pl">Ozzie Virgil Sr.</div>
+      <div class="nt">Dominican-born infielder.</div>
+    </div>
+    <div class="wave-row last">
+      <div class="idx">16</div>
+      <div class="dt">Jul 21, 1959<span class="lag">+12 yr 3 mo</span></div>
+      <div class="tm">Boston Red Sox</div>
+      <div class="pl">Pumpsie Green</div>
+      <div class="nt">Pinch runner. Twelve years, three months, six days after Robinson.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RESHUFFLED RECORD BOOK ====================== -->
+<section class="section" id="reshuffle">
+  <div class="section-head">
+    <div class="label" style="white-space:nowrap">Fig. 03  ·  The record book, after</div>
+    <div class="rule"></div>
+    <div class="aside" style="white-space:nowrap">May 29, 2024  ·  MLB recognises Negro Leagues stats</div>
+  </div>
+  <h2 class="section-title">Who held the record, and who actually did.</h2>
+  <p class="section-lede">
+    When Major League Baseball merged the Negro Leagues statistical record into its own books, the leaderboard rearranged itself. The names on the left held those records for most of the century; the names on the right had earned them already.
+  </p>
+
+  <div class="shuf">
+    <div class="shuf-head">
+      <div></div>
+      <div class="pre">As the book read  ·  1900 — 2024</div>
+      <div></div>
+      <div class="post">As the book reads  ·  29 May 2024 →</div>
+    </div>
+    <div class="shuf-row">
+      <div class="cat">Career batting average</div>
+      <div class="side pre">
+        <div class="nm">Ty Cobb</div>
+        <div class="val">.367</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="side post">
+        <div class="nm">Josh Gibson</div>
+        <div class="val">.372</div>
+      </div>
+    </div>
+    <div class="shuf-row">
+      <div class="cat">Single-season AVG</div>
+      <div class="side pre">
+        <div class="nm">Hugh Duffy</div>
+        <div class="val">.440<span class="yr">1894</span></div>
+      </div>
+      <div class="arr">→</div>
+      <div class="side post">
+        <div class="nm">Josh Gibson</div>
+        <div class="val">.466<span class="yr">1943</span></div>
+      </div>
+    </div>
+    <div class="shuf-row">
+      <div class="cat">Career slugging</div>
+      <div class="side pre">
+        <div class="nm">Babe Ruth</div>
+        <div class="val">.690</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="side post">
+        <div class="nm">Josh Gibson</div>
+        <div class="val">.718</div>
+      </div>
+    </div>
+    <div class="shuf-row">
+      <div class="cat">Career OPS</div>
+      <div class="side pre">
+        <div class="nm">Babe Ruth</div>
+        <div class="val">1.164</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="side post">
+        <div class="nm">Josh Gibson</div>
+        <div class="val">1.177</div>
+      </div>
+    </div>
+    <div class="shuf-row">
+      <div class="cat">Single-season OPS</div>
+      <div class="side pre">
+        <div class="nm">Barry Bonds</div>
+        <div class="val">1.421<span class="yr">2001</span></div>
+      </div>
+      <div class="arr">→</div>
+      <div class="side post">
+        <div class="nm">Josh Gibson</div>
+        <div class="val">1.474<span class="yr">1937</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== INTEGRATION TIMELINE ====================== -->
+<section class="section" id="pipeline">
+  <div class="section-head">
+    <div class="label" style="white-space:nowrap">Fig. 04  ·  The pipeline</div>
+    <div class="rule"></div>
+    <div class="aside" style="white-space:nowrap">1947 — 1975  ·  Black players on MLB rosters  ·  peak 3.6 %</div>
+  </div>
+  <h2 class="section-title">The door opened. The pipeline did not.</h2>
+  <p class="section-lede">
+    In 1947 there were six Black players on major-league rosters. By 1956 the count peaked at twenty — 3.6 % of the league. It never went higher. By 1975 it had fallen back to twelve. The door opened once; it did not open wide.
+  </p>
+
+  <div class="tl">
+    <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Black players on MLB rosters, 1947 through 1975" style="width:100%;max-width:800px;">
+      <!-- chart area: x 60-760, y 20-200; 29 bars, barW ~22, gap ~2 -->
+      <!-- y axis: 0 to 20 players -->
+      <line x1="60" y1="20" x2="60" y2="200" stroke="var(--rule, #444)" stroke-width="0.5"/>
+      <line x1="60" y1="200" x2="760" y2="200" stroke="var(--rule, #444)" stroke-width="0.5"/>
+      <!-- y gridlines -->
+      <line x1="60" y1="110" x2="760" y2="110" stroke="var(--rule, #444)" stroke-width="0.3" stroke-dasharray="3,4"/>
+      <line x1="60" y1="20" x2="760" y2="20" stroke="var(--rule, #444)" stroke-width="0.3" stroke-dasharray="3,4"/>
+      <text x="55" y="204" text-anchor="end" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="9">0</text>
+      <text x="55" y="114" text-anchor="end" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="9">10</text>
+      <text x="55" y="24" text-anchor="end" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="9">20</text>
+      <!-- bars: each bar width=22, gap=2.14, total span=700 for 29 bars -->
+      <!-- bar x = 60 + i * 24.14, width = 22, height = (val/20)*180 from y=200 upward -->
+      <rect x="60.00"  y="146" width="22" height="54"  fill="#C9A84C" opacity="0.85"/><!-- 1947: 6 -->
+      <rect x="84.14"  y="137" width="22" height="63"  fill="#C9A84C" opacity="0.85"/><!-- 1948: 7 -->
+      <rect x="108.28" y="110" width="22" height="90"  fill="#C9A84C" opacity="0.85"/><!-- 1949: 10 -->
+      <rect x="132.41" y="128" width="22" height="72"  fill="#C9A84C" opacity="0.85"/><!-- 1950: 8 -->
+      <rect x="156.55" y="92"  width="22" height="108" fill="#C9A84C" opacity="0.85"/><!-- 1951: 12 -->
+      <rect x="180.69" y="92"  width="22" height="108" fill="#C9A84C" opacity="0.85"/><!-- 1952: 12 -->
+      <rect x="204.83" y="74"  width="22" height="126" fill="#C9A84C" opacity="0.85"/><!-- 1953: 14 -->
+      <rect x="228.97" y="38"  width="22" height="162" fill="#C9A84C" opacity="0.85"/><!-- 1954: 18 -->
+      <rect x="253.10" y="20"  width="22" height="180" fill="#C9A84C" opacity="1"/><!-- 1955: 20 peak -->
+      <rect x="277.24" y="20"  width="22" height="180" fill="#C9A84C" opacity="1"/><!-- 1956: 20 peak -->
+      <rect x="301.38" y="47"  width="22" height="153" fill="#C9A84C" opacity="0.85"/><!-- 1957: 17 -->
+      <rect x="325.52" y="83"  width="22" height="117" fill="#C9A84C" opacity="0.85"/><!-- 1958: 13 -->
+      <rect x="349.66" y="65"  width="22" height="135" fill="#C9A84C" opacity="0.85"/><!-- 1959: 15 -->
+      <rect x="373.79" y="74"  width="22" height="126" fill="#C9A84C" opacity="0.85"/><!-- 1960: 14 -->
+      <rect x="397.93" y="65"  width="22" height="135" fill="#C9A84C" opacity="0.85"/><!-- 1961: 15 -->
+      <rect x="422.07" y="56"  width="22" height="144" fill="#C9A84C" opacity="0.85"/><!-- 1962: 16 -->
+      <rect x="446.21" y="47"  width="22" height="153" fill="#C9A84C" opacity="0.85"/><!-- 1963: 17 -->
+      <rect x="470.34" y="47"  width="22" height="153" fill="#C9A84C" opacity="0.85"/><!-- 1964: 17 -->
+      <rect x="494.48" y="47"  width="22" height="153" fill="#C9A84C" opacity="0.85"/><!-- 1965: 17 -->
+      <rect x="518.62" y="56"  width="22" height="144" fill="#C9A84C" opacity="0.85"/><!-- 1966: 16 -->
+      <rect x="542.76" y="56"  width="22" height="144" fill="#C9A84C" opacity="0.85"/><!-- 1967: 16 -->
+      <rect x="566.90" y="56"  width="22" height="144" fill="#C9A84C" opacity="0.85"/><!-- 1968: 16 -->
+      <rect x="591.03" y="56"  width="22" height="144" fill="#C9A84C" opacity="0.85"/><!-- 1969: 16 -->
+      <rect x="615.17" y="65"  width="22" height="135" fill="#C9A84C" opacity="0.85"/><!-- 1970: 15 -->
+      <rect x="639.31" y="65"  width="22" height="135" fill="#C9A84C" opacity="0.85"/><!-- 1971: 15 -->
+      <rect x="663.45" y="74"  width="22" height="126" fill="#C9A84C" opacity="0.85"/><!-- 1972: 14 -->
+      <rect x="687.59" y="83"  width="22" height="117" fill="#C9A84C" opacity="0.85"/><!-- 1973: 13 -->
+      <rect x="711.72" y="74"  width="22" height="126" fill="#C9A84C" opacity="0.85"/><!-- 1974: 14 -->
+      <rect x="735.86" y="92"  width="22" height="108" fill="#C9A84C" opacity="0.85"/><!-- 1975: 12 -->
+      <!-- peak annotation -->
+      <line x1="264" y1="14" x2="264" y2="18" stroke="#C9A84C" stroke-width="0.8"/>
+      <text x="264" y="11" text-anchor="middle" fill="#C9A84C" font-family="'Space Mono',monospace" font-size="8">20 players · 3.6%</text>
+      <!-- x axis labels -->
+      <text x="71"   y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">47</text>
+      <text x="191"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">52</text>
+      <text x="313"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">57</text>
+      <text x="434"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">62</text>
+      <text x="555"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">67</text>
+      <text x="675"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">72</text>
+      <text x="747"  y="216" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="8">75</text>
+      <!-- axis label -->
+      <text x="410" y="240" text-anchor="middle" fill="var(--ink-3, #888)" font-family="'Space Mono',monospace" font-size="9">Black players on major-league rosters  ·  1947 — 1975</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ====================== CODA ====================== -->
+<section class="coda">
+  <div class="body">
+    <p class="dropcap">When MLB updated its books in May 2024, it did so by quietly elevating roughly 2,300 careers from leagues that had been declared "major" only four years earlier. Josh Gibson, who had been dead for seventy-seven years, became the holder of the single-season and career batting average records, the career slugging record, the career OPS record, and the single-season OPS record. The previous holders — Cobb, Ruth, Bonds — kept their seasons. They lost their place on the page.</p>
+    <p>This report does not relitigate that decision. It treats it as done, and asks the smaller, harder question of what changed and what it cost — a half-century of seasons unreported, of names not in the bookkeeping, of records held by men dead before the league that finally counted them had heard their last at-bat.</p>
+    <p>This series is called <em>One Hundred Years</em>. The Negro Leagues did not get one hundred years. They got forty — and then the door opened and the leagues died so the players could live.</p>
+    <p>The next page, <em>The Lost Seasons</em>, models the careers that were never officially played: how many seasons each man would have had in the major leagues if the door had opened the year he turned twenty-one. The page after that follows the pipeline — the percent of the league that was Black, decade by decade, from 1947 to today. Read in order or out.</p>
+  </div>
+  <aside class="sidenote">
+    <span class="h">On this page</span>
+    <p><strong>Top.</strong> Twelve clubs of the Negro National &amp; American Leagues, drawn from MLB's 2020 reclassification list. End dates are last season of competitive play.</p>
+    <p><strong>Bottom.</strong> The sixteen Major League franchises operating in 1947, ordered by the date of integration. "First Black player" follows MLB's accepted convention; modern team identities have shifted (Browns → Orioles, Senators → Twins).</p>
+    <p><strong>Sources.</strong> SABR Negro Leagues Database; Baseball-Reference Negro Leagues integration; Seamheads; MLB statistical update of 29 May 2024.</p>
+  </aside>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="bb-foot">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://onehundredyears.report" style="display:flex;align-items:center;border:none;">
+      <svg width="12" height="36" viewBox="0 0 18 72">
+        <line x1="0" y1="0" x2="0" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="0"  x2="12" y2="0"  stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="24" x2="12" y2="24" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="48" x2="12" y2="48" stroke="#C9A84C" stroke-width="1.2"/>
+        <line x1="0" y1="72" x2="12" y2="72" stroke="#C9A84C" stroke-width="1.2"/>
+      </svg>
+    </a>
+    <span>One Hundred Years</span>
+  </div>
+  <div>MIT · <a href="https://github.com/doctorbrownphd/hundred-years-baseball" style="border:none;color:var(--amber);">GitHub</a></div>
+</footer>
+
+</main>
+<button id="theme-toggle" onclick="toggleTheme()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink-3);color:var(--vellum-dim);border:1px solid var(--rule);font-family:var(--mono);font-size:16px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">&#9728;</button>
+<script>
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
+(function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+</body>
+</html>

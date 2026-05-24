@@ -1,0 +1,189 @@
+/* === The Voices · curated press excerpts === */
+
+.voices-shell {
+  margin-top: 14px;
+  padding: 26px 0 8px;
+  border-top: 1px solid var(--rule);
+}
+
+.voices-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+.voices-head .label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.voices-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.02;
+  margin: 0;
+  letter-spacing: -0.012em;
+  max-width: 880px;
+}
+.voices-head h2 em { color: var(--amber); font-style: italic; }
+.voices-head .deck {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--vellum-dim);
+  font-size: 18px;
+  max-width: 720px;
+  margin: 14px 0 0;
+  line-height: 1.4;
+}
+.voices-head .key {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* Era section headers */
+.era-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 0 14px;
+  border-top: 2px solid var(--rule);
+  margin-top: 36px;
+}
+.era-header:first-of-type { margin-top: 0; }
+.era-header .era-years {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.era-header .era-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--vellum);
+  letter-spacing: -0.005em;
+}
+.era-header .era-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+  grid-column: 1 / -1;
+  margin-top: -6px;
+}
+
+/* Individual voice card */
+.voice {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 36px;
+  padding: 28px 0;
+  border-bottom: 1px dotted var(--rule);
+  align-items: start;
+}
+.voice:last-child { border-bottom: none; }
+
+.voice .quote {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--vellum);
+  letter-spacing: -0.005em;
+  position: relative;
+  padding-left: 28px;
+}
+.voice .quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0;
+  top: -6px;
+  font-size: 42px;
+  color: var(--amber);
+  line-height: 1;
+  font-family: var(--serif);
+}
+
+.voice .attr {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+.voice .attr .source {
+  color: var(--vellum-dim);
+  font-size: 11px;
+}
+.voice .attr .author {
+  color: var(--amber);
+}
+.voice .attr .year-tag {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--vellum);
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: 6px;
+}
+.voice .attr .note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11.5px;
+  color: var(--muted-2);
+  margin-top: 8px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Closing note */
+.voices-coda {
+  margin-top: 48px;
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: end;
+}
+.voices-coda .pull {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--vellum);
+  line-height: 1.32;
+  max-width: 820px;
+  letter-spacing: -0.005em;
+}
+.voices-coda .pull em { color: var(--amber); }
+.voices-coda .attr {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .voice .quote { color: var(--ink); }
+[data-theme="light"] .era-header .era-title { color: var(--ink); }
+[data-theme="light"] .voice .attr .year-tag { color: var(--ink); }
+[data-theme="light"] .voices-coda .pull { color: var(--ink); }
