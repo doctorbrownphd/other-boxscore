@@ -1,0 +1,1770 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Green Book Route</title>
+<meta name="description" content="Every Negro Leagues road trip, every city, every Green Book listing within reach of the ballpark. The cities with no listings go dark.">
+<meta property="og:title" content="The Other Box Score -- The Green Book Route">
+<meta property="og:description" content="Victor Hugo Green published a guidebook. Negro Leagues teams carried it on every road trip. Some cities had twenty listings. Some had none.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-green-book-route/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   Canonical source: docs/design.md
+   Chapter uses --ink background and grain at 0.18 opacity.
+   ========================================================================== */
+
+:root {
+  --ink:        #13110d;
+  --ink-2:      #1a1812;
+  --ink-3:      #221f17;
+  --rule:       #2a261d;
+
+  --vellum:     #e8e0cf;
+  --vellum-dim: #c4bda9;
+  --muted:      #8a8270;
+  --muted-2:    #5e5849;
+
+  --amber:      #d4a64a;
+  --amber-2:    #f0c878;
+  --oxblood:    #a14545;
+  --slate:      #6f8aa8;
+
+  --serif:   "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+
+/* ==========================================================================
+   Reset and Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+/* Paper grain overlay -- chapter weight: 0.18 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection {
+  background: rgba(212,166,74,0.3);
+  color: var(--vellum);
+}
+
+/* Visible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Disable non-essential motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,166,74,0.3);
+}
+
+a:hover {
+  color: var(--amber-2);
+  border-bottom-color: var(--amber-2);
+}
+
+
+/* ==========================================================================
+   Platform Nav (36px bar)
+   ========================================================================== */
+
+.platform-nav {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(212,166,74,0.08);
+}
+
+.platform-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.platform-nav__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(212,166,74,0.45);
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   Layout Shell
+   ========================================================================== */
+
+.shell {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 36px 56px 96px;
+  position: relative;
+}
+
+.prose-width {
+  max-width: 900px;
+}
+
+
+/* ==========================================================================
+   Masthead
+   ========================================================================== */
+
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 22px;
+  margin-bottom: 28px;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.012em;
+  color: var(--vellum);
+}
+
+.masthead__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--vellum-dim);
+  font-size: 18px;
+  margin-top: 10px;
+  max-width: 720px;
+  line-height: 1.65;
+}
+
+.masthead__meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+.masthead__meta-key {
+  color: var(--muted-2);
+}
+
+.masthead__meta-val {
+  color: var(--vellum-dim);
+}
+
+
+/* ==========================================================================
+   Tab Strip
+   ========================================================================== */
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 28px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs__tab {
+  padding: 12px 18px 14px;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  transition: color 120ms;
+  user-select: none;
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.tabs__tab:hover {
+  color: var(--vellum-dim);
+  border-bottom-color: transparent;
+}
+
+.tabs__tab--active {
+  color: var(--vellum);
+  border-bottom-color: var(--amber);
+}
+
+
+/* ==========================================================================
+   Stat Row
+   ========================================================================== */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 44px;
+  padding-bottom: 24px;
+}
+
+.stat-row__item {
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.stat-row__item:not(:last-child) {
+  border-right: 1px solid var(--rule);
+}
+
+.stat-row__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-row__value {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-row__value--amber {
+  color: var(--amber);
+}
+
+.stat-row__value--oxblood {
+  color: var(--oxblood);
+}
+
+.stat-row__unit {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+.stat-row__foot {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--muted-2);
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.section {
+  margin-top: 56px;
+}
+
+.section__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.section__label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.section__rule {
+  height: 1px;
+  background: var(--rule);
+  align-self: center;
+}
+
+.section__aside {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.section__title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--vellum);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.section__lede {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+
+/* ==========================================================================
+   Hook Section
+   ========================================================================== */
+
+.hook {
+  margin: 56px auto 64px;
+  max-width: 900px;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--vellum);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.hook__text {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--vellum-dim);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.hook__text--emphasis {
+  color: var(--vellum);
+}
+
+
+/* ==========================================================================
+   Figure Controls
+   ========================================================================== */
+
+.fig-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.fig-controls__select {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 6px 28px 6px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8270' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.fig-controls__select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+
+.fig-controls__btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--vellum-dim);
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 120ms, border-color 120ms;
+  line-height: 1;
+}
+
+.fig-controls__btn:hover {
+  color: var(--vellum);
+  border-color: var(--muted-2);
+}
+
+.fig-controls__btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.fig-controls__spacer {
+  flex: 1;
+}
+
+.fig-controls__counter {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  display: flex;
+  gap: 16px;
+}
+
+.fig-controls__counter-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fig-controls__counter-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.fig-controls__counter-dot--visited {
+  background: var(--vellum);
+}
+
+.fig-controls__counter-dot--safe {
+  background: var(--amber);
+}
+
+.fig-controls__counter-dot--dark {
+  background: var(--oxblood);
+}
+
+
+/* ==========================================================================
+   Map Container
+   ========================================================================== */
+
+.map-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 32px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.map-container__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-container__tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  padding: 8px 12px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 120ms;
+  z-index: 10;
+  max-width: 240px;
+}
+
+.map-container__tooltip--visible {
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   US Map Paths
+   ========================================================================== */
+
+.us-outline {
+  fill: rgba(232,224,207,0.03);
+  stroke: rgba(232,224,207,0.12);
+  stroke-width: 1.5;
+}
+
+.route-line {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+
+.city-dot {
+  transition: r 200ms, opacity 200ms;
+}
+
+.city-dot--idle {
+  fill: rgba(232,224,207,0.2);
+}
+
+.city-dot--visited {
+  fill: var(--vellum);
+}
+
+.city-dot--dark {
+  fill: var(--oxblood);
+}
+
+.city-dot--safe {
+  fill: var(--amber);
+}
+
+@keyframes pulse-dark {
+  0%   { r: 5; opacity: 1; }
+  50%  { r: 14; opacity: 0.6; }
+  100% { r: 5; opacity: 0.3; }
+}
+
+.city-dot--pulsing {
+  animation: pulse-dark 800ms ease-out forwards;
+}
+
+
+/* ==========================================================================
+   Year Slider
+   ========================================================================== */
+
+.year-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.year-slider__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  min-width: 36px;
+}
+
+.year-slider__input {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--rule);
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+}
+
+.year-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+
+.year-slider__input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+
+.year-slider__input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+.year-slider__value {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--amber);
+  min-width: 36px;
+  text-align: right;
+}
+
+
+/* ==========================================================================
+   Chapter Close / Connective Tissue
+   ========================================================================== */
+
+.chapter-close {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 64px auto 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.chapter-next {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  margin: 0 auto 80px;
+  width: fit-content;
+  border-bottom: none;
+}
+
+.chapter-next:hover {
+  border-bottom: none;
+}
+
+.chapter-next__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.chapter-next__title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  text-transform: uppercase;
+}
+
+.chapter-next:hover .chapter-next__title {
+  color: var(--amber-2);
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  margin-top: 64px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.footer__home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: none;
+}
+
+.footer__home:hover {
+  border-bottom: none;
+}
+
+.footer__home span {
+  color: var(--muted);
+}
+
+.footer__links a {
+  color: var(--amber);
+  border-bottom: none;
+}
+
+.footer__links a:hover {
+  color: var(--amber-2);
+}
+
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+
+.loading-msg {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: center;
+  padding: 48px 0;
+}
+
+@keyframes loading-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+.loading-msg::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-left: 8px;
+  animation: loading-pulse 1.2s ease-in-out infinite;
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .shell {
+    padding: 24px 24px 64px;
+  }
+
+  .masthead {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .masthead__meta {
+    text-align: left;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .masthead__title {
+    font-size: 36px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-row__item:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat-row__item:nth-child(1),
+  .stat-row__item:nth-child(2) {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+  }
+
+  .section__head {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .section__rule {
+    display: none;
+  }
+
+  .fig-controls {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .masthead__title {
+    font-size: 28px;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-row__value {
+    font-size: 28px;
+  }
+
+  .hook__question {
+    font-size: 24px;
+  }
+
+  .tabs__tab {
+    padding: 10px 12px 12px;
+    font-size: 10px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================== PLATFORM NAV ====================== -->
+<nav class="platform-nav" aria-label="Platform">
+  <a href="https://theotherboxscore.org" class="platform-nav__link" aria-label="The Other Box Score, return to home">
+    <svg width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__label">The Other Box Score</span>
+  </a>
+</nav>
+
+<main class="shell">
+
+<!-- ====================== MASTHEAD ====================== -->
+<header class="masthead">
+  <div>
+    <div class="masthead__part">PART ONE &middot; THE WORLD THEY PLAYED IN</div>
+    <h1 class="masthead__title">The Green Book <em>Route</em></h1>
+    <p class="masthead__subtitle">
+      Victor Hugo Green was a postal worker in Harlem. Starting in 1936 he published a guidebook
+      every year -- a list of hotels, restaurants, and private homes where Black travelers could
+      stop without being turned away, arrested, or killed. Negro Leagues teams carried it on every
+      road trip.
+    </p>
+  </div>
+  <div class="masthead__meta" aria-label="Chapter metadata">
+    <div><span class="masthead__meta-key">Chapter</span> &nbsp; <span class="masthead__meta-val">02 / 15</span></div>
+    <div><span class="masthead__meta-key">Window</span> &nbsp; <span class="masthead__meta-val">1936 -- 1948</span></div>
+    <div><span class="masthead__meta-key">Teams</span> &nbsp; <span class="masthead__meta-val">14</span></div>
+  </div>
+</header>
+
+<!-- ====================== TAB STRIP ====================== -->
+<nav class="tabs" aria-label="Chapter sections">
+  <div class="tabs__tab tabs__tab--active" aria-current="page">Route Map</div>
+  <a class="tabs__tab" href="league.html">League View</a>
+  <a class="tabs__tab" href="analysis.html">Analysis</a>
+  <a class="tabs__tab" href="method.html">Method</a>
+</nav>
+
+<!-- ====================== STAT ROW ====================== -->
+<section class="stat-row" aria-label="Headline statistics">
+  <div class="stat-row__item">
+    <div class="stat-row__label">Games analyzed</div>
+    <div class="stat-row__value">3,686</div>
+    <div class="stat-row__foot">documented schedule, 1936--1948</div>
+  </div>
+  <div class="stat-row__item">
+    <div class="stat-row__label">Cities</div>
+    <div class="stat-row__value stat-row__value--amber">13</div>
+    <div class="stat-row__foot">hosted Negro Leagues games</div>
+  </div>
+  <div class="stat-row__item">
+    <div class="stat-row__label">Dark cities</div>
+    <div class="stat-row__value stat-row__value--oxblood">13</div>
+    <div class="stat-row__foot">zero Green Book listings within 1 mi</div>
+  </div>
+  <div class="stat-row__item">
+    <div class="stat-row__label">Teams covered</div>
+    <div class="stat-row__value">14</div>
+    <div class="stat-row__foot">major league franchises</div>
+  </div>
+</section>
+
+<!-- ====================== HOOK ====================== -->
+<section class="hook" aria-labelledby="hook-heading">
+  <h2 class="hook__question" id="hook-heading">Have you heard of the Negro Motorist Green Book?</h2>
+  <p class="hook__text">
+    Victor Hugo Green was a postal worker in Harlem. Starting in 1936 he published a guidebook
+    every year -- a list of hotels, restaurants, barber shops, and private homes across the country
+    where Black travelers could stop without being turned away, arrested, or killed. He called it
+    the Green Book. Negro Leagues teams carried it on every road trip.
+  </p>
+  <p class="hook__text hook__text--emphasis">
+    Some cities had twenty listings. Some had two. Some had none.
+  </p>
+  <p class="hook__text">
+    The teams played in all of them.
+  </p>
+  <p class="hook__text">
+    The Negro Leagues schedule data and the Green Book listing data have never been combined.
+    When they are, a map emerges that has never existed before: every road trip, every stop, every
+    city where a team pulled in for a game -- and exactly how many safe places to eat and sleep
+    were available within reach of the ballpark. The cities with no listings do not disappear
+    from the map. They go dark. The darkness is the argument.
+  </p>
+</section>
+
+<!-- ====================== FIG 01: ROUTE ANIMATION ====================== -->
+<section class="section" id="route-animation" aria-labelledby="fig01-title">
+  <div class="section__head">
+    <div class="section__label">Fig. 01 &middot; The Route Animation</div>
+    <div class="section__rule"></div>
+    <div class="section__aside">team by team &middot; season by season</div>
+  </div>
+  <h2 class="section__title" id="fig01-title">Pick a team. Pick a season. Watch where they went.</h2>
+  <p class="section__lede">
+    Each city lights as the team arrives. Green Book listings within one mile appear as amber
+    markers. Cities with zero listings pulse in red and go dark. The counter tracks what the
+    road looked like.
+  </p>
+
+  <div class="fig-controls" id="route-controls" role="toolbar" aria-label="Route animation controls">
+    <label for="route-team-select" class="sr-only">Select team</label>
+    <select id="route-team-select" class="fig-controls__select" aria-label="Team">
+      <option value="">Loading teams...</option>
+    </select>
+    <label for="route-season-select" class="sr-only">Select season</label>
+    <select id="route-season-select" class="fig-controls__select" aria-label="Season">
+      <option value="">Season</option>
+    </select>
+    <button id="route-play-btn" class="fig-controls__btn" type="button" aria-label="Play animation">
+      &#9654; Play
+    </button>
+    <button id="route-speed-btn" class="fig-controls__btn" type="button" aria-label="Change speed, current: 1x">
+      1x
+    </button>
+    <div class="fig-controls__spacer"></div>
+    <div class="fig-controls__counter" id="route-counter" aria-live="polite" aria-atomic="true">
+      <span class="fig-controls__counter-item">
+        <span class="fig-controls__counter-dot fig-controls__counter-dot--visited"></span>
+        <span id="counter-visited">0</span> visited
+      </span>
+      <span class="fig-controls__counter-item">
+        <span class="fig-controls__counter-dot fig-controls__counter-dot--safe"></span>
+        <span id="counter-safe">0</span> with listings
+      </span>
+      <span class="fig-controls__counter-item">
+        <span class="fig-controls__counter-dot fig-controls__counter-dot--dark"></span>
+        <span id="counter-dark">0</span> dark
+      </span>
+    </div>
+  </div>
+
+  <div class="map-container" id="route-map-container">
+    <svg id="route-map" class="map-container__svg" viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated route map of the continental United States showing team travel">
+      <defs>
+        <filter id="glow-dark" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <filter id="glow-amber" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <!-- US Silhouette -->
+      <path class="us-outline" d="M 90 270 L 115 240 L 140 220 L 175 215 L 215 220 L 255 210 L 300 200 L 345 185 L 380 175 L 410 165 L 445 155 L 470 145 L 500 135 L 530 125 L 565 120 L 600 125 L 635 130 L 670 138 L 700 145 L 715 158 L 720 175 Q 735 165 745 175 L 758 165 L 768 175 L 778 168 L 790 178 L 802 172 L 815 188 L 832 200 L 848 215 L 860 232 L 870 252 L 878 275 L 878 298 L 870 320 L 858 345 L 845 372 L 828 395 L 808 418 L 785 438 L 755 452 L 720 460 L 685 463 L 650 462 L 615 458 L 580 455 L 555 470 L 530 480 L 510 478 L 495 465 L 475 460 L 450 458 L 425 460 L 400 462 L 375 460 L 345 455 L 318 448 L 290 438 L 262 425 L 235 410 L 210 392 L 188 372 L 168 348 L 152 320 L 138 290 L 120 280 Z"/>
+      <!-- Florida stub -->
+      <path class="us-outline" d="M 690 460 L 715 470 L 728 488 L 730 506 L 720 510 L 712 495 L 705 482 L 695 470 Z"/>
+      <!-- Route lines will be drawn here -->
+      <g id="route-lines"></g>
+      <!-- City dots will be placed here -->
+      <g id="route-cities"></g>
+    </svg>
+    <div class="map-container__tooltip" id="route-tooltip" role="tooltip"></div>
+  </div>
+
+  <div id="route-stop-info" class="section__lede" aria-live="polite" style="min-height: 2em;"></div>
+</section>
+
+
+<!-- ====================== FIG 02: LEAGUE MAP ====================== -->
+<section class="section" id="league-map" aria-labelledby="fig02-title">
+  <div class="section__head">
+    <div class="section__label">Fig. 02 &middot; The League Map</div>
+    <div class="section__rule"></div>
+    <div class="section__aside">all teams &middot; all seasons</div>
+  </div>
+  <h2 class="section__title" id="fig02-title">Every city. Every season. Twelve years of the schedule.</h2>
+  <p class="section__lede">
+    This is not one team's season. This is every team, every season, twelve years of the league's
+    schedule overlaid with twelve years of the Green Book. Dot size encodes total games hosted.
+    Color encodes the safety score: amber where coverage existed, red where it did not.
+    Use the slider to move through the period and watch the coverage change.
+  </p>
+
+  <div class="year-slider" id="league-slider-container">
+    <span class="year-slider__label">1936</span>
+    <label for="league-year-slider" class="sr-only">Select year to filter league map</label>
+    <input type="range" id="league-year-slider" class="year-slider__input" min="1936" max="1948" value="1936" step="1" />
+    <span class="year-slider__value" id="league-year-display">All</span>
+    <button id="league-show-all" class="fig-controls__btn" type="button" aria-label="Show all years">All</button>
+  </div>
+
+  <div class="map-container" id="league-map-container">
+    <svg id="league-map-svg" class="map-container__svg" viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="League map of all cities that hosted Negro Leagues games, 1936 through 1948">
+      <!-- US Silhouette -->
+      <path class="us-outline" d="M 90 270 L 115 240 L 140 220 L 175 215 L 215 220 L 255 210 L 300 200 L 345 185 L 380 175 L 410 165 L 445 155 L 470 145 L 500 135 L 530 125 L 565 120 L 600 125 L 635 130 L 670 138 L 700 145 L 715 158 L 720 175 Q 735 165 745 175 L 758 165 L 768 175 L 778 168 L 790 178 L 802 172 L 815 188 L 832 200 L 848 215 L 860 232 L 870 252 L 878 275 L 878 298 L 870 320 L 858 345 L 845 372 L 828 395 L 808 418 L 785 438 L 755 452 L 720 460 L 685 463 L 650 462 L 615 458 L 580 455 L 555 470 L 530 480 L 510 478 L 495 465 L 475 460 L 450 458 L 425 460 L 400 462 L 375 460 L 345 455 L 318 448 L 290 438 L 262 425 L 235 410 L 210 392 L 188 372 L 168 348 L 152 320 L 138 290 L 120 280 Z"/>
+      <path class="us-outline" d="M 690 460 L 715 470 L 728 488 L 730 506 L 720 510 L 712 495 L 705 482 L 695 470 Z"/>
+      <g id="league-cities"></g>
+    </svg>
+    <div class="map-container__tooltip" id="league-tooltip" role="tooltip"></div>
+  </div>
+</section>
+
+
+<!-- ====================== CLOSING CONNECTIVE TISSUE ====================== -->
+<div class="chapter-close">
+  <p>
+    The Green Book showed where they could stop. It could not show what happened when the bus
+    did not stop -- when the route took them through a town after dark where Black travelers
+    were not permitted, where the sign at the city limits said so, where the sheriff's department
+    enforced it. The next chapter is those towns. There were thousands of them. Some of them were
+    within miles of the ballparks on this map.
+  </p>
+</div>
+
+<a class="chapter-next" href="../03-the-sundown-corridor/">
+  <span class="chapter-next__label">Next chapter</span>
+  <span class="chapter-next__title">03 &middot; The Sundown Corridor</span>
+</a>
+
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <a href="https://theotherboxscore.org" class="footer__home">
+    <svg width="18" height="18" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span>The Green Book Route</span>
+  </a>
+  <div class="footer__links">MIT &middot; <a href="https://github.com/other-boxscore/chapters/02-the-green-book-route">GitHub</a></div>
+</footer>
+
+</main>
+
+<!-- Screen-reader-only utility (used by labels) -->
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+
+<!-- ====================== FIG 01: ROUTE ANIMATION JS ====================== -->
+<script>
+(function() {
+  "use strict";
+
+  /* ---------- Geo projection helpers ---------- */
+  /* Map lat/lon to SVG coordinates within the US silhouette viewBox (0 0 960 580). */
+  /* Approximate bounding box for continental US: lat 24.5-49.5, lon -125 to -66.5 */
+  var LON_MIN = -125;
+  var LON_MAX = -66.5;
+  var LAT_MIN = 24.5;
+  var LAT_MAX = 49.5;
+  var SVG_PAD_X = 80;
+  var SVG_PAD_Y = 60;
+  var SVG_W = 960 - SVG_PAD_X * 2;
+  var SVG_H = 580 - SVG_PAD_Y * 2;
+
+  function lonToX(lon) {
+    return SVG_PAD_X + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * SVG_W;
+  }
+
+  function latToY(lat) {
+    return SVG_PAD_Y + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * SVG_H;
+  }
+
+  /* ---------- State ---------- */
+  var routeData = null;
+  var currentStops = [];
+  var animIndex = 0;
+  var animTimer = null;
+  var isPlaying = false;
+  var speed = 1;
+  var speeds = [0.5, 1, 2];
+  var speedIndex = 1;
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- DOM refs ---------- */
+  var teamSelect = document.getElementById("route-team-select");
+  var seasonSelect = document.getElementById("route-season-select");
+  var playBtn = document.getElementById("route-play-btn");
+  var speedBtn = document.getElementById("route-speed-btn");
+  var routeLines = document.getElementById("route-lines");
+  var routeCities = document.getElementById("route-cities");
+  var counterVisited = document.getElementById("counter-visited");
+  var counterSafe = document.getElementById("counter-safe");
+  var counterDark = document.getElementById("counter-dark");
+  var tooltip = document.getElementById("route-tooltip");
+  var stopInfo = document.getElementById("route-stop-info");
+  var mapContainer = document.getElementById("route-map-container");
+
+  /* ---------- Load data ---------- */
+  fetch("data/viz_route_animation.json")
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      routeData = data;
+      buildSelectors(data);
+    })
+    .catch(function(err) {
+      console.error("Failed to load route animation data:", err);
+      teamSelect.innerHTML = '<option value="">Data unavailable</option>';
+    });
+
+  /* ---------- Build selectors ---------- */
+  function buildSelectors(data) {
+    var teams = {};
+    data.forEach(function(entry) {
+      var t = entry.team;
+      var s = entry.season;
+      if (!teams[t]) teams[t] = [];
+      if (teams[t].indexOf(s) === -1) teams[t].push(s);
+    });
+
+    /* Sort teams alphabetically, filter out All-Star entries */
+    var teamNames = Object.keys(teams).filter(function(t) {
+      return t.indexOf("All-Stars") === -1;
+    }).sort();
+
+    teamSelect.innerHTML = "";
+    teamNames.forEach(function(t) {
+      var opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      teamSelect.appendChild(opt);
+    });
+
+    /* Default: Kansas City Monarchs if available */
+    var defaultTeam = "Kansas City Monarchs";
+    if (teams[defaultTeam]) {
+      teamSelect.value = defaultTeam;
+    }
+
+    /* Build season options for selected team */
+    function updateSeasons() {
+      var t = teamSelect.value;
+      if (!teams[t]) return;
+      var seasons = teams[t].slice().sort();
+      seasonSelect.innerHTML = "";
+      seasons.forEach(function(s) {
+        var opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        seasonSelect.appendChild(opt);
+      });
+      /* Default to 1942 for Monarchs */
+      if (t === defaultTeam && seasons.indexOf(1942) !== -1) {
+        seasonSelect.value = "1942";
+      }
+    }
+
+    teamSelect.addEventListener("change", function() {
+      updateSeasons();
+      loadRoute();
+    });
+
+    seasonSelect.addEventListener("change", function() {
+      loadRoute();
+    });
+
+    updateSeasons();
+    loadRoute();
+  }
+
+  /* ---------- Load route for selected team/season ---------- */
+  function loadRoute() {
+    stopAnimation();
+
+    var team = teamSelect.value;
+    var season = parseInt(seasonSelect.value, 10);
+    if (!team || !season || !routeData) return;
+
+    /* Filter stops for this team + season */
+    currentStops = routeData.filter(function(entry) {
+      return entry.team === team && entry.season === season;
+    });
+
+    /* Sort by date */
+    currentStops.sort(function(a, b) {
+      return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
+    });
+
+    /* Deduplicate by city (keep first visit for unique cities, but track all stops) */
+    animIndex = 0;
+    resetMap();
+    renderIdleCities();
+    updateCounters(0, 0, 0);
+    stopInfo.textContent = currentStops.length + " stops on the " + season + " schedule. Press Play to animate.";
+  }
+
+  /* ---------- Render idle cities ---------- */
+  function renderIdleCities() {
+    routeCities.innerHTML = "";
+    routeLines.innerHTML = "";
+
+    /* Collect unique cities */
+    var seen = {};
+    currentStops.forEach(function(stop) {
+      var key = stop.city + ", " + stop.state;
+      if (!seen[key]) {
+        seen[key] = stop;
+      }
+    });
+
+    Object.keys(seen).forEach(function(key) {
+      var stop = seen[key];
+      var cx = lonToX(stop.lon);
+      var cy = latToY(stop.lat);
+
+      var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", cx);
+      circle.setAttribute("cy", cy);
+      circle.setAttribute("r", "4");
+      circle.setAttribute("class", "city-dot city-dot--idle");
+      circle.setAttribute("data-city", key);
+      circle.setAttribute("role", "img");
+      circle.setAttribute("aria-label", key + ", not yet visited");
+      circle.setAttribute("tabindex", "0");
+
+      circle.addEventListener("mouseenter", function(e) { showTooltip(e, stop, "idle"); });
+      circle.addEventListener("mouseleave", hideTooltip);
+      circle.addEventListener("focus", function(e) { showTooltip(e, stop, "idle"); });
+      circle.addEventListener("blur", hideTooltip);
+
+      routeCities.appendChild(circle);
+    });
+  }
+
+  /* ---------- Reset map ---------- */
+  function resetMap() {
+    routeCities.innerHTML = "";
+    routeLines.innerHTML = "";
+  }
+
+  /* ---------- Play / Pause ---------- */
+  playBtn.addEventListener("click", function() {
+    if (isPlaying) {
+      stopAnimation();
+    } else {
+      startAnimation();
+    }
+  });
+
+  playBtn.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      playBtn.click();
+    }
+  });
+
+  /* ---------- Speed toggle ---------- */
+  speedBtn.addEventListener("click", function() {
+    speedIndex = (speedIndex + 1) % speeds.length;
+    speed = speeds[speedIndex];
+    speedBtn.textContent = speed + "x";
+    speedBtn.setAttribute("aria-label", "Change speed, current: " + speed + "x");
+
+    if (isPlaying) {
+      clearInterval(animTimer);
+      animTimer = setInterval(animStep, getInterval());
+    }
+  });
+
+  function getInterval() {
+    var base = 1200;
+    return base / speed;
+  }
+
+  /* ---------- Start animation ---------- */
+  function startAnimation() {
+    if (currentStops.length === 0) return;
+
+    /* If at end, restart */
+    if (animIndex >= currentStops.length) {
+      animIndex = 0;
+      renderIdleCities();
+      updateCounters(0, 0, 0);
+    }
+
+    isPlaying = true;
+    playBtn.innerHTML = "&#9646;&#9646; Pause";
+    playBtn.setAttribute("aria-label", "Pause animation");
+
+    if (prefersReducedMotion) {
+      /* Show all stops immediately */
+      while (animIndex < currentStops.length) {
+        animStep();
+      }
+      stopAnimation();
+    } else {
+      animTimer = setInterval(animStep, getInterval());
+    }
+  }
+
+  /* ---------- Stop animation ---------- */
+  function stopAnimation() {
+    isPlaying = false;
+    if (animTimer) {
+      clearInterval(animTimer);
+      animTimer = null;
+    }
+    playBtn.innerHTML = "&#9654; Play";
+    playBtn.setAttribute("aria-label", "Play animation");
+  }
+
+  /* ---------- Single animation step ---------- */
+  function animStep() {
+    if (animIndex >= currentStops.length) {
+      stopAnimation();
+      stopInfo.textContent = "Route complete. " + currentStops.length + " stops visited.";
+      return;
+    }
+
+    var stop = currentStops[animIndex];
+    var cx = lonToX(stop.lon);
+    var cy = latToY(stop.lat);
+    var cityKey = stop.city + ", " + stop.state;
+
+    /* Draw line from previous stop */
+    if (animIndex > 0) {
+      var prev = currentStops[animIndex - 1];
+      var px = lonToX(prev.lon);
+      var py = latToY(prev.lat);
+
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", px);
+      line.setAttribute("y1", py);
+      line.setAttribute("x2", cx);
+      line.setAttribute("y2", cy);
+      line.setAttribute("class", "route-line");
+
+      if (!prefersReducedMotion) {
+        var length = Math.sqrt(Math.pow(cx - px, 2) + Math.pow(cy - py, 2));
+        line.setAttribute("stroke-dasharray", length);
+        line.setAttribute("stroke-dashoffset", length);
+        line.style.transition = "stroke-dashoffset 400ms ease-out";
+        routeLines.appendChild(line);
+        /* Trigger reflow for animation */
+        line.getBoundingClientRect();
+        line.setAttribute("stroke-dashoffset", "0");
+      } else {
+        routeLines.appendChild(line);
+      }
+    }
+
+    /* Update or create city dot */
+    var existingDot = routeCities.querySelector('[data-city="' + cityKey.replace(/"/g, '\\"') + '"]');
+    if (existingDot) {
+      existingDot.setAttribute("class", "city-dot " + (stop.is_dark ? "city-dot--dark" : "city-dot--safe"));
+      existingDot.setAttribute("r", stop.is_dark ? "5" : "6");
+      existingDot.setAttribute("aria-label", cityKey + (stop.is_dark ? ", dark city, zero listings" : ", listings available"));
+
+      if (stop.is_dark && !prefersReducedMotion) {
+        existingDot.setAttribute("filter", "url(#glow-dark)");
+        existingDot.setAttribute("class", "city-dot city-dot--dark city-dot--pulsing");
+        setTimeout(function() {
+          existingDot.removeAttribute("filter");
+          existingDot.setAttribute("class", "city-dot city-dot--dark");
+          existingDot.setAttribute("r", "4");
+          existingDot.style.opacity = "0.4";
+        }, 800);
+      } else if (!stop.is_dark) {
+        existingDot.setAttribute("filter", "url(#glow-amber)");
+      }
+    } else {
+      var dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.setAttribute("cx", cx);
+      dot.setAttribute("cy", cy);
+      dot.setAttribute("r", stop.is_dark ? "5" : "6");
+      dot.setAttribute("class", "city-dot " + (stop.is_dark ? "city-dot--dark" : "city-dot--safe"));
+      dot.setAttribute("data-city", cityKey);
+      dot.setAttribute("role", "img");
+      dot.setAttribute("aria-label", cityKey + (stop.is_dark ? ", dark city, zero listings" : ", listings available"));
+      dot.setAttribute("tabindex", "0");
+
+      dot.addEventListener("mouseenter", function(e) { showTooltip(e, stop, stop.is_dark ? "dark" : "safe"); });
+      dot.addEventListener("mouseleave", hideTooltip);
+      dot.addEventListener("focus", function(e) { showTooltip(e, stop, stop.is_dark ? "dark" : "safe"); });
+      dot.addEventListener("blur", hideTooltip);
+
+      if (stop.is_dark && !prefersReducedMotion) {
+        dot.setAttribute("filter", "url(#glow-dark)");
+        dot.setAttribute("class", "city-dot city-dot--dark city-dot--pulsing");
+        setTimeout(function() {
+          dot.removeAttribute("filter");
+          dot.setAttribute("class", "city-dot city-dot--dark");
+          dot.setAttribute("r", "4");
+          dot.style.opacity = "0.4";
+        }, 800);
+      } else if (!stop.is_dark) {
+        dot.setAttribute("filter", "url(#glow-amber)");
+      }
+
+      routeCities.appendChild(dot);
+    }
+
+    /* Update counters */
+    var visitedSet = {};
+    var safeCount = 0;
+    var darkCount = 0;
+    for (var i = 0; i <= animIndex; i++) {
+      var s = currentStops[i];
+      var k = s.city + ", " + s.state;
+      if (!visitedSet[k]) {
+        visitedSet[k] = true;
+        if (s.is_dark) {
+          darkCount++;
+        } else {
+          safeCount++;
+        }
+      }
+    }
+    var totalVisited = Object.keys(visitedSet).length;
+    updateCounters(totalVisited, safeCount, darkCount);
+
+    /* Update stop info */
+    var dateStr = stop.date || "";
+    stopInfo.textContent = dateStr + " -- " + stop.city + ", " + stop.state +
+      " -- " + stop.ballpark_name +
+      " vs. " + (stop.game_opponent || "unknown") +
+      " -- Listings within 1 mi: " + stop.listings_1mi +
+      (stop.is_dark ? " (DARK)" : "");
+
+    animIndex++;
+  }
+
+  /* ---------- Update counters ---------- */
+  function updateCounters(visited, safe, dark) {
+    counterVisited.textContent = visited;
+    counterSafe.textContent = safe;
+    counterDark.textContent = dark;
+  }
+
+  /* ---------- Tooltip ---------- */
+  function showTooltip(e, stop, status) {
+    var statusLabel = status === "dark" ? "DARK -- zero listings" :
+                      status === "safe" ? "Listings available" : "Not yet visited";
+    tooltip.innerHTML =
+      "<strong>" + stop.city + ", " + stop.state + "</strong><br>" +
+      stop.ballpark_name + "<br>" +
+      "Listings (1 mi): " + stop.listings_1mi + "<br>" +
+      "Listings (5 mi): " + stop.listings_5mi + "<br>" +
+      "Safety score: " + (stop.safety_score || 0).toFixed(2) + "<br>" +
+      statusLabel;
+    tooltip.classList.add("map-container__tooltip--visible");
+
+    /* Position tooltip near cursor */
+    var rect = mapContainer.getBoundingClientRect();
+    var x = e.clientX - rect.left + 12;
+    var y = e.clientY - rect.top - 10;
+
+    /* Keep within bounds */
+    if (x + 200 > rect.width) x = x - 220;
+    if (y + 100 > rect.height) y = y - 100;
+
+    tooltip.style.left = x + "px";
+    tooltip.style.top = y + "px";
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("map-container__tooltip--visible");
+  }
+
+})();
+</script>
+
+<!-- ====================== FIG 02: LEAGUE MAP JS ====================== -->
+<script>
+(function() {
+  "use strict";
+
+  /* ---------- Geo projection (same as route) ---------- */
+  var LON_MIN = -125;
+  var LON_MAX = -66.5;
+  var LAT_MIN = 24.5;
+  var LAT_MAX = 49.5;
+  var SVG_PAD_X = 80;
+  var SVG_PAD_Y = 60;
+  var SVG_W = 960 - SVG_PAD_X * 2;
+  var SVG_H = 580 - SVG_PAD_Y * 2;
+
+  function lonToX(lon) {
+    return SVG_PAD_X + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * SVG_W;
+  }
+
+  function latToY(lat) {
+    return SVG_PAD_Y + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * SVG_H;
+  }
+
+  /* ---------- State ---------- */
+  var leagueData = null;
+  var showAllYears = true;
+  var selectedYear = 1936;
+
+  /* ---------- DOM refs ---------- */
+  var citiesGroup = document.getElementById("league-cities");
+  var slider = document.getElementById("league-year-slider");
+  var yearDisplay = document.getElementById("league-year-display");
+  var showAllBtn = document.getElementById("league-show-all");
+  var tooltip = document.getElementById("league-tooltip");
+  var mapContainer = document.getElementById("league-map-container");
+
+  /* ---------- Load data ---------- */
+  fetch("data/viz_league_map.json")
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      leagueData = data;
+      renderLeagueMap();
+    })
+    .catch(function(err) {
+      console.error("Failed to load league map data:", err);
+    });
+
+  /* ---------- Slider events ---------- */
+  slider.addEventListener("input", function() {
+    showAllYears = false;
+    selectedYear = parseInt(slider.value, 10);
+    yearDisplay.textContent = selectedYear;
+    showAllBtn.classList.remove("fig-controls__btn--active");
+    renderLeagueMap();
+  });
+
+  showAllBtn.addEventListener("click", function() {
+    showAllYears = true;
+    yearDisplay.textContent = "All";
+    showAllBtn.classList.add("fig-controls__btn--active");
+    renderLeagueMap();
+  });
+
+  showAllBtn.classList.add("fig-controls__btn--active");
+
+  /* ---------- Render league map ---------- */
+  function renderLeagueMap() {
+    if (!leagueData) return;
+    citiesGroup.innerHTML = "";
+
+    /* Find max total games for scaling */
+    var maxGames = 0;
+    leagueData.forEach(function(city) {
+      var games = getGamesForCity(city);
+      if (games > maxGames) maxGames = games;
+    });
+
+    leagueData.forEach(function(city) {
+      var games = getGamesForCity(city);
+      if (games === 0) return; /* Skip cities with no games in selected year */
+
+      var cx = lonToX(city.lon);
+      var cy = latToY(city.lat);
+
+      /* Radius: 4-18 based on game count */
+      var ratio = maxGames > 0 ? games / maxGames : 0;
+      var r = 4 + ratio * 14;
+
+      /* Color: interpolate amber to oxblood based on safety score */
+      var score = city.avg_safety_score || 0;
+      var color = interpolateColor(score);
+
+      var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", cx);
+      circle.setAttribute("cy", cy);
+      circle.setAttribute("r", r);
+      circle.setAttribute("fill", color);
+      circle.setAttribute("opacity", "0.75");
+      circle.setAttribute("role", "img");
+      circle.setAttribute("aria-label", city.city + ", " + city.state + ": " + games + " games, safety score " + score.toFixed(2));
+      circle.setAttribute("tabindex", "0");
+      circle.style.cursor = "pointer";
+      circle.style.transition = "r 200ms, opacity 200ms";
+
+      circle.addEventListener("mouseenter", function(e) {
+        circle.setAttribute("opacity", "1");
+        showLeagueTooltip(e, city, games);
+      });
+      circle.addEventListener("mouseleave", function() {
+        circle.setAttribute("opacity", "0.75");
+        hideLeagueTooltip();
+      });
+      circle.addEventListener("focus", function(e) {
+        circle.setAttribute("opacity", "1");
+        showLeagueTooltip(e, city, games);
+      });
+      circle.addEventListener("blur", function() {
+        circle.setAttribute("opacity", "0.75");
+        hideLeagueTooltip();
+      });
+
+      citiesGroup.appendChild(circle);
+
+      /* City label for large dots */
+      if (r > 10) {
+        var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", cx);
+        text.setAttribute("y", cy - r - 4);
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "rgba(232,224,207,0.5)");
+        text.setAttribute("font-family", "'IBM Plex Mono', monospace");
+        text.setAttribute("font-size", "9");
+        text.setAttribute("letter-spacing", "0.08em");
+        text.textContent = city.city;
+        text.style.pointerEvents = "none";
+        citiesGroup.appendChild(text);
+      }
+    });
+  }
+
+  /* ---------- Get games for city (all or filtered) ---------- */
+  function getGamesForCity(city) {
+    if (showAllYears) {
+      return city.total_games;
+    }
+    var yearKey = String(selectedYear);
+    return (city.games_by_season && city.games_by_season[yearKey]) || 0;
+  }
+
+  /* ---------- Color interpolation ---------- */
+  function interpolateColor(score) {
+    /* score range in data: roughly 0.32 to 0.48 */
+    /* Normalize to 0-1 */
+    var minScore = 0.30;
+    var maxScore = 0.50;
+    var t = Math.max(0, Math.min(1, (score - minScore) / (maxScore - minScore)));
+
+    /* oxblood (#a14545) to amber (#d4a64a) */
+    var r = Math.round(161 + t * (212 - 161));
+    var g = Math.round(69 + t * (166 - 69));
+    var b = Math.round(69 + t * (74 - 69));
+
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  /* ---------- Tooltip ---------- */
+  function showLeagueTooltip(e, city, games) {
+    var yearInfo = "";
+    if (!showAllYears) {
+      yearInfo = "<br>Games in " + selectedYear + ": " + games;
+    }
+    tooltip.innerHTML =
+      "<strong>" + city.city + ", " + city.state + "</strong><br>" +
+      "Total games: " + city.total_games +
+      yearInfo + "<br>" +
+      "Safety score: " + (city.avg_safety_score || 0).toFixed(2);
+    tooltip.classList.add("map-container__tooltip--visible");
+
+    var rect = mapContainer.getBoundingClientRect();
+    var x = e.clientX - rect.left + 12;
+    var y = e.clientY - rect.top - 10;
+
+    if (x + 200 > rect.width) x = x - 220;
+    if (y + 100 > rect.height) y = y - 100;
+
+    tooltip.style.left = x + "px";
+    tooltip.style.top = y + "px";
+  }
+
+  function hideLeagueTooltip() {
+    tooltip.classList.remove("map-container__tooltip--visible");
+  }
+
+})();
+</script>
+
+</body>
+</html>
