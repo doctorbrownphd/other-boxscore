@@ -1,0 +1,92 @@
+{
+  "description": "Aggregate safety score statistics by city, team, and season.",
+  "weights": {
+    "listings_1mi": 0.3,
+    "listings_5mi": 0.15,
+    "has_hotel_1mi": 0.2,
+    "category_diversity": 0.1,
+    "black_population_pct": 0.15,
+    "sundown_distance_inv": 0.1
+  },
+  "average_score_by_city": {
+    "Baltimore, MD": 0.3805,
+    "Birmingham, AL": 0.4716,
+    "Chicago, IL": 0.3339,
+    "Cleveland, OH": 0.3407,
+    "Indianapolis, IN": 0.3559,
+    "Kansas City, MO": 0.3445,
+    "Memphis, TN": 0.475,
+    "New York, NY": 0.325,
+    "Newark, NJ": 0.3453,
+    "Philadelphia, PA": 0.3547,
+    "Pittsburgh, PA": 0.3381,
+    "St. Louis, MO": 0.3555,
+    "Washington, DC": 0.4191
+  },
+  "average_score_by_team": {
+    "Baltimore Elite Giants": 0.3805,
+    "Birmingham Black Barons": 0.4716,
+    "Chicago American Giants": 0.3339,
+    "Cleveland Buckeyes": 0.3407,
+    "East-West All-Stars (West)": 0.3339,
+    "Homestead Grays": 0.3727,
+    "Indianapolis Clowns": 0.3559,
+    "Kansas City Monarchs": 0.3445,
+    "Memphis Red Sox": 0.475,
+    "New York Black Yankees": 0.325,
+    "New York Cubans": 0.325,
+    "Newark Eagles": 0.3453,
+    "Philadelphia Stars": 0.3547,
+    "Pittsburgh Crawfords": 0.3381,
+    "St. Louis Stars": 0.3555
+  },
+  "average_score_by_season": {
+    "1936": 0.3651,
+    "1937": 0.3651,
+    "1938": 0.3666,
+    "1939": 0.3691,
+    "1940": 0.377,
+    "1941": 0.3754,
+    "1942": 0.375,
+    "1943": 0.3739,
+    "1944": 0.3702,
+    "1945": 0.371,
+    "1946": 0.3711,
+    "1947": 0.3703,
+    "1948": 0.373
+  },
+  "dark_cities": [
+    "Baltimore, MD",
+    "Birmingham, AL",
+    "Chicago, IL",
+    "Cleveland, OH",
+    "Indianapolis, IN",
+    "Kansas City, MO",
+    "Memphis, TN",
+    "New York, NY",
+    "Newark, NJ",
+    "Philadelphia, PA",
+    "Pittsburgh, PA",
+    "St. Louis, MO",
+    "Washington, DC"
+  ],
+  "safest_city": {
+    "city": "Memphis, TN",
+    "score": 0.475
+  },
+  "least_safe_city": {
+    "city": "New York, NY",
+    "score": 0.325
+  },
+  "distribution": {
+    "count": 3686,
+    "mean": 0.3709,
+    "median": 0.3453,
+    "stdev": 0.0531,
+    "min": 0.325,
+    "q1": 0.3339,
+    "q2": 0.3453,
+    "q3": 0.3805,
+    "max": 0.475
+  }
+}

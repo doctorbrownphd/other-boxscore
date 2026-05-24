@@ -1,0 +1,21 @@
+{
+  "total_games": 3686,
+  "total_cities": 13,
+  "total_dark_cities": 13,
+  "pct_dark": 100.0,
+  "avg_safety_score": 0.3709,
+  "seasons_covered": "1936--1948",
+  "teams_covered": 16,
+  "green_book_editions_used": [
+    1936,
+    1938,
+    1940,
+    1941,
+    1942,
+    1947,
+    1948,
+    1949
+  ],
+  "darkest_city": "New York, NY",
+  "safest_city": "Memphis, TN"
+}

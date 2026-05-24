@@ -1,0 +1,386 @@
+[
+  {
+    "region": "Deep South",
+    "season": 1936,
+    "avg_safety_score": 0.4733,
+    "game_count": 51,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1937,
+    "avg_safety_score": 0.4733,
+    "game_count": 51,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1938,
+    "avg_safety_score": 0.4732,
+    "game_count": 52,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1939,
+    "avg_safety_score": 0.4733,
+    "game_count": 52,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1940,
+    "avg_safety_score": 0.4733,
+    "game_count": 55,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1941,
+    "avg_safety_score": 0.4733,
+    "game_count": 54,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1942,
+    "avg_safety_score": 0.4733,
+    "game_count": 54,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1943,
+    "avg_safety_score": 0.4732,
+    "game_count": 54,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1944,
+    "avg_safety_score": 0.4734,
+    "game_count": 54,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1945,
+    "avg_safety_score": 0.4732,
+    "game_count": 55,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1946,
+    "avg_safety_score": 0.4733,
+    "game_count": 55,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1947,
+    "avg_safety_score": 0.4733,
+    "game_count": 54,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Deep South",
+    "season": 1948,
+    "avg_safety_score": 0.4733,
+    "game_count": 53,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1940,
+    "avg_safety_score": 0.4191,
+    "game_count": 18,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1941,
+    "avg_safety_score": 0.4191,
+    "game_count": 15,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1942,
+    "avg_safety_score": 0.4191,
+    "game_count": 14,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1943,
+    "avg_safety_score": 0.4191,
+    "game_count": 16,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1944,
+    "avg_safety_score": 0.4191,
+    "game_count": 13,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1945,
+    "avg_safety_score": 0.4191,
+    "game_count": 14,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1946,
+    "avg_safety_score": 0.4191,
+    "game_count": 15,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1947,
+    "avg_safety_score": 0.4191,
+    "game_count": 13,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Mid-Atlantic",
+    "season": 1948,
+    "avg_safety_score": 0.4191,
+    "game_count": 16,
+    "dark_city_count": 1,
+    "total_cities": 1
+  },
+  {
+    "region": "Midwest",
+    "season": 1936,
+    "avg_safety_score": 0.3446,
+    "game_count": 80,
+    "dark_city_count": 3,
+    "total_cities": 3
+  },
+  {
+    "region": "Midwest",
+    "season": 1937,
+    "avg_safety_score": 0.3446,
+    "game_count": 80,
+    "dark_city_count": 3,
+    "total_cities": 3
+  },
+  {
+    "region": "Midwest",
+    "season": 1938,
+    "avg_safety_score": 0.3445,
+    "game_count": 79,
+    "dark_city_count": 3,
+    "total_cities": 3
+  },
+  {
+    "region": "Midwest",
+    "season": 1939,
+    "avg_safety_score": 0.3442,
+    "game_count": 79,
+    "dark_city_count": 3,
+    "total_cities": 3
+  },
+  {
+    "region": "Midwest",
+    "season": 1940,
+    "avg_safety_score": 0.3392,
+    "game_count": 56,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Midwest",
+    "season": 1941,
+    "avg_safety_score": 0.3391,
+    "game_count": 57,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Midwest",
+    "season": 1942,
+    "avg_safety_score": 0.3391,
+    "game_count": 57,
+    "dark_city_count": 2,
+    "total_cities": 2
+  },
+  {
+    "region": "Midwest",
+    "season": 1943,
+    "avg_safety_score": 0.3445,
+    "game_count": 84,
+    "dark_city_count": 3,
+    "total_cities": 3
+  },
+  {
+    "region": "Midwest",
+    "season": 1944,
+    "avg_safety_score": 0.3439,
+    "game_count": 109,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Midwest",
+    "season": 1945,
+    "avg_safety_score": 0.3435,
+    "game_count": 108,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Midwest",
+    "season": 1946,
+    "avg_safety_score": 0.3436,
+    "game_count": 108,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Midwest",
+    "season": 1947,
+    "avg_safety_score": 0.3437,
+    "game_count": 109,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Midwest",
+    "season": 1948,
+    "avg_safety_score": 0.3438,
+    "game_count": 110,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Northeast",
+    "season": 1936,
+    "avg_safety_score": 0.3378,
+    "game_count": 142,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Northeast",
+    "season": 1937,
+    "avg_safety_score": 0.3377,
+    "game_count": 142,
+    "dark_city_count": 4,
+    "total_cities": 4
+  },
+  {
+    "region": "Northeast",
+    "season": 1938,
+    "avg_safety_score": 0.3438,
+    "game_count": 167,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1939,
+    "avg_safety_score": 0.3454,
+    "game_count": 145,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1940,
+    "avg_safety_score": 0.3461,
+    "game_count": 127,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1941,
+    "avg_safety_score": 0.3455,
+    "game_count": 130,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1942,
+    "avg_safety_score": 0.3455,
+    "game_count": 131,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1943,
+    "avg_safety_score": 0.3459,
+    "game_count": 129,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1944,
+    "avg_safety_score": 0.345,
+    "game_count": 132,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1945,
+    "avg_safety_score": 0.3457,
+    "game_count": 131,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1946,
+    "avg_safety_score": 0.3452,
+    "game_count": 130,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1947,
+    "avg_safety_score": 0.3453,
+    "game_count": 132,
+    "dark_city_count": 5,
+    "total_cities": 5
+  },
+  {
+    "region": "Northeast",
+    "season": 1948,
+    "avg_safety_score": 0.3457,
+    "game_count": 104,
+    "dark_city_count": 4,
+    "total_cities": 4
+  }
+]
