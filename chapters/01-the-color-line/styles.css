@@ -826,3 +826,46 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* === Chapter closing connective tissue === */
+.chapter-close {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 64px auto 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.chapter-next {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  margin: 0 auto 80px;
+  width: fit-content;
+}
+
+.chapter-next-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.chapter-next-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  text-transform: uppercase;
+}
+
+.chapter-next:hover .chapter-next-title {
+  color: var(--amber-2);
+}
