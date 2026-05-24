@@ -83,6 +83,16 @@ other-boxscore/
   shared/
     platform-nav.html          ← platform nav fragment, included in all chapters
     design-tokens.css          ← shared design system tokens
+    assets/
+      tobs-diamond-mark.svg    ← diamond mark icon (standalone)
+      tobs-logo.svg            ← full logo (diamond + wordmark)
+  docs/
+    design.md                  ← complete design system specification
+    chapter-tenants.md         ← fifteen tenants every chapter must satisfy
+    methodology-template.md    ← canonical methodology template for all chapters
+    chapter-02-the-green-book-route-spec.md  ← Chapter 02 full spec
+    tobs-diamond-mark.svg      ← source SVG for diamond mark
+    tobs-logo.svg              ← source SVG for full logo
 ```
 
 ---
@@ -236,3 +246,27 @@ The full chapter tenant standard is in `docs/chapter-tenants.md`. Every chapter 
 - Mobile first-class -- 375px minimum, no degradation
 - Chapter is citable -- three citation formats on every page
 - Three hard build gates -- Spec, Build, Ship -- no exceptions
+
+---
+
+## Methodology Standard
+
+The full methodology template is in `docs/methodology-template.md`. Every chapter must have:
+
+1. A `METHODOLOGY.md` file in the chapter directory -- the full technical document
+2. An in-page methodology section accessible from the chapter's "Method" tab
+
+Both use the canonical confidence vocabulary: Documented, Verified, Reported, Estimated, Modeled, Reconstructed, Disputed, AI-generated. These terms appear inline at the point of every claim they govern.
+
+AI-generated content is always disclosed in a dedicated, visually distinct block. It is never buried.
+
+---
+
+## Chapter Specifications
+
+New chapters begin with a full spec document in `docs/`. The spec is reviewed and approved before any code is written.
+
+| Chapter | Spec | Status |
+|---------|------|--------|
+| 01 The Color Line | (built before spec process) | Live |
+| 02 The Green Book Route | `docs/chapter-02-the-green-book-route-spec.md` | Spec complete |
