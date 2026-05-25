@@ -23,7 +23,7 @@
   --rule: #2a261d; --rule-2: #3a3527;
   --vellum: #e8e0cf; --vellum-dim: #c4bda9;
   --muted: #8a8270; --muted-2: #5e5849;
-  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --amber: #d4a64a; --chapter-accent: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
   --oxblood: #a14545; --oxblood-2: #c25656;
   --slate: #6f8aa8; --moss: #8fa05a;
   --bronze: #b96f4a; --tan: #a08456;
@@ -159,6 +159,14 @@ img { max-width: 100%; height: auto; display: block; }
 .platform-nav__links a:hover { color: var(--amber); }
 .platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
 
+
+.masthead::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: var(--chapter-accent);
+  opacity: 0.6;
+}
 .masthead__mark { text-decoration: none; text-decoration: none;
   max-width: 1200px;
   margin: 0 auto;
@@ -1536,7 +1544,7 @@ img { max-width: 100%; height: auto; display: block; }
      ==================================================================== -->
 
 <nav class="platform-nav" role="navigation" aria-label="Platform navigation">
-  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+  <a href="/site/" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
     <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
       <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
       <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
@@ -1568,7 +1576,7 @@ img { max-width: 100%; height: auto; display: block; }
       <option value="/chapters/the-shadow-nine/">S9. The Shadow Nine</option>
     </select>
   <div class="platform-nav__links">
-    <a href="https://theotherboxscore.org">Home</a>
+    <a href="/site/">Home</a>
     <span class="platform-nav__sep">/</span>
     <span style="color: var(--amber)">The Shadow Nine</span>
   </div>

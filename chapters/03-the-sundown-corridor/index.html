@@ -23,7 +23,7 @@
   --rule: #2a261d; --rule-2: #3a3527;
   --vellum: #e8e0cf; --vellum-dim: #c4bda9;
   --muted: #8a8270; --muted-2: #5e5849;
-  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --amber: #d4a64a; --chapter-accent: #a14545; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
   --oxblood: #a14545; --oxblood-2: #c25656; --oxblood-dim: rgba(161,69,69,0.55);
   --slate: #6f8aa8; --moss: #8fa05a;
   --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
@@ -142,6 +142,14 @@ a:hover { color: var(--amber-2); }
   gap: 28px; align-items: end;
 }
 
+
+.masthead::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: var(--chapter-accent);
+  opacity: 0.6;
+}
 .masthead__mark { text-decoration: none;
   max-width: 1200px;
   margin: 0 auto;

@@ -23,7 +23,7 @@
   --rule: #2a261d; --rule-2: #3a3527;
   --vellum: #e8e0cf; --vellum-dim: #c4bda9;
   --muted: #8a8270; --muted-2: #5e5849;
-  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --amber: #d4a64a; --chapter-accent: #a14545; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
   --oxblood: #a14545; --oxblood-2: #c25656;
   --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
   --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
@@ -158,6 +158,14 @@ img { max-width: 100%; height: auto; display: block; }
   border-bottom: 1px solid var(--rule);
 }
 
+
+.masthead::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: var(--chapter-accent);
+  opacity: 0.6;
+}
 .masthead__mark { text-decoration: none;
   max-width: 1200px;
   margin: 0 auto;
@@ -191,7 +199,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 400;
-  color: var(--slate);
+  color: var(--chapter-accent);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -269,8 +277,8 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead__tab:hover { color: var(--vellum-dim); }
 
 .masthead__tab--active {
-  color: var(--amber);
-  border-bottom-color: var(--amber);
+  color: var(--chapter-accent);
+  border-bottom-color: var(--chapter-accent);
 }
 
 /* ==========================================================================
@@ -1251,7 +1259,7 @@ img { max-width: 100%; height: auto; display: block; }
      ====================================================================== -->
 
 <nav class="platform-nav" aria-label="Platform navigation">
-  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+  <a href="/site/" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
     <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
       <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
       <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
@@ -1283,7 +1291,7 @@ img { max-width: 100%; height: auto; display: block; }
       <option value="/chapters/the-shadow-nine/">S9. The Shadow Nine</option>
     </select>
   <div class="platform-nav__links">
-    <a href="https://theotherboxscore.org">Home</a>
+    <a href="/site/">Home</a>
     <span class="platform-nav__sep">/</span>
     <span>Ch 07</span>
   </div>
