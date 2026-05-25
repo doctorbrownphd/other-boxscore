@@ -2139,7 +2139,7 @@ img { max-width: 100%; height: auto; display: block; }
       <ul class="what__timeline">
         <li class="what__timeline-item">
           <span class="what__timeline-date">Jul 6 -- 1933</span>
-          <span class="what__timeline-body">First MLB All-Star Game -- Comiskey Park -- attendance ~49,000.</span>
+          <span class="what__timeline-body">First MLB All-Star Game -- Comiskey Park -- attendance 47,595.</span>
         </li>
         <li class="what__timeline-item">
           <span class="what__timeline-date">Late Jul -- 1933</span>
@@ -2147,7 +2147,7 @@ img { max-width: 100%; height: auto; display: block; }
         </li>
         <li class="what__timeline-item">
           <span class="what__timeline-date">Sep 10 -- 1933</span>
-          <span class="what__timeline-body">First East-West All-Star Game -- same ballpark -- attendance ~19,568.</span>
+          <span class="what__timeline-body">First East-West All-Star Game -- same ballpark -- attendance 19,568.</span>
         </li>
         <li class="what__timeline-item">
           <span class="what__timeline-date">1934 onward</span>
@@ -2625,32 +2625,27 @@ github.com/other-boxscore/chapters/
 <!-- ====================================================================
      SCRIPTS
      ==================================================================== -->
+
+<!-- Attendance data pipeline: canonical source is data/attendance.json (CC0).
+     JS delivery file loads as window.ATTENDANCE_DATA.
+     Primary: Lester, Black Baseball's National Showcase (2020).
+     Cross-reference: SABR Retrosheet, Baseball Almanac. -->
+<script src="data/attendance-data.js"></script>
+
 <script>
 (function() {
 "use strict";
 
 /* ======================================================================
-   DATA
+   DATA -- loaded from data/attendance-data.js (window.ATTENDANCE_DATA)
+   Canonical source: data/attendance.json (CC0)
+   Primary: Larry Lester, Black Baseball's National Showcase (2020)
+   Cross-reference: SABR Retrosheet, Baseball Almanac
    ====================================================================== */
 
-var ATT = [
-  { year: 1933, ew: 19568, mlb: 49000 },
-  { year: 1934, ew: 30000, mlb: 48363 },
-  { year: 1935, ew: 25000, mlb: 69831 },
-  { year: 1936, ew: 26400, mlb: 25556 },
-  { year: 1937, ew: 20000, mlb: 31391 },
-  { year: 1938, ew: 30000, mlb: 27067 },
-  { year: 1939, ew: 33489, mlb: 62892 },
-  { year: 1940, ew: 25000, mlb: 32373 },
-  { year: 1941, ew: 50256, mlb: 54674 },
-  { year: 1942, ew: 48400, mlb: 34178 },
-  { year: 1943, ew: 51723, mlb: 31938 },
-  { year: 1944, ew: 46247, mlb: 29589 },
-  { year: 1945, ew: 31714, mlb: 0     },
-  { year: 1946, ew: 45747, mlb: 34908 },
-  { year: 1947, ew: 48112, mlb: 41123 },
-  { year: 1948, ew: 42099, mlb: 34009 }
-];
+var ATT = window.ATTENDANCE_DATA.records.map(function(r) {
+  return { year: r.year, ew: r.ew, mlb: r.mlb || 0 };
+});
 
 var CROSSOVER_YEARS = ATT.filter(function(d) {
   return d.mlb > 0 && d.ew > d.mlb;

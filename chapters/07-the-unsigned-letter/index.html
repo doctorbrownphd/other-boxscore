@@ -1716,34 +1716,55 @@ window.TOBS.ch07 = {};
    DATA
    ------------------------------------------------------------------ */
 
-var FRANCHISES = [
-  { name: "Brooklyn Dodgers", tryoutDate: "1945-04-06", tryoutPlayers: "Terris McDuffie, Showboat Thomas", tryoutLocation: "Bear Mountain, NY", integrationDate: "1947-04-15", firstPlayer: "Jackie Robinson", gapDays: 740, confidence: "Documented" },
-  { name: "Cleveland Indians", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1947-07-05", firstPlayer: "Larry Doby", gapDays: null, confidence: null },
-  { name: "St. Louis Browns", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1947-07-17", firstPlayer: "Hank Thompson", gapDays: null, confidence: null },
-  { name: "New York Giants", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1949-07-08", firstPlayer: "Hank Thompson, Monte Irvin", gapDays: null, confidence: null },
-  { name: "Boston Braves", tryoutDate: "1945-04-01", tryoutPlayers: "Scheduled tryout, never held", tryoutLocation: "Boston", integrationDate: "1950-04-18", firstPlayer: "Sam Jethroe", gapDays: 1843, confidence: "Documented" },
-  { name: "Chicago White Sox", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1951-05-01", firstPlayer: "Minnie Minoso", gapDays: null, confidence: null },
-  { name: "Philadelphia Athletics", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1953-09-13", firstPlayer: "Bob Trice", gapDays: null, confidence: null },
-  { name: "Chicago Cubs", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1953-09-17", firstPlayer: "Ernie Banks", gapDays: null, confidence: null },
-  { name: "Pittsburgh Pirates", tryoutDate: "1942-07-01", tryoutPlayers: "Wendell Smith to select", tryoutLocation: "Announced, never held", integrationDate: "1954-04-13", firstPlayer: "Curt Roberts", gapDays: 4304, confidence: "Documented" },
-  { name: "St. Louis Cardinals", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-04-13", firstPlayer: "Tom Alston", gapDays: null, confidence: null },
-  { name: "Cincinnati Reds", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-04-17", firstPlayer: "Nino Escalera, Chuck Harmon", gapDays: null, confidence: null },
-  { name: "Washington Senators", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-09-06", firstPlayer: "Carlos Paula", gapDays: null, confidence: null },
-  { name: "New York Yankees", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1955-04-14", firstPlayer: "Elston Howard", gapDays: null, confidence: null },
-  { name: "Philadelphia Phillies", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1957-04-22", firstPlayer: "John Kennedy", gapDays: null, confidence: null },
-  { name: "Detroit Tigers", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1958-06-06", firstPlayer: "Ozzie Virgil", gapDays: null, confidence: null },
-  { name: "Boston Red Sox", tryoutDate: "1945-04-16", tryoutPlayers: "Jackie Robinson, Sam Jethroe, Marvin Williams", tryoutLocation: "Fenway Park", integrationDate: "1959-07-21", firstPlayer: "Pumpsie Green", gapDays: 5209, confidence: "Documented" }
-];
+/* FRANCHISES and TRYOUT_DB loaded from integration-events.json */
+var FRANCHISES = [];
+var TRYOUT_DB = [];
 
 window.TOBS.FRANCHISES = FRANCHISES;
 
-var TRYOUT_DB = [
-  { date: "1942-07-01", dateDisplay: "Jul 1942", team: "Pittsburgh Pirates", players: "Wendell Smith to select candidates", location: "Announced, never held", outcome: "Abandoned Aug 1942", result: "No signings", confidence: "Documented", sortKey: 19420701 },
-  { date: "1945-04-06", dateDisplay: "Apr 6, 1945", team: "Brooklyn Dodgers", players: "Terris McDuffie, Showboat Thomas", location: "Bear Mountain, NY", outcome: "Tryout held", result: "No signings", confidence: "Documented", sortKey: 19450406 },
-  { date: "1945-04-01", dateDisplay: "Apr 1945", team: "Boston Braves", players: "Scheduled, never held", location: "Boston", outcome: "Canceled (FDR death cited)", result: "No signings", confidence: "Documented", sortKey: 19450401 },
-  { date: "1945-04-16", dateDisplay: "Apr 16, 1945", team: "Boston Red Sox", players: "Jackie Robinson, Sam Jethroe, Marvin Williams", location: "Fenway Park", outcome: "90-minute workout", result: "No signings", confidence: "Documented", sortKey: 19450416 },
-  { date: "1945-04-07", dateDisplay: "Apr 7, 1945", team: "Brooklyn Dodgers", players: "Jackie Robinson (meeting with Rickey)", location: "Brooklyn, NY", outcome: "Evaluation meeting", result: "Robinson signed Oct 1945", confidence: "Verified", sortKey: 19450407 }
-];
+/* Load data from JSON, then initialize all visualizations */
+function _ch07LoadData(callback) {
+  fetch("data/integration-events.json")
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      /* Map JSON data entries to FRANCHISES format */
+      json.data.forEach(function(d) {
+        FRANCHISES.push({
+          name: d.team,
+          tryoutDate: d.tryoutDate || null,
+          tryoutPlayers: d.tryoutPlayers || null,
+          tryoutLocation: d.tryoutLocation || null,
+          integrationDate: d.integrationDate,
+          firstPlayer: d.firstPlayer,
+          gapDays: d.gapDays || null,
+          confidence: d.confidence || null
+        });
+      });
+
+      /* Map tryoutDatabase entries to TRYOUT_DB format */
+      if (json.tryoutDatabase) {
+        json.tryoutDatabase.forEach(function(t) {
+          var sortKey = parseInt(t.date.replace(/-/g, ""), 10);
+          TRYOUT_DB.push({
+            date: t.date,
+            dateDisplay: t.dateDisplay,
+            team: t.team,
+            players: t.players,
+            location: t.location,
+            outcome: t.outcome,
+            result: t.result,
+            confidence: t.confidence,
+            sortKey: sortKey
+          });
+        });
+      }
+
+      callback();
+    })
+    .catch(function(err) {
+      console.error("Failed to load integration-events.json:", err);
+    });
+}
 
 /* ------------------------------------------------------------------
    UTILITY
@@ -1769,6 +1790,12 @@ function daysBetween(a, b) {
   var db = parseDate(b);
   return Math.round((db - da) / (1000 * 60 * 60 * 24));
 }
+
+/* ------------------------------------------------------------------
+   LOAD DATA AND INITIALIZE DATA-DEPENDENT VISUALIZATIONS
+   ------------------------------------------------------------------ */
+
+_ch07LoadData(function() {
 
 /* ------------------------------------------------------------------
    TIMELINE VISUALIZATION
@@ -2247,6 +2274,8 @@ function daysBetween(a, b) {
     });
   });
 })();
+
+}); /* end _ch07LoadData callback */
 
 /* ------------------------------------------------------------------
    AGED OUT SCATTER PLOT

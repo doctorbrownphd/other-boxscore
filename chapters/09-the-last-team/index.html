@@ -1701,41 +1701,47 @@ var ch09 = {};
 window.TOBS.ch09 = ch09;
 
 /* ======================================================================
-   DATA -- Integration events for all 16 original franchises
+   DATA -- Integration events loaded from integration-events.json
    Source: MLB.com Aug 2020, cross-ref SABR Bio Project, NLBM Barrier Breakers
    ====================================================================== */
 
-var TEAMS = [
-  { team: "Brooklyn Dodgers",       abbr: "BRO", player: "Jackie Robinson",    date: "1947-04-15", league: "NL" },
-  { team: "Cleveland Indians",      abbr: "CLE", player: "Larry Doby",         date: "1947-07-05", league: "AL" },
-  { team: "St. Louis Browns",       abbr: "SLB", player: "Hank Thompson",      date: "1947-07-17", league: "AL" },
-  { team: "New York Giants",        abbr: "NYG", player: "Hank Thompson",      date: "1949-07-08", league: "NL" },
-  { team: "Boston Braves",          abbr: "BSN", player: "Sam Jethroe",        date: "1950-04-18", league: "NL" },
-  { team: "Chicago White Sox",      abbr: "CHW", player: "Minnie Minoso",      date: "1951-05-01", league: "AL" },
-  { team: "Philadelphia Athletics", abbr: "PHA", player: "Bob Trice",          date: "1953-09-13", league: "AL" },
-  { team: "Chicago Cubs",           abbr: "CHC", player: "Ernie Banks",        date: "1953-09-17", league: "NL" },
-  { team: "Pittsburgh Pirates",     abbr: "PIT", player: "Curt Roberts",       date: "1954-04-13", league: "NL" },
-  { team: "St. Louis Cardinals",    abbr: "STL", player: "Tom Alston",         date: "1954-04-13", league: "NL" },
-  { team: "Cincinnati Reds",        abbr: "CIN", player: "Nino Escalera",      date: "1954-04-17", league: "NL" },
-  { team: "Washington Senators",    abbr: "WAS", player: "Carlos Paula",       date: "1954-09-06", league: "AL" },
-  { team: "New York Yankees",       abbr: "NYY", player: "Elston Howard",      date: "1955-04-14", league: "AL" },
-  { team: "Philadelphia Phillies",  abbr: "PHI", player: "John Kennedy",       date: "1957-04-22", league: "NL" },
-  { team: "Detroit Tigers",         abbr: "DET", player: "Ozzie Virgil Sr.",   date: "1958-06-06", league: "AL" },
-  { team: "Boston Red Sox",         abbr: "BOS", player: "Pumpsie Green",      date: "1959-07-21", league: "AL" }
-];
+var TEAMS = [];
 
 /* Pre-compute day offsets from Robinson's debut */
 var EPOCH = new Date(1947, 3, 15).getTime();
 var END_MS = new Date(1959, 6, 21).getTime();
 var TOTAL_DAYS = (END_MS - EPOCH) / 86400000;
 
-TEAMS.forEach(function(t) {
-  var parts = t.date.split("-");
-  var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-  t.dayOffset = (d.getTime() - EPOCH) / 86400000;
-  t.pct = t.dayOffset / TOTAL_DAYS;
-  t.dateObj = d;
-});
+function _ch09ComputeOffsets() {
+  TEAMS.forEach(function(t) {
+    var parts = t.date.split("-");
+    var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    t.dayOffset = (d.getTime() - EPOCH) / 86400000;
+    t.pct = t.dayOffset / TOTAL_DAYS;
+    t.dateObj = d;
+  });
+}
+
+function _ch09LoadData(callback) {
+  fetch("data/integration-events.json")
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      json.data.forEach(function(d) {
+        TEAMS.push({
+          team: d.team,
+          abbr: d.abbr,
+          player: d.firstPlayer,
+          date: d.integrationDate,
+          league: d.league
+        });
+      });
+      _ch09ComputeOffsets();
+      callback();
+    })
+    .catch(function(err) {
+      console.error("Failed to load integration-events.json:", err);
+    });
+}
 
 /* ======================================================================
    UTILITY FUNCTIONS
@@ -1763,8 +1769,10 @@ function formatDate(d) {
 var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ======================================================================
-   FIG 01 -- THE RISK SET TIMELINE
+   FIG 01 -- THE RISK SET TIMELINE (loaded after data fetch)
    ====================================================================== */
+
+_ch09LoadData(function() {
 
 (function() {
   var svg = document.getElementById("riskset-svg");
@@ -2001,6 +2009,8 @@ var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-mot
   ch09.playTimeline = play;
   ch09.pauseTimeline = pause;
 })();
+
+}); /* end _ch09LoadData callback */
 
 /* ======================================================================
    FIG 02 -- SURVIVAL CURVE AND HAZARD FUNCTION
