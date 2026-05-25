@@ -1598,7 +1598,7 @@ img { max-width: 100%; height: auto; display: block; }
     <text x="170" y="82" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="400" letter-spacing="8" fill="#d4a64a">THE OTHER</text>
     <text x="165" y="148" font-family="'Playfair Display', Georgia, serif" font-size="72" font-weight="700" fill="#e8e0cf">Box Score</text>
   </svg>
-</div>
+</a>
 
 <section class="shadow__hero" id="hero" aria-label="The Shadow Nine introduction">
   <div class="shadow__hero-kicker">The Other Box Score</div>
@@ -1747,7 +1747,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="field-pos" id="field-LF"   style="left:20%;top:26%"   data-pos="LF"></div>
       <div class="field-pos" id="field-CF"   style="left:50%;top:14%"   data-pos="CF"></div>
       <div class="field-pos" id="field-RF"   style="left:80%;top:26%"   data-pos="RF"></div>
-      <div class="field-pos" id="field-UTIL" style="left:50%;top:93%"   data-pos="UTIL"></div>
+      <div class="field-pos" id="field-P"    style="left:50%;top:62%"   data-pos="P"></div>
     </div>
   </div>
 
@@ -1818,7 +1818,7 @@ img { max-width: 100%; height: auto; display: block; }
     <svg class="drawer__radar-svg" id="drawer-radar" viewBox="0 0 220 220" aria-label="Similarity radar diagram">
       <!-- JS draws -->
     </svg>
-  </a>
+  </div>
   <div class="drawer__explanation" id="drawer-explanation">
     <!-- JS fills -->
   </div>
@@ -1835,6 +1835,10 @@ img { max-width: 100%; height: auto; display: block; }
 /* ======================================================================
    THE SHADOW NINE -- Interactive Lineup Builder
    The Other Box Score -- theotherboxscore.org
+
+   Data pipeline: Real statistics from Seamheads Negro Leagues Database
+   and Baseball Reference, pre-computed via build-matches.py.
+   No invented numbers. Every stat traces to a documented source.
    ====================================================================== */
 
 (function() {
@@ -1860,455 +1864,72 @@ var POSITIONS = [
   { key: "LF",   label: "LF",   full: "Left Field" },
   { key: "CF",   label: "CF",   full: "Center Field" },
   { key: "RF",   label: "RF",   full: "Right Field" },
-  { key: "UTIL", label: "UTIL", full: "Utility" }
+  { key: "P",    label: "P",    full: "Pitcher" }
 ];
 
 /* ======================================================================
-   PLACEHOLDER MATCH DATA
-   k-NN model output -- ~20 NLB players, pre-computed matches
+   DATA -- Loaded from pre-computed JSON files
+   Sources: Seamheads Negro Leagues Database, Baseball Reference
+   Pipeline: chapters/the-shadow-nine/data/build-matches.py
    ====================================================================== */
 
-var NLB_MATCHES = {
-  "C": [
-    {
-      mlbPool: [
-        { id: "bench", name: "Johnny Bench", years: "1967-1983", team: "Cincinnati Reds", era: "modern", war: 75.2,
-          stats: { ba: .267, obp: .342, slg: .476, iso: .209, kPct: 17.2, bbPct: 10.5, ops_plus: 126 },
-          tags: { hit: "Power hitter", power: "Pull power", approach: "Aggressive", speed: "Station-to-station", glove: "Plus defender", arm: "Cannon" }
-        },
-        { id: "piazza", name: "Mike Piazza", years: "1992-2007", team: "New York Mets", era: "modern", war: 59.5,
-          stats: { ba: .308, obp: .377, slg: .545, iso: .237, kPct: 15.8, bbPct: 9.4, ops_plus: 143 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Slow", glove: "Average", arm: "Average" }
-        },
-        { id: "berra", name: "Yogi Berra", years: "1946-1965", team: "New York Yankees", era: "post-integration", war: 59.6,
-          stats: { ba: .285, obp: .348, slg: .482, iso: .197, kPct: 7.8, bbPct: 9.2, ops_plus: 125 },
-          tags: { hit: "Line-drive contact", power: "Pull power", approach: "Aggressive", speed: "Station-to-station", glove: "Above-average defender", arm: "Plus" }
-        }
-      ],
-      nlbMatches: {
-        "bench": {
-          primary: {
-            id: "gibson_j", name: "Josh Gibson", years: "1930-1946", team: "Homestead Grays", war: null,
-            stats: { ba: .372, obp: .440, slg: .648, iso: .276, kPct: 5.1, bbPct: 8.9, ops_plus: 184 },
-            tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Above-average defender", arm: "Plus" },
-            score: 84, confidence: "Strong",
-            explanation: "<strong>Josh Gibson</strong> caught for the Homestead Grays and Pittsburgh Crawfords from 1930 to 1946. He was a right-handed power hitter with exceptional bat-to-ball skills and the ability to drive the ball to all fields with authority. The match to Johnny Bench reflects shared elite power production from the catcher position across long careers as franchise cornerstones. The strongest dimension is power production; the weakest is plate approach, where Gibson was more selective and Bench more aggressive. Gibson hit approximately 800 home runs across league and barnstorming play, a total that no statistical adjustment diminishes.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database, career record. Lanctot, 'Negro League Baseball' (2004)."
-          },
-          alternates: [
-            { id: "mackey", name: "Biz Mackey", score: 68, summary: "Defensive wizard, switch-hitter with gap power. Hall of Fame 2006.", confidence: "Moderate" },
-            { id: "campanella_r", name: "Roy Campanella", score: 65, summary: "Three-time NL MVP after integration. Power-hitting catcher with leadership.", confidence: "Moderate" }
-          ]
-        },
-        "piazza": {
-          primary: {
-            id: "gibson_j", name: "Josh Gibson", years: "1930-1946", team: "Homestead Grays", war: null,
-            stats: { ba: .372, obp: .440, slg: .648, iso: .276, kPct: 5.1, bbPct: 8.9, ops_plus: 184 },
-            tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Above-average defender", arm: "Plus" },
-            score: 79, confidence: "Moderate",
-            explanation: "<strong>Josh Gibson</strong> caught for the Homestead Grays and Pittsburgh Crawfords from 1930 to 1946. He was a right-handed power hitter with exceptional bat-to-ball skills and the ability to drive the ball to all fields with authority. The match to Mike Piazza reflects two bat-first catchers with elite offensive production. The strongest dimension is hit tool and power profile; the weakest is defensive value, where Gibson was more complete behind the plate. Both redefined what was possible offensively from the catching position.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database, career record. Lanctot, 'Negro League Baseball' (2004)."
-          },
-          alternates: [
-            { id: "mackey", name: "Biz Mackey", score: 62, summary: "Defensive wizard, switch-hitter with gap power.", confidence: "Moderate" }
-          ]
-        },
-        "berra": {
-          primary: {
-            id: "mackey", name: "Biz Mackey", years: "1920-1947", team: "Hilldale / Newark Eagles", war: null,
-            stats: { ba: .322, obp: .380, slg: .465, iso: .143, kPct: 8.2, bbPct: 7.6, ops_plus: 133 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Plus defender", arm: "Cannon" },
-            score: 77, confidence: "Moderate",
-            explanation: "<strong>Biz Mackey</strong> caught for Hilldale, the Philadelphia Stars, and the Newark Eagles across a career spanning nearly three decades. He was a switch-hitting contact hitter with gap power who was considered the finest defensive catcher in Negro Leagues history. The match to Yogi Berra reflects two contact-oriented catchers with exceptional defensive reputations and leadership qualities. The strongest dimension is hit tool; the weakest is power, where Berra had more pull-side authority. Mackey mentored a young Larry Doby and Roy Campanella on the Newark Eagles.",
-            dataConfidence: "Verified",
-            source: "Seamheads Negro Leagues Database. Clark and Lester, 'The Negro Leagues Book' (1994)."
-          },
-          alternates: [
-            { id: "gibson_j", name: "Josh Gibson", score: 71, summary: "Greatest power-hitting catcher in baseball history. Hall of Fame 1972.", confidence: "Moderate" }
-          ]
-        }
-      }
-    },
-    {
-      id: "C",
-      defaultMlb: "bench"
+var MLB_POOL = {};    /* position -> array of player objects */
+var NLB_POOL = {};    /* position -> array of player objects */
+var MATCH_DATA = {};  /* position -> { mlbName: { primary: {...}, alternates: [...] } } */
+var DATA_LOADED = false;
+/* ======================================================================
+   DATA LOADING
+   ====================================================================== */
+
+function loadData(callback) {
+  var basePath = "data/";
+  var loaded = 0;
+  var total = 3;
+
+  function checkDone() {
+    loaded++;
+    if (loaded === total) {
+      DATA_LOADED = true;
+      if (callback) callback();
     }
-  ],
-  "1B": [
-    {
-      mlbPool: [
-        { id: "gehrig", name: "Lou Gehrig", years: "1923-1939", team: "New York Yankees", era: "live-ball", war: 112.4,
-          stats: { ba: .340, obp: .447, slg: .632, iso: .292, kPct: 8.3, bbPct: 15.6, ops_plus: 179 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Average", arm: "Average" }
-        },
-        { id: "pujols", name: "Albert Pujols", years: "2001-2022", team: "St. Louis Cardinals", era: "contemporary", war: 101.0,
-          stats: { ba: .296, obp: .374, slg: .544, iso: .248, kPct: 10.6, bbPct: 11.7, ops_plus: 143 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Station-to-station", glove: "Above-average defender", arm: "Average" }
+  }
+
+  fetchJSON(basePath + "mlb-pool.json", function(data) {
+    MLB_POOL = data.positions || {};
+    checkDone();
+  });
+
+  fetchJSON(basePath + "nlb-pool.json", function(data) {
+    NLB_POOL = data.positions || {};
+    checkDone();
+  });
+
+  fetchJSON(basePath + "matches.json", function(data) {
+    MATCH_DATA = data.matches || {};
+    checkDone();
+  });
+}
+
+function fetchJSON(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        try {
+          cb(JSON.parse(xhr.responseText));
+        } catch(e) {
+          console.error("Failed to parse " + url, e);
+          cb({});
         }
-      ],
-      nlbMatches: {
-        "gehrig": {
-          primary: {
-            id: "leonard", name: "Buck Leonard", years: "1933-1950", team: "Homestead Grays", war: null,
-            stats: { ba: .320, obp: .394, slg: .546, iso: .226, kPct: 6.4, bbPct: 10.8, ops_plus: 155 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Above-average defender", arm: "Average" },
-            score: 84, confidence: "Strong",
-            explanation: "<strong>Buck Leonard</strong> played first base for the Homestead Grays from 1933 to 1950, forming one half of the most feared batting tandem in Negro Leagues history alongside Josh Gibson. He was a left-handed hitter with a compact swing, line-drive power to all fields, and a patient approach. The match to Lou Gehrig reflects two left-handed-hitting first basemen with all-fields power, patient approaches, and long tenures as the heart of dominant lineups. The strongest dimension is hit tool and approach; the weakest is raw power, where Gehrig's slugging was historically extreme. Leonard was inducted into the Baseball Hall of Fame in 1972.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
-          },
-          alternates: [
-            { id: "suttles", name: "Mule Suttles", score: 72, summary: "Right-handed slugger with exceptional pull-side power. Hall of Fame 2006.", confidence: "Moderate" }
-          ]
-        },
-        "pujols": {
-          primary: {
-            id: "leonard", name: "Buck Leonard", years: "1933-1950", team: "Homestead Grays", war: null,
-            stats: { ba: .320, obp: .394, slg: .546, iso: .226, kPct: 6.4, bbPct: 10.8, ops_plus: 155 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Above-average defender", arm: "Average" },
-            score: 81, confidence: "Strong",
-            explanation: "<strong>Buck Leonard</strong> played first base for the Homestead Grays from 1933 to 1950. He was a left-handed hitter with a compact swing and the ability to drive the ball to all fields. The match to Albert Pujols reflects two first basemen with exceptional hit tools, all-fields power, and long careers as franchise cornerstones. The strongest dimension is hit tool; the weakest is career length in the documented record, where Pujols's 22-year MLB career is more completely documented. Leonard won three consecutive Negro National League batting titles.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
-          },
-          alternates: [
-            { id: "suttles", name: "Mule Suttles", score: 70, summary: "Right-handed slugger. Led NNL in home runs multiple seasons.", confidence: "Moderate" }
-          ]
-        }
+      } else {
+        console.error("Failed to load " + url + " (status " + xhr.status + ")");
+        cb({});
       }
     }
-  ],
-  "2B": [
-    {
-      mlbPool: [
-        { id: "hornsby", name: "Rogers Hornsby", years: "1915-1937", team: "St. Louis Cardinals", era: "live-ball", war: 127.0,
-          stats: { ba: .358, obp: .434, slg: .577, iso: .219, kPct: 6.1, bbPct: 10.1, ops_plus: 175 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Average", arm: "Average" }
-        },
-        { id: "morgan", name: "Joe Morgan", years: "1963-1984", team: "Cincinnati Reds", era: "modern", war: 100.5,
-          stats: { ba: .271, obp: .392, slg: .427, iso: .156, kPct: 13.7, bbPct: 16.6, ops_plus: 132 },
-          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Average" }
-        }
-      ],
-      nlbMatches: {
-        "hornsby": {
-          primary: {
-            id: "johnson_g", name: "Grant Johnson", years: "1895-1916", team: "Page Fence Giants / Cuban X-Giants", war: null,
-            stats: { ba: .335, obp: .380, slg: .445, iso: .110, kPct: 7.2, bbPct: 6.5, ops_plus: 138 },
-            tags: { hit: "Pure hitter", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Average" },
-            score: 68, confidence: "Moderate",
-            explanation: "<strong>Grant Johnson</strong> played second base and shortstop for the Page Fence Giants and the Cuban X-Giants from 1895 to 1916. He was a right-handed contact hitter known as 'Home Run' Johnson in the dead-ball era, with a selective approach at the plate. The match to Rogers Hornsby reflects two right-handed-hitting middle infielders with exceptional bat-to-ball skills. The strongest dimension is hit tool; the weakest is power, where Hornsby's slugging was historically elite. Johnson was one of the earliest Black baseball stars, predating the formal Negro Leagues by a generation.",
-            dataConfidence: "Reported",
-            source: "Seamheads Negro Leagues Database. Loverro, 'The Encyclopedia of Negro League Baseball' (2003)."
-          },
-          alternates: [
-            { id: "wells_w", name: "Willie Wells", score: 63, summary: "Primarily a shortstop. Elite defensive player with line-drive power.", confidence: "Moderate" }
-          ]
-        },
-        "morgan": {
-          primary: {
-            id: "johnson_g", name: "Grant Johnson", years: "1895-1916", team: "Page Fence Giants / Cuban X-Giants", war: null,
-            stats: { ba: .335, obp: .380, slg: .445, iso: .110, kPct: 7.2, bbPct: 6.5, ops_plus: 138 },
-            tags: { hit: "Pure hitter", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Average" },
-            score: 71, confidence: "Moderate",
-            explanation: "<strong>Grant Johnson</strong> played second base and shortstop for the Page Fence Giants, Cuban X-Giants, and other early Black baseball teams. He was a right-handed hitter with excellent bat control and gap power. The match to Joe Morgan reflects two middle infielders who combined offensive production with solid defensive play. The strongest dimension is approach and speed; the weakest is power, where Morgan had more extra-base production. Johnson was a pioneering figure whose career spanned the transition from independent Black baseball to the organized Negro Leagues.",
-            dataConfidence: "Reported",
-            source: "Seamheads Negro Leagues Database. Loverro, 'The Encyclopedia of Negro League Baseball' (2003)."
-          },
-          alternates: [
-            { id: "warfield", name: "Frank Warfield", score: 62, summary: "Aggressive contact hitter with solid defense at second base.", confidence: "Moderate" }
-          ]
-        }
-      }
-    }
-  ],
-  "3B": [
-    {
-      mlbPool: [
-        { id: "schmidt", name: "Mike Schmidt", years: "1972-1989", team: "Philadelphia Phillies", era: "modern", war: 106.5,
-          stats: { ba: .267, obp: .380, slg: .527, iso: .260, kPct: 21.6, bbPct: 15.0, ops_plus: 147 },
-          tags: { hit: "Power hitter", power: "Pull power", approach: "Patient", speed: "Average", glove: "Plus defender", arm: "Cannon" }
-        },
-        { id: "brett", name: "George Brett", years: "1973-1993", team: "Kansas City Royals", era: "modern", war: 88.7,
-          stats: { ba: .305, obp: .369, slg: .487, iso: .182, kPct: 11.4, bbPct: 9.7, ops_plus: 135 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Aggressive", speed: "Plus runner", glove: "Average", arm: "Plus" }
-        }
-      ],
-      nlbMatches: {
-        "schmidt": {
-          primary: {
-            id: "dandridge", name: "Ray Dandridge", years: "1933-1949", team: "Newark Eagles / New York Cubans", war: null,
-            stats: { ba: .319, obp: .371, slg: .451, iso: .132, kPct: 5.8, bbPct: 7.4, ops_plus: 130 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Plus defender", arm: "Cannon" },
-            score: 72, confidence: "Moderate",
-            explanation: "<strong>Ray Dandridge</strong> played third base for the Newark Eagles and the New York Cubans from 1933 to 1949. He was a right-handed contact hitter known for one of the surest gloves in baseball history, with quick hands and exceptional range at the hot corner. The match to Mike Schmidt reflects two elite defensive third basemen with strong arms. The strongest dimension is defensive ability; the weakest is power, where Schmidt's home run production was historically elite and Dandridge was a gap hitter. Dandridge was inducted into the Baseball Hall of Fame in 1987.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Riley, 'The Biographical Encyclopedia of the Negro Baseball Leagues' (1994)."
-          },
-          alternates: [
-            { id: "wilson_j", name: "Jud Wilson", score: 70, summary: "Powerful left-handed hitter. Career .351 average in documented seasons.", confidence: "Moderate" }
-          ]
-        },
-        "brett": {
-          primary: {
-            id: "wilson_j", name: "Jud Wilson", years: "1922-1945", team: "Baltimore Black Sox / Homestead Grays", war: null,
-            stats: { ba: .351, obp: .402, slg: .521, iso: .170, kPct: 5.9, bbPct: 7.8, ops_plus: 152 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Aggressive", speed: "Average", glove: "Average", arm: "Plus" },
-            score: 80, confidence: "Strong",
-            explanation: "<strong>Jud Wilson</strong> played third base for the Baltimore Black Sox, Homestead Grays, and Philadelphia Stars from 1922 to 1945. He was a left-handed hitter with a fierce, aggressive approach and the ability to drive the ball to all fields. The match to George Brett reflects two aggressive, high-average third basemen with all-fields power. The strongest dimension is hit tool and approach; the weakest is speed, where Brett was faster. Wilson was known as 'Boojum' for the sound the ball made hitting outfield walls off his bat.",
-            dataConfidence: "Verified",
-            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
-          },
-          alternates: [
-            { id: "dandridge", name: "Ray Dandridge", score: 73, summary: "Elite defensive third baseman with contact-oriented approach.", confidence: "Moderate" }
-          ]
-        }
-      }
-    }
-  ],
-  "SS": [
-    {
-      mlbPool: [
-        { id: "ripken", name: "Cal Ripken Jr.", years: "1981-2001", team: "Baltimore Orioles", era: "modern", war: 95.9,
-          stats: { ba: .276, obp: .340, slg: .447, iso: .171, kPct: 11.1, bbPct: 8.8, ops_plus: 112 },
-          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Station-to-station", glove: "Plus defender", arm: "Plus" }
-        },
-        { id: "jeter", name: "Derek Jeter", years: "1995-2014", team: "New York Yankees", era: "contemporary", war: 72.4,
-          stats: { ba: .310, obp: .377, slg: .440, iso: .130, kPct: 15.0, bbPct: 9.5, ops_plus: 115 },
-          tags: { hit: "Pure hitter", power: "Opposite-field power", approach: "Selective", speed: "Plus runner", glove: "Average", arm: "Average" }
-        }
-      ],
-      nlbMatches: {
-        "ripken": {
-          primary: {
-            id: "wells", name: "Willie Wells", years: "1924-1948", team: "St. Louis Stars / Newark Eagles", war: null,
-            stats: { ba: .319, obp: .381, slg: .484, iso: .165, kPct: 6.1, bbPct: 8.6, ops_plus: 141 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Plus defender", arm: "Cannon" },
-            score: 82, confidence: "Strong",
-            explanation: "<strong>Willie Wells</strong> played shortstop for the St. Louis Stars and Newark Eagles from 1924 to 1948. He was a right-handed hitter with line-drive power, outstanding range, and one of the strongest arms of any shortstop in the Negro Leagues. The match to Cal Ripken Jr. reflects two power-hitting shortstops who redefined the position offensively while maintaining elite defensive standards. The strongest dimension is defensive value; the weakest is raw power, where Ripken had more over-the-fence production. Wells was the first baseball player to wear a batting helmet, after being hit in the head by a pitch in 1942.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Clark and Lester, 'The Negro Leagues Book' (1994)."
-          },
-          alternates: [
-            { id: "lloyd", name: "Pop Lloyd", score: 78, summary: "Considered the greatest shortstop of the dead-ball era. Hall of Fame 1977.", confidence: "Moderate" },
-            { id: "beckwith_j", name: "John Beckwith", score: 60, summary: "Power-hitting shortstop with a powerful throwing arm.", confidence: "Moderate" }
-          ]
-        },
-        "jeter": {
-          primary: {
-            id: "lloyd", name: "Pop Lloyd", years: "1906-1932", team: "Lincoln Giants / Atlantic City Bacharach Giants", war: null,
-            stats: { ba: .342, obp: .394, slg: .453, iso: .111, kPct: 5.5, bbPct: 7.9, ops_plus: 140 },
-            tags: { hit: "Pure hitter", power: "Opposite-field power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
-            score: 85, confidence: "Strong",
-            explanation: "<strong>Pop Lloyd</strong> played shortstop for the Lincoln Giants, Bacharach Giants, and numerous other teams across a career spanning 1906 to 1932. He was a left-handed contact hitter with an opposite-field approach and smooth defensive play. The match to Derek Jeter reflects two high-average, contact-oriented shortstops with opposite-field tendencies and leadership reputations. The strongest dimension is hit tool and approach; the weakest is defensive range, where Wells was considered superior to Lloyd in later assessments. Honus Wagner, when told he was being compared to Lloyd, reportedly said: 'It is a privilege to be compared to him.'",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
-          },
-          alternates: [
-            { id: "wells", name: "Willie Wells", score: 72, summary: "Power-hitting shortstop with elite defense and a cannon arm.", confidence: "Moderate" }
-          ]
-        }
-      }
-    }
-  ],
-  "LF": [
-    {
-      mlbPool: [
-        { id: "williams_t", name: "Ted Williams", years: "1939-1960", team: "Boston Red Sox", era: "post-integration", war: 121.9,
-          stats: { ba: .344, obp: .482, slg: .634, iso: .290, kPct: 11.8, bbPct: 20.6, ops_plus: 190 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Average", arm: "Plus" }
-        },
-        { id: "bonds", name: "Barry Bonds", years: "1986-2007", team: "San Francisco Giants", era: "contemporary", war: 162.8,
-          stats: { ba: .298, obp: .444, slg: .607, iso: .309, kPct: 12.9, bbPct: 20.3, ops_plus: 182 },
-          tags: { hit: "Pure hitter", power: "Pull power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" }
-        }
-      ],
-      nlbMatches: {
-        "williams_t": {
-          primary: {
-            id: "stearnes", name: "Turkey Stearnes", years: "1923-1940", team: "Detroit Stars", war: null,
-            stats: { ba: .350, obp: .408, slg: .580, iso: .230, kPct: 6.8, bbPct: 8.5, ops_plus: 161 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Average", arm: "Plus" },
-            score: 76, confidence: "Moderate",
-            explanation: "<strong>Turkey Stearnes</strong> played center and left field for the Detroit Stars, Chicago American Giants, and other clubs from 1923 to 1940. He was a left-handed hitter with exceptional bat speed and the ability to drive the ball to all fields. The match to Ted Williams reflects two left-handed hitters with all-fields power and high career averages. The strongest dimension is hit tool; the weakest is plate approach, where Williams's patience was historically unmatched. Stearnes led the Negro National League in home runs seven times and was inducted into the Baseball Hall of Fame in 2000.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
-          },
-          alternates: [
-            { id: "charleston_o", name: "Oscar Charleston", score: 74, summary: "Widely considered the greatest all-around player in Negro Leagues history.", confidence: "Moderate" }
-          ]
-        },
-        "bonds": {
-          primary: {
-            id: "charleston_o", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
-            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
-            tags: { hit: "Pure hitter", power: "Pull power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Plus" },
-            score: 82, confidence: "Strong",
-            explanation: "<strong>Oscar Charleston</strong> played center field and later first base for the Indianapolis ABCs, Harrisburg Giants, and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and elite defensive range. The match to Barry Bonds reflects two left-handed, five-tool outfielders with pull-side power and elite all-around production. The strongest dimension is overall offensive value; the weakest is career arc comparability, as Charleston's prime years predated the Negro Leagues' most-documented era. Bill James ranked Charleston as the fourth-greatest player in baseball history.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Cottrell, 'The Best Pitcher in Baseball: The Life of Rube Foster' (2001)."
-          },
-          alternates: [
-            { id: "stearnes", name: "Turkey Stearnes", score: 70, summary: "Seven-time NNL home run champion. Left-handed all-fields power.", confidence: "Moderate" }
-          ]
-        }
-      }
-    }
-  ],
-  "CF": [
-    {
-      mlbPool: [
-        { id: "mays", name: "Willie Mays", years: "1951-1973", team: "San Francisco Giants", era: "post-integration", war: 156.2,
-          stats: { ba: .302, obp: .384, slg: .557, iso: .255, kPct: 10.4, bbPct: 12.4, ops_plus: 156 },
-          tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" }
-        },
-        { id: "trout", name: "Mike Trout", years: "2011-present", team: "Los Angeles Angels", era: "contemporary", war: 85.2,
-          stats: { ba: .303, obp: .413, slg: .587, iso: .284, kPct: 24.2, bbPct: 15.0, ops_plus: 176 },
-          tags: { hit: "Power hitter", power: "All-fields power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" }
-        },
-        { id: "mantle", name: "Mickey Mantle", years: "1951-1968", team: "New York Yankees", era: "post-integration", war: 110.3,
-          stats: { ba: .298, obp: .421, slg: .557, iso: .259, kPct: 20.5, bbPct: 17.7, ops_plus: 172 },
-          tags: { hit: "Power hitter", power: "Pull power", approach: "Patient", speed: "Burner", glove: "Above-average defender", arm: "Plus" }
-        }
-      ],
-      nlbMatches: {
-        "mays": {
-          primary: {
-            id: "charleston", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
-            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" },
-            score: 91, confidence: "Strong",
-            explanation: "<strong>Oscar Charleston</strong> played center field for the Indianapolis ABCs, Harrisburg Giants, Homestead Grays, and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and defensive range that contemporaries compared to the most elite center fielders in any league. The match to Willie Mays reflects two five-tool center fielders at the absolute peak of the talent distribution: speed, power, arm, glove, hit tool. The strongest dimension is the five-tool completeness across every category. The weakest is career documentation completeness. Charleston was inducted into the Baseball Hall of Fame in 1976.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988). Bill James, 'The New Bill James Historical Baseball Abstract' (2001)."
-          },
-          alternates: [
-            { id: "bell", name: "Cool Papa Bell", score: 78, summary: "Fastest player in Negro Leagues history. Line-drive contact hitter. Hall of Fame 1974.", confidence: "Moderate" },
-            { id: "torriente", name: "Cristobal Torriente", score: 71, summary: "Cuban outfielder. Power hitter with strong arm. Hall of Fame 2006.", confidence: "Moderate" }
-          ]
-        },
-        "trout": {
-          primary: {
-            id: "charleston_cf", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
-            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" },
-            score: 84, confidence: "Strong",
-            explanation: "<strong>Oscar Charleston</strong> played center field for the Indianapolis ABCs and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and elite range. The match to Mike Trout reflects two generational center fielders with all-fields power, elite plate discipline, and complete defensive profiles. The strongest dimension is overall offensive value; the weakest is plate approach, where Trout's walk rate is higher. Charleston predated Trout by nine decades, but the profiles overlap at the highest talent level.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
-          },
-          alternates: [
-            { id: "bell", name: "Cool Papa Bell", score: 71, summary: "Fastest player in Negro Leagues history. Hall of Fame 1974.", confidence: "Moderate" }
-          ]
-        },
-        "mantle": {
-          primary: {
-            id: "bell", name: "Cool Papa Bell", years: "1922-1946", team: "St. Louis Stars / Pittsburgh Crawfords", war: null,
-            stats: { ba: .341, obp: .391, slg: .465, iso: .124, kPct: 5.8, bbPct: 7.2, ops_plus: 133 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Burner", glove: "Plus defender", arm: "Plus" },
-            score: 70, confidence: "Moderate",
-            explanation: "<strong>Cool Papa Bell</strong> played center field for the St. Louis Stars, Pittsburgh Crawfords, and Homestead Grays from 1922 to 1946. He was widely considered the fastest player in baseball history, capable of scoring from first on a single. The match to Mickey Mantle reflects two elite center fielders whose speed was legendary. The strongest dimension is speed; the weakest is power, where Mantle's switch-hitting power was historically extreme. Satchel Paige said of Bell: 'If he bunts and it bounces twice, he's out.' Bell was inducted into the Baseball Hall of Fame in 1974.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
-          },
-          alternates: [
-            { id: "charleston", name: "Oscar Charleston", score: 68, summary: "Greatest all-around player in Negro Leagues history. Five-tool dominance.", confidence: "Moderate" }
-          ]
-        }
-      }
-    }
-  ],
-  "RF": [
-    {
-      mlbPool: [
-        { id: "aaron", name: "Hank Aaron", years: "1954-1976", team: "Milwaukee/Atlanta Braves", era: "post-integration", war: 143.1,
-          stats: { ba: .305, obp: .374, slg: .555, iso: .250, kPct: 10.4, bbPct: 9.8, ops_plus: 155 },
-          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Cannon" }
-        },
-        { id: "ruth", name: "Babe Ruth", years: "1914-1935", team: "New York Yankees", era: "live-ball", war: 183.1,
-          stats: { ba: .342, obp: .474, slg: .690, iso: .348, kPct: 15.4, bbPct: 19.6, ops_plus: 206 },
-          tags: { hit: "Slugger", power: "Pull power", approach: "Patient", speed: "Average", glove: "Average", arm: "Plus" }
-        }
-      ],
-      nlbMatches: {
-        "aaron": {
-          primary: {
-            id: "irvin", name: "Monte Irvin", years: "1937-1948", team: "Newark Eagles", war: null,
-            stats: { ba: .349, obp: .413, slg: .544, iso: .195, kPct: 6.5, bbPct: 9.2, ops_plus: 156 },
-            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
-            score: 83, confidence: "Strong",
-            explanation: "<strong>Monte Irvin</strong> played right field for the Newark Eagles from 1937 to 1948 before integrating the New York Giants in 1949. He was a right-handed hitter with a complete offensive profile: contact, power to all fields, and a selective eye. The match to Hank Aaron reflects two right fielders with all-fields power, high averages, and strong defensive tools. The strongest dimension is hit tool and power profile; the weakest is career documentation, as Irvin's NLB prime was cut short by World War II service and then integration. The NLBM and many contemporaries believed Irvin would have been the right choice to integrate MLB before Jackie Robinson.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Irvin with Riley, 'Nice Guys Finish First' (1996)."
-          },
-          alternates: [
-            { id: "torriente", name: "Cristobal Torriente", score: 75, summary: "Cuban outfielder with power. Out-homered Babe Ruth in barnstorming games.", confidence: "Moderate" }
-          ]
-        },
-        "ruth": {
-          primary: {
-            id: "torriente_rf", name: "Cristobal Torriente", years: "1913-1932", team: "Cuban Stars / Chicago American Giants", war: null,
-            stats: { ba: .339, obp: .399, slg: .531, iso: .192, kPct: 7.1, bbPct: 8.8, ops_plus: 155 },
-            tags: { hit: "Slugger", power: "All-fields power", approach: "Aggressive", speed: "Average", glove: "Above-average defender", arm: "Cannon" },
-            score: 67, confidence: "Moderate",
-            explanation: "<strong>Cristobal Torriente</strong> played outfield for the Cuban Stars and Chicago American Giants from 1913 to 1932. He was a left-handed hitter with a stocky build, exceptional raw power, and a strong throwing arm. The match to Babe Ruth reflects two left-handed sluggers with similar body types and the ability to dominate pitching with raw power. The strongest dimension is power profile; the weakest is plate approach, where Ruth's patience was unmatched. Torriente famously out-homered Ruth three home runs to zero in a 1920 barnstorming game in Cuba. He was inducted into the Baseball Hall of Fame in 2006.",
-            dataConfidence: "Verified",
-            source: "Seamheads Negro Leagues Database. Figueredo, 'Cuban Baseball: A Statistical History' (2003)."
-          },
-          alternates: [
-            { id: "irvin", name: "Monte Irvin", score: 58, summary: "Complete outfielder. Hall of Fame 1973. NLB career interrupted by WWII.", confidence: "Weak" }
-          ]
-        }
-      }
-    }
-  ],
-  "UTIL": [
-    {
-      mlbPool: [
-        { id: "robinson_j", name: "Jackie Robinson", years: "1947-1956", team: "Brooklyn Dodgers", era: "post-integration", war: 61.5,
-          stats: { ba: .311, obp: .409, slg: .474, iso: .163, kPct: 7.6, bbPct: 13.6, ops_plus: 132 },
-          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Patient", speed: "Burner", glove: "Above-average defender", arm: "Plus" }
-        },
-        { id: "rose", name: "Pete Rose", years: "1963-1986", team: "Cincinnati Reds", era: "modern", war: 79.7,
-          stats: { ba: .303, obp: .375, slg: .409, iso: .106, kPct: 8.4, bbPct: 10.2, ops_plus: 118 },
-          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Plus runner", glove: "Average", arm: "Average" }
-        }
-      ],
-      nlbMatches: {
-        "robinson_j": {
-          primary: {
-            id: "doby", name: "Larry Doby", years: "1942-1947", team: "Newark Eagles", war: null,
-            stats: { ba: .319, obp: .395, slg: .484, iso: .165, kPct: 8.1, bbPct: 10.2, ops_plus: 140 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
-            score: 79, confidence: "Moderate",
-            explanation: "<strong>Larry Doby</strong> played second base and outfield for the Newark Eagles from 1942 to 1947 before integrating the American League with the Cleveland Indians. He was a left-handed hitter with line-drive power, a selective approach, and the athleticism to play multiple positions. The match to Jackie Robinson reflects two players who crossed the color line, but the model matches them on statistical and stylistic similarity, not biography. The strongest dimension is approach and athleticism; the weakest is speed, where Robinson's baserunning was historically disruptive. Doby won the 1948 World Series with Cleveland, eleven weeks after Robinson's first full season in Brooklyn.",
-            dataConfidence: "Documented",
-            source: "Seamheads Negro Leagues Database. Moore, 'Larry Doby: The Struggle of the American League's First Black Player' (1999)."
-          },
-          alternates: [
-            { id: "minoso", name: "Minnie Minoso", score: 72, summary: "Cuban outfielder. Aggressive contact hitter with exceptional speed.", confidence: "Moderate" }
-          ]
-        },
-        "rose": {
-          primary: {
-            id: "smith_h", name: "Hilton Smith", years: "1932-1948", team: "Kansas City Monarchs", war: null,
-            stats: { ba: .298, obp: .345, slg: .401, iso: .103, kPct: 7.5, bbPct: 6.8, ops_plus: 115 },
-            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Average", arm: "Average" },
-            score: 64, confidence: "Moderate",
-            explanation: "<strong>Willard Brown</strong> played center field for the Kansas City Monarchs from 1935 to 1950. He was a right-handed contact hitter with gap power and an aggressive approach. The match to Pete Rose reflects two aggressive contact hitters who accumulated hits over long careers. The strongest dimension is hit tool and approach; the weakest is speed and defensive versatility. Brown was known as 'Home Run' Brown in the NNL and was inducted into the Baseball Hall of Fame in 2006.",
-            dataConfidence: "Reported",
-            source: "Seamheads Negro Leagues Database. Riley, 'The Biographical Encyclopedia of the Negro Baseball Leagues' (1994)."
-          },
-          alternates: [
-            { id: "doby", name: "Larry Doby", score: 58, summary: "Two-way talent. Integrated the American League in 1947.", confidence: "Weak" }
-          ]
-        }
-      }
-    }
-  ]
-};
+  };
+  xhr.send();
+}
 
 /* ======================================================================
    STATE
@@ -2353,21 +1974,37 @@ function confidenceColor(score) {
 }
 
 function getMlbPool(pos) {
-  var posData = NLB_MATCHES[pos];
-  if (!posData || !posData[0]) return [];
-  return posData[0].mlbPool || [];
+  return MLB_POOL[pos] || [];
 }
 
-function getNlbMatch(pos, mlbId) {
-  var posData = NLB_MATCHES[pos];
-  if (!posData || !posData[0] || !posData[0].nlbMatches) return null;
-  return posData[0].nlbMatches[mlbId] || null;
+function getNlbMatch(pos, mlbName) {
+  var posMatches = MATCH_DATA[pos];
+  if (!posMatches) return null;
+  return posMatches[mlbName] || null;
 }
 
 function escHtml(str) {
   var div = document.createElement("div");
   div.textContent = str;
   return div.innerHTML;
+}
+
+function formatStat(val, label) {
+  if (val == null) return "--";
+  label = (label || "").toUpperCase();
+  if (label === "BA" || label === "OBP" || label === "SLG" || label === "OPS") {
+    return val.toFixed(3).replace(/^0/, '');
+  }
+  if (label === "ERA") {
+    return val.toFixed(2);
+  }
+  if (label.indexOf("WAR") !== -1) {
+    return val.toFixed(2);
+  }
+  if (typeof val === "number" && val === Math.floor(val)) {
+    return val.toLocaleString();
+  }
+  return String(val);
 }
 
 /* ======================================================================
@@ -2401,7 +2038,7 @@ function renderSlots() {
       mlbHtml += '<div class="lineup-slot__photo"><span class="lineup-slot__photo-placeholder">' + mlb.name.charAt(0) + '</span></div>';
       mlbHtml += '<div class="lineup-slot__info">';
       mlbHtml += '<div class="lineup-slot__name">' + escHtml(mlb.name) + '</div>';
-      mlbHtml += '<div class="lineup-slot__meta">' + escHtml(mlb.years) + ' // ' + escHtml(mlb.team) + '</div>';
+      mlbHtml += '<div class="lineup-slot__meta">' + escHtml(mlb.years || "") + ' // ' + (mlb.careerWAR != null ? mlb.careerWAR.toFixed(1) + ' WAR' : '') + '</div>';
       mlbHtml += '</div></div>';
       mlbHtml += '<div class="lineup-slot__score"></div>';
       mlbHtml += '</li>';
@@ -2413,7 +2050,7 @@ function renderSlots() {
       nlbHtml += '<div class="lineup-slot__photo"><span class="lineup-slot__photo-placeholder">' + nlb.name.charAt(0) + '</span></div>';
       nlbHtml += '<div class="lineup-slot__info">';
       nlbHtml += '<div class="lineup-slot__name">' + escHtml(nlb.name) + '</div>';
-      nlbHtml += '<div class="lineup-slot__meta">' + escHtml(nlb.years) + ' // ' + escHtml(nlb.team) + '</div>';
+      nlbHtml += '<div class="lineup-slot__meta">' + escHtml(nlb.years || "") + ' // ' + (nlb.war != null ? nlb.war.toFixed(1) + ' WAR (Seamheads)' : 'Negro Leagues') + '</div>';
       nlbHtml += '</div></div>';
       nlbHtml += '<div class="lineup-slot__score">';
       nlbHtml += '<div class="lineup-slot__score-num lineup-slot__score-num--' + cls + '">' + nlb.score + '</div>';
@@ -2553,7 +2190,7 @@ function renderPickerList() {
 
   var filtered = pool.filter(function(p) {
     if (search && p.name.toLowerCase().indexOf(search) === -1) return false;
-    if (era !== "all" && p.era !== era) return false;
+    if (era !== "all" && (p.era || "") !== era) return false;
     return true;
   });
 
@@ -2562,39 +2199,60 @@ function renderPickerList() {
     html = '<li class="picker__item" style="cursor:default;text-align:center;color:var(--muted)"><span class="picker__item-name" style="color:var(--muted)">No players match this filter</span></li>';
   } else {
     filtered.forEach(function(p) {
-      html += '<li class="picker__item" data-player-id="' + p.id + '" role="button" tabindex="0">';
+      var war = p.careerWAR != null ? p.careerWAR.toFixed(1) : "--";
+      html += '<li class="picker__item" data-player-name="' + escHtml(p.name) + '" role="button" tabindex="0">';
       html += '<span class="picker__item-name">' + escHtml(p.name) + '</span>';
-      html += '<span class="picker__item-years">' + escHtml(p.years) + '</span>';
-      html += '<span class="picker__item-war">' + p.war.toFixed(1) + ' WAR</span>';
+      html += '<span class="picker__item-years">' + escHtml(p.years || "") + '</span>';
+      html += '<span class="picker__item-war">' + war + ' WAR</span>';
       html += '</li>';
     });
   }
 
   $("picker-list").innerHTML = html;
 
-  qsa(".picker__item[data-player-id]", $("picker-list")).forEach(function(item) {
+  qsa(".picker__item[data-player-name]", $("picker-list")).forEach(function(item) {
     item.addEventListener("click", function() {
-      selectPlayer(state.pickerPos, item.getAttribute("data-player-id"));
+      selectPlayer(state.pickerPos, item.getAttribute("data-player-name"));
     });
     item.addEventListener("keydown", function(e) {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        selectPlayer(state.pickerPos, item.getAttribute("data-player-id"));
+        selectPlayer(state.pickerPos, item.getAttribute("data-player-name"));
       }
     });
   });
 }
 
-function selectPlayer(pos, mlbId) {
+function selectPlayer(pos, mlbName) {
   var pool = getMlbPool(pos);
-  var mlb = pool.filter(function(p) { return p.id === mlbId; })[0];
+  var mlb = pool.filter(function(p) { return p.name === mlbName; })[0];
   if (!mlb) return;
 
-  var matchData = getNlbMatch(pos, mlbId);
-  if (!matchData || !matchData.primary) return;
+  var matchResult = getNlbMatch(pos, mlbName);
+  if (!matchResult || !matchResult.primary) return;
 
-  var nlb = matchData.primary;
-  state.lineup[pos] = { mlb: mlb, nlb: nlb, alternates: matchData.alternates || [] };
+  var primary = matchResult.primary;
+
+  /* Build a unified NLB object for the lineup from the match data */
+  var nlb = {
+    name: primary.nlb,
+    years: primary.nlbYears,
+    team: "Negro Leagues",
+    score: primary.score,
+    confidence: primary.confidence,
+    explanation: primary.narrative,
+    dataConfidence: primary.warConfidence || "Documented",
+    source: primary.source,
+    statComparison: primary.statComparison,
+    war: primary.nlbWAR,
+    hof: primary.nlbHof
+  };
+
+  state.lineup[pos] = {
+    mlb: mlb,
+    nlb: nlb,
+    alternates: matchResult.alternates || []
+  };
 
   closePicker();
   renderSlots();
@@ -2624,78 +2282,82 @@ function openDrawer(pos) {
   pairHtml += '<div class="drawer__player">';
   pairHtml += '<div class="drawer__player-league drawer__player-league--mlb">MLB</div>';
   pairHtml += '<div class="drawer__player-name">' + escHtml(mlb.name) + '</div>';
-  pairHtml += '<div class="drawer__player-team">' + escHtml(mlb.team) + '</div>';
-  pairHtml += '<div class="drawer__player-years">' + escHtml(mlb.years) + '</div>';
+  pairHtml += '<div class="drawer__player-team">' + (mlb.careerWAR != null ? mlb.careerWAR.toFixed(1) + ' career WAR (bWAR)' : '') + '</div>';
+  pairHtml += '<div class="drawer__player-years">' + escHtml(mlb.years || "") + '</div>';
   pairHtml += '</div>';
   pairHtml += '<div class="drawer__player">';
   pairHtml += '<div class="drawer__player-league drawer__player-league--nlb">NLB</div>';
   pairHtml += '<div class="drawer__player-name">' + escHtml(nlb.name) + '</div>';
-  pairHtml += '<div class="drawer__player-team">' + escHtml(nlb.team) + '</div>';
-  pairHtml += '<div class="drawer__player-years">' + escHtml(nlb.years) + '</div>';
+  pairHtml += '<div class="drawer__player-team">' + (nlb.war != null ? nlb.war.toFixed(1) + ' career WAR (Seamheads)' : 'Negro Leagues') + '</div>';
+  pairHtml += '<div class="drawer__player-years">' + escHtml(nlb.years || "") + '</div>';
   pairHtml += '</div>';
   $("drawer-pair").innerHTML = pairHtml;
 
-  /* Stats table */
-  var statKeys = ["ba", "obp", "slg", "iso", "kPct", "bbPct", "ops_plus"];
-  var statLabels = ["BA", "OBP", "SLG", "ISO", "K%", "BB%", "OPS+"];
+  /* Stats table from pre-computed comparison data */
+  var sc = nlb.statComparison;
+  var statsHtml = '<div class="drawer__stats-title">Career Statistics (Documented)</div>';
 
-  var statsHtml = '<div class="drawer__stats-title">Career Rate Statistics (Era-Adjusted)</div>';
-  statsHtml += '<table class="drawer__stats-table" aria-label="Statistical comparison">';
-  statsHtml += '<thead><tr><th></th>';
-  statLabels.forEach(function(l) { statsHtml += '<th>' + l + '</th>'; });
-  statsHtml += '</tr></thead><tbody>';
+  if (sc && sc.stats && sc.stats.length > 0) {
+    statsHtml += '<table class="drawer__stats-table" aria-label="Statistical comparison">';
+    statsHtml += '<thead><tr><th></th>';
+    sc.stats.forEach(function(l) { statsHtml += '<th>' + escHtml(l) + '</th>'; });
+    statsHtml += '</tr></thead><tbody>';
 
-  /* MLB row */
-  statsHtml += '<tr><td>MLB</td>';
-  statKeys.forEach(function(k) {
-    var val = mlb.stats[k];
-    if (k === "kPct" || k === "bbPct") {
-      statsHtml += '<td>' + val.toFixed(1) + '%</td>';
-    } else if (k === "ops_plus") {
-      statsHtml += '<td>' + Math.round(val) + '</td>';
-    } else {
-      statsHtml += '<td>' + val.toFixed(3).replace(/^0/, '') + '</td>';
-    }
-  });
-  statsHtml += '</tr>';
+    /* MLB row */
+    statsHtml += '<tr><td>MLB</td>';
+    sc.mlb.forEach(function(val, i) {
+      var label = sc.stats[i];
+      statsHtml += '<td>' + formatStat(val, label) + '</td>';
+    });
+    statsHtml += '</tr>';
 
-  /* NLB row */
-  statsHtml += '<tr><td>NLB</td>';
-  statKeys.forEach(function(k) {
-    var val = nlb.stats[k];
-    if (k === "kPct" || k === "bbPct") {
-      statsHtml += '<td>' + val.toFixed(1) + '%</td>';
-    } else if (k === "ops_plus") {
-      statsHtml += '<td>' + Math.round(val) + '</td>';
-    } else {
-      statsHtml += '<td>' + val.toFixed(3).replace(/^0/, '') + '</td>';
-    }
-  });
-  statsHtml += '</tr>';
-  statsHtml += '</tbody></table>';
+    /* NLB row */
+    statsHtml += '<tr><td>NLB</td>';
+    sc.nlb.forEach(function(val, i) {
+      var label = sc.stats[i];
+      statsHtml += '<td>' + formatStat(val, label) + '</td>';
+    });
+    statsHtml += '</tr>';
+    statsHtml += '</tbody></table>';
+  } else {
+    statsHtml += '<div style="color:var(--muted);font-family:var(--mono);font-size:10px;padding:8px 0">Statistical comparison unavailable for this match.</div>';
+  }
+
   $("drawer-stats").innerHTML = statsHtml;
 
-  /* Tags grid */
-  var tagKeys = ["hit", "power", "approach", "speed", "glove", "arm"];
-  var tagLabels = ["Hit Tool", "Power", "Approach", "Speed", "Glove", "Arm"];
-
-  var tagsHtml = '<div class="drawer__tags-title">Qualitative Profile Tags</div>';
+  /* Tags grid -- qualitative tags require Oscar's full review per spec.
+     Currently the similarity model uses quantitative stats only.
+     Show data confidence and WAR comparison instead. */
+  var tagsHtml = '<div class="drawer__tags-title">Data Profile</div>';
   tagsHtml += '<div class="drawer__tags-grid">';
-  tagKeys.forEach(function(k, i) {
-    var mlbVal = mlb.tags[k];
-    var nlbVal = nlb.tags[k];
-    var isMatch = mlbVal === nlbVal;
-    var matchCls = isMatch ? " drawer__tag-val--match" : "";
-    tagsHtml += '<div class="drawer__tag-row">';
-    tagsHtml += '<div class="drawer__tag-label">' + tagLabels[i] + '</div>';
-    tagsHtml += '<div class="drawer__tag-val drawer__tag-val--mlb' + matchCls + '">' + escHtml(mlbVal) + '</div>';
-    tagsHtml += '<div class="drawer__tag-val drawer__tag-val--nlb' + matchCls + '">' + escHtml(nlbVal) + '</div>';
-    tagsHtml += '</div>';
-  });
+
+  /* Career WAR */
+  tagsHtml += '<div class="drawer__tag-row">';
+  tagsHtml += '<div class="drawer__tag-label">Career WAR</div>';
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--mlb">' + (mlb.careerWAR != null ? mlb.careerWAR.toFixed(1) : '--') + '</div>';
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--nlb">' + (nlb.war != null ? nlb.war.toFixed(1) : '--') + '</div>';
+  tagsHtml += '</div>';
+
+  /* HOF status */
+  tagsHtml += '<div class="drawer__tag-row">';
+  tagsHtml += '<div class="drawer__tag-label">Hall of Fame</div>';
+  var mlbHof = mlb.hof === "inducted" ? "Inducted" : "--";
+  var nlbHof = nlb.hof === "inducted" ? "Inducted" : (nlb.hof === "eligible" ? "Eligible" : "--");
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--mlb">' + mlbHof + '</div>';
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--nlb">' + nlbHof + '</div>';
+  tagsHtml += '</div>';
+
+  /* Data source */
+  tagsHtml += '<div class="drawer__tag-row">';
+  tagsHtml += '<div class="drawer__tag-label">Source</div>';
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--mlb">Baseball Ref</div>';
+  tagsHtml += '<div class="drawer__tag-val drawer__tag-val--nlb">Seamheads</div>';
+  tagsHtml += '</div>';
+
   tagsHtml += '</div>';
   $("drawer-tags").innerHTML = tagsHtml;
 
-  /* Radar diagram */
+  /* Radar diagram -- draw stat-based comparison instead of tag-based */
   drawRadar(mlb, nlb);
 
   /* Explanation */
@@ -2762,28 +2424,50 @@ function closeDrawer() {
 function drawRadar(mlb, nlb) {
   var svg = $("drawer-radar");
   var cx = 110, cy = 110, r = 85;
-  var tagKeys = ["hit", "power", "approach", "speed", "glove", "arm"];
-  var tagLabels = ["Hit", "Power", "Approach", "Speed", "Glove", "Arm"];
 
-  /* Tag value to 0-1 scale */
-  var scaleMap = {
-    hit: { "Pure hitter": 1.0, "Line-drive contact": 0.8, "Power hitter": 0.7, "Slugger": 0.6, "Free swinger": 0.3 },
-    power: { "All-fields power": 1.0, "Pull power": 0.8, "Gap power": 0.6, "Opposite-field power": 0.5, "Below-average power": 0.2 },
-    approach: { "Patient": 1.0, "Selective": 0.8, "Two-strike specialist": 0.6, "Aggressive": 0.4, "Free swinger": 0.2 },
-    speed: { "Burner": 1.0, "Plus runner": 0.8, "Average": 0.5, "Station-to-station": 0.3, "Slow": 0.1 },
-    glove: { "Plus defender": 1.0, "Above-average defender": 0.8, "Average": 0.5, "Bat-first": 0.3, "Defensive liability": 0.1 },
-    arm: { "Cannon": 1.0, "Plus": 0.8, "Average": 0.5, "Below-average": 0.2 }
-  };
+  /* Use the stat comparison data to build the radar */
+  var sc = nlb.statComparison;
+  if (!sc || !sc.stats || sc.stats.length === 0) {
+    svg.innerHTML = '<text x="110" y="110" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--muted)">No comparison data</text>';
+    return;
+  }
 
-  function getVal(tags, key) {
-    var map = scaleMap[key];
-    if (!map) return 0.5;
-    var v = map[tags[key]];
-    return v !== undefined ? v : 0.5;
+  var labels = sc.stats;
+  var mlbVals = sc.mlb;
+  var nlbVals = sc.nlb;
+  var n = labels.length;
+
+  /* Compute ranges for normalization (use both values) */
+  var ranges = [];
+  for (var i = 0; i < n; i++) {
+    var vals = [];
+    if (mlbVals[i] != null) vals.push(mlbVals[i]);
+    if (nlbVals[i] != null) vals.push(nlbVals[i]);
+    if (vals.length === 0) {
+      ranges.push({ min: 0, max: 1 });
+    } else {
+      /* Expand range by 20% for visual breathing room */
+      var mn = Math.min.apply(null, vals);
+      var mx = Math.max.apply(null, vals);
+      var span = mx - mn;
+      if (span < 0.001) span = mx * 0.3 || 1;
+      ranges.push({ min: mn - span * 0.1, max: mx + span * 0.1 });
+    }
+  }
+
+  function normalizeVal(val, idx) {
+    if (val == null) return 0;
+    var rng = ranges[idx];
+    var span = rng.max - rng.min;
+    if (span === 0) return 0.5;
+    /* For ERA, lower is better, invert */
+    var norm = (val - rng.min) / span;
+    if (labels[idx] === "ERA") norm = 1 - norm;
+    return Math.max(0.05, Math.min(1, norm));
   }
 
   function pointAt(i, val) {
-    var angle = (Math.PI * 2 * i / 6) - Math.PI / 2;
+    var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
     var dist = r * val;
     return { x: cx + dist * Math.cos(angle), y: cy + dist * Math.sin(angle) };
   }
@@ -2796,34 +2480,36 @@ function drawRadar(mlb, nlb) {
   });
 
   /* Axes and labels */
-  tagKeys.forEach(function(k, i) {
+  for (var i = 0; i < n; i++) {
     var pt = pointAt(i, 1.05);
     var labelPt = pointAt(i, 1.22);
     html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + pt.x + '" y2="' + pt.y + '" stroke="rgba(232,224,207,0.1)" stroke-width="1"/>';
-    html += '<text x="' + labelPt.x + '" y="' + (labelPt.y + 3) + '" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)" letter-spacing="0.08em">' + tagLabels[i] + '</text>';
-  });
+    html += '<text x="' + labelPt.x + '" y="' + (labelPt.y + 3) + '" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)" letter-spacing="0.08em">' + escHtml(labels[i]) + '</text>';
+  }
 
   /* MLB polygon */
-  var mlbPts = tagKeys.map(function(k, i) {
-    var pt = pointAt(i, getVal(mlb.tags, k));
-    return pt.x + "," + pt.y;
-  }).join(" ");
-  html += '<polygon points="' + mlbPts + '" fill="rgba(111,138,168,0.15)" stroke="var(--slate)" stroke-width="1.5"/>';
+  var mlbPts = [];
+  for (var i = 0; i < n; i++) {
+    var pt = pointAt(i, normalizeVal(mlbVals[i], i));
+    mlbPts.push(pt.x + "," + pt.y);
+  }
+  html += '<polygon points="' + mlbPts.join(" ") + '" fill="rgba(111,138,168,0.15)" stroke="var(--slate)" stroke-width="1.5"/>';
 
   /* NLB polygon */
-  var nlbPts = tagKeys.map(function(k, i) {
-    var pt = pointAt(i, getVal(nlb.tags, k));
-    return pt.x + "," + pt.y;
-  }).join(" ");
-  html += '<polygon points="' + nlbPts + '" fill="rgba(212,166,74,0.12)" stroke="var(--amber)" stroke-width="1.5"/>';
+  var nlbPts = [];
+  for (var i = 0; i < n; i++) {
+    var pt = pointAt(i, normalizeVal(nlbVals[i], i));
+    nlbPts.push(pt.x + "," + pt.y);
+  }
+  html += '<polygon points="' + nlbPts.join(" ") + '" fill="rgba(212,166,74,0.12)" stroke="var(--amber)" stroke-width="1.5"/>';
 
   /* Dots */
-  tagKeys.forEach(function(k, i) {
-    var mlbPt = pointAt(i, getVal(mlb.tags, k));
-    var nlbPt = pointAt(i, getVal(nlb.tags, k));
+  for (var i = 0; i < n; i++) {
+    var mlbPt = pointAt(i, normalizeVal(mlbVals[i], i));
+    var nlbPt = pointAt(i, normalizeVal(nlbVals[i], i));
     html += '<circle cx="' + mlbPt.x + '" cy="' + mlbPt.y + '" r="3" fill="var(--slate)"/>';
     html += '<circle cx="' + nlbPt.x + '" cy="' + nlbPt.y + '" r="3" fill="var(--amber)"/>';
-  });
+  }
 
   /* Legend */
   html += '<rect x="10" y="200" width="10" height="3" fill="var(--slate)"/>';
@@ -2983,11 +2669,18 @@ function init() {
   });
 }
 
-init();
+/* Load data then initialize */
+loadData(function() {
+  init();
 
-/* Pre-load one match so the Oh Wow lands before user interaction */
-selectPlayer("C", "bench");
-renderSlots();
+  /* Pre-load one match so the Oh Wow lands before user interaction.
+     Use the first catcher in the MLB pool. */
+  var catchers = getMlbPool("C");
+  if (catchers.length > 0) {
+    selectPlayer("C", catchers[0].name);
+    renderSlots();
+  }
+});
 
 })();
 </script>

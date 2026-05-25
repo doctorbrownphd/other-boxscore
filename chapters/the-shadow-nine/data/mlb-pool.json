@@ -1,0 +1,562 @@
+{
+  "_metadata": {
+    "title": "The Shadow Nine: MLB Player Pool",
+    "description": "MLB players available for selection in The Shadow Nine lineup builder, grouped by position.",
+    "sources": [
+      {
+        "id": "bbref",
+        "name": "Baseball Reference",
+        "url": "https://www.baseball-reference.com/",
+        "accessed": "2026-05-24"
+      },
+      {
+        "id": "ch10",
+        "name": "Chapter 10: The Ledger, MLB comparisons dataset",
+        "path": "chapters/10-the-ledger/data/mlb-comparisons.json"
+      }
+    ],
+    "generated": "2026-05-24"
+  },
+  "positions": {
+    "C": [
+      {
+        "name": "Johnny Bench",
+        "position": "C",
+        "years": "1967-1983",
+        "careerWAR": 75.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.267,
+          "OBP": 0.342,
+          "SLG": 0.476,
+          "OPS": 0.817,
+          "HR": 389,
+          "H": 2048,
+          "G": 2158
+        },
+        "rateWAR": 5.2
+      },
+      {
+        "name": "Yogi Berra",
+        "position": "C",
+        "years": "1946-1965",
+        "careerWAR": 59.5,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.348,
+          "SLG": 0.482,
+          "OPS": 0.83,
+          "HR": 358,
+          "H": 2150,
+          "G": 2120
+        },
+        "rateWAR": 4.27
+      },
+      {
+        "name": "Mickey Cochrane",
+        "position": "C",
+        "years": "1925-1937",
+        "careerWAR": 53.2,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.32,
+          "OBP": 0.419,
+          "SLG": 0.478,
+          "OPS": 0.897,
+          "HR": 119,
+          "H": 1652,
+          "G": 1482
+        },
+        "rateWAR": 5.14
+      }
+    ],
+    "1B": [
+      {
+        "name": "Lou Gehrig",
+        "position": "1B",
+        "years": "1923-1939",
+        "careerWAR": 112.4,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.34,
+          "OBP": 0.447,
+          "SLG": 0.632,
+          "OPS": 1.08,
+          "HR": 493,
+          "H": 2721,
+          "G": 2164
+        },
+        "rateWAR": 6.98
+      },
+      {
+        "name": "Jimmie Foxx",
+        "position": "1B",
+        "years": "1925-1945",
+        "careerWAR": 96.2,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.325,
+          "OBP": 0.428,
+          "SLG": 0.609,
+          "OPS": 1.038,
+          "HR": 534,
+          "H": 2646,
+          "G": 2317
+        },
+        "rateWAR": 5.88
+      }
+    ],
+    "2B": [
+      {
+        "name": "Rogers Hornsby",
+        "position": "2B",
+        "years": "1915-1937",
+        "careerWAR": 127.1,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.358,
+          "OBP": 0.434,
+          "SLG": 0.577,
+          "OPS": 1.01,
+          "HR": 301,
+          "H": 2930,
+          "G": 2259
+        },
+        "rateWAR": 8.05
+      },
+      {
+        "name": "Joe Morgan",
+        "position": "2B",
+        "years": "1963-1984",
+        "careerWAR": 100.6,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.271,
+          "OBP": 0.392,
+          "SLG": 0.427,
+          "OPS": 0.819,
+          "HR": 268,
+          "H": 2517,
+          "G": 2649
+        },
+        "rateWAR": 5.33
+      },
+      {
+        "name": "Jackie Robinson",
+        "position": "2B",
+        "years": "1947-1956",
+        "careerWAR": 61.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.311,
+          "OBP": 0.409,
+          "SLG": 0.474,
+          "OPS": 0.883,
+          "HR": 137,
+          "H": 1518,
+          "G": 1382
+        },
+        "rateWAR": 6.36
+      }
+    ],
+    "3B": [
+      {
+        "name": "Mike Schmidt",
+        "position": "3B",
+        "years": "1972-1989",
+        "careerWAR": 106.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.267,
+          "OBP": 0.38,
+          "SLG": 0.527,
+          "OPS": 0.908,
+          "HR": 548,
+          "H": 2234,
+          "G": 2404
+        },
+        "rateWAR": 6.37
+      },
+      {
+        "name": "George Brett",
+        "position": "3B",
+        "years": "1973-1993",
+        "careerWAR": 88.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.305,
+          "OBP": 0.369,
+          "SLG": 0.487,
+          "OPS": 0.857,
+          "HR": 317,
+          "H": 3154,
+          "G": 2707
+        },
+        "rateWAR": 4.58
+      }
+    ],
+    "SS": [
+      {
+        "name": "Honus Wagner",
+        "position": "SS",
+        "years": "1897-1917",
+        "careerWAR": 130.8,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.328,
+          "OBP": 0.391,
+          "SLG": 0.466,
+          "OPS": 0.858,
+          "HR": 101,
+          "H": 3420,
+          "G": 2794
+        },
+        "rateWAR": 6.52
+      },
+      {
+        "name": "Cal Ripken Jr.",
+        "position": "SS",
+        "years": "1981-2001",
+        "careerWAR": 95.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.276,
+          "OBP": 0.34,
+          "SLG": 0.447,
+          "OPS": 0.788,
+          "HR": 431,
+          "H": 3184,
+          "G": 3001
+        },
+        "rateWAR": 4.47
+      },
+      {
+        "name": "Ernie Banks",
+        "position": "SS",
+        "years": "1953-1971",
+        "careerWAR": 67.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.274,
+          "OBP": 0.33,
+          "SLG": 0.5,
+          "OPS": 0.83,
+          "HR": 512,
+          "H": 2583,
+          "G": 2528
+        },
+        "rateWAR": 3.9
+      }
+    ],
+    "LF": [
+      {
+        "name": "Stan Musial",
+        "position": "LF",
+        "years": "1941-1963",
+        "careerWAR": 128.6,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.331,
+          "OBP": 0.417,
+          "SLG": 0.559,
+          "OPS": 0.976,
+          "HR": 475,
+          "H": 3630,
+          "G": 3026
+        },
+        "rateWAR": 6.07
+      },
+      {
+        "name": "Ted Williams",
+        "position": "LF",
+        "years": "1939-1960",
+        "careerWAR": 121.8,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.344,
+          "OBP": 0.482,
+          "SLG": 0.634,
+          "OPS": 1.116,
+          "HR": 521,
+          "H": 2654,
+          "G": 2292
+        },
+        "rateWAR": 7.46
+      }
+    ],
+    "CF": [
+      {
+        "name": "Willie Mays",
+        "position": "CF",
+        "years": "1951-1973",
+        "careerWAR": 156.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.302,
+          "OBP": 0.384,
+          "SLG": 0.557,
+          "OPS": 0.941,
+          "HR": 660,
+          "H": 3283,
+          "G": 2992
+        },
+        "rateWAR": 7.5
+      },
+      {
+        "name": "Ty Cobb",
+        "position": "CF",
+        "years": "1905-1928",
+        "careerWAR": 151.4,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.366,
+          "OBP": 0.433,
+          "SLG": 0.512,
+          "OPS": 0.945,
+          "HR": 117,
+          "H": 4189,
+          "G": 3034
+        },
+        "rateWAR": 6.93
+      },
+      {
+        "name": "Mickey Mantle",
+        "position": "CF",
+        "years": "1951-1968",
+        "careerWAR": 110.3,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.298,
+          "OBP": 0.421,
+          "SLG": 0.557,
+          "OPS": 0.977,
+          "HR": 536,
+          "H": 2415,
+          "G": 2401
+        },
+        "rateWAR": 6.68
+      },
+      {
+        "name": "Joe DiMaggio",
+        "position": "CF",
+        "years": "1936-1951",
+        "careerWAR": 79.1,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.325,
+          "OBP": 0.398,
+          "SLG": 0.579,
+          "OPS": 0.977,
+          "HR": 361,
+          "H": 2214,
+          "G": 1736
+        },
+        "rateWAR": 6.19
+      }
+    ],
+    "RF": [
+      {
+        "name": "Babe Ruth",
+        "position": "RF",
+        "years": "1914-1935",
+        "careerWAR": 182.6,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.342,
+          "OBP": 0.474,
+          "SLG": 0.69,
+          "OPS": 1.164,
+          "HR": 714,
+          "H": 2873,
+          "G": 2503
+        },
+        "rateWAR": 10.31
+      },
+      {
+        "name": "Hank Aaron",
+        "position": "RF",
+        "years": "1954-1976",
+        "careerWAR": 143.1,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.305,
+          "OBP": 0.374,
+          "SLG": 0.555,
+          "OPS": 0.928,
+          "HR": 755,
+          "H": 3771,
+          "G": 3298
+        },
+        "rateWAR": 6.16
+      },
+      {
+        "name": "Frank Robinson",
+        "position": "RF",
+        "years": "1956-1976",
+        "careerWAR": 107.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.294,
+          "OBP": 0.389,
+          "SLG": 0.537,
+          "OPS": 0.926,
+          "HR": 586,
+          "H": 2943,
+          "G": 2808
+        },
+        "rateWAR": 5.48
+      },
+      {
+        "name": "Roberto Clemente",
+        "position": "RF",
+        "years": "1955-1972",
+        "careerWAR": 95.0,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.317,
+          "OBP": 0.359,
+          "SLG": 0.475,
+          "OPS": 0.834,
+          "HR": 240,
+          "H": 3000,
+          "G": 2433
+        },
+        "rateWAR": 5.41
+      }
+    ],
+    "P": [
+      {
+        "name": "Walter Johnson",
+        "position": "P",
+        "years": "1907-1927",
+        "careerWAR": 165.2,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.17,
+          "W": 417,
+          "SO": 3509,
+          "IP": 5914.1,
+          "L": 279
+        },
+        "rateWAR": 5.59
+      },
+      {
+        "name": "Cy Young",
+        "position": "P",
+        "years": "1890-1911",
+        "careerWAR": 163.6,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.63,
+          "W": 511,
+          "SO": 2803,
+          "IP": 7356.0,
+          "L": 316
+        },
+        "rateWAR": 4.45
+      },
+      {
+        "name": "Lefty Grove",
+        "position": "P",
+        "years": "1925-1941",
+        "careerWAR": 106.8,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.06,
+          "W": 300,
+          "SO": 2266,
+          "IP": 3940.2,
+          "L": 141
+        },
+        "rateWAR": 5.42
+      },
+      {
+        "name": "Christy Mathewson",
+        "position": "P",
+        "years": "1900-1916",
+        "careerWAR": 105.9,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.13,
+          "W": 373,
+          "SO": 2507,
+          "IP": 4788.2,
+          "L": 188
+        },
+        "rateWAR": 4.42
+      },
+      {
+        "name": "Bob Gibson",
+        "position": "P",
+        "years": "1959-1975",
+        "careerWAR": 81.9,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.91,
+          "W": 251,
+          "SO": 3117,
+          "IP": 3884.1,
+          "L": 174
+        },
+        "rateWAR": 4.22
+      }
+    ]
+  }
+}

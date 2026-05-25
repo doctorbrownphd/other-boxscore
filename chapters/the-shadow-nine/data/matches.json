@@ -1,0 +1,1394 @@
+{
+  "_metadata": {
+    "title": "The Shadow Nine: Pre-computed Match Results",
+    "description": "For every MLB player in the pool, the best-matching NLB player at their position with similarity score, stat comparison, narrative, alternates, and confidence tier. All similarity scores computed from real statistics using Euclidean distance on normalized stat vectors.",
+    "methodology": {
+      "algorithm": "Position-filtered Euclidean distance on normalized stat vectors",
+      "hitter_dimensions": [
+        "BA",
+        "OBP",
+        "SLG",
+        "OPS",
+        "WAR/600PA"
+      ],
+      "pitcher_dimensions": [
+        "ERA (inverted)",
+        "WAR/200IP",
+        "W",
+        "SO"
+      ],
+      "normalization": "Min-max within position group across both leagues",
+      "score_formula": "100 * exp(-2.5 * distance^2), Gaussian decay",
+      "confidence_tiers": {
+        "Strong": "Score >= 80, coverage >= 45%",
+        "Moderate": "Score 60-79, or Strong score with low coverage",
+        "Weak": "Score < 60, or moderate score with low coverage"
+      }
+    },
+    "sources": [
+      {
+        "id": "seamheads",
+        "name": "Seamheads Negro Leagues Database",
+        "url": "https://www.seamheads.com/NegroLgs/"
+      },
+      {
+        "id": "bbref",
+        "name": "Baseball Reference",
+        "url": "https://www.baseball-reference.com/"
+      }
+    ],
+    "generated": "2026-05-24"
+  },
+  "matches": {
+    "C": {
+      "Johnny Bench": {
+        "primary": {
+          "nlb": "Biz Mackey",
+          "nlbYears": "1920-1947",
+          "nlbWAR": 28.9,
+          "nlbHof": "inducted",
+          "nlbCoverage": 58,
+          "score": 77,
+          "confidence": "Moderate",
+          "narrative": "<strong>Biz Mackey</strong> played in the Negro Leagues from 1920-1947, posting a .324/.47 BA/SLG profile in documented seasons. The statistical match to Johnny Bench (similarity 77) reflects similar overall offensive value despite different batting profiles, and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.267,
+              0.342,
+              0.476,
+              0.817,
+              5.2
+            ],
+            "nlb": [
+              0.324,
+              0.389,
+              0.47,
+              0.858,
+              4.03
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Josh Gibson",
+            "score": 10,
+            "confidence": "Weak",
+            "summary": "1930-1946. 60.2 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Mickey Cochrane": {
+        "primary": {
+          "nlb": "Biz Mackey",
+          "nlbYears": "1920-1947",
+          "nlbWAR": 28.9,
+          "nlbHof": "inducted",
+          "nlbCoverage": 58,
+          "score": 94,
+          "confidence": "Strong",
+          "narrative": "<strong>Biz Mackey</strong> played in the Negro Leagues from 1920-1947, posting a .324/.47 BA/SLG profile in documented seasons. The statistical match to Mickey Cochrane (similarity 94) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.32,
+              0.419,
+              0.478,
+              0.897,
+              5.14
+            ],
+            "nlb": [
+              0.324,
+              0.389,
+              0.47,
+              0.858,
+              4.03
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Josh Gibson",
+            "score": 29,
+            "confidence": "Weak",
+            "summary": "1930-1946. 60.2 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Yogi Berra": {
+        "primary": {
+          "nlb": "Biz Mackey",
+          "nlbYears": "1920-1947",
+          "nlbWAR": 28.9,
+          "nlbHof": "inducted",
+          "nlbCoverage": 58,
+          "score": 87,
+          "confidence": "Strong",
+          "narrative": "<strong>Biz Mackey</strong> played in the Negro Leagues from 1920-1947, posting a .324/.47 BA/SLG profile in documented seasons. The statistical match to Yogi Berra (similarity 87) reflects comparable contact ability and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.285,
+              0.348,
+              0.482,
+              0.83,
+              4.27
+            ],
+            "nlb": [
+              0.324,
+              0.389,
+              0.47,
+              0.858,
+              4.03
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Josh Gibson",
+            "score": 12,
+            "confidence": "Weak",
+            "summary": "1930-1946. 60.2 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    },
+    "1B": {
+      "Lou Gehrig": {
+        "primary": {
+          "nlb": "Buck Leonard",
+          "nlbYears": "1933-1948",
+          "nlbWAR": 34.4,
+          "nlbHof": "inducted",
+          "nlbCoverage": 68,
+          "score": 90,
+          "confidence": "Strong",
+          "narrative": "<strong>Buck Leonard</strong> played in the Negro Leagues from 1933-1948, posting a .345/.573 BA/SLG profile in documented seasons. The statistical match to Lou Gehrig (similarity 90) reflects closely aligned batting averages and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.34,
+              0.447,
+              0.632,
+              1.08,
+              6.98
+            ],
+            "nlb": [
+              0.345,
+              0.452,
+              0.573,
+              1.042,
+              6.74
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Mule Suttles",
+            "score": 58,
+            "confidence": "Weak",
+            "summary": "1923-1944. 38.3 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Lazaro Salazar",
+            "score": 32,
+            "confidence": "Weak",
+            "summary": "1930-1946. 34.3 career WAR (Seamheads)."
+          }
+        ]
+      },
+      "Jimmie Foxx": {
+        "primary": {
+          "nlb": "Mule Suttles",
+          "nlbYears": "1923-1944",
+          "nlbWAR": 38.3,
+          "nlbHof": "inducted",
+          "nlbCoverage": 55,
+          "score": 79,
+          "confidence": "Moderate",
+          "narrative": "<strong>Mule Suttles</strong> played in the Negro Leagues from 1923-1944, posting a .336/.621 BA/SLG profile in documented seasons. The statistical match to Jimmie Foxx (similarity 79) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.325,
+              0.428,
+              0.609,
+              1.038,
+              5.88
+            ],
+            "nlb": [
+              0.336,
+              0.407,
+              0.621,
+              1.022,
+              5.48
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Buck Leonard",
+            "score": 50,
+            "confidence": "Weak",
+            "summary": "1933-1948. 34.4 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Lazaro Salazar",
+            "score": 45,
+            "confidence": "Weak",
+            "summary": "1930-1946. 34.3 career WAR (Seamheads)."
+          }
+        ]
+      }
+    },
+    "2B": {
+      "Rogers Hornsby": {
+        "primary": {
+          "nlb": "George Scales",
+          "nlbYears": "1921-1946",
+          "nlbWAR": 27.0,
+          "nlbHof": "eligible",
+          "nlbCoverage": 52,
+          "score": 47,
+          "confidence": "Weak",
+          "narrative": "<strong>George Scales</strong> played in the Negro Leagues from 1921-1946, posting a .325/.516 BA/SLG profile in documented seasons. The statistical match to Rogers Hornsby (similarity 47) reflects comparable contact ability and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.358,
+              0.434,
+              0.577,
+              1.01,
+              8.05
+            ],
+            "nlb": [
+              0.325,
+              0.424,
+              0.516,
+              0.94,
+              4.48
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": []
+      },
+      "Jackie Robinson": {
+        "primary": {
+          "nlb": "George Scales",
+          "nlbYears": "1921-1946",
+          "nlbWAR": 27.0,
+          "nlbHof": "eligible",
+          "nlbCoverage": 52,
+          "score": 74,
+          "confidence": "Moderate",
+          "narrative": "<strong>George Scales</strong> played in the Negro Leagues from 1921-1946, posting a .325/.516 BA/SLG profile in documented seasons. The statistical match to Jackie Robinson (similarity 74) reflects closely aligned batting averages and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.311,
+              0.409,
+              0.474,
+              0.883,
+              6.36
+            ],
+            "nlb": [
+              0.325,
+              0.424,
+              0.516,
+              0.94,
+              4.48
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": []
+      },
+      "Joe Morgan": {
+        "primary": {
+          "nlb": "George Scales",
+          "nlbYears": "1921-1946",
+          "nlbWAR": 27.0,
+          "nlbHof": "eligible",
+          "nlbCoverage": 52,
+          "score": 41,
+          "confidence": "Weak",
+          "narrative": "<strong>George Scales</strong> played in the Negro Leagues from 1921-1946, posting a .325/.516 BA/SLG profile in documented seasons. The statistical match to Joe Morgan (similarity 41) reflects similar overall offensive value despite different batting profiles, and sustained offensive impact at comparable rates. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.271,
+              0.392,
+              0.427,
+              0.819,
+              5.33
+            ],
+            "nlb": [
+              0.325,
+              0.424,
+              0.516,
+              0.94,
+              4.48
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": []
+      }
+    },
+    "3B": {
+      "Mike Schmidt": {
+        "primary": {
+          "nlb": "John Beckwith",
+          "nlbYears": "1919-1937",
+          "nlbWAR": 28.9,
+          "nlbHof": "eligible",
+          "nlbCoverage": 50,
+          "score": 55,
+          "confidence": "Weak",
+          "narrative": "<strong>John Beckwith</strong> played in the Negro Leagues from 1919-1937, posting a .346/.593 BA/SLG profile in documented seasons. The statistical match to Mike Schmidt (similarity 55) reflects similar overall offensive value despite different batting profiles, and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.267,
+              0.38,
+              0.527,
+              0.908,
+              6.37
+            ],
+            "nlb": [
+              0.346,
+              0.399,
+              0.593,
+              0.991,
+              6.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Carlos Moran",
+            "score": 50,
+            "confidence": "Weak",
+            "summary": "1899-1915. 32.7 career WAR (Seamheads)."
+          },
+          {
+            "name": "Jud Wilson",
+            "score": 41,
+            "confidence": "Weak",
+            "summary": "1922-1945. 46.9 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "George Brett": {
+        "primary": {
+          "nlb": "John Beckwith",
+          "nlbYears": "1919-1937",
+          "nlbWAR": 28.9,
+          "nlbHof": "eligible",
+          "nlbCoverage": 50,
+          "score": 47,
+          "confidence": "Weak",
+          "narrative": "<strong>John Beckwith</strong> played in the Negro Leagues from 1919-1937, posting a .346/.593 BA/SLG profile in documented seasons. The statistical match to George Brett (similarity 47) reflects similar overall offensive value despite different batting profiles, and sustained offensive impact at comparable rates. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.305,
+              0.369,
+              0.487,
+              0.857,
+              4.58
+            ],
+            "nlb": [
+              0.346,
+              0.399,
+              0.593,
+              0.991,
+              6.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Jud Wilson",
+            "score": 42,
+            "confidence": "Weak",
+            "summary": "1922-1945. 46.9 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Carlos Moran",
+            "score": 36,
+            "confidence": "Weak",
+            "summary": "1899-1915. 32.7 career WAR (Seamheads)."
+          }
+        ]
+      }
+    },
+    "SS": {
+      "Honus Wagner": {
+        "primary": {
+          "nlb": "John Henry Lloyd",
+          "nlbYears": "1906-1932",
+          "nlbWAR": 54.8,
+          "nlbHof": "inducted",
+          "nlbCoverage": 48,
+          "score": 92,
+          "confidence": "Strong",
+          "narrative": "<strong>John Henry Lloyd</strong> played in the Negro Leagues from 1906-1932, posting a .337/.444 BA/SLG profile in documented seasons. The statistical match to Honus Wagner (similarity 92) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.328,
+              0.391,
+              0.466,
+              0.858,
+              6.52
+            ],
+            "nlb": [
+              0.337,
+              0.387,
+              0.444,
+              0.831,
+              5.76
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Dick Lundy",
+            "score": 92,
+            "confidence": "Strong",
+            "summary": "1916-1937. 36.8 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willie Wells",
+            "score": 67,
+            "confidence": "Moderate",
+            "summary": "1924-1948. 69.5 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Ernie Banks": {
+        "primary": {
+          "nlb": "Dick Lundy",
+          "nlbYears": "1916-1937",
+          "nlbWAR": 36.8,
+          "nlbHof": "inducted",
+          "nlbCoverage": 54,
+          "score": 52,
+          "confidence": "Weak",
+          "narrative": "<strong>Dick Lundy</strong> played in the Negro Leagues from 1916-1937, posting a .319/.451 BA/SLG profile in documented seasons. The statistical match to Ernie Banks (similarity 52) reflects similar overall offensive value despite different batting profiles, and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.274,
+              0.33,
+              0.5,
+              0.83,
+              3.9
+            ],
+            "nlb": [
+              0.319,
+              0.377,
+              0.451,
+              0.828,
+              5.54
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "John Henry Lloyd",
+            "score": 37,
+            "confidence": "Weak",
+            "summary": "1906-1932. 54.8 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willie Wells",
+            "score": 32,
+            "confidence": "Weak",
+            "summary": "1924-1948. 69.5 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Cal Ripken Jr.": {
+        "primary": {
+          "nlb": "Dick Lundy",
+          "nlbYears": "1916-1937",
+          "nlbWAR": 36.8,
+          "nlbHof": "inducted",
+          "nlbCoverage": 54,
+          "score": 70,
+          "confidence": "Moderate",
+          "narrative": "<strong>Dick Lundy</strong> played in the Negro Leagues from 1916-1937, posting a .319/.451 BA/SLG profile in documented seasons. The statistical match to Cal Ripken Jr. (similarity 70) reflects similar overall offensive value despite different batting profiles, and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.276,
+              0.34,
+              0.447,
+              0.788,
+              4.47
+            ],
+            "nlb": [
+              0.319,
+              0.377,
+              0.451,
+              0.828,
+              5.54
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "John Henry Lloyd",
+            "score": 53,
+            "confidence": "Weak",
+            "summary": "1906-1932. 54.8 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willie Wells",
+            "score": 19,
+            "confidence": "Weak",
+            "summary": "1924-1948. 69.5 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    },
+    "LF": {
+      "Ted Williams": {
+        "primary": {
+          "nlb": "Oscar Charleston",
+          "nlbYears": "1915-1941",
+          "nlbWAR": 78.3,
+          "nlbHof": "inducted",
+          "nlbCoverage": 65,
+          "score": 79,
+          "confidence": "Moderate",
+          "narrative": "<strong>Oscar Charleston</strong> played in the Negro Leagues from 1915-1941, posting a .363/.614 BA/SLG profile in documented seasons. The statistical match to Ted Williams (similarity 79) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.344,
+              0.482,
+              0.634,
+              1.116,
+              7.46
+            ],
+            "nlb": [
+              0.363,
+              0.449,
+              0.614,
+              1.063,
+              6.98
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Turkey Stearnes",
+            "score": 68,
+            "confidence": "Moderate",
+            "summary": "1923-1940. 58.7 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willard Brown",
+            "score": 46,
+            "confidence": "Weak",
+            "summary": "1935-1948. 33.4 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Stan Musial": {
+        "primary": {
+          "nlb": "Wild Bill Wright",
+          "nlbYears": "1932-1946",
+          "nlbWAR": 33.2,
+          "nlbHof": "eligible",
+          "nlbCoverage": 55,
+          "score": 91,
+          "confidence": "Strong",
+          "narrative": "<strong>Wild Bill Wright</strong> played in the Negro Leagues from 1932-1946, posting a .338/.524 BA/SLG profile in documented seasons. The statistical match to Stan Musial (similarity 91) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.331,
+              0.417,
+              0.559,
+              0.976,
+              6.07
+            ],
+            "nlb": [
+              0.338,
+              0.404,
+              0.524,
+              0.928,
+              5.29
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Turkey Stearnes",
+            "score": 76,
+            "confidence": "Moderate",
+            "summary": "1923-1940. 58.7 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Pete Hill",
+            "score": 74,
+            "confidence": "Moderate",
+            "summary": "1904-1925. 45.2 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    },
+    "CF": {
+      "Ty Cobb": {
+        "primary": {
+          "nlb": "Cristobal Torriente",
+          "nlbYears": "1912-1932",
+          "nlbWAR": 60.0,
+          "nlbHof": "inducted",
+          "nlbCoverage": 50,
+          "score": 93,
+          "confidence": "Strong",
+          "narrative": "<strong>Cristobal Torriente</strong> played in the Negro Leagues from 1912-1932, posting a .341/.503 BA/SLG profile in documented seasons. The statistical match to Ty Cobb (similarity 93) reflects comparable contact ability and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.366,
+              0.433,
+              0.512,
+              0.945,
+              6.93
+            ],
+            "nlb": [
+              0.341,
+              0.427,
+              0.503,
+              0.93,
+              7.01
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Wild Bill Wright",
+            "score": 77,
+            "confidence": "Moderate",
+            "summary": "1932-1946. 33.2 career WAR (Seamheads)."
+          },
+          {
+            "name": "Willard Brown",
+            "score": 73,
+            "confidence": "Moderate",
+            "summary": "1935-1948. 33.4 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Joe DiMaggio": {
+        "primary": {
+          "nlb": "Wild Bill Wright",
+          "nlbYears": "1932-1946",
+          "nlbWAR": 33.2,
+          "nlbHof": "eligible",
+          "nlbCoverage": 55,
+          "score": 87,
+          "confidence": "Strong",
+          "narrative": "<strong>Wild Bill Wright</strong> played in the Negro Leagues from 1932-1946, posting a .338/.524 BA/SLG profile in documented seasons. The statistical match to Joe DiMaggio (similarity 87) reflects closely aligned batting averages and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.325,
+              0.398,
+              0.579,
+              0.977,
+              6.19
+            ],
+            "nlb": [
+              0.338,
+              0.404,
+              0.524,
+              0.928,
+              5.29
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Turkey Stearnes",
+            "score": 81,
+            "confidence": "Strong",
+            "summary": "1923-1940. 58.7 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willard Brown",
+            "score": 79,
+            "confidence": "Moderate",
+            "summary": "1935-1948. 33.4 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Mickey Mantle": {
+        "primary": {
+          "nlb": "Cristobal Torriente",
+          "nlbYears": "1912-1932",
+          "nlbWAR": 60.0,
+          "nlbHof": "inducted",
+          "nlbCoverage": 50,
+          "score": 74,
+          "confidence": "Moderate",
+          "narrative": "<strong>Cristobal Torriente</strong> played in the Negro Leagues from 1912-1932, posting a .341/.503 BA/SLG profile in documented seasons. The statistical match to Mickey Mantle (similarity 74) reflects similar overall offensive value despite different batting profiles, and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.298,
+              0.421,
+              0.557,
+              0.977,
+              6.68
+            ],
+            "nlb": [
+              0.341,
+              0.427,
+              0.503,
+              0.93,
+              7.01
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Wild Bill Wright",
+            "score": 73,
+            "confidence": "Moderate",
+            "summary": "1932-1946. 33.2 career WAR (Seamheads)."
+          },
+          {
+            "name": "Turkey Stearnes",
+            "score": 67,
+            "confidence": "Moderate",
+            "summary": "1923-1940. 58.7 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Willie Mays": {
+        "primary": {
+          "nlb": "Wild Bill Wright",
+          "nlbYears": "1932-1946",
+          "nlbWAR": 33.2,
+          "nlbHof": "eligible",
+          "nlbCoverage": 55,
+          "score": 71,
+          "confidence": "Moderate",
+          "narrative": "<strong>Wild Bill Wright</strong> played in the Negro Leagues from 1932-1946, posting a .338/.524 BA/SLG profile in documented seasons. The statistical match to Willie Mays (similarity 71) reflects comparable contact ability and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.302,
+              0.384,
+              0.557,
+              0.941,
+              7.5
+            ],
+            "nlb": [
+              0.338,
+              0.404,
+              0.524,
+              0.928,
+              5.29
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Pete Hill",
+            "score": 67,
+            "confidence": "Moderate",
+            "summary": "1904-1925. 45.2 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willard Brown",
+            "score": 66,
+            "confidence": "Moderate",
+            "summary": "1935-1948. 33.4 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    },
+    "RF": {
+      "Babe Ruth": {
+        "primary": {
+          "nlb": "Martin Dihigo",
+          "nlbYears": "1922-1946",
+          "nlbWAR": 70.0,
+          "nlbHof": "inducted",
+          "nlbCoverage": 62,
+          "score": 36,
+          "confidence": "Weak",
+          "narrative": "<strong>Martin Dihigo</strong> played in the Negro Leagues from 1922-1946, posting a .312/.509 BA/SLG profile in documented seasons. The statistical match to Babe Ruth (similarity 36) reflects comparable contact ability and sustained offensive impact at comparable rates. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.342,
+              0.474,
+              0.69,
+              1.164,
+              10.31
+            ],
+            "nlb": [
+              0.312,
+              0.403,
+              0.509,
+              0.911,
+              8.91
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Hurley McNair",
+            "score": 16,
+            "confidence": "Weak",
+            "summary": "1910-1937. 29.5 career WAR (Seamheads)."
+          }
+        ]
+      },
+      "Hank Aaron": {
+        "primary": {
+          "nlb": "Martin Dihigo",
+          "nlbYears": "1922-1946",
+          "nlbWAR": 70.0,
+          "nlbHof": "inducted",
+          "nlbCoverage": 62,
+          "score": 83,
+          "confidence": "Strong",
+          "narrative": "<strong>Martin Dihigo</strong> played in the Negro Leagues from 1922-1946, posting a .312/.509 BA/SLG profile in documented seasons. The statistical match to Hank Aaron (similarity 83) reflects closely aligned batting averages and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.305,
+              0.374,
+              0.555,
+              0.928,
+              6.16
+            ],
+            "nlb": [
+              0.312,
+              0.403,
+              0.509,
+              0.911,
+              8.91
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Hurley McNair",
+            "score": 81,
+            "confidence": "Strong",
+            "summary": "1910-1937. 29.5 career WAR (Seamheads)."
+          }
+        ]
+      },
+      "Roberto Clemente": {
+        "primary": {
+          "nlb": "Hurley McNair",
+          "nlbYears": "1910-1937",
+          "nlbWAR": 29.5,
+          "nlbHof": "eligible",
+          "nlbCoverage": 48,
+          "score": 95,
+          "confidence": "Strong",
+          "narrative": "<strong>Hurley McNair</strong> played in the Negro Leagues from 1910-1937, posting a .32/.459 BA/SLG profile in documented seasons. The statistical match to Roberto Clemente (similarity 95) reflects closely aligned batting averages and similar power production. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.317,
+              0.359,
+              0.475,
+              0.834,
+              5.41
+            ],
+            "nlb": [
+              0.32,
+              0.389,
+              0.459,
+              0.849,
+              4.67
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Martin Dihigo",
+            "score": 73,
+            "confidence": "Moderate",
+            "summary": "1922-1946. 70.0 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Frank Robinson": {
+        "primary": {
+          "nlb": "Hurley McNair",
+          "nlbYears": "1910-1937",
+          "nlbWAR": 29.5,
+          "nlbHof": "eligible",
+          "nlbCoverage": 48,
+          "score": 79,
+          "confidence": "Moderate",
+          "narrative": "<strong>Hurley McNair</strong> played in the Negro Leagues from 1910-1937, posting a .32/.459 BA/SLG profile in documented seasons. The statistical match to Frank Robinson (similarity 79) reflects comparable contact ability and comparable power profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "BA",
+              "OBP",
+              "SLG",
+              "OPS",
+              "WAR/600PA"
+            ],
+            "mlb": [
+              0.294,
+              0.389,
+              0.537,
+              0.926,
+              5.48
+            ],
+            "nlb": [
+              0.32,
+              0.389,
+              0.459,
+              0.849,
+              4.67
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Martin Dihigo",
+            "score": 76,
+            "confidence": "Moderate",
+            "summary": "1922-1946. 70.0 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    },
+    "P": {
+      "Walter Johnson": {
+        "primary": {
+          "nlb": "Joe Williams",
+          "nlbYears": "1907-1932",
+          "nlbWAR": 55.2,
+          "nlbHof": "inducted",
+          "nlbCoverage": 48,
+          "score": 60,
+          "confidence": "Moderate",
+          "narrative": "<strong>Joe Williams</strong> pitched in the Negro Leagues from 1907-1932, compiling 156 wins and 2.49 ERA in documented seasons. The statistical match to Walter Johnson (similarity 60) reflects comparable career rate production, with both pitchers demonstrating closely aligned ERA profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "ERA",
+              "W",
+              "SO",
+              "WAR/200IP"
+            ],
+            "mlb": [
+              2.17,
+              417,
+              3509,
+              5.59
+            ],
+            "nlb": [
+              2.49,
+              156,
+              1588,
+              4.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Satchel Paige",
+            "score": 58,
+            "confidence": "Weak",
+            "summary": "1927-1947. 53.6 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Jesus Valenzuela",
+            "score": 54,
+            "confidence": "Weak",
+            "summary": "1940-1946. 35.6 career WAR (Seamheads)."
+          }
+        ]
+      },
+      "Lefty Grove": {
+        "primary": {
+          "nlb": "Joe Williams",
+          "nlbYears": "1907-1932",
+          "nlbWAR": 55.2,
+          "nlbHof": "inducted",
+          "nlbCoverage": 48,
+          "score": 86,
+          "confidence": "Strong",
+          "narrative": "<strong>Joe Williams</strong> pitched in the Negro Leagues from 1907-1932, compiling 156 wins and 2.49 ERA in documented seasons. The statistical match to Lefty Grove (similarity 86) reflects comparable career rate production, with both pitchers demonstrating elite run prevention across their respective careers. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "ERA",
+              "W",
+              "SO",
+              "WAR/200IP"
+            ],
+            "mlb": [
+              3.06,
+              300,
+              2266,
+              5.42
+            ],
+            "nlb": [
+              2.49,
+              156,
+              1588,
+              4.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Satchel Paige",
+            "score": 84,
+            "confidence": "Strong",
+            "summary": "1927-1947. 53.6 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Jesus Valenzuela",
+            "score": 82,
+            "confidence": "Strong",
+            "summary": "1940-1946. 35.6 career WAR (Seamheads)."
+          }
+        ]
+      },
+      "Christy Mathewson": {
+        "primary": {
+          "nlb": "Joe Williams",
+          "nlbYears": "1907-1932",
+          "nlbWAR": 55.2,
+          "nlbHof": "inducted",
+          "nlbCoverage": 48,
+          "score": 79,
+          "confidence": "Moderate",
+          "narrative": "<strong>Joe Williams</strong> pitched in the Negro Leagues from 1907-1932, compiling 156 wins and 2.49 ERA in documented seasons. The statistical match to Christy Mathewson (similarity 79) reflects comparable career rate production, with both pitchers demonstrating closely aligned ERA profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "ERA",
+              "W",
+              "SO",
+              "WAR/200IP"
+            ],
+            "mlb": [
+              2.13,
+              373,
+              2507,
+              4.42
+            ],
+            "nlb": [
+              2.49,
+              156,
+              1588,
+              4.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Willie Foster",
+            "score": 72,
+            "confidence": "Moderate",
+            "summary": "1923-1937. 38.0 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Jose Mendez",
+            "score": 71,
+            "confidence": "Moderate",
+            "summary": "1907-1926. 49.1 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Cy Young": {
+        "primary": {
+          "nlb": "Joe Williams",
+          "nlbYears": "1907-1932",
+          "nlbWAR": 55.2,
+          "nlbHof": "inducted",
+          "nlbCoverage": 48,
+          "score": 60,
+          "confidence": "Moderate",
+          "narrative": "<strong>Joe Williams</strong> pitched in the Negro Leagues from 1907-1932, compiling 156 wins and 2.49 ERA in documented seasons. The statistical match to Cy Young (similarity 60) reflects comparable career rate production, with both pitchers demonstrating closely aligned ERA profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "ERA",
+              "W",
+              "SO",
+              "WAR/200IP"
+            ],
+            "mlb": [
+              2.63,
+              511,
+              2803,
+              4.45
+            ],
+            "nlb": [
+              2.49,
+              156,
+              1588,
+              4.83
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Willie Foster",
+            "score": 55,
+            "confidence": "Weak",
+            "summary": "1923-1937. 38.0 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Dick Redding",
+            "score": 53,
+            "confidence": "Weak",
+            "summary": "1911-1936. 39.9 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      },
+      "Bob Gibson": {
+        "primary": {
+          "nlb": "Jesus Valenzuela",
+          "nlbYears": "1940-1946",
+          "nlbWAR": 35.6,
+          "nlbHof": "eligible",
+          "nlbCoverage": 48,
+          "score": 90,
+          "confidence": "Strong",
+          "narrative": "<strong>Jesus Valenzuela</strong> pitched in the Negro Leagues from 1940-1946, compiling 106 wins and 3.11 ERA in documented seasons. The statistical match to Bob Gibson (similarity 90) reflects comparable career rate production, with both pitchers demonstrating closely aligned ERA profiles. Source: Seamheads Negro Leagues Database, career record.",
+          "statComparison": {
+            "stats": [
+              "ERA",
+              "W",
+              "SO",
+              "WAR/200IP"
+            ],
+            "mlb": [
+              2.91,
+              251,
+              3117,
+              4.22
+            ],
+            "nlb": [
+              3.11,
+              106,
+              null,
+              4.56
+            ]
+          },
+          "warConfidence": "Documented",
+          "source": "Seamheads Negro Leagues Database, career record"
+        },
+        "alternates": [
+          {
+            "name": "Joe Williams",
+            "score": 79,
+            "confidence": "Moderate",
+            "summary": "1907-1932. 55.2 career WAR (Seamheads). Hall of Fame inducted."
+          },
+          {
+            "name": "Willie Foster",
+            "score": 75,
+            "confidence": "Moderate",
+            "summary": "1923-1937. 38.0 career WAR (Seamheads). Hall of Fame inducted."
+          }
+        ]
+      }
+    }
+  }
+}
