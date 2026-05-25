@@ -1958,7 +1958,7 @@ img { max-width: 100%; height: auto; display: block; }
   <!-- The headline number -->
   <div class="aggregate__headline">
     <div class="aggregate__headline-number" id="aggregate-number" aria-live="polite">$3.7 billion</div>
-    <div class="aggregate__headline-label">Total documented wage gap, 1920--1948, in 2024 dollars</div>
+    <div class="aggregate__headline-label" id="aggregate-label">Total documented wage gap, 1920--1948, in 2024 dollars</div>
     <div class="aggregate__model-note" style="font-family:var(--mono);font-size:10px;color:var(--oxblood);letter-spacing:0.08em;text-transform:uppercase;margin-top:10px;">Modeled: pending Bayesian imputation pipeline. Placeholder figures derived from documented salary ranges and MLB comparison data. Final figures will carry 90% credible intervals.</div>
     <div class="aggregate__variants" id="aggregate-variants">
       <div class="aggregate__variant">
@@ -2391,42 +2391,86 @@ var INFLATOR_TOTALS = {
 };
 
 /* ======================================================================
-   DATA -- INDIVIDUAL PLAYERS (placeholder, 25 players)
-   NOTE: Modeled, pending Bayesian imputation pipeline. WAR from
-   Seamheads. Salary/gap/estate figures are illustrative placeholders.
-   Final data will be loaded from data/gap-by-player.json once
-   Models 1-5 are built. Confidence labels will be assigned per
-   player-season based on source quality (Documented/Verified/
-   Reported/Estimated/Modeled).
+   DATA -- INDIVIDUAL PLAYERS
+   Loaded from data/salary-imputed.json (Bayesian salary imputation model)
+   and data/wage-gap.json (aggregate headline figure).
+   Fallback: inline placeholder if fetch fails.
    ====================================================================== */
 
-var PLAYERS = [
-  { rank:1,  name:"Josh Gibson",          pos:"C",   war:50.2, earned:420000,   counter:7800000,  gap:7380000,  estate:182000000, conf:"documented", seasons:[{y:1930,g:180000},{y:1931,g:220000},{y:1932,g:260000},{y:1933,g:280000},{y:1934,g:310000},{y:1935,g:340000},{y:1936,g:380000},{y:1937,g:420000},{y:1938,g:460000},{y:1939,g:500000},{y:1940,g:520000},{y:1941,g:540000},{y:1942,g:560000},{y:1943,g:580000},{y:1944,g:610000},{y:1945,g:600000},{y:1946,g:580000}] },
-  { rank:2,  name:"Satchel Paige",        pos:"P",   war:45.3, earned:680000,   counter:7200000,  gap:6520000,  estate:168000000, conf:"documented", seasons:[{y:1927,g:140000},{y:1928,g:160000},{y:1929,g:180000},{y:1930,g:200000},{y:1931,g:220000},{y:1932,g:240000},{y:1933,g:260000},{y:1934,g:300000},{y:1935,g:340000},{y:1936,g:380000},{y:1937,g:420000},{y:1938,g:460000},{y:1939,g:480000},{y:1940,g:500000},{y:1941,g:520000},{y:1942,g:540000},{y:1943,g:560000},{y:1944,g:580000},{y:1945,g:600000},{y:1946,g:540000}] },
-  { rank:3,  name:"Oscar Charleston",     pos:"CF",  war:48.7, earned:360000,   counter:6400000,  gap:6040000,  estate:158000000, conf:"estimated",  seasons:[{y:1920,g:200000},{y:1921,g:220000},{y:1922,g:240000},{y:1923,g:260000},{y:1924,g:280000},{y:1925,g:300000},{y:1926,g:320000},{y:1927,g:340000},{y:1928,g:360000},{y:1929,g:380000},{y:1930,g:400000},{y:1931,g:380000},{y:1932,g:350000},{y:1933,g:330000},{y:1934,g:310000},{y:1935,g:280000}] },
-  { rank:4,  name:"Buck Leonard",         pos:"1B",  war:38.6, earned:310000,   counter:5100000,  gap:4790000,  estate:124000000, conf:"documented", seasons:[{y:1934,g:200000},{y:1935,g:220000},{y:1936,g:240000},{y:1937,g:260000},{y:1938,g:280000},{y:1939,g:300000},{y:1940,g:320000},{y:1941,g:340000},{y:1942,g:360000},{y:1943,g:380000},{y:1944,g:400000},{y:1945,g:390000},{y:1946,g:380000},{y:1947,g:320000}] },
-  { rank:5,  name:"Cool Papa Bell",       pos:"CF",  war:36.4, earned:280000,   counter:4600000,  gap:4320000,  estate:112000000, conf:"estimated",  seasons:[{y:1922,g:140000},{y:1923,g:160000},{y:1924,g:180000},{y:1925,g:200000},{y:1926,g:220000},{y:1927,g:240000},{y:1928,g:260000},{y:1929,g:280000},{y:1930,g:300000},{y:1931,g:280000},{y:1932,g:260000},{y:1933,g:240000},{y:1934,g:220000},{y:1935,g:200000},{y:1936,g:180000},{y:1937,g:160000},{y:1938,g:140000}] },
-  { rank:6,  name:"Turkey Stearnes",      pos:"CF",  war:34.8, earned:260000,   counter:4200000,  gap:3940000,  estate:98000000,  conf:"estimated",  seasons:[{y:1923,g:180000},{y:1924,g:200000},{y:1925,g:220000},{y:1926,g:240000},{y:1927,g:260000},{y:1928,g:280000},{y:1929,g:300000},{y:1930,g:320000},{y:1931,g:300000},{y:1932,g:280000},{y:1933,g:260000},{y:1934,g:240000},{y:1935,g:220000},{y:1936,g:200000}] },
-  { rank:7,  name:"Mule Suttles",         pos:"1B",  war:32.1, earned:240000,   counter:3800000,  gap:3560000,  estate:88000000,  conf:"estimated",  seasons:[{y:1923,g:160000},{y:1924,g:180000},{y:1925,g:200000},{y:1926,g:220000},{y:1927,g:240000},{y:1928,g:260000},{y:1929,g:280000},{y:1930,g:300000},{y:1931,g:280000},{y:1932,g:260000},{y:1933,g:240000},{y:1934,g:220000}] },
-  { rank:8,  name:"Willie Wells",         pos:"SS",  war:33.5, earned:250000,   counter:3700000,  gap:3450000,  estate:86000000,  conf:"estimated",  seasons:[{y:1924,g:160000},{y:1925,g:180000},{y:1926,g:200000},{y:1927,g:220000},{y:1928,g:240000},{y:1929,g:260000},{y:1930,g:280000},{y:1931,g:260000},{y:1932,g:240000},{y:1933,g:220000},{y:1934,g:200000},{y:1935,g:180000},{y:1936,g:160000}] },
-  { rank:9,  name:"Ray Dandridge",        pos:"3B",  war:28.4, earned:220000,   counter:3400000,  gap:3180000,  estate:78000000,  conf:"estimated",  seasons:[{y:1933,g:180000},{y:1934,g:200000},{y:1935,g:220000},{y:1936,g:240000},{y:1937,g:260000},{y:1938,g:280000},{y:1939,g:300000},{y:1940,g:320000},{y:1941,g:300000},{y:1942,g:280000},{y:1943,g:260000}] },
-  { rank:10, name:"Bullet Rogan",         pos:"P",   war:30.2, earned:210000,   counter:3200000,  gap:2990000,  estate:74000000,  conf:"reported",   seasons:[{y:1920,g:160000},{y:1921,g:180000},{y:1922,g:200000},{y:1923,g:220000},{y:1924,g:240000},{y:1925,g:260000},{y:1926,g:280000},{y:1927,g:260000},{y:1928,g:240000},{y:1929,g:220000},{y:1930,g:200000}] },
-  { rank:11, name:"Martin Dihigo",        pos:"P/OF",war:35.9, earned:230000,   counter:3100000,  gap:2870000,  estate:72000000,  conf:"estimated",  seasons:[{y:1923,g:140000},{y:1924,g:160000},{y:1925,g:180000},{y:1926,g:200000},{y:1927,g:220000},{y:1928,g:240000},{y:1929,g:260000},{y:1930,g:280000},{y:1931,g:260000},{y:1935,g:240000},{y:1936,g:220000}] },
-  { rank:12, name:"Hilton Smith",         pos:"P",   war:26.8, earned:200000,   counter:2900000,  gap:2700000,  estate:68000000,  conf:"reported",   seasons:[{y:1932,g:140000},{y:1933,g:160000},{y:1934,g:180000},{y:1935,g:200000},{y:1936,g:220000},{y:1937,g:240000},{y:1938,g:260000},{y:1939,g:280000},{y:1940,g:300000},{y:1941,g:280000},{y:1942,g:260000}] },
-  { rank:13, name:"Leon Day",             pos:"P",   war:25.4, earned:190000,   counter:2700000,  gap:2510000,  estate:62000000,  conf:"estimated",  seasons:[{y:1934,g:140000},{y:1935,g:160000},{y:1936,g:180000},{y:1937,g:200000},{y:1938,g:220000},{y:1939,g:240000},{y:1940,g:260000},{y:1941,g:280000},{y:1942,g:300000},{y:1943,g:280000}] },
-  { rank:14, name:"Jud Wilson",           pos:"3B",  war:27.6, earned:195000,   counter:2600000,  gap:2405000,  estate:60000000,  conf:"reported",   seasons:[{y:1922,g:120000},{y:1923,g:140000},{y:1924,g:160000},{y:1925,g:180000},{y:1926,g:200000},{y:1927,g:220000},{y:1928,g:240000},{y:1929,g:220000},{y:1930,g:200000},{y:1931,g:180000},{y:1932,g:160000}] },
-  { rank:15, name:"Cristobal Torriente",  pos:"OF",  war:26.1, earned:180000,   counter:2500000,  gap:2320000,  estate:58000000,  conf:"estimated",  seasons:[{y:1920,g:140000},{y:1921,g:160000},{y:1922,g:180000},{y:1923,g:200000},{y:1924,g:220000},{y:1925,g:240000},{y:1926,g:220000},{y:1927,g:200000},{y:1928,g:180000}] },
-  { rank:16, name:"Ben Taylor",           pos:"1B",  war:24.3, earned:170000,   counter:2300000,  gap:2130000,  estate:54000000,  conf:"reported",   seasons:[{y:1920,g:120000},{y:1921,g:140000},{y:1922,g:160000},{y:1923,g:180000},{y:1924,g:200000},{y:1925,g:220000},{y:1926,g:200000},{y:1927,g:180000}] },
-  { rank:17, name:"Biz Mackey",           pos:"C",   war:25.8, earned:175000,   counter:2250000,  gap:2075000,  estate:52000000,  conf:"estimated",  seasons:[{y:1920,g:100000},{y:1921,g:120000},{y:1922,g:140000},{y:1923,g:160000},{y:1924,g:180000},{y:1925,g:200000},{y:1926,g:220000},{y:1927,g:200000},{y:1928,g:180000},{y:1929,g:160000}] },
-  { rank:18, name:"Pete Hill",            pos:"CF",  war:23.9, earned:160000,   counter:2100000,  gap:1940000,  estate:48000000,  conf:"reported",   seasons:[{y:1920,g:120000},{y:1921,g:140000},{y:1922,g:160000},{y:1923,g:180000},{y:1924,g:200000},{y:1925,g:180000}] },
-  { rank:19, name:"Dobie Moore",          pos:"SS",  war:22.7, earned:150000,   counter:2000000,  gap:1850000,  estate:46000000,  conf:"estimated",  seasons:[{y:1920,g:140000},{y:1921,g:160000},{y:1922,g:180000},{y:1923,g:200000},{y:1924,g:220000},{y:1925,g:240000},{y:1926,g:260000}] },
-  { rank:20, name:"Bill Foster",          pos:"P",   war:21.4, earned:145000,   counter:1900000,  gap:1755000,  estate:44000000,  conf:"estimated",  seasons:[{y:1923,g:100000},{y:1924,g:120000},{y:1925,g:140000},{y:1926,g:160000},{y:1927,g:180000},{y:1928,g:200000},{y:1929,g:220000},{y:1930,g:200000},{y:1931,g:180000}] },
-  { rank:21, name:"Andy Cooper",          pos:"P",   war:20.8, earned:140000,   counter:1800000,  gap:1660000,  estate:42000000,  conf:"reported",   seasons:[{y:1920,g:100000},{y:1921,g:120000},{y:1922,g:140000},{y:1923,g:160000},{y:1924,g:180000},{y:1925,g:200000},{y:1926,g:180000},{y:1927,g:160000}] },
-  { rank:22, name:"Willard Brown",        pos:"OF",  war:19.6, earned:135000,   counter:1700000,  gap:1565000,  estate:38000000,  conf:"estimated",  seasons:[{y:1935,g:100000},{y:1936,g:120000},{y:1937,g:140000},{y:1938,g:160000},{y:1939,g:180000},{y:1940,g:200000},{y:1941,g:220000},{y:1942,g:200000},{y:1943,g:180000}] },
-  { rank:23, name:"Sam Bankhead",         pos:"SS",  war:18.4, earned:130000,   counter:1600000,  gap:1470000,  estate:36000000,  conf:"reported",   seasons:[{y:1930,g:100000},{y:1931,g:120000},{y:1932,g:140000},{y:1933,g:160000},{y:1934,g:180000},{y:1935,g:200000},{y:1936,g:180000},{y:1937,g:160000}] },
-  { rank:24, name:"Dick Lundy",           pos:"SS",  war:21.2, earned:155000,   counter:1550000,  gap:1395000,  estate:34000000,  conf:"estimated",  seasons:[{y:1920,g:80000},{y:1921,g:100000},{y:1922,g:120000},{y:1923,g:140000},{y:1924,g:160000},{y:1925,g:180000},{y:1926,g:200000},{y:1927,g:180000}] },
-  { rank:25, name:"Double Duty Radcliffe",pos:"P/C", war:17.8, earned:125000,   counter:1500000,  gap:1375000,  estate:32000000,  conf:"reported",   seasons:[{y:1928,g:80000},{y:1929,g:100000},{y:1930,g:120000},{y:1931,g:140000},{y:1932,g:160000},{y:1933,g:180000},{y:1934,g:200000},{y:1935,g:180000},{y:1936,g:160000}] }
-];
+var PLAYERS = [];
+var _playersLoaded = false;
+
+/* Load salary-imputed.json and transform to rendering format */
+var _salaryFetch = fetch("data/salary-imputed.json")
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    PLAYERS = data.players.map(function(p, i) {
+      /* Transform seasons from model output to rendering format */
+      var seasons = (p.seasons || []).map(function(s) {
+        return { y: s.year, g: Math.round(s.gap_2024) };
+      });
+      return {
+        rank: i + 1,
+        name: p.name,
+        pos: p.position,
+        war: p.careerWAR,
+        earned: Math.round(p.careerNLBEarned),
+        counter: Math.round(p.careerMLBCounterfactual),
+        gap: Math.round(p.careerGap2024),
+        estate: Math.round(p.careerGap2024 * 25), /* rough estate multiplier */
+        conf: (p.confidence || "Modeled").toLowerCase(),
+        seasons: seasons
+      };
+    });
+    /* Sort by gap descending (default) */
+    PLAYERS.sort(function(a, b) { return b.gap - a.gap; });
+    /* Re-rank after sort */
+    PLAYERS.forEach(function(p, i) { p.rank = i + 1; });
+    _playersLoaded = true;
+    console.log("[ch08] Salary-imputed.json loaded: " + PLAYERS.length + " players");
+  })
+  .catch(function(err) {
+    console.warn("[ch08] Failed to load salary-imputed.json, using empty array:", err);
+  });
+
+/* Load wage-gap.json for headline figure */
+var _wageGapFetch = fetch("data/wage-gap.json")
+  .then(function(res) { return res.json(); })
+  .then(function(wg) {
+    /* Update headline number, label, and model note */
+    var headlineEl = document.getElementById("aggregate-number");
+    if (headlineEl) {
+      headlineEl.textContent = fmt(wg.total_gap_2024_cpi);
+    }
+    var labelEl = document.getElementById("aggregate-label");
+    if (labelEl) {
+      labelEl.textContent = "Career wage gap for top 50 NLB players, 1920--1948, in 2024 CPI dollars";
+    }
+    /* Update the CPI variant display */
+    var variants = document.getElementById("aggregate-variants");
+    if (variants) {
+      var cpiVariant = variants.querySelector(".aggregate__variant:first-child .aggregate__variant-num");
+      if (cpiVariant) {
+        cpiVariant.textContent = fmt(wg.total_gap_2024_cpi);
+      }
+    }
+    /* Update the model note to show real CI */
+    var modelNote = document.querySelector(".aggregate__model-note");
+    if (modelNote) {
+      modelNote.textContent = "Modeled: Top 50 players, Bayesian imputation with 90% credible interval: "
+        + fmt(wg.total_gap_2024_lo) + " to " + fmt(wg.total_gap_2024_hi)
+        + ". CPI-based inflation. " + (wg.note || "");
+    }
+    /* Update dashboard headline */
+    var dashNum = document.getElementById("dashboard-number");
+    if (dashNum) {
+      dashNum.textContent = fmt(wg.total_gap_2024_cpi);
+    }
+    console.log("[ch08] Wage-gap.json loaded: $" + (wg.total_gap_2024_cpi / 1e6).toFixed(1) + "M");
+  })
+  .catch(function(err) {
+    console.warn("[ch08] Failed to load wage-gap.json:", err);
+  });
 
 /* ======================================================================
    DATA -- TEAMS
@@ -2773,12 +2817,14 @@ var SENSITIVITY = {
 
 /* ======================================================================
    FIG 03 -- INDIVIDUAL LEDGER TABLE
+   Waits for salary-imputed.json to load before rendering
    ====================================================================== */
 
-(function() {
+_salaryFetch.then(function() {
   var tbody = document.getElementById("individual-tbody");
   var cardsEl = document.getElementById("individual-cards");
   if (!tbody || !cardsEl) return;
+  if (!PLAYERS.length) { console.warn("[ch08] No player data for individual ledger"); return; }
 
   var currentSort = "gap";
   var expandedIdx = -1;
@@ -2879,7 +2925,9 @@ var SENSITIVITY = {
       renderCards();
     });
   });
-})();
+}).catch(function(err) {
+  console.error("[ch08] Error rendering individual ledger:", err);
+});
 
 /* ======================================================================
    FIG 04 -- TEAM BARS

@@ -1378,6 +1378,7 @@ img { max-width: 100%; height: auto; display: block; }
     <a class="masthead__tab" href="#newark" role="tab">Newark Eagles</a>
     <a class="masthead__tab" href="#ledger" role="tab">The Ledger</a>
     <a class="masthead__tab" href="#forces" role="tab">Three Forces</a>
+    <a class="masthead__tab" href="#survival" role="tab">The Numbers</a>
     <a class="masthead__tab" href="#method" role="tab">Method</a>
     <a class="masthead__tab" href="#coda" role="tab">Coda</a>
   </nav>
@@ -1673,6 +1674,46 @@ img { max-width: 100%; height: auto; display: block; }
         Manleys lost $50,000 over 1947-48. NNL disbanded December 1948. NAL declared minor league 1958. SABR Business of the Negro Leagues research.
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SURVIVAL MODEL -- from data/survival-output.json
+     ==================================================================== -->
+
+<section id="survival" class="forces page" aria-label="Franchise Survival Model">
+  <div class="section-head">
+    <div class="section-head__kicker">Fig 05 -- Survival Analysis</div>
+    <h2 class="section-head__title">The <em>Numbers</em></h2>
+    <p class="section-head__lede">
+      Kaplan-Meier survival analysis on all 35 documented franchises, 1920 to 1962. The hazard ratio is the headline: after 1947, franchises died at twice the rate.
+    </p>
+  </div>
+
+  <!-- Hazard ratio callout -->
+  <div class="newark__cards" style="margin-bottom:48px">
+    <div class="newark__card" style="text-align:center;grid-column:1/-1;max-width:400px;margin:0 auto">
+      <div class="newark__card-year" style="font-size:12px;letter-spacing:0.12em">HAZARD RATIO</div>
+      <div id="hazard-ratio-display" class="newark__card-detail newark__card-detail--oxblood" style="font-size:64px;line-height:1.1">2.0x</div>
+      <div class="newark__card-sub" id="hazard-ratio-note" style="max-width:320px;margin:8px auto 0">Post-1947 franchise death rate vs. pre-1947 rate</div>
+    </div>
+  </div>
+
+  <!-- Yearly active franchise counts -->
+  <div class="section-head" style="margin-bottom:16px">
+    <div class="section-head__fig">Active Franchises by Year</div>
+  </div>
+  <div style="overflow-x:auto;margin-bottom:48px">
+    <svg id="yearly-counts-svg" viewBox="0 0 1080 280" width="1080" height="280" role="img"
+         aria-label="Bar chart showing number of active Negro Leagues franchises per year, 1920 to 1962"></svg>
+  </div>
+
+  <!-- Cause of death distribution -->
+  <div class="section-head" style="margin-bottom:16px">
+    <div class="section-head__fig">Cause of Death Distribution</div>
+  </div>
+  <div id="cause-distribution" class="newark__cards" style="margin-bottom:48px">
+    <!-- Populated by JS from survival-output.json -->
   </div>
 </section>
 
@@ -2457,6 +2498,138 @@ document.addEventListener("franchises-loaded", function() {
 }); // end franchises-loaded listener
 
 /* ======================================================================
+   FIG 05 -- SURVIVAL MODEL OUTPUT (loaded from data/survival-output.json)
+   ====================================================================== */
+
+(function() {
+  fetch("data/survival-output.json")
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      console.log("[ch06] survival-output.json loaded");
+
+      /* 1. Hazard ratio callout */
+      var hrDisplay = document.getElementById("hazard-ratio-display");
+      var hrNote = document.getElementById("hazard-ratio-note");
+      if (hrDisplay && data.hazard_comparison) {
+        var ratio = data.hazard_comparison.hazard_ratio;
+        hrDisplay.textContent = ratio.toFixed(1) + "x";
+        hrNote.textContent = data.hazard_comparison.interpretation;
+      }
+
+      /* 2. Yearly active franchise counts bar chart */
+      var ySvg = document.getElementById("yearly-counts-svg");
+      if (ySvg && data.yearly_counts && data.yearly_counts.length) {
+        var ns = "http://www.w3.org/2000/svg";
+        function yEl(tag, attrs) {
+          var e = document.createElementNS(ns, tag);
+          for (var k in attrs) {
+            if (k === "text") { e.textContent = attrs[k]; continue; }
+            e.setAttribute(k, attrs[k]);
+          }
+          ySvg.appendChild(e);
+          return e;
+        }
+
+        var W = 1080, H = 280;
+        var M = { t: 20, r: 20, b: 40, l: 50 };
+        var iW = W - M.l - M.r;
+        var iH = H - M.t - M.b;
+
+        var counts = data.yearly_counts;
+        var maxActive = data.peak_active || 15;
+        var minYr = counts[0].year;
+        var maxYr = counts[counts.length - 1].year;
+        var barW = iW / counts.length * 0.75;
+
+        function xFor(i) { return M.l + (i / counts.length) * iW + (iW / counts.length) * 0.125; }
+        function yFor(v) { return M.t + (1 - v / maxActive) * iH; }
+
+        /* Background */
+        yEl("rect", { x: 0, y: 0, width: W, height: H, fill: "#1a1812" });
+
+        /* Y gridlines */
+        [0, 5, 10, 15].forEach(function(v) {
+          if (v > maxActive) return;
+          yEl("line", { x1: M.l, x2: W - M.r, y1: yFor(v), y2: yFor(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+          yEl("text", { x: M.l - 8, y: yFor(v) + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(v) });
+        });
+
+        /* 1947 line */
+        var idx1947 = -1;
+        counts.forEach(function(c, i) { if (c.year === 1947) idx1947 = i; });
+        if (idx1947 >= 0) {
+          var x47 = xFor(idx1947) + barW / 2;
+          yEl("line", { x1: x47, x2: x47, y1: M.t, y2: H - M.b, stroke: "rgba(161,69,69,0.5)", "stroke-width": 1, "stroke-dasharray": "4 3" });
+          yEl("text", { x: x47, y: M.t - 6, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--oxblood)", "letter-spacing": "0.1em", text: "ROBINSON" });
+        }
+
+        /* Bars */
+        counts.forEach(function(c, i) {
+          var bH = yFor(0) - yFor(c.active);
+          var color = c.year >= 1947 ? "var(--oxblood)" : "var(--amber)";
+          var opacity = c.year >= 1947 ? 0.7 : 0.5;
+          yEl("rect", {
+            x: xFor(i), y: yFor(c.active),
+            width: barW, height: Math.max(0, bH),
+            fill: color, opacity: opacity
+          });
+
+          /* Year labels every 5 years */
+          if (c.year % 5 === 0 || c.year === minYr || c.year === maxYr) {
+            yEl("text", { x: xFor(i) + barW / 2, y: H - M.b + 16, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--muted)", text: String(c.year) });
+          }
+        });
+
+        yEl("text", { x: M.l + iW / 2, y: H - 4, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.14em", text: "ACTIVE FRANCHISES" });
+      }
+
+      /* 3. Cause of death distribution cards */
+      var causeEl = document.getElementById("cause-distribution");
+      if (causeEl && data.cause_distribution) {
+        var cd = data.cause_distribution;
+        var total = 0;
+        var causes = [];
+        for (var key in cd) {
+          total += cd[key];
+          causes.push({ cause: key, count: cd[key] });
+        }
+        causes.sort(function(a, b) { return b.count - a.count; });
+
+        var causeLabels = {
+          integration: "Integration-era collapse",
+          depression: "Depression fold",
+          uncertain: "Pre-1947, uncertain",
+          restructured: "Restructured into new league",
+          survived: "Persisted through final season"
+        };
+        var causeColors = {
+          integration: "var(--oxblood)",
+          depression: "var(--bronze)",
+          uncertain: "var(--muted)",
+          restructured: "var(--slate)",
+          survived: "var(--moss)"
+        };
+
+        var html = "";
+        causes.forEach(function(c) {
+          var pct = total > 0 ? Math.round((c.count / total) * 100) : 0;
+          var label = causeLabels[c.cause] || c.cause;
+          var color = causeColors[c.cause] || "var(--muted)";
+          html += '<div class="newark__card" style="text-align:center">';
+          html += '<div class="newark__card-year" style="font-size:11px;letter-spacing:0.1em;color:' + color + '">' + label.toUpperCase() + '</div>';
+          html += '<div class="newark__card-detail" style="color:' + color + ';font-size:42px">' + c.count + '</div>';
+          html += '<div class="newark__card-sub">' + pct + '% of ' + total + ' franchises</div>';
+          html += '</div>';
+        });
+        causeEl.innerHTML = html;
+      }
+    })
+    .catch(function(err) {
+      console.error("[ch06] Failed to load survival-output.json:", err);
+    });
+})();
+
+/* ======================================================================
    NEWARK CARDS SCROLL ANIMATION
    ====================================================================== */
 
@@ -2503,7 +2676,7 @@ document.addEventListener("franchises-loaded", function() {
 
 (function() {
   var tabs = document.querySelectorAll(".masthead__tab");
-  var sectionIds = ["hook", "timeline", "newark", "ledger", "forces", "method", "coda"];
+  var sectionIds = ["hook", "timeline", "newark", "ledger", "forces", "survival", "method", "coda"];
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
   if (!tabs.length || !sections.length) return;
 

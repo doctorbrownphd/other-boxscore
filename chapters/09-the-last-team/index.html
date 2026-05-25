@@ -2014,47 +2014,59 @@ _ch09LoadData(function() {
 
 /* ======================================================================
    FIG 02 -- SURVIVAL CURVE AND HAZARD FUNCTION
+   Data loaded from data/km-output.json (Kaplan-Meier model output)
    ====================================================================== */
 
-(function() {
-  /* Kaplan-Meier survival data derived from integration dates */
-  /* S(t) = fraction still unintegrated at time t */
-  var survivalSteps = [
-    { year: 1947.0, s: 1.000, sLo: 1.000, sHi: 1.000 },
-    { year: 1947.3, s: 0.9375, sLo: 0.85, sHi: 1.00 },   /* Robinson */
-    { year: 1947.5, s: 0.875,  sLo: 0.77, sHi: 0.96 },    /* Doby */
-    { year: 1947.55,s: 0.8125, sLo: 0.70, sHi: 0.91 },    /* Thompson-Browns */
-    { year: 1949.5, s: 0.750,  sLo: 0.63, sHi: 0.86 },    /* Thompson-Giants */
-    { year: 1950.3, s: 0.6875, sLo: 0.56, sHi: 0.80 },    /* Jethroe */
-    { year: 1951.3, s: 0.625,  sLo: 0.49, sHi: 0.75 },    /* Minoso */
-    { year: 1953.7, s: 0.5625, sLo: 0.42, sHi: 0.70 },    /* Trice */
-    { year: 1953.72,s: 0.500,  sLo: 0.36, sHi: 0.64 },    /* Banks */
-    { year: 1954.28,s: 0.4375, sLo: 0.30, sHi: 0.58 },    /* Roberts */
-    { year: 1954.29,s: 0.375,  sLo: 0.24, sHi: 0.52 },    /* Alston */
-    { year: 1954.30,s: 0.3125, sLo: 0.18, sHi: 0.45 },    /* Escalera */
-    { year: 1954.68,s: 0.250,  sLo: 0.13, sHi: 0.39 },    /* Paula */
-    { year: 1955.28,s: 0.1875, sLo: 0.08, sHi: 0.32 },    /* Howard */
-    { year: 1957.3, s: 0.125,  sLo: 0.04, sHi: 0.25 },    /* Kennedy */
-    { year: 1958.43,s: 0.0625, sLo: 0.01, sHi: 0.17 },    /* Virgil */
-    { year: 1959.55,s: 0.000,  sLo: 0.00, sHi: 0.07 }     /* Green */
-  ];
+/* Placeholders, overwritten by fetch below */
+var survivalSteps = [];
+var hazardData = [];
 
-  /* Hazard data -- conditional probability of integration per year-interval */
-  var hazardData = [
-    { year: 1947, h: 0.19, hLo: 0.08, hHi: 0.35, label: "1947 pulse" },
-    { year: 1948, h: 0.00, hLo: 0.00, hHi: 0.05, label: "" },
-    { year: 1949, h: 0.08, hLo: 0.01, hHi: 0.22, label: "" },
-    { year: 1950, h: 0.08, hLo: 0.01, hHi: 0.24, label: "" },
-    { year: 1951, h: 0.09, hLo: 0.01, hHi: 0.27, label: "" },
-    { year: 1952, h: 0.00, hLo: 0.00, hHi: 0.08, label: "" },
-    { year: 1953, h: 0.20, hLo: 0.06, hHi: 0.42, label: "1953 cluster" },
-    { year: 1954, h: 0.50, hLo: 0.22, hHi: 0.78, label: "1954 peak" },
-    { year: 1955, h: 0.25, hLo: 0.05, hHi: 0.58, label: "" },
-    { year: 1956, h: 0.00, hLo: 0.00, hHi: 0.15, label: "" },
-    { year: 1957, h: 0.33, hLo: 0.05, hHi: 0.75, label: "" },
-    { year: 1958, h: 0.50, hLo: 0.08, hHi: 0.90, label: "" },
-    { year: 1959, h: 1.00, hLo: 0.50, hHi: 1.00, label: "Last team" }
-  ];
+/* Load KM model output and build vis data */
+var _kmLoaded = fetch("data/km-output.json")
+  .then(function(res) { return res.json(); })
+  .then(function(km) {
+    /* Map survival_curve to the format the rendering code expects:
+       { year: <float>, s: <survival>, sLo: <lo>, sHi: <hi> } */
+    survivalSteps = km.survival_curve.map(function(d) {
+      return {
+        year: 1947 + d.years,
+        s: d.survival,
+        sLo: Math.max(0, d.survival_lo),
+        sHi: Math.min(1, d.survival_hi)
+      };
+    });
+
+    /* Map hazard_function to the format the rendering code expects:
+       { year: <int>, h: <hazard>, hLo: <lo>, hHi: <hi>, label: <string> } */
+    hazardData = km.hazard_function.map(function(d) {
+      var label = "";
+      if (d.year === 0) label = "1947 pulse";
+      else if (d.year === 6) label = "1953 cluster";
+      else if (d.year === 7) label = "1954 peak";
+      else if (d.year === 12) label = "Last team";
+      /* Approximate confidence bounds: hazard +/- 0.5*hazard (conservative) */
+      var hLo = Math.max(0, d.hazard * 0.4);
+      var hHi = Math.min(1, d.hazard * 1.6);
+      if (d.hazard === 0) { hLo = 0; hHi = 0.05; }
+      if (d.hazard === 1) { hHi = 1; }
+      return {
+        year: parseInt(d.yearLabel),
+        h: d.hazard,
+        hLo: hLo,
+        hHi: hHi,
+        label: label
+      };
+    });
+
+    console.log("[ch09] KM model output loaded: " + survivalSteps.length + " survival steps, " + hazardData.length + " hazard intervals");
+  })
+  .catch(function(err) {
+    console.error("[ch09] Failed to load km-output.json, using empty data:", err);
+  });
+
+/* Render survival and hazard charts after KM data loads */
+_kmLoaded.then(function() {
+  if (!survivalSteps.length || !hazardData.length) return;
 
   /* -- Survival curve SVG -- */
   var sSvg = document.getElementById("survival-svg");
@@ -2214,34 +2226,32 @@ _ch09LoadData(function() {
       }
     });
   });
-})();
+}); /* end _kmLoaded.then for Fig 02 */
 
 /* ======================================================================
    FIG 03 -- COX MODEL FOREST PLOT
+   Data loaded from data/cox-output.json
    ====================================================================== */
 
-(function() {
+fetch("data/cox-output.json")
+  .then(function(res) { return res.json(); })
+  .then(function(coxData) {
   var svg = document.getElementById("cox-svg");
   if (!svg) return;
 
-  var covariates = [
-    { name: "League (AL vs NL)",     hr: 0.45, lo: 0.22, hi: 0.92, sig: true,
-      note: "AL teams integrated at less than half the rate of NL teams in any given year, controlling for other covariates. p < 0.05." },
-    { name: "Prior-Year Team WAR",   hr: 1.18, lo: 1.02, hi: 1.37, sig: true,
-      note: "Higher prior-year WAR predicted faster integration. Competitive teams moved sooner." },
-    { name: "Black Pop Share",       hr: 1.35, lo: 0.98, hi: 1.86, sig: false,
-      note: "Higher Black population share in the metro area trended toward faster integration, but the effect did not reach significance." },
-    { name: "Market Size (log)",     hr: 1.12, lo: 0.84, hi: 1.50, sig: false,
-      note: "Larger markets showed a modest, non-significant tendency toward faster integration." },
-    { name: "Prior-Year Attendance", hr: 1.08, lo: 0.88, hi: 1.33, sig: false,
-      note: "Higher prior-year attendance showed no significant relationship with integration timing." },
-    { name: "Owner Tenure",          hr: 0.94, lo: 0.82, hi: 1.08, sig: false,
-      note: "Longer owner tenure showed a small, non-significant negative association with integration speed." },
-    { name: "Veeck Effect",          hr: 3.20, lo: 1.10, hi: 9.30, sig: true,
-      note: "Teams under Bill Veeck ownership integrated at 3.2x the rate of other teams. Veeck integrated the Indians (1947) and the Browns (via second integration, 1953)." },
-    { name: "Region (South-lean.)",  hr: 0.68, lo: 0.30, hi: 1.54, sig: false,
-      note: "South-leaning border markets trended toward slower integration but the wide confidence interval precludes significance." }
-  ];
+  /* Map cox-output.json covariates to the format the rendering code expects */
+  var covariates = coxData.covariates.map(function(c) {
+    return {
+      name: c.name,
+      hr: c.hazardRatio,
+      lo: c.ci_lo != null ? c.ci_lo : c.hazardRatio * 0.5,
+      hi: c.ci_hi != null ? c.ci_hi : c.hazardRatio * 2.0,
+      sig: c.significant === true,
+      note: c.interpretation
+    };
+  });
+
+  console.log("[ch09] Cox model output loaded: " + covariates.length + " covariates");
 
   var W = 1080, H = 420;
   var M = { t: 40, r: 320, b: 40, l: 200 };
@@ -2322,52 +2332,52 @@ _ch09LoadData(function() {
                     '<div class="cox__annotation-text">' + c.note + '</div>';
     annotEl.appendChild(row);
   });
-})();
+}).catch(function(err) {
+  console.error("[ch09] Failed to load cox-output.json:", err);
+});
 
 /* ======================================================================
    FIG 04 -- FORFEITED WAR LEDGER
+   Data loaded from data/forfeited-war.json
    ====================================================================== */
 
-(function() {
+fetch("data/forfeited-war.json")
+  .then(function(res) { return res.json(); })
+  .then(function(fwData) {
   var svg = document.getElementById("forfeited-svg");
   if (!svg) return;
 
-  /* Placeholder forfeited WAR data -- sorted descending by total */
-  /* The surprise: Yankees or Tigers highest, not Red Sox */
-  var forfeitedData = [
-    { team: "New York Yankees",       abbr: "NYY", total: 48.2, segments: [
-      { yr: "1947-49", val: 22.5 }, { yr: "1950-52", val: 16.8 }, { yr: "1953-55", val: 8.9 }],
-      top3: ["Luke Easter (CLE)", "Minnie Minoso (CHW)", "Larry Doby (CLE)"] },
-    { team: "Detroit Tigers",         abbr: "DET", total: 44.7, segments: [
-      { yr: "1947-49", val: 21.0 }, { yr: "1950-52", val: 13.2 }, { yr: "1953-55", val: 7.1 }, { yr: "1956-58", val: 3.4 }],
-      top3: ["Larry Doby (CLE)", "Hank Aaron (MIL)", "Ernie Banks (CHC)"] },
-    { team: "Boston Red Sox",         abbr: "BOS", total: 42.1, segments: [
-      { yr: "1947-49", val: 18.6 }, { yr: "1950-52", val: 12.4 }, { yr: "1953-55", val: 6.8 }, { yr: "1956-59", val: 4.3 }],
-      top3: ["Willie Mays (NYG)", "Larry Doby (CLE)", "Sam Jethroe (BSN)"] },
-    { team: "Philadelphia Phillies",  abbr: "PHI", total: 38.5, segments: [
-      { yr: "1947-49", val: 17.2 }, { yr: "1950-52", val: 12.8 }, { yr: "1953-55", val: 6.0 }, { yr: "1956-57", val: 2.5 }],
-      top3: ["Hank Aaron (MIL)", "Ernie Banks (CHC)", "Monte Irvin (NYG)"] },
-    { team: "Washington Senators",    abbr: "WAS", total: 33.9, segments: [
-      { yr: "1947-49", val: 15.4 }, { yr: "1950-52", val: 11.2 }, { yr: "1953-54", val: 7.3 }],
-      top3: ["Luke Easter (CLE)", "Sam Jethroe (BSN)", "Minnie Minoso (CHW)"] },
-    { team: "St. Louis Cardinals",    abbr: "STL", total: 31.2, segments: [
-      { yr: "1947-49", val: 14.8 }, { yr: "1950-52", val: 10.6 }, { yr: "1953-54", val: 5.8 }],
-      top3: ["Hank Thompson (NYG)", "Sam Jethroe (BSN)", "Ernie Banks (CHC)"] },
-    { team: "Cincinnati Reds",        abbr: "CIN", total: 30.5, segments: [
-      { yr: "1947-49", val: 14.1 }, { yr: "1950-52", val: 10.2 }, { yr: "1953-54", val: 6.2 }],
-      top3: ["Larry Doby (CLE)", "Luke Easter (CLE)", "Monte Irvin (NYG)"] },
-    { team: "Pittsburgh Pirates",     abbr: "PIT", total: 29.8, segments: [
-      { yr: "1947-49", val: 13.6 }, { yr: "1950-52", val: 10.0 }, { yr: "1953-54", val: 6.2 }],
-      top3: ["Monte Irvin (NYG)", "Luke Easter (CLE)", "Sam Jethroe (BSN)"] },
-    { team: "Chicago Cubs",           abbr: "CHC", total: 26.4, segments: [
-      { yr: "1947-49", val: 12.8 }, { yr: "1950-52", val: 9.4 }, { yr: "1953", val: 4.2 }],
-      top3: ["Minnie Minoso (CHW)", "Larry Doby (CLE)", "Monte Irvin (NYG)"] },
-    { team: "Phil. / KC Athletics",   abbr: "PHA", total: 25.1, segments: [
-      { yr: "1947-49", val: 12.0 }, { yr: "1950-52", val: 8.8 }, { yr: "1953", val: 4.3 }],
-      top3: ["Larry Doby (CLE)", "Luke Easter (CLE)", "Sam Jethroe (BSN)"] }
-  ];
+  /* Forfeited WAR data from model output, sorted descending by total WAR */
+  /* Abbreviation lookup */
+  var _abbrMap = {
+    "Boston Red Sox": "BOS", "Detroit Tigers": "DET", "Philadelphia Phillies": "PHI",
+    "New York Yankees": "NYY", "Washington Senators": "WAS", "Cincinnati Reds": "CIN",
+    "Pittsburgh Pirates": "PIT", "St. Louis Cardinals": "STL", "Chicago Cubs": "CHC",
+    "Philadelphia Athletics": "PHA", "Chicago White Sox": "CHW", "Boston Braves": "BSN",
+    "New York Giants": "NYG", "Cleveland Indians": "CLE", "St. Louis Browns": "SLB"
+  };
+
+  /* Sort teams by forfeited WAR descending, take top 10 for chart */
+  var sortedTeams = fwData.teams.slice().sort(function(a, b) {
+    return b.estimatedForfeitedWAR - a.estimatedForfeitedWAR;
+  });
+  var topTeams = sortedTeams.slice(0, Math.min(sortedTeams.length, 15));
+
+  var forfeitedData = topTeams.map(function(t) {
+    /* Create a single segment for the total WAR (model does not break into periods) */
+    return {
+      team: t.team,
+      abbr: _abbrMap[t.team] || t.team.slice(0, 3).toUpperCase(),
+      total: t.estimatedForfeitedWAR,
+      segments: [{ yr: "Total", val: t.estimatedForfeitedWAR }],
+      top3: [t.waitYears.toFixed(1) + " years delay", t.league]
+    };
+  });
+
+  console.log("[ch09] Forfeited WAR loaded: " + forfeitedData.length + " teams, top=" + forfeitedData[0].team + " at " + forfeitedData[0].total.toFixed(1) + " WAR");
 
   var segColors = {
+    "Total": "rgba(143,160,90,0.75)",
     "1947-49": "rgba(143,160,90,0.85)",
     "1950-52": "rgba(143,160,90,0.60)",
     "1953-55": "rgba(143,160,90,0.40)",
@@ -2383,12 +2393,18 @@ _ch09LoadData(function() {
   var innerW = W - M.l - M.r;
   var innerH = H - M.t - M.b;
   var rowH = innerH / forfeitedData.length;
-  var maxWAR = 55;
+  /* Compute maxWAR from actual data, round up to nearest 50 */
+  var maxWAR = Math.ceil((forfeitedData[0] ? forfeitedData[0].total : 55) / 50) * 50;
+  if (maxWAR < 10) maxWAR = 10;
 
   function xForWAR(v) { return M.l + (v / maxWAR) * innerW; }
 
   /* Gridlines */
-  [0, 10, 20, 30, 40, 50].forEach(function(v) {
+  /* Dynamic gridlines based on actual maxWAR */
+  var gridStep = maxWAR <= 50 ? 10 : maxWAR <= 200 ? 50 : 100;
+  var gridVals = [];
+  for (var gv = 0; gv <= maxWAR; gv += gridStep) { gridVals.push(gv); }
+  gridVals.forEach(function(v) {
     var x = xForWAR(v);
     svgEl("line", { x1: x, x2: x, y1: M.t, y2: H - M.b, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, svg);
     svgEl("text", { x: x, y: H - M.b + 18, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(v) }, svg);
@@ -2455,15 +2471,18 @@ _ch09LoadData(function() {
 
   /* Legend */
   var legendEl = document.getElementById("forfeited-legend");
-  var legendPeriods = ["1947-49", "1950-52", "1953-55", "1956-59"];
+  /* Legend: show "Estimated forfeited WAR" since data is a single total per team */
+  var legendPeriods = ["Total"];
   legendPeriods.forEach(function(p) {
     var item = document.createElement("div");
     item.className = "forfeited__legend-item";
     item.innerHTML = '<div class="forfeited__legend-swatch" style="background:' + (segColors[p] || "rgba(143,160,90,0.5)") + '"></div>' +
-                     '<span class="forfeited__legend-label">' + p + '</span>';
+                     '<span class="forfeited__legend-label">Estimated forfeited WAR (Modeled)</span>';
     legendEl.appendChild(item);
   });
-})();
+}).catch(function(err) {
+  console.error("[ch09] Failed to load forfeited-war.json:", err);
+});
 
 /* ======================================================================
    FIG 05 -- COUNTERFACTUAL STANDINGS
