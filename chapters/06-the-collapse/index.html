@@ -755,8 +755,14 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid var(--rule);
   float: right;
   margin: 0 0 8px 12px;
-  filter: grayscale(0.3) contrast(1.05);
-  opacity: 0.85;
+  filter: grayscale(1) sepia(0.4) contrast(1.1) brightness(0.9);
+  opacity: 0.8;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.newark__player-card:hover .newark__player-photo {
+  filter: grayscale(0.5) sepia(0.2) contrast(1.05);
+  opacity: 0.95;
 }
 
 .newark__player-name {
@@ -1473,9 +1479,9 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 
   <figure class="archival-photo" style="max-width:800px;margin-bottom:48px">
-    <img class="archival-photo__img" src="photos/newark-eagles-team.jpg" alt="The Newark Eagles team photo, players in Eagles script uniforms, three rows" loading="lazy" />
+    <img class="archival-photo__img" src="photos/manley-field.jpg" alt="Abraham Manley and players on the field at Ruppert Stadium, Newark" loading="lazy" />
     <figcaption class="archival-photo__caption">
-      <span class="archival-photo__title">The Newark Eagles. Championship roster. Within five years, the franchise would be gone.</span>
+      <span class="archival-photo__title">Abraham Manley on the field at Ruppert Stadium. The Eagles played here. The stadium outlived the franchise.</span>
       <span class="archival-photo__source">CC BY-NC 4.0 -- The Newark Public Library</span>
     </figcaption>
   </figure>
@@ -1528,18 +1534,9 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 
   <!-- Roster exodus -->
-  <div class="section-head" style="margin-bottom:24px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end">
-    <div>
-      <div class="section-head__fig">Fig 02 -- Roster Exodus</div>
-      <h3 class="section-head__title" style="font-size:28px">The Players <em>They Took</em></h3>
-    </div>
-    <figure class="archival-photo" style="width:160px;margin:0">
-      <img class="archival-photo__img" src="photos/leon-day-portrait.jpg" alt="Leon Day in Newark Eagles uniform, portrait" loading="lazy" />
-      <figcaption class="archival-photo__caption" style="padding:6px 10px">
-        <span class="archival-photo__title" style="font-size:11px">Leon Day</span>
-        <span class="archival-photo__source" style="font-size:8px">NPL</span>
-      </figcaption>
-    </figure>
+  <div class="section-head" style="margin-bottom:24px">
+    <div class="section-head__fig">Fig 02 -- Roster Exodus</div>
+    <h3 class="section-head__title" style="font-size:28px">The Players <em>They Took</em></h3>
   </div>
 
   <div class="newark__exodus-grid" id="exodus-grid">
