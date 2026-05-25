@@ -1,0 +1,44 @@
+{
+  "methods": [
+    {
+      "model": "Model 1",
+      "name": "OCR Correction and Article Segmentation",
+      "problem": "Digitized historical newspapers have OCR errors. Black press newspapers from the 1920s through 1950s have higher error rates than contemporary publications due to print quality, font variation, and digitization resolution. The corpus index requires clean text.",
+      "approach": "A two-stage pipeline. First, a rule-based post-correction layer applying period-specific vocabulary (player names, team names, league names) to flag likely OCR errors. Second, a layout-analysis model that segments newspaper pages into articles with associated metadata (column head, byline, date, page).",
+      "confidence": "Every article is flagged with an estimated OCR quality score. Articles below threshold are flagged for manual review before inclusion in the corpus.",
+      "limitations": "Historical print quality varies dramatically across publications and decades. The rule-based layer catches known terms but cannot correct arbitrary OCR errors. Manual review remains necessary for low-quality scans."
+    },
+    {
+      "model": "Model 2",
+      "name": "Named Entity Recognition and Player Linking",
+      "problem": "The corpus contains thousands of player name mentions across seventy-five years. The platform needs to link these mentions to canonical player IDs for the corpus to be searchable by player.",
+      "approach": "A fine-tuned NER model trained on a hand-annotated sample of the corpus. Four entity types: persons (with baseball role tag), teams, locations, and events. Player entity mentions are linked to canonical player IDs using a disambiguation pipeline that uses era, team context, position, and name form.",
+      "confidence": "Named entity annotations carry confidence scores. Ambiguous disambiguations are flagged for manual review. Player-linking results are spot-checked against known biographical data.",
+      "limitations": "Nickname usage in historical Black press writing creates disambiguation challenges. The same player may appear as 'Satchel,' 'Paige,' 'Satch,' or 'the Great Paige' across different publications and decades. The disambiguation pipeline handles common variants but cannot resolve all ambiguities."
+    },
+    {
+      "model": "Model 3",
+      "name": "Topic Modeling and Advocacy Arc Analysis",
+      "problem": "The corpus contains tens of thousands of articles across seventy-five years. Pattern identification at scale requires computational tools.",
+      "approach": "Two complementary topic models. First, BERTopic over the full corpus, producing a stable topic structure reviewed and labeled manually. Second, a time-series analysis of topic prevalence, producing year-by-year prevalence curves. The advocacy arc finding comes from the integration advocacy topic's prevalence curve.",
+      "confidence": "Topic modeling limitations for historical newspaper text are documented. Year-by-year curves are presented with smoothing and uncertainty bands. The chapter notes that the topic model is an entry point and human editorial work identifies key inflection points.",
+      "limitations": "Historical newspaper language does not map cleanly to modern topic models. The topic structure is an approximation reviewed by humans, not ground truth. Year-by-year prevalence is smoothed and carries documented uncertainty."
+    },
+    {
+      "model": "Model 4",
+      "name": "Box Score Detection and Seamheads Cross-Reference",
+      "problem": "Identifying which articles contain game box scores, extracting them in structured form, and cross-referencing against Seamheads coverage to identify coverage gaps.",
+      "approach": "A layout classification model identifies newspaper page regions containing box score tables. A structured extraction pipeline parses box score format (teams, innings, player lines, pitching lines) into tabular form. Extracted box scores are cross-referenced against the Seamheads documented game coverage.",
+      "confidence": "Box score extraction accuracy is imperfect for historical newspaper formats. Every candidate recovery case is reviewed manually before being presented as a potential contribution to the Seamheads database.",
+      "limitations": "Historical box score formats vary across publications and decades. Some scores are partial (team totals only). The cross-reference depends on accurate date and team matching, which is complicated by inconsistent scheduling records."
+    },
+    {
+      "model": "Model 5",
+      "name": "Semantic Search Index",
+      "problem": "The corpus needs to be searchable by readers with specific research questions, not just literal string match.",
+      "approach": "A semantic search index over the corpus text using sentence-transformers embedding. The index allows semantic queries and returns ranked article passages with links to source articles.",
+      "confidence": "Search results are ranked candidates, not definitive answers. The interface presents ranked results and directs readers to source materials for verification.",
+      "limitations": "Semantic search over historical text carries additional noise from OCR artifacts and period-specific language. The search ranks plausible matches but cannot guarantee completeness or perfect relevance ordering."
+    }
+  ]
+}

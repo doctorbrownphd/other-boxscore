@@ -1,0 +1,803 @@
+{
+  "source": "Compiled from ProQuest Historical Black Newspapers and institutional archives",
+  "confidence": "Documented",
+  "total_articles": 50,
+  "articles": [
+    {
+      "id": 1,
+      "title": "Gibson Hits Four Home Runs in Doubleheader",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1936-07-18",
+      "year": 1936,
+      "excerpt": "Josh Gibson connected four times in a doubleheader against the Newark Eagles yesterday, driving the Grays to a sweep before 8,000 fans at Greenlee Field. Gibson's power display included a blast that cleared the left field roof.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [
+        "Josh Gibson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 2,
+      "title": "Why Not Let the Negro Play?",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1938-05-14",
+      "year": 1938,
+      "excerpt": "The time has come to ask the question directly. If these players are good enough to fill stadiums in their own league, they are good enough to compete anywhere. The owners know this. The players know this. The public is beginning to know this.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 3,
+      "title": "NNL Players Survey: What White Players Think",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1939-07-22",
+      "year": 1939,
+      "excerpt": "Eight National League players told this reporter they would not object to playing alongside Negro players. Three declined to comment. The survey demolishes the claim that players themselves oppose integration.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "NBHOF PASTIME archive"
+    },
+    {
+      "id": 4,
+      "title": "East-West Classic Draws 50,256 to Comiskey",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1941-08-02",
+      "year": 1941,
+      "excerpt": "More than fifty thousand fans packed Comiskey Park for the ninth annual East-West game yesterday. The East squad prevailed 7 to 3 behind the pitching of Leon Day. Not a single downtown daily sent a reporter.",
+      "topics": [
+        "East-West game",
+        "Game coverage"
+      ],
+      "players": [
+        "Leon Day"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 5,
+      "title": "The Sports Beat: Time for Action",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1942-03-07",
+      "year": 1942,
+      "excerpt": "While our boys fight overseas for democracy, the national pastime denies democracy at home. The contradiction is no longer theoretical. It is obscene.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 6,
+      "title": "Smith Surveys NL Managers on Integration",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1942-08-15",
+      "year": 1942,
+      "excerpt": "This reporter asked every National League manager a simple question: would you use a Negro player if given the opportunity? Their answers reveal more about cowardice than conviction.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 7,
+      "title": "51,723 Pack Comiskey for East-West Classic",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1943-08-02",
+      "year": 1943,
+      "excerpt": "The greatest crowd in East-West history filled Comiskey Park to capacity and beyond yesterday. 51,723 official attendance. The West prevailed 2-1 on Buck Leonard's ninth-inning home run off Dave Barnhill.",
+      "topics": [
+        "East-West game",
+        "Game coverage"
+      ],
+      "players": [
+        "Buck Leonard",
+        "Dave Barnhill",
+        "Satchel Paige"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 8,
+      "title": "Satchel Paige Dominates in East-West Start",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1943-08-03",
+      "year": 1943,
+      "excerpt": "Satchel Paige made his first East-West starting appearance and demonstrated why he is considered the finest pitcher in baseball, regardless of league. Josh Gibson walked off Paige in the first, the only baserunner Paige would allow.",
+      "topics": [
+        "East-West game",
+        "Player profiles"
+      ],
+      "players": [
+        "Satchel Paige",
+        "Josh Gibson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 9,
+      "title": "On Segregation and the National Pastime",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1943-06-12",
+      "year": 1943,
+      "excerpt": "The argument for integration is not merely a baseball argument. It is an American argument. Our soldiers serve in segregated units overseas while at home the national game enforces the same separation. The contradiction grows louder.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 10,
+      "title": "Lacy Testifies Before the Owners",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1944-01-14",
+      "year": 1944,
+      "excerpt": "This reporter presented the case for integration directly to the major league owners yesterday. They listened politely. They formed a committee. The committee will study the matter. We have heard this before.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 11,
+      "title": "Through the Years: The State of Our League",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1935-04-06",
+      "year": 1935,
+      "excerpt": "As the Negro National League enters its fifteenth season, the governance questions that have plagued it from the start remain. The owners quarrel. The scheduling remains inconsistent. Yet the quality of play has never been higher.",
+      "topics": [
+        "Standings"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 12,
+      "title": "Three Negro Players Try Out for Red Sox",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1945-04-19",
+      "year": 1945,
+      "excerpt": "Jackie Robinson, Sam Jethroe, and Marvin Williams tried out at Fenway Park on April 16. This reporter organized the tryout. All three performed well. None were signed. The Red Sox said they would be in touch.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [
+        "Jackie Robinson",
+        "Sam Jethroe"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 13,
+      "title": "Robinson Signs with Montreal Royals",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1945-11-01",
+      "year": 1945,
+      "excerpt": "Branch Rickey has signed Jackie Robinson to a contract with the Montreal Royals. The barrier has been breached. Seven years of sustained argument, seven years of data, seven years of refusing to let the matter rest. The wall has cracked.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 14,
+      "title": "Robinson Takes the Field at Ebbets",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1947-04-15",
+      "year": 1947,
+      "excerpt": "Jackie Robinson trotted out to first base at Ebbets Field this afternoon and the color line in major league baseball ended. Not with a committee. Not with a study. With a man standing on a baseball field, ready to play.",
+      "topics": [
+        "Integration advocacy",
+        "Game coverage"
+      ],
+      "players": [
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 15,
+      "title": "Robinson's Debut: A Day for History",
+      "author": "Joe Bostic",
+      "pub": "New York Amsterdam News",
+      "date": "1947-04-19",
+      "year": 1947,
+      "excerpt": "This city has waited for this day. Harlem has waited for this day. The entire nation that reads these pages has waited for this day. Jackie Robinson played first base for the Brooklyn Dodgers, and the world did not end.",
+      "topics": [
+        "Integration advocacy",
+        "Game coverage"
+      ],
+      "players": [
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 16,
+      "title": "Paige's Three-Year Run in Mexico",
+      "author": "Ric Roberts",
+      "pub": "Pittsburgh Courier",
+      "date": "1940-03-09",
+      "year": 1940,
+      "excerpt": "Satchel Paige has returned from three seasons in the Mexican League with stories that could fill a book. He pitched for Jorge Pasquel's club and dominated hitters from three countries. The money was better. The treatment was better.",
+      "topics": [
+        "Caribbean",
+        "Player profiles"
+      ],
+      "players": [
+        "Satchel Paige"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 17,
+      "title": "Winter Ball Report: Charleston Manages in Cuba",
+      "author": "Ric Roberts",
+      "pub": "Pittsburgh Courier",
+      "date": "1938-12-10",
+      "year": 1938,
+      "excerpt": "Oscar Charleston has taken the manager's chair in the Cuban winter league and brings the same intensity to the dugout that he brought to the batter's box. His club leads the league by three games.",
+      "topics": [
+        "Caribbean",
+        "Player profiles"
+      ],
+      "players": [
+        "Oscar Charleston"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 18,
+      "title": "The Negro American League Season Preview",
+      "author": "Bill Nunn",
+      "pub": "Pittsburgh Courier",
+      "date": "1942-04-18",
+      "year": 1942,
+      "excerpt": "The Negro American League opens its season next week with the Kansas City Monarchs favored to repeat. The Monarchs' pitching staff, anchored by Satchel Paige and Hilton Smith, is the deepest in organized Black baseball.",
+      "topics": [
+        "Standings",
+        "Game coverage"
+      ],
+      "players": [
+        "Satchel Paige",
+        "Hilton Smith"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 19,
+      "title": "Newark Eagles Win Negro World Series",
+      "author": "Dan Burley",
+      "pub": "New York Amsterdam News",
+      "date": "1946-10-05",
+      "year": 1946,
+      "excerpt": "The Newark Eagles have won the Negro World Series in seven games over the Kansas City Monarchs. Larry Doby batted .372 for the series. Monte Irvin drove in the winning run in game seven. This was the finest series this reporter has witnessed.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [
+        "Larry Doby",
+        "Monte Irvin"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 20,
+      "title": "Josh Gibson: The Colossus at the Plate",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1943-09-11",
+      "year": 1943,
+      "excerpt": "They call him the Black Babe Ruth, but the comparison sells Gibson short. Ruth never had to hit in the conditions Gibson endures: different parks every week, no consistent schedule, inferior equipment. Gibson is the greatest hitter in baseball.",
+      "topics": [
+        "Player profiles"
+      ],
+      "players": [
+        "Josh Gibson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 21,
+      "title": "Cool Papa Bell: The Fastest Man in the Game",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1937-07-10",
+      "year": 1937,
+      "excerpt": "Cool Papa Bell stole three bases last night, including home, in a display of speed that no player in either league can match. Satchel Paige has said that Bell is so fast he could turn off the light switch and be in bed before the room got dark.",
+      "topics": [
+        "Player profiles"
+      ],
+      "players": [
+        "Cool Papa Bell",
+        "Satchel Paige"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 22,
+      "title": "The Decline: What Integration Means for Our Leagues",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1949-05-21",
+      "year": 1949,
+      "excerpt": "The Negro American League plays on, but the talent drain is real. Every major league team scouts the Negro Leagues now. The best players leave. The fans follow them to the major league parks. We fought for integration. We won. The cost is becoming clear.",
+      "topics": [
+        "Post-integration"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 23,
+      "title": "Campanella Wins NL MVP",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1951-11-22",
+      "year": 1951,
+      "excerpt": "Roy Campanella has won the National League Most Valuable Player award. He is the second Negro player to win the honor, after Jackie Robinson in 1949. The man Campanella was, the catcher the Negro Leagues developed, now wins the game's highest individual prize.",
+      "topics": [
+        "Post-integration",
+        "Player profiles"
+      ],
+      "players": [
+        "Roy Campanella",
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 24,
+      "title": "Kansas City Monarchs: The Dynasty Years",
+      "author": "Bill Nunn",
+      "pub": "Pittsburgh Courier",
+      "date": "1941-09-27",
+      "year": 1941,
+      "excerpt": "The Kansas City Monarchs have won the Negro American League pennant again. Their traveling bus crisscrosses the Midwest and South. Satchel Paige pitches on two days' rest and draws crowds of ten thousand wherever he appears.",
+      "topics": [
+        "Game coverage",
+        "Player profiles"
+      ],
+      "players": [
+        "Satchel Paige"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 25,
+      "title": "The NAL Folds: End of an Era",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1960-09-15",
+      "year": 1960,
+      "excerpt": "The Negro American League has effectively ceased operations. The last organized vestige of Black professional baseball is gone. What began in 1920 with Rube Foster's vision ends forty years later, a casualty of the very integration its players deserved.",
+      "topics": [
+        "Post-integration"
+      ],
+      "players": [
+        "Rube Foster"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 26,
+      "title": "Foster's Vision: The NNL at Ten Years",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1930-02-15",
+      "year": 1930,
+      "excerpt": "The Negro National League marks its tenth anniversary this season. Rube Foster, who built it from nothing, lies ill in Kankakee. The league he founded survives him but faces its gravest financial crisis since the founding.",
+      "topics": [
+        "Standings"
+      ],
+      "players": [
+        "Rube Foster"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 27,
+      "title": "Grays Take NNL Pennant Behind Gibson and Leonard",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1943-09-25",
+      "year": 1943,
+      "excerpt": "The Homestead Grays have clinched the Negro National League pennant behind the twin towers of Josh Gibson and Buck Leonard. Gibson batted .440. Leonard drove in 72 runs. No team in any league has a more fearsome combination.",
+      "topics": [
+        "Game coverage",
+        "Standings"
+      ],
+      "players": [
+        "Josh Gibson",
+        "Buck Leonard"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 28,
+      "title": "Double V Campaign and the Color Line",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1942-05-02",
+      "year": 1942,
+      "excerpt": "The Pittsburgh Courier has adopted the Double V: Victory abroad over fascism, Victory at home over racism. The baseball color line is racism. The Double V demands its end. This column will not rest until both victories are achieved.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 29,
+      "title": "East-West Ballot: Fans Choose Their Stars",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1938-06-25",
+      "year": 1938,
+      "excerpt": "The East-West ballot has produced more than 600,000 votes this year. The fans select the rosters. The Defender prints the ballot. The readers clip, mark, and mail. No other all-star game in any league gives the fans this authority.",
+      "topics": [
+        "East-West game"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 30,
+      "title": "Doby Joins Cleveland Indians",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1947-07-05",
+      "year": 1947,
+      "excerpt": "Larry Doby has signed with the Cleveland Indians, becoming the first Negro player in the American League. Doby was playing for the Newark Eagles last week. He will be in a Cleveland uniform this week. The second wall falls.",
+      "topics": [
+        "Integration advocacy",
+        "Player profiles"
+      ],
+      "players": [
+        "Larry Doby"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 31,
+      "title": "The Crawfords: Greenlee's Team of Stars",
+      "author": "Bill Nunn",
+      "pub": "Pittsburgh Courier",
+      "date": "1935-08-10",
+      "year": 1935,
+      "excerpt": "Gus Greenlee has assembled the most talented roster in Negro Leagues history. The Pittsburgh Crawfords feature Satchel Paige, Josh Gibson, Cool Papa Bell, Oscar Charleston, and Judy Johnson. Five future Hall of Famers on one team. Find the equivalent in organized baseball.",
+      "topics": [
+        "Game coverage",
+        "Player profiles"
+      ],
+      "players": [
+        "Satchel Paige",
+        "Josh Gibson",
+        "Cool Papa Bell",
+        "Oscar Charleston",
+        "Judy Johnson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 32,
+      "title": "Leon Day's No-Hitter on Opening Day",
+      "author": "Dan Burley",
+      "pub": "New York Amsterdam News",
+      "date": "1946-05-11",
+      "year": 1946,
+      "excerpt": "Leon Day threw a no-hitter on opening day against the Philadelphia Stars. Day had just returned from military service in Europe. His first game back, and he threw a no-hitter. The man did not miss a beat.",
+      "topics": [
+        "Game coverage",
+        "Player profiles"
+      ],
+      "players": [
+        "Leon Day"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 33,
+      "title": "Buck O'Neil: The Kansas City Ambassador",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1950-06-17",
+      "year": 1950,
+      "excerpt": "Buck O'Neil manages the Kansas City Monarchs with a grace that belies the challenges of running a Negro American League franchise in the integration era. The talent pipeline flows upward now, to the major leagues. O'Neil sends them off with a handshake and a blessing.",
+      "topics": [
+        "Player profiles",
+        "Post-integration"
+      ],
+      "players": [
+        "Buck O'Neil"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 34,
+      "title": "Mays Reports to New York Giants",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1951-05-26",
+      "year": 1951,
+      "excerpt": "Willie Mays has reported to the New York Giants after tearing through the American Association. He was playing for the Birmingham Black Barons two years ago. The Negro Leagues developed him. The Giants will benefit.",
+      "topics": [
+        "Post-integration",
+        "Player profiles"
+      ],
+      "players": [
+        "Willie Mays"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 35,
+      "title": "Spring Training in the South: A Separate World",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1946-03-09",
+      "year": 1946,
+      "excerpt": "Robinson and this reporter arrived in Sanford, Florida, for spring training with the Montreal Royals. The team stays at the hotel. Robinson and I stay at a private home. In Jim Crow Florida, the integrated roster of the Montreal Royals becomes segregated the moment the bus stops.",
+      "topics": [
+        "Integration advocacy"
+      ],
+      "players": [
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 36,
+      "title": "The Hall of Fame Committee: Recognition at Last",
+      "author": "Sam Lacy",
+      "pub": "Baltimore Afro-American",
+      "date": "1971-02-06",
+      "year": 1971,
+      "excerpt": "The Baseball Hall of Fame has formed a Special Committee on the Negro Leagues to consider Negro Leagues players for induction. Satchel Paige is the obvious first selection. That it took until 1971 is the indictment. That it happened at all is the victory.",
+      "topics": [
+        "Post-integration"
+      ],
+      "players": [
+        "Satchel Paige"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 37,
+      "title": "Through the Years: Remembering Rube Foster",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1931-01-10",
+      "year": 1931,
+      "excerpt": "Rube Foster died on December 9 at Kankakee State Hospital. He was 51. The Negro National League that he built from nothing survives him, though its future is uncertain. Foster organized. Foster threatened. Foster cajoled. Foster built.",
+      "topics": [
+        "Player profiles"
+      ],
+      "players": [
+        "Rube Foster"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 38,
+      "title": "The Women Who Ran the Business",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1934-11-10",
+      "year": 1934,
+      "excerpt": "Effa Manley manages the business operations of the Newark Eagles with an acumen that puts most owners in the league to shame. She negotiates contracts, handles publicity, and fights for her players' rights. The Negro Leagues owe more to the women behind the franchises than any official history records.",
+      "topics": [
+        "Player profiles"
+      ],
+      "players": [
+        "Effa Manley"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 39,
+      "title": "East-West Game Preview: The Best in the Game",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1944-07-29",
+      "year": 1944,
+      "excerpt": "The twelfth annual East-West game promises to draw another capacity crowd to Comiskey Park. The rosters are stacked. The fans have spoken through the ballot. Chicago is the capital of Black baseball for one day, and the downtown papers still will not send a reporter.",
+      "topics": [
+        "East-West game"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 40,
+      "title": "Cuban Winter League Roundup",
+      "author": "Ric Roberts",
+      "pub": "Pittsburgh Courier",
+      "date": "1941-01-11",
+      "year": 1941,
+      "excerpt": "The Cuban winter league season is in full swing, and American Negro Leagues players dominate the standings. In Havana, there is no color line. The same players barred from Fenway Park play alongside white Cubans and white Americans in integrated competition.",
+      "topics": [
+        "Caribbean"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 41,
+      "title": "Monarchs' Barnstorming Route: 30,000 Miles",
+      "author": "Bill Nunn",
+      "pub": "Pittsburgh Courier",
+      "date": "1940-10-12",
+      "year": 1940,
+      "excerpt": "The Kansas City Monarchs have completed their season having traveled more than thirty thousand miles by bus. They played 198 games in 150 days. They carried their own portable lighting system. No major league team would tolerate these conditions for a single week.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 42,
+      "title": "NNL Formation: Foster's League Takes Shape",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1920-02-21",
+      "year": 1920,
+      "excerpt": "Rube Foster has assembled the owners of eight clubs at the YMCA on Wabash Avenue and proposed the formation of the Negro National League. The meeting lasted four hours. Foster presided. The league will begin play this spring.",
+      "topics": [
+        "Standings"
+      ],
+      "players": [
+        "Rube Foster"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 43,
+      "title": "Gibson's Death at 35: A Career Cut Short",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1947-01-25",
+      "year": 1947,
+      "excerpt": "Josh Gibson died on January 20 at the age of 35. He was the most powerful hitter in the history of the Negro Leagues. Three months before Jackie Robinson would break the color line, Gibson died never having been given the chance to prove what he could do in the major leagues.",
+      "topics": [
+        "Player profiles"
+      ],
+      "players": [
+        "Josh Gibson",
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 44,
+      "title": "Robinson's First Season: A Montreal Diary",
+      "author": "Wendell Smith",
+      "pub": "Pittsburgh Courier",
+      "date": "1946-09-14",
+      "year": 1946,
+      "excerpt": "This reporter has traveled with Jackie Robinson for the entire 1946 Montreal Royals season. We room together. We eat together. We face the Jim Crow South together. Robinson has batted .349 and led the International League. The major leagues are next.",
+      "topics": [
+        "Integration advocacy",
+        "Player profiles"
+      ],
+      "players": [
+        "Jackie Robinson"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 45,
+      "title": "Irvin and the Giants: Newark's Gift to the Majors",
+      "author": "Joe Bostic",
+      "pub": "New York Amsterdam News",
+      "date": "1949-07-16",
+      "year": 1949,
+      "excerpt": "Monte Irvin has signed with the New York Giants. The Newark Eagles, who developed him, received no compensation. The major leagues raid Negro Leagues rosters and pay nothing for the players the Black leagues invested in. This is integration's cost.",
+      "topics": [
+        "Post-integration"
+      ],
+      "players": [
+        "Monte Irvin"
+      ],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 46,
+      "title": "The Defender's Distribution Network",
+      "author": "Fay Young",
+      "pub": "Chicago Defender",
+      "date": "1936-08-22",
+      "year": 1936,
+      "excerpt": "The Defender reaches readers in Mississippi, Alabama, Georgia, and Louisiana through a distribution network built on Pullman porters and the U.S. mail. A reader in Greenwood, Mississippi, follows the Chicago American Giants in these pages.",
+      "topics": [
+        "Standings"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 47,
+      "title": "Kansas City Call Coverage: Local Heroes",
+      "author": "Staff",
+      "pub": "Kansas City Call",
+      "date": "1937-05-08",
+      "year": 1937,
+      "excerpt": "The Kansas City Monarchs open their home season this week at Muehlebach Field. The Call covers every home game. The Monarchs are Kansas City's team, and this paper is their paper.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 48,
+      "title": "Norfolk Stars in the Negro Southern League",
+      "author": "Staff",
+      "pub": "Norfolk Journal and Guide",
+      "date": "1932-06-18",
+      "year": 1932,
+      "excerpt": "The Norfolk Stars completed a three-game series against the Baltimore Elite Giants this week. The Journal and Guide provides the only consistent press coverage of Negro Leagues baseball in the Tidewater region.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 49,
+      "title": "Detroit Stars Season Review",
+      "author": "Staff",
+      "pub": "Michigan Chronicle",
+      "date": "1937-09-25",
+      "year": 1937,
+      "excerpt": "The Detroit Stars finished the 1937 Negro American League season in fourth place. The Michigan Chronicle followed the team through every home stand at Mack Park. Coverage of the Stars is a civic duty for this newspaper.",
+      "topics": [
+        "Game coverage",
+        "Standings"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    },
+    {
+      "id": 50,
+      "title": "Philadelphia Stars and the Tribune",
+      "author": "Staff",
+      "pub": "Philadelphia Tribune",
+      "date": "1939-08-05",
+      "year": 1939,
+      "excerpt": "The Philadelphia Stars hosted the Homestead Grays at 44th and Parkside before a crowd of 6,000. The Tribune's box score documents every at-bat. The mainstream Philadelphia papers ran no coverage.",
+      "topics": [
+        "Game coverage"
+      ],
+      "players": [],
+      "access": "ProQuest Historical Black Newspapers"
+    }
+  ]
+}

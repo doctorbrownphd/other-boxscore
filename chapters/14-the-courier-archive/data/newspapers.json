@@ -1,0 +1,117 @@
+{
+  "source": "Historical Black press publication data",
+  "confidence": "Documented",
+  "total_newspapers": 10,
+  "newspapers": [
+    {
+      "name": "Pittsburgh Courier",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "x": 640,
+      "y": 245,
+      "circ": 330000,
+      "founded": 1907,
+      "writers": "Smith, Nunn, Roberts",
+      "coverage": "1920-1975"
+    },
+    {
+      "name": "Chicago Defender",
+      "city": "Chicago",
+      "state": "IL",
+      "x": 505,
+      "y": 225,
+      "circ": 250000,
+      "founded": 1905,
+      "writers": "Young, A.S. Young",
+      "coverage": "1920-1975"
+    },
+    {
+      "name": "Baltimore Afro-American",
+      "city": "Baltimore",
+      "state": "MD",
+      "x": 670,
+      "y": 265,
+      "circ": 137000,
+      "founded": 1892,
+      "writers": "Lacy",
+      "coverage": "1920-1975"
+    },
+    {
+      "name": "New York Amsterdam News",
+      "city": "New York",
+      "state": "NY",
+      "x": 710,
+      "y": 230,
+      "circ": 100000,
+      "founded": 1909,
+      "writers": "Bostic, Burley",
+      "coverage": "1920-1970"
+    },
+    {
+      "name": "Kansas City Call",
+      "city": "Kansas City",
+      "state": "MO",
+      "x": 435,
+      "y": 275,
+      "circ": 20000,
+      "founded": 1919,
+      "writers": "Staff",
+      "coverage": "1920-1965"
+    },
+    {
+      "name": "Atlanta Daily World",
+      "city": "Atlanta",
+      "state": "GA",
+      "x": 580,
+      "y": 340,
+      "circ": 30000,
+      "founded": 1928,
+      "writers": "Staff",
+      "coverage": "1928-1970"
+    },
+    {
+      "name": "Norfolk Journal and Guide",
+      "city": "Norfolk",
+      "state": "VA",
+      "x": 685,
+      "y": 290,
+      "circ": 25000,
+      "founded": 1900,
+      "writers": "Staff",
+      "coverage": "1920-1960"
+    },
+    {
+      "name": "Michigan Chronicle",
+      "city": "Detroit",
+      "state": "MI",
+      "x": 570,
+      "y": 210,
+      "circ": 50000,
+      "founded": 1936,
+      "writers": "Staff",
+      "coverage": "1936-1960"
+    },
+    {
+      "name": "Philadelphia Tribune",
+      "city": "Philadelphia",
+      "state": "PA",
+      "x": 695,
+      "y": 245,
+      "circ": 40000,
+      "founded": 1884,
+      "writers": "Staff",
+      "coverage": "1920-1960"
+    },
+    {
+      "name": "Cleveland Call and Post",
+      "city": "Cleveland",
+      "state": "OH",
+      "x": 590,
+      "y": 230,
+      "circ": 25000,
+      "founded": 1928,
+      "writers": "Staff",
+      "coverage": "1928-1965"
+    }
+  ]
+}

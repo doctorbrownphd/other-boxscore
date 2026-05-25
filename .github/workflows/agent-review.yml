@@ -1,0 +1,459 @@
+name: Agent Review Pipeline
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - '.github/**'
+      - '*.md'
+      - 'LICENSE'
+      - 'DATA_LICENSE'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────
+  # Gate 0: Quick checks that block everything downstream
+  # ──────────────────────────────────────────────────────────────────
+  preflight:
+    name: Preflight checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: No em dashes
+        run: |
+          echo "Checking for em dashes (U+2014) in all text files..."
+          if grep -rn $'\xe2\x80\x94' --include='*.html' --include='*.css' --include='*.js' --include='*.json' --include='*.md' . ; then
+            echo "::error::Em dashes found. This project prohibits em dashes everywhere. Use commas, colons, or restructure."
+            exit 1
+          fi
+          echo "No em dashes found."
+
+      - name: Asset register completeness
+        run: |
+          python3 << 'EOF'
+          import json, glob, os, sys
+
+          with open('data/asset-register.json') as f:
+              data = json.load(f)
+          registered = {a['filename'] for a in data['assets']}
+
+          photo_files = set()
+          for p in glob.glob('chapters/**/photos/*', recursive=True):
+              photo_files.add(os.path.basename(p))
+
+          unregistered = photo_files - registered
+          if unregistered:
+              print("::error::Unregistered photos found:")
+              for f in sorted(unregistered):
+                  print(f"  {f}")
+              sys.exit(1)
+
+          print(f"Asset register: {len(registered)} entries, {len(photo_files)} photos, all registered.")
+          EOF
+
+      - name: chapters.json valid
+        run: python3 -c "import json; json.load(open('data/chapters.json'))" && echo "chapters.json is valid JSON"
+
+  # ──────────────────────────────────────────────────────────────────
+  # Gate 1: Content-affecting PRs trigger all five agents
+  # Infrastructure-only PRs (CI config, deps) are exempt per CLAUDE.md
+  # ──────────────────────────────────────────────────────────────────
+  detect-scope:
+    name: Detect review scope
+    runs-on: ubuntu-latest
+    needs: preflight
+    outputs:
+      needs_agents: ${{ steps.scope.outputs.needs_agents }}
+      changed_chapters: ${{ steps.scope.outputs.changed_chapters }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine scope
+        id: scope
+        run: |
+          CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD)
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          # Check if any content, data, image, or methodology files changed
+          NEEDS_AGENTS="false"
+          if echo "$CHANGED" | grep -qE '^(chapters/|data/|agents/|docs/|site/|shared/|METHODOLOGY\.md)'; then
+            NEEDS_AGENTS="true"
+          fi
+          echo "needs_agents=$NEEDS_AGENTS" >> "$GITHUB_OUTPUT"
+
+          # Extract chapter IDs from changed paths
+          CHAPTERS=$(echo "$CHANGED" | grep -oP 'chapters/\K[^/]+' | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "changed_chapters=$CHAPTERS" >> "$GITHUB_OUTPUT"
+          echo "Needs agent review: $NEEDS_AGENTS"
+          echo "Changed chapters: $CHAPTERS"
+
+  # ──────────────────────────────────────────────────────────────────
+  # The five agents run in parallel, then Gates integrates
+  # ──────────────────────────────────────────────────────────────────
+  oscar:
+    name: Oscar (Historical Accuracy)
+    runs-on: ubuntu-latest
+    needs: detect-scope
+    if: needs.detect-scope.outputs.needs_agents == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Oscar review checklist
+        run: |
+          echo "## Oscar Review: Historical Content Authority"
+          echo ""
+          echo "### Automated checks"
+          echo ""
+
+          # Check for unsourced claims patterns
+          echo "#### Source attribution scan"
+          CHAPTERS="${{ needs.detect-scope.outputs.changed_chapters }}"
+          ISSUES=0
+
+          for dir in chapters/*/; do
+            chapter=$(basename "$dir")
+            if [ -n "$CHAPTERS" ] && ! echo "$CHAPTERS" | grep -q "$chapter"; then
+              continue
+            fi
+
+            # Check HTML files for common unsourced claim patterns
+            for html in "$dir"*.html; do
+              [ -f "$html" ] || continue
+
+              # Flag any Wikipedia-only sources (should have primary source)
+              if grep -n "Wikipedia" "$html" > /dev/null 2>&1; then
+                echo "::warning file=$html::Wikipedia reference found. Oscar requires primary sources over secondary."
+              fi
+            done
+          done
+
+          # Check asset register provenance
+          echo ""
+          echo "#### Asset provenance verification"
+          python3 << 'PYEOF'
+          import json
+          with open('data/asset-register.json') as f:
+              data = json.load(f)
+          issues = 0
+          for a in data['assets']:
+              if not a.get('source') or a['source'] == 'Unknown':
+                  print(f"::warning::Asset {a['filename']}: source is unknown. Oscar requires complete provenance.")
+                  issues += 1
+              if a.get('pd_basis', '').startswith('PENDING'):
+                  print(f"::warning::Asset {a['filename']}: PD basis is PENDING. Oscar must verify before ship.")
+                  issues += 1
+          if issues == 0:
+              print("All assets have source and PD basis documented.")
+          else:
+              print(f"{issues} provenance issue(s) flagged for Oscar manual review.")
+          PYEOF
+
+          echo ""
+          echo "Oscar automated checks complete. Manual review required for:"
+          echo "- Factual claim verification"
+          echo "- Framing review (subjects as protagonists)"
+          echo "- Language review (no euphemisms for segregation)"
+
+  elias:
+    name: Elias (Statistics & ML)
+    runs-on: ubuntu-latest
+    needs: detect-scope
+    if: needs.detect-scope.outputs.needs_agents == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Elias review checklist
+        run: |
+          echo "## Elias Review: Statistical and Methodological Authority"
+          echo ""
+          echo "### Automated checks"
+          echo ""
+
+          # Check for point estimates without uncertainty
+          echo "#### Uncertainty representation scan"
+          CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD)
+          for f in $CHANGED; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.html|*.js)
+                # Flag potential point estimates without confidence intervals
+                if grep -nE 'WAR of [0-9]|career WAR: [0-9]|probability: 0\.[0-9]' "$f" > /dev/null 2>&1; then
+                  echo "::warning file=$f::Potential point estimate without uncertainty bounds. Elias requires distributions."
+                fi
+                ;;
+            esac
+          done
+
+          # Check for confidence labels in methodology
+          echo ""
+          echo "#### Confidence vocabulary scan"
+          python3 << 'PYEOF'
+          import json, glob
+          vocab = ['Documented', 'Verified', 'Reported', 'Estimated', 'Modeled', 'Reconstructed', 'Disputed', 'AI-generated']
+          for f in glob.glob('chapters/*/data/*.json'):
+              try:
+                  with open(f) as fh:
+                      data = json.load(fh)
+                  if isinstance(data, dict) and 'confidence' in data:
+                      conf = data['confidence']
+                      if conf not in vocab:
+                          print(f"::warning file={f}::Confidence label '{conf}' not in canonical vocabulary: {vocab}")
+                      else:
+                          print(f"{f}: confidence '{conf}' -- valid")
+              except:
+                  pass
+          PYEOF
+
+          echo ""
+          echo "Elias automated checks complete. Manual review required for:"
+          echo "- Cross-league comparison assumptions"
+          echo "- ML model output validation"
+          echo "- Statistical claim source verification"
+
+  vera:
+    name: Vera (UI, Viz, Assets)
+    runs-on: ubuntu-latest
+    needs: detect-scope
+    if: needs.detect-scope.outputs.needs_agents == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Vera review checklist
+        run: |
+          echo "## Vera Review: UI, Visualization, and Asset Authority"
+          echo ""
+          echo "### Automated checks"
+          echo ""
+
+          # Check design token compliance
+          echo "#### Design token scan"
+          CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD)
+          for f in $CHANGED; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.html|*.css)
+                # Check for hardcoded colors that should be tokens
+                if grep -nE '#[0-9a-fA-F]{6}' "$f" | grep -vE '(d4a64a|13110d|1a1812|e8e0cf|a14545|6f8aa8|c25555|221f17)' | head -5 > /dev/null 2>&1; then
+                  echo "::notice file=$f::Contains hex colors. Verify they are design token values from docs/design.md."
+                fi
+                ;;
+            esac
+          done
+
+          # Asset register check (duplicate of preflight but with detail)
+          echo ""
+          echo "#### Asset register verification"
+          python3 << 'PYEOF'
+          import json
+          with open('data/asset-register.json') as f:
+              data = json.load(f)
+          no_approval = [a for a in data['assets'] if a['vera_approval'] != 'APPROVED']
+          print(f"Assets awaiting Vera approval: {len(no_approval)}")
+          for a in no_approval[:5]:
+              print(f"  {a['filename']}: {a['vera_approval']}")
+          if len(no_approval) > 5:
+              print(f"  ... and {len(no_approval) - 5} more")
+          PYEOF
+
+          # ARIA label check
+          echo ""
+          echo "#### Accessibility scan"
+          for f in $CHANGED; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.html)
+                # Check for images without alt text
+                if grep -n '<img ' "$f" | grep -v 'alt=' > /dev/null 2>&1; then
+                  echo "::warning file=$f::Image tag without alt attribute found."
+                fi
+                # Check for interactive elements without ARIA
+                if grep -n '<button' "$f" | grep -v 'aria-label' | head -3 > /dev/null 2>&1; then
+                  echo "::notice file=$f::Button without aria-label found. Verify accessibility."
+                fi
+                ;;
+            esac
+          done
+
+          echo ""
+          echo "Vera automated checks complete. Manual review required for:"
+          echo "- Visual inspection at 375px, 768px, 1200px"
+          echo "- Chart accuracy and scaling"
+          echo "- Uncertainty representation in visualizations"
+
+  ida:
+    name: Ida (Coherence & Voice)
+    runs-on: ubuntu-latest
+    needs: detect-scope
+    if: needs.detect-scope.outputs.needs_agents == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ida review checklist
+        run: |
+          echo "## Ida Review: Project Manager and Coherence Authority"
+          echo ""
+          echo "### Automated checks"
+          echo ""
+
+          # Em dash check (redundant with preflight but Ida owns voice)
+          echo "#### Voice consistency scan"
+          CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD)
+          for f in $CHANGED; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.html)
+                # Check for em dashes in content
+                if grep -Pn '\x{2014}' "$f" > /dev/null 2>&1; then
+                  echo "::error file=$f::Em dash found. Hard rule: no em dashes anywhere."
+                fi
+                ;;
+            esac
+          done
+
+          # Check chapter registry consistency
+          echo ""
+          echo "#### Chapter registry consistency"
+          python3 << 'PYEOF'
+          import json, os
+          with open('data/chapters.json') as f:
+              chapters = json.load(f)['chapters']
+
+          for ch in chapters:
+              num = ch['number']
+              slug = ch['slug']
+              # Check directory exists
+              dir_candidates = [
+                  f"chapters/{num}-{slug}",
+                  f"chapters/{slug}"
+              ]
+              found = any(os.path.isdir(d) for d in dir_candidates)
+              status = ch['status']
+              if not found and status == 'live':
+                  print(f"::warning::Chapter {num} ({slug}) is 'live' but directory not found")
+              elif found:
+                  print(f"Ch {num} {slug}: directory exists, status={status}")
+          PYEOF
+
+          echo ""
+          echo "Ida automated checks complete. Manual review required for:"
+          echo "- Voice register consistency ('Have you heard' tone)"
+          echo "- Tenet compliance (15 tenants per docs/chapter-tenants.md)"
+          echo "- Cross-chapter coherence"
+          echo "- Scope verification"
+
+  # ──────────────────────────────────────────────────────────────────
+  # Gates: Final integration gate, runs after all four agents
+  # ──────────────────────────────────────────────────────────────────
+  gates:
+    name: Gates (Final QA Gate)
+    runs-on: ubuntu-latest
+    needs: [detect-scope, oscar, elias, vera, ida]
+    if: needs.detect-scope.outputs.needs_agents == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gates final integration check
+        run: |
+          echo "## Gates Review: Final QA Gate"
+          echo ""
+          echo "### Integration verification"
+          echo ""
+
+          # Verify all four agents completed
+          echo "Agent verdicts:"
+          echo "  Oscar:  ${{ needs.oscar.result }}"
+          echo "  Elias:  ${{ needs.elias.result }}"
+          echo "  Vera:   ${{ needs.vera.result }}"
+          echo "  Ida:    ${{ needs.ida.result }}"
+          echo ""
+
+          BLOCKED="false"
+          for agent in oscar elias vera ida; do
+            result="${{ needs.oscar.result }}"
+            case "$agent" in
+              elias) result="${{ needs.elias.result }}" ;;
+              vera) result="${{ needs.vera.result }}" ;;
+              ida) result="${{ needs.ida.result }}" ;;
+            esac
+            if [ "$result" != "success" ]; then
+              echo "::error::Agent $agent did not pass (result: $result). Gates blocks merge."
+              BLOCKED="true"
+            fi
+          done
+
+          if [ "$BLOCKED" = "true" ]; then
+            echo ""
+            echo "GATES VERDICT: BLOCKED. One or more agents did not pass."
+            exit 1
+          fi
+
+          # Final checklist
+          echo "### Final checklist"
+          echo ""
+
+          # JSON validity
+          echo "#### Data file validation"
+          python3 << 'PYEOF'
+          import json, glob, sys
+          errors = 0
+          for f in glob.glob('chapters/*/data/*.json') + glob.glob('data/*.json'):
+              try:
+                  with open(f) as fh:
+                      json.load(fh)
+                  print(f"  {f}: valid")
+              except Exception as e:
+                  print(f"::error file={f}::Invalid JSON: {e}")
+                  errors += 1
+          if errors:
+              sys.exit(1)
+          print(f"All data files valid.")
+          PYEOF
+
+          # Asset register final check
+          echo ""
+          echo "#### Asset register final audit"
+          python3 << 'PYEOF'
+          import json, glob, os
+          with open('data/asset-register.json') as f:
+              data = json.load(f)
+
+          photo_files = {os.path.basename(p) for p in glob.glob('chapters/**/photos/*', recursive=True)}
+          registered = {a['filename'] for a in data['assets']}
+
+          unregistered = photo_files - registered
+          if unregistered:
+              print(f"::error::GATES BLOCK: {len(unregistered)} unregistered photos")
+              for f in sorted(unregistered):
+                  print(f"  {f}")
+              import sys; sys.exit(1)
+
+          pending_provenance = [a for a in data['assets'] if a.get('pd_basis', '').startswith('PENDING')]
+          if pending_provenance:
+              print(f"::warning::Assets with PENDING provenance: {len(pending_provenance)}")
+              for a in pending_provenance:
+                  print(f"  {a['filename']}")
+              print("These must be resolved before ship. Build may proceed for review.")
+
+          print(f"Asset register: {len(registered)} entries, {len(photo_files)} photos.")
+          PYEOF
+
+          echo ""
+          echo "GATES VERDICT: All automated checks passed."
+          echo "Manual Gates review required before merge:"
+          echo "- All four agent manual reviews signed"
+          echo "- Integration reads as coherent whole"
+          echo "- Museum quality standard met"
+          echo "- No content contradictions with shipped chapters"

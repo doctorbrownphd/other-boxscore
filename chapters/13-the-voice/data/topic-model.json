@@ -4,11 +4,11 @@
   "n_topics": 10,
   "n_chunks": 333,
   "confidence": "AI-generated",
-  "confidence_detail": "Topics derived from TF-IDF vectorization and K-means clustering over Whisper-transcribed oral history audio. Cluster labels are placeholders for manual editorial assignment. Transcription errors from Whisper (base model) propagate into topic assignments.",
+  "confidence_detail": "Topics derived from TF-IDF vectorization and K-means clustering over Whisper-transcribed oral history audio. Cluster labels editorially assigned 2026-05-25 based on top terms and representative chunk review. Transcription errors from Whisper (base model) propagate into topic assignments. Topics are research aids and entry points, not definitive content analysis.",
   "topics": [
     {
       "id": 2,
-      "label": "manually assign later",
+      "label": "Playing the Game",
       "words": [
         "know",
         "like",
@@ -35,7 +35,7 @@
     },
     {
       "id": 1,
-      "label": "manually assign later",
+      "label": "Faith, Community, and Character",
       "words": [
         "know",
         "people",
@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "label": "manually assign later",
+      "label": "The Negro Leagues Legacy",
       "words": [
         "league",
         "negro",
@@ -89,7 +89,7 @@
     },
     {
       "id": 3,
-      "label": "manually assign later",
+      "label": "Local Teams and Leagues",
       "words": [
         "ok",
         "team",
@@ -116,7 +116,7 @@
     },
     {
       "id": 8,
-      "label": "manually assign later",
+      "label": "Stories from the Road",
       "words": [
         "said",
         "know",
@@ -143,7 +143,7 @@
     },
     {
       "id": 9,
-      "label": "manually assign later",
+      "label": "Family and Roots",
       "words": [
         "know",
         "dad",
@@ -170,7 +170,7 @@
     },
     {
       "id": 5,
-      "label": "manually assign later",
+      "label": "History and Remembrance",
       "words": [
         "louisiana",
         "yeah",
@@ -197,7 +197,7 @@
     },
     {
       "id": 4,
-      "label": "manually assign later",
+      "label": "Personal Recollections",
       "words": [
         "uh",
         "know",
@@ -224,7 +224,7 @@
     },
     {
       "id": 7,
-      "label": "manually assign later",
+      "label": "Richmond and Segregated Towns",
       "words": [
         "richmond",
         "used",
@@ -251,7 +251,7 @@
     },
     {
       "id": 0,
-      "label": "manually assign later",
+      "label": "Research and Preservation",
       "words": [
         "know",
         "um",

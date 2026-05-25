@@ -604,6 +604,12 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(138,130,112,0.04);
 }
 
+.archive__card-access--unknown {
+  color: var(--muted-2);
+  border: 1px solid var(--rule);
+  background: rgba(138,130,112,0.02);
+}
+
 .archive__card-topics {
   display: flex;
   flex-wrap: wrap;
@@ -1731,17 +1737,17 @@ img { max-width: 100%; height: auto; display: block; }
       </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);margin-top:48px;max-width:600px">
+    <div id="hook-stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);margin-top:48px;max-width:600px">
       <div style="padding:20px;text-align:center;border-right:1px solid var(--rule)">
-        <div style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">31</div>
+        <div id="hook-stat-recordings" style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">37</div>
         <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Recordings</div>
       </div>
       <div style="padding:20px;text-align:center;border-right:1px solid var(--rule)">
-        <div style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">12</div>
+        <div id="hook-stat-speakers" style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">24</div>
         <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Speakers</div>
       </div>
       <div style="padding:20px;text-align:center;border-right:1px solid var(--rule)">
-        <div style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">7</div>
+        <div id="hook-stat-institutions" style="font-family:var(--display);font-size:32px;color:var(--amber);line-height:1">7</div>
         <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Institutions</div>
       </div>
       <div style="padding:20px;text-align:center">
@@ -2520,6 +2526,13 @@ window.TOBS.ARCHIVE_META = {};
           if (window.TOBS.ch13 && window.TOBS.ch13.instRender) {
             window.TOBS.ch13.instRender();
           }
+          // Update hook stats from loaded metadata
+          var recEl = document.getElementById("hook-stat-recordings");
+          var spkEl = document.getElementById("hook-stat-speakers");
+          var instEl = document.getElementById("hook-stat-institutions");
+          if (recEl && window.TOBS.ARCHIVE_META.totalRecordings) recEl.textContent = window.TOBS.ARCHIVE_META.totalRecordings;
+          if (spkEl && window.TOBS.ARCHIVE_META.speakers) spkEl.textContent = window.TOBS.ARCHIVE_META.speakers;
+          if (instEl && window.TOBS.ARCHIVE_META.institutionCount) instEl.textContent = window.TOBS.ARCHIVE_META.institutionCount;
         } catch (e) {
           console.error("[TOBS] Failed to parse archive-index.json:", e);
         }
