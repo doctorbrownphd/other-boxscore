@@ -577,10 +577,12 @@ img { max-width: 100%; height: auto; display: block; }
 .timeline__scroll-container {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   border: 1px solid var(--rule);
   background: var(--ink-2);
   padding: 16px 0;
 }
+.timeline__scroll-container::-webkit-scrollbar { display: none; }
 
 .timeline__tooltip {
   position: fixed;
@@ -856,9 +858,11 @@ img { max-width: 100%; height: auto; display: block; }
 .ledger__scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   border: 1px solid var(--rule);
   background: var(--ink-2);
 }
+.ledger__scroll::-webkit-scrollbar { display: none; }
 
 .ledger__table {
   width: 100%;
@@ -1706,7 +1710,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="section-head" style="margin-bottom:16px">
     <div class="section-head__fig">Active Franchises by Year</div>
   </div>
-  <div style="overflow-x:auto;margin-bottom:48px">
+  <div style="overflow-x:auto;scrollbar-width:none;margin-bottom:48px">
     <svg id="yearly-counts-svg" viewBox="0 0 1080 280" width="1080" height="280" role="img"
          aria-label="Bar chart showing number of active Negro Leagues franchises per year, 1920 to 1962"></svg>
   </div>
