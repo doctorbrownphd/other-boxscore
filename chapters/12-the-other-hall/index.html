@@ -1496,7 +1496,7 @@ img { max-width: 100%; height: auto; display: block; }
         <h2 class="hook__question">There are <em>six</em> Halls.</h2>
         <div class="hook__body body-prose">
           <p class="lede">Cooperstown is one of them.</p>
-          <p>The Cuban Baseball Hall of Fame opened in 1939, the same year five players were inducted to its inaugural class, including <strong>Jose Mendez</strong> and <strong>Cristobal Torriente</strong>, who would not enter Cooperstown until 2006. The Mexican Baseball Hall of Fame opened in 1939 as well. <strong>Martin Dihigo</strong>, the Cuban-born star who played in every league that would have him, is in five halls of fame.</p>
+          <p>The Cuban Baseball Hall of Fame opened in 1939, the same year five players were inducted to its inaugural class, including <strong>Jose Mendez</strong> and <strong>Cristobal Torriente</strong>, who would not enter Cooperstown until 2006. The Mexican Baseball Hall of Fame opened in 1939 as well. <strong>Martin Dihigo</strong>, the Cuban-born star who played in every league that would have him, is in at least three verified halls of fame: Cuba, Mexico, and Cooperstown.</p>
           <p>The Caribbean Baseball Hall of Fame opened in 1996. Willard Brown is in it. Wilmer Fields is in it. The Dominican, Puerto Rican, and Venezuelan halls have continued operating throughout, inducting Negro Leagues players whose names Cooperstown was slow to recognize.</p>
           <p>This chapter is the matrix. Every player. Every hall. Every induction year. <mark>The comparison is the argument.</mark></p>
         </div>
@@ -1622,7 +1622,7 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="section-head">
       <div class="section-head__fig">Fig 03</div>
       <h2 class="section-head__title">Three <em>Trajectories</em></h2>
-      <p class="section-head__lede">Three players. Three patterns of cross-institutional recognition. Martin Dihigo is honored across the landscape. Cool Papa Bell has moderate coverage. Josh Gibson, despite playing in Cuba, Mexico, Puerto Rico, and the Dominican Republic, is in Cooperstown alone.</p>
+      <p class="section-head__lede">Three players. Three patterns of cross-institutional recognition. Martin Dihigo is honored across the landscape with three verified hall inductions. Cool Papa Bell, despite playing extensively in Mexico and Cuba, is in Cooperstown alone. Josh Gibson is in Cooperstown and the Mexican Hall of Fame.</p>
     </div>
 
     <div id="trajectories-container"></div>
@@ -1833,38 +1833,72 @@ var HALL_ABBREVS = {
   puertorico: "PR"
 };
 
-var PLAYERS = [
-  { name: "Martin Dihigo", halls: { cooperstown: 1977, cuba: 1951, mexico: 1964, caribbean: null, dominican: 2002, venezuela: 1989, puertorico: null }, annotated: true, annotation: "Five halls. Cuba, Mexico, Cooperstown, Venezuela, Dominican Republic. The most honored player across institutions. Career: 1923--1945 across the Negro Leagues, Cuba, Mexico, Venezuela, Dominican Republic.", filter: "multi" },
-  { name: "Jose Mendez", halls: { cooperstown: 2006, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuba inducted Mendez in 1939. Cooperstown followed in 2006. The lag: 67 years. The maximum lag in the matrix.", filter: "multi" },
-  { name: "Cristobal Torriente", halls: { cooperstown: 2006, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Like Mendez, inducted into the Cuban Hall in 1939 and Cooperstown in 2006. A 67-year lag.", filter: "multi" },
-  { name: "Josh Gibson", halls: { cooperstown: 1972, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cooperstown only, despite documented play in Cuba, Mexico, Puerto Rico, and the Dominican Republic. Five peer-hall columns empty.", filter: "cooperstown-only" },
-  { name: "Satchel Paige", halls: { cooperstown: 1971, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Cool Papa Bell", halls: { cooperstown: 1974, cuba: 2014, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Three halls. Mexico inducted Bell in 1964, ten years before Cooperstown. Cuba inducted him in 2014, four decades after.", filter: "multi" },
-  { name: "Buck Leonard", halls: { cooperstown: 1972, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Monte Irvin", halls: { cooperstown: 1973, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Irvin in 1964, nine years before Cooperstown. He played in the Mexican League in 1942.", filter: "multi" },
-  { name: "Ray Dandridge", halls: { cooperstown: 1987, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Dandridge in 1964. Cooperstown did not follow until 1987, a 23-year lag. Dandridge played in the Mexican League from 1940 to 1948.", filter: "multi" },
-  { name: "Willie Wells", halls: { cooperstown: 1997, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Oscar Charleston", halls: { cooperstown: 1976, cuba: 2014, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuba inducted Charleston in 2014, thirty-eight years after Cooperstown. Charleston barnstormed in Cuba during the 1920s.", filter: "multi" },
-  { name: "Turkey Stearnes", halls: { cooperstown: 2000, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Willard Brown", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: 2001, dominican: null, venezuela: null, puertorico: 2002 }, annotated: true, annotation: "Brown was in the Caribbean and Puerto Rico halls before Cooperstown inducted him. He won the first Caribbean Series batting title in 1949 playing for Santurce.", filter: "multi" },
-  { name: "Wilmer Fields", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2003, dominican: null, venezuela: 1965, puertorico: null }, annotated: true, annotation: "Inducted into the Venezuelan Hall in 1965 and the Caribbean Hall in 2003. Never inducted into Cooperstown. Fields played 13 seasons in Venezuela.", filter: "not-cooperstown" },
-  { name: "Alejandro Oms", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "In the Cuban Hall since 1939 but never inducted into Cooperstown. Oms was one of the greatest hitters in Cuban baseball history.", filter: "not-cooperstown" },
-  { name: "Silvio Garcia", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" },
-  { name: "Leon Day", halls: { cooperstown: 1995, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Day in 1964. Cooperstown followed in 1995, a 31-year lag.", filter: "multi" },
-  { name: "Rube Foster", halls: { cooperstown: 1981, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Bullet Rogan", halls: { cooperstown: 1998, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Mule Suttles", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Biz Mackey", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Pop Lloyd", halls: { cooperstown: 1977, cuba: 2014, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Pop Lloyd played extensively in Cuba. The Cuban Hall inducted him in 2014, thirty-seven years after Cooperstown.", filter: "multi" },
-  { name: "Judy Johnson", halls: { cooperstown: 1975, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Hilton Smith", halls: { cooperstown: 2001, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Andy Cooper", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Ray Brown", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
-  { name: "Luis Tiant Sr.", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuban Hall class of 1939 and Mexican Hall class of 1964. Never inducted into Cooperstown. Tiant was one of Cuba's greatest left-handed pitchers.", filter: "not-cooperstown" },
-  { name: "Tetelo Vargas", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2001, dominican: 1956, venezuela: null, puertorico: null }, annotated: true, annotation: "Dominican Republic's premier outfielder. In the Dominican Hall since 1956 and the Caribbean Hall since 2001. Never considered for Cooperstown.", filter: "not-cooperstown" },
-  { name: "Ramon Bragana", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" },
-  { name: "Lazaro Salazar", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" }
-];
+var PLAYERS = [];
+
+// Editorial annotations (content, not data) keyed by player name.
+// These are narrative context for the matrix, maintained separately from
+// the verified induction data in data/hall-matrix.json.
+var ANNOTATIONS = {
+  "Martin Dihigo": "Four verified halls: Cuba, Mexico, Cooperstown, Dominican Republic. The widely cited Venezuelan induction is not supported by official records. Career: 1923-1945 across the Negro Leagues, Cuba, Mexico, Venezuela, Dominican Republic.",
+  "Jose Mendez": "Cuba inducted Mendez in 1939. Cooperstown followed in 2006. The lag: 67 years. The maximum lag in the matrix.",
+  "Cristobal Torriente": "Like Mendez, inducted into the Cuban Hall in 1939 and Cooperstown in 2006. A 67-year lag.",
+  "Josh Gibson": "Cooperstown and Mexico. Gibson played in Cuba, Puerto Rico, and the Dominican Republic. The Mexican Hall inducted him in 1971, one year before Cooperstown.",
+  "Cool Papa Bell": "Bell played extensively in Cuba and Mexico but is not documented in either hall's official inductee roster.",
+  "Monte Irvin": "Mexico inducted Irvin in 1971, two years before Cooperstown. He played in the Mexican League in 1942.",
+  "Ray Dandridge": "Mexico inducted Dandridge in 1989, two years after Cooperstown. Dandridge played in the Mexican League from 1940 to 1948.",
+  "Oscar Charleston": "Charleston barnstormed in Cuba during the 1920s but is not in the official Cuban HoF inductee list.",
+  "Willard Brown": "Brown won the first Caribbean Series batting title in 1949 playing for Santurce. Some sources cite Caribbean and Puerto Rico hall inductions but years could not be independently verified.",
+  "Wilmer Fields": "Widely reported as inducted into the Venezuelan Hall (1965) and the Caribbean Hall (2003). Never inducted into Cooperstown. Fields played 13 seasons in Venezuela. Induction years could not be independently verified from official rosters.",
+  "Alejandro Oms": "In the Cuban Hall since 1944. Never inducted into Cooperstown. One of the greatest hitters in Cuban baseball history.",
+  "Silvio Garcia": "",
+  "Leon Day": "Day played in Mexico but is not in the official Mexican HoF inductee list. Cooperstown inducted him in 1995.",
+  "Pop Lloyd": "Lloyd played extensively in Cuba but is not in the official Cuban HoF inductee list.",
+  "Luis Tiant Sr.": "Cuban Hall class of 1965. Never inducted into Cooperstown. One of Cuba's greatest left-handed pitchers.",
+  "Tetelo Vargas": "Dominican Republic's premier outfielder. Cuban HoF class of 1998. Some sources cite Dominican HoF (1956) and Caribbean HoF (2001) but years could not be independently verified.",
+  "Ramon Bragana": "",
+  "Lazaro Salazar": ""
+};
+
+// Load player data from JSON, transform into the format the matrix code expects
+(function loadHallMatrix() {
+  fetch("data/hall-matrix.json")
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      PLAYERS = json.data.map(function(d) {
+        var halls = {
+          cooperstown: d.cooperstown || null,
+          cuba: d.cuba || null,
+          mexico: d.mexico || null,
+          caribbean: d.caribbean || null,
+          dominican: d.dominicanRepublic || null,
+          venezuela: d.venezuela || null,
+          puertorico: d.puertoRico || null
+        };
+
+        // Compute filter category
+        var hasCooperstown = !!halls.cooperstown;
+        var hasOther = !!(halls.cuba || halls.mexico || halls.caribbean || halls.dominican || halls.venezuela || halls.puertorico);
+        var filter;
+        if (hasCooperstown && hasOther) filter = "multi";
+        else if (hasCooperstown && !hasOther) filter = "cooperstown-only";
+        else filter = "not-cooperstown";
+
+        var annotation = ANNOTATIONS[d.name] || "";
+        return {
+          name: d.name,
+          halls: halls,
+          annotated: !!annotation,
+          annotation: annotation,
+          filter: filter
+        };
+      });
+      document.dispatchEvent(new CustomEvent("hall-matrix-loaded"));
+    })
+    .catch(function(err) {
+      console.error("[ch12] Failed to load hall-matrix.json:", err);
+      document.dispatchEvent(new CustomEvent("hall-matrix-loaded"));
+    });
+})();
 
 /* ======================================================================
    DATA -- TRAJECTORIES
@@ -1880,12 +1914,10 @@ var TRAJECTORIES = [
     inductions: [
       { hall: "cuba", year: 1951 },
       { hall: "mexico", year: 1964 },
-      { hall: "cooperstown", year: 1977 },
-      { hall: "venezuela", year: 1989 },
-      { hall: "dominican", year: 2002 }
+      { hall: "cooperstown", year: 1977 }
     ],
-    hallCount: 5,
-    note: "Dihigo played in Cuba, the Negro Leagues, Mexico, Venezuela, and the Dominican Republic. Five institutions have honored him. His career was visible across the hemisphere. The institutional recognition followed the geography of his career."
+    hallCount: 3,
+    note: "Dihigo played in Cuba, the Negro Leagues, Mexico, Venezuela, and the Dominican Republic. Three verified hall inductions: Cuba (1951), Mexico (1964), Cooperstown (1977). The widely cited Venezuelan induction is not supported by official records. Dominican Republic induction year is unverified."
   },
   {
     name: "Cool Papa Bell",
@@ -1894,12 +1926,10 @@ var TRAJECTORIES = [
     careerStart: 1922,
     careerEnd: 1946,
     inductions: [
-      { hall: "mexico", year: 1964 },
-      { hall: "cooperstown", year: 1974 },
-      { hall: "cuba", year: 2014 }
+      { hall: "cooperstown", year: 1974 }
     ],
-    hallCount: 3,
-    note: "Bell played in Mexico and Cuba during the winters. Mexico inducted him twenty years before his death. Cuba added him posthumously in 2014. Three halls recognized what one career produced."
+    hallCount: 1,
+    note: "Bell played extensively in Mexico and Cuba during the winters. He is in Cooperstown alone. Some sources cite Mexican and Cuban hall inductions, but Bell does not appear in the verified complete rosters of either institution."
   },
   {
     name: "Josh Gibson",
@@ -1908,10 +1938,11 @@ var TRAJECTORIES = [
     careerStart: 1930,
     careerEnd: 1946,
     inductions: [
+      { hall: "mexico", year: 1971 },
       { hall: "cooperstown", year: 1972 }
     ],
-    hallCount: 1,
-    note: "Gibson played winter ball in Cuba, Mexico, Puerto Rico, and the Dominican Republic. He is in Cooperstown. He is not in any other hall. Five peer-hall columns are empty. The chapter records this pattern without asserting what should be done about it."
+    hallCount: 2,
+    note: "Gibson played winter ball in Cuba, Mexico, Puerto Rico, and the Dominican Republic. Mexico inducted him in 1971, one year before Cooperstown. He is in two halls. The chapter records this pattern without asserting what should be done about it."
   }
 ];
 
@@ -1922,11 +1953,11 @@ var TRAJECTORIES = [
 var HALL_PROFILES = [
   { flag: "", name: "National Baseball Hall of Fame", location: "Cooperstown, New York", founded: 1936, totalInductees: 345, negroLeaguesCount: 35, process: "Classic Baseball Era Committee considers a ballot every two to three years. A 75% vote threshold is required for induction. The committee composition has varied over time.", notables: ["Josh Gibson (1972)", "Satchel Paige (1971)", "Martin Dihigo (1977)"] },
   { flag: "", name: "Cuban Baseball Hall of Fame", location: "Havana, Cuba", founded: 1939, totalInductees: 74, negroLeaguesCount: 18, process: "Originally selected through sportswriter vote. Halted after the 1961 revolution. Resumed inducting members in 2014 with new selections by the Cuban Baseball Federation.", notables: ["Jose Mendez (1939)", "Cristobal Torriente (1939)", "Martin Dihigo (1951)"] },
-  { flag: "", name: "Mexican Baseball Hall of Fame", location: "Monterrey, Nuevo Leon", founded: 1939, totalInductees: 216, negroLeaguesCount: 12, process: "Annual elections coordinated originally through newspaper coupons by sportswriter Alejandro Aguilar Reyes. Now conducted by the Mexican Baseball Federation. New $18.3M building opened in Fundidora Park, 2019.", notables: ["Martin Dihigo (1964)", "Cool Papa Bell (1964)", "Ray Dandridge (1964)"] },
-  { flag: "", name: "Caribbean Baseball Hall of Fame", location: "Multi-country", founded: 1996, totalInductees: 118, negroLeaguesCount: 6, process: "Annual voting during the Caribbean Series by members of the Caribbean Professional Baseball Confederation. Honors Caribbean Series performance rather than lifetime career.", notables: ["Willard Brown (2001)", "Wilmer Fields (2003)", "Tetelo Vargas (2001)"] },
-  { flag: "", name: "Dominican Republic Sports Hall of Fame", location: "Santo Domingo", founded: 1963, totalInductees: 98, negroLeaguesCount: 4, process: "Selection by the Dominican Republic Olympic Committee and sports federation representatives. Covers all sports; baseball inductees are a subset of a broader national recognition.", notables: ["Tetelo Vargas (1956)", "Martin Dihigo (2002)"] },
-  { flag: "", name: "Venezuelan Baseball Hall of Fame", location: "Valencia, Venezuela", founded: 1948, totalInductees: 103, negroLeaguesCount: 5, process: "Annual selection by Venezuelan baseball journalists and federation officials. Covers players who competed in the Venezuelan professional winter league.", notables: ["Wilmer Fields (1965)", "Martin Dihigo (1989)"] },
-  { flag: "", name: "Puerto Rico Sports Hall of Fame", location: "San Juan", founded: 1956, totalInductees: 112, negroLeaguesCount: 3, process: "Selection by the Puerto Rico Olympic Committee. Covers all sports; baseball inductees recognized for contribution to Puerto Rican professional baseball.", notables: ["Willard Brown (2002)"] }
+  { flag: "", name: "Mexican Baseball Hall of Fame", location: "Monterrey, Nuevo Leon", founded: 1939, totalInductees: 216, negroLeaguesCount: 7, process: "Annual elections coordinated originally through newspaper coupons by sportswriter Alejandro Aguilar Reyes. Now conducted by the Mexican Baseball Federation. New $18.3M building opened in Fundidora Park, 2019.", notables: ["Martin Dihigo (1964)", "Josh Gibson (1971)", "Ray Dandridge (1989)"] },
+  { flag: "", name: "Caribbean Baseball Hall of Fame", location: "Multi-country", founded: 1996, totalInductees: 118, negroLeaguesCount: null, process: "Annual voting during the Caribbean Series by members of the Caribbean Professional Baseball Confederation. Honors Caribbean Series performance rather than lifetime career. Negro Leagues-era inductee count unverified from official roster.", notables: [] },
+  { flag: "", name: "Dominican Republic Sports Hall of Fame", location: "Santo Domingo", founded: 1963, totalInductees: 98, negroLeaguesCount: null, process: "Selection by the Dominican Republic Olympic Committee and sports federation representatives. Covers all sports; baseball inductees are a subset of a broader national recognition. Negro Leagues-era inductee count unverified from official roster.", notables: [] },
+  { flag: "", name: "Venezuelan Baseball Hall of Fame", location: "Valencia, Venezuela", founded: 1948, totalInductees: 103, negroLeaguesCount: null, process: "Annual selection by Venezuelan baseball journalists and federation officials. Covers players who competed in the Venezuelan professional winter league. Negro Leagues-era inductee count unverified from official roster.", notables: [] },
+  { flag: "", name: "Puerto Rico Sports Hall of Fame", location: "San Juan", founded: 1956, totalInductees: 112, negroLeaguesCount: null, process: "Selection by the Puerto Rico Olympic Committee. Covers all sports; baseball inductees recognized for contribution to Puerto Rican professional baseball. Negro Leagues-era inductee count unverified from official roster.", notables: [] }
 ];
 
 /* ======================================================================
@@ -1934,13 +1965,13 @@ var HALL_PROFILES = [
    ====================================================================== */
 
 var SLATE_CANDIDATES = [
-  { name: "Alejandro Oms", position: "OF", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
-  { name: "Wilmer Fields", position: "3B/P", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2003, dominican: null, venezuela: 1965, puertorico: null }, peerCount: 2 },
-  { name: "Luis Tiant Sr.", position: "P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
-  { name: "Tetelo Vargas", position: "OF", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2001, dominican: 1956, venezuela: null, puertorico: null }, peerCount: 2 },
-  { name: "Ramon Bragana", position: "P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
-  { name: "Lazaro Salazar", position: "OF/P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
-  { name: "Silvio Garcia", position: "SS", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Alejandro Oms", position: "OF", halls: { cooperstown: null, cuba: 1944, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Wilmer Fields", position: "3B/P", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 },
+  { name: "Luis Tiant Sr.", position: "P", halls: { cooperstown: null, cuba: 1965, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Tetelo Vargas", position: "OF", halls: { cooperstown: null, cuba: 1998, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Ramon Bragana", position: "P", halls: { cooperstown: null, cuba: 1960, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Lazaro Salazar", position: "OF/P", halls: { cooperstown: null, cuba: 1959, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Silvio Garcia", position: "SS", halls: { cooperstown: null, cuba: 1975, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
   { name: "Dick Lundy", position: "SS", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 },
   { name: "Dobie Moore", position: "SS", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 },
   { name: "Hurley McNair", position: "OF", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 }
@@ -1981,10 +2012,13 @@ var DECADE_LEGEND = [
 
 /* ======================================================================
    FIG 01 -- THE MATRIX (Table + Cards)
+   Waits for hall-matrix-loaded event from data/hall-matrix.json fetch
    ====================================================================== */
 
+document.addEventListener("hall-matrix-loaded", function() {
 (function() {
   var tbody = document.getElementById("matrix-tbody");
+  if (!PLAYERS.length) return;
   var cardsContainer = document.getElementById("matrix-cards");
   var legendContainer = document.getElementById("matrix-legend");
   var activeFilter = "all";
@@ -2323,6 +2357,7 @@ var DECADE_LEGEND = [
     pairDetail.innerHTML = html;
   });
 })();
+}); // end hall-matrix-loaded listener
 
 /* ======================================================================
    FIG 03 -- THREE TRAJECTORIES
@@ -2382,7 +2417,7 @@ var DECADE_LEGEND = [
 
     // If cooperstown only, show empty marks for peer halls
     if (t.hallCount === 1) {
-      timelineHtml += '<div class="trajectory__empty-note" style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);white-space:nowrap">Five peer-hall columns empty</div>';
+      timelineHtml += '<div class="trajectory__empty-note" style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);white-space:nowrap">Four peer-hall columns empty</div>';
     }
 
     timelineHtml += '</div>';
@@ -2409,15 +2444,19 @@ var DECADE_LEGEND = [
 
     html += '<div class="profile-card__stats">';
     html += '<div class="profile-card__stat"><div class="profile-card__stat-num">' + h.totalInductees + '</div><div class="profile-card__stat-label">Total Inductees</div></div>';
-    html += '<div class="profile-card__stat"><div class="profile-card__stat-num">' + h.negroLeaguesCount + '</div><div class="profile-card__stat-label">Negro Leagues Era</div></div>';
+    html += '<div class="profile-card__stat"><div class="profile-card__stat-num">' + (h.negroLeaguesCount != null ? h.negroLeaguesCount : '--') + '</div><div class="profile-card__stat-label">Negro Leagues Era</div></div>';
     html += '</div>';
 
     html += '<div class="profile-card__process">' + h.process + '</div>';
 
-    html += '<div class="profile-card__notables-label">Notable Negro Leagues Inductees</div>';
-    h.notables.forEach(function(n) {
-      html += '<div class="profile-card__notable">' + n + '</div>';
-    });
+    if (h.notables.length) {
+      html += '<div class="profile-card__notables-label">Notable Negro Leagues Inductees</div>';
+      h.notables.forEach(function(n) {
+        html += '<div class="profile-card__notable">' + n + '</div>';
+      });
+    } else {
+      html += '<div class="profile-card__notables-label" style="color:var(--muted-2)">Negro Leagues inductee records unverified</div>';
+    }
 
     html += '</article>';
   });

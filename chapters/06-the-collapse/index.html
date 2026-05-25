@@ -1838,37 +1838,26 @@ window.TOBS = window.TOBS || {};
 window.TOBS.ch06 = {};
 
 /* ======================================================================
-   DATA -- FRANCHISE TIMELINE
+   DATA -- FRANCHISE TIMELINE (loaded from data/franchises.json)
    ====================================================================== */
 
-var FRANCHISES = [
-  // NNL (1920-1931)
-  { name: "Chicago American Giants", league: "NNL", startYear: 1920, endYear: 1931, causeOfDeath: "depression", city: "Chicago", confidence: "Documented" },
-  { name: "Kansas City Monarchs", league: "NNL", startYear: 1920, endYear: 1931, causeOfDeath: "restructured", city: "Kansas City", confidence: "Documented" },
-  { name: "Detroit Stars", league: "NNL", startYear: 1920, endYear: 1931, causeOfDeath: "depression", city: "Detroit", confidence: "Verified" },
-  { name: "St. Louis Stars", league: "NNL", startYear: 1920, endYear: 1931, causeOfDeath: "depression", city: "St. Louis", confidence: "Documented" },
-  { name: "Indianapolis ABCs", league: "NNL", startYear: 1920, endYear: 1926, causeOfDeath: "uncertain", city: "Indianapolis", confidence: "Reported" },
-  { name: "Cuban Stars (NNL)", league: "NNL", startYear: 1920, endYear: 1930, causeOfDeath: "uncertain", city: "Various", confidence: "Reported" },
-  { name: "Homestead Grays (early)", league: "NNL", startYear: 1929, endYear: 1931, causeOfDeath: "restructured", city: "Homestead", confidence: "Documented" },
-  { name: "Pittsburgh Crawfords (early)", league: "NNL", startYear: 1931, endYear: 1931, causeOfDeath: "restructured", city: "Pittsburgh", confidence: "Verified" },
+var FRANCHISES = [];
 
-  // NNL-2 (1933-1948)
-  { name: "Homestead Grays", league: "NNL2", startYear: 1933, endYear: 1948, causeOfDeath: "integration", city: "Homestead/Washington", confidence: "Documented" },
-  { name: "Pittsburgh Crawfords", league: "NNL2", startYear: 1933, endYear: 1938, causeOfDeath: "uncertain", city: "Pittsburgh", confidence: "Verified" },
-  { name: "Newark Eagles", league: "NNL2", startYear: 1936, endYear: 1948, causeOfDeath: "integration", city: "Newark", confidence: "Documented" },
-  { name: "Philadelphia Stars", league: "NNL2", startYear: 1933, endYear: 1948, causeOfDeath: "integration", city: "Philadelphia", confidence: "Documented" },
-  { name: "Baltimore Elite Giants", league: "NNL2", startYear: 1938, endYear: 1948, causeOfDeath: "integration", city: "Baltimore", confidence: "Documented" },
-  { name: "New York Black Yankees", league: "NNL2", startYear: 1936, endYear: 1948, causeOfDeath: "integration", city: "New York", confidence: "Verified" },
-  { name: "New York Cubans", league: "NNL2", startYear: 1935, endYear: 1950, causeOfDeath: "integration", city: "New York", confidence: "Documented" },
-
-  // NAL (1937-1962)
-  { name: "Kansas City Monarchs (NAL)", league: "NAL", startYear: 1937, endYear: 1962, causeOfDeath: "survived", city: "Kansas City", confidence: "Documented" },
-  { name: "Birmingham Black Barons", league: "NAL", startYear: 1937, endYear: 1960, causeOfDeath: "integration", city: "Birmingham", confidence: "Verified" },
-  { name: "Indianapolis Clowns", league: "NAL", startYear: 1943, endYear: 1962, causeOfDeath: "survived", city: "Indianapolis", confidence: "Documented" },
-  { name: "Memphis Red Sox", league: "NAL", startYear: 1937, endYear: 1959, causeOfDeath: "integration", city: "Memphis", confidence: "Verified" },
-  { name: "Cleveland Buckeyes", league: "NAL", startYear: 1942, endYear: 1950, causeOfDeath: "integration", city: "Cleveland", confidence: "Documented" },
-  { name: "Chicago American Giants (NAL)", league: "NAL", startYear: 1937, endYear: 1952, causeOfDeath: "integration", city: "Chicago", confidence: "Verified" }
-];
+// Load franchise data from JSON, then initialize the timeline chart
+(function loadFranchiseData() {
+  fetch("data/franchises.json")
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      FRANCHISES = json.data;
+      // Dispatch event so the timeline IIFE can initialize after data loads
+      document.dispatchEvent(new CustomEvent("franchises-loaded"));
+    })
+    .catch(function(err) {
+      console.error("[ch06] Failed to load franchises.json:", err);
+      // Fallback: dispatch event with empty data so chart shows gracefully
+      document.dispatchEvent(new CustomEvent("franchises-loaded"));
+    });
+})();
 
 /* ======================================================================
    DATA -- NEWARK ROSTER EXODUS
@@ -1988,11 +1977,14 @@ function fmt(n) { return n.toLocaleString(); }
 
 /* ======================================================================
    FIG 01 -- THE FRANCHISE TIMELINE (SVG)
+   Waits for franchises-loaded event from data/franchises.json fetch
    ====================================================================== */
 
+document.addEventListener("franchises-loaded", function() {
 (function() {
   var svg = document.getElementById("timeline-svg");
   if (!svg) return;
+  if (!FRANCHISES.length) return;
 
   var W = 1400, H = 820;
   var M = { t: 60, r: 60, b: 50, l: 260 };
@@ -2038,8 +2030,8 @@ function fmt(n) { return n.toLocaleString(); }
     restructured: "Restructured into new league"
   };
 
-  // Sort franchises: NNL first, then NNL2, then NAL; within league by start year
-  var leagueOrder = { "NNL": 0, "NNL2": 1, "NAL": 2 };
+  // Sort franchises: NNL first, then ECL, then NNL2, then NAL; within league by start year
+  var leagueOrder = { "NNL": 0, "ECL": 1, "NNL2": 2, "NAL": 3 };
   var sortedFranchises = FRANCHISES.slice().sort(function(a, b) {
     var lo = (leagueOrder[a.league] || 0) - (leagueOrder[b.league] || 0);
     if (lo !== 0) return lo;
@@ -2462,6 +2454,7 @@ function fmt(n) { return n.toLocaleString(); }
     stop: stopAnimation
   };
 })();
+}); // end franchises-loaded listener
 
 /* ======================================================================
    NEWARK CARDS SCROLL ANIMATION
