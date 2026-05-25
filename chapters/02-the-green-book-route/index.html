@@ -796,9 +796,9 @@ a:hover { color: var(--amber-2); }
 
 .route__log-header-row {
   display: grid;
-  grid-template-columns: 72px 1fr 80px 48px;
-  gap: 8px;
-  padding: 6px 20px;
+  grid-template-columns: 56px 1fr 1fr 40px;
+  gap: 6px;
+  padding: 6px 16px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--mono);
   font-size: 9px;
@@ -820,10 +820,10 @@ a:hover { color: var(--amber-2); }
 
 .route__log-stop {
   display: grid;
-  grid-template-columns: 72px 1fr 80px 48px;
-  gap: 8px;
+  grid-template-columns: 56px 1fr 1fr 40px;
+  gap: 6px;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--rule);
   border-left: 3px solid transparent;
   cursor: pointer;
@@ -861,6 +861,9 @@ a:hover { color: var(--amber-2); }
   font-size: 10px;
   color: var(--muted);
   text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .route__log-listings {
@@ -2387,7 +2390,7 @@ function buildRouteLog(route) {
     var dateStr = stop.dt;
     el.innerHTML = '<span class="route__log-date">' + dateStr + '</span>' +
       '<span class="route__log-city">' + stop.city + ', ' + stop.st + '</span>' +
-      '<span class="route__log-opp">' + stop.opp.split(' ').pop() + '</span>' +
+      '<span class="route__log-opp">' + stop.opp + '</span>' +
       '<span class="route__log-listings ' + (stop.dark === true ? 'route__log-listings--dark' : 'route__log-listings--safe') + '">' +
       stop.l1 + '</span>';
 
