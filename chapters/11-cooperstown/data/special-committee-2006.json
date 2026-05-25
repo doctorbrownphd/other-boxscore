@@ -1,0 +1,450 @@
+{
+  "_metadata": {
+    "title": "2006 Special Committee on Negro Leagues: Complete Ballot",
+    "description": "The 39 candidates considered by the 2006 Special Committee on Negro Leagues (formally the Special Committee on African-American Baseball) on February 27, 2006. A screening committee narrowed 94 initial candidates to 39. A 12-member voting committee then elected 17 with the required 75% threshold. This committee was declared the 'final group' for Negro Leagues consideration.",
+    "sources": [
+      {
+        "id": "baseballhall-2006",
+        "name": "Baseball Hall of Fame: Historic 2006 Election",
+        "url": "https://baseballhall.org/discover/inside-pitch/historic-2006-election-brings-negro-leagues-legends-to-cooperstown",
+        "accessed": "2026-05-24"
+      },
+      {
+        "id": "wikipedia-2006",
+        "name": "2006 Baseball Hall of Fame balloting (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/2006_Baseball_Hall_of_Fame_balloting",
+        "accessed": "2026-05-24"
+      },
+      {
+        "id": "bbref-2006",
+        "name": "Baseball Reference BR Bullpen: Special Committee on the Negro Leagues",
+        "url": "https://www.baseball-reference.com/bullpen/Special_Committee_on_the_Negro_Leagues",
+        "accessed": "2026-05-24"
+      },
+      {
+        "id": "baseballhall-reflect",
+        "name": "Baseball Hall of Fame: Committee Members Reflect on 2006 Election",
+        "url": "https://baseballhall.org/discover/negro-leagues-committee-members-reflect-on-2006-election",
+        "accessed": "2026-05-24"
+      }
+    ],
+    "process": {
+      "initial_pool": 94,
+      "ballot_candidates": 39,
+      "elected": 17,
+      "not_elected": 22,
+      "threshold": "75% of 12 voters (9 votes)",
+      "date": "2006-02-27",
+      "location": "Tampa, Florida",
+      "chair": "Fay Vincent (non-voting)",
+      "voters": [
+        "Todd Bolton", "Greg Bond", "Adrian Burgos", "Dick Clark",
+        "Ray Doswell", "Leslie Heaphy", "Larry Hogan", "Larry Lester",
+        "Sammy Miller", "Jim Overmyer", "Robert Peterson", "Rob Ruck"
+      ],
+      "funding": "MLB granted $250,000 in 2000 to fund a comprehensive study of African Americans in baseball (1860-1960). Research produced an 800-page narrative and statistical database covering 3,000 day-by-day records from 128 newspapers."
+    },
+    "confidence": "Documented",
+    "generated": "2026-05-24"
+  },
+  "inducted": [
+    {
+      "name": "Ray Brown",
+      "position": "P",
+      "era": "Negro Leagues",
+      "years": "1931-1946",
+      "role": "player",
+      "ch10_id": 12,
+      "ch10_careerWAR": 47.7,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Willard Brown",
+      "position": "OF",
+      "era": "Negro Leagues",
+      "years": "1935-1948",
+      "role": "player",
+      "ch10_id": 29,
+      "ch10_careerWAR": 33.4,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Andy Cooper",
+      "position": "P",
+      "era": "Negro Leagues",
+      "years": "1920-1939",
+      "role": "player",
+      "ch10_id": 49,
+      "ch10_careerWAR": 25.9,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Frank Grant",
+      "position": "2B",
+      "era": "Pre-Negro Leagues",
+      "years": "1886-1903",
+      "role": "player",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Not in Ch 10 top 50 (pre-Negro Leagues era, limited statistical record)",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Pete Hill",
+      "position": "CF",
+      "era": "Pre-Negro Leagues",
+      "years": "1904-1925",
+      "role": "player",
+      "ch10_id": 15,
+      "ch10_careerWAR": 45.2,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Biz Mackey",
+      "position": "C",
+      "era": "Negro Leagues",
+      "years": "1920-1947",
+      "role": "player",
+      "ch10_id": 41,
+      "ch10_careerWAR": 28.9,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Effa Manley",
+      "position": null,
+      "era": "Negro Leagues",
+      "years": null,
+      "role": "executive",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "note": "Owner, Newark Eagles. First woman elected to the Hall of Fame.",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Jose Mendez",
+      "position": "P",
+      "era": "Pre-Negro Leagues",
+      "years": "1907-1926",
+      "role": "player",
+      "ch10_id": 11,
+      "ch10_careerWAR": 49.1,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Alex Pompez",
+      "position": null,
+      "era": "Negro Leagues",
+      "years": null,
+      "role": "executive",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "note": "Owner, New York Cubans.",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Cumberland Posey",
+      "position": null,
+      "era": "Negro Leagues",
+      "years": null,
+      "role": "executive",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "note": "Owner and manager, Homestead Grays.",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Louis Santop",
+      "position": "C",
+      "era": "Pre-Negro Leagues",
+      "years": "1909-1926",
+      "role": "player",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Not in Ch 10 top 50",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Mule Suttles",
+      "position": "1B",
+      "era": "Negro Leagues",
+      "years": "1923-1944",
+      "role": "player",
+      "ch10_id": 19,
+      "ch10_careerWAR": 38.3,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Ben Taylor",
+      "position": "1B",
+      "era": "Pre-Negro Leagues",
+      "years": "1909-1929",
+      "role": "player",
+      "ch10_id": 27,
+      "ch10_careerWAR": 34.3,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Cristobal Torriente",
+      "position": "CF",
+      "era": "Negro Leagues",
+      "years": "1912-1932",
+      "role": "player",
+      "ch10_id": 5,
+      "ch10_careerWAR": 60.0,
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Sol White",
+      "position": null,
+      "era": "Pre-Negro Leagues",
+      "years": null,
+      "role": "pioneer",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "note": "Player, manager, executive, and historian. Author of the first history of Black baseball.",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "J.L. Wilkinson",
+      "position": null,
+      "era": "Negro Leagues",
+      "years": null,
+      "role": "executive",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "note": "Owner, Kansas City Monarchs.",
+      "source": "baseballhall.org"
+    },
+    {
+      "name": "Jud Wilson",
+      "position": "3B",
+      "era": "Negro Leagues",
+      "years": "1922-1945",
+      "role": "player",
+      "ch10_id": 13,
+      "ch10_careerWAR": 46.9,
+      "source": "baseballhall.org"
+    }
+  ],
+  "not_inducted": [
+    {
+      "name": "Newt Allen",
+      "position": "2B",
+      "years": "1922-1947",
+      "ch10_id": 21,
+      "ch10_careerWAR": 37.8,
+      "subsequent_status": "Not inducted. Ranked 9th by 42 for 21 Committee.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "John Beckwith",
+      "position": "3B",
+      "years": "1919-1937",
+      "ch10_id": 40,
+      "ch10_careerWAR": 28.9,
+      "subsequent_status": "Not inducted. Ranked 3rd by 42 for 21 Committee. Character clause reportedly influenced vote.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "William Bell",
+      "position": "P",
+      "years": "1923-1937",
+      "ch10_id": 24,
+      "ch10_careerWAR": 36.0,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Chet Brewer",
+      "position": "P",
+      "years": "1925-1948",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Bill Byrd",
+      "position": "P",
+      "years": "1933-1948",
+      "ch10_id": 33,
+      "ch10_careerWAR": 31.1,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Rap Dixon",
+      "position": "OF",
+      "years": "1922-1937",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Not in Ch 10 top 50",
+      "subsequent_status": "Not inducted. Ranked 1st by 42 for 21 Committee.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "John Donaldson",
+      "position": "P",
+      "years": "1908-1940",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Not in Ch 10 top 50. Extensive barnstorming career; Pete Gorton research documents 400+ wins.",
+      "subsequent_status": "Not inducted. On 2024 Classic Baseball Era Committee ballot, not elected. Ranked 4th by 42 for 21 Committee.",
+      "source": "wikipedia-2006, baseballhall.org, 42for21.org"
+    },
+    {
+      "name": "Sammy T. Hughes",
+      "position": "2B",
+      "years": "1930-1946",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Fats Jenkins",
+      "position": "OF",
+      "years": "1924-1940",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Dick Lundy",
+      "position": "SS",
+      "years": "1916-1937",
+      "ch10_id": 23,
+      "ch10_careerWAR": 36.8,
+      "subsequent_status": "Not inducted. Ranked 6th by 42 for 21 Committee. 100% support in expert poll.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "Oliver Marcelle",
+      "position": "3B",
+      "years": "1918-1934",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted. Character concerns documented.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Minnie Minoso",
+      "position": "OF",
+      "years": "1946-1964",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Primarily MLB career. On the 2006 Negro Leagues ballot for his early Negro Leagues service.",
+      "subsequent_status": "Inducted 2022 via Early Baseball Era Committee. Not primarily a Negro Leagues inductee.",
+      "source": "wikipedia-2006, baseballhall.org"
+    },
+    {
+      "name": "Dobie Moore",
+      "position": "SS",
+      "years": "1916-1926",
+      "ch10_id": 22,
+      "ch10_careerWAR": 37.2,
+      "subsequent_status": "Not inducted. Career cut short by gunshot wound in 1926.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Alejandro Oms",
+      "position": "OF",
+      "years": "1917-1946",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Primary record in Cuban leagues, not in Ch 10 top 50",
+      "subsequent_status": "Not inducted to Cooperstown. Cuban Baseball Hall of Fame class of 1944.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Buck O'Neil",
+      "position": "1B/Manager",
+      "years": "1937-1955",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Inducted 2022 via Early Baseball Era Committee. The Hall created the Buck O'Neil Lifetime Achievement Award in part to acknowledge his 2006 exclusion. O'Neil died October 6, 2006.",
+      "source": "wikipedia-2006, baseballhall.org"
+    },
+    {
+      "name": "Red Parnell",
+      "position": "3B",
+      "years": "1928-1950",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Spottswood Poles",
+      "position": "CF",
+      "years": "1906-1923",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Not in Ch 10 top 50. Pre-1920 documentation gap. Lost prime seasons to WWI service.",
+      "subsequent_status": "Not inducted. Ranked 9th (tied) by 42 for 21 Committee.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "Dick Redding",
+      "position": "P",
+      "years": "1911-1936",
+      "ch10_id": 18,
+      "ch10_careerWAR": 39.9,
+      "subsequent_status": "Not inducted. Ranked 2nd by 42 for 21 Committee. 91.7% support in expert poll.",
+      "source": "wikipedia-2006, 42for21.org"
+    },
+    {
+      "name": "George Scales",
+      "position": "2B",
+      "years": "1921-1946",
+      "ch10_id": 46,
+      "ch10_careerWAR": 27.0,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Candy Jim Taylor",
+      "position": "3B/Manager",
+      "years": "1904-1940",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "C.I. Taylor",
+      "position": "Manager",
+      "years": "1904-1922",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "subsequent_status": "Not inducted.",
+      "source": "wikipedia-2006"
+    },
+    {
+      "name": "Home Run Johnson",
+      "position": "SS",
+      "years": "1895-1916",
+      "ch10_id": null,
+      "ch10_careerWAR": null,
+      "ch10_note": "Pre-Negro Leagues era. Not in Ch 10 top 50.",
+      "subsequent_status": "Not inducted. Ranked 8th by 42 for 21 Committee.",
+      "source": "wikipedia-2006, 42for21.org"
+    }
+  ],
+  "summary": {
+    "total_ballot": 39,
+    "players_inducted": 12,
+    "executives_inducted": 4,
+    "pioneers_inducted": 1,
+    "not_inducted_players": 18,
+    "not_inducted_others": 4,
+    "subsequently_inducted_from_not_elected": 2,
+    "subsequently_inducted_names": ["Buck O'Neil (2022)", "Minnie Minoso (2022)"],
+    "still_not_inducted_players_with_strong_cases": [
+      "Rap Dixon", "Dick Redding", "John Beckwith", "John Donaldson",
+      "Dick Lundy", "Vic Harris", "Newt Allen", "Spottswood Poles",
+      "George Scales", "Dobie Moore"
+    ]
+  }
+}

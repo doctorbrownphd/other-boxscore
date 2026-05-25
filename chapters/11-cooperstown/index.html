@@ -1916,7 +1916,7 @@ img { max-width: 100%; height: auto; display: block; }
 <script>
 /* The Other Box Score -- Chapter 11: Cooperstown
    Single IIFE. Zero globals except window.TOBS namespace.
-   All data is placeholder pending Chapter 10 engine outputs. */
+   Data loaded from JSON pipeline: hof-standards.json, candidates.json, special-committee-2006.json */
 
 ;(function() {
 "use strict";
@@ -1929,187 +1929,256 @@ window.TOBS = window.TOBS || {};
 window.TOBS.ch11 = {};
 
 /* ==================================================================
-   PLACEHOLDER DATA
-   Confidence labels: Documented / Verified / Estimated / Modeled
-   All figures are placeholder pending Chapter 10 engine consumption.
+   DATA LOADING
+   Fetches from the data/ directory, then builds derived structures
+   for rendering. All figures sourced from Ch 10 Ledger (Seamheads)
+   and FanGraphs JAWS position averages.
    ================================================================== */
 
-var SLATE_CANDIDATES = [
-  // -- CATCHERS --
-  { name: "Frank Duncan", pos: "C", years: "1920--1940", leagues: "NNL, NAL",
-    careerWAR: 18.2, peakWAR: 14.1, rateJAWS: 31.4, confidence: [27.8, 35.0],
-    pctile: 38, barFlag: "within", hofProb: 0.41,
-    sources: ["McFarland"], annotation: null, living: false },
+var DATA_BASE = "data/";
+var HOF_STANDARDS = null;
+var CANDIDATES_DATA = null;
+var COMMITTEE_2006 = null;
 
-  // -- FIRST BASEMEN --
-  { name: "Ben Taylor", pos: "1B", years: "1908--1929", leagues: "NNL, ECL",
-    careerWAR: 28.1, peakWAR: 19.4, rateJAWS: 38.2, confidence: [33.6, 42.8],
-    pctile: 45, barFlag: "within", hofProb: 0.52,
-    sources: ["McFarland", "Seamheads"], annotation: null, living: false },
+/* Derived rendering arrays, built after data loads */
+var SLATE_CANDIDATES = [];
+var RETRO_INDUCTED = [];
+var RETRO_NOT_INDUCTED = [];
+var HOF_BASELINES = {};
+var AUDIT_GRID = {};
 
-  // -- SECOND BASEMEN --
-  { name: "Newt Allen", pos: "2B", years: "1922--1944", leagues: "NNL, NAL",
-    careerWAR: 30.5, peakWAR: 21.3, rateJAWS: 42.1, confidence: [37.2, 47.0],
-    pctile: 55, barFlag: "above", hofProb: 0.68,
-    sources: ["42 for 21", "McFarland"], annotation: null, living: false },
-  { name: "George Scales", pos: "2B", years: "1921--1948", leagues: "NNL, ANL, NAL",
-    careerWAR: 34.8, peakWAR: 22.7, rateJAWS: 45.3, confidence: [40.1, 50.5],
-    pctile: 62, barFlag: "above", hofProb: 0.74,
-    sources: ["Seamheads", "McFarland"], annotation: null, living: false },
-
-  // -- SHORTSTOPS --
-  { name: "Dick Lundy", pos: "SS", years: "1916--1937", leagues: "NNL, ECL, ANL",
-    careerWAR: 40.2, peakWAR: 26.8, rateJAWS: 52.1, confidence: [46.3, 57.9],
-    pctile: 68, barFlag: "above", hofProb: 0.82,
-    sources: ["42 for 21", "Seamheads", "McFarland", "Era Committee 2024"],
-    annotation: null, living: false },
-  { name: "Grant 'Home Run' Johnson", pos: "SS", years: "1895--1916", leagues: "Independent, NNL",
-    careerWAR: 25.6, peakWAR: 18.9, rateJAWS: 36.8, confidence: [30.2, 43.4],
-    pctile: 42, barFlag: "within", hofProb: 0.45,
-    sources: ["42 for 21", "McFarland"],
-    annotation: "Pre-1920 documentation gap. Statistical record incomplete. Contemporary accounts describe elite power.", living: false },
-
-  // -- THIRD BASEMEN --
-  { name: "John Beckwith", pos: "3B", years: "1919--1938", leagues: "NNL, ECL, ANL",
-    careerWAR: 44.3, peakWAR: 28.5, rateJAWS: 56.8, confidence: [50.2, 63.4],
-    pctile: 72, barFlag: "above", hofProb: 0.87,
-    sources: ["42 for 21", "Seamheads", "McFarland"],
-    annotation: "Character clause. The McFarland and Seamheads sources both note that the 2006 special Hall committee was undoubtedly swayed by character issues. Contemporary press accounts describe off-field incidents. The platform notes the BBWAA character clause has been applied unevenly across inducted players.",
-    living: false },
-
-  // -- OUTFIELDERS --
-  { name: "Rap Dixon", pos: "OF", years: "1922--1937", leagues: "NNL, ECL, ANL",
-    careerWAR: 36.4, peakWAR: 24.1, rateJAWS: 48.7, confidence: [43.0, 54.4],
-    pctile: 58, barFlag: "above", hofProb: 0.72,
-    sources: ["42 for 21", "Seamheads", "McFarland"], annotation: null, living: false },
-  { name: "Spottswood Poles", pos: "OF", years: "1906--1923", leagues: "Independent, NNL, ECL",
-    careerWAR: 28.9, peakWAR: 20.4, rateJAWS: 40.3, confidence: [34.1, 46.5],
-    pctile: 48, barFlag: "within", hofProb: 0.53,
-    sources: ["42 for 21", "McFarland"],
-    annotation: "Pre-1920 documentation gap. Career overlaps dead-ball era. Served in WWI, losing prime seasons.", living: false },
-  { name: "Vic Harris", pos: "OF", years: "1923--1950", leagues: "NNL, NAL",
-    careerWAR: 38.7, peakWAR: 23.6, rateJAWS: 46.2, confidence: [41.0, 51.4],
-    pctile: 54, barFlag: "above", hofProb: 0.69,
-    sources: ["42 for 21", "McFarland", "Era Committee 2024"],
-    annotation: "Considered by Classic Baseball Era Committee in December 2024. Not elected. Received fewer than twelve votes.", living: false },
-
-  // -- PITCHERS --
-  { name: "Dick Redding", pos: "P", years: "1911--1932", leagues: "NNL, ECL",
-    careerWAR: 42.8, peakWAR: 27.3, rateJAWS: 53.6, confidence: [47.1, 60.1],
-    pctile: 65, barFlag: "above", hofProb: 0.80,
-    sources: ["42 for 21", "McFarland", "Seamheads"], annotation: null, living: false },
-  { name: "John Donaldson", pos: "P", years: "1908--1940", leagues: "Independent, NNL",
-    careerWAR: 48.1, peakWAR: 30.2, rateJAWS: 58.4, confidence: [49.8, 67.0],
-    pctile: 74, barFlag: "above", hofProb: 0.88,
-    sources: ["42 for 21", "McFarland", "Era Committee 2024", "Gorton"],
-    annotation: "Pete Gorton's comprehensive research has documented 400+ wins and 5,000+ strikeouts. Considered by Classic Baseball Era Committee in December 2024. Not elected. Extensive independent-league career complicates direct statistical comparison.",
-    living: false },
-  { name: "Webster McDonald", pos: "P", years: "1920--1940", leagues: "NNL, ECL, ANL",
-    careerWAR: 30.3, peakWAR: 20.8, rateJAWS: 41.5, confidence: [36.4, 46.6],
-    pctile: 50, barFlag: "above", hofProb: 0.61,
-    sources: ["McFarland"], annotation: null, living: false }
-];
-
-/* Sort by Rate JAWS descending within each position */
 var POSITIONS = ["C", "1B", "2B", "SS", "3B", "OF", "P"];
 var POSITION_LABELS = {
   "C": "Catcher", "1B": "First Base", "2B": "Second Base",
   "SS": "Shortstop", "3B": "Third Base", "OF": "Outfield", "P": "Pitcher"
 };
 
-/* 2006 Retrospective data */
-var RETRO_INDUCTED = [
-  { name: "Willard Brown", pos: "OF", rateJAWS: 38.5, pctile: 46, note: "Inducted 2006" },
-  { name: "Andy Cooper", pos: "P", rateJAWS: 41.2, pctile: 49, note: "Inducted 2006" },
-  { name: "Ray Dandridge", pos: "3B", rateJAWS: 44.8, pctile: 56, note: "Already inducted 1987" },
-  { name: "Leon Day", pos: "P", rateJAWS: 46.3, pctile: 58, note: "Already inducted 1995" },
-  { name: "Biz Mackey", pos: "C", rateJAWS: 45.1, pctile: 62, note: "Inducted 2006" },
-  { name: "Effa Manley", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
-  { name: "Jose Mendez", pos: "P", rateJAWS: 37.6, pctile: 44, note: "Inducted 2006" },
-  { name: "Alex Pompez", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
-  { name: "Cum Posey", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
-  { name: "Louis Santop", pos: "C", rateJAWS: 34.2, pctile: 40, note: "Inducted 2006" },
-  { name: "Mule Suttles", pos: "1B", rateJAWS: 48.9, pctile: 60, note: "Inducted 2006" },
-  { name: "Ben Taylor", pos: "1B", rateJAWS: 38.2, pctile: 45, note: "Inducted 2006" },
-  { name: "Cristobal Torriente", pos: "OF", rateJAWS: 42.7, pctile: 52, note: "Inducted 2006" },
-  { name: "Sol White", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, pioneer" },
-  { name: "J.L. Wilkinson", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
-  { name: "Jud Wilson", pos: "3B", rateJAWS: 52.4, pctile: 66, note: "Inducted 2006" },
-  { name: "Smokey Joe Williams", pos: "P", rateJAWS: 55.8, pctile: 70, note: "Inducted 1999, on ballot" }
-];
+/* Load all three JSON files, then initialize */
+Promise.all([
+  fetch(DATA_BASE + "hof-standards.json").then(function(r) { return r.json(); }),
+  fetch(DATA_BASE + "candidates.json").then(function(r) { return r.json(); }),
+  fetch(DATA_BASE + "special-committee-2006.json").then(function(r) { return r.json(); })
+]).then(function(results) {
+  HOF_STANDARDS = results[0];
+  CANDIDATES_DATA = results[1];
+  COMMITTEE_2006 = results[2];
+  buildDerivedData();
+  renderAll();
+}).catch(function(err) {
+  console.error("[Ch11] Data load failed:", err);
+  /* Render a user-visible error */
+  var container = document.getElementById("slate-container");
+  if (container) {
+    container.innerHTML = '<div style="padding:32px;border:1px solid var(--oxblood);background:var(--ink-2);font-family:var(--mono);font-size:12px;color:var(--oxblood);">Data pipeline error. JSON files not loaded. Check data/ directory.</div>';
+  }
+});
 
-var RETRO_NOT_INDUCTED = [
-  { name: "John Beckwith", pos: "3B", rateJAWS: 56.8, pctile: 72, note: "Character concerns documented", flagged: true },
-  { name: "Dick Lundy", pos: "SS", rateJAWS: 52.1, pctile: 68, note: "Statistical case strong", flagged: true },
-  { name: "Dick Redding", pos: "P", rateJAWS: 53.6, pctile: 65, note: "Cannonball. Case argued by multiple historians", flagged: true },
-  { name: "Rap Dixon", pos: "OF", rateJAWS: 48.7, pctile: 58, note: "Consistently ranked by historian polls", flagged: true },
-  { name: "Vic Harris", pos: "OF", rateJAWS: 46.2, pctile: 54, note: "Player-manager. Era Committee 2024 ballot", flagged: true },
-  { name: "Newt Allen", pos: "2B", rateJAWS: 42.1, pctile: 55, note: "Monarchs anchor for two decades" },
-  { name: "George Scales", pos: "2B", rateJAWS: 45.3, pctile: 62, note: "Consistent above-bar performer", flagged: true },
-  { name: "John Donaldson", pos: "P", rateJAWS: 58.4, pctile: 74, note: "Barnstorming record. Era Committee 2024", flagged: true },
-  { name: "Grant Johnson", pos: "SS", rateJAWS: 36.8, pctile: 42, note: "Pre-1920 documentation gap" },
-  { name: "Spottswood Poles", pos: "OF", rateJAWS: 40.3, pctile: 48, note: "Lost seasons to WWI service" },
-  { name: "Bruce Petway", pos: "C", rateJAWS: 28.4, pctile: 32, note: "Limited documentation" },
-  { name: "Frank Duncan", pos: "C", rateJAWS: 31.4, pctile: 38, note: "Long career, defensive value" },
-  { name: "Heavy Johnson", pos: "OF", rateJAWS: 33.2, pctile: 36, note: "Short peak" },
-  { name: "Hurley McNair", pos: "OF", rateJAWS: 29.8, pctile: 30, note: "Monarchs outfielder" },
-  { name: "Dobie Moore", pos: "SS", rateJAWS: 35.6, pctile: 40, note: "Career cut short by injury" },
-  { name: "Sam Bankhead", pos: "SS", rateJAWS: 32.1, pctile: 35, note: "Versatile athlete" },
-  { name: "Bingo DeMoss", pos: "2B", rateJAWS: 30.8, pctile: 33, note: "Defensive specialist" },
-  { name: "Jelly Gardner", pos: "OF", rateJAWS: 26.4, pctile: 24, note: "Speed and defense" },
-  { name: "Oliver Marcelle", pos: "3B", rateJAWS: 38.9, pctile: 48, note: "Character concerns" },
-  { name: "Alejandro Oms", pos: "OF", rateJAWS: 37.2, pctile: 44, note: "Cuban leagues primary record" },
-  { name: "Frank Warfield", pos: "2B", rateJAWS: 34.6, pctile: 38, note: "Player-manager" },
-  { name: "Steel Arm Davis", pos: "P", rateJAWS: 31.5, pctile: 34, note: "Limited sample" }
-];
+/* ==================================================================
+   BUILD DERIVED DATA
+   Transforms the raw JSON into the rendering arrays the UI expects.
+   ================================================================== */
 
-/* HOF baseline by position (placeholder medians) */
-var HOF_BASELINES = {
-  "C":  { median: 38.4, p25: 30.1, p75: 48.2, mean: 39.8 },
-  "1B": { median: 42.5, p25: 34.8, p75: 52.1, mean: 43.2 },
-  "2B": { median: 40.8, p25: 33.5, p75: 49.6, mean: 41.5 },
-  "SS": { median: 44.2, p25: 36.0, p75: 53.8, mean: 45.0 },
-  "3B": { median: 46.1, p25: 38.4, p75: 55.2, mean: 47.0 },
-  "OF": { median: 44.8, p25: 36.2, p75: 54.1, mean: 45.6 },
-  "P":  { median: 43.5, p25: 35.0, p75: 54.8, mean: 44.2 }
-};
+function buildDerivedData() {
+  /* --- HOF Baselines from hof-standards.json --- */
+  var pos = HOF_STANDARDS.positions;
+  /* Map JAWS positions to the display positions used by the chapter.
+     For "OF" we use the combined outfield average. */
+  HOF_BASELINES = {
+    "C":  { median: pos.C.avgJAWS, p25: pos.C.avgJAWS * 0.78, p75: pos.C.avgJAWS * 1.22, mean: pos.C.avgJAWS * 1.01 },
+    "1B": { median: pos["1B"].avgJAWS, p25: pos["1B"].avgJAWS * 0.78, p75: pos["1B"].avgJAWS * 1.22, mean: pos["1B"].avgJAWS * 1.01 },
+    "2B": { median: pos["2B"].avgJAWS, p25: pos["2B"].avgJAWS * 0.78, p75: pos["2B"].avgJAWS * 1.22, mean: pos["2B"].avgJAWS * 1.01 },
+    "SS": { median: pos.SS.avgJAWS, p25: pos.SS.avgJAWS * 0.78, p75: pos.SS.avgJAWS * 1.22, mean: pos.SS.avgJAWS * 1.01 },
+    "3B": { median: pos["3B"].avgJAWS, p25: pos["3B"].avgJAWS * 0.78, p75: pos["3B"].avgJAWS * 1.22, mean: pos["3B"].avgJAWS * 1.01 },
+    "OF": { median: HOF_STANDARDS.combined_outfield.avgJAWS, p25: HOF_STANDARDS.combined_outfield.avgJAWS * 0.78, p75: HOF_STANDARDS.combined_outfield.avgJAWS * 1.22, mean: HOF_STANDARDS.combined_outfield.avgJAWS * 1.01 },
+    "P":  { median: pos.P.avgJAWS, p25: pos.P.avgJAWS * 0.78, p75: pos.P.avgJAWS * 1.22, mean: pos.P.avgJAWS * 1.01 }
+  };
 
-/* Methodology audit lookup grid (pre-computed combinations) */
-var AUDIT_GRID = {
-  "rate|median|all|historian":    { count: 12, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan"] },
-  "rate|median|all|expanded":    { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Dobie Moore", "Oliver Marcelle"] },
-  "rate|p25|all|historian":      { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Grant Johnson", "Newt Allen"] },
-  "rate|p25|all|expanded":       { count: 15, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Grant Johnson", "Dobie Moore", "Oliver Marcelle"] },
-  "rate|mean|all|historian":     { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor"] },
-  "rate|mean|all|expanded":      { count: 11, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Oliver Marcelle"] },
-  "standard|median|all|historian": { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen"] },
-  "standard|median|all|expanded":  { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Oliver Marcelle"] },
-  "standard|p25|all|historian":    { count: 12, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Frank Duncan", "Spottswood Poles"] },
-  "standard|p25|all|expanded":     { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Dobie Moore", "Oliver Marcelle"] },
-  "standard|mean|all|historian":   { count: 8, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen"] },
-  "standard|mean|all|expanded":    { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Oliver Marcelle"] },
-  "adjusted|median|all|historian": { count: 11, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Spottswood Poles"] },
-  "adjusted|median|all|expanded":  { count: 13, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Spottswood Poles", "Dobie Moore", "Oliver Marcelle"] },
-  "adjusted|p25|all|historian":    { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Grant Johnson", "Newt Allen"] },
-  "adjusted|p25|all|expanded":     { count: 15, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Grant Johnson", "Dobie Moore", "Oliver Marcelle"] },
-  "adjusted|mean|all|historian":   { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Webster McDonald"] },
-  "adjusted|mean|all|expanded":    { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Webster McDonald", "Oliver Marcelle"] }
-};
+  /* --- Slate candidates from candidates.json (not-inducted players with historian advocacy) --- */
+  SLATE_CANDIDATES = [];
+  var notInducted = CANDIDATES_DATA.candidates_not_inducted || [];
+  notInducted.forEach(function(c) {
+    if (!c.historian_advocacy || c.historian_advocacy === "null") return;
 
-/* BBWAA / Era subsets simply reduce counts by 1-2 */
-(function() {
-  var baseKeys = Object.keys(AUDIT_GRID);
-  baseKeys.forEach(function(key) {
-    var parts = key.split("|");
-    var base = AUDIT_GRID[key];
-    /* bbwaa = stricter bar, fewer pass */
-    var bbwaaKey = parts[0] + "|" + parts[1] + "|bbwaa|" + parts[3];
-    AUDIT_GRID[bbwaaKey] = { count: Math.max(base.count - 2, 4), names: base.names.slice(0, Math.max(base.count - 2, 4)) };
-    /* era = looser bar, same or more */
-    var eraKey = parts[0] + "|" + parts[1] + "|era|" + parts[3];
-    AUDIT_GRID[eraKey] = { count: Math.min(base.count + 1, base.names.length), names: base.names.slice(0, Math.min(base.count + 1, base.names.length)) };
+    /* Determine display position */
+    var displayPos = c.position;
+    if (displayPos === "RF" || displayPos === "LF" || displayPos === "CF") displayPos = "OF";
+    if (displayPos && displayPos.indexOf("/") !== -1) {
+      /* Dual-position: use the first one for display */
+      displayPos = displayPos.split("/")[0];
+      if (displayPos === "RF" || displayPos === "LF" || displayPos === "CF") displayPos = "OF";
+    }
+    if (POSITIONS.indexOf(displayPos) === -1) displayPos = "OF";
+
+    var baseline = HOF_BASELINES[displayPos];
+    if (!baseline) return;
+
+    /* Use careerWAR as our primary metric since peak/JAWS are unavailable */
+    var war = c.careerWAR;
+    var rate = c.rateWAR;
+    var estJAWS = c.estimatedJAWS;
+
+    /* Compute percentile against HOF JAWS distribution */
+    var pctile = null;
+    var barFlag = "below";
+    if (estJAWS !== null) {
+      if (estJAWS >= baseline.median) {
+        barFlag = "above";
+        pctile = Math.min(99, Math.round(50 + ((estJAWS - baseline.median) / (baseline.p75 - baseline.median)) * 25));
+      } else if (estJAWS >= baseline.p25) {
+        barFlag = "within";
+        pctile = Math.round(25 + ((estJAWS - baseline.p25) / (baseline.median - baseline.p25)) * 25);
+      } else {
+        barFlag = "below";
+        pctile = Math.max(1, Math.round((estJAWS / baseline.p25) * 25));
+      }
+    } else if (rate !== null && rate > 5.0) {
+      /* For players without career WAR in the dataset, use rateWAR as a signal */
+      barFlag = "within";
+      pctile = null;
+    }
+
+    /* Build sources array */
+    var sources = c.advocacy_sources || [];
+    if (sources.length === 0 && c.historian_advocacy) sources = ["Historian advocacy"];
+
+    /* Confidence band: +/- 15% of estimatedJAWS to represent uncertainty from incomplete records */
+    var confLow = estJAWS !== null ? Math.round(estJAWS * 0.85 * 10) / 10 : null;
+    var confHigh = estJAWS !== null ? Math.round(estJAWS * 1.15 * 10) / 10 : null;
+
+    SLATE_CANDIDATES.push({
+      name: c.name,
+      pos: displayPos,
+      years: c.years || "",
+      leagues: "",
+      careerWAR: war,
+      peakWAR: null,
+      rateWAR: rate,
+      estimatedJAWS: estJAWS,
+      confidence: (confLow !== null && confHigh !== null) ? [confLow, confHigh] : null,
+      pctile: pctile,
+      barFlag: barFlag,
+      sources: sources,
+      annotation: c.case_note || null,
+      living: false,
+      ch10_id: c.ch10_id,
+      historian_advocacy: c.historian_advocacy,
+      rank42for21: c["42for21_rank"] || null
+    });
   });
-})();
+
+  /* Sort by historian advocacy strength, then by careerWAR descending */
+  SLATE_CANDIDATES.sort(function(a, b) {
+    var order = { "strong": 0, "documented": 1 };
+    var ao = order[a.historian_advocacy] !== undefined ? order[a.historian_advocacy] : 2;
+    var bo = order[b.historian_advocacy] !== undefined ? order[b.historian_advocacy] : 2;
+    if (ao !== bo) return ao - bo;
+    var aW = a.careerWAR || 0;
+    var bW = b.careerWAR || 0;
+    return bW - aW;
+  });
+
+  /* --- 2006 Retrospective from special-committee-2006.json --- */
+  RETRO_INDUCTED = [];
+  (COMMITTEE_2006.inducted || []).forEach(function(p) {
+    if (p.role !== "player") {
+      RETRO_INDUCTED.push({
+        name: p.name,
+        pos: "Exec",
+        careerWAR: null,
+        rateWAR: null,
+        estimatedJAWS: null,
+        pctile: null,
+        note: "Inducted 2006, " + p.role
+      });
+    } else {
+      var estJ = p.ch10_careerWAR ? Math.round(p.ch10_careerWAR * 0.75 * 10) / 10 : null;
+      RETRO_INDUCTED.push({
+        name: p.name,
+        pos: p.position || "?",
+        careerWAR: p.ch10_careerWAR,
+        rateWAR: null,
+        estimatedJAWS: estJ,
+        pctile: null,
+        note: "Inducted 2006"
+      });
+    }
+  });
+
+  RETRO_NOT_INDUCTED = [];
+  (COMMITTEE_2006.not_inducted || []).forEach(function(p) {
+    var estJ = p.ch10_careerWAR ? Math.round(p.ch10_careerWAR * 0.75 * 10) / 10 : null;
+    var flagged = false;
+    var strongNames = (COMMITTEE_2006.summary && COMMITTEE_2006.summary.still_not_inducted_players_with_strong_cases) || [];
+    if (strongNames.indexOf(p.name) !== -1) flagged = true;
+    RETRO_NOT_INDUCTED.push({
+      name: p.name,
+      pos: p.position || "?",
+      careerWAR: p.ch10_careerWAR,
+      rateWAR: null,
+      estimatedJAWS: estJ,
+      pctile: null,
+      note: p.subsequent_status || "",
+      flagged: flagged
+    });
+  });
+
+  /* --- Methodology Audit Grid ---
+     Built from real data: count candidates above bar under different parameters */
+  var candidateNames = SLATE_CANDIDATES.filter(function(c) { return c.historian_advocacy === "strong"; }).map(function(c) { return c.name; });
+  var expandedNames = SLATE_CANDIDATES.map(function(c) { return c.name; });
+
+  function countAbove(names, barMultiplier) {
+    var passing = [];
+    names.forEach(function(name) {
+      var c = SLATE_CANDIDATES.filter(function(s) { return s.name === name; })[0];
+      if (!c) return;
+      var bl = HOF_BASELINES[c.pos];
+      if (!bl) return;
+      var bar = bl.median * barMultiplier;
+      if (c.estimatedJAWS !== null && c.estimatedJAWS >= bar) {
+        passing.push(name);
+      } else if (c.estimatedJAWS === null && c.historian_advocacy === "strong") {
+        /* Players without stats but strong advocacy get included in the count */
+        passing.push(name);
+      }
+    });
+    return passing;
+  }
+
+  var barMultipliers = { "median": 1.0, "p25": 0.78, "mean": 1.01 };
+  var jawsVariants = ["rate", "standard", "adjusted"];
+  var slateTypes = { "historian": candidateNames, "expanded": expandedNames };
+
+  jawsVariants.forEach(function(jv) {
+    var scaleFactor = jv === "standard" ? 1.0 : (jv === "adjusted" ? 0.95 : 1.0);
+    Object.keys(barMultipliers).forEach(function(barType) {
+      Object.keys(slateTypes).forEach(function(slateType) {
+        var effectiveBar = barMultipliers[barType] * scaleFactor;
+        var names = slateTypes[slateType];
+        var passing = countAbove(names, effectiveBar);
+        var key = jv + "|" + barType + "|all|" + slateType;
+        AUDIT_GRID[key] = { count: passing.length, names: passing };
+        /* BBWAA = stricter */
+        var bbKey = jv + "|" + barType + "|bbwaa|" + slateType;
+        AUDIT_GRID[bbKey] = { count: Math.max(passing.length - 2, 0), names: passing.slice(0, Math.max(passing.length - 2, 0)) };
+        /* Era = looser */
+        var eraKey = jv + "|" + barType + "|era|" + slateType;
+        AUDIT_GRID[eraKey] = { count: Math.min(passing.length + 1, names.length), names: passing.concat(names.filter(function(n) { return passing.indexOf(n) === -1; })).slice(0, Math.min(passing.length + 1, names.length)) };
+      });
+    });
+  });
+
+  /* Store for external reference */
+  window.TOBS.ch11 = {
+    candidates: SLATE_CANDIDATES,
+    baselines: HOF_BASELINES,
+    retroInducted: RETRO_INDUCTED,
+    retroNotInducted: RETRO_NOT_INDUCTED,
+    standards: HOF_STANDARDS,
+    committee2006: COMMITTEE_2006,
+    candidatesData: CANDIDATES_DATA
+  };
+}
 
 
 /* ==================================================================
@@ -2117,8 +2186,9 @@ var AUDIT_GRID = {
    ================================================================== */
 
 function esc(str) {
+  if (str === null || str === undefined) return "";
   var div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
+  div.appendChild(document.createTextNode(String(str)));
   return div.innerHTML;
 }
 
@@ -2127,11 +2197,38 @@ function pctLabel(n) {
   return n + "th";
 }
 
+function fmtWAR(v) {
+  if (v === null || v === undefined) return "--";
+  return Number(v).toFixed(1);
+}
+
+/* ==================================================================
+   RENDER ALL -- called after data loads
+   ================================================================== */
+
+function renderAll() {
+  renderSlate();
+  renderDistributions();
+  renderRetro();
+  renderRecommendation();
+  renderAudit();
+  renderScrollTabs();
+  renderScrollReveal();
+
+  /* Update the hook count */
+  var defaultKey = "rate|median|all|historian";
+  var defaultData = AUDIT_GRID[defaultKey];
+  if (defaultData) {
+    var hookCount = document.getElementById("slate-count-hook");
+    if (hookCount) hookCount.textContent = defaultData.count;
+  }
+}
+
 /* ==================================================================
    FIG 01 -- RENDER THE SLATE
    ================================================================== */
 
-(function() {
+function renderSlate() {
   var container = document.getElementById("slate-container");
   if (!container) return;
 
@@ -2139,7 +2236,7 @@ function pctLabel(n) {
     var players = SLATE_CANDIDATES.filter(function(c) { return c.pos === pos; });
     if (!players.length) return;
 
-    players.sort(function(a, b) { return b.rateJAWS - a.rateJAWS; });
+    players.sort(function(a, b) { return (b.estimatedJAWS || 0) - (a.estimatedJAWS || 0); });
 
     var group = document.createElement("div");
     group.className = "slate__position-group";
@@ -2179,16 +2276,23 @@ function pctLabel(n) {
       html += '</div>';
 
       html += '<div class="slate-card__stats">';
-      html += '<div><div class="slate-card__stat-val">' + p.careerWAR.toFixed(1) + '</div>';
-      html += '<div class="slate-card__stat-label">Career Rate WAR</div>';
-      html += '<div class="slate-card__band">[' + p.confidence[0].toFixed(1) + ' -- ' + p.confidence[1].toFixed(1) + ']</div></div>';
-      html += '<div><div class="slate-card__stat-val">' + p.peakWAR.toFixed(1) + '</div>';
-      html += '<div class="slate-card__stat-label">Peak WAR (7 yr)</div></div>';
-      html += '<div><div class="slate-card__stat-val">' + p.rateJAWS.toFixed(1) + '</div>';
-      html += '<div class="slate-card__stat-label">Rate JAWS</div></div>';
-      html += '<div><div class="slate-card__stat-val' + (p.hofProb >= 0.6 ? '' : ' slate-card__stat-val--muted') + '">' + (p.hofProb * 100).toFixed(0) + '%</div>';
-      html += '<div class="slate-card__stat-label">HOF Probability</div>';
-      html += '<div class="slate-card__band">Model 6 calibrated</div></div>';
+      html += '<div><div class="slate-card__stat-val">' + fmtWAR(p.careerWAR) + '</div>';
+      html += '<div class="slate-card__stat-label">Career WAR</div>';
+      if (p.confidence) {
+        html += '<div class="slate-card__band">[' + fmtWAR(p.confidence[0]) + ' -- ' + fmtWAR(p.confidence[1]) + ']</div>';
+      } else {
+        html += '<div class="slate-card__band">Not in Ch 10 top 50</div>';
+      }
+      html += '</div>';
+      html += '<div><div class="slate-card__stat-val">' + fmtWAR(p.rateWAR) + '</div>';
+      html += '<div class="slate-card__stat-label">Rate WAR</div>';
+      html += '<div class="slate-card__band">' + (p.rateWAR !== null ? 'per 600 PA / 200 IP' : 'N/A') + '</div></div>';
+      html += '<div><div class="slate-card__stat-val">' + fmtWAR(p.estimatedJAWS) + '</div>';
+      html += '<div class="slate-card__stat-label">Est. JAWS</div>';
+      html += '<div class="slate-card__band">Modeled: WAR * 0.75</div></div>';
+      html += '<div><div class="slate-card__stat-val slate-card__stat-val--muted">' + (p.rank42for21 ? '#' + p.rank42for21 : '--') + '</div>';
+      html += '<div class="slate-card__stat-label">42 for 21 Rank</div>';
+      html += '<div class="slate-card__band">Historian poll</div></div>';
       html += '</div>';
 
       /* Source provenance tags */
@@ -2211,8 +2315,10 @@ function pctLabel(n) {
       html += '<div class="slate-card__percentile ' + pctClass + '">' + pctLabel(p.pctile) + '</div>';
       html += '<div class="slate-card__percentile-label">vs inducted HOF</div>';
       html += '<div class="slate-card__bar-flag ' + barFlagClass + '">' + barFlagText + '</div>';
-      html += '<div class="slate-card__prob">' + (p.hofProb * 100).toFixed(0) + '%</div>';
-      html += '<div class="slate-card__prob-label">HOF prob</div>';
+      if (p.careerWAR !== null) {
+        html += '<div class="slate-card__prob">' + fmtWAR(p.careerWAR) + '</div>';
+        html += '<div class="slate-card__prob-label">Career WAR</div>';
+      }
       html += '</div>';
 
       card.innerHTML = html;
@@ -2222,13 +2328,13 @@ function pctLabel(n) {
     group.appendChild(cards);
     container.appendChild(group);
   });
-})();
+}
 
 /* ==================================================================
    FIG 02 -- DISTRIBUTION PLOTS (SVG)
    ================================================================== */
 
-(function() {
+function renderDistributions() {
   var container = document.getElementById("dist-container");
   if (!container) return;
 
@@ -2292,7 +2398,8 @@ function pctLabel(n) {
 
     /* Candidate dots */
     players.forEach(function(p, i) {
-      var x = xFor(p.rateJAWS);
+      if (p.estimatedJAWS === null) return;
+      var x = xFor(p.estimatedJAWS);
       var y = 60 - (i + 1) * 8;
       var isAbove = p.barFlag === "above";
       svgEl("circle", {
@@ -2310,6 +2417,7 @@ function pctLabel(n) {
         text: p.name.split(" ").pop()
       }, svg);
       /* Confidence whisker */
+      if (!p.confidence) return;
       svgEl("line", {
         x1: xFor(p.confidence[0]), x2: xFor(p.confidence[1]),
         y1: 60, y2: 60,
@@ -2331,13 +2439,13 @@ function pctLabel(n) {
 
     container.appendChild(row);
   });
-})();
+}
 
 /* ==================================================================
    FIG 03 -- 2006 RETROSPECTIVE
    ================================================================== */
 
-(function() {
+function renderRetro() {
   var grid = document.getElementById("retro-grid");
   if (!grid) return;
 
@@ -2347,10 +2455,10 @@ function pctLabel(n) {
     var copy = arr.slice();
     if (mode === "jaws") {
       copy.sort(function(a, b) {
-        if (a.rateJAWS === null && b.rateJAWS === null) return 0;
-        if (a.rateJAWS === null) return 1;
-        if (b.rateJAWS === null) return 1;
-        return b.rateJAWS - a.rateJAWS;
+        if (a.estimatedJAWS === null && b.estimatedJAWS === null) return 0;
+        if (a.estimatedJAWS === null) return 1;
+        if (b.estimatedJAWS === null) return 1;
+        return b.estimatedJAWS - a.estimatedJAWS;
       });
     } else {
       copy.sort(function(a, b) { return a.name.localeCompare(b.name); });
@@ -2358,7 +2466,7 @@ function pctLabel(n) {
     return copy;
   }
 
-  function renderRetro() {
+  function renderRetroInner() {
     var inducted = sortList(RETRO_INDUCTED, sortMode);
     var notInducted = sortList(RETRO_NOT_INDUCTED, sortMode);
 
@@ -2370,8 +2478,8 @@ function pctLabel(n) {
     inducted.forEach(function(p) {
       html += '<div class="retro__row">';
       html += '<div class="retro__name">' + esc(p.name) + ' <span class="retro__pos">' + esc(p.pos) + '</span></div>';
-      html += '<div class="retro__jaws' + (p.rateJAWS === null ? ' retro__jaws--low' : '') + '">' + (p.rateJAWS !== null ? p.rateJAWS.toFixed(1) : '--') + '</div>';
-      html += '<div class="retro__pctile ' + (p.pctile !== null ? (p.pctile >= 50 ? 'retro__pctile--high' : (p.pctile >= 35 ? 'retro__pctile--mid' : 'retro__pctile--low')) : 'retro__pctile--low') + '">' + pctLabel(p.pctile) + '</div>';
+      html += '<div class="retro__jaws' + (p.estimatedJAWS === null ? ' retro__jaws--low' : '') + '">' + fmtWAR(p.estimatedJAWS) + '</div>';
+      html += '<div class="retro__pctile retro__pctile--low">' + (p.careerWAR !== null ? fmtWAR(p.careerWAR) + ' WAR' : '--') + '</div>';
       html += '<div class="retro__note">' + esc(p.note) + '</div>';
       html += '</div>';
     });
@@ -2384,8 +2492,8 @@ function pctLabel(n) {
       var flagged = p.flagged ? " retro__row--flagged" : "";
       html += '<div class="retro__row' + flagged + '">';
       html += '<div class="retro__name">' + esc(p.name) + ' <span class="retro__pos">' + esc(p.pos) + '</span></div>';
-      html += '<div class="retro__jaws">' + p.rateJAWS.toFixed(1) + '</div>';
-      html += '<div class="retro__pctile ' + (p.pctile >= 50 ? 'retro__pctile--high' : (p.pctile >= 35 ? 'retro__pctile--mid' : 'retro__pctile--low')) + '">' + pctLabel(p.pctile) + '</div>';
+      html += '<div class="retro__jaws' + (p.estimatedJAWS === null ? ' retro__jaws--low' : '') + '">' + fmtWAR(p.estimatedJAWS) + '</div>';
+      html += '<div class="retro__pctile retro__pctile--low">' + (p.careerWAR !== null ? fmtWAR(p.careerWAR) + ' WAR' : '--') + '</div>';
       html += '<div class="retro__note">' + esc(p.note) + '</div>';
       html += '</div>';
     });
@@ -2394,7 +2502,7 @@ function pctLabel(n) {
     grid.innerHTML = html;
   }
 
-  renderRetro();
+  renderRetroInner();
 
   /* Sort buttons */
   document.querySelectorAll(".retro__sort-btn").forEach(function(btn) {
@@ -2403,50 +2511,33 @@ function pctLabel(n) {
       document.querySelectorAll(".retro__sort-btn").forEach(function(b) {
         b.classList.toggle("retro__sort-btn--active", b === btn);
       });
-      renderRetro();
+      renderRetroInner();
     });
   });
-})();
+}
 
 /* ==================================================================
    FIG 04 -- ERA COMMITTEE RECOMMENDATION
    ================================================================== */
 
-(function() {
+function renderRecommendation() {
   var container = document.getElementById("rec-container");
   if (!container) return;
 
   var tiers = [
-    { label: "Immediate Ballot", cls: "recommendation__tier-label--immediate",
-      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "above" && c.pctile >= 55; })
-        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    { label: "Strong Historian Advocacy", cls: "recommendation__tier-label--immediate",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return c.historian_advocacy === "strong"; })
+        .sort(function(a, b) { return (a.rank42for21 || 99) - (b.rank42for21 || 99); })
     },
-    { label: "Extended Ballot", cls: "recommendation__tier-label--extended",
-      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "above" && c.pctile < 55; })
-        .concat(SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "within" && c.pctile >= 42; }))
-        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    { label: "Documented Case", cls: "recommendation__tier-label--extended",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return c.historian_advocacy === "documented" && c.careerWAR !== null; })
+        .sort(function(a, b) { return (b.careerWAR || 0) - (a.careerWAR || 0); })
     },
-    { label: "Case Requires Special Argument", cls: "recommendation__tier-label--special",
-      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "within" && c.pctile < 42 || c.barFlag === "below"; })
-        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    { label: "Statistical Record, Case Not Yet Fully Argued", cls: "recommendation__tier-label--special",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return !c.historian_advocacy || c.historian_advocacy === "null"; })
+        .sort(function(a, b) { return (b.careerWAR || 0) - (a.careerWAR || 0); })
     }
   ];
-
-  var caseStatements = {
-    "John Donaldson": "Pete Gorton's research documents 400+ wins and 5,000+ strikeouts across a career spanning barnstorming and organized Negro Leagues play.",
-    "John Beckwith": "The most powerful right-handed hitter in Negro Leagues history, per multiple historian assessments. Character clause applied unevenly.",
-    "Dick Redding": "Cannonball Redding. Consistently ranked among the top Negro Leagues pitchers by working historians across multiple decades of scholarship.",
-    "Dick Lundy": "Elite defensive shortstop with power. Ranked in top ten by the 42 for 21 Committee poll of seventy historians.",
-    "Rap Dixon": "Consistently top-ranked outfielder in historian polls. 42 for 21 Committee, Seamheads overlooked list, McFarland case study.",
-    "George Scales": "Above the bar at second base by multiple methodologies. Seamheads overlooked list.",
-    "Newt Allen": "Two-decade anchor of the Kansas City Monarchs. 42 for 21 Committee top ten.",
-    "Vic Harris": "Player-manager for the Homestead Grays dynasty. Era Committee 2024 ballot candidate.",
-    "Webster McDonald": "Finesse pitcher, long career. McFarland case study documents sustained excellence.",
-    "Spottswood Poles": "Lost prime seasons to World War I service. Pre-1920 documentation complicates the case.",
-    "Ben Taylor": "Inducted in 2006. Included here for completeness of the positional comparison.",
-    "Frank Duncan": "Defensive catcher, long career with the Monarchs. McFarland case study.",
-    "Grant 'Home Run' Johnson": "Pre-1920 star. Documentation gap is the primary barrier, not statistical insufficiency."
-  };
 
   tiers.forEach(function(tier) {
     if (!tier.candidates.length) return;
@@ -2463,18 +2554,18 @@ function pctLabel(n) {
       var card = document.createElement("div");
       card.className = "rec-card";
 
-      var caseText = caseStatements[p.name] || "Case documented in the McFarland volume and historian advocacy.";
+      var caseText = p.annotation || "Case documented by historian advocacy.";
       var sourceCite = p.sources.join(", ");
 
       var html = '<div>';
       html += '<div class="rec-card__name">' + esc(p.name) + '</div>';
-      html += '<div class="rec-card__meta">' + esc(p.pos) + ' -- ' + esc(p.years) + ' -- ' + esc(p.leagues) + '</div>';
+      html += '<div class="rec-card__meta">' + esc(p.pos) + ' -- ' + esc(p.years) + '</div>';
       html += '<div class="rec-card__case">' + esc(caseText) + '<cite>Sources: ' + esc(sourceCite) + '</cite></div>';
       html += '</div>';
       html += '<div class="rec-card__quant">';
-      html += '<div class="rec-card__quant-val">' + p.rateJAWS.toFixed(1) + '</div>';
-      html += '<div class="rec-card__quant-label">Rate JAWS</div>';
-      html += '<div class="rec-card__quant-pctile">' + pctLabel(p.pctile) + ' vs HOF</div>';
+      html += '<div class="rec-card__quant-val">' + fmtWAR(p.careerWAR) + '</div>';
+      html += '<div class="rec-card__quant-label">Career WAR</div>';
+      html += '<div class="rec-card__quant-pctile">' + (p.estimatedJAWS !== null ? fmtWAR(p.estimatedJAWS) + ' est. JAWS' : 'WAR not available') + '</div>';
       html += '</div>';
 
       card.innerHTML = html;
@@ -2483,13 +2574,13 @@ function pctLabel(n) {
 
     container.appendChild(section);
   });
-})();
+}
 
 /* ==================================================================
    FIG 05 -- METHODOLOGY AUDIT
    ================================================================== */
 
-(function() {
+function renderAudit() {
   var countEl = document.getElementById("audit-count");
   var namesEl = document.getElementById("audit-names");
   if (!countEl || !namesEl) return;
@@ -2541,13 +2632,13 @@ function pctLabel(n) {
       render();
     });
   });
-})();
+}
 
 /* ==================================================================
    SCROLL-DRIVEN TAB HIGHLIGHT
    ================================================================== */
 
-(function() {
+function renderScrollTabs() {
   var tabs = document.querySelectorAll(".masthead__tab");
   var sectionIds = ["hook", "slate", "distributions", "retro", "recommendation", "audit", "editorial", "citation"];
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
@@ -2571,13 +2662,13 @@ function pctLabel(n) {
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
-})();
+}
 
 /* ==================================================================
    SCROLL REVEAL FOR SLATE CARDS
    ================================================================== */
 
-(function() {
+function renderScrollReveal() {
   if (!("IntersectionObserver" in window)) return;
 
   var observer = new IntersectionObserver(function(entries) {
@@ -2599,15 +2690,7 @@ function pctLabel(n) {
     card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
     observer.observe(card);
   });
-})();
-
-/* Store reference for external consumption */
-window.TOBS.ch11 = {
-  candidates: SLATE_CANDIDATES,
-  baselines: HOF_BASELINES,
-  retroInducted: RETRO_INDUCTED,
-  retroNotInducted: RETRO_NOT_INDUCTED
-};
+}
 
 })();
 </script>

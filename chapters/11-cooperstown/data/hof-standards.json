@@ -1,0 +1,123 @@
+{
+  "_metadata": {
+    "title": "JAWS Position-by-Position Hall of Fame Standards",
+    "description": "Average career WAR, 7-year peak WAR, and JAWS (Jaffe WAR Score) for inducted Hall of Famers at each position. JAWS is calculated as the average of career WAR and 7-year peak WAR. These figures represent the 'bar' that candidates are measured against.",
+    "sources": [
+      {
+        "id": "fangraphs-jaws",
+        "name": "FanGraphs JAWS Series by Jay Jaffe",
+        "urls": [
+          "https://blogs.fangraphs.com/jaws-and-the-2024-hall-of-fame-ballot-joe-mauer/",
+          "https://blogs.fangraphs.com/jaws-and-the-2024-hall-of-fame-ballot-todd-helton/",
+          "https://blogs.fangraphs.com/jaws-and-the-2025-hall-of-fame-ballot-chase-utley/",
+          "https://blogs.fangraphs.com/jaws-and-the-2020-hall-of-fame-ballot-derek-jeter/",
+          "https://blogs.fangraphs.com/jaws-and-the-2025-hall-of-fame-ballot-david-wright/",
+          "https://blogs.fangraphs.com/jaws-and-the-2025-hall-of-fame-ballot-manny-ramirez-and-alex-rodriguez/",
+          "https://blogs.fangraphs.com/jaws-and-the-2026-hall-of-fame-ballot-andruw-jones/",
+          "https://blogs.fangraphs.com/jaws-and-the-2024-hall-of-fame-ballot-gary-sheffield/",
+          "https://blogs.fangraphs.com/jaws-and-the-2025-hall-of-fame-ballot-cc-sabathia/"
+        ],
+        "accessed": "2026-05-24",
+        "note": "Position averages extracted from Jay Jaffe's individual candidate JAWS profiles, each of which includes the 'Avg. HOF [position]' row."
+      },
+      {
+        "id": "bbref-jaws",
+        "name": "Baseball Reference JAWS System",
+        "url": "https://www.baseball-reference.com/about/jaws.shtml",
+        "accessed": "2026-05-24"
+      }
+    ],
+    "methodology_notes": [
+      "JAWS = (career WAR + 7-year peak WAR) / 2.",
+      "Position averages include all players inducted as of the 2025 ballot cycle.",
+      "For positions with fewer inductees, the JAWS system adds 'average HOF hitters' to equalize sample sizes across positions.",
+      "Outfield positions (LF, CF, RF) are tracked separately in the JAWS system. For Negro Leagues players classified generically as 'OF' or 'CF', the CF standard is used as the primary comparison.",
+      "Starting pitchers use S-JAWS, a variant that adjusts for the 7-year peak calculation specific to pitching."
+    ],
+    "confidence": "Documented",
+    "generated": "2026-05-24"
+  },
+  "positions": {
+    "C": {
+      "label": "Catcher",
+      "avgCareerWAR": 53.6,
+      "avgPeakWAR": 34.9,
+      "avgJAWS": 44.3,
+      "source": "FanGraphs JAWS: Joe Mauer (2024), Brian McCann (2025)",
+      "confidence": "Documented"
+    },
+    "1B": {
+      "label": "First Base",
+      "avgCareerWAR": 65.0,
+      "avgPeakWAR": 41.8,
+      "avgJAWS": 53.4,
+      "source": "FanGraphs JAWS: Todd Helton (2024)",
+      "confidence": "Documented"
+    },
+    "2B": {
+      "label": "Second Base",
+      "avgCareerWAR": 69.7,
+      "avgPeakWAR": 44.5,
+      "avgJAWS": 57.1,
+      "source": "FanGraphs JAWS: Chase Utley (2025)",
+      "confidence": "Documented"
+    },
+    "SS": {
+      "label": "Shortstop",
+      "avgCareerWAR": 67.7,
+      "avgPeakWAR": 43.2,
+      "avgJAWS": 55.5,
+      "source": "FanGraphs JAWS: Derek Jeter (2020), Manny Ramirez/A-Rod (2025)",
+      "confidence": "Documented"
+    },
+    "3B": {
+      "label": "Third Base",
+      "avgCareerWAR": 69.4,
+      "avgPeakWAR": 43.3,
+      "avgJAWS": 56.3,
+      "source": "FanGraphs JAWS: David Wright (2025)",
+      "confidence": "Documented"
+    },
+    "LF": {
+      "label": "Left Field",
+      "avgCareerWAR": 65.1,
+      "avgPeakWAR": 41.6,
+      "avgJAWS": 53.4,
+      "source": "FanGraphs JAWS: Manny Ramirez (2025)",
+      "confidence": "Documented"
+    },
+    "CF": {
+      "label": "Center Field",
+      "avgCareerWAR": 71.7,
+      "avgPeakWAR": 44.7,
+      "avgJAWS": 58.2,
+      "source": "FanGraphs JAWS: Carlos Beltran (2025), Andruw Jones (2026)",
+      "confidence": "Documented"
+    },
+    "RF": {
+      "label": "Right Field",
+      "avgCareerWAR": 71.1,
+      "avgPeakWAR": 42.4,
+      "avgJAWS": 56.7,
+      "source": "FanGraphs JAWS: Gary Sheffield (2024)",
+      "confidence": "Documented"
+    },
+    "P": {
+      "label": "Starting Pitcher",
+      "avgCareerWAR": 73.0,
+      "avgPeakWAR": 40.7,
+      "avgJAWS": 56.9,
+      "source": "FanGraphs JAWS: CC Sabathia (2025). Uses S-JAWS variant.",
+      "confidence": "Documented",
+      "note": "S-JAWS is the pitcher-specific variant. The 'standard' JAWS for pitchers differs slightly from position player JAWS in its peak calculation."
+    }
+  },
+  "combined_outfield": {
+    "label": "Outfield (combined LF/CF/RF average)",
+    "avgCareerWAR": 69.3,
+    "avgPeakWAR": 42.9,
+    "avgJAWS": 56.1,
+    "note": "Simple average of LF, CF, RF standards. Used as the comparison for Negro Leagues players classified generically as 'OF'.",
+    "confidence": "Estimated"
+  }
+}
