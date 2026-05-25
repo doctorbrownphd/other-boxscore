@@ -1,0 +1,740 @@
+{
+  "_metadata": {
+    "title": "Chapter 10: UMAP Embedding of 70-Player Comparable Universe",
+    "description": "2D embedding of 50 NLB and 20 MLB players for the comparable universe map. Players near each other in the embedding had similar statistical profiles.",
+    "method": "UMAP",
+    "method_params": {
+      "n_components": 2,
+      "n_neighbors": 15,
+      "min_dist": 0.3,
+      "metric": "euclidean",
+      "random_state": 42
+    },
+    "features": [
+      "BA (or inverted ERA for pitchers)",
+      "OBP (or W-L% for pitchers)",
+      "SLG (or inverted ERA for pitchers)",
+      "OPS (or W-L% for pitchers)",
+      "Career WAR",
+      "Rate WAR per 600 PA (or per 200 IP for pitchers)"
+    ],
+    "normalization": "Z-score (mean 0, std 1) per feature",
+    "missing_data": "Players with missing stats had those dimensions imputed with the column median. Imputed players are flagged.",
+    "coordinate_range": "0.0 to 1.0 (rescaled from raw UMAP output)",
+    "sources": [
+      "chapters/10-the-ledger/data/players.json",
+      "chapters/10-the-ledger/data/mlb-comparisons.json"
+    ],
+    "generated": "2026-05-25",
+    "record_count": 70,
+    "ai_disclosure": "Embedding coordinates are produced by UMAP, an unsupervised dimensionality reduction algorithm. Player positions reflect statistical similarity, not subjective ranking."
+  },
+  "players": [
+    {
+      "name": "Oscar Charleston",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 78.3,
+      "hof": "inducted",
+      "x": 0.1288,
+      "y": 0.2853,
+      "player_type": "batter"
+    },
+    {
+      "name": "Martin Dihigo",
+      "league": "NLB",
+      "position": "RF/P",
+      "careerWAR": 70.0,
+      "hof": "inducted",
+      "x": 0.0664,
+      "y": 0.3141,
+      "player_type": "batter"
+    },
+    {
+      "name": "Willie Wells",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 69.5,
+      "hof": "inducted",
+      "x": 0.0766,
+      "y": 0.1798,
+      "player_type": "batter"
+    },
+    {
+      "name": "Josh Gibson",
+      "league": "NLB",
+      "position": "C",
+      "careerWAR": 60.2,
+      "hof": "inducted",
+      "x": 0.1075,
+      "y": 0.3241,
+      "player_type": "batter"
+    },
+    {
+      "name": "Cristobal Torriente",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 60.0,
+      "hof": "inducted",
+      "x": 0.0656,
+      "y": 0.2186,
+      "player_type": "batter"
+    },
+    {
+      "name": "Turkey Stearnes",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 58.7,
+      "hof": "inducted",
+      "x": 0.1094,
+      "y": 0.2731,
+      "player_type": "batter"
+    },
+    {
+      "name": "Bullet Rogan",
+      "league": "NLB",
+      "position": "CF/P",
+      "careerWAR": 57.1,
+      "hof": "inducted",
+      "x": 0.0652,
+      "y": 0.2895,
+      "player_type": "batter"
+    },
+    {
+      "name": "Joe Williams",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 55.2,
+      "hof": "inducted",
+      "x": 0.9175,
+      "y": 0.8351,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "John Henry Lloyd",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 54.8,
+      "hof": "inducted",
+      "x": 0.0304,
+      "y": 0.1348,
+      "player_type": "batter"
+    },
+    {
+      "name": "Satchel Paige",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 53.6,
+      "hof": "inducted",
+      "x": 0.9076,
+      "y": 0.8716,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Jose Mendez",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 49.1,
+      "hof": "inducted",
+      "x": 0.8919,
+      "y": 0.8285,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Ray Brown",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 47.7,
+      "hof": "inducted",
+      "x": 0.9289,
+      "y": 0.9437,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Jud Wilson",
+      "league": "NLB",
+      "position": "3B",
+      "careerWAR": 46.9,
+      "hof": "inducted",
+      "x": 0.0945,
+      "y": 0.1473,
+      "player_type": "batter"
+    },
+    {
+      "name": "Cool Papa Bell",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 46.1,
+      "hof": "inducted",
+      "x": 0.0196,
+      "y": 0.0322,
+      "player_type": "batter"
+    },
+    {
+      "name": "Pete Hill",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 45.2,
+      "hof": "inducted",
+      "x": 0.034,
+      "y": 0.1922,
+      "player_type": "batter"
+    },
+    {
+      "name": "Ramon Bragana",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 44.5,
+      "hof": "eligible",
+      "x": 0.9709,
+      "y": 0.935,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Eustaquio Pedroso",
+      "league": "NLB",
+      "position": "1B",
+      "careerWAR": 40.3,
+      "hof": "eligible",
+      "x": 0.0675,
+      "y": 0.0868,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "Dick Redding",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 39.9,
+      "hof": "inducted",
+      "x": 0.9525,
+      "y": 0.854,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Mule Suttles",
+      "league": "NLB",
+      "position": "1B",
+      "careerWAR": 38.3,
+      "hof": "inducted",
+      "x": 0.1083,
+      "y": 0.1867,
+      "player_type": "batter"
+    },
+    {
+      "name": "Willie Foster",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 38.0,
+      "hof": "inducted",
+      "x": 0.9326,
+      "y": 0.8651,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Newt Allen",
+      "league": "NLB",
+      "position": "2B",
+      "careerWAR": 37.8,
+      "hof": "eligible",
+      "x": 0.0561,
+      "y": 0.0679,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "Dobie Moore",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 37.2,
+      "hof": "eligible",
+      "x": 0.0599,
+      "y": 0.2852,
+      "player_type": "batter"
+    },
+    {
+      "name": "Dick Lundy",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 36.8,
+      "hof": "inducted",
+      "x": 0.0254,
+      "y": 0.1086,
+      "player_type": "batter"
+    },
+    {
+      "name": "William Bell",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 36.0,
+      "hof": "eligible",
+      "x": 0.9454,
+      "y": 0.9673,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Jesus Valenzuela",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 35.6,
+      "hof": "eligible",
+      "x": 0.9576,
+      "y": 0.8885,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Buck Leonard",
+      "league": "NLB",
+      "position": "1B",
+      "careerWAR": 34.4,
+      "hof": "inducted",
+      "x": 0.1055,
+      "y": 0.2298,
+      "player_type": "batter"
+    },
+    {
+      "name": "Ben Taylor",
+      "league": "NLB",
+      "position": "1B",
+      "careerWAR": 34.3,
+      "hof": "inducted",
+      "x": 0.0242,
+      "y": 0.0719,
+      "player_type": "batter"
+    },
+    {
+      "name": "Lazaro Salazar",
+      "league": "NLB",
+      "position": "1B/P",
+      "careerWAR": 34.3,
+      "hof": "eligible",
+      "x": 0.039,
+      "y": 0.2493,
+      "player_type": "batter"
+    },
+    {
+      "name": "Willard Brown",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 33.4,
+      "hof": "inducted",
+      "x": 0.0818,
+      "y": 0.2879,
+      "player_type": "batter"
+    },
+    {
+      "name": "Wild Bill Wright",
+      "league": "NLB",
+      "position": "CF",
+      "careerWAR": 33.2,
+      "hof": "eligible",
+      "x": 0.0927,
+      "y": 0.0694,
+      "player_type": "batter"
+    },
+    {
+      "name": "Juan Padron",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 33.0,
+      "hof": "eligible",
+      "x": 0.9414,
+      "y": 0.8182,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Carlos Moran",
+      "league": "NLB",
+      "position": "3B",
+      "careerWAR": 32.7,
+      "hof": "eligible",
+      "x": 0.0185,
+      "y": 0.2013,
+      "player_type": "batter"
+    },
+    {
+      "name": "Bill Byrd",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 31.1,
+      "hof": "eligible",
+      "x": 0.978,
+      "y": 0.9555,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Jose Munoz",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 30.8,
+      "hof": "eligible",
+      "x": 0.9071,
+      "y": 0.7994,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Sam Bankhead",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 30.5,
+      "hof": "eligible",
+      "x": 0.067,
+      "y": 0.0141,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "Hilton Smith",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 30.3,
+      "hof": "inducted",
+      "x": 0.9379,
+      "y": 0.9131,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Bill Holland",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 30.2,
+      "hof": "eligible",
+      "x": 1.0,
+      "y": 0.9475,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Nip Winters",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 29.7,
+      "hof": "eligible",
+      "x": 0.9696,
+      "y": 0.9885,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Hurley McNair",
+      "league": "NLB",
+      "position": "RF",
+      "careerWAR": 29.5,
+      "hof": "eligible",
+      "x": 0.0,
+      "y": 0.0612,
+      "player_type": "batter"
+    },
+    {
+      "name": "John Beckwith",
+      "league": "NLB",
+      "position": "3B",
+      "careerWAR": 28.9,
+      "hof": "eligible",
+      "x": 0.0913,
+      "y": 0.2257,
+      "player_type": "batter"
+    },
+    {
+      "name": "Biz Mackey",
+      "league": "NLB",
+      "position": "C",
+      "careerWAR": 28.9,
+      "hof": "inducted",
+      "x": 0.0082,
+      "y": 0.0218,
+      "player_type": "batter"
+    },
+    {
+      "name": "Carlos Royer",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 28.6,
+      "hof": "eligible",
+      "x": 0.9008,
+      "y": 0.7967,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Barney Brown",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 28.0,
+      "hof": "eligible",
+      "x": 0.9916,
+      "y": 0.9272,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Pelayo Chacon",
+      "league": "NLB",
+      "position": "SS",
+      "careerWAR": 27.4,
+      "hof": "eligible",
+      "x": 0.0775,
+      "y": 0.0,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "Henry McHenry",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 27.2,
+      "hof": "eligible",
+      "x": 0.0806,
+      "y": 0.0341,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "George Scales",
+      "league": "NLB",
+      "position": "2B",
+      "careerWAR": 27.0,
+      "hof": "eligible",
+      "x": 0.0427,
+      "y": 0.0173,
+      "player_type": "batter"
+    },
+    {
+      "name": "Leon Day",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 26.8,
+      "hof": "inducted",
+      "x": 0.9574,
+      "y": 0.9774,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Leroy Matlock",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 26.2,
+      "hof": "eligible",
+      "x": 0.9998,
+      "y": 0.9717,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Andy Cooper",
+      "league": "NLB",
+      "position": "P",
+      "careerWAR": 25.9,
+      "hof": "inducted",
+      "x": 0.9823,
+      "y": 1.0,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Judy Johnson",
+      "league": "NLB",
+      "position": "3B",
+      "careerWAR": 25.0,
+      "hof": "inducted",
+      "x": 0.0565,
+      "y": 0.023,
+      "player_type": "unknown",
+      "imputed": true
+    },
+    {
+      "name": "Babe Ruth",
+      "league": "MLB",
+      "position": "OF/P",
+      "careerWAR": 182.6,
+      "hof": "inducted",
+      "x": 0.1298,
+      "y": 0.409,
+      "player_type": "batter"
+    },
+    {
+      "name": "Walter Johnson",
+      "league": "MLB",
+      "position": "P",
+      "careerWAR": 165.2,
+      "hof": "inducted",
+      "x": 0.8816,
+      "y": 0.8562,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Ty Cobb",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 151.4,
+      "hof": "inducted",
+      "x": 0.1745,
+      "y": 0.4205,
+      "player_type": "batter"
+    },
+    {
+      "name": "Honus Wagner",
+      "league": "MLB",
+      "position": "SS",
+      "careerWAR": 130.8,
+      "hof": "inducted",
+      "x": 0.1901,
+      "y": 0.3719,
+      "player_type": "batter"
+    },
+    {
+      "name": "Rogers Hornsby",
+      "league": "MLB",
+      "position": "2B",
+      "careerWAR": 127.1,
+      "hof": "inducted",
+      "x": 0.1418,
+      "y": 0.3973,
+      "player_type": "batter"
+    },
+    {
+      "name": "Lou Gehrig",
+      "league": "MLB",
+      "position": "1B",
+      "careerWAR": 112.4,
+      "hof": "inducted",
+      "x": 0.1368,
+      "y": 0.3517,
+      "player_type": "batter"
+    },
+    {
+      "name": "Lefty Grove",
+      "league": "MLB",
+      "position": "P",
+      "careerWAR": 106.8,
+      "hof": "inducted",
+      "x": 0.9128,
+      "y": 0.9325,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Christy Mathewson",
+      "league": "MLB",
+      "position": "P",
+      "careerWAR": 105.9,
+      "hof": "inducted",
+      "x": 0.8762,
+      "y": 0.8531,
+      "player_type": "pitcher"
+    },
+    {
+      "name": "Jimmie Foxx",
+      "league": "MLB",
+      "position": "1B",
+      "careerWAR": 96.2,
+      "hof": "inducted",
+      "x": 0.1482,
+      "y": 0.307,
+      "player_type": "batter"
+    },
+    {
+      "name": "Ted Williams",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 121.8,
+      "hof": "inducted",
+      "x": 0.1351,
+      "y": 0.3753,
+      "player_type": "batter"
+    },
+    {
+      "name": "Joe DiMaggio",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 79.1,
+      "hof": "inducted",
+      "x": 0.1324,
+      "y": 0.2611,
+      "player_type": "batter"
+    },
+    {
+      "name": "Mickey Mantle",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 110.3,
+      "hof": "inducted",
+      "x": 0.1623,
+      "y": 0.331,
+      "player_type": "batter"
+    },
+    {
+      "name": "Willie Mays",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 156.2,
+      "hof": "inducted",
+      "x": 0.1645,
+      "y": 0.3919,
+      "player_type": "batter"
+    },
+    {
+      "name": "Hank Aaron",
+      "league": "MLB",
+      "position": "OF",
+      "careerWAR": 143.1,
+      "hof": "inducted",
+      "x": 0.1806,
+      "y": 0.368,
+      "player_type": "batter"
+    },
+    {
+      "name": "Jackie Robinson",
+      "league": "MLB",
+      "position": "2B",
+      "careerWAR": 61.5,
+      "hof": "inducted",
+      "x": 0.051,
+      "y": 0.1791,
+      "player_type": "batter"
+    },
+    {
+      "name": "Johnny Bench",
+      "league": "MLB",
+      "position": "C",
+      "careerWAR": 75.2,
+      "hof": "inducted",
+      "x": 0.0018,
+      "y": 0.144,
+      "player_type": "batter"
+    },
+    {
+      "name": "Mike Schmidt",
+      "league": "MLB",
+      "position": "3B",
+      "careerWAR": 106.8,
+      "hof": "inducted",
+      "x": 0.1777,
+      "y": 0.3214,
+      "player_type": "batter"
+    },
+    {
+      "name": "Ernie Banks",
+      "league": "MLB",
+      "position": "SS/1B",
+      "careerWAR": 67.5,
+      "hof": "inducted",
+      "x": 0.0066,
+      "y": 0.1065,
+      "player_type": "batter"
+    },
+    {
+      "name": "Mickey Cochrane",
+      "league": "MLB",
+      "position": "C",
+      "careerWAR": 53.2,
+      "hof": "inducted",
+      "x": 0.0481,
+      "y": 0.0977,
+      "player_type": "batter"
+    },
+    {
+      "name": "Cy Young",
+      "league": "MLB",
+      "position": "P",
+      "careerWAR": 163.6,
+      "hof": "inducted",
+      "x": 0.8895,
+      "y": 0.895,
+      "player_type": "pitcher"
+    }
+  ]
+}
