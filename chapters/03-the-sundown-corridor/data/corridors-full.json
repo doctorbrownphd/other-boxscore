@@ -1,0 +1,2797 @@
+{
+  "metadata": {
+    "title": "Negro Leagues Travel Corridor Danger Scores (Full)",
+    "description": "Danger scores for every city-pair travel corridor observed in the 1936-1948 Negro Leagues schedule. Each corridor is analyzed by counting documented sundown towns within 5 miles of the great-circle route between cities.",
+    "methodology": {
+      "corridor_radius_miles": 5,
+      "evidence_weights": {
+        "Confirmed": 1.0,
+        "Probable": 0.7,
+        "Possible": 0.4
+      },
+      "normalization": "Weighted town count per 100 route miles, scaled to 0-1 (8.0 weighted towns per 100mi = 1.0)",
+      "upper_bound": "Danger score multiplied by 2.5x to estimate undocumented sundown towns, capped at 1.0",
+      "lower_bound": "Confirmed-only towns, same normalization",
+      "route_geometry": "Great-circle distance between city pairs. Period-accurate road routing would increase distances."
+    },
+    "source": {
+      "sundown_towns": "Scientific Data (2025) geocoded dataset, DOI: 10.1038/s41597-024-04330-9",
+      "game_locations": "Seamheads Negro Leagues Database, SABR Ballparks Database"
+    },
+    "total_corridors": 34,
+    "processed_date": "2026-05-25"
+  },
+  "corridors": [
+    {
+      "from": "Baltimore, MD",
+      "to": "Washington, D.C.",
+      "route_distance_miles": 34.1,
+      "danger_score": 1.0,
+      "danger_lower_bound": 0.734,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 2,
+      "towns_probable": 3,
+      "towns_possible": 0,
+      "weighted_count": 4.1,
+      "nearby_towns": [
+        {
+          "name": "University Park",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 1.3
+        },
+        {
+          "name": "Savage",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 1.9
+        },
+        {
+          "name": "Greenbelt",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 2.1
+        }
+      ]
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Indianapolis, IN",
+      "route_distance_miles": 161.4,
+      "danger_score": 0.883,
+      "danger_lower_bound": 0.387,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 15,
+      "towns_confirmed": 5,
+      "towns_probable": 8,
+      "towns_possible": 2,
+      "weighted_count": 11.4,
+      "nearby_towns": [
+        {
+          "name": "Frankfort",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Crown Point",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Rossville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Zionsville",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Highland",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Whiting",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Monon",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Merrillville",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Schererville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Delphi",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Hebron",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Munster",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Whitestown",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Monticello",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Speedway",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 4.3
+        }
+      ]
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Memphis, TN",
+      "route_distance_miles": 480.3,
+      "danger_score": 0.656,
+      "danger_lower_bound": 0.364,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 33,
+      "towns_confirmed": 14,
+      "towns_probable": 12,
+      "towns_possible": 7,
+      "weighted_count": 25.2,
+      "nearby_towns": [
+        {
+          "name": "Manteno",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Elco",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Zeigler",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Iuka",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Buckner",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Carterville",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Peotone",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Onarga",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.3
+        },
+        {
+          "name": "Christopher",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Paxton",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Anna",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Rantoul",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Tolono",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.8
+        },
+        {
+          "name": "Valier",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.8
+        },
+        {
+          "name": "Buckley",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Crainville",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Jonesboro",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Royalton",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Herrin",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Effingham",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Sesser",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Orient",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Arthur",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "West City",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "Oak Lawn",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "East Prairie",
+          "state": "MO",
+          "evidence": "Probable",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "Mulkeytown",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.4
+        },
+        {
+          "name": "Dongola",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.5
+        },
+        {
+          "name": "Neoga",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Tuscola",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 4.8
+        },
+        {
+          "name": "Atwood",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 5.0
+        },
+        {
+          "name": "Benton",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 5.0
+        },
+        {
+          "name": "West City",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "St. Louis, MO",
+      "route_distance_miles": 259.5,
+      "danger_score": 0.607,
+      "danger_lower_bound": 0.337,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 18,
+      "towns_confirmed": 7,
+      "towns_probable": 4,
+      "towns_possible": 7,
+      "weighted_count": 12.6,
+      "nearby_towns": [
+        {
+          "name": "Granite City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Granite City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Roxana",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Manhattan",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Roxana",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Gillespie",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Oak Lawn",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Madison",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.9
+        },
+        {
+          "name": "Orland Park",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Le Roy",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Kenney",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Wood River",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Niantic",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Warrensburg",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Staunton",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.3
+        },
+        {
+          "name": "Bunker Hill",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.4
+        },
+        {
+          "name": "Glen Carbon",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.8
+        },
+        {
+          "name": "Mount Olive",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "Philadelphia, PA",
+      "to": "Washington, D.C.",
+      "route_distance_miles": 120.4,
+      "danger_score": 0.54,
+      "danger_lower_bound": 0.104,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 7,
+      "towns_confirmed": 1,
+      "towns_probable": 6,
+      "towns_possible": 0,
+      "weighted_count": 5.2,
+      "nearby_towns": [
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Greenbelt",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "University Park",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Crofton",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 4.7
+        }
+      ]
+    },
+    {
+      "from": "Newark, NJ",
+      "to": "Philadelphia, PA",
+      "route_distance_miles": 76.8,
+      "danger_score": 0.488,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Levittown",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 4.4
+        }
+      ]
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Kansas City, MO",
+      "route_distance_miles": 699.9,
+      "danger_score": 0.452,
+      "danger_lower_bound": 0.089,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 43,
+      "towns_confirmed": 5,
+      "towns_probable": 17,
+      "towns_possible": 21,
+      "weighted_count": 25.3,
+      "nearby_towns": [
+        {
+          "name": "Ashland",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Westlake",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Kenney",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Bellevue",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Buckner",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Mansfield",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Lakewood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Rocky River",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Avon",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Athens",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Amherst",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Meredosia",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Arenzville",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Walton",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Ashland",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Potomac",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Rantoul",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Delphi",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Ottawa",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Vermilion",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Camden",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Flora",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Mahomet",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "North Olmsted",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Bay Village",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Ossian",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "South Amherst",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Cantrall",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Brooklyn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Williamsville",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Clyde",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Grove City",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Decatur",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Sugar Creek",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "De Land",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "DeLand",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "North Baltimore",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "West Lafayette",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.1
+        },
+        {
+          "name": "Avon Lake",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 4.1
+        },
+        {
+          "name": "Huron",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Farmer City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Sheffield Lake",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        }
+      ]
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Indianapolis, IN",
+      "route_distance_miles": 262.2,
+      "danger_score": 0.419,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 16,
+      "towns_confirmed": 0,
+      "towns_probable": 8,
+      "towns_possible": 8,
+      "weighted_count": 8.8,
+      "nearby_towns": [
+        {
+          "name": "North Olmsted",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Farmland",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Fortville",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 1.7
+        },
+        {
+          "name": "Lakewood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Wapakoneta",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Brooklyn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Rocky River",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Alger",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Middletown",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Parker City",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Westlake",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Upper Sandusky",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "South Amherst",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "Avon",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        },
+        {
+          "name": "Pendleton",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "New York, NY",
+      "to": "Philadelphia, PA",
+      "route_distance_miles": 91.3,
+      "danger_score": 0.397,
+      "danger_lower_bound": 0.137,
+      "danger_upper_bound": 0.993,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 1,
+      "towns_probable": 1,
+      "towns_possible": 3,
+      "weighted_count": 2.9,
+      "nearby_towns": [
+        {
+          "name": "Levittown",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Levittown/Willingboro",
+          "state": "NJ",
+          "evidence": "Confirmed",
+          "distance_miles": 4.6
+        }
+      ]
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Cleveland, OH",
+      "route_distance_miles": 307.9,
+      "danger_score": 0.374,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.934,
+      "towns_within_5mi": 17,
+      "towns_confirmed": 0,
+      "towns_probable": 8,
+      "towns_possible": 9,
+      "weighted_count": 9.2,
+      "nearby_towns": [
+        {
+          "name": "Lakewood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 1.3
+        },
+        {
+          "name": "Avon Lake",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Bay Village",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Sheffield Lake",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Rocky River",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Long Beach",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Fremont",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "Middlebury",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "LaGrange",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "New Carlisle",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.1
+        },
+        {
+          "name": "Ottawa Hills",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Westlake",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Brooklyn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        },
+        {
+          "name": "Avon",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Mishawaka",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.9
+        },
+        {
+          "name": "Oak Harbor",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "Newark, NJ",
+      "to": "Washington, D.C.",
+      "route_distance_miles": 196.0,
+      "danger_score": 0.37,
+      "danger_lower_bound": 0.064,
+      "danger_upper_bound": 0.925,
+      "towns_within_5mi": 10,
+      "towns_confirmed": 1,
+      "towns_probable": 4,
+      "towns_possible": 5,
+      "weighted_count": 5.8,
+      "nearby_towns": [
+        {
+          "name": "Greenbelt",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "University Park",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Hatboro",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Green Brook",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        }
+      ]
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Kansas City, MO",
+      "route_distance_miles": 412.6,
+      "danger_score": 0.364,
+      "danger_lower_bound": 0.121,
+      "danger_upper_bound": 0.909,
+      "towns_within_5mi": 18,
+      "towns_confirmed": 4,
+      "towns_probable": 8,
+      "towns_possible": 6,
+      "weighted_count": 12.0,
+      "nearby_towns": [
+        {
+          "name": "Romeoville",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Sugar Creek",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Carthage",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Lemont",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Henry",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Burr Ridge",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Warsaw",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Bolingbrook",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Plainfield",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Darien",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "Lyons",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Cicero",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Oak Lawn",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.3
+        },
+        {
+          "name": "Woodridge",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 4.4
+        },
+        {
+          "name": "Berwyn",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Buckner",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Western Springs",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.9
+        },
+        {
+          "name": "North Kansas City",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.9
+        }
+      ]
+    },
+    {
+      "from": "New York, NY",
+      "to": "Washington, D.C.",
+      "route_distance_miles": 210.8,
+      "danger_score": 0.362,
+      "danger_lower_bound": 0.059,
+      "danger_upper_bound": 0.904,
+      "towns_within_5mi": 10,
+      "towns_confirmed": 1,
+      "towns_probable": 5,
+      "towns_possible": 4,
+      "weighted_count": 6.1,
+      "nearby_towns": [
+        {
+          "name": "Greenbelt",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "University Park",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.7
+        },
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.9
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "Hatboro",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 4.4
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Chicago, IL",
+      "route_distance_miles": 575.9,
+      "danger_score": 0.358,
+      "danger_lower_bound": 0.109,
+      "danger_upper_bound": 0.895,
+      "towns_within_5mi": 24,
+      "towns_confirmed": 5,
+      "towns_probable": 13,
+      "towns_possible": 6,
+      "weighted_count": 16.5,
+      "nearby_towns": [
+        {
+          "name": "Fairview Park",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Cullman County",
+          "state": "AL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Good Hope",
+          "state": "AL",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Farmersburg",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Crete",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Cayuga",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Petersburg",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Bicknell",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Crete",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Shelburn",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Cullman",
+          "state": "AL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Beecher",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "West Terre Haute",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Grant Park",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Montezuma",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Willowbrook",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Livermore",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Hymera",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Covington",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "Winslow",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Kentland",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.3
+        },
+        {
+          "name": "Fairview",
+          "state": "TN",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Dyer",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Morocco",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.9
+        }
+      ]
+    },
+    {
+      "from": "New York, NY",
+      "to": "Newark, NJ",
+      "route_distance_miles": 15.0,
+      "danger_score": 0.334,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.834,
+      "towns_within_5mi": 1,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 1,
+      "weighted_count": 0.4,
+      "nearby_towns": [
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.4
+        }
+      ]
+    },
+    {
+      "from": "Indianapolis, IN",
+      "to": "Kansas City, MO",
+      "route_distance_miles": 452.9,
+      "danger_score": 0.298,
+      "danger_lower_bound": 0.138,
+      "danger_upper_bound": 0.745,
+      "towns_within_5mi": 15,
+      "towns_confirmed": 5,
+      "towns_probable": 6,
+      "towns_possible": 4,
+      "weighted_count": 10.8,
+      "nearby_towns": [
+        {
+          "name": "Danville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Fairview Park",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Assumption",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Speedway",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Girard",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "White Hall",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.7
+        },
+        {
+          "name": "Sullivan",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.8
+        },
+        {
+          "name": "Farmer City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Oakland",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Virden",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Buckner",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Blue Springs",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Thayer",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.8
+        },
+        {
+          "name": "Brownsburg",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 4.9
+        },
+        {
+          "name": "Sugar Creek",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.9
+        }
+      ]
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Memphis, TN",
+      "route_distance_miles": 630.7,
+      "danger_score": 0.287,
+      "danger_lower_bound": 0.079,
+      "danger_upper_bound": 0.718,
+      "towns_within_5mi": 25,
+      "towns_confirmed": 4,
+      "towns_probable": 7,
+      "towns_possible": 14,
+      "weighted_count": 14.5,
+      "nearby_towns": [
+        {
+          "name": "Shawnee",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Sellersburg",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Brooklyn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Aurora",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Greendale",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Petersburg",
+          "state": "KY",
+          "evidence": "Confirmed",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Centertown",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Middletown",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Parma Heights",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Fairborn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Clarksville",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Strongsville",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Kettering",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "Mount Gilead",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "Galion",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Greenhills",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Lakewood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Parma",
+          "state": "OH",
+          "evidence": "Confirmed",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Dillsboro",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Corydon",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Galena",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 4.8
+        },
+        {
+          "name": "North Olmsted",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.9
+        },
+        {
+          "name": "Trenton",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.9
+        },
+        {
+          "name": "Bridgetown",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "Indianapolis, IN",
+      "to": "Memphis, TN",
+      "route_distance_miles": 385.5,
+      "danger_score": 0.259,
+      "danger_lower_bound": 0.13,
+      "danger_upper_bound": 0.649,
+      "towns_within_5mi": 11,
+      "towns_confirmed": 4,
+      "towns_probable": 4,
+      "towns_possible": 3,
+      "weighted_count": 8.0,
+      "nearby_towns": [
+        {
+          "name": "Ellettsville",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Brooklyn",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Martinsville",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Petersburg",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Odon",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "Calvert City",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "Mooresville",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Cave-in-Rock",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Lamb",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Stinesville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.5
+        },
+        {
+          "name": "Haubstadt",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 4.7
+        }
+      ]
+    },
+    {
+      "from": "Memphis, TN",
+      "to": "St. Louis, MO",
+      "route_distance_miles": 240.8,
+      "danger_score": 0.244,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.61,
+      "towns_within_5mi": 8,
+      "towns_confirmed": 0,
+      "towns_probable": 5,
+      "towns_possible": 3,
+      "weighted_count": 4.7,
+      "nearby_towns": [
+        {
+          "name": "Monroe County",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Waterloo",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Columbia",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Dupo",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Campbell",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "St. Francis",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Senath",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Manila",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 4.8
+        }
+      ]
+    },
+    {
+      "from": "Baltimore, MD",
+      "to": "New York, NY",
+      "route_distance_miles": 177.6,
+      "danger_score": 0.211,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.528,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Hatboro",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        }
+      ]
+    },
+    {
+      "from": "Pittsburgh, PA",
+      "to": "Washington, D.C.",
+      "route_distance_miles": 191.2,
+      "danger_score": 0.209,
+      "danger_lower_bound": 0.065,
+      "danger_upper_bound": 0.523,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 1,
+      "towns_probable": 2,
+      "towns_possible": 2,
+      "weighted_count": 3.2,
+      "nearby_towns": [
+        {
+          "name": "Irwin",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Chevy Chase",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 4.0
+        }
+      ]
+    },
+    {
+      "from": "Baltimore, MD",
+      "to": "Newark, NJ",
+      "route_distance_miles": 162.7,
+      "danger_score": 0.207,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.519,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 1,
+      "towns_possible": 5,
+      "weighted_count": 2.7,
+      "nearby_towns": [
+        {
+          "name": "Hatboro",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Green Brook",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.7
+        }
+      ]
+    },
+    {
+      "from": "Baltimore, MD",
+      "to": "Philadelphia, PA",
+      "route_distance_miles": 88.1,
+      "danger_score": 0.199,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.496,
+      "towns_within_5mi": 2,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 0,
+      "weighted_count": 1.4,
+      "nearby_towns": [
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Cleveland, OH",
+      "route_distance_miles": 618.0,
+      "danger_score": 0.196,
+      "danger_lower_bound": 0.02,
+      "danger_upper_bound": 0.49,
+      "towns_within_5mi": 16,
+      "towns_confirmed": 1,
+      "towns_probable": 9,
+      "towns_possible": 6,
+      "weighted_count": 9.7,
+      "nearby_towns": [
+        {
+          "name": "Jamestown",
+          "state": "TN",
+          "evidence": "Probable",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Parma Heights",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Loudonville",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Mount Vernon",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Brooklyn",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Brunswick",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Parma",
+          "state": "OH",
+          "evidence": "Confirmed",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Strongsville",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Oneonta",
+          "state": "AL",
+          "evidence": "Probable",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Utica",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Palmer",
+          "state": "TN",
+          "evidence": "Probable",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Tracy City",
+          "state": "TN",
+          "evidence": "Probable",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Burnside",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Seven Hills",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.1
+        },
+        {
+          "name": "Jeffersonville",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 4.4
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Indianapolis, IN",
+      "route_distance_miles": 434.1,
+      "danger_score": 0.173,
+      "danger_lower_bound": 0.058,
+      "danger_upper_bound": 0.432,
+      "towns_within_5mi": 9,
+      "towns_confirmed": 2,
+      "towns_probable": 4,
+      "towns_possible": 3,
+      "weighted_count": 6.0,
+      "nearby_towns": [
+        {
+          "name": "Campbellsburg",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Hanceville",
+          "state": "AL",
+          "evidence": "Probable",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Milltown",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Leavenworth",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Marengo",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Greenwood",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Beech Grove",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Morgantown",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "New Whiteland",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        }
+      ]
+    },
+    {
+      "from": "Kansas City, MO",
+      "to": "Memphis, TN",
+      "route_distance_miles": 368.1,
+      "danger_score": 0.16,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.399,
+      "towns_within_5mi": 8,
+      "towns_confirmed": 0,
+      "towns_probable": 5,
+      "towns_possible": 3,
+      "weighted_count": 4.7,
+      "nearby_towns": [
+        {
+          "name": "Williford",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Black Rock",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Hardy",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Portia",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Mountain Grove",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "Imboden",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Deepwater",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Thayer",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        }
+      ]
+    },
+    {
+      "from": "Philadelphia, PA",
+      "to": "Pittsburgh, PA",
+      "route_distance_miles": 258.3,
+      "danger_score": 0.145,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.363,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Johnstown",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Coatesville",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Adams",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.7
+        }
+      ]
+    },
+    {
+      "from": "Kansas City, MO",
+      "to": "St. Louis, MO",
+      "route_distance_miles": 238.1,
+      "danger_score": 0.136,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.341,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 3,
+      "weighted_count": 2.6,
+      "nearby_towns": [
+        {
+          "name": "Blue Springs",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Creve Coeur",
+          "state": "MO",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Concordia",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Hermann",
+          "state": "MO",
+          "evidence": "Probable",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Shrewsbury",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.4
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "St. Louis, MO",
+      "route_distance_miles": 400.1,
+      "danger_score": 0.131,
+      "danger_lower_bound": 0.062,
+      "danger_upper_bound": 0.328,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 2,
+      "towns_probable": 2,
+      "towns_possible": 2,
+      "weighted_count": 4.2,
+      "nearby_towns": [
+        {
+          "name": "Wolf Lake",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Elco",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "Red Bud",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Dupo",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Evansville",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 4.7
+        },
+        {
+          "name": "Chester",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 4.8
+        }
+      ]
+    },
+    {
+      "from": "New York, NY",
+      "to": "Pittsburgh, PA",
+      "route_distance_miles": 320.1,
+      "danger_score": 0.109,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.273,
+      "towns_within_5mi": 7,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 7,
+      "weighted_count": 2.8,
+      "nearby_towns": [
+        {
+          "name": "Nazareth",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.2
+        },
+        {
+          "name": "Long Valley",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.4
+        },
+        {
+          "name": "Llewellyn Park",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Clifton",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Clifton",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Bellwood",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Kansas City, MO",
+      "route_distance_miles": 577.5,
+      "danger_score": 0.093,
+      "danger_lower_bound": 0.022,
+      "danger_upper_bound": 0.233,
+      "towns_within_5mi": 7,
+      "towns_confirmed": 1,
+      "towns_probable": 3,
+      "towns_possible": 3,
+      "weighted_count": 4.3,
+      "nearby_towns": [
+        {
+          "name": "Belmont",
+          "state": "MS",
+          "evidence": "Possible",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Nauvoo",
+          "state": "AL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Manila",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Oak Grove Heights",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Warsaw",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Leachville",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "Lake Lotawana",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.3
+        }
+      ]
+    },
+    {
+      "from": "Newark, NJ",
+      "to": "Pittsburgh, PA",
+      "route_distance_miles": 307.0,
+      "danger_score": 0.077,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.193,
+      "towns_within_5mi": 4,
+      "towns_confirmed": 0,
+      "towns_probable": 1,
+      "towns_possible": 3,
+      "weighted_count": 1.9,
+      "nearby_towns": [
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 4.1
+        },
+        {
+          "name": "Allegheny",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        }
+      ]
+    },
+    {
+      "from": "Baltimore, MD",
+      "to": "Pittsburgh, PA",
+      "route_distance_miles": 196.6,
+      "danger_score": 0.076,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.191,
+      "towns_within_5mi": 3,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 3,
+      "weighted_count": 1.2,
+      "nearby_towns": [
+        {
+          "name": "Irwin",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Johnston",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 5.0
+        }
+      ]
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Memphis, TN",
+      "route_distance_miles": 216.4,
+      "danger_score": 0.0,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.0,
+      "towns_within_5mi": 0,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 0,
+      "weighted_count": 0.0,
+      "nearby_towns": []
+    }
+  ]
+}

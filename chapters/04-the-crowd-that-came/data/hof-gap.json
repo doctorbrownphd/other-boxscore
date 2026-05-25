@@ -1,0 +1,4785 @@
+{
+  "metadata": {
+    "title": "East-West All-Star HOF Gap Analysis",
+    "description": "For each player who appeared in an East-West All-Star Game (1933-1948), whether they were inducted into the Baseball Hall of Fame and, if not, whether their Rate JAWS score suggests HOF-caliber credentials.",
+    "methodology": {
+      "roster_source": "Retrosheet Negro League East-West All-Star Game box scores",
+      "gap_criteria": "Players not inducted whose Rate JAWS rank is in the top 50 of 70 evaluated Negro Leaguers are flagged. Rate JAWS methodology from Ch 10 (The Ledger).",
+      "limitations": [
+        "Rate JAWS scores are available for 70 Negro Leaguers. Many East-West participants lack sufficient statistical data for evaluation.",
+        "HOF induction reflects committee decisions through 2024. Future committees may induct additional players.",
+        "Gap flag is model output, not a claim that a player should have been inducted."
+      ]
+    },
+    "summary": {
+      "total_unique_players": 194,
+      "hof_inducted": 27,
+      "gap_flagged": 10,
+      "no_data_available": 157
+    },
+    "source": {
+      "rosters": "Retrosheet (retrosheet.org/NegroLeagues/EastWest.html)",
+      "rate_jaws": "Ch 10 Rate JAWS (Seamheads)",
+      "hof_records": "Baseball Hall of Fame, Ch 11 candidates.json"
+    },
+    "processed_date": "2026-05-25"
+  },
+  "players": [
+    {
+      "name": "Jackie Robinson",
+      "retrosheet_name": "Jackie Robinson",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1962,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": 61.5,
+      "position": "2B",
+      "jaws_rank": 65,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Roy Campanella",
+      "retrosheet_name": "Roy Campanella",
+      "appearances": 3,
+      "years": [
+        1941,
+        1944,
+        1945
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1969,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Satchel Paige",
+      "retrosheet_name": "Satchel Paige",
+      "appearances": 5,
+      "years": [
+        1934,
+        1936,
+        1941,
+        1942,
+        1943
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1943,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1971,
+      "rate_jaws": 7.21,
+      "rate_war": 6.27,
+      "career_war": 53.6,
+      "position": "P",
+      "jaws_rank": 16,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Josh Gibson",
+      "retrosheet_name": "Josh Gibson",
+      "appearances": 9,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1936,
+        1939,
+        1942,
+        1943,
+        1944,
+        1946
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1946,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1972,
+      "rate_jaws": 10.21,
+      "rate_war": 8.88,
+      "career_war": 60.2,
+      "position": "C",
+      "jaws_rank": 4,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Buck Leonard",
+      "retrosheet_name": "Buck Leonard",
+      "appearances": 11,
+      "years": [
+        1935,
+        1937,
+        1938,
+        1939,
+        1940,
+        1941,
+        1943,
+        1944,
+        1945,
+        1946,
+        1948
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1948,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1972,
+      "rate_jaws": 7.75,
+      "rate_war": 6.74,
+      "career_war": 34.4,
+      "position": "1B",
+      "jaws_rank": 12,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Monte Irvin",
+      "retrosheet_name": "Monte Irvin",
+      "appearances": 4,
+      "years": [
+        1941,
+        1946,
+        1947,
+        1948
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1973,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Cool Papa Bell",
+      "retrosheet_name": "Cool Papa Bell",
+      "appearances": 7,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1936,
+        1942,
+        1943,
+        1944
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1944,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1974,
+      "rate_jaws": 4.6,
+      "rate_war": 4.0,
+      "career_war": 46.1,
+      "position": "CF",
+      "jaws_rank": 37,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Judy Johnson",
+      "retrosheet_name": "Judy Johnson",
+      "appearances": 2,
+      "years": [
+        1933,
+        1936
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1936,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1975,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": 25.0,
+      "position": "3B",
+      "jaws_rank": 50,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Oscar Charleston",
+      "retrosheet_name": "Oscar Charleston",
+      "appearances": 3,
+      "years": [
+        1933,
+        1934,
+        1935
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1935,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1976,
+      "rate_jaws": 8.04,
+      "rate_war": 6.99,
+      "career_war": 78.3,
+      "position": "CF",
+      "jaws_rank": 10,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Martin Dihigo",
+      "retrosheet_name": "Martin Dihigo",
+      "appearances": 2,
+      "years": [
+        1935,
+        1945
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1977,
+      "rate_jaws": 11.73,
+      "rate_war": 10.2,
+      "career_war": 70.0,
+      "position": "RF/P",
+      "jaws_rank": 2,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ray Dandridge",
+      "retrosheet_name": "Ray Dandridge",
+      "appearances": 3,
+      "years": [
+        1935,
+        1937,
+        1944
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1987,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Leon Day",
+      "retrosheet_name": "Leon Day",
+      "appearances": 6,
+      "years": [
+        1935,
+        1937,
+        1939,
+        1942,
+        1943,
+        1946
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1995,
+      "rate_jaws": 7.67,
+      "rate_war": 6.67,
+      "career_war": 26.8,
+      "position": "P",
+      "jaws_rank": 13,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willie Foster",
+      "retrosheet_name": "Willie Foster",
+      "appearances": 2,
+      "years": [
+        1933,
+        1934
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1934,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1996,
+      "rate_jaws": 4.35,
+      "rate_war": 3.78,
+      "career_war": 38.0,
+      "position": "P",
+      "jaws_rank": 39,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willie Wells",
+      "retrosheet_name": "Willie Wells",
+      "appearances": 8,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1937,
+        1938,
+        1939,
+        1942,
+        1945
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1945,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1997,
+      "rate_jaws": 7.22,
+      "rate_war": 6.28,
+      "career_war": 69.5,
+      "position": "SS",
+      "jaws_rank": 15,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bullet Rogan",
+      "retrosheet_name": "Bullet Rogan",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1998,
+      "rate_jaws": 15.16,
+      "rate_war": 13.18,
+      "career_war": 57.1,
+      "position": "CF/P",
+      "jaws_rank": 1,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Larry Doby",
+      "retrosheet_name": "Larry Doby",
+      "appearances": 1,
+      "years": [
+        1946
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 1998,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Turkey Stearnes",
+      "retrosheet_name": "Turkey Stearnes",
+      "appearances": 4,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1937
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1937,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2000,
+      "rate_jaws": 8.59,
+      "rate_war": 7.47,
+      "career_war": 58.7,
+      "position": "CF",
+      "jaws_rank": 7,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Hilton Smith",
+      "retrosheet_name": "Hilton Smith",
+      "appearances": 6,
+      "years": [
+        1937,
+        1938,
+        1939,
+        1940,
+        1941,
+        1942
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2001,
+      "rate_jaws": 5.6,
+      "rate_war": 4.87,
+      "career_war": 30.3,
+      "position": "P",
+      "jaws_rank": 25,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willard Brown",
+      "retrosheet_name": "Willard Brown",
+      "appearances": 5,
+      "years": [
+        1936,
+        1937,
+        1942,
+        1943,
+        1948
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 9.61,
+      "rate_war": 8.36,
+      "career_war": 33.4,
+      "position": "CF",
+      "jaws_rank": 5,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jud Wilson",
+      "retrosheet_name": "Jud Wilson",
+      "appearances": 3,
+      "years": [
+        1933,
+        1934,
+        1935
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 6.8,
+      "rate_war": 5.91,
+      "career_war": 46.9,
+      "position": "3B",
+      "jaws_rank": 17,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Mule Suttles",
+      "retrosheet_name": "Mule Suttles",
+      "appearances": 5,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1937,
+        1939
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1939,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 6.3,
+      "rate_war": 5.48,
+      "career_war": 38.3,
+      "position": "1B",
+      "jaws_rank": 20,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ray Brown",
+      "retrosheet_name": "Ray Brown",
+      "appearances": 2,
+      "years": [
+        1935,
+        1940
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1940,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 5.98,
+      "rate_war": 5.2,
+      "career_war": 47.7,
+      "position": "P",
+      "jaws_rank": 23,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ben Taylor",
+      "retrosheet_name": "Ben Taylor",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 5.7,
+      "rate_war": 4.96,
+      "career_war": 34.3,
+      "position": "1B",
+      "jaws_rank": 24,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Biz Mackey",
+      "retrosheet_name": "Biz Mackey",
+      "appearances": 5,
+      "years": [
+        1933,
+        1935,
+        1936,
+        1938,
+        1947
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 4.63,
+      "rate_war": 4.03,
+      "career_war": 28.9,
+      "position": "C",
+      "jaws_rank": 36,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Andy Cooper",
+      "retrosheet_name": "Andy Cooper",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2006,
+      "rate_jaws": 3.55,
+      "rate_war": 3.09,
+      "career_war": 25.9,
+      "position": "P",
+      "jaws_rank": 44,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Buck O'Neil",
+      "retrosheet_name": "Buck O'Neil",
+      "appearances": 2,
+      "years": [
+        1942,
+        1943
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1943,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2022,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Minnie Minoso",
+      "retrosheet_name": "Minnie Minoso",
+      "appearances": 2,
+      "years": [
+        1947,
+        1948
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": true,
+      "hof_year": 2022,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": null,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Dick Lundy",
+      "retrosheet_name": "Dick Lundy",
+      "appearances": 2,
+      "years": [
+        1933,
+        1934
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1934,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 6.38,
+      "rate_war": 5.55,
+      "career_war": 36.8,
+      "position": "SS",
+      "jaws_rank": 19,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 19 of 70 evaluated Negro Leaguers. Career WAR: 36.8.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Wild Bill Wright",
+      "retrosheet_name": "Wild Bill Wright",
+      "appearances": 7,
+      "years": [
+        1935,
+        1936,
+        1937,
+        1938,
+        1939,
+        1942,
+        1945
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1945,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 6.08,
+      "rate_war": 5.29,
+      "career_war": 33.2,
+      "position": "CF",
+      "jaws_rank": 21,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 21 of 70 evaluated Negro Leaguers. Career WAR: 33.2.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "George Scales",
+      "retrosheet_name": "George Scales",
+      "appearances": 1,
+      "years": [
+        1943
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1943,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 5.15,
+      "rate_war": 4.48,
+      "career_war": 27.0,
+      "position": "2B",
+      "jaws_rank": 31,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 31 of 70 evaluated Negro Leaguers. Career WAR: 27.0.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Bill Byrd",
+      "retrosheet_name": "Bill Byrd",
+      "appearances": 6,
+      "years": [
+        1936,
+        1939,
+        1941,
+        1944,
+        1945,
+        1946
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 4.89,
+      "rate_war": 4.25,
+      "career_war": 31.1,
+      "position": "P",
+      "jaws_rank": 32,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 32 of 70 evaluated Negro Leaguers. Career WAR: 31.1.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Barney Brown",
+      "retrosheet_name": "Barney Brown",
+      "appearances": 4,
+      "years": [
+        1937,
+        1938,
+        1942,
+        1946
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 4.36,
+      "rate_war": 3.79,
+      "career_war": 28.0,
+      "position": "P",
+      "jaws_rank": 38,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 38 of 70 evaluated Negro Leaguers. Career WAR: 28.0.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Leroy Matlock",
+      "retrosheet_name": "Leroy Matlock",
+      "appearances": 2,
+      "years": [
+        1935,
+        1936
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1936,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 4.11,
+      "rate_war": 3.57,
+      "career_war": 26.2,
+      "position": "P",
+      "jaws_rank": 40,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 40 of 70 evaluated Negro Leaguers. Career WAR: 26.2.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Bill Holland",
+      "retrosheet_name": "Bill Holland",
+      "appearances": 1,
+      "years": [
+        1939
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1939,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": 3.58,
+      "rate_war": 3.11,
+      "career_war": 30.2,
+      "position": "P",
+      "jaws_rank": 43,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 43 of 70 evaluated Negro Leaguers. Career WAR: 30.2.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Henry McHenry",
+      "retrosheet_name": "Henry McHenry",
+      "appearances": 2,
+      "years": [
+        1940,
+        1941
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1941,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": 27.2,
+      "position": "P",
+      "jaws_rank": 49,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 49 of 70 evaluated Negro Leaguers. Career WAR: 27.2.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Newt Allen",
+      "retrosheet_name": "Newt Allen",
+      "appearances": 4,
+      "years": [
+        1936,
+        1937,
+        1938,
+        1941
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": 37.8,
+      "position": "2B",
+      "jaws_rank": 46,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 46 of 70 evaluated Negro Leaguers. Career WAR: 37.8.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Sam Bankhead",
+      "retrosheet_name": "Sam Bankhead",
+      "appearances": 7,
+      "years": [
+        1933,
+        1934,
+        1936,
+        1938,
+        1942,
+        1943,
+        1944
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1944,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": 30.5,
+      "position": "SS",
+      "jaws_rank": 47,
+      "gap_flag": true,
+      "gap_note": "Rate JAWS rank 47 of 70 evaluated Negro Leaguers. Career WAR: 30.5.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Alejandro Crespo",
+      "retrosheet_name": "Alejandro Crespo",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Alejandro Oms",
+      "retrosheet_name": "Alejandro Oms",
+      "appearances": 1,
+      "years": [
+        1935
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Alex Radcliffe",
+      "retrosheet_name": "Alex Radcliffe",
+      "appearances": 11,
+      "years": [
+        1933,
+        1934,
+        1935,
+        1936,
+        1937,
+        1938,
+        1939,
+        1943,
+        1944,
+        1945,
+        1946
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Archie Ware",
+      "retrosheet_name": "Archie Ware",
+      "appearances": 3,
+      "years": [
+        1944,
+        1945,
+        1946
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Art Pennington",
+      "retrosheet_name": "Art Pennington",
+      "appearances": 1,
+      "years": [
+        1942
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Artie Wilson",
+      "retrosheet_name": "Artie Wilson",
+      "appearances": 4,
+      "years": [
+        1944,
+        1946,
+        1947,
+        1948
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Barney Morris",
+      "retrosheet_name": "Barney Morris",
+      "appearances": 2,
+      "years": [
+        1937,
+        1944
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bert Hunter",
+      "retrosheet_name": "Bert Hunter",
+      "appearances": 1,
+      "years": [
+        1933
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1933,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Cash",
+      "retrosheet_name": "Bill Cash",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Harvey",
+      "retrosheet_name": "Bill Harvey",
+      "appearances": 1,
+      "years": [
+        1943
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1943,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Hoskins",
+      "retrosheet_name": "Bill Hoskins",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Perkins",
+      "retrosheet_name": "Bill Perkins",
+      "appearances": 2,
+      "years": [
+        1934,
+        1940
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Powell",
+      "retrosheet_name": "Bill Powell",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Ricks",
+      "retrosheet_name": "Bill Ricks",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Billy Horne",
+      "retrosheet_name": "Billy Horne",
+      "appearances": 2,
+      "years": [
+        1939,
+        1941
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bob Boyd",
+      "retrosheet_name": "Bob Boyd",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bob Clarke",
+      "retrosheet_name": "Bob Clarke",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bob Griffith",
+      "retrosheet_name": "Bob Griffith",
+      "appearances": 2,
+      "years": [
+        1935,
+        1948
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1948,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bob Harvey",
+      "retrosheet_name": "Bob Harvey",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bob Romby",
+      "retrosheet_name": "Bob Romby",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bonnie Serrell",
+      "retrosheet_name": "Bonnie Serrell",
+      "appearances": 1,
+      "years": [
+        1944
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1944,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Booker McDaniel",
+      "retrosheet_name": "Booker McDaniel",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Buddy Armour",
+      "retrosheet_name": "Buddy Armour",
+      "appearances": 3,
+      "years": [
+        1941,
+        1944,
+        1947
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bus Clarkson",
+      "retrosheet_name": "Bus Clarkson",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Carranza Howard",
+      "retrosheet_name": "Carranza Howard",
+      "appearances": 1,
+      "years": [
+        1944
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Chester Williams",
+      "retrosheet_name": "Chester Williams",
+      "appearances": 4,
+      "years": [
+        1934,
+        1935,
+        1936,
+        1937
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1937,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Chet Brewer",
+      "retrosheet_name": "Chet Brewer",
+      "appearances": 2,
+      "years": [
+        1934,
+        1947
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Claro Duany",
+      "retrosheet_name": "Claro Duany",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Connie Johnson",
+      "retrosheet_name": "Connie Johnson",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Cowan Hyde",
+      "retrosheet_name": "Cowan Hyde",
+      "appearances": 2,
+      "years": [
+        1943,
+        1946
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Curtis Harris",
+      "retrosheet_name": "Curtis Harris",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Curtis Henderson",
+      "retrosheet_name": "Curtis Henderson",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Dan Bankhead",
+      "retrosheet_name": "Dan Bankhead",
+      "appearances": 3,
+      "years": [
+        1941,
+        1946,
+        1947
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Dan Wilson",
+      "retrosheet_name": "Dan Wilson",
+      "appearances": 3,
+      "years": [
+        1939,
+        1941,
+        1942
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1942,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Dave Barnhill",
+      "retrosheet_name": "Dave Barnhill",
+      "appearances": 3,
+      "years": [
+        1941,
+        1942,
+        1943
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1943,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Dick Seay",
+      "retrosheet_name": "Dick Seay",
+      "appearances": 3,
+      "years": [
+        1935,
+        1940,
+        1941
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1941,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Donald Reeves",
+      "retrosheet_name": "Donald Reeves",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Duke Cleveland",
+      "retrosheet_name": "Duke Cleveland",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ed Mayweather",
+      "retrosheet_name": "Ed Mayweather",
+      "appearances": 2,
+      "years": [
+        1937,
+        1940
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ed Stone",
+      "retrosheet_name": "Ed Stone",
+      "appearances": 2,
+      "years": [
+        1935,
+        1940
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Eddie Dwight",
+      "retrosheet_name": "Eddie Dwight",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Edsall Walker",
+      "retrosheet_name": "Edsall Walker",
+      "appearances": 1,
+      "years": [
+        1938
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1938,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Eugene Bremer",
+      "retrosheet_name": "Eugene Bremer",
+      "appearances": 4,
+      "years": [
+        1940,
+        1942,
+        1944,
+        1945
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Fats Jenkins",
+      "retrosheet_name": "Fats Jenkins",
+      "appearances": 2,
+      "years": [
+        1933,
+        1935
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Felix Evans",
+      "retrosheet_name": "Felix Evans",
+      "appearances": 1,
+      "years": [
+        1946
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Felton Snow",
+      "retrosheet_name": "Felton Snow",
+      "appearances": 2,
+      "years": [
+        1935,
+        1936
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1936,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Floyd Kranson",
+      "retrosheet_name": "Floyd Kranson",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Frank Austin",
+      "retrosheet_name": "Frank Austin",
+      "appearances": 3,
+      "years": [
+        1945,
+        1947,
+        1948
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Frank Duncan",
+      "retrosheet_name": "Frank Duncan",
+      "appearances": 1,
+      "years": [
+        1938
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1938,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Frank Hudson",
+      "retrosheet_name": "Frank Hudson",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Fred Bankhead",
+      "retrosheet_name": "Fred Bankhead",
+      "appearances": 1,
+      "years": [
+        1942
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Fred Wilson",
+      "retrosheet_name": "Fred Wilson",
+      "appearances": 1,
+      "years": [
+        1943
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1943,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Gene Benson",
+      "retrosheet_name": "Gene Benson",
+      "appearances": 3,
+      "years": [
+        1940,
+        1945,
+        1946
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Gentry Jessup",
+      "retrosheet_name": "Gentry Jessup",
+      "appearances": 4,
+      "years": [
+        1944,
+        1945,
+        1947,
+        1948
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "George Britt",
+      "retrosheet_name": "George Britt",
+      "appearances": 1,
+      "years": [
+        1933
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1933,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "George Giles",
+      "retrosheet_name": "George Giles",
+      "appearances": 1,
+      "years": [
+        1935
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "George Mitchell",
+      "retrosheet_name": "George Mitchell",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Goose Tatum",
+      "retrosheet_name": "Goose Tatum",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Gready McKinnis",
+      "retrosheet_name": "Gready McKinnis",
+      "appearances": 2,
+      "years": [
+        1943,
+        1944
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1944,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Harry Else",
+      "retrosheet_name": "Harry Else",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Harry Kincannon",
+      "retrosheet_name": "Harry Kincannon",
+      "appearances": 1,
+      "years": [
+        1934
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1934,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Heberto Blanco",
+      "retrosheet_name": "Heberto Blanco",
+      "appearances": 1,
+      "years": [
+        1942
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1942,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Henry Kimbro",
+      "retrosheet_name": "Henry Kimbro",
+      "appearances": 5,
+      "years": [
+        1941,
+        1943,
+        1944,
+        1946,
+        1947
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Henry Miller",
+      "retrosheet_name": "Henry Miller",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Henry Milton",
+      "retrosheet_name": "Henry Milton",
+      "appearances": 5,
+      "years": [
+        1936,
+        1937,
+        1938,
+        1939,
+        1940
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Herb Souell",
+      "retrosheet_name": "Herb Souell",
+      "appearances": 2,
+      "years": [
+        1947,
+        1948
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Herman Dunlap",
+      "retrosheet_name": "Herman Dunlap",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Howard Easterling",
+      "retrosheet_name": "Howard Easterling",
+      "appearances": 4,
+      "years": [
+        1937,
+        1940,
+        1943,
+        1946
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1946,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jake Dunn",
+      "retrosheet_name": "Jake Dunn",
+      "appearances": 2,
+      "years": [
+        1937,
+        1938
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1938,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jake Stephens",
+      "retrosheet_name": "Jake Stephens",
+      "appearances": 1,
+      "years": [
+        1935
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jelly Taylor",
+      "retrosheet_name": "Jelly Taylor",
+      "appearances": 3,
+      "years": [
+        1939,
+        1940,
+        1941
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jerry Benjamin",
+      "retrosheet_name": "Jerry Benjamin",
+      "appearances": 3,
+      "years": [
+        1937,
+        1943,
+        1945
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jesse Williams",
+      "retrosheet_name": "Jesse Williams",
+      "appearances": 2,
+      "years": [
+        1943,
+        1945
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Junior Gilliam",
+      "retrosheet_name": "Jim Gilliam",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jim LaMarque",
+      "retrosheet_name": "Jim LaMarque",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jim West",
+      "retrosheet_name": "Jim West",
+      "appearances": 2,
+      "years": [
+        1936,
+        1942
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1942,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jim Williams",
+      "retrosheet_name": "Jim Williams",
+      "appearances": 1,
+      "years": [
+        1939
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1939,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jimmie Crutchfield",
+      "retrosheet_name": "Jimmie Crutchfield",
+      "appearances": 4,
+      "years": [
+        1934,
+        1935,
+        1936,
+        1941
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1941,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jimmy Ford",
+      "retrosheet_name": "Jimmy Ford",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jimmy Hill",
+      "retrosheet_name": "Jimmy Hill",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Joe Greene",
+      "retrosheet_name": "Joe Greene",
+      "appearances": 2,
+      "years": [
+        1940,
+        1942
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "John Henry Russell",
+      "retrosheet_name": "John Henry Russell",
+      "appearances": 1,
+      "years": [
+        1933
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1933,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Davis",
+      "retrosheet_name": "Johnny Davis",
+      "appearances": 2,
+      "years": [
+        1944,
+        1945
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Hayes",
+      "retrosheet_name": "Johnny Hayes",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Taylor",
+      "retrosheet_name": "Johnny Taylor",
+      "appearances": 1,
+      "years": [
+        1938
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1938,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Washington",
+      "retrosheet_name": "Johnny Washington",
+      "appearances": 2,
+      "years": [
+        1936,
+        1947
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Williams",
+      "retrosheet_name": "Johnny Williams",
+      "appearances": 1,
+      "years": [
+        1946
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Johnny Wright",
+      "retrosheet_name": "Johnny Wright",
+      "appearances": 2,
+      "years": [
+        1943,
+        1947
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jonas Gaines",
+      "retrosheet_name": "Jonas Gaines",
+      "appearances": 2,
+      "years": [
+        1942,
+        1946
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jose Colas",
+      "retrosheet_name": "Jose Colas",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Larry Brown",
+      "retrosheet_name": "Larry Brown",
+      "appearances": 6,
+      "years": [
+        1933,
+        1934,
+        1938,
+        1939,
+        1940,
+        1941
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lefty Calhoun",
+      "retrosheet_name": "Lefty Calhoun",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lennie Pearson",
+      "retrosheet_name": "Lennie Pearson",
+      "appearances": 4,
+      "years": [
+        1941,
+        1942,
+        1943,
+        1945
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Leroy Morney",
+      "retrosheet_name": "Leroy Morney",
+      "appearances": 3,
+      "years": [
+        1933,
+        1939,
+        1940
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Leslie Green",
+      "retrosheet_name": "Leslie Green",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lester Lockett",
+      "retrosheet_name": "Lester Lockett",
+      "appearances": 3,
+      "years": [
+        1943,
+        1945,
+        1948
+      ],
+      "first_appearance": 1943,
+      "last_appearance": 1948,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lloyd Davenport",
+      "retrosheet_name": "Lloyd Davenport",
+      "appearances": 5,
+      "years": [
+        1937,
+        1942,
+        1943,
+        1944,
+        1945
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lou Dials",
+      "retrosheet_name": "Lou Dials",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lou Louden",
+      "retrosheet_name": "Lou Louden",
+      "appearances": 2,
+      "years": [
+        1947,
+        1948
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Luis Marquez",
+      "retrosheet_name": "Luis Marquez",
+      "appearances": 2,
+      "years": [
+        1947,
+        1948
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Luis Tiant Sr.",
+      "retrosheet_name": "Luis Tiant",
+      "appearances": 2,
+      "years": [
+        1935,
+        1947
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Luke Easter",
+      "retrosheet_name": "Luke Easter",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lyman Bostock",
+      "retrosheet_name": "Lyman Bostock",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Marlin Carter",
+      "retrosheet_name": "Marlin Carter",
+      "appearances": 1,
+      "years": [
+        1942
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Marshall Riddle",
+      "retrosheet_name": "Marshall Riddle",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Marvin Barker",
+      "retrosheet_name": "Marvin Barker",
+      "appearances": 2,
+      "years": [
+        1940,
+        1945
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Marvin Williams",
+      "retrosheet_name": "Marvin Williams",
+      "appearances": 1,
+      "years": [
+        1944
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Max Manning",
+      "retrosheet_name": "Max Manning",
+      "appearances": 1,
+      "years": [
+        1947
+      ],
+      "first_appearance": 1947,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Melvin Powell",
+      "retrosheet_name": "Melvin Powell",
+      "appearances": 1,
+      "years": [
+        1934
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1934,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Mex Johnson",
+      "retrosheet_name": "Mex Johnson",
+      "appearances": 1,
+      "years": [
+        1938
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1938,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Murray Watkins",
+      "retrosheet_name": "Murray Watkins",
+      "appearances": 2,
+      "years": [
+        1945,
+        1946
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Neil Robinson",
+      "retrosheet_name": "Neil Robinson",
+      "appearances": 8,
+      "years": [
+        1938,
+        1939,
+        1940,
+        1941,
+        1943,
+        1944,
+        1945,
+        1948
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Pancho Coimbre",
+      "retrosheet_name": "Pancho Coimbre",
+      "appearances": 2,
+      "years": [
+        1941,
+        1944
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Parnell Woods",
+      "retrosheet_name": "Parnell Woods",
+      "appearances": 5,
+      "years": [
+        1938,
+        1939,
+        1940,
+        1941,
+        1942
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Pat Patterson",
+      "retrosheet_name": "Pat Patterson",
+      "appearances": 4,
+      "years": [
+        1934,
+        1936,
+        1939,
+        1942
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1942,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Patricio Scantlebury",
+      "retrosheet_name": "Patricio Scantlebury",
+      "appearances": 1,
+      "years": [
+        1946
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1946,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Paul Arnold",
+      "retrosheet_name": "Paul Arnold",
+      "appearances": 1,
+      "years": [
+        1935
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Pepper Bassett",
+      "retrosheet_name": "Pepper Bassett",
+      "appearances": 3,
+      "years": [
+        1937,
+        1939,
+        1941
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1941,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Piper Davis",
+      "retrosheet_name": "Piper Davis",
+      "appearances": 3,
+      "years": [
+        1946,
+        1947,
+        1948
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Porter Moss",
+      "retrosheet_name": "Porter Moss",
+      "appearances": 3,
+      "years": [
+        1937,
+        1942,
+        1943
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1943,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Preacher Henry",
+      "retrosheet_name": "Preacher Henry",
+      "appearances": 1,
+      "years": [
+        1941
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1941,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Quincy Trouppe",
+      "retrosheet_name": "Quincy Trouppe",
+      "appearances": 5,
+      "years": [
+        1938,
+        1945,
+        1946,
+        1947,
+        1948
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rabbit Martinez",
+      "retrosheet_name": "Rabbit Martinez",
+      "appearances": 5,
+      "years": [
+        1940,
+        1941,
+        1943,
+        1944,
+        1945
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rainey Bibbs",
+      "retrosheet_name": "Rainey Bibbs",
+      "appearances": 1,
+      "years": [
+        1937
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1937,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rap Dixon",
+      "retrosheet_name": "Rap Dixon",
+      "appearances": 2,
+      "years": [
+        1933,
+        1934
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1934,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rogelio Linares",
+      "retrosheet_name": "Rogelio Linares",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Roy Parnell",
+      "retrosheet_name": "Roy Parnell",
+      "appearances": 2,
+      "years": [
+        1934,
+        1939
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1939,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Roy Partlow",
+      "retrosheet_name": "Roy Partlow",
+      "appearances": 1,
+      "years": [
+        1939
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1939,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Roy Welmaker",
+      "retrosheet_name": "Roy Welmaker",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rufus Lewis",
+      "retrosheet_name": "Rufus Lewis",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Sam Hill",
+      "retrosheet_name": "Sam Hill",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Sam Jethroe",
+      "retrosheet_name": "Sam Jethroe",
+      "appearances": 4,
+      "years": [
+        1942,
+        1944,
+        1946,
+        1947
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1947,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Sam Streeter",
+      "retrosheet_name": "Sam Streeter",
+      "appearances": 1,
+      "years": [
+        1933
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1933,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Sammy Hughes",
+      "retrosheet_name": "Sammy Hughes",
+      "appearances": 5,
+      "years": [
+        1934,
+        1935,
+        1936,
+        1938,
+        1939
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1939,
+      "sides": [
+        "east",
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Silvino Ruiz",
+      "retrosheet_name": "Silvino Ruiz",
+      "appearances": 1,
+      "years": [
+        1940
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1940,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Silvio Garcia",
+      "retrosheet_name": "Silvio Garcia",
+      "appearances": 2,
+      "years": [
+        1946,
+        1947
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Slim Jones",
+      "retrosheet_name": "Slim Jones",
+      "appearances": 2,
+      "years": [
+        1934,
+        1935
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1935,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Steel Arm Davis",
+      "retrosheet_name": "Steel Arm Davis",
+      "appearances": 1,
+      "years": [
+        1933
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1933,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Subby Byas",
+      "retrosheet_name": "Subby Byas",
+      "appearances": 2,
+      "years": [
+        1936,
+        1937
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1937,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "T.J. Brown",
+      "retrosheet_name": "T.J. Brown",
+      "appearances": 1,
+      "years": [
+        1942
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ted Radcliffe",
+      "retrosheet_name": "Ted Radcliffe",
+      "appearances": 6,
+      "years": [
+        1937,
+        1938,
+        1939,
+        1941,
+        1943,
+        1944
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1944,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ted Strong",
+      "retrosheet_name": "Ted Strong",
+      "appearances": 5,
+      "years": [
+        1937,
+        1938,
+        1939,
+        1941,
+        1942
+      ],
+      "first_appearance": 1937,
+      "last_appearance": 1942,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ted Trent",
+      "retrosheet_name": "Ted Trent",
+      "appearances": 4,
+      "years": [
+        1934,
+        1935,
+        1936,
+        1937
+      ],
+      "first_appearance": 1934,
+      "last_appearance": 1937,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Terris McDuffie",
+      "retrosheet_name": "Terris McDuffie",
+      "appearances": 2,
+      "years": [
+        1941,
+        1944
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1944,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Tetelo Vargas",
+      "retrosheet_name": "Tetelo Vargas",
+      "appearances": 2,
+      "years": [
+        1942,
+        1943
+      ],
+      "first_appearance": 1942,
+      "last_appearance": 1943,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Theolic Smith",
+      "retrosheet_name": "Theolic Smith",
+      "appearances": 2,
+      "years": [
+        1939,
+        1943
+      ],
+      "first_appearance": 1939,
+      "last_appearance": 1943,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Tom Glover",
+      "retrosheet_name": "Tom Glover",
+      "appearances": 1,
+      "years": [
+        1945
+      ],
+      "first_appearance": 1945,
+      "last_appearance": 1945,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Tommy Butts",
+      "retrosheet_name": "Tommy Butts",
+      "appearances": 4,
+      "years": [
+        1944,
+        1946,
+        1947,
+        1948
+      ],
+      "first_appearance": 1944,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Tommy Sampson",
+      "retrosheet_name": "Tommy Sampson",
+      "appearances": 4,
+      "years": [
+        1940,
+        1941,
+        1942,
+        1943
+      ],
+      "first_appearance": 1940,
+      "last_appearance": 1943,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Verdell Mathis",
+      "retrosheet_name": "Verdell Mathis",
+      "appearances": 3,
+      "years": [
+        1941,
+        1944,
+        1945
+      ],
+      "first_appearance": 1941,
+      "last_appearance": 1945,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Vic Harris",
+      "retrosheet_name": "Vic Harris",
+      "appearances": 6,
+      "years": [
+        1933,
+        1934,
+        1938,
+        1942,
+        1943,
+        1947
+      ],
+      "first_appearance": 1933,
+      "last_appearance": 1947,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Walter Cannady",
+      "retrosheet_name": "Walter Cannady",
+      "appearances": 1,
+      "years": [
+        1938
+      ],
+      "first_appearance": 1938,
+      "last_appearance": 1938,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willie Cornelius",
+      "retrosheet_name": "Willie Cornelius",
+      "appearances": 3,
+      "years": [
+        1935,
+        1936,
+        1938
+      ],
+      "first_appearance": 1935,
+      "last_appearance": 1938,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willie Grace",
+      "retrosheet_name": "Willie Grace",
+      "appearances": 1,
+      "years": [
+        1946
+      ],
+      "first_appearance": 1946,
+      "last_appearance": 1946,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Wilmer Fields",
+      "retrosheet_name": "Wilmer Fields",
+      "appearances": 1,
+      "years": [
+        1948
+      ],
+      "first_appearance": 1948,
+      "last_appearance": 1948,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Wilson Redus",
+      "retrosheet_name": "Wilson Redus",
+      "appearances": 2,
+      "years": [
+        1936,
+        1937
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1937,
+      "sides": [
+        "west"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    },
+    {
+      "name": "Zollie Wright",
+      "retrosheet_name": "Zollie Wright",
+      "appearances": 1,
+      "years": [
+        1936
+      ],
+      "first_appearance": 1936,
+      "last_appearance": 1936,
+      "sides": [
+        "east"
+      ],
+      "hof_inducted": false,
+      "hof_year": null,
+      "rate_jaws": null,
+      "rate_war": null,
+      "career_war": null,
+      "position": null,
+      "jaws_rank": null,
+      "gap_flag": false,
+      "gap_note": "Insufficient statistical data for gap assessment",
+      "confidence": "Documented"
+    }
+  ]
+}

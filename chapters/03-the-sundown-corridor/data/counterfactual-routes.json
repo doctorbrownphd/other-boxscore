@@ -1,0 +1,3645 @@
+{
+  "metadata": {
+    "title": "Negro Leagues Travel Route Counterfactual Analysis",
+    "description": "For each high-danger travel corridor between Negro Leagues cities, whether a documented safer alternative route existed through other NLB cities in the 13-city network.",
+    "methodology": {
+      "approach": "Graph routing on the 13-city Negro Leagues network. For each direct corridor with danger >= 0.4, all 1-stop and 2-stop alternative paths are evaluated.",
+      "safer_threshold": "An alternative is 'safer' if its maximum segment danger is below 50% of the direct route's danger score.",
+      "distance_limit": "2-stop alternatives are excluded if total distance exceeds 3x the direct route.",
+      "caveat": "This is a model output. It does not claim that historical decision-makers considered these alternatives. It shows what was geographically possible within the Negro Leagues city network.",
+      "limitations": [
+        "Uses great-circle distances, not period road distances.",
+        "Only considers NLB cities as waypoints. Smaller towns with safe lodging (e.g., Green Book listings) are not modeled as stops.",
+        "Does not account for schedule constraints. Teams had game dates they could not miss.",
+        "Danger scores are based on documented sundown towns. Actual danger may have been higher."
+      ]
+    },
+    "source": {
+      "corridors": "corridors-full.json (computed from sundown-towns.json)",
+      "sundown_towns": "Scientific Data (2025), DOI: 10.1038/s41597-024-04330-9",
+      "locations": "Seamheads + SABR Ballparks Database"
+    },
+    "aggregate": {
+      "total_high_danger_corridors": 20,
+      "safer_alternative_exists_count": 20,
+      "no_safer_alternative_count": 0,
+      "percent_with_alternatives": 100.0
+    },
+    "processed_date": "2026-05-25"
+  },
+  "route_counterfactuals": [
+    {
+      "from": "Baltimore, MD",
+      "to": "Washington, D.C.",
+      "direct_danger": 1.0,
+      "direct_miles": 34.1,
+      "direct_towns": 5,
+      "safer_alternative_exists": true,
+      "alternatives_found": 13,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Memphis, TN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.059,
+        "total_miles": 1555.4,
+        "additional_miles": 1521.3,
+        "mile_increase_pct": 4461.0,
+        "total_towns_encountered": 13,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Memphis, TN",
+            "danger": 0.058,
+            "miles": 791.7,
+            "towns": 7
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Washington, D.C.",
+            "danger": 0.059,
+            "miles": 763.7,
+            "towns": 6
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Baltimore, MD",
+            "Memphis, TN",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.059,
+          "total_miles": 1555.4,
+          "additional_miles": 1521.3,
+          "mile_increase_pct": 4461.0,
+          "total_towns_encountered": 13,
+          "segments": [
+            {
+              "from": "Baltimore, MD",
+              "to": "Memphis, TN",
+              "danger": 0.058,
+              "miles": 791.7,
+              "towns": 7
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "Washington, D.C.",
+              "danger": 0.059,
+              "miles": 763.7,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Baltimore, MD",
+            "Birmingham, AL",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.087,
+          "total_miles": 1351.7,
+          "additional_miles": 1317.6,
+          "mile_increase_pct": 3864.0,
+          "total_towns_encountered": 11,
+          "segments": [
+            {
+              "from": "Baltimore, MD",
+              "to": "Birmingham, AL",
+              "danger": 0.061,
+              "miles": 691.9,
+              "towns": 4
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Washington, D.C.",
+              "danger": 0.087,
+              "miles": 659.8,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Baltimore, MD",
+            "Atlanta, GA",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.091,
+          "total_miles": 1119.1,
+          "additional_miles": 1085.0,
+          "mile_increase_pct": 3182.0,
+          "total_towns_encountered": 11,
+          "segments": [
+            {
+              "from": "Baltimore, MD",
+              "to": "Atlanta, GA",
+              "danger": 0.091,
+              "miles": 576.2,
+              "towns": 6
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Washington, D.C.",
+              "danger": 0.067,
+              "miles": 542.9,
+              "towns": 5
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Baltimore, MD",
+            "Indianapolis, IN",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.197,
+          "total_miles": 999.7,
+          "additional_miles": 965.6,
+          "mile_increase_pct": 2832.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Baltimore, MD",
+              "to": "Indianapolis, IN",
+              "danger": 0.197,
+              "miles": 508.5,
+              "towns": 14
+            },
+            {
+              "from": "Indianapolis, IN",
+              "to": "Washington, D.C.",
+              "danger": 0.127,
+              "miles": 491.2,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Baltimore, MD",
+            "Pittsburgh, PA",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.209,
+          "total_miles": 387.8,
+          "additional_miles": 353.7,
+          "mile_increase_pct": 1037.0,
+          "total_towns_encountered": 8,
+          "segments": [
+            {
+              "from": "Baltimore, MD",
+              "to": "Pittsburgh, PA",
+              "danger": 0.076,
+              "miles": 196.6,
+              "towns": 3
+            },
+            {
+              "from": "Pittsburgh, PA",
+              "to": "Washington, D.C.",
+              "danger": 0.209,
+              "miles": 191.2,
+              "towns": 5
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.941,
+      "danger_reduction_pct": 94.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Indianapolis, IN",
+      "direct_danger": 1.0,
+      "direct_miles": 99.2,
+      "direct_towns": 17,
+      "safer_alternative_exists": true,
+      "alternatives_found": 9,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.207,
+        "total_miles": 1220.0,
+        "additional_miles": 1120.8,
+        "mile_increase_pct": 1130.0,
+        "total_towns_encountered": 38,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Indianapolis, IN",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.207,
+          "total_miles": 1220.0,
+          "additional_miles": 1120.8,
+          "mile_increase_pct": 1130.0,
+          "total_towns_encountered": 38,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "Indianapolis, IN",
+              "danger": 0.207,
+              "miles": 647.5,
+              "towns": 20
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 930.9,
+          "additional_miles": 831.7,
+          "mile_increase_pct": 838.0,
+          "total_towns_encountered": 29,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Indianapolis, IN",
+              "danger": 0.197,
+              "miles": 508.5,
+              "towns": 14
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Philadelphia, PA",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.247,
+          "total_miles": 1082.8,
+          "additional_miles": 983.6,
+          "mile_increase_pct": 992.0,
+          "total_towns_encountered": 34,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Philadelphia, PA",
+              "danger": 0.247,
+              "miles": 500.7,
+              "towns": 18
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Indianapolis, IN",
+              "danger": 0.208,
+              "miles": 582.1,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Newark, NJ",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.266,
+          "total_miles": 1193.1,
+          "additional_miles": 1093.9,
+          "mile_increase_pct": 1103.0,
+          "total_towns_encountered": 39,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Newark, NJ",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Indianapolis, IN",
+              "danger": 0.185,
+              "miles": 634.4,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Birmingham, AL",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.274,
+          "total_miles": 840.5,
+          "additional_miles": 741.3,
+          "mile_increase_pct": 747.0,
+          "total_towns_encountered": 26,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.274,
+              "miles": 406.4,
+              "towns": 17
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Indianapolis, IN",
+              "danger": 0.173,
+              "miles": 434.1,
+              "towns": 9
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.793,
+      "danger_reduction_pct": 79.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Indianapolis, IN",
+      "to": "St. Louis, MO",
+      "direct_danger": 1.0,
+      "direct_miles": 230.9,
+      "direct_towns": 24,
+      "safer_alternative_exists": true,
+      "alternatives_found": 10,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.173,
+        "total_miles": 834.2,
+        "additional_miles": 603.3,
+        "mile_increase_pct": 261.0,
+        "total_towns_encountered": 15,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "Birmingham, AL",
+            "danger": 0.173,
+            "miles": 434.1,
+            "towns": 9
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Indianapolis, IN",
+            "Birmingham, AL",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.173,
+          "total_miles": 834.2,
+          "additional_miles": 603.3,
+          "mile_increase_pct": 261.0,
+          "total_towns_encountered": 15,
+          "segments": [
+            {
+              "from": "Indianapolis, IN",
+              "to": "Birmingham, AL",
+              "danger": 0.173,
+              "miles": 434.1,
+              "towns": 9
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "St. Louis, MO",
+              "danger": 0.131,
+              "miles": 400.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Indianapolis, IN",
+            "New York, NY",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.212,
+          "total_miles": 1524.0,
+          "additional_miles": 1293.1,
+          "mile_increase_pct": 560.0,
+          "total_towns_encountered": 43,
+          "segments": [
+            {
+              "from": "Indianapolis, IN",
+              "to": "New York, NY",
+              "danger": 0.207,
+              "miles": 647.5,
+              "towns": 20
+            },
+            {
+              "from": "New York, NY",
+              "to": "St. Louis, MO",
+              "danger": 0.212,
+              "miles": 876.5,
+              "towns": 23
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Indianapolis, IN",
+            "Newark, NJ",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.213,
+          "total_miles": 1497.4,
+          "additional_miles": 1266.5,
+          "mile_increase_pct": 549.0,
+          "total_towns_encountered": 37,
+          "segments": [
+            {
+              "from": "Indianapolis, IN",
+              "to": "Newark, NJ",
+              "danger": 0.185,
+              "miles": 634.4,
+              "towns": 16
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "St. Louis, MO",
+              "danger": 0.213,
+              "miles": 863.0,
+              "towns": 21
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Indianapolis, IN",
+            "Memphis, TN",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.259,
+          "total_miles": 626.3,
+          "additional_miles": 395.4,
+          "mile_increase_pct": 171.0,
+          "total_towns_encountered": 19,
+          "segments": [
+            {
+              "from": "Indianapolis, IN",
+              "to": "Memphis, TN",
+              "danger": 0.259,
+              "miles": 385.5,
+              "towns": 11
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "St. Louis, MO",
+              "danger": 0.244,
+              "miles": 240.8,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Indianapolis, IN",
+            "Baltimore, MD",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.296,
+          "total_miles": 1238.5,
+          "additional_miles": 1007.6,
+          "mile_increase_pct": 436.0,
+          "total_towns_encountered": 37,
+          "segments": [
+            {
+              "from": "Indianapolis, IN",
+              "to": "Baltimore, MD",
+              "danger": 0.197,
+              "miles": 508.5,
+              "towns": 14
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "St. Louis, MO",
+              "danger": 0.296,
+              "miles": 730.0,
+              "towns": 23
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.827,
+      "danger_reduction_pct": 83.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Indianapolis, IN",
+      "direct_danger": 0.883,
+      "direct_miles": 161.4,
+      "direct_towns": 15,
+      "safer_alternative_exists": true,
+      "alternatives_found": 10,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.224,
+        "total_miles": 1112.0,
+        "additional_miles": 950.6,
+        "mile_increase_pct": 589.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Indianapolis, IN",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Baltimore, MD",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.224,
+          "total_miles": 1112.0,
+          "additional_miles": 950.6,
+          "mile_increase_pct": 589.0,
+          "total_towns_encountered": 29,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Baltimore, MD",
+              "danger": 0.224,
+              "miles": 603.5,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Indianapolis, IN",
+              "danger": 0.197,
+              "miles": 508.5,
+              "towns": 14
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Newark, NJ",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.308,
+          "total_miles": 1336.9,
+          "additional_miles": 1175.5,
+          "mile_increase_pct": 728.0,
+          "total_towns_encountered": 48,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Newark, NJ",
+              "danger": 0.308,
+              "miles": 702.5,
+              "towns": 32
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Indianapolis, IN",
+              "danger": 0.185,
+              "miles": 634.4,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "New York, NY",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.31,
+          "total_miles": 1361.3,
+          "additional_miles": 1199.9,
+          "mile_increase_pct": 743.0,
+          "total_towns_encountered": 53,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "New York, NY",
+              "danger": 0.31,
+              "miles": 713.8,
+              "towns": 33
+            },
+            {
+              "from": "New York, NY",
+              "to": "Indianapolis, IN",
+              "danger": 0.207,
+              "miles": 647.5,
+              "towns": 20
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Atlanta, GA",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.333,
+          "total_miles": 1012.5,
+          "additional_miles": 851.1,
+          "mile_increase_pct": 527.0,
+          "total_towns_encountered": 44,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Atlanta, GA",
+              "danger": 0.333,
+              "miles": 585.1,
+              "towns": 24
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Indianapolis, IN",
+              "danger": 0.33,
+              "miles": 427.4,
+              "towns": 20
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Philadelphia, PA",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.339,
+          "total_miles": 1246.1,
+          "additional_miles": 1084.7,
+          "mile_increase_pct": 672.0,
+          "total_towns_encountered": 43,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Philadelphia, PA",
+              "danger": 0.339,
+              "miles": 664.0,
+              "towns": 27
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Indianapolis, IN",
+              "danger": 0.208,
+              "miles": 582.1,
+              "towns": 16
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.659,
+      "danger_reduction_pct": 75.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Cincinnati, OH",
+      "direct_danger": 0.845,
+      "direct_miles": 249.9,
+      "direct_towns": 28,
+      "safer_alternative_exists": true,
+      "alternatives_found": 7,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 1025.9,
+        "additional_miles": 776.0,
+        "mile_increase_pct": 311.0,
+        "total_towns_encountered": 30,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Cincinnati, OH",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Baltimore, MD",
+            "Cincinnati, OH"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 1025.9,
+          "additional_miles": 776.0,
+          "mile_increase_pct": 311.0,
+          "total_towns_encountered": 30,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Baltimore, MD",
+              "danger": 0.224,
+              "miles": 603.5,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Cincinnati, OH",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Newark, NJ",
+            "Cincinnati, OH"
+          ],
+          "max_segment_danger": 0.308,
+          "total_miles": 1261.2,
+          "additional_miles": 1011.3,
+          "mile_increase_pct": 405.0,
+          "total_towns_encountered": 55,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Newark, NJ",
+              "danger": 0.308,
+              "miles": 702.5,
+              "towns": 32
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Cincinnati, OH",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "New York, NY",
+            "Cincinnati, OH"
+          ],
+          "max_segment_danger": 0.31,
+          "total_miles": 1286.3,
+          "additional_miles": 1036.4,
+          "mile_increase_pct": 415.0,
+          "total_towns_encountered": 51,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "New York, NY",
+              "danger": 0.31,
+              "miles": 713.8,
+              "towns": 33
+            },
+            {
+              "from": "New York, NY",
+              "to": "Cincinnati, OH",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Philadelphia, PA",
+            "Cincinnati, OH"
+          ],
+          "max_segment_danger": 0.339,
+          "total_miles": 1164.7,
+          "additional_miles": 914.8,
+          "mile_increase_pct": 366.0,
+          "total_towns_encountered": 45,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Philadelphia, PA",
+              "danger": 0.339,
+              "miles": 664.0,
+              "towns": 27
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Cincinnati, OH",
+              "danger": 0.247,
+              "miles": 500.7,
+              "towns": 18
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Washington, D.C.",
+            "Cincinnati, OH"
+          ],
+          "max_segment_danger": 0.347,
+          "total_miles": 995.7,
+          "additional_miles": 745.8,
+          "mile_increase_pct": 298.0,
+          "total_towns_encountered": 42,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Washington, D.C.",
+              "danger": 0.347,
+              "miles": 593.5,
+              "towns": 24
+            },
+            {
+              "from": "Washington, D.C.",
+              "to": "Cincinnati, OH",
+              "danger": 0.326,
+              "miles": 402.2,
+              "towns": 18
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.605,
+      "danger_reduction_pct": 72.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "St. Louis, MO",
+      "direct_danger": 0.821,
+      "direct_miles": 307.6,
+      "direct_towns": 31,
+      "safer_alternative_exists": true,
+      "alternatives_found": 10,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.212,
+        "total_miles": 1449.0,
+        "additional_miles": 1141.4,
+        "mile_increase_pct": 371.0,
+        "total_towns_encountered": 41,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "St. Louis, MO",
+            "danger": 0.212,
+            "miles": 876.5,
+            "towns": 23
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.212,
+          "total_miles": 1449.0,
+          "additional_miles": 1141.4,
+          "mile_increase_pct": 371.0,
+          "total_towns_encountered": 41,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "St. Louis, MO",
+              "danger": 0.212,
+              "miles": 876.5,
+              "towns": 23
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Newark, NJ",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.266,
+          "total_miles": 1421.7,
+          "additional_miles": 1114.1,
+          "mile_increase_pct": 362.0,
+          "total_towns_encountered": 44,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Newark, NJ",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "St. Louis, MO",
+              "danger": 0.213,
+              "miles": 863.0,
+              "towns": 21
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Birmingham, AL",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.274,
+          "total_miles": 806.5,
+          "additional_miles": 498.9,
+          "mile_increase_pct": 162.0,
+          "total_towns_encountered": 23,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.274,
+              "miles": 406.4,
+              "towns": 17
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "St. Louis, MO",
+              "danger": 0.131,
+              "miles": 400.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Birmingham, AL",
+            "Memphis, TN",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.274,
+          "total_miles": 863.6,
+          "additional_miles": 556.0,
+          "mile_increase_pct": 181.0,
+          "total_towns_encountered": 25,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.274,
+              "miles": 406.4,
+              "towns": 17
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Memphis, TN",
+              "danger": 0.0,
+              "miles": 216.4,
+              "towns": 0
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "St. Louis, MO",
+              "danger": 0.244,
+              "miles": 240.8,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.296,
+          "total_miles": 1152.4,
+          "additional_miles": 844.8,
+          "mile_increase_pct": 275.0,
+          "total_towns_encountered": 38,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "St. Louis, MO",
+              "danger": 0.296,
+              "miles": 730.0,
+              "towns": 23
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.609,
+      "danger_reduction_pct": 74.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "St. Louis, MO",
+      "direct_danger": 0.816,
+      "direct_miles": 491.5,
+      "direct_towns": 51,
+      "safer_alternative_exists": true,
+      "alternatives_found": 56,
+      "best_alternative": {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.174,
+        "total_miles": 1154.9,
+        "additional_miles": 663.4,
+        "mile_increase_pct": 135.0,
+        "total_towns_encountered": 15,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Detroit, MI",
+            "danger": 0.151,
+            "miles": 91.1,
+            "towns": 2
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "St. Louis, MO",
+            "danger": 0.174,
+            "miles": 466.4,
+            "towns": 8
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "Detroit, MI",
+            "Atlanta, GA",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.174,
+          "total_miles": 1154.9,
+          "additional_miles": 663.4,
+          "mile_increase_pct": 135.0,
+          "total_towns_encountered": 15,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Detroit, MI",
+              "danger": 0.151,
+              "miles": 91.1,
+              "towns": 2
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Atlanta, GA",
+              "danger": 0.08,
+              "miles": 597.4,
+              "towns": 5
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "St. Louis, MO",
+              "danger": 0.174,
+              "miles": 466.4,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1018.1,
+          "additional_miles": 526.6,
+          "mile_increase_pct": 107.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "St. Louis, MO",
+              "danger": 0.131,
+              "miles": 400.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "Atlanta, GA",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1224.1,
+          "additional_miles": 732.6,
+          "mile_increase_pct": 149.0,
+          "total_towns_encountered": 25,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Atlanta, GA",
+              "danger": 0.036,
+              "miles": 139.7,
+              "towns": 1
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "St. Louis, MO",
+              "danger": 0.174,
+              "miles": 466.4,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "Kansas City, MO",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1433.6,
+          "additional_miles": 942.1,
+          "mile_increase_pct": 192.0,
+          "total_towns_encountered": 28,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Kansas City, MO",
+              "danger": 0.093,
+              "miles": 577.5,
+              "towns": 7
+            },
+            {
+              "from": "Kansas City, MO",
+              "to": "St. Louis, MO",
+              "danger": 0.136,
+              "miles": 238.1,
+              "towns": 5
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.212,
+          "total_miles": 1282.6,
+          "additional_miles": 791.1,
+          "mile_increase_pct": 161.0,
+          "total_towns_encountered": 34,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "St. Louis, MO",
+              "danger": 0.212,
+              "miles": 876.5,
+              "towns": 23
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.642,
+      "danger_reduction_pct": 79.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Detroit, MI",
+      "direct_danger": 0.741,
+      "direct_miles": 236.2,
+      "direct_towns": 26,
+      "safer_alternative_exists": true,
+      "alternatives_found": 7,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 1055.1,
+        "additional_miles": 818.9,
+        "mile_increase_pct": 347.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Detroit, MI",
+            "danger": 0.073,
+            "miles": 482.6,
+            "towns": 4
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "Detroit, MI"
+          ],
+          "max_segment_danger": 0.203,
+          "total_miles": 1055.1,
+          "additional_miles": 818.9,
+          "mile_increase_pct": 347.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "Detroit, MI",
+              "danger": 0.073,
+              "miles": 482.6,
+              "towns": 4
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Detroit, MI"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 818.6,
+          "additional_miles": 582.4,
+          "mile_increase_pct": 247.0,
+          "total_towns_encountered": 24,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Detroit, MI",
+              "danger": 0.123,
+              "miles": 396.2,
+              "towns": 9
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Philadelphia, PA",
+            "Detroit, MI"
+          ],
+          "max_segment_danger": 0.247,
+          "total_miles": 943.6,
+          "additional_miles": 707.4,
+          "mile_increase_pct": 299.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Philadelphia, PA",
+              "danger": 0.247,
+              "miles": 500.7,
+              "towns": 18
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Detroit, MI",
+              "danger": 0.079,
+              "miles": 442.9,
+              "towns": 4
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Newark, NJ",
+            "Detroit, MI"
+          ],
+          "max_segment_danger": 0.266,
+          "total_miles": 1031.1,
+          "additional_miles": 794.9,
+          "mile_increase_pct": 337.0,
+          "total_towns_encountered": 28,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Newark, NJ",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Detroit, MI",
+              "danger": 0.085,
+              "miles": 472.4,
+              "towns": 5
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Birmingham, AL",
+            "Detroit, MI"
+          ],
+          "max_segment_danger": 0.274,
+          "total_miles": 1049.0,
+          "additional_miles": 812.8,
+          "mile_increase_pct": 344.0,
+          "total_towns_encountered": 42,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.274,
+              "miles": 406.4,
+              "towns": 17
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Detroit, MI",
+              "danger": 0.265,
+              "miles": 642.6,
+              "towns": 25
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.538,
+      "danger_reduction_pct": 73.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Cleveland, OH",
+      "direct_danger": 0.658,
+      "direct_miles": 222.3,
+      "direct_towns": 21,
+      "safer_alternative_exists": true,
+      "alternatives_found": 6,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 978.6,
+        "additional_miles": 756.3,
+        "mile_increase_pct": 340.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Cleveland, OH",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "Cleveland, OH"
+          ],
+          "max_segment_danger": 0.203,
+          "total_miles": 978.6,
+          "additional_miles": 756.3,
+          "mile_increase_pct": 340.0,
+          "total_towns_encountered": 29,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "Cleveland, OH",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Cleveland, OH"
+          ],
+          "max_segment_danger": 0.253,
+          "total_miles": 729.1,
+          "additional_miles": 506.8,
+          "mile_increase_pct": 228.0,
+          "total_towns_encountered": 29,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Cleveland, OH",
+              "danger": 0.253,
+              "miles": 306.7,
+              "towns": 14
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Philadelphia, PA",
+            "Cleveland, OH"
+          ],
+          "max_segment_danger": 0.262,
+          "total_miles": 859.1,
+          "additional_miles": 636.8,
+          "mile_increase_pct": 286.0,
+          "total_towns_encountered": 33,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Philadelphia, PA",
+              "danger": 0.247,
+              "miles": 500.7,
+              "towns": 18
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Cleveland, OH",
+              "danger": 0.262,
+              "miles": 358.4,
+              "towns": 15
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Newark, NJ",
+            "Cleveland, OH"
+          ],
+          "max_segment_danger": 0.266,
+          "total_miles": 953.4,
+          "additional_miles": 731.1,
+          "mile_increase_pct": 329.0,
+          "total_towns_encountered": 37,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Newark, NJ",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Cleveland, OH",
+              "danger": 0.196,
+              "miles": 394.7,
+              "towns": 14
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Birmingham, AL",
+            "Cleveland, OH"
+          ],
+          "max_segment_danger": 0.274,
+          "total_miles": 1024.4,
+          "additional_miles": 802.1,
+          "mile_increase_pct": 361.0,
+          "total_towns_encountered": 33,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.274,
+              "miles": 406.4,
+              "towns": 17
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Cleveland, OH",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.455,
+      "danger_reduction_pct": 69.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Memphis, TN",
+      "direct_danger": 0.656,
+      "direct_miles": 480.3,
+      "direct_towns": 33,
+      "safer_alternative_exists": true,
+      "alternatives_found": 11,
+      "best_alternative": {
+        "type": "2-stop",
+        "route": [
+          "Chicago, IL",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.131,
+        "total_miles": 1171.3,
+        "additional_miles": 691.0,
+        "mile_increase_pct": 144.0,
+        "total_towns_encountered": 10,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Detroit, MI",
+            "danger": 0.131,
+            "miles": 237.7,
+            "towns": 4
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Memphis, TN",
+            "danger": 0.037,
+            "miles": 336.2,
+            "towns": 1
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "2-stop",
+          "route": [
+            "Chicago, IL",
+            "Detroit, MI",
+            "Atlanta, GA",
+            "Memphis, TN"
+          ],
+          "max_segment_danger": 0.131,
+          "total_miles": 1171.3,
+          "additional_miles": 691.0,
+          "mile_increase_pct": 144.0,
+          "total_towns_encountered": 10,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Detroit, MI",
+              "danger": 0.131,
+              "miles": 237.7,
+              "towns": 4
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Atlanta, GA",
+              "danger": 0.08,
+              "miles": 597.4,
+              "towns": 5
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Memphis, TN",
+              "danger": 0.037,
+              "miles": 336.2,
+              "towns": 1
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Chicago, IL",
+            "Detroit, MI",
+            "Baltimore, MD",
+            "Memphis, TN"
+          ],
+          "max_segment_danger": 0.131,
+          "total_miles": 1425.6,
+          "additional_miles": 945.3,
+          "mile_increase_pct": 197.0,
+          "total_towns_encountered": 20,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Detroit, MI",
+              "danger": 0.131,
+              "miles": 237.7,
+              "towns": 4
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Baltimore, MD",
+              "danger": 0.123,
+              "miles": 396.2,
+              "towns": 9
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Memphis, TN",
+              "danger": 0.058,
+              "miles": 791.7,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Baltimore, MD",
+            "Memphis, TN"
+          ],
+          "max_segment_danger": 0.224,
+          "total_miles": 1395.2,
+          "additional_miles": 914.9,
+          "mile_increase_pct": 190.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Baltimore, MD",
+              "danger": 0.224,
+              "miles": 603.5,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Memphis, TN",
+              "danger": 0.058,
+              "miles": 791.7,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Chicago, IL",
+            "Detroit, MI",
+            "Washington, D.C.",
+            "Memphis, TN"
+          ],
+          "max_segment_danger": 0.225,
+          "total_miles": 1396.3,
+          "additional_miles": 916.0,
+          "mile_increase_pct": 191.0,
+          "total_towns_encountered": 24,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Detroit, MI",
+              "danger": 0.131,
+              "miles": 237.7,
+              "towns": 4
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Washington, D.C.",
+              "danger": 0.225,
+              "miles": 394.9,
+              "towns": 14
+            },
+            {
+              "from": "Washington, D.C.",
+              "to": "Memphis, TN",
+              "danger": 0.059,
+              "miles": 763.7,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Detroit, MI",
+            "Memphis, TN"
+          ],
+          "max_segment_danger": 0.228,
+          "total_miles": 861.6,
+          "additional_miles": 381.3,
+          "mile_increase_pct": 79.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Detroit, MI",
+              "danger": 0.131,
+              "miles": 237.7,
+              "towns": 4
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Memphis, TN",
+              "danger": 0.228,
+              "miles": 623.9,
+              "towns": 18
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.525,
+      "danger_reduction_pct": 80.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "St. Louis, MO",
+      "direct_danger": 0.607,
+      "direct_miles": 259.5,
+      "direct_towns": 18,
+      "safer_alternative_exists": true,
+      "alternatives_found": 1,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.296,
+        "total_miles": 1333.5,
+        "additional_miles": 1074.0,
+        "mile_increase_pct": 414.0,
+        "total_towns_encountered": 38,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "St. Louis, MO",
+            "danger": 0.296,
+            "miles": 730.0,
+            "towns": 23
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Chicago, IL",
+            "Baltimore, MD",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.296,
+          "total_miles": 1333.5,
+          "additional_miles": 1074.0,
+          "mile_increase_pct": 414.0,
+          "total_towns_encountered": 38,
+          "segments": [
+            {
+              "from": "Chicago, IL",
+              "to": "Baltimore, MD",
+              "danger": 0.224,
+              "miles": 603.5,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "St. Louis, MO",
+              "danger": 0.296,
+              "miles": 730.0,
+              "towns": 23
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.311,
+      "danger_reduction_pct": 51.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Kansas City, MO",
+      "direct_danger": 0.572,
+      "direct_miles": 540.2,
+      "direct_towns": 37,
+      "safer_alternative_exists": true,
+      "alternatives_found": 13,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.224,
+        "total_miles": 1671.1,
+        "additional_miles": 1130.9,
+        "mile_increase_pct": 209.0,
+        "total_towns_encountered": 50,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Kansas City, MO",
+            "danger": 0.224,
+            "miles": 1098.6,
+            "towns": 32
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.224,
+          "total_miles": 1671.1,
+          "additional_miles": 1130.9,
+          "mile_increase_pct": 209.0,
+          "total_towns_encountered": 50,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "Kansas City, MO",
+              "danger": 0.224,
+              "miles": 1098.6,
+              "towns": 32
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Memphis, TN",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 1582.2,
+          "additional_miles": 1042.0,
+          "mile_increase_pct": 193.0,
+          "total_towns_encountered": 30,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Memphis, TN",
+              "danger": 0.058,
+              "miles": 791.7,
+              "towns": 7
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "Kansas City, MO",
+              "danger": 0.16,
+              "miles": 368.1,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Philadelphia, PA",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 1545.5,
+          "additional_miles": 1005.3,
+          "mile_increase_pct": 186.0,
+          "total_towns_encountered": 43,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Philadelphia, PA",
+              "danger": 0.199,
+              "miles": 88.1,
+              "towns": 2
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Kansas City, MO",
+              "danger": 0.22,
+              "miles": 1035.0,
+              "towns": 26
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Philadelphia, PA",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.247,
+          "total_miles": 1535.7,
+          "additional_miles": 995.5,
+          "mile_increase_pct": 184.0,
+          "total_towns_encountered": 44,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Philadelphia, PA",
+              "danger": 0.247,
+              "miles": 500.7,
+              "towns": 18
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Kansas City, MO",
+              "danger": 0.22,
+              "miles": 1035.0,
+              "towns": 26
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Newark, NJ",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.266,
+          "total_miles": 1644.5,
+          "additional_miles": 1104.3,
+          "mile_increase_pct": 204.0,
+          "total_towns_encountered": 55,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Newark, NJ",
+              "danger": 0.266,
+              "miles": 558.7,
+              "towns": 23
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Kansas City, MO",
+              "danger": 0.223,
+              "miles": 1085.8,
+              "towns": 32
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.348,
+      "danger_reduction_pct": 61.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Detroit, MI",
+      "to": "St. Louis, MO",
+      "direct_danger": 0.572,
+      "direct_miles": 454.6,
+      "direct_towns": 28,
+      "safer_alternative_exists": true,
+      "alternatives_found": 18,
+      "best_alternative": {
+        "type": "2-stop",
+        "route": [
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.131,
+        "total_miles": 1137.2,
+        "additional_miles": 682.6,
+        "mile_increase_pct": 150.0,
+        "total_towns_encountered": 12,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Birmingham, AL",
+            "danger": 0.036,
+            "miles": 139.7,
+            "towns": 1
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "2-stop",
+          "route": [
+            "Detroit, MI",
+            "Atlanta, GA",
+            "Birmingham, AL",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.131,
+          "total_miles": 1137.2,
+          "additional_miles": 682.6,
+          "mile_increase_pct": 150.0,
+          "total_towns_encountered": 12,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Atlanta, GA",
+              "danger": 0.08,
+              "miles": 597.4,
+              "towns": 5
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Birmingham, AL",
+              "danger": 0.036,
+              "miles": 139.7,
+              "towns": 1
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "St. Louis, MO",
+              "danger": 0.131,
+              "miles": 400.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Atlanta, GA",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.174,
+          "total_miles": 1063.8,
+          "additional_miles": 609.2,
+          "mile_increase_pct": 134.0,
+          "total_towns_encountered": 13,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Atlanta, GA",
+              "danger": 0.08,
+              "miles": 597.4,
+              "towns": 5
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "St. Louis, MO",
+              "danger": 0.174,
+              "miles": 466.4,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Detroit, MI",
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1109.2,
+          "additional_miles": 654.6,
+          "mile_increase_pct": 144.0,
+          "total_towns_encountered": 24,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Cleveland, OH",
+              "danger": 0.151,
+              "miles": 91.1,
+              "towns": 2
+            },
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "St. Louis, MO",
+              "danger": 0.131,
+              "miles": 400.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "New York, NY",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.212,
+          "total_miles": 1359.1,
+          "additional_miles": 904.5,
+          "mile_increase_pct": 199.0,
+          "total_towns_encountered": 27,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "New York, NY",
+              "danger": 0.073,
+              "miles": 482.6,
+              "towns": 4
+            },
+            {
+              "from": "New York, NY",
+              "to": "St. Louis, MO",
+              "danger": 0.212,
+              "miles": 876.5,
+              "towns": 23
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Newark, NJ",
+            "St. Louis, MO"
+          ],
+          "max_segment_danger": 0.213,
+          "total_miles": 1335.4,
+          "additional_miles": 880.8,
+          "mile_increase_pct": 194.0,
+          "total_towns_encountered": 26,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Newark, NJ",
+              "danger": 0.085,
+              "miles": 472.4,
+              "towns": 5
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "St. Louis, MO",
+              "danger": 0.213,
+              "miles": 863.0,
+              "towns": 21
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.441,
+      "danger_reduction_pct": 77.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Philadelphia, PA",
+      "to": "Washington, D.C.",
+      "direct_danger": 0.54,
+      "direct_miles": 120.4,
+      "direct_towns": 7,
+      "safer_alternative_exists": true,
+      "alternatives_found": 7,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Memphis, TN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.059,
+        "total_miles": 1641.8,
+        "additional_miles": 1521.4,
+        "mile_increase_pct": 1264.0,
+        "total_towns_encountered": 12,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Memphis, TN",
+            "danger": 0.047,
+            "miles": 878.1,
+            "towns": 6
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Washington, D.C.",
+            "danger": 0.059,
+            "miles": 763.7,
+            "towns": 6
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Philadelphia, PA",
+            "Memphis, TN",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.059,
+          "total_miles": 1641.8,
+          "additional_miles": 1521.4,
+          "mile_increase_pct": 1264.0,
+          "total_towns_encountered": 12,
+          "segments": [
+            {
+              "from": "Philadelphia, PA",
+              "to": "Memphis, TN",
+              "danger": 0.047,
+              "miles": 878.1,
+              "towns": 6
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "Washington, D.C.",
+              "danger": 0.059,
+              "miles": 763.7,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Philadelphia, PA",
+            "Atlanta, GA",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.07,
+          "total_miles": 1206.1,
+          "additional_miles": 1085.7,
+          "mile_increase_pct": 902.0,
+          "total_towns_encountered": 12,
+          "segments": [
+            {
+              "from": "Philadelphia, PA",
+              "to": "Atlanta, GA",
+              "danger": 0.07,
+              "miles": 663.2,
+              "towns": 7
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Washington, D.C.",
+              "danger": 0.067,
+              "miles": 542.9,
+              "towns": 5
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Philadelphia, PA",
+            "Birmingham, AL",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.135,
+          "total_miles": 1439.8,
+          "additional_miles": 1319.4,
+          "mile_increase_pct": 1096.0,
+          "total_towns_encountered": 19,
+          "segments": [
+            {
+              "from": "Philadelphia, PA",
+              "to": "Birmingham, AL",
+              "danger": 0.135,
+              "miles": 780.0,
+              "towns": 12
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Washington, D.C.",
+              "danger": 0.087,
+              "miles": 659.8,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Philadelphia, PA",
+            "Indianapolis, IN",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.208,
+          "total_miles": 1073.3,
+          "additional_miles": 952.9,
+          "mile_increase_pct": 791.0,
+          "total_towns_encountered": 24,
+          "segments": [
+            {
+              "from": "Philadelphia, PA",
+              "to": "Indianapolis, IN",
+              "danger": 0.208,
+              "miles": 582.1,
+              "towns": 16
+            },
+            {
+              "from": "Indianapolis, IN",
+              "to": "Washington, D.C.",
+              "danger": 0.127,
+              "miles": 491.2,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Philadelphia, PA",
+            "Pittsburgh, PA",
+            "Washington, D.C."
+          ],
+          "max_segment_danger": 0.209,
+          "total_miles": 449.5,
+          "additional_miles": 329.1,
+          "mile_increase_pct": 273.0,
+          "total_towns_encountered": 11,
+          "segments": [
+            {
+              "from": "Philadelphia, PA",
+              "to": "Pittsburgh, PA",
+              "danger": 0.145,
+              "miles": 258.3,
+              "towns": 6
+            },
+            {
+              "from": "Pittsburgh, PA",
+              "to": "Washington, D.C.",
+              "danger": 0.209,
+              "miles": 191.2,
+              "towns": 5
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.481,
+      "danger_reduction_pct": 89.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Pittsburgh, PA",
+      "direct_danger": 0.493,
+      "direct_miles": 256.1,
+      "direct_towns": 20,
+      "safer_alternative_exists": true,
+      "alternatives_found": 2,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 892.6,
+        "additional_miles": 636.5,
+        "mile_increase_pct": 249.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Pittsburgh, PA",
+            "danger": 0.109,
+            "miles": 320.1,
+            "towns": 7
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "New York, NY",
+            "Pittsburgh, PA"
+          ],
+          "max_segment_danger": 0.203,
+          "total_miles": 892.6,
+          "additional_miles": 636.5,
+          "mile_increase_pct": 249.0,
+          "total_towns_encountered": 25,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "New York, NY",
+              "danger": 0.203,
+              "miles": 572.5,
+              "towns": 18
+            },
+            {
+              "from": "New York, NY",
+              "to": "Pittsburgh, PA",
+              "danger": 0.109,
+              "miles": 320.1,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cincinnati, OH",
+            "Baltimore, MD",
+            "Pittsburgh, PA"
+          ],
+          "max_segment_danger": 0.24,
+          "total_miles": 619.0,
+          "additional_miles": 362.9,
+          "mile_increase_pct": 142.0,
+          "total_towns_encountered": 18,
+          "segments": [
+            {
+              "from": "Cincinnati, OH",
+              "to": "Baltimore, MD",
+              "danger": 0.24,
+              "miles": 422.4,
+              "towns": 15
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Pittsburgh, PA",
+              "danger": 0.076,
+              "miles": 196.6,
+              "towns": 3
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.29,
+      "danger_reduction_pct": 59.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Detroit, MI",
+      "to": "Indianapolis, IN",
+      "direct_danger": 0.491,
+      "direct_miles": 239.3,
+      "direct_towns": 13,
+      "safer_alternative_exists": true,
+      "alternatives_found": 5,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Newark, NJ",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.185,
+        "total_miles": 1106.8,
+        "additional_miles": 867.5,
+        "mile_increase_pct": 363.0,
+        "total_towns_encountered": 21,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Newark, NJ",
+            "danger": 0.085,
+            "miles": 472.4,
+            "towns": 5
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Indianapolis, IN",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Newark, NJ",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.185,
+          "total_miles": 1106.8,
+          "additional_miles": 867.5,
+          "mile_increase_pct": 363.0,
+          "total_towns_encountered": 21,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Newark, NJ",
+              "danger": 0.085,
+              "miles": 472.4,
+              "towns": 5
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Indianapolis, IN",
+              "danger": 0.185,
+              "miles": 634.4,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Baltimore, MD",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.197,
+          "total_miles": 904.7,
+          "additional_miles": 665.4,
+          "mile_increase_pct": 278.0,
+          "total_towns_encountered": 23,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Baltimore, MD",
+              "danger": 0.123,
+              "miles": 396.2,
+              "towns": 9
+            },
+            {
+              "from": "Baltimore, MD",
+              "to": "Indianapolis, IN",
+              "danger": 0.197,
+              "miles": 508.5,
+              "towns": 14
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "New York, NY",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.207,
+          "total_miles": 1130.1,
+          "additional_miles": 890.8,
+          "mile_increase_pct": 372.0,
+          "total_towns_encountered": 24,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "New York, NY",
+              "danger": 0.073,
+              "miles": 482.6,
+              "towns": 4
+            },
+            {
+              "from": "New York, NY",
+              "to": "Indianapolis, IN",
+              "danger": 0.207,
+              "miles": 647.5,
+              "towns": 20
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Philadelphia, PA",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.208,
+          "total_miles": 1025.0,
+          "additional_miles": 785.7,
+          "mile_increase_pct": 328.0,
+          "total_towns_encountered": 20,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Philadelphia, PA",
+              "danger": 0.079,
+              "miles": 442.9,
+              "towns": 4
+            },
+            {
+              "from": "Philadelphia, PA",
+              "to": "Indianapolis, IN",
+              "danger": 0.208,
+              "miles": 582.1,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Detroit, MI",
+            "Washington, D.C.",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.225,
+          "total_miles": 886.1,
+          "additional_miles": 646.8,
+          "mile_increase_pct": 270.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Detroit, MI",
+              "to": "Washington, D.C.",
+              "danger": 0.225,
+              "miles": 394.9,
+              "towns": 14
+            },
+            {
+              "from": "Washington, D.C.",
+              "to": "Indianapolis, IN",
+              "danger": 0.127,
+              "miles": 491.2,
+              "towns": 8
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.306,
+      "danger_reduction_pct": 62.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Newark, NJ",
+      "to": "Philadelphia, PA",
+      "direct_danger": 0.488,
+      "direct_miles": 76.8,
+      "direct_towns": 6,
+      "safer_alternative_exists": true,
+      "alternatives_found": 8,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Memphis, TN",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.073,
+        "total_miles": 1823.6,
+        "additional_miles": 1746.8,
+        "mile_increase_pct": 2274.0,
+        "total_towns_encountered": 16,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Memphis, TN",
+            "danger": 0.073,
+            "miles": 945.5,
+            "towns": 10
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Philadelphia, PA",
+            "danger": 0.047,
+            "miles": 878.1,
+            "towns": 6
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Newark, NJ",
+            "Memphis, TN",
+            "Philadelphia, PA"
+          ],
+          "max_segment_danger": 0.073,
+          "total_miles": 1823.6,
+          "additional_miles": 1746.8,
+          "mile_increase_pct": 2274.0,
+          "total_towns_encountered": 16,
+          "segments": [
+            {
+              "from": "Newark, NJ",
+              "to": "Memphis, TN",
+              "danger": 0.073,
+              "miles": 945.5,
+              "towns": 10
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "Philadelphia, PA",
+              "danger": 0.047,
+              "miles": 878.1,
+              "towns": 6
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Newark, NJ",
+            "Detroit, MI",
+            "Philadelphia, PA"
+          ],
+          "max_segment_danger": 0.085,
+          "total_miles": 915.3,
+          "additional_miles": 838.5,
+          "mile_increase_pct": 1092.0,
+          "total_towns_encountered": 9,
+          "segments": [
+            {
+              "from": "Newark, NJ",
+              "to": "Detroit, MI",
+              "danger": 0.085,
+              "miles": 472.4,
+              "towns": 5
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Philadelphia, PA",
+              "danger": 0.079,
+              "miles": 442.9,
+              "towns": 4
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Newark, NJ",
+            "Atlanta, GA",
+            "Philadelphia, PA"
+          ],
+          "max_segment_danger": 0.1,
+          "total_miles": 1402.1,
+          "additional_miles": 1325.3,
+          "mile_increase_pct": 1726.0,
+          "total_towns_encountered": 18,
+          "segments": [
+            {
+              "from": "Newark, NJ",
+              "to": "Atlanta, GA",
+              "danger": 0.1,
+              "miles": 738.9,
+              "towns": 11
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Philadelphia, PA",
+              "danger": 0.07,
+              "miles": 663.2,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Newark, NJ",
+            "Birmingham, AL",
+            "Philadelphia, PA"
+          ],
+          "max_segment_danger": 0.135,
+          "total_miles": 1633.9,
+          "additional_miles": 1557.1,
+          "mile_increase_pct": 2027.0,
+          "total_towns_encountered": 22,
+          "segments": [
+            {
+              "from": "Newark, NJ",
+              "to": "Birmingham, AL",
+              "danger": 0.089,
+              "miles": 853.9,
+              "towns": 10
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Philadelphia, PA",
+              "danger": 0.135,
+              "miles": 780.0,
+              "towns": 12
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Newark, NJ",
+            "Pittsburgh, PA",
+            "Philadelphia, PA"
+          ],
+          "max_segment_danger": 0.145,
+          "total_miles": 565.3,
+          "additional_miles": 488.5,
+          "mile_increase_pct": 636.0,
+          "total_towns_encountered": 10,
+          "segments": [
+            {
+              "from": "Newark, NJ",
+              "to": "Pittsburgh, PA",
+              "danger": 0.077,
+              "miles": 307.0,
+              "towns": 4
+            },
+            {
+              "from": "Pittsburgh, PA",
+              "to": "Philadelphia, PA",
+              "danger": 0.145,
+              "miles": 258.3,
+              "towns": 6
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.415,
+      "danger_reduction_pct": 85.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Kansas City, MO",
+      "direct_danger": 0.452,
+      "direct_miles": 699.9,
+      "direct_towns": 43,
+      "safer_alternative_exists": true,
+      "alternatives_found": 18,
+      "best_alternative": {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.151,
+        "total_miles": 1362.5,
+        "additional_miles": 662.6,
+        "mile_increase_pct": 95.0,
+        "total_towns_encountered": 11,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Detroit, MI",
+            "danger": 0.151,
+            "miles": 91.1,
+            "towns": 2
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Kansas City, MO",
+            "danger": 0.03,
+            "miles": 674.0,
+            "towns": 4
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "Detroit, MI",
+            "Atlanta, GA",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.151,
+          "total_miles": 1362.5,
+          "additional_miles": 662.6,
+          "mile_increase_pct": 95.0,
+          "total_towns_encountered": 11,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Detroit, MI",
+              "danger": 0.151,
+              "miles": 91.1,
+              "towns": 2
+            },
+            {
+              "from": "Detroit, MI",
+              "to": "Atlanta, GA",
+              "danger": 0.08,
+              "miles": 597.4,
+              "towns": 5
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Kansas City, MO",
+              "danger": 0.03,
+              "miles": 674.0,
+              "towns": 4
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "Atlanta, GA",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.154,
+          "total_miles": 1833.9,
+          "additional_miles": 1134.0,
+          "mile_increase_pct": 162.0,
+          "total_towns_encountered": 28,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "Atlanta, GA",
+              "danger": 0.116,
+              "miles": 753.8,
+              "towns": 13
+            },
+            {
+              "from": "Atlanta, GA",
+              "to": "Kansas City, MO",
+              "danger": 0.03,
+              "miles": 674.0,
+              "towns": 4
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "Birmingham, AL",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.154,
+          "total_miles": 1852.5,
+          "additional_miles": 1152.6,
+          "mile_increase_pct": 165.0,
+          "total_towns_encountered": 28,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "Birmingham, AL",
+              "danger": 0.092,
+              "miles": 868.9,
+              "towns": 10
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Kansas City, MO",
+              "danger": 0.093,
+              "miles": 577.5,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "2-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "Memphis, TN",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.16,
+          "total_miles": 1734.3,
+          "additional_miles": 1034.4,
+          "mile_increase_pct": 148.0,
+          "total_towns_encountered": 30,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "Memphis, TN",
+              "danger": 0.077,
+              "miles": 960.1,
+              "towns": 11
+            },
+            {
+              "from": "Memphis, TN",
+              "to": "Kansas City, MO",
+              "danger": 0.16,
+              "miles": 368.1,
+              "towns": 8
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "Kansas City, MO"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1195.5,
+          "additional_miles": 495.6,
+          "mile_increase_pct": 71.0,
+          "total_towns_encountered": 23,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Kansas City, MO",
+              "danger": 0.093,
+              "miles": 577.5,
+              "towns": 7
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.301,
+      "danger_reduction_pct": 67.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Indianapolis, IN",
+      "direct_danger": 0.419,
+      "direct_miles": 262.2,
+      "direct_towns": 16,
+      "safer_alternative_exists": true,
+      "alternatives_found": 3,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1052.1,
+        "additional_miles": 789.9,
+        "mile_increase_pct": 301.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Indianapolis, IN",
+            "danger": 0.173,
+            "miles": 434.1,
+            "towns": 9
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1052.1,
+          "additional_miles": 789.9,
+          "mile_increase_pct": 301.0,
+          "total_towns_encountered": 25,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Indianapolis, IN",
+              "danger": 0.173,
+              "miles": 434.1,
+              "towns": 9
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Newark, NJ",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1029.1,
+          "additional_miles": 766.9,
+          "mile_increase_pct": 292.0,
+          "total_towns_encountered": 30,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Newark, NJ",
+              "danger": 0.196,
+              "miles": 394.7,
+              "towns": 14
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Indianapolis, IN",
+              "danger": 0.185,
+              "miles": 634.4,
+              "towns": 16
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "Indianapolis, IN"
+          ],
+          "max_segment_danger": 0.207,
+          "total_miles": 1053.6,
+          "additional_miles": 791.4,
+          "mile_increase_pct": 302.0,
+          "total_towns_encountered": 31,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "Indianapolis, IN",
+              "danger": 0.207,
+              "miles": 647.5,
+              "towns": 20
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.223,
+      "danger_reduction_pct": 53.0,
+      "feasibility": "Theoretically possible but impractical"
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Pittsburgh, PA",
+      "direct_danger": 0.408,
+      "direct_miles": 113.5,
+      "direct_towns": 7,
+      "safer_alternative_exists": true,
+      "alternatives_found": 3,
+      "best_alternative": {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.154,
+        "total_miles": 726.2,
+        "additional_miles": 612.7,
+        "mile_increase_pct": 540.0,
+        "total_towns_encountered": 18,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Pittsburgh, PA",
+            "danger": 0.109,
+            "miles": 320.1,
+            "towns": 7
+          }
+        ]
+      },
+      "all_alternatives": [
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "New York, NY",
+            "Pittsburgh, PA"
+          ],
+          "max_segment_danger": 0.154,
+          "total_miles": 726.2,
+          "additional_miles": 612.7,
+          "mile_increase_pct": 540.0,
+          "total_towns_encountered": 18,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "New York, NY",
+              "danger": 0.154,
+              "miles": 406.1,
+              "towns": 11
+            },
+            {
+              "from": "New York, NY",
+              "to": "Pittsburgh, PA",
+              "danger": 0.109,
+              "miles": 320.1,
+              "towns": 7
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Birmingham, AL",
+            "Pittsburgh, PA"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 1225.4,
+          "additional_miles": 1111.9,
+          "mile_increase_pct": 980.0,
+          "total_towns_encountered": 27,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Birmingham, AL",
+              "danger": 0.196,
+              "miles": 618.0,
+              "towns": 16
+            },
+            {
+              "from": "Birmingham, AL",
+              "to": "Pittsburgh, PA",
+              "danger": 0.134,
+              "miles": 607.4,
+              "towns": 11
+            }
+          ]
+        },
+        {
+          "type": "1-stop",
+          "route": [
+            "Cleveland, OH",
+            "Newark, NJ",
+            "Pittsburgh, PA"
+          ],
+          "max_segment_danger": 0.196,
+          "total_miles": 701.7,
+          "additional_miles": 588.2,
+          "mile_increase_pct": 518.0,
+          "total_towns_encountered": 18,
+          "segments": [
+            {
+              "from": "Cleveland, OH",
+              "to": "Newark, NJ",
+              "danger": 0.196,
+              "miles": 394.7,
+              "towns": 14
+            },
+            {
+              "from": "Newark, NJ",
+              "to": "Pittsburgh, PA",
+              "danger": 0.077,
+              "miles": 307.0,
+              "towns": 4
+            }
+          ]
+        }
+      ],
+      "confidence": "Modeled",
+      "danger_reduction": 0.254,
+      "danger_reduction_pct": 62.0,
+      "feasibility": "Theoretically possible but impractical"
+    }
+  ]
+}

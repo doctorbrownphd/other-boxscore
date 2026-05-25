@@ -1,0 +1,602 @@
+{
+  "metadata": {
+    "title": "Negro Leagues HOF Probability and Era Committee Routing",
+    "description": "For each non-inducted Negro Leaguer in the Rate JAWS leaderboard, a composite probability score estimating HOF candidacy strength, and routing to the appropriate era committee.",
+    "methodology": {
+      "probability_model": {
+        "type": "Composite score (not statistical probability)",
+        "components": {
+          "rank_percentile": "Position in Rate JAWS leaderboard (40%)",
+          "war_ratio": "Career WAR / position HOF average (30%)",
+          "advocacy": "Historian advocacy from 42 for 21 poll (20%)",
+          "momentum": "Recent committee induction patterns (10%)"
+        },
+        "scale": "0.0 (no case) to 1.0 (overwhelming case)"
+      },
+      "era_routing": "Players whose career midpoint is before 1950 are routed to the Early Baseball Era Committee. Players active primarily 1950+ go to the Classical Baseball Era Committee.",
+      "limitations": [
+        "Probability is a model output, not a prediction of committee votes.",
+        "Career WAR figures carry uncertainty from incomplete records.",
+        "Advocacy scoring is binary; intensity of advocacy is not captured.",
+        "Era committee routing uses career midpoint, which may not reflect the committee's actual deliberation."
+      ]
+    },
+    "source": {
+      "rate_jaws": "Ch 10 Rate JAWS (Seamheads)",
+      "candidates": "Ch 11 candidates.json (42 for 21, historian advocacy)",
+      "hof_standards": "FanGraphs JAWS position averages"
+    },
+    "total_candidates": 25,
+    "processed_date": "2026-05-25"
+  },
+  "era_committees": {
+    "early": {
+      "name": "Early Baseball Era Committee",
+      "period": "Pre-1950",
+      "description": "Primary committee for Negro Leagues players. Considers candidates whose careers were predominantly before 1950.",
+      "meets": "Every three years",
+      "last_cycle": 2024,
+      "next_cycle": 2027
+    },
+    "classical": {
+      "name": "Classical Baseball Era Committee",
+      "period": "1950-1969",
+      "description": "For players whose careers bridged the integration period. Some Negro Leaguers who played into the 1950s may be routed here.",
+      "meets": "Every three years",
+      "last_cycle": 2025,
+      "next_cycle": 2028
+    }
+  },
+  "candidates": [
+    {
+      "name": "Dobie Moore",
+      "position": "SS",
+      "years_active": "",
+      "career_war": 37.2,
+      "rate_jaws": 10.36,
+      "rate_war": 9.01,
+      "jaws_rank": 3,
+      "hof_probability": 0.739,
+      "probability_components": {
+        "rank_percentile": 0.971,
+        "war_ratio": 0.335,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Lazaro Salazar",
+      "position": "1B/P",
+      "years_active": "",
+      "career_war": 34.3,
+      "rate_jaws": 9.14,
+      "rate_war": 7.95,
+      "jaws_rank": 6,
+      "hof_probability": 0.717,
+      "probability_components": {
+        "rank_percentile": 0.928,
+        "war_ratio": 0.321,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": "Dual-threat player. Cuban and Mexican leagues primary record.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "John Beckwith",
+      "position": "3B",
+      "years_active": "",
+      "career_war": 28.9,
+      "rate_jaws": 7.85,
+      "rate_war": 6.83,
+      "jaws_rank": 11,
+      "hof_probability": 0.669,
+      "probability_components": {
+        "rank_percentile": 0.855,
+        "war_ratio": 0.257,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Dick Lundy",
+      "position": "SS",
+      "years_active": "",
+      "career_war": 36.8,
+      "rate_jaws": 6.38,
+      "rate_war": 5.55,
+      "jaws_rank": 19,
+      "hof_probability": 0.645,
+      "probability_components": {
+        "rank_percentile": 0.739,
+        "war_ratio": 0.332,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Wild Bill Wright",
+      "position": "CF",
+      "years_active": "",
+      "career_war": 33.2,
+      "rate_jaws": 6.08,
+      "rate_war": 5.29,
+      "jaws_rank": 21,
+      "hof_probability": 0.62,
+      "probability_components": {
+        "rank_percentile": 0.71,
+        "war_ratio": 0.285,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Ramon Bragana",
+      "position": "P",
+      "years_active": "",
+      "career_war": 44.5,
+      "rate_jaws": 5.51,
+      "rate_war": 4.79,
+      "jaws_rank": 27,
+      "hof_probability": 0.617,
+      "probability_components": {
+        "rank_percentile": 0.623,
+        "war_ratio": 0.391,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": "Not widely advocated by U.S. historians; career primarily in Cuban/Venezuelan leagues.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Hurley McNair",
+      "position": "RF",
+      "years_active": "",
+      "career_war": 29.5,
+      "rate_jaws": 5.37,
+      "rate_war": 4.67,
+      "jaws_rank": 28,
+      "hof_probability": 0.572,
+      "probability_components": {
+        "rank_percentile": 0.609,
+        "war_ratio": 0.26,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "William Bell",
+      "position": "P",
+      "years_active": "",
+      "career_war": 36.0,
+      "rate_jaws": 4.78,
+      "rate_war": 4.16,
+      "jaws_rank": 34,
+      "hof_probability": 0.554,
+      "probability_components": {
+        "rank_percentile": 0.522,
+        "war_ratio": 0.316,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Bill Byrd",
+      "position": "P",
+      "years_active": "",
+      "career_war": 31.1,
+      "rate_jaws": 4.89,
+      "rate_war": 4.25,
+      "jaws_rank": 32,
+      "hof_probability": 0.552,
+      "probability_components": {
+        "rank_percentile": 0.551,
+        "war_ratio": 0.273,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "George Scales",
+      "position": "2B",
+      "years_active": "",
+      "career_war": 27.0,
+      "rate_jaws": 5.15,
+      "rate_war": 4.48,
+      "jaws_rank": 31,
+      "hof_probability": 0.547,
+      "probability_components": {
+        "rank_percentile": 0.565,
+        "war_ratio": 0.236,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Dick Redding",
+      "position": "P",
+      "years_active": "",
+      "career_war": 39.9,
+      "rate_jaws": 3.91,
+      "rate_war": 3.4,
+      "jaws_rank": 41,
+      "hof_probability": 0.523,
+      "probability_components": {
+        "rank_percentile": 0.42,
+        "war_ratio": 0.351,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Eustaquio Pedroso",
+      "position": "1B",
+      "years_active": "",
+      "career_war": 40.3,
+      "rate_jaws": null,
+      "rate_war": null,
+      "jaws_rank": 45,
+      "hof_probability": 0.508,
+      "probability_components": {
+        "rank_percentile": 0.362,
+        "war_ratio": 0.377,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": "Career primarily in Cuban leagues. Limited documentation in U.S. records.",
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Carlos Moran",
+      "position": "3B",
+      "years_active": "",
+      "career_war": 32.7,
+      "rate_jaws": 8.57,
+      "rate_war": 7.45,
+      "jaws_rank": 8,
+      "hof_probability": 0.497,
+      "probability_components": {
+        "rank_percentile": 0.899,
+        "war_ratio": 0.29,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Newt Allen",
+      "position": "2B",
+      "years_active": "",
+      "career_war": 37.8,
+      "rate_jaws": null,
+      "rate_war": null,
+      "jaws_rank": 46,
+      "hof_probability": 0.488,
+      "probability_components": {
+        "rank_percentile": 0.348,
+        "war_ratio": 0.331,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Sam Bankhead",
+      "position": "SS",
+      "years_active": "",
+      "career_war": 30.5,
+      "rate_jaws": null,
+      "rate_war": null,
+      "jaws_rank": 47,
+      "hof_probability": 0.466,
+      "probability_components": {
+        "rank_percentile": 0.333,
+        "war_ratio": 0.275,
+        "advocacy": true,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": true,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Jesus Valenzuela",
+      "position": "P",
+      "years_active": "",
+      "career_war": 35.6,
+      "rate_jaws": 5.24,
+      "rate_war": 4.56,
+      "jaws_rank": 29,
+      "hof_probability": 0.382,
+      "probability_components": {
+        "rank_percentile": 0.594,
+        "war_ratio": 0.313,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Juan Padron",
+      "position": "P",
+      "years_active": "",
+      "career_war": 33.0,
+      "rate_jaws": 5.18,
+      "rate_war": 4.5,
+      "jaws_rank": 30,
+      "hof_probability": 0.369,
+      "probability_components": {
+        "rank_percentile": 0.58,
+        "war_ratio": 0.29,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Carlos Royer",
+      "position": "P",
+      "years_active": "",
+      "career_war": 28.6,
+      "rate_jaws": 4.84,
+      "rate_war": 4.21,
+      "jaws_rank": 33,
+      "hof_probability": 0.34,
+      "probability_components": {
+        "rank_percentile": 0.536,
+        "war_ratio": 0.251,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Nip Winters",
+      "position": "P",
+      "years_active": "",
+      "career_war": 29.7,
+      "rate_jaws": 4.66,
+      "rate_war": 4.05,
+      "jaws_rank": 35,
+      "hof_probability": 0.331,
+      "probability_components": {
+        "rank_percentile": 0.507,
+        "war_ratio": 0.261,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Barney Brown",
+      "position": "P",
+      "years_active": "",
+      "career_war": 28.0,
+      "rate_jaws": 4.36,
+      "rate_war": 3.79,
+      "jaws_rank": 38,
+      "hof_probability": 0.309,
+      "probability_components": {
+        "rank_percentile": 0.464,
+        "war_ratio": 0.246,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Jose Munoz",
+      "position": "P",
+      "years_active": "",
+      "career_war": 30.8,
+      "rate_jaws": 3.85,
+      "rate_war": 3.35,
+      "jaws_rank": 42,
+      "hof_probability": 0.294,
+      "probability_components": {
+        "rank_percentile": 0.406,
+        "war_ratio": 0.271,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Leroy Matlock",
+      "position": "P",
+      "years_active": "",
+      "career_war": 26.2,
+      "rate_jaws": 4.11,
+      "rate_war": 3.57,
+      "jaws_rank": 40,
+      "hof_probability": 0.293,
+      "probability_components": {
+        "rank_percentile": 0.435,
+        "war_ratio": 0.23,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Bill Holland",
+      "position": "P",
+      "years_active": "",
+      "career_war": 30.2,
+      "rate_jaws": 3.58,
+      "rate_war": 3.11,
+      "jaws_rank": 43,
+      "hof_probability": 0.286,
+      "probability_components": {
+        "rank_percentile": 0.391,
+        "war_ratio": 0.265,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Pelayo Chacon",
+      "position": "SS",
+      "years_active": "",
+      "career_war": 27.4,
+      "rate_jaws": null,
+      "rate_war": null,
+      "jaws_rank": 48,
+      "hof_probability": 0.252,
+      "probability_components": {
+        "rank_percentile": 0.319,
+        "war_ratio": 0.247,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    },
+    {
+      "name": "Henry McHenry",
+      "position": "P",
+      "years_active": "",
+      "career_war": 27.2,
+      "rate_jaws": null,
+      "rate_war": null,
+      "jaws_rank": 49,
+      "hof_probability": 0.243,
+      "probability_components": {
+        "rank_percentile": 0.304,
+        "war_ratio": 0.239,
+        "advocacy": false,
+        "momentum": 0.5
+      },
+      "era_committee": "early",
+      "era_committee_name": "Early Baseball Era Committee",
+      "next_eligible_cycle": 2027,
+      "historian_advocacy": false,
+      "advocacy_detail": null,
+      "confidence": "Modeled"
+    }
+  ]
+}

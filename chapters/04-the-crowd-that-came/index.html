@@ -2631,6 +2631,7 @@ github.com/other-boxscore/chapters/
      Primary: Lester, Black Baseball's National Showcase (2020).
      Cross-reference: SABR Retrosheet, Baseball Almanac. -->
 <script src="data/attendance-data.js"></script>
+<script src="data/hof-gap-data.js"></script>
 
 <script>
 (function() {
@@ -2651,38 +2652,56 @@ var CROSSOVER_YEARS = ATT.filter(function(d) {
   return d.mlb > 0 && d.ew > d.mlb;
 }).map(function(d) { return d.year; });
 
-function R(name, team, pos, hof, gap) {
-  return { name: name, team: team, pos: pos, hof: hof || null, gap: gap || false };
+// 1943 East-West All-Star Game roster -- Retrosheet box score
+// Source: retrosheet.org/NegroLeagues/boxesetc/1943/B08010ASW1943.htm
+// HOF years and gap flags from window.HOF_GAP (hof-gap-data.js)
+
+function R(name, team, pos) {
+  var g = window.HOF_GAP && window.HOF_GAP[name];
+  return {
+    name: name,
+    team: team,
+    pos: pos,
+    hof: g ? g.hof : null,
+    gap: g ? g.gap : false
+  };
 }
 
 var ROSTER_WEST = [
-  R("Satchel Paige",  "Kansas City Monarchs",    "P",  1971),
-  R("Hilton Smith",   "Kansas City Monarchs",    "P",  2001),
-  R("Theolic Smith",  "Cleveland Buckeyes",      "P",  null, true),
-  R("Quincy Trouppe", "Cleveland Buckeyes",      "C",  null, true),
-  R("Lyman Bostock",  "Birmingham Black Barons", "1B", null, true),
-  R("Jackie Robinson","Kansas City Monarchs",    "2B", 1962),
-  R("Sam Bankhead",   "Memphis Red Sox",         "SS", null, true),
-  R("Parnell Woods",  "Cleveland Buckeyes",      "3B"),
-  R("Willard Brown",  "Kansas City Monarchs",    "OF", 2006),
-  R("Ted Strong",     "Kansas City Monarchs",    "OF"),
-  R("Lloyd Davenport","Chicago American Giants",  "OF"),
-  R("Felton Snow",    "Baltimore Elite Giants",   "MGR")
+  R("Satchel Paige",    "Kansas City Monarchs",     "P"),
+  R("Gready McKinnis",  "Birmingham Black Barons",  "P"),
+  R("Theolic Smith",    "Cleveland Buckeyes",        "P"),
+  R("Porter Moss",      "Memphis Red Sox",           "P"),
+  R("Ted Radcliffe",    "Chicago American Giants",   "C"),
+  R("Buck O'Neil",      "Kansas City Monarchs",      "1B"),
+  R("Tommy Sampson",    "Birmingham Black Barons",   "2B"),
+  R("Jesse Williams",   "Kansas City Monarchs",      "SS"),
+  R("Alex Radcliffe",   "Chicago American Giants",   "3B"),
+  R("Willard Brown",    "Kansas City Monarchs",      "CF"),
+  R("Lloyd Davenport",  "Chicago American Giants",   "RF"),
+  R("Neil Robinson",    "Memphis Red Sox",           "LF"),
+  R("Lester Lockett",   "Birmingham Black Barons",   "LF"),
+  R("Fred Wilson",      "Cincinnati Clowns",         "PH"),
+  R("Cowan Hyde",       "Memphis Red Sox",           "PR")
 ];
 
 var ROSTER_EAST = [
-  R("Leon Day",        "Newark Eagles",            "P",  1995),
-  R("Bill Byrd",       "Baltimore Elite Giants",   "P",  null, true),
-  R("Roy Partlow",     "Philadelphia Stars",       "P"),
-  R("Josh Gibson",     "Homestead Grays",          "C",  1972),
-  R("Buck Leonard",    "Homestead Grays",          "1B", 1972),
-  R("Sammy T. Hughes", "Baltimore Elite Giants",   "2B", null, true),
-  R("Willie Wells",    "Newark Eagles",            "SS", 1997),
-  R("Howard Easterling","Homestead Grays",          "3B", null, true),
-  R("Cool Papa Bell",  "Homestead Grays",          "OF", 1974),
-  R("Vic Harris",      "Homestead Grays",          "OF/MGR"),
-  R("Lennie Pearson",  "Newark Eagles",            "OF"),
-  R("Roy Campanella",  "Baltimore Elite Giants",   "C",  1969)
+  R("Dave Barnhill",     "New York Cubans",           "P"),
+  R("Johnny Wright",     "Homestead Grays",           "P"),
+  R("Bill Harvey",       "Baltimore Elite Giants",    "P"),
+  R("Leon Day",          "Newark Eagles",             "P"),
+  R("Josh Gibson",       "Homestead Grays",           "C"),
+  R("Buck Leonard",      "Homestead Grays",           "1B"),
+  R("Sam Bankhead",      "Homestead Grays",           "2B"),
+  R("Rabbit Martinez",   "New York Cubans",           "SS"),
+  R("Howard Easterling", "Homestead Grays",           "3B"),
+  R("Cool Papa Bell",    "Homestead Grays",           "LF"),
+  R("Henry Kimbro",      "Baltimore Elite Giants",    "CF"),
+  R("Lennie Pearson",    "Newark Eagles",             "RF"),
+  R("Tetelo Vargas",     "New York Cubans",           "CF"),
+  R("Jerry Benjamin",    "Homestead Grays",           "PH"),
+  R("Vic Harris",        "Homestead Grays",           "PH"),
+  R("George Scales",     "Baltimore Elite Giants",    "PH")
 ];
 
 var ALL_PLAYERS = ROSTER_WEST.concat(ROSTER_EAST);
@@ -2858,8 +2877,11 @@ document.getElementById("stat-hof").textContent = HOF_COUNT;
 })();
 
 // HOF Gap title
+// Uses model output from hof-gap-data.js (window.HOF_GAP_SUMMARY)
+var gapSummary = window.HOF_GAP_SUMMARY || {};
 document.getElementById("hof-gap-title").textContent =
-  GAP_COUNT + " of the 24 starters on August 1, 1943 are East-West All-Stars whose documented statistics meet or exceed the Hall of Fame's inducted threshold -- and who were never inducted.";
+  GAP_COUNT + " of the " + ALL_PLAYERS.length + " players on August 1, 1943 are East-West All-Stars whose documented Rate JAWS score (Ch 10) ranks in the top 50 of evaluated Negro Leaguers -- and who were never inducted. " +
+  "Across all East-West games (1933-1948), " + (gapSummary.gap_flagged || 10) + " players out of " + (gapSummary.total_unique_players || 194) + " carry this documented gap.";
 
 // Press section
 (function() {

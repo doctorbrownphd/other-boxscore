@@ -1,0 +1,845 @@
+{
+  "metadata": {
+    "title": "Hall of Fame Induction Lag Analysis",
+    "description": "For each Negro Leaguer in the multi-hall matrix, the time gap between career end and induction, and between first recognition by any hall and Cooperstown induction.",
+    "methodology": "Deterministic calculation. Career end years from Ch 10 player data and SABR BioProject. Induction years from institutional records in hall-matrix.json.",
+    "source": {
+      "hall_matrix": "Ch 12 hall-matrix.json",
+      "career_data": "Ch 10 players.json, SABR BioProject"
+    },
+    "processed_date": "2026-05-25"
+  },
+  "summary": {
+    "total_players": 45,
+    "multi_hall": 9,
+    "cooperstown_only": 28,
+    "recognized_elsewhere_first": 6,
+    "cooperstown_first": 29,
+    "cooperstown_lag_mean_years": 28.6,
+    "cooperstown_lag_max_years": 67,
+    "career_to_cooperstown_mean_years": 54.6,
+    "career_to_cooperstown_max_years": 103
+  },
+  "players": [
+    {
+      "name": "Jose Mendez",
+      "career_end": 1926,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 2006,
+        "Cuba": 1939
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1939,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 13,
+      "years_career_to_cooperstown": 80,
+      "cooperstown_lag_years": 67,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Cuba",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Cristobal Torriente",
+      "career_end": 1932,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 2006,
+        "Cuba": 1939
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1939,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 7,
+      "years_career_to_cooperstown": 74,
+      "cooperstown_lag_years": 67,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Cuba",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Minnie Minoso",
+      "career_end": 1980,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 2022,
+        "Cuba": 1983
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1983,
+      "cooperstown_year": 2022,
+      "years_career_to_first": 3,
+      "years_career_to_cooperstown": 42,
+      "cooperstown_lag_years": 39,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Cuba",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Martin Dihigo",
+      "career_end": 1946,
+      "total_halls": 3,
+      "halls_inducted": {
+        "Cooperstown": 1977,
+        "Cuba": 1951,
+        "Mexico": 1964
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1951,
+      "cooperstown_year": 1977,
+      "years_career_to_first": 5,
+      "years_career_to_cooperstown": 31,
+      "cooperstown_lag_years": 26,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Cuba",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Monte Irvin",
+      "career_end": 1956,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 1973,
+        "Mexico": 1971
+      },
+      "first_induction_hall": "Mexico",
+      "first_induction_year": 1971,
+      "cooperstown_year": 1973,
+      "years_career_to_first": 15,
+      "years_career_to_cooperstown": 17,
+      "cooperstown_lag_years": 2,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Mexico",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Josh Gibson",
+      "career_end": 1946,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 1972,
+        "Mexico": 1971
+      },
+      "first_induction_hall": "Mexico",
+      "first_induction_year": 1971,
+      "cooperstown_year": 1972,
+      "years_career_to_first": 25,
+      "years_career_to_cooperstown": 26,
+      "cooperstown_lag_years": 1,
+      "recognized_elsewhere_first": true,
+      "first_recognized_by": "Mexico",
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Satchel Paige",
+      "career_end": 1947,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1971
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1971,
+      "cooperstown_year": 1971,
+      "years_career_to_first": 24,
+      "years_career_to_cooperstown": 24,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Buck Leonard",
+      "career_end": 1948,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1972
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1972,
+      "cooperstown_year": 1972,
+      "years_career_to_first": 24,
+      "years_career_to_cooperstown": 24,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Cool Papa Bell",
+      "career_end": 1946,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1974
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1974,
+      "cooperstown_year": 1974,
+      "years_career_to_first": 28,
+      "years_career_to_cooperstown": 28,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Judy Johnson",
+      "career_end": 1936,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1975
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1975,
+      "cooperstown_year": 1975,
+      "years_career_to_first": 39,
+      "years_career_to_cooperstown": 39,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Oscar Charleston",
+      "career_end": 1941,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1976
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1976,
+      "cooperstown_year": 1976,
+      "years_career_to_first": 35,
+      "years_career_to_cooperstown": 35,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Pop Lloyd",
+      "career_end": 1932,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1977
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1977,
+      "cooperstown_year": 1977,
+      "years_career_to_first": 45,
+      "years_career_to_cooperstown": 45,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Rube Foster",
+      "career_end": 1926,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1981
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1981,
+      "cooperstown_year": 1981,
+      "years_career_to_first": 55,
+      "years_career_to_cooperstown": 55,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Leon Day",
+      "career_end": 1946,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1995
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1995,
+      "cooperstown_year": 1995,
+      "years_career_to_first": 49,
+      "years_career_to_cooperstown": 49,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bill Foster",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1996
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1996,
+      "cooperstown_year": 1996,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willie Wells",
+      "career_end": 1948,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1997
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1997,
+      "cooperstown_year": 1997,
+      "years_career_to_first": 49,
+      "years_career_to_cooperstown": 49,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bullet Rogan",
+      "career_end": 1938,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1998
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1998,
+      "cooperstown_year": 1998,
+      "years_career_to_first": 60,
+      "years_career_to_cooperstown": 60,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Larry Doby",
+      "career_end": 1959,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1998
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1998,
+      "cooperstown_year": 1998,
+      "years_career_to_first": 39,
+      "years_career_to_cooperstown": 39,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Joe Williams",
+      "career_end": 1932,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 1999
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1999,
+      "cooperstown_year": 1999,
+      "years_career_to_first": 67,
+      "years_career_to_cooperstown": 67,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Turkey Stearnes",
+      "career_end": 1940,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2000
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2000,
+      "cooperstown_year": 2000,
+      "years_career_to_first": 60,
+      "years_career_to_cooperstown": 60,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Hilton Smith",
+      "career_end": 1948,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2001
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2001,
+      "cooperstown_year": 2001,
+      "years_career_to_first": 53,
+      "years_career_to_cooperstown": 53,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ray Brown",
+      "career_end": 1946,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 60,
+      "years_career_to_cooperstown": 60,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Willard Brown",
+      "career_end": 1948,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 58,
+      "years_career_to_cooperstown": 58,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Andy Cooper",
+      "career_end": 1939,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 67,
+      "years_career_to_cooperstown": 67,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Frank Grant",
+      "career_end": 1903,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 103,
+      "years_career_to_cooperstown": 103,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Pete Hill",
+      "career_end": 1925,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 81,
+      "years_career_to_cooperstown": 81,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Biz Mackey",
+      "career_end": 1947,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 59,
+      "years_career_to_cooperstown": 59,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Louis Santop",
+      "career_end": 1926,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 80,
+      "years_career_to_cooperstown": 80,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Mule Suttles",
+      "career_end": 1944,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 62,
+      "years_career_to_cooperstown": 62,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ben Taylor",
+      "career_end": 1929,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 77,
+      "years_career_to_cooperstown": 77,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Sol White",
+      "career_end": 1911,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 95,
+      "years_career_to_cooperstown": 95,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Jud Wilson",
+      "career_end": 1945,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2006
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2006,
+      "cooperstown_year": 2006,
+      "years_career_to_first": 61,
+      "years_career_to_cooperstown": 61,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Buck O'Neil",
+      "career_end": 1955,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2022
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2022,
+      "cooperstown_year": 2022,
+      "years_career_to_first": 67,
+      "years_career_to_cooperstown": 67,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bud Fowler",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cooperstown": 2022
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 2022,
+      "cooperstown_year": 2022,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Alejandro Oms",
+      "career_end": 1946,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1944
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1944,
+      "cooperstown_year": null,
+      "years_career_to_first": -2,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Silvio Garcia",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1975
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1975,
+      "cooperstown_year": null,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Bernardo Baro",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1945
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1945,
+      "cooperstown_year": null,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Luis Tiant Sr.",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1965
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1965,
+      "cooperstown_year": null,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Lazaro Salazar",
+      "career_end": 1946,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cuba": 1959,
+        "Mexico": 1964
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1959,
+      "cooperstown_year": null,
+      "years_career_to_first": 13,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ramon Bragana",
+      "career_end": 1946,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cuba": 1960,
+        "Mexico": 1964
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1960,
+      "cooperstown_year": null,
+      "years_career_to_first": 14,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Wild Bill Wright",
+      "career_end": 1946,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Mexico": 1982
+      },
+      "first_induction_hall": "Mexico",
+      "first_induction_year": 1982,
+      "cooperstown_year": null,
+      "years_career_to_first": 36,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Isidro Fabre",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1957
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1957,
+      "cooperstown_year": null,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Tetelo Vargas",
+      "career_end": null,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1998
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1998,
+      "cooperstown_year": null,
+      "years_career_to_first": null,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Reported"
+    },
+    {
+      "name": "Pelayo Chacon",
+      "career_end": 1931,
+      "total_halls": 1,
+      "halls_inducted": {
+        "Cuba": 1949
+      },
+      "first_induction_hall": "Cuba",
+      "first_induction_year": 1949,
+      "cooperstown_year": null,
+      "years_career_to_first": 18,
+      "years_career_to_cooperstown": null,
+      "cooperstown_lag_years": null,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": null,
+      "cooperstown_was_first": false,
+      "confidence": "Documented"
+    },
+    {
+      "name": "Ray Dandridge",
+      "career_end": 1953,
+      "total_halls": 2,
+      "halls_inducted": {
+        "Cooperstown": 1987,
+        "Mexico": 1989
+      },
+      "first_induction_hall": "Cooperstown",
+      "first_induction_year": 1987,
+      "cooperstown_year": 1987,
+      "years_career_to_first": 34,
+      "years_career_to_cooperstown": 34,
+      "cooperstown_lag_years": -2,
+      "recognized_elsewhere_first": false,
+      "first_recognized_by": "Mexico",
+      "cooperstown_was_first": true,
+      "confidence": "Documented"
+    }
+  ]
+}

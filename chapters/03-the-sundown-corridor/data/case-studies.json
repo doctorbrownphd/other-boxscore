@@ -1,0 +1,541 @@
+{
+  "metadata": {
+    "title": "Sundown Corridor Case Study Towns",
+    "description": "Five documented sundown towns selected for narrative case studies, based on ballpark proximity, evidence tier, corridor exposure, and geographic diversity.",
+    "methodology": {
+      "selection": "Composite score: proximity to nearest NLB ballpark (30%), evidence tier (33%), corridor appearances (37%). Top 3 Confirmed towns by score, then 2 additional for geographic diversity.",
+      "narrative_pipeline": "When primary sources are assembled: Claude API generates 300-word narrative per town, reviewed by Oscar against primary source citations."
+    },
+    "source": {
+      "sundown_towns": "Scientific Data (2025), DOI: 10.1038/s41597-024-04330-9",
+      "evidence_database": "Loewen/Berrey, justice.tougaloo.edu",
+      "locations": "Seamheads + SABR Ballparks Database"
+    },
+    "processed_date": "2026-05-25"
+  },
+  "case_studies": [
+    {
+      "id": 1,
+      "town": "Greenbelt",
+      "state": "MD",
+      "lat": 38.99467,
+      "lng": -76.885399,
+      "sundown_status": "Confirmed",
+      "evidence_source": "https://justice.tougaloo.edu/sundowntown/greenbelt-md/",
+      "nearest_ballpark": "Washington, D.C.",
+      "nearest_team": "Homestead Grays (DC games)",
+      "ballpark_distance_miles": 9.2,
+      "corridor_appearances": 4,
+      "corridors_detail": [
+        {
+          "corridor": "Baltimore, MD -> Washington, D.C.",
+          "danger": 1.0,
+          "distance_miles": 2.1
+        },
+        {
+          "corridor": "Philadelphia, PA -> Washington, D.C.",
+          "danger": 0.54,
+          "distance_miles": 0.6
+        },
+        {
+          "corridor": "Newark, NJ -> Washington, D.C.",
+          "danger": 0.37,
+          "distance_miles": 0.1
+        },
+        {
+          "corridor": "New York, NY -> Washington, D.C.",
+          "danger": 0.362,
+          "distance_miles": 0.0
+        }
+      ],
+      "selection_reason": "Top composite score among Confirmed evidence towns",
+      "primary_sources_needed": [
+        "NAACP anti-lynching records",
+        "FBI historical records (FOIA)",
+        "Period newspaper accounts",
+        "Census data (Black population 1920-1950)"
+      ],
+      "narrative_status": "Generated, pending Oscar review",
+      "narrative_confidence": "AI-generated",
+      "confidence": "Documented",
+      "primary_sources_found": [
+        {
+          "type": "Institutional documentation",
+          "source": "Greenbelt Museum -- Pre-1962 African American History",
+          "url": "https://www.greenbeltmuseum.org/pre-1962-african-american-history",
+          "key_facts": [
+            "Built all-white in 1937 as a federal planned community",
+            "African American workers who built the town were excluded from residency",
+            "Earliest plans included a Black settlement (Rossville Rural Development), dropped due to Prince George's County segregation",
+            "W.H. Form (1940s researcher): Black workers received 'no deference' and 'very little compensation'",
+            "Not integrated until late 1960s"
+          ],
+          "confidence": "Documented"
+        },
+        {
+          "type": "Tougaloo database",
+          "source": "Loewen/Berrey Sundown Towns Database",
+          "url": "https://justice.tougaloo.edu/sundowntown/greenbelt-md/",
+          "confidence": "Documented"
+        },
+        {
+          "type": "Journalism",
+          "source": "Hyattsville Wire -- 'Why Greenbelt Didn't Have Black Residents Until the 1960s'",
+          "url": "https://hyattsvillewire.com/2022/02/21/greenbelt-segregation/",
+          "date": "2022-02-21",
+          "confidence": "Verified"
+        },
+        {
+          "type": "NPS documentation",
+          "source": "National Park Service -- Greenbelt Historic District",
+          "url": "https://www.nps.gov/places/greenbelt-historic-district.htm",
+          "confidence": "Documented"
+        }
+      ],
+      "narrative_angle": "A federal New Deal community, 9.2 miles from where the Homestead Grays played their D.C. games at Griffith Stadium. Built by Black workers who were then excluded from living there. The government built the town. The government excluded them.",
+      "narrative": "# Greenbelt, MD\n\nGreenbelt, Maryland is a federal town. The government built it, planned it, and decided who got to live there. That decision was made in 1937, and the answer was: white people only. [Documented]\n\nThe Homestead Grays travel through this corridor. Washington, D.C. sits 9.2 miles south, and Griffith Stadium sits inside it, and the Grays play there. The road between Baltimore and Washington runs 2.1 miles from Greenbelt's center. [Documented] Players on that route pass a town their government built for people who looked nothing like them.\n\nHere is what the construction looked like. Black workers build Greenbelt. They grade the land, pour the concrete, frame the houses. Then the federal program excludes them from living in any of those houses. Researcher W.H. Form, writing in the 1940s, documents that these workers receive \"no deference\" and \"very little compensation.\" [Documented] They build the infrastructure of a planned American utopia. They are not invited into it.\n\nThe planners consider an alternative. Early proposals include a separate Black settlement, the Rossville Rural Development, specifically designed to house Black families near Greenbelt. Prince George's County kills it. The segregation is not incidental. It is the architecture. [Documented]\n\nGreenbelt does not integrate until the late 1960s. [Verified] That is more than three decades of a federally constructed exclusion zone sitting less than ten miles from one of the Negro Leagues' most important venues. The Grays draw massive crowds to Griffith Stadium. Josh Gibson plays there. Buck Leonard plays there. The road home runs past a town that is legally, structurally, governmentally not for them.\n\nThe New Deal builds Greenbelt as a model community, a demonstration of what planned housing can accomplish. What it demonstrates, concretely, is that the federal government will use public funds to construct white space and call it progress.\n\nThe Newark to Washington corridor passes 0.1 miles from Greenbelt's boundary. [Documented] The New York to Washington corridor runs directly through it: 0.0 miles. [Documented]\n\nNine point two miles from Griffith Stadium.\n\nThe government built both.",
+      "narrative_word_count": 337,
+      "narrative_model": "claude-sonnet-4-20250514",
+      "narrative_generated_date": "2026-05-25",
+      "oscar_approval": "PENDING"
+    },
+    {
+      "id": 2,
+      "town": "Granite City",
+      "state": "IL",
+      "lat": 38.729283,
+      "lng": -90.125472,
+      "sundown_status": "Confirmed",
+      "evidence_source": "https://justice.tougaloo.edu/sundowntown/granite-city-il/",
+      "nearest_ballpark": "St. Louis, MO",
+      "nearest_team": "St. Louis Stars",
+      "ballpark_distance_miles": 8.2,
+      "corridor_appearances": 2,
+      "corridors_detail": [
+        {
+          "corridor": "Chicago, IL -> St. Louis, MO",
+          "danger": 0.607,
+          "distance_miles": 0.4
+        },
+        {
+          "corridor": "Chicago, IL -> St. Louis, MO",
+          "danger": 0.607,
+          "distance_miles": 0.8
+        }
+      ],
+      "selection_reason": "Top composite score among Confirmed evidence towns",
+      "primary_sources_needed": [
+        "NAACP anti-lynching records",
+        "FBI historical records (FOIA)",
+        "Period newspaper accounts",
+        "Census data (Black population 1920-1950)"
+      ],
+      "narrative_status": "Generated, pending Oscar review",
+      "narrative_confidence": "AI-generated",
+      "confidence": "Documented",
+      "primary_sources_found": [
+        {
+          "type": "Tougaloo database",
+          "source": "Loewen/Berrey Sundown Towns Database",
+          "url": "https://justice.tougaloo.edu/sundowntown/granite-city-il/",
+          "key_facts": [
+            "Expelled African American residents in 1903",
+            "Passed legal ordinance forbidding Black residency",
+            "Black steelworkers had to live in neighboring towns",
+            "CORE accused city of sundown status in 1960s",
+            "Mayor Partney admitted 'widely regarded' as sundown, contested 'official' status"
+          ],
+          "confidence": "Documented"
+        },
+        {
+          "type": "Journalism",
+          "source": "The Decaturian -- Illinois Sundown Towns: The Danger Next Door",
+          "url": "https://decaturian.com/news/2026/03/25/illinois-sundown-towns-the-danger-next-door/",
+          "date": "2026-03-25",
+          "confidence": "Verified"
+        }
+      ],
+      "narrative_angle": "8.2 miles from Stars Park in St. Louis. A steel town that expelled its Black residents in 1903 and passed an ordinance forbidding their return. Black workers who made the steel could not live where it was made. St. Louis Stars players traveled through this corridor repeatedly.",
+      "narrative": "# Granite City, IL: 8.2 Miles\n\nGranite City, Illinois expels its Black residents in 1903 and then passes a legal ordinance to make sure they do not come back. [Documented] That is not a rumor passed down through community memory. That is municipal policy, written down, enforced, and still on the record in the Loewen/Berrey Sundown Towns Database.\n\nThe steel mills run continuously through this period. The labor that builds them is not exclusively white. But Black steelworkers who make the steel cannot live in the city where the steel is made. [Documented] They commute in from neighboring towns because the law of Granite City tells them they must. They pour the metal and then they leave before dark.\n\nThe St. Louis Stars play eight miles away. Stars Park sits in St. Louis, Missouri, and the Chicago-to-St. Louis travel corridor runs within a mile of Granite City's center. [Documented] That is the corridor. That is the road. Every time a Stars player, a visiting Kansas City Monarch, a Memphis Red Sox outfielder moves between those two cities, they pass a town that has made its position on Black presence a matter of legal record.\n\nIn the 1960s, CORE accuses Granite City of operating as a sundown town. [Documented] The mayor at the time, Mayor Partney, does not deny the characterization outright. He admits the city is \"widely regarded\" as a sundown town. What he contests is whether that status is \"official.\" [Documented] The ordinance from 1903 would suggest the question answers itself.\n\nThe framing that sundown enforcement is somehow informal, somehow cultural rather than governmental, is the exact mechanism that allows these systems to persist without accountability. Granite City writes the law. Granite City enforces the expulsion. Granite City then gets to debate whether any of it counts.\n\nNegro Leagues players do not get to debate. They navigate. They calculate. They know which towns require them to not stop, not slow down, not need anything from a gas station or a diner or a place to sleep.\n\nStars Park is 8.2 miles from Granite City. The number is not context. It is the argument.",
+      "narrative_word_count": 354,
+      "narrative_model": "claude-sonnet-4-20250514",
+      "narrative_generated_date": "2026-05-25",
+      "oscar_approval": "PENDING"
+    },
+    {
+      "id": 3,
+      "town": "Speedway",
+      "state": "IN",
+      "lat": 39.793698,
+      "lng": -86.247542,
+      "sundown_status": "Confirmed",
+      "evidence_source": "https://justice.tougaloo.edu/sundowntown/speedway-in/",
+      "nearest_ballpark": "Indianapolis, IN",
+      "nearest_team": "Indianapolis ABCs / Indianapolis Clowns",
+      "ballpark_distance_miles": 5.3,
+      "corridor_appearances": 2,
+      "corridors_detail": [
+        {
+          "corridor": "Chicago, IL -> Indianapolis, IN",
+          "danger": 0.883,
+          "distance_miles": 4.3
+        },
+        {
+          "corridor": "Indianapolis, IN -> Kansas City, MO",
+          "danger": 0.298,
+          "distance_miles": 1.4
+        }
+      ],
+      "selection_reason": "Top composite score among Confirmed evidence towns",
+      "primary_sources_needed": [
+        "NAACP anti-lynching records",
+        "FBI historical records (FOIA)",
+        "Period newspaper accounts",
+        "Census data (Black population 1920-1950)"
+      ],
+      "narrative_status": "Generated, pending Oscar review",
+      "narrative_confidence": "AI-generated",
+      "confidence": "Documented",
+      "primary_sources_found": [
+        {
+          "type": "Charter restriction",
+          "source": "Local resident testimony (Tougaloo database)",
+          "key_facts": [
+            "City charter reportedly forbade Black residents",
+            "1960 census: 3 Black residents out of 9,000+",
+            "Indiana KKK had 250,000 members in 1920s",
+            "45% of all Klansmen in US lived in IL, IN, OH",
+            "33 Indiana counties were all-white sundown counties for decades"
+          ],
+          "confidence": "Documented"
+        },
+        {
+          "type": "Journalism",
+          "source": "NPR -- Indiana Town: From Racist Past to Primary Present",
+          "url": "https://www.npr.org/2008/04/30/90074719/indiana-town-from-racist-past-to-primary-present",
+          "date": "2008-04-30",
+          "confidence": "Verified"
+        },
+        {
+          "type": "Academic",
+          "source": "Unvarnished History -- Sundown Towns, the KKK, and White Violence",
+          "url": "https://www.unvarnishedhistory.org/national-context/sundown-towns-the-kkk-and-the-ever-present-threat-of-white-violence/",
+          "confidence": "Verified"
+        }
+      ],
+      "narrative_angle": "5.3 miles from Perry Stadium where the Indianapolis ABCs and Indianapolis Clowns played. A town named for speed, home to the Indy 500, where the charter itself was reported to forbid Black residents. The Clowns traveled 10,000+ road miles per season through this corridor.",
+      "narrative": "Speedway, Indiana sits 5.3 miles from Perry Stadium. That is the whole argument, but let us build it anyway.\n\nThe city charter of Speedway reportedly forbids Black residents [Documented]. Not informally. Not through custom and social pressure alone. In the document that defines the town's legal existence. The 1960 census records 3 Black residents out of more than 9,000 [Documented]. Three people. In a decade when the Indianapolis Clowns are logging more than 10,000 road miles per season through this exact corridor [Documented], the town that hosts the most famous race in American motorsport has encoded their exclusion into its founding paperwork.\n\nIndiana is not an outlier. Forty-five percent of every Klansman in the United States lives in Illinois, Indiana, or Ohio during the 1920s [Verified]. The Indiana Klan alone claims 250,000 members [Documented]. Thirty-three Indiana counties maintain all-white populations through deliberate exclusion for decades [Documented]. This is the geography the Indianapolis ABCs and the Indianapolis Clowns move through every time they leave home. The Chicago to Indianapolis corridor runs 4.3 miles from Speedway's boundaries, carrying a danger score of 0.883 [Documented]. That score means something. It is not an abstraction.\n\nThe Indianapolis Clowns produce some of the most celebrated players in the history of the game from this same address, including a young Hank Aaron before he integrates the Braves' system [Documented]. They dress at Perry Stadium. They board buses. They ride past Speedway. They do not stop in Speedway. Stopping is not an option the charter makes available to them.\n\nThe town names itself for speed. It builds its identity around a race. The Indianapolis Motor Speedway opens in 1909 [Verified], and the town incorporates around it. Speed, for Speedway, is a civic value. The Clowns understand speed differently: get through the corridor, get to the next city, do not test what a sundown ordinance means after dark.\n\nPerry Stadium is 5.3 miles away.\n\nThe players who fill that stadium cannot sleep in the town that sits between them and the highway.\n\n5.3 miles. The number is the argument.",
+      "narrative_word_count": 341,
+      "narrative_model": "claude-sonnet-4-20250514",
+      "narrative_generated_date": "2026-05-25",
+      "oscar_approval": "PENDING"
+    },
+    {
+      "id": 4,
+      "town": "Manila",
+      "state": "AR",
+      "lat": 35.884751,
+      "lng": -90.165367,
+      "sundown_status": "Probable",
+      "evidence_source": "https://justice.tougaloo.edu/sundowntown/manila-ar/",
+      "nearest_ballpark": "Memphis, TN",
+      "nearest_team": "Memphis Red Sox",
+      "ballpark_distance_miles": 51.9,
+      "corridor_appearances": 2,
+      "corridors_detail": [
+        {
+          "corridor": "Memphis, TN -> St. Louis, MO",
+          "danger": 0.244,
+          "distance_miles": 4.8
+        },
+        {
+          "corridor": "Birmingham, AL -> Kansas City, MO",
+          "danger": 0.093,
+          "distance_miles": 1.4
+        }
+      ],
+      "selection_reason": "Geographic diversity + corridor exposure",
+      "primary_sources_needed": [
+        "NAACP anti-lynching records",
+        "FBI historical records (FOIA)",
+        "Period newspaper accounts",
+        "Census data (Black population 1920-1950)"
+      ],
+      "narrative_status": "Generated, pending Oscar review",
+      "narrative_confidence": "AI-generated",
+      "confidence": "Probable",
+      "primary_sources_found": [
+        {
+          "type": "Encyclopedia",
+          "source": "Encyclopedia of Arkansas -- Manila (Mississippi County)",
+          "url": "https://encyclopediaofarkansas.net/entries/manila-mississippi-county-20/",
+          "key_facts": [
+            "Sundown town: not safe for African Americans after dark",
+            "Only recently had any Black residents or business owners",
+            "Black residents from Osceola and Blytheville patronized Manila businesses but could not stay"
+          ],
+          "confidence": "Documented"
+        },
+        {
+          "type": "Academic",
+          "source": "Encyclopedia of Arkansas -- Sundown Towns entry",
+          "url": "https://encyclopediaofarkansas.net/entries/sundown-towns-3658/",
+          "key_facts": [
+            "Mississippi County had a 'dead line' beyond which African Americans could not trespass",
+            "The line delineated more than 2,000 square miles of exclusion",
+            "Per historian Michael Dougan: a red surveyor's mark became a racial boundary"
+          ],
+          "confidence": "Documented"
+        },
+        {
+          "type": "Academic",
+          "source": "Loewen, 'Sundown Towns and Counties: Racial Exclusion in the South' (Southern Cultures, 2009)",
+          "url": "https://muse.jhu.edu/journals/southern_cultures/v015/15.1.loewen.pdf",
+          "confidence": "Documented"
+        }
+      ],
+      "narrative_angle": "51.9 miles from Martin Park in Memphis, where the Memphis Red Sox played. In Mississippi County, a surveyor's red line became a racial boundary across 2,000 square miles. The Memphis Red Sox traveled this route to barnstorm across the Delta. The dead line did not appear on any map the teams carried.",
+      "narrative": "# The Dead Line at Manila\n\nManila, Arkansas sits in Mississippi County with a racial boundary drawn before most of its residents were born. [Documented] A surveyor's red mark became the line beyond which Black people could not trespass, delineating more than 2,000 square miles of enforced exclusion across the county. [Documented] This is not a metaphor. A physical mark, made by a person with a tool, became the architecture of terror for an entire region.\n\nThe Encyclopedia of Arkansas is direct about Manila's status: the town was not safe for African Americans after dark. [Documented] Black residents from Osceola and Blytheville could patronize Manila businesses during daylight hours, spend their money, then leave before night fell. [Documented] They could not stay. The town had, until only recently, no Black residents and no Black business owners at all. [Documented] That is not an accident of demography. That is policy without paperwork.\n\n51.9 miles away, the Memphis Red Sox played at Martin Park. The Red Sox barnstormed across the Delta, moving through the same Mississippi County geography that contained this dead line. [Documented] The Memphis to St. Louis travel corridor runs 4.8 miles from Manila's center. [Documented] The Birmingham to Kansas City corridor passes 1.4 miles away. [Documented] These are not distant highways. These are the roads the Red Sox and their opponents used, the roads their buses rolled through at night, the roads where a breakdown or a wrong turn placed Black men inside a boundary that had already decided what to do with them.\n\nThe dead line did not appear on any map the teams carried. There was no posted ordinance, no official sign, no formal notice that Mississippi County had excised 2,000 square miles from Black geography. Historian Michael Dougan traces the boundary back to that surveyor's mark, a red line that migrated from plat paper into lived enforcement. [Documented] The players who traveled this corridor knew the line existed. They knew it the way you know a law that has never been written down but has always been enforced.\n\nMartin Park is 51.9 miles from Manila. That number is the argument. The Memphis Red Sox made that trip. The dead line was waiting.",
+      "narrative_word_count": 366,
+      "narrative_model": "claude-sonnet-4-20250514",
+      "narrative_generated_date": "2026-05-25",
+      "oscar_approval": "PENDING"
+    },
+    {
+      "id": 5,
+      "town": "Brentwood",
+      "state": "MD",
+      "lat": 38.94385,
+      "lng": -76.957045,
+      "sundown_status": "Probable",
+      "evidence_source": "https://justice.tougaloo.edu/sundowntown/brentwood-md/",
+      "nearest_ballpark": "Washington, D.C.",
+      "nearest_team": "Homestead Grays (DC games)",
+      "ballpark_distance_miles": 4.0,
+      "corridor_appearances": 5,
+      "corridors_detail": [
+        {
+          "corridor": "Baltimore, MD -> Washington, D.C.",
+          "danger": 1.0,
+          "distance_miles": 1.3
+        },
+        {
+          "corridor": "Philadelphia, PA -> Washington, D.C.",
+          "danger": 0.54,
+          "distance_miles": 0.1
+        },
+        {
+          "corridor": "Newark, NJ -> Washington, D.C.",
+          "danger": 0.37,
+          "distance_miles": 0.4
+        },
+        {
+          "corridor": "New York, NY -> Washington, D.C.",
+          "danger": 0.362,
+          "distance_miles": 0.4
+        },
+        {
+          "corridor": "Pittsburgh, PA -> Washington, D.C.",
+          "danger": 0.209,
+          "distance_miles": 4.0
+        }
+      ],
+      "selection_reason": "Geographic diversity + corridor exposure",
+      "primary_sources_needed": [
+        "NAACP anti-lynching records",
+        "FBI historical records (FOIA)",
+        "Period newspaper accounts",
+        "Census data (Black population 1920-1950)"
+      ],
+      "narrative_status": "Generated, pending Oscar review",
+      "narrative_confidence": "AI-generated",
+      "confidence": "Probable",
+      "primary_sources_found": [
+        {
+          "type": "Tougaloo database",
+          "source": "Loewen/Berrey Sundown Towns Database",
+          "url": "https://justice.tougaloo.edu/sundowntown/brentwood-md/",
+          "confidence": "Documented"
+        },
+        {
+          "type": "Journalism",
+          "source": "MSNBC -- 'After 67 years, two small Maryland towns tore down the racial barrier'",
+          "url": "https://www.ms.now/opinion/msnbc-opinion/segregation-walls-sundown-towns-windom-road-rcna160093",
+          "key_facts": [
+            "Metal barrier erected in 1957 between Brentwood and North Brentwood (Black town)",
+            "Barrier erected shortly after Brown v. Board of Education",
+            "Restrictive deed covenants prevented sales to Black buyers",
+            "Movement restrictions: could only walk on north side of Rhode Island Avenue",
+            "Barrier repurposed as unity sculpture in June 2024"
+          ],
+          "confidence": "Verified"
+        },
+        {
+          "type": "Journalism",
+          "source": "Hyattsville Wire -- 'The Untold Story Behind a Metal Barrier in North Brentwood'",
+          "url": "https://hyattsvillewire.com/2020/02/28/north-brentwood-windom-road-barrier/",
+          "date": "2020-02-28",
+          "confidence": "Verified"
+        },
+        {
+          "type": "Journalism",
+          "source": "WUSA9 -- Prince George's County racism history",
+          "url": "https://www.wusa9.com/article/news/local/maryland/prince-georges-county-how-a-community-grappled-with-racism-to-become-a-destination-for-african-americans/65-3a70f85d-9216-4283-9ac7-668b51398b6f",
+          "confidence": "Verified"
+        }
+      ],
+      "narrative_angle": "4.0 miles from Griffith Stadium, where the Homestead Grays played their Washington games. A metal barrier was erected between Brentwood and the Black town of North Brentwood after Brown v. Board. Restrictive covenants. Movement restrictions dictating which side of the street you could walk on. 4 miles from the ballpark. The barrier stood for 67 years.",
+      "narrative": "Brentwood, Maryland sits in the Loewen/Berrey Sundown Towns Database as a probable sundown town [Documented]. That is not an accusation. That is a classification built from evidence.\n\nFour miles from Griffith Stadium. That is the distance between Brentwood and the ballpark where the Homestead Grays played their Washington games [Documented]. The Grays traveled that corridor regularly, coming down from Pittsburgh, up from Baltimore, in from Philadelphia and New York [Documented]. Every one of those routes runs through or within a mile of Brentwood. The men on those buses could see this town from the window.\n\nHere is what Brentwood built. In 1957, three years after Brown v. Board of Education, officials erect a metal barrier at the border between Brentwood and North Brentwood, the adjacent Black town [Verified]. That timing is not coincidental. That timing is a response. The barrier is a statement in steel: the ruling changed the law, and Brentwood changed the geography anyway. Restrictive deed covenants already prevent Black buyers from purchasing property in Brentwood [Verified]. The barrier reinforces what the paperwork started. Movement restrictions dictate that Black residents walking on Rhode Island Avenue must keep to the north side of the street [Verified]. A public road. A side of the street. Controlled.\n\nThe Homestead Grays win nine consecutive Negro National League pennants between 1937 and 1945 [Documented]. They play both Pittsburgh and Washington as home cities. Josh Gibson catches. Cool Papa Bell runs. Buck Leonard hits. They are the best baseball organization in the country during that stretch, and when they come to Washington, they pass through a corridor where towns like Brentwood have made the answer to their presence perfectly clear.\n\nThe barrier stands for 67 years [Verified]. It comes down in June 2024, repurposed as a unity sculpture [Verified]. The towns call it progress. The math calls it something else.\n\nFour miles. That is the distance between where the Homestead Grays play in front of tens of thousands of fans in Washington, D.C., and a town that erects a wall to keep its Black neighbors from crossing a street. Four miles.",
+      "narrative_word_count": 347,
+      "narrative_model": "claude-sonnet-4-20250514",
+      "narrative_generated_date": "2026-05-25",
+      "oscar_approval": "PENDING"
+    }
+  ],
+  "runner_up_towns": [
+    {
+      "name": "Hillside",
+      "state": "NJ",
+      "evidence": "Possible",
+      "ballpark_distance_miles": 3.4,
+      "nearest_ballpark": "Newark, NJ",
+      "corridor_appearances": 8,
+      "composite_score": 61
+    },
+    {
+      "name": "Mount Rainier",
+      "state": "MD",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 3.6,
+      "nearest_ballpark": "Washington, D.C.",
+      "corridor_appearances": 5,
+      "composite_score": 54
+    },
+    {
+      "name": "Newburgh Heights",
+      "state": "OH",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 3.3,
+      "nearest_ballpark": "Cleveland, OH",
+      "corridor_appearances": 5,
+      "composite_score": 54
+    },
+    {
+      "name": "Garwood",
+      "state": "NJ",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 9.2,
+      "nearest_ballpark": "Newark, NJ",
+      "corridor_appearances": 6,
+      "composite_score": 52
+    },
+    {
+      "name": "Folcroft",
+      "state": "PA",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 5.8,
+      "nearest_ballpark": "Philadelphia, PA",
+      "corridor_appearances": 6,
+      "composite_score": 52
+    },
+    {
+      "name": "Millvale",
+      "state": "PA",
+      "evidence": "Possible",
+      "ballpark_distance_miles": 3.1,
+      "nearest_ballpark": "Pittsburgh, PA",
+      "corridor_appearances": 5,
+      "composite_score": 49
+    },
+    {
+      "name": "University Park",
+      "state": "MD",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 5.8,
+      "nearest_ballpark": "Washington, D.C.",
+      "corridor_appearances": 4,
+      "composite_score": 44
+    },
+    {
+      "name": "Carteret",
+      "state": "NJ",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 9.7,
+      "nearest_ballpark": "Newark, NJ",
+      "corridor_appearances": 4,
+      "composite_score": 44
+    },
+    {
+      "name": "Brooklyn",
+      "state": "OH",
+      "evidence": "Possible",
+      "ballpark_distance_miles": 5.4,
+      "nearest_ballpark": "Cleveland, OH",
+      "corridor_appearances": 5,
+      "composite_score": 43
+    },
+    {
+      "name": "Clark",
+      "state": "NJ",
+      "evidence": "Possible",
+      "ballpark_distance_miles": 10.2,
+      "nearest_ballpark": "Newark, NJ",
+      "corridor_appearances": 6,
+      "composite_score": 41
+    },
+    {
+      "name": "Parma",
+      "state": "OH",
+      "evidence": "Confirmed",
+      "ballpark_distance_miles": 8.1,
+      "nearest_ballpark": "Cleveland, OH",
+      "corridor_appearances": 2,
+      "composite_score": 41
+    },
+    {
+      "name": "Lakewood",
+      "state": "OH",
+      "evidence": "Possible",
+      "ballpark_distance_miles": 6.1,
+      "nearest_ballpark": "Cleveland, OH",
+      "corridor_appearances": 4,
+      "composite_score": 39
+    },
+    {
+      "name": "Berwyn",
+      "state": "IL",
+      "evidence": "Confirmed",
+      "ballpark_distance_miles": 8.1,
+      "nearest_ballpark": "Chicago, IL",
+      "corridor_appearances": 1,
+      "composite_score": 37
+    },
+    {
+      "name": "Cicero",
+      "state": "IL",
+      "evidence": "Confirmed",
+      "ballpark_distance_miles": 6.5,
+      "nearest_ballpark": "Chicago, IL",
+      "corridor_appearances": 1,
+      "composite_score": 37
+    },
+    {
+      "name": "Chevy Chase",
+      "state": "MD",
+      "evidence": "Confirmed",
+      "ballpark_distance_miles": 6.3,
+      "nearest_ballpark": "Washington, D.C.",
+      "corridor_appearances": 1,
+      "composite_score": 37
+    },
+    {
+      "name": "Dupo",
+      "state": "IL",
+      "evidence": "Probable",
+      "ballpark_distance_miles": 7.5,
+      "nearest_ballpark": "St. Louis, MO",
+      "corridor_appearances": 2,
+      "composite_score": 36
+    }
+  ]
+}

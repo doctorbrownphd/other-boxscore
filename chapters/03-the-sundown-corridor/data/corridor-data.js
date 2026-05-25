@@ -2431,3 +2431,8396 @@ var HEADLINE = {
   upperBound:140,
   confirmedShare:0.16
 };
+
+// ==========================================================================
+// M1 Model Output: Team-Season Danger Scores, Corridor Analysis,
+// and Counterfactual Route Analysis
+// ==========================================================================
+// Source: Scientific Data (2025), DOI: 10.1038/s41597-024-04330-9
+// Schedule: Seamheads Negro Leagues Database, 1936-1948
+// Locations: Seamheads + SABR Ballparks Database
+// Confidence: Modeled -- all values are model outputs with uncertainty bounds
+// Generated: 2026-05-25
+// ==========================================================================
+
+// 116 team-season records, sorted by danger_score descending
+// Each record: distance-weighted average danger across all travel corridors
+// Normalization: 8.0 weighted towns per 100 route miles = danger score 1.0
+var TEAM_SEASON_DANGER = [
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1940,
+    "danger_score": 0.42,
+    "danger_lower_bound": 0.19,
+    "danger_upper_bound": 0.78,
+    "total_route_miles": 10213.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 478,
+    "towns_confirmed": 155,
+    "towns_probable": 197,
+    "towns_possible": 126,
+    "weighted_town_exposure": 343.3,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1941,
+    "danger_score": 0.414,
+    "danger_lower_bound": 0.191,
+    "danger_upper_bound": 0.775,
+    "total_route_miles": 10598.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 480,
+    "towns_confirmed": 162,
+    "towns_probable": 207,
+    "towns_possible": 111,
+    "weighted_town_exposure": 351.3,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1944,
+    "danger_score": 0.412,
+    "danger_lower_bound": 0.133,
+    "danger_upper_bound": 0.858,
+    "total_route_miles": 10293.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 4,
+    "sundown_towns_encountered": 518,
+    "towns_confirmed": 110,
+    "towns_probable": 219,
+    "towns_possible": 189,
+    "weighted_town_exposure": 338.9,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1942,
+    "danger_score": 0.41,
+    "danger_lower_bound": 0.174,
+    "danger_upper_bound": 0.803,
+    "total_route_miles": 9664.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 447,
+    "towns_confirmed": 135,
+    "towns_probable": 191,
+    "towns_possible": 121,
+    "weighted_town_exposure": 317.1,
+    "away_games": 29,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1936,
+    "danger_score": 0.407,
+    "danger_lower_bound": 0.179,
+    "danger_upper_bound": 0.748,
+    "total_route_miles": 8368.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 386,
+    "towns_confirmed": 120,
+    "towns_probable": 153,
+    "towns_possible": 113,
+    "weighted_town_exposure": 272.3,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1945,
+    "danger_score": 0.403,
+    "danger_lower_bound": 0.089,
+    "danger_upper_bound": 0.916,
+    "total_route_miles": 2116.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 114,
+    "towns_confirmed": 15,
+    "towns_probable": 50,
+    "towns_possible": 49,
+    "weighted_town_exposure": 69.6,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1942,
+    "danger_score": 0.384,
+    "danger_lower_bound": 0.163,
+    "danger_upper_bound": 0.766,
+    "total_route_miles": 9524.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 406,
+    "towns_confirmed": 124,
+    "towns_probable": 186,
+    "towns_possible": 96,
+    "weighted_town_exposure": 292.6,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1947,
+    "danger_score": 0.38,
+    "danger_lower_bound": 0.105,
+    "danger_upper_bound": 0.82,
+    "total_route_miles": 10222.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 4,
+    "sundown_towns_encountered": 488,
+    "towns_confirmed": 86,
+    "towns_probable": 212,
+    "towns_possible": 190,
+    "weighted_town_exposure": 310.4,
+    "away_games": 29,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1948,
+    "danger_score": 0.38,
+    "danger_lower_bound": 0.111,
+    "danger_upper_bound": 0.814,
+    "total_route_miles": 9425.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 453,
+    "towns_confirmed": 84,
+    "towns_probable": 183,
+    "towns_possible": 186,
+    "weighted_town_exposure": 286.5,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1938,
+    "danger_score": 0.373,
+    "danger_lower_bound": 0.162,
+    "danger_upper_bound": 0.686,
+    "total_route_miles": 8322.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 358,
+    "towns_confirmed": 108,
+    "towns_probable": 133,
+    "towns_possible": 117,
+    "weighted_town_exposure": 247.9,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1946,
+    "danger_score": 0.37,
+    "danger_lower_bound": 0.103,
+    "danger_upper_bound": 0.823,
+    "total_route_miles": 11640.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 547,
+    "towns_confirmed": 96,
+    "towns_probable": 226,
+    "towns_possible": 225,
+    "weighted_town_exposure": 344.2,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1941,
+    "danger_score": 0.366,
+    "danger_lower_bound": 0.144,
+    "danger_upper_bound": 0.736,
+    "total_route_miles": 8614.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 361,
+    "towns_confirmed": 99,
+    "towns_probable": 161,
+    "towns_possible": 101,
+    "weighted_town_exposure": 252.1,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1945,
+    "danger_score": 0.366,
+    "danger_lower_bound": 0.101,
+    "danger_upper_bound": 0.785,
+    "total_route_miles": 11661.0,
+    "road_segments_analyzed": 28,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 541,
+    "towns_confirmed": 94,
+    "towns_probable": 229,
+    "towns_possible": 218,
+    "weighted_town_exposure": 341.5,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1936,
+    "danger_score": 0.359,
+    "danger_lower_bound": 0.167,
+    "danger_upper_bound": 0.654,
+    "total_route_miles": 7098.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 289,
+    "towns_confirmed": 95,
+    "towns_probable": 104,
+    "towns_possible": 90,
+    "weighted_town_exposure": 203.8,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1940,
+    "danger_score": 0.352,
+    "danger_lower_bound": 0.083,
+    "danger_upper_bound": 0.78,
+    "total_route_miles": 2407.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 115,
+    "towns_confirmed": 16,
+    "towns_probable": 54,
+    "towns_possible": 45,
+    "weighted_town_exposure": 71.8,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1943,
+    "danger_score": 0.351,
+    "danger_lower_bound": 0.153,
+    "danger_upper_bound": 0.725,
+    "total_route_miles": 9951.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 390,
+    "towns_confirmed": 122,
+    "towns_probable": 166,
+    "towns_possible": 102,
+    "weighted_town_exposure": 279.0,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1939,
+    "danger_score": 0.35,
+    "danger_lower_bound": 0.166,
+    "danger_upper_bound": 0.64,
+    "total_route_miles": 7530.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 295,
+    "towns_confirmed": 100,
+    "towns_probable": 109,
+    "towns_possible": 86,
+    "weighted_town_exposure": 210.7,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1946,
+    "danger_score": 0.349,
+    "danger_lower_bound": 0.062,
+    "danger_upper_bound": 0.812,
+    "total_route_miles": 2415.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 117,
+    "towns_confirmed": 12,
+    "towns_probable": 49,
+    "towns_possible": 56,
+    "weighted_town_exposure": 68.7,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1940,
+    "danger_score": 0.345,
+    "danger_lower_bound": 0.141,
+    "danger_upper_bound": 0.714,
+    "total_route_miles": 10261.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 396,
+    "towns_confirmed": 116,
+    "towns_probable": 185,
+    "towns_possible": 95,
+    "weighted_town_exposure": 283.5,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1946,
+    "danger_score": 0.344,
+    "danger_lower_bound": 0.13,
+    "danger_upper_bound": 0.725,
+    "total_route_miles": 11188.0,
+    "road_segments_analyzed": 26,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 452,
+    "towns_confirmed": 116,
+    "towns_probable": 191,
+    "towns_possible": 145,
+    "weighted_town_exposure": 307.7,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "St. Louis Stars",
+    "season": 1936,
+    "danger_score": 0.343,
+    "danger_lower_bound": 0.138,
+    "danger_upper_bound": 0.723,
+    "total_route_miles": 7854.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 308,
+    "towns_confirmed": 87,
+    "towns_probable": 134,
+    "towns_possible": 87,
+    "weighted_town_exposure": 215.6,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1945,
+    "danger_score": 0.342,
+    "danger_lower_bound": 0.113,
+    "danger_upper_bound": 0.72,
+    "total_route_miles": 10693.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 447,
+    "towns_confirmed": 97,
+    "towns_probable": 185,
+    "towns_possible": 165,
+    "weighted_town_exposure": 292.5,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1937,
+    "danger_score": 0.338,
+    "danger_lower_bound": 0.12,
+    "danger_upper_bound": 0.717,
+    "total_route_miles": 6984.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 281,
+    "towns_confirmed": 67,
+    "towns_probable": 120,
+    "towns_possible": 94,
+    "weighted_town_exposure": 188.6,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Cleveland Buckeyes",
+    "season": 1948,
+    "danger_score": 0.337,
+    "danger_lower_bound": 0.119,
+    "danger_upper_bound": 0.736,
+    "total_route_miles": 9426.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 371,
+    "towns_confirmed": 90,
+    "towns_probable": 172,
+    "towns_possible": 109,
+    "weighted_town_exposure": 254.0,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1937,
+    "danger_score": 0.337,
+    "danger_lower_bound": 0.148,
+    "danger_upper_bound": 0.67,
+    "total_route_miles": 8184.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 316,
+    "towns_confirmed": 97,
+    "towns_probable": 121,
+    "towns_possible": 98,
+    "weighted_town_exposure": 220.9,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1943,
+    "danger_score": 0.337,
+    "danger_lower_bound": 0.139,
+    "danger_upper_bound": 0.709,
+    "total_route_miles": 9027.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 340,
+    "towns_confirmed": 100,
+    "towns_probable": 157,
+    "towns_possible": 83,
+    "weighted_town_exposure": 243.1,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1938,
+    "danger_score": 0.335,
+    "danger_lower_bound": 0.147,
+    "danger_upper_bound": 0.662,
+    "total_route_miles": 7323.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 281,
+    "towns_confirmed": 86,
+    "towns_probable": 108,
+    "towns_possible": 87,
+    "weighted_town_exposure": 196.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1948,
+    "danger_score": 0.335,
+    "danger_lower_bound": 0.082,
+    "danger_upper_bound": 0.76,
+    "total_route_miles": 8979.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 382,
+    "towns_confirmed": 59,
+    "towns_probable": 174,
+    "towns_possible": 149,
+    "weighted_town_exposure": 240.4,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Birmingham Black Barons",
+    "season": 1939,
+    "danger_score": 0.333,
+    "danger_lower_bound": 0.122,
+    "danger_upper_bound": 0.679,
+    "total_route_miles": 6879.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 269,
+    "towns_confirmed": 67,
+    "towns_probable": 118,
+    "towns_possible": 84,
+    "weighted_town_exposure": 183.2,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1945,
+    "danger_score": 0.333,
+    "danger_lower_bound": 0.093,
+    "danger_upper_bound": 0.727,
+    "total_route_miles": 10464.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 435,
+    "towns_confirmed": 78,
+    "towns_probable": 193,
+    "towns_possible": 164,
+    "weighted_town_exposure": 278.7,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1947,
+    "danger_score": 0.331,
+    "danger_lower_bound": 0.082,
+    "danger_upper_bound": 0.762,
+    "total_route_miles": 9350.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 391,
+    "towns_confirmed": 61,
+    "towns_probable": 183,
+    "towns_possible": 147,
+    "weighted_town_exposure": 247.9,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "St. Louis Stars",
+    "season": 1939,
+    "danger_score": 0.33,
+    "danger_lower_bound": 0.119,
+    "danger_upper_bound": 0.722,
+    "total_route_miles": 8944.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 341,
+    "towns_confirmed": 85,
+    "towns_probable": 163,
+    "towns_possible": 93,
+    "weighted_town_exposure": 236.3,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1944,
+    "danger_score": 0.322,
+    "danger_lower_bound": 0.081,
+    "danger_upper_bound": 0.707,
+    "total_route_miles": 10915.0,
+    "road_segments_analyzed": 26,
+    "high_danger_segments": 4,
+    "sundown_towns_encountered": 443,
+    "towns_confirmed": 71,
+    "towns_probable": 205,
+    "towns_possible": 167,
+    "weighted_town_exposure": 281.3,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1947,
+    "danger_score": 0.319,
+    "danger_lower_bound": 0.094,
+    "danger_upper_bound": 0.683,
+    "total_route_miles": 8600.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 338,
+    "towns_confirmed": 65,
+    "towns_probable": 152,
+    "towns_possible": 121,
+    "weighted_town_exposure": 219.8,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1941,
+    "danger_score": 0.317,
+    "danger_lower_bound": 0.046,
+    "danger_upper_bound": 0.707,
+    "total_route_miles": 2173.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 92,
+    "towns_confirmed": 8,
+    "towns_probable": 45,
+    "towns_possible": 39,
+    "weighted_town_exposure": 55.1,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Cleveland Buckeyes",
+    "season": 1947,
+    "danger_score": 0.316,
+    "danger_lower_bound": 0.127,
+    "danger_upper_bound": 0.627,
+    "total_route_miles": 11234.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 405,
+    "towns_confirmed": 114,
+    "towns_probable": 178,
+    "towns_possible": 113,
+    "weighted_town_exposure": 283.8,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1944,
+    "danger_score": 0.316,
+    "danger_lower_bound": 0.109,
+    "danger_upper_bound": 0.714,
+    "total_route_miles": 10825.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 416,
+    "towns_confirmed": 94,
+    "towns_probable": 171,
+    "towns_possible": 151,
+    "weighted_town_exposure": 274.1,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1945,
+    "danger_score": 0.313,
+    "danger_lower_bound": 0.079,
+    "danger_upper_bound": 0.728,
+    "total_route_miles": 10772.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 432,
+    "towns_confirmed": 68,
+    "towns_probable": 188,
+    "towns_possible": 176,
+    "weighted_town_exposure": 270.0,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1944,
+    "danger_score": 0.311,
+    "danger_lower_bound": 0.08,
+    "danger_upper_bound": 0.694,
+    "total_route_miles": 9594.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 377,
+    "towns_confirmed": 61,
+    "towns_probable": 170,
+    "towns_possible": 146,
+    "weighted_town_exposure": 238.4,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1946,
+    "danger_score": 0.311,
+    "danger_lower_bound": 0.091,
+    "danger_upper_bound": 0.726,
+    "total_route_miles": 9602.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 372,
+    "towns_confirmed": 70,
+    "towns_probable": 160,
+    "towns_possible": 142,
+    "weighted_town_exposure": 238.8,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1947,
+    "danger_score": 0.306,
+    "danger_lower_bound": 0.085,
+    "danger_upper_bound": 0.712,
+    "total_route_miles": 10892.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 426,
+    "towns_confirmed": 74,
+    "towns_probable": 172,
+    "towns_possible": 180,
+    "weighted_town_exposure": 266.4,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1947,
+    "danger_score": 0.304,
+    "danger_lower_bound": 0.04,
+    "danger_upper_bound": 0.717,
+    "total_route_miles": 2206.0,
+    "road_segments_analyzed": 17,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 98,
+    "towns_confirmed": 7,
+    "towns_probable": 34,
+    "towns_possible": 57,
+    "weighted_town_exposure": 53.6,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Cleveland Buckeyes",
+    "season": 1945,
+    "danger_score": 0.302,
+    "danger_lower_bound": 0.119,
+    "danger_upper_bound": 0.651,
+    "total_route_miles": 10888.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 376,
+    "towns_confirmed": 104,
+    "towns_probable": 166,
+    "towns_possible": 106,
+    "weighted_town_exposure": 262.6,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "St. Louis Stars",
+    "season": 1937,
+    "danger_score": 0.3,
+    "danger_lower_bound": 0.103,
+    "danger_upper_bound": 0.677,
+    "total_route_miles": 8349.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 293,
+    "towns_confirmed": 69,
+    "towns_probable": 140,
+    "towns_possible": 84,
+    "weighted_town_exposure": 200.6,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Kansas City Monarchs",
+    "season": 1948,
+    "danger_score": 0.298,
+    "danger_lower_bound": 0.087,
+    "danger_upper_bound": 0.629,
+    "total_route_miles": 8446.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 5,
+    "sundown_towns_encountered": 312,
+    "towns_confirmed": 59,
+    "towns_probable": 138,
+    "towns_possible": 115,
+    "weighted_town_exposure": 201.6,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Cleveland Buckeyes",
+    "season": 1944,
+    "danger_score": 0.297,
+    "danger_lower_bound": 0.095,
+    "danger_upper_bound": 0.674,
+    "total_route_miles": 8919.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 317,
+    "towns_confirmed": 68,
+    "towns_probable": 147,
+    "towns_possible": 102,
+    "weighted_town_exposure": 211.7,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1942,
+    "danger_score": 0.297,
+    "danger_lower_bound": 0.097,
+    "danger_upper_bound": 0.715,
+    "total_route_miles": 11068.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 388,
+    "towns_confirmed": 86,
+    "towns_probable": 187,
+    "towns_possible": 115,
+    "weighted_town_exposure": 262.9,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "St. Louis Stars",
+    "season": 1938,
+    "danger_score": 0.297,
+    "danger_lower_bound": 0.097,
+    "danger_upper_bound": 0.68,
+    "total_route_miles": 9967.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 348,
+    "towns_confirmed": 77,
+    "towns_probable": 170,
+    "towns_possible": 101,
+    "weighted_town_exposure": 236.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1948,
+    "danger_score": 0.296,
+    "danger_lower_bound": 0.072,
+    "danger_upper_bound": 0.697,
+    "total_route_miles": 14072.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 528,
+    "towns_confirmed": 81,
+    "towns_probable": 244,
+    "towns_possible": 203,
+    "weighted_town_exposure": 333.0,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1943,
+    "danger_score": 0.293,
+    "danger_lower_bound": 0.105,
+    "danger_upper_bound": 0.638,
+    "total_route_miles": 9882.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 335,
+    "towns_confirmed": 83,
+    "towns_probable": 158,
+    "towns_possible": 94,
+    "weighted_town_exposure": 231.2,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1948,
+    "danger_score": 0.29,
+    "danger_lower_bound": 0.059,
+    "danger_upper_bound": 0.698,
+    "total_route_miles": 3178.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 128,
+    "towns_confirmed": 15,
+    "towns_probable": 45,
+    "towns_possible": 68,
+    "weighted_town_exposure": 73.7,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1946,
+    "danger_score": 0.288,
+    "danger_lower_bound": 0.08,
+    "danger_upper_bound": 0.656,
+    "total_route_miles": 11140.0,
+    "road_segments_analyzed": 26,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 394,
+    "towns_confirmed": 71,
+    "towns_probable": 188,
+    "towns_possible": 135,
+    "weighted_town_exposure": 256.6,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Indianapolis Clowns",
+    "season": 1947,
+    "danger_score": 0.285,
+    "danger_lower_bound": 0.076,
+    "danger_upper_bound": 0.683,
+    "total_route_miles": 13692.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 487,
+    "towns_confirmed": 83,
+    "towns_probable": 225,
+    "towns_possible": 179,
+    "weighted_town_exposure": 312.1,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1943,
+    "danger_score": 0.279,
+    "danger_lower_bound": 0.039,
+    "danger_upper_bound": 0.66,
+    "total_route_miles": 2566.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 104,
+    "towns_confirmed": 8,
+    "towns_probable": 36,
+    "towns_possible": 60,
+    "weighted_town_exposure": 57.2,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1943,
+    "danger_score": 0.279,
+    "danger_lower_bound": 0.099,
+    "danger_upper_bound": 0.605,
+    "total_route_miles": 11658.0,
+    "road_segments_analyzed": 26,
+    "high_danger_segments": 4,
+    "sundown_towns_encountered": 378,
+    "towns_confirmed": 92,
+    "towns_probable": 180,
+    "towns_possible": 106,
+    "weighted_town_exposure": 260.4,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1938,
+    "danger_score": 0.277,
+    "danger_lower_bound": 0.111,
+    "danger_upper_bound": 0.605,
+    "total_route_miles": 9128.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 299,
+    "towns_confirmed": 81,
+    "towns_probable": 114,
+    "towns_possible": 104,
+    "weighted_town_exposure": 202.4,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1942,
+    "danger_score": 0.276,
+    "danger_lower_bound": 0.042,
+    "danger_upper_bound": 0.665,
+    "total_route_miles": 2959.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 117,
+    "towns_confirmed": 10,
+    "towns_probable": 42,
+    "towns_possible": 65,
+    "weighted_town_exposure": 65.4,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1943,
+    "danger_score": 0.276,
+    "danger_lower_bound": 0.033,
+    "danger_upper_bound": 0.685,
+    "total_route_miles": 3456.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 142,
+    "towns_confirmed": 9,
+    "towns_probable": 47,
+    "towns_possible": 86,
+    "weighted_town_exposure": 76.3,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1936,
+    "danger_score": 0.275,
+    "danger_lower_bound": 0.117,
+    "danger_upper_bound": 0.575,
+    "total_route_miles": 9860.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 317,
+    "towns_confirmed": 92,
+    "towns_probable": 117,
+    "towns_possible": 108,
+    "weighted_town_exposure": 217.1,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1946,
+    "danger_score": 0.274,
+    "danger_lower_bound": 0.066,
+    "danger_upper_bound": 0.664,
+    "total_route_miles": 9352.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 328,
+    "towns_confirmed": 49,
+    "towns_probable": 149,
+    "towns_possible": 130,
+    "weighted_town_exposure": 205.3,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1944,
+    "danger_score": 0.27,
+    "danger_lower_bound": 0.03,
+    "danger_upper_bound": 0.654,
+    "total_route_miles": 3301.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 131,
+    "towns_confirmed": 8,
+    "towns_probable": 47,
+    "towns_possible": 76,
+    "weighted_town_exposure": 71.3,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1941,
+    "danger_score": 0.269,
+    "danger_lower_bound": 0.048,
+    "danger_upper_bound": 0.63,
+    "total_route_miles": 2350.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 93,
+    "towns_confirmed": 9,
+    "towns_probable": 36,
+    "towns_possible": 48,
+    "weighted_town_exposure": 53.4,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Cleveland Buckeyes",
+    "season": 1946,
+    "danger_score": 0.267,
+    "danger_lower_bound": 0.094,
+    "danger_upper_bound": 0.588,
+    "total_route_miles": 10538.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 330,
+    "towns_confirmed": 79,
+    "towns_probable": 151,
+    "towns_possible": 100,
+    "weighted_town_exposure": 224.7,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1948,
+    "danger_score": 0.266,
+    "danger_lower_bound": 0.079,
+    "danger_upper_bound": 0.65,
+    "total_route_miles": 12799.0,
+    "road_segments_analyzed": 27,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 423,
+    "towns_confirmed": 81,
+    "towns_probable": 181,
+    "towns_possible": 161,
+    "weighted_town_exposure": 272.1,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1944,
+    "danger_score": 0.264,
+    "danger_lower_bound": 0.06,
+    "danger_upper_bound": 0.593,
+    "total_route_miles": 9837.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 332,
+    "towns_confirmed": 47,
+    "towns_probable": 157,
+    "towns_possible": 128,
+    "weighted_town_exposure": 208.1,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1946,
+    "danger_score": 0.264,
+    "danger_lower_bound": 0.041,
+    "danger_upper_bound": 0.643,
+    "total_route_miles": 2771.0,
+    "road_segments_analyzed": 17,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 108,
+    "towns_confirmed": 9,
+    "towns_probable": 38,
+    "towns_possible": 61,
+    "weighted_town_exposure": 60.0,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1940,
+    "danger_score": 0.262,
+    "danger_lower_bound": 0.079,
+    "danger_upper_bound": 0.655,
+    "total_route_miles": 10969.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 344,
+    "towns_confirmed": 69,
+    "towns_probable": 170,
+    "towns_possible": 105,
+    "weighted_town_exposure": 230.0,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1945,
+    "danger_score": 0.26,
+    "danger_lower_bound": 0.046,
+    "danger_upper_bound": 0.604,
+    "total_route_miles": 2961.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 110,
+    "towns_confirmed": 11,
+    "towns_probable": 41,
+    "towns_possible": 58,
+    "weighted_town_exposure": 62.9,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1946,
+    "danger_score": 0.26,
+    "danger_lower_bound": 0.046,
+    "danger_upper_bound": 0.629,
+    "total_route_miles": 3272.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 124,
+    "towns_confirmed": 12,
+    "towns_probable": 42,
+    "towns_possible": 70,
+    "weighted_town_exposure": 69.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1942,
+    "danger_score": 0.258,
+    "danger_lower_bound": 0.055,
+    "danger_upper_bound": 0.578,
+    "total_route_miles": 2967.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 113,
+    "towns_confirmed": 13,
+    "towns_probable": 41,
+    "towns_possible": 59,
+    "weighted_town_exposure": 65.3,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1943,
+    "danger_score": 0.257,
+    "danger_lower_bound": 0.041,
+    "danger_upper_bound": 0.569,
+    "total_route_miles": 3316.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 125,
+    "towns_confirmed": 11,
+    "towns_probable": 48,
+    "towns_possible": 66,
+    "weighted_town_exposure": 71.0,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1945,
+    "danger_score": 0.255,
+    "danger_lower_bound": 0.074,
+    "danger_upper_bound": 0.594,
+    "total_route_miles": 11959.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 380,
+    "towns_confirmed": 71,
+    "towns_probable": 164,
+    "towns_possible": 145,
+    "weighted_town_exposure": 243.8,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1941,
+    "danger_score": 0.254,
+    "danger_lower_bound": 0.036,
+    "danger_upper_bound": 0.621,
+    "total_route_miles": 2463.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 98,
+    "towns_confirmed": 7,
+    "towns_probable": 22,
+    "towns_possible": 69,
+    "weighted_town_exposure": 50.0,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1944,
+    "danger_score": 0.254,
+    "danger_lower_bound": 0.041,
+    "danger_upper_bound": 0.607,
+    "total_route_miles": 3362.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 121,
+    "towns_confirmed": 11,
+    "towns_probable": 49,
+    "towns_possible": 61,
+    "weighted_town_exposure": 69.7,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1937,
+    "danger_score": 0.252,
+    "danger_lower_bound": 0.094,
+    "danger_upper_bound": 0.571,
+    "total_route_miles": 9035.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 272,
+    "towns_confirmed": 68,
+    "towns_probable": 109,
+    "towns_possible": 95,
+    "weighted_town_exposure": 182.3,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1940,
+    "danger_score": 0.251,
+    "danger_lower_bound": 0.032,
+    "danger_upper_bound": 0.613,
+    "total_route_miles": 2354.0,
+    "road_segments_analyzed": 17,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 89,
+    "towns_confirmed": 6,
+    "towns_probable": 27,
+    "towns_possible": 56,
+    "weighted_town_exposure": 47.3,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1947,
+    "danger_score": 0.246,
+    "danger_lower_bound": 0.018,
+    "danger_upper_bound": 0.591,
+    "total_route_miles": 2788.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 111,
+    "towns_confirmed": 4,
+    "towns_probable": 27,
+    "towns_possible": 80,
+    "weighted_town_exposure": 54.9,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1941,
+    "danger_score": 0.246,
+    "danger_lower_bound": 0.073,
+    "danger_upper_bound": 0.615,
+    "total_route_miles": 12124.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 358,
+    "towns_confirmed": 71,
+    "towns_probable": 176,
+    "towns_possible": 111,
+    "weighted_town_exposure": 238.6,
+    "away_games": 29,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1942,
+    "danger_score": 0.245,
+    "danger_lower_bound": 0.022,
+    "danger_upper_bound": 0.592,
+    "total_route_miles": 2311.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 91,
+    "towns_confirmed": 4,
+    "towns_probable": 22,
+    "towns_possible": 65,
+    "weighted_town_exposure": 45.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1948,
+    "danger_score": 0.244,
+    "danger_lower_bound": 0.036,
+    "danger_upper_bound": 0.577,
+    "total_route_miles": 3094.0,
+    "road_segments_analyzed": 18,
+    "high_danger_segments": 2,
+    "sundown_towns_encountered": 112,
+    "towns_confirmed": 9,
+    "towns_probable": 43,
+    "towns_possible": 60,
+    "weighted_town_exposure": 63.1,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1947,
+    "danger_score": 0.243,
+    "danger_lower_bound": 0.026,
+    "danger_upper_bound": 0.607,
+    "total_route_miles": 3385.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 123,
+    "towns_confirmed": 7,
+    "towns_probable": 41,
+    "towns_possible": 75,
+    "weighted_town_exposure": 65.7,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1940,
+    "danger_score": 0.242,
+    "danger_lower_bound": 0.024,
+    "danger_upper_bound": 0.593,
+    "total_route_miles": 2580.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 101,
+    "towns_confirmed": 5,
+    "towns_probable": 22,
+    "towns_possible": 74,
+    "weighted_town_exposure": 50.0,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1945,
+    "danger_score": 0.241,
+    "danger_lower_bound": 0.021,
+    "danger_upper_bound": 0.587,
+    "total_route_miles": 2939.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 109,
+    "towns_confirmed": 5,
+    "towns_probable": 34,
+    "towns_possible": 70,
+    "weighted_town_exposure": 56.8,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1947,
+    "danger_score": 0.237,
+    "danger_lower_bound": 0.026,
+    "danger_upper_bound": 0.587,
+    "total_route_miles": 3400.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 116,
+    "towns_confirmed": 7,
+    "towns_probable": 46,
+    "towns_possible": 63,
+    "weighted_town_exposure": 64.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1940,
+    "danger_score": 0.234,
+    "danger_lower_bound": 0.04,
+    "danger_upper_bound": 0.518,
+    "total_route_miles": 2839.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 3,
+    "sundown_towns_encountered": 100,
+    "towns_confirmed": 9,
+    "towns_probable": 40,
+    "towns_possible": 51,
+    "weighted_town_exposure": 57.4,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1939,
+    "danger_score": 0.23,
+    "danger_lower_bound": 0.026,
+    "danger_upper_bound": 0.568,
+    "total_route_miles": 2431.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 90,
+    "towns_confirmed": 5,
+    "towns_probable": 19,
+    "towns_possible": 66,
+    "weighted_town_exposure": 44.7,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1943,
+    "danger_score": 0.228,
+    "danger_lower_bound": 0.02,
+    "danger_upper_bound": 0.564,
+    "total_route_miles": 2484.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 88,
+    "towns_confirmed": 4,
+    "towns_probable": 26,
+    "towns_possible": 58,
+    "weighted_town_exposure": 45.4,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1948,
+    "danger_score": 0.226,
+    "danger_lower_bound": 0.027,
+    "danger_upper_bound": 0.564,
+    "total_route_miles": 2277.0,
+    "road_segments_analyzed": 15,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 78,
+    "towns_confirmed": 5,
+    "towns_probable": 23,
+    "towns_possible": 50,
+    "weighted_town_exposure": 41.1,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1941,
+    "danger_score": 0.226,
+    "danger_lower_bound": 0.032,
+    "danger_upper_bound": 0.552,
+    "total_route_miles": 3857.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 132,
+    "towns_confirmed": 10,
+    "towns_probable": 41,
+    "towns_possible": 81,
+    "weighted_town_exposure": 71.1,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1946,
+    "danger_score": 0.225,
+    "danger_lower_bound": 0.015,
+    "danger_upper_bound": 0.548,
+    "total_route_miles": 2429.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 89,
+    "towns_confirmed": 3,
+    "towns_probable": 21,
+    "towns_possible": 65,
+    "weighted_town_exposure": 43.7,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Memphis Red Sox",
+    "season": 1939,
+    "danger_score": 0.225,
+    "danger_lower_bound": 0.079,
+    "danger_upper_bound": 0.529,
+    "total_route_miles": 7876.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 215,
+    "towns_confirmed": 50,
+    "towns_probable": 86,
+    "towns_possible": 79,
+    "weighted_town_exposure": 141.8,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1944,
+    "danger_score": 0.216,
+    "danger_lower_bound": 0.025,
+    "danger_upper_bound": 0.541,
+    "total_route_miles": 2528.0,
+    "road_segments_analyzed": 18,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 84,
+    "towns_confirmed": 5,
+    "towns_probable": 24,
+    "towns_possible": 55,
+    "weighted_town_exposure": 43.8,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1944,
+    "danger_score": 0.208,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.496,
+    "total_route_miles": 2070.0,
+    "road_segments_analyzed": 17,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 69,
+    "towns_confirmed": 0,
+    "towns_probable": 23,
+    "towns_possible": 46,
+    "weighted_town_exposure": 34.5,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1943,
+    "danger_score": 0.196,
+    "danger_lower_bound": 0.074,
+    "danger_upper_bound": 0.471,
+    "total_route_miles": 10329.0,
+    "road_segments_analyzed": 26,
+    "high_danger_segments": 1,
+    "sundown_towns_encountered": 236,
+    "towns_confirmed": 61,
+    "towns_probable": 103,
+    "towns_possible": 72,
+    "weighted_town_exposure": 161.9,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1939,
+    "danger_score": 0.193,
+    "danger_lower_bound": 0.014,
+    "danger_upper_bound": 0.46,
+    "total_route_miles": 3648.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 120,
+    "towns_confirmed": 4,
+    "towns_probable": 20,
+    "towns_possible": 96,
+    "weighted_town_exposure": 56.4,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1942,
+    "danger_score": 0.192,
+    "danger_lower_bound": 0.016,
+    "danger_upper_bound": 0.466,
+    "total_route_miles": 3026.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 90,
+    "towns_confirmed": 4,
+    "towns_probable": 27,
+    "towns_possible": 59,
+    "weighted_town_exposure": 46.5,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1939,
+    "danger_score": 0.186,
+    "danger_lower_bound": 0.056,
+    "danger_upper_bound": 0.408,
+    "total_route_miles": 7813.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 178,
+    "towns_confirmed": 35,
+    "towns_probable": 80,
+    "towns_possible": 63,
+    "weighted_town_exposure": 116.2,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1936,
+    "danger_score": 0.168,
+    "danger_lower_bound": 0.017,
+    "danger_upper_bound": 0.409,
+    "total_route_miles": 2990.0,
+    "road_segments_analyzed": 18,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 84,
+    "towns_confirmed": 4,
+    "towns_probable": 14,
+    "towns_possible": 66,
+    "weighted_town_exposure": 40.2,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1936,
+    "danger_score": 0.166,
+    "danger_lower_bound": 0.039,
+    "danger_upper_bound": 0.381,
+    "total_route_miles": 8932.0,
+    "road_segments_analyzed": 23,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 186,
+    "towns_confirmed": 28,
+    "towns_probable": 92,
+    "towns_possible": 66,
+    "weighted_town_exposure": 118.8,
+    "away_games": 28,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1945,
+    "danger_score": 0.165,
+    "danger_lower_bound": 0.009,
+    "danger_upper_bound": 0.412,
+    "total_route_miles": 4078.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 112,
+    "towns_confirmed": 3,
+    "towns_probable": 24,
+    "towns_possible": 85,
+    "weighted_town_exposure": 53.8,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1942,
+    "danger_score": 0.164,
+    "danger_lower_bound": 0.051,
+    "danger_upper_bound": 0.338,
+    "total_route_miles": 8662.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 171,
+    "towns_confirmed": 35,
+    "towns_probable": 80,
+    "towns_possible": 56,
+    "weighted_town_exposure": 113.4,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1939,
+    "danger_score": 0.159,
+    "danger_lower_bound": 0.01,
+    "danger_upper_bound": 0.392,
+    "total_route_miles": 3630.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 95,
+    "towns_confirmed": 3,
+    "towns_probable": 21,
+    "towns_possible": 71,
+    "weighted_town_exposure": 46.1,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1937,
+    "danger_score": 0.155,
+    "danger_lower_bound": 0.035,
+    "danger_upper_bound": 0.372,
+    "total_route_miles": 8912.0,
+    "road_segments_analyzed": 25,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 176,
+    "towns_confirmed": 25,
+    "towns_probable": 83,
+    "towns_possible": 68,
+    "weighted_town_exposure": 110.3,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1938,
+    "danger_score": 0.154,
+    "danger_lower_bound": 0.031,
+    "danger_upper_bound": 0.385,
+    "total_route_miles": 7347.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 146,
+    "towns_confirmed": 18,
+    "towns_probable": 71,
+    "towns_possible": 57,
+    "weighted_town_exposure": 90.5,
+    "away_games": 26,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1938,
+    "danger_score": 0.154,
+    "danger_lower_bound": 0.006,
+    "danger_upper_bound": 0.382,
+    "total_route_miles": 3902.0,
+    "road_segments_analyzed": 21,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 102,
+    "towns_confirmed": 2,
+    "towns_probable": 21,
+    "towns_possible": 79,
+    "weighted_town_exposure": 48.3,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1939,
+    "danger_score": 0.15,
+    "danger_lower_bound": 0.01,
+    "danger_upper_bound": 0.377,
+    "total_route_miles": 2595.0,
+    "road_segments_analyzed": 16,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 67,
+    "towns_confirmed": 2,
+    "towns_probable": 11,
+    "towns_possible": 54,
+    "weighted_town_exposure": 31.3,
+    "away_games": 22,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Homestead Grays",
+    "season": 1937,
+    "danger_score": 0.147,
+    "danger_lower_bound": 0.014,
+    "danger_upper_bound": 0.367,
+    "total_route_miles": 2683.0,
+    "road_segments_analyzed": 15,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 66,
+    "towns_confirmed": 3,
+    "towns_probable": 11,
+    "towns_possible": 52,
+    "weighted_town_exposure": 31.5,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Baltimore Elite Giants",
+    "season": 1938,
+    "danger_score": 0.145,
+    "danger_lower_bound": 0.006,
+    "danger_upper_bound": 0.354,
+    "total_route_miles": 4263.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 104,
+    "towns_confirmed": 2,
+    "towns_probable": 22,
+    "towns_possible": 80,
+    "weighted_town_exposure": 49.4,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1938,
+    "danger_score": 0.142,
+    "danger_lower_bound": 0.013,
+    "danger_upper_bound": 0.357,
+    "total_route_miles": 4859.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 120,
+    "towns_confirmed": 5,
+    "towns_probable": 15,
+    "towns_possible": 100,
+    "weighted_town_exposure": 55.5,
+    "away_games": 24,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1936,
+    "danger_score": 0.138,
+    "danger_lower_bound": 0.009,
+    "danger_upper_bound": 0.345,
+    "total_route_miles": 5786.0,
+    "road_segments_analyzed": 24,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 142,
+    "towns_confirmed": 4,
+    "towns_probable": 16,
+    "towns_possible": 122,
+    "weighted_town_exposure": 64.0,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1940,
+    "danger_score": 0.137,
+    "danger_lower_bound": 0.039,
+    "danger_upper_bound": 0.307,
+    "total_route_miles": 8645.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 146,
+    "towns_confirmed": 27,
+    "towns_probable": 67,
+    "towns_possible": 52,
+    "weighted_town_exposure": 94.7,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1938,
+    "danger_score": 0.13,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.326,
+    "total_route_miles": 4540.0,
+    "road_segments_analyzed": 22,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 108,
+    "towns_confirmed": 0,
+    "towns_probable": 14,
+    "towns_possible": 94,
+    "weighted_town_exposure": 47.4,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Newark Eagles",
+    "season": 1937,
+    "danger_score": 0.128,
+    "danger_lower_bound": 0.008,
+    "danger_upper_bound": 0.321,
+    "total_route_miles": 4544.0,
+    "road_segments_analyzed": 17,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 104,
+    "towns_confirmed": 3,
+    "towns_probable": 11,
+    "towns_possible": 90,
+    "weighted_town_exposure": 46.7,
+    "away_games": 23,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Chicago American Giants",
+    "season": 1941,
+    "danger_score": 0.118,
+    "danger_lower_bound": 0.025,
+    "danger_upper_bound": 0.294,
+    "total_route_miles": 8216.0,
+    "road_segments_analyzed": 20,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 124,
+    "towns_confirmed": 16,
+    "towns_probable": 60,
+    "towns_possible": 48,
+    "weighted_town_exposure": 77.2,
+    "away_games": 27,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1937,
+    "danger_score": 0.116,
+    "danger_lower_bound": 0.005,
+    "danger_upper_bound": 0.291,
+    "total_route_miles": 4670.0,
+    "road_segments_analyzed": 19,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 102,
+    "towns_confirmed": 2,
+    "towns_probable": 5,
+    "towns_possible": 95,
+    "weighted_town_exposure": 43.5,
+    "away_games": 25,
+    "confidence": "Modeled"
+  },
+  {
+    "team": "Philadelphia Stars",
+    "season": 1936,
+    "danger_score": 0.111,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.275,
+    "total_route_miles": 3849.0,
+    "road_segments_analyzed": 16,
+    "high_danger_segments": 0,
+    "sundown_towns_encountered": 80,
+    "towns_confirmed": 0,
+    "towns_probable": 8,
+    "towns_possible": 72,
+    "weighted_town_exposure": 34.4,
+    "away_games": 24,
+    "confidence": "Modeled"
+  }
+];
+
+// 34 city-pair corridors with full spatial analysis
+// Each corridor: sundown towns within 5mi of great-circle route
+// Evidence weights: Confirmed=1.0, Probable=0.7, Possible=0.4
+var CORRIDORS_FULL = [
+  {
+    "from": "Baltimore, MD",
+    "to": "Washington, D.C.",
+    "route_distance_miles": 34.1,
+    "danger_score": 1.0,
+    "danger_lower_bound": 0.734,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 5,
+    "towns_confirmed": 2,
+    "towns_probable": 3,
+    "towns_possible": 0,
+    "weighted_count": 4.1,
+    "nearby_towns": [
+      {
+        "name": "University Park",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Mount Rainier",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Brentwood",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 1.3
+      },
+      {
+        "name": "Savage",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 1.9
+      },
+      {
+        "name": "Greenbelt",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 2.1
+      }
+    ]
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Indianapolis, IN",
+    "route_distance_miles": 161.4,
+    "danger_score": 0.883,
+    "danger_lower_bound": 0.387,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 15,
+    "towns_confirmed": 5,
+    "towns_probable": 8,
+    "towns_possible": 2,
+    "weighted_count": 11.4,
+    "nearby_towns": [
+      {
+        "name": "Frankfort",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 0.5
+      },
+      {
+        "name": "Crown Point",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Rossville",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Zionsville",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Highland",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Whiting",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Monon",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Merrillville",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "Schererville",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Delphi",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.0
+      },
+      {
+        "name": "Hebron",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Munster",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Whitestown",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Monticello",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Speedway",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 4.3
+      }
+    ]
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Memphis, TN",
+    "route_distance_miles": 480.3,
+    "danger_score": 0.656,
+    "danger_lower_bound": 0.364,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 33,
+    "towns_confirmed": 14,
+    "towns_probable": 12,
+    "towns_possible": 7,
+    "weighted_count": 25.2,
+    "nearby_towns": [
+      {
+        "name": "Manteno",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Elco",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Zeigler",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Iuka",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Buckner",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Carterville",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Peotone",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Onarga",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.3
+      },
+      {
+        "name": "Christopher",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Paxton",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Anna",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Rantoul",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "Tolono",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.8
+      },
+      {
+        "name": "Valier",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.8
+      },
+      {
+        "name": "Buckley",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Crainville",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.5
+      },
+      {
+        "name": "Jonesboro",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Royalton",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Herrin",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Effingham",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Sesser",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Orient",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Arthur",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.7
+      },
+      {
+        "name": "West City",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.7
+      },
+      {
+        "name": "Oak Lawn",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 3.9
+      },
+      {
+        "name": "East Prairie",
+        "state": "MO",
+        "evidence": "Probable",
+        "distance_miles": 3.9
+      },
+      {
+        "name": "Mulkeytown",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.4
+      },
+      {
+        "name": "Dongola",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.5
+      },
+      {
+        "name": "Neoga",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.6
+      },
+      {
+        "name": "Tuscola",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 4.8
+      },
+      {
+        "name": "Atwood",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 5.0
+      },
+      {
+        "name": "Benton",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 5.0
+      },
+      {
+        "name": "West City",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "St. Louis, MO",
+    "route_distance_miles": 259.5,
+    "danger_score": 0.607,
+    "danger_lower_bound": 0.337,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 18,
+    "towns_confirmed": 7,
+    "towns_probable": 4,
+    "towns_possible": 7,
+    "weighted_count": 12.6,
+    "nearby_towns": [
+      {
+        "name": "Granite City",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Granite City",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.8
+      },
+      {
+        "name": "Roxana",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 0.8
+      },
+      {
+        "name": "Manhattan",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Roxana",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Gillespie",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Oak Lawn",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Madison",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 1.9
+      },
+      {
+        "name": "Orland Park",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Le Roy",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 2.9
+      },
+      {
+        "name": "Kenney",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Wood River",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Niantic",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Warrensburg",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Staunton",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.3
+      },
+      {
+        "name": "Bunker Hill",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.4
+      },
+      {
+        "name": "Glen Carbon",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.8
+      },
+      {
+        "name": "Mount Olive",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "Philadelphia, PA",
+    "to": "Washington, D.C.",
+    "route_distance_miles": 120.4,
+    "danger_score": 0.54,
+    "danger_lower_bound": 0.104,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 7,
+    "towns_confirmed": 1,
+    "towns_probable": 6,
+    "towns_possible": 0,
+    "weighted_count": 5.2,
+    "nearby_towns": [
+      {
+        "name": "Mount Rainier",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Brentwood",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.1
+      },
+      {
+        "name": "Greenbelt",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "University Park",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Crofton",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 4.7
+      }
+    ]
+  },
+  {
+    "from": "Newark, NJ",
+    "to": "Philadelphia, PA",
+    "route_distance_miles": 76.8,
+    "danger_score": 0.488,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 6,
+    "towns_confirmed": 0,
+    "towns_probable": 2,
+    "towns_possible": 4,
+    "weighted_count": 3.0,
+    "nearby_towns": [
+      {
+        "name": "Levittown",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.8
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "Somerset",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Carteret",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 4.4
+      }
+    ]
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Kansas City, MO",
+    "route_distance_miles": 699.9,
+    "danger_score": 0.452,
+    "danger_lower_bound": 0.089,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 43,
+    "towns_confirmed": 5,
+    "towns_probable": 17,
+    "towns_possible": 21,
+    "weighted_count": 25.3,
+    "nearby_towns": [
+      {
+        "name": "Ashland",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Westlake",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Kenney",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Bellevue",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Buckner",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Mansfield",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Lakewood",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Rocky River",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Avon",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Athens",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.8
+      },
+      {
+        "name": "Amherst",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Meredosia",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Arenzville",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Walton",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Ashland",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Potomac",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Rantoul",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Delphi",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Ottawa",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Vermilion",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Camden",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Flora",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Mahomet",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.4
+      },
+      {
+        "name": "North Olmsted",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.5
+      },
+      {
+        "name": "Bay Village",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Ossian",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "South Amherst",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Cantrall",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Brooklyn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Newburgh Heights",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Williamsville",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Clyde",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Grove City",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Decatur",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Sugar Creek",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "De Land",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "DeLand",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "North Baltimore",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "West Lafayette",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.1
+      },
+      {
+        "name": "Avon Lake",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 4.1
+      },
+      {
+        "name": "Huron",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 4.6
+      },
+      {
+        "name": "Farmer City",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Sheffield Lake",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      }
+    ]
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Indianapolis, IN",
+    "route_distance_miles": 262.2,
+    "danger_score": 0.419,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 1.0,
+    "towns_within_5mi": 16,
+    "towns_confirmed": 0,
+    "towns_probable": 8,
+    "towns_possible": 8,
+    "weighted_count": 8.8,
+    "nearby_towns": [
+      {
+        "name": "North Olmsted",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.5
+      },
+      {
+        "name": "Farmland",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Fortville",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 1.7
+      },
+      {
+        "name": "Lakewood",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Wapakoneta",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Brooklyn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Rocky River",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Alger",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "Middletown",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Parker City",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Westlake",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.0
+      },
+      {
+        "name": "Newburgh Heights",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Upper Sandusky",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "South Amherst",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.9
+      },
+      {
+        "name": "Avon",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.5
+      },
+      {
+        "name": "Pendleton",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "New York, NY",
+    "to": "Philadelphia, PA",
+    "route_distance_miles": 91.3,
+    "danger_score": 0.397,
+    "danger_lower_bound": 0.137,
+    "danger_upper_bound": 0.993,
+    "towns_within_5mi": 5,
+    "towns_confirmed": 1,
+    "towns_probable": 1,
+    "towns_possible": 3,
+    "weighted_count": 2.9,
+    "nearby_towns": [
+      {
+        "name": "Levittown",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Carteret",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 4.6
+      },
+      {
+        "name": "Levittown/Willingboro",
+        "state": "NJ",
+        "evidence": "Confirmed",
+        "distance_miles": 4.6
+      }
+    ]
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Cleveland, OH",
+    "route_distance_miles": 307.9,
+    "danger_score": 0.374,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.934,
+    "towns_within_5mi": 17,
+    "towns_confirmed": 0,
+    "towns_probable": 8,
+    "towns_possible": 9,
+    "weighted_count": 9.2,
+    "nearby_towns": [
+      {
+        "name": "Lakewood",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 1.3
+      },
+      {
+        "name": "Avon Lake",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Bay Village",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Sheffield Lake",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Rocky River",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Long Beach",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.9
+      },
+      {
+        "name": "Newburgh Heights",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Fremont",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 3.4
+      },
+      {
+        "name": "Middlebury",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "LaGrange",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "New Carlisle",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.1
+      },
+      {
+        "name": "Ottawa Hills",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Westlake",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Brooklyn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.5
+      },
+      {
+        "name": "Avon",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Mishawaka",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.9
+      },
+      {
+        "name": "Oak Harbor",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "Newark, NJ",
+    "to": "Washington, D.C.",
+    "route_distance_miles": 196.0,
+    "danger_score": 0.37,
+    "danger_lower_bound": 0.064,
+    "danger_upper_bound": 0.925,
+    "towns_within_5mi": 10,
+    "towns_confirmed": 1,
+    "towns_probable": 4,
+    "towns_possible": 5,
+    "weighted_count": 5.8,
+    "nearby_towns": [
+      {
+        "name": "Greenbelt",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 0.1
+      },
+      {
+        "name": "Somerset",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.1
+      },
+      {
+        "name": "Mount Rainier",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Brentwood",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.5
+      },
+      {
+        "name": "University Park",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "Hatboro",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Green Brook",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 4.5
+      }
+    ]
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Kansas City, MO",
+    "route_distance_miles": 412.6,
+    "danger_score": 0.364,
+    "danger_lower_bound": 0.121,
+    "danger_upper_bound": 0.909,
+    "towns_within_5mi": 18,
+    "towns_confirmed": 4,
+    "towns_probable": 8,
+    "towns_possible": 6,
+    "weighted_count": 12.0,
+    "nearby_towns": [
+      {
+        "name": "Romeoville",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Sugar Creek",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Carthage",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Lemont",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Henry",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Burr Ridge",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Warsaw",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Bolingbrook",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Plainfield",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Darien",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 3.4
+      },
+      {
+        "name": "Lyons",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Cicero",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Oak Lawn",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.3
+      },
+      {
+        "name": "Woodridge",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 4.4
+      },
+      {
+        "name": "Berwyn",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Buckner",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Western Springs",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.9
+      },
+      {
+        "name": "North Kansas City",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.9
+      }
+    ]
+  },
+  {
+    "from": "New York, NY",
+    "to": "Washington, D.C.",
+    "route_distance_miles": 210.8,
+    "danger_score": 0.362,
+    "danger_lower_bound": 0.059,
+    "danger_upper_bound": 0.904,
+    "towns_within_5mi": 10,
+    "towns_confirmed": 1,
+    "towns_probable": 5,
+    "towns_possible": 4,
+    "weighted_count": 6.1,
+    "nearby_towns": [
+      {
+        "name": "Greenbelt",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Mount Rainier",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Brentwood",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "University Park",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.7
+      },
+      {
+        "name": "Somerset",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.9
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 3.0
+      },
+      {
+        "name": "Carteret",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 3.7
+      },
+      {
+        "name": "Hatboro",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 4.4
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "Chicago, IL",
+    "route_distance_miles": 575.9,
+    "danger_score": 0.358,
+    "danger_lower_bound": 0.109,
+    "danger_upper_bound": 0.895,
+    "towns_within_5mi": 24,
+    "towns_confirmed": 5,
+    "towns_probable": 13,
+    "towns_possible": 6,
+    "weighted_count": 16.5,
+    "nearby_towns": [
+      {
+        "name": "Fairview Park",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Cullman County",
+        "state": "AL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Good Hope",
+        "state": "AL",
+        "evidence": "Probable",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Farmersburg",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Crete",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.5
+      },
+      {
+        "name": "Cayuga",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Petersburg",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Bicknell",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Crete",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Shelburn",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Cullman",
+        "state": "AL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "Beecher",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "West Terre Haute",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 2.9
+      },
+      {
+        "name": "Grant Park",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Montezuma",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Willowbrook",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Livermore",
+        "state": "KY",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Hymera",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Covington",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.9
+      },
+      {
+        "name": "Winslow",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Kentland",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.3
+      },
+      {
+        "name": "Fairview",
+        "state": "TN",
+        "evidence": "Possible",
+        "distance_miles": 4.6
+      },
+      {
+        "name": "Dyer",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Morocco",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.9
+      }
+    ]
+  },
+  {
+    "from": "New York, NY",
+    "to": "Newark, NJ",
+    "route_distance_miles": 15.0,
+    "danger_score": 0.334,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.834,
+    "towns_within_5mi": 1,
+    "towns_confirmed": 0,
+    "towns_probable": 0,
+    "towns_possible": 1,
+    "weighted_count": 0.4,
+    "nearby_towns": [
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 3.4
+      }
+    ]
+  },
+  {
+    "from": "Indianapolis, IN",
+    "to": "Kansas City, MO",
+    "route_distance_miles": 452.9,
+    "danger_score": 0.298,
+    "danger_lower_bound": 0.138,
+    "danger_upper_bound": 0.745,
+    "towns_within_5mi": 15,
+    "towns_confirmed": 5,
+    "towns_probable": 6,
+    "towns_possible": 4,
+    "weighted_count": 10.8,
+    "nearby_towns": [
+      {
+        "name": "Danville",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.5
+      },
+      {
+        "name": "Fairview Park",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Assumption",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Speedway",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Girard",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "White Hall",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.7
+      },
+      {
+        "name": "Sullivan",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.8
+      },
+      {
+        "name": "Farmer City",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Oakland",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Virden",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Buckner",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Blue Springs",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Thayer",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.8
+      },
+      {
+        "name": "Brownsburg",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 4.9
+      },
+      {
+        "name": "Sugar Creek",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.9
+      }
+    ]
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Memphis, TN",
+    "route_distance_miles": 630.7,
+    "danger_score": 0.287,
+    "danger_lower_bound": 0.079,
+    "danger_upper_bound": 0.718,
+    "towns_within_5mi": 25,
+    "towns_confirmed": 4,
+    "towns_probable": 7,
+    "towns_possible": 14,
+    "weighted_count": 14.5,
+    "nearby_towns": [
+      {
+        "name": "Shawnee",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Sellersburg",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Brooklyn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Aurora",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Greendale",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Petersburg",
+        "state": "KY",
+        "evidence": "Confirmed",
+        "distance_miles": 2.1
+      },
+      {
+        "name": "Centertown",
+        "state": "KY",
+        "evidence": "Probable",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Middletown",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Parma Heights",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.8
+      },
+      {
+        "name": "Newburgh Heights",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Fairborn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.5
+      },
+      {
+        "name": "Clarksville",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Strongsville",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Kettering",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.7
+      },
+      {
+        "name": "Mount Gilead",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.7
+      },
+      {
+        "name": "Galion",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Greenhills",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Lakewood",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Parma",
+        "state": "OH",
+        "evidence": "Confirmed",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Dillsboro",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Corydon",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Galena",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 4.8
+      },
+      {
+        "name": "North Olmsted",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.9
+      },
+      {
+        "name": "Trenton",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.9
+      },
+      {
+        "name": "Bridgetown",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "Indianapolis, IN",
+    "to": "Memphis, TN",
+    "route_distance_miles": 385.5,
+    "danger_score": 0.259,
+    "danger_lower_bound": 0.13,
+    "danger_upper_bound": 0.649,
+    "towns_within_5mi": 11,
+    "towns_confirmed": 4,
+    "towns_probable": 4,
+    "towns_possible": 3,
+    "weighted_count": 8.0,
+    "nearby_towns": [
+      {
+        "name": "Ellettsville",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Brooklyn",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Martinsville",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Petersburg",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Odon",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 2.4
+      },
+      {
+        "name": "Calvert City",
+        "state": "KY",
+        "evidence": "Possible",
+        "distance_miles": 2.4
+      },
+      {
+        "name": "Mooresville",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Cave-in-Rock",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Lamb",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Stinesville",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.5
+      },
+      {
+        "name": "Haubstadt",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 4.7
+      }
+    ]
+  },
+  {
+    "from": "Memphis, TN",
+    "to": "St. Louis, MO",
+    "route_distance_miles": 240.8,
+    "danger_score": 0.244,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.61,
+    "towns_within_5mi": 8,
+    "towns_confirmed": 0,
+    "towns_probable": 5,
+    "towns_possible": 3,
+    "weighted_count": 4.7,
+    "nearby_towns": [
+      {
+        "name": "Monroe County",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Waterloo",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Columbia",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "Dupo",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "Campbell",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 1.6
+      },
+      {
+        "name": "St. Francis",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Senath",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.0
+      },
+      {
+        "name": "Manila",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 4.8
+      }
+    ]
+  },
+  {
+    "from": "Baltimore, MD",
+    "to": "New York, NY",
+    "route_distance_miles": 177.6,
+    "danger_score": 0.211,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.528,
+    "towns_within_5mi": 6,
+    "towns_confirmed": 0,
+    "towns_probable": 2,
+    "towns_possible": 4,
+    "weighted_count": 3.0,
+    "nearby_towns": [
+      {
+        "name": "Somerset",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Hatboro",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "Carteret",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 4.2
+      }
+    ]
+  },
+  {
+    "from": "Pittsburgh, PA",
+    "to": "Washington, D.C.",
+    "route_distance_miles": 191.2,
+    "danger_score": 0.209,
+    "danger_lower_bound": 0.065,
+    "danger_upper_bound": 0.523,
+    "towns_within_5mi": 5,
+    "towns_confirmed": 1,
+    "towns_probable": 2,
+    "towns_possible": 2,
+    "weighted_count": 3.2,
+    "nearby_towns": [
+      {
+        "name": "Irwin",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Chevy Chase",
+        "state": "MD",
+        "evidence": "Confirmed",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Millvale",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Mount Rainier",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Brentwood",
+        "state": "MD",
+        "evidence": "Probable",
+        "distance_miles": 4.0
+      }
+    ]
+  },
+  {
+    "from": "Baltimore, MD",
+    "to": "Newark, NJ",
+    "route_distance_miles": 162.7,
+    "danger_score": 0.207,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.519,
+    "towns_within_5mi": 6,
+    "towns_confirmed": 0,
+    "towns_probable": 1,
+    "towns_possible": 5,
+    "weighted_count": 2.7,
+    "nearby_towns": [
+      {
+        "name": "Hatboro",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Clark",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Somerset",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Green Brook",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 3.7
+      }
+    ]
+  },
+  {
+    "from": "Baltimore, MD",
+    "to": "Philadelphia, PA",
+    "route_distance_miles": 88.1,
+    "danger_score": 0.199,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.496,
+    "towns_within_5mi": 2,
+    "towns_confirmed": 0,
+    "towns_probable": 2,
+    "towns_possible": 0,
+    "weighted_count": 1.4,
+    "nearby_towns": [
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 1.5
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "Cleveland, OH",
+    "route_distance_miles": 618.0,
+    "danger_score": 0.196,
+    "danger_lower_bound": 0.02,
+    "danger_upper_bound": 0.49,
+    "towns_within_5mi": 16,
+    "towns_confirmed": 1,
+    "towns_probable": 9,
+    "towns_possible": 6,
+    "weighted_count": 9.7,
+    "nearby_towns": [
+      {
+        "name": "Jamestown",
+        "state": "TN",
+        "evidence": "Probable",
+        "distance_miles": 0.0
+      },
+      {
+        "name": "Parma Heights",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Loudonville",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Mount Vernon",
+        "state": "KY",
+        "evidence": "Probable",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Brooklyn",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Brunswick",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Parma",
+        "state": "OH",
+        "evidence": "Confirmed",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Strongsville",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Oneonta",
+        "state": "AL",
+        "evidence": "Probable",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Newburgh Heights",
+        "state": "OH",
+        "evidence": "Probable",
+        "distance_miles": 2.5
+      },
+      {
+        "name": "Utica",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 2.5
+      },
+      {
+        "name": "Palmer",
+        "state": "TN",
+        "evidence": "Probable",
+        "distance_miles": 3.0
+      },
+      {
+        "name": "Tracy City",
+        "state": "TN",
+        "evidence": "Probable",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Burnside",
+        "state": "KY",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      },
+      {
+        "name": "Seven Hills",
+        "state": "OH",
+        "evidence": "Possible",
+        "distance_miles": 4.1
+      },
+      {
+        "name": "Jeffersonville",
+        "state": "KY",
+        "evidence": "Possible",
+        "distance_miles": 4.4
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "Indianapolis, IN",
+    "route_distance_miles": 434.1,
+    "danger_score": 0.173,
+    "danger_lower_bound": 0.058,
+    "danger_upper_bound": 0.432,
+    "towns_within_5mi": 9,
+    "towns_confirmed": 2,
+    "towns_probable": 4,
+    "towns_possible": 3,
+    "weighted_count": 6.0,
+    "nearby_towns": [
+      {
+        "name": "Campbellsburg",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 0.1
+      },
+      {
+        "name": "Hanceville",
+        "state": "AL",
+        "evidence": "Probable",
+        "distance_miles": 1.1
+      },
+      {
+        "name": "Milltown",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Leavenworth",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 2.0
+      },
+      {
+        "name": "Marengo",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Greenwood",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Beech Grove",
+        "state": "IN",
+        "evidence": "Possible",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "Morgantown",
+        "state": "IN",
+        "evidence": "Confirmed",
+        "distance_miles": 3.6
+      },
+      {
+        "name": "New Whiteland",
+        "state": "IN",
+        "evidence": "Probable",
+        "distance_miles": 3.8
+      }
+    ]
+  },
+  {
+    "from": "Kansas City, MO",
+    "to": "Memphis, TN",
+    "route_distance_miles": 368.1,
+    "danger_score": 0.16,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.399,
+    "towns_within_5mi": 8,
+    "towns_confirmed": 0,
+    "towns_probable": 5,
+    "towns_possible": 3,
+    "weighted_count": 4.7,
+    "nearby_towns": [
+      {
+        "name": "Williford",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 0.9
+      },
+      {
+        "name": "Black Rock",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 2.6
+      },
+      {
+        "name": "Hardy",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 2.7
+      },
+      {
+        "name": "Portia",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Mountain Grove",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 3.9
+      },
+      {
+        "name": "Imboden",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Deepwater",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.6
+      },
+      {
+        "name": "Thayer",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.6
+      }
+    ]
+  },
+  {
+    "from": "Philadelphia, PA",
+    "to": "Pittsburgh, PA",
+    "route_distance_miles": 258.3,
+    "danger_score": 0.145,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.363,
+    "towns_within_5mi": 6,
+    "towns_confirmed": 0,
+    "towns_probable": 2,
+    "towns_possible": 4,
+    "weighted_count": 3.0,
+    "nearby_towns": [
+      {
+        "name": "Johnstown",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.1
+      },
+      {
+        "name": "Coatesville",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.3
+      },
+      {
+        "name": "Adams",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 1.5
+      },
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Folcroft",
+        "state": "PA",
+        "evidence": "Probable",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Millvale",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 2.7
+      }
+    ]
+  },
+  {
+    "from": "Kansas City, MO",
+    "to": "St. Louis, MO",
+    "route_distance_miles": 238.1,
+    "danger_score": 0.136,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.341,
+    "towns_within_5mi": 5,
+    "towns_confirmed": 0,
+    "towns_probable": 2,
+    "towns_possible": 3,
+    "weighted_count": 2.6,
+    "nearby_towns": [
+      {
+        "name": "Blue Springs",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 0.7
+      },
+      {
+        "name": "Creve Coeur",
+        "state": "MO",
+        "evidence": "Probable",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Concordia",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Hermann",
+        "state": "MO",
+        "evidence": "Probable",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Shrewsbury",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 3.4
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "St. Louis, MO",
+    "route_distance_miles": 400.1,
+    "danger_score": 0.131,
+    "danger_lower_bound": 0.062,
+    "danger_upper_bound": 0.328,
+    "towns_within_5mi": 6,
+    "towns_confirmed": 2,
+    "towns_probable": 2,
+    "towns_possible": 2,
+    "weighted_count": 4.2,
+    "nearby_towns": [
+      {
+        "name": "Wolf Lake",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 0.6
+      },
+      {
+        "name": "Elco",
+        "state": "IL",
+        "evidence": "Confirmed",
+        "distance_miles": 2.4
+      },
+      {
+        "name": "Red Bud",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.2
+      },
+      {
+        "name": "Dupo",
+        "state": "IL",
+        "evidence": "Probable",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Evansville",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 4.7
+      },
+      {
+        "name": "Chester",
+        "state": "IL",
+        "evidence": "Possible",
+        "distance_miles": 4.8
+      }
+    ]
+  },
+  {
+    "from": "New York, NY",
+    "to": "Pittsburgh, PA",
+    "route_distance_miles": 320.1,
+    "danger_score": 0.109,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.273,
+    "towns_within_5mi": 7,
+    "towns_confirmed": 0,
+    "towns_probable": 0,
+    "towns_possible": 7,
+    "weighted_count": 2.8,
+    "nearby_towns": [
+      {
+        "name": "Nazareth",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 0.2
+      },
+      {
+        "name": "Long Valley",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 0.4
+      },
+      {
+        "name": "Llewellyn Park",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Millvale",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 2.2
+      },
+      {
+        "name": "Clifton",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Clifton",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      },
+      {
+        "name": "Bellwood",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 3.3
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "Kansas City, MO",
+    "route_distance_miles": 577.5,
+    "danger_score": 0.093,
+    "danger_lower_bound": 0.022,
+    "danger_upper_bound": 0.233,
+    "towns_within_5mi": 7,
+    "towns_confirmed": 1,
+    "towns_probable": 3,
+    "towns_possible": 3,
+    "weighted_count": 4.3,
+    "nearby_towns": [
+      {
+        "name": "Belmont",
+        "state": "MS",
+        "evidence": "Possible",
+        "distance_miles": 0.8
+      },
+      {
+        "name": "Nauvoo",
+        "state": "AL",
+        "evidence": "Confirmed",
+        "distance_miles": 1.2
+      },
+      {
+        "name": "Manila",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Oak Grove Heights",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Warsaw",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 3.2
+      },
+      {
+        "name": "Leachville",
+        "state": "AR",
+        "evidence": "Probable",
+        "distance_miles": 3.4
+      },
+      {
+        "name": "Lake Lotawana",
+        "state": "MO",
+        "evidence": "Possible",
+        "distance_miles": 4.3
+      }
+    ]
+  },
+  {
+    "from": "Newark, NJ",
+    "to": "Pittsburgh, PA",
+    "route_distance_miles": 307.0,
+    "danger_score": 0.077,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.193,
+    "towns_within_5mi": 4,
+    "towns_confirmed": 0,
+    "towns_probable": 1,
+    "towns_possible": 3,
+    "weighted_count": 1.9,
+    "nearby_towns": [
+      {
+        "name": "Hillside",
+        "state": "NJ",
+        "evidence": "Possible",
+        "distance_miles": 1.4
+      },
+      {
+        "name": "Millvale",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 2.3
+      },
+      {
+        "name": "Garwood",
+        "state": "NJ",
+        "evidence": "Probable",
+        "distance_miles": 4.1
+      },
+      {
+        "name": "Allegheny",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 4.5
+      }
+    ]
+  },
+  {
+    "from": "Baltimore, MD",
+    "to": "Pittsburgh, PA",
+    "route_distance_miles": 196.6,
+    "danger_score": 0.076,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.191,
+    "towns_within_5mi": 3,
+    "towns_confirmed": 0,
+    "towns_probable": 0,
+    "towns_possible": 3,
+    "weighted_count": 1.2,
+    "nearby_towns": [
+      {
+        "name": "Irwin",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 1.0
+      },
+      {
+        "name": "Millvale",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 3.1
+      },
+      {
+        "name": "Johnston",
+        "state": "PA",
+        "evidence": "Possible",
+        "distance_miles": 5.0
+      }
+    ]
+  },
+  {
+    "from": "Birmingham, AL",
+    "to": "Memphis, TN",
+    "route_distance_miles": 216.4,
+    "danger_score": 0.0,
+    "danger_lower_bound": 0.0,
+    "danger_upper_bound": 0.0,
+    "towns_within_5mi": 0,
+    "towns_confirmed": 0,
+    "towns_probable": 0,
+    "towns_possible": 0,
+    "weighted_count": 0.0,
+    "nearby_towns": []
+  }
+];
+
+// 20 high-danger corridors with counterfactual route analysis
+// Model output: does not claim historical actors considered these alternatives
+// Safer threshold: max segment danger below 50% of direct route danger
+var COUNTERFACTUAL_ROUTES = [
+  {
+    "from": "Baltimore, MD",
+    "to": "Washington, D.C.",
+    "direct_danger": 1.0,
+    "direct_miles": 34.1,
+    "direct_towns": 5,
+    "safer_alternative_exists": true,
+    "alternatives_found": 13,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Baltimore, MD",
+        "Memphis, TN",
+        "Washington, D.C."
+      ],
+      "max_segment_danger": 0.059,
+      "total_miles": 1555.4,
+      "additional_miles": 1521.3,
+      "mile_increase_pct": 4461.0,
+      "total_towns_encountered": 13,
+      "segments": [
+        {
+          "from": "Baltimore, MD",
+          "to": "Memphis, TN",
+          "danger": 0.058,
+          "miles": 791.7,
+          "towns": 7
+        },
+        {
+          "from": "Memphis, TN",
+          "to": "Washington, D.C.",
+          "danger": 0.059,
+          "miles": 763.7,
+          "towns": 6
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Memphis, TN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.059,
+        "total_miles": 1555.4,
+        "additional_miles": 1521.3,
+        "mile_increase_pct": 4461.0,
+        "total_towns_encountered": 13,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Memphis, TN",
+            "danger": 0.058,
+            "miles": 791.7,
+            "towns": 7
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Washington, D.C.",
+            "danger": 0.059,
+            "miles": 763.7,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Birmingham, AL",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.087,
+        "total_miles": 1351.7,
+        "additional_miles": 1317.6,
+        "mile_increase_pct": 3864.0,
+        "total_towns_encountered": 11,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Birmingham, AL",
+            "danger": 0.061,
+            "miles": 691.9,
+            "towns": 4
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Washington, D.C.",
+            "danger": 0.087,
+            "miles": 659.8,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Atlanta, GA",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.091,
+        "total_miles": 1119.1,
+        "additional_miles": 1085.0,
+        "mile_increase_pct": 3182.0,
+        "total_towns_encountered": 11,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Atlanta, GA",
+            "danger": 0.091,
+            "miles": 576.2,
+            "towns": 6
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Washington, D.C.",
+            "danger": 0.067,
+            "miles": 542.9,
+            "towns": 5
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Indianapolis, IN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.197,
+        "total_miles": 999.7,
+        "additional_miles": 965.6,
+        "mile_increase_pct": 2832.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Indianapolis, IN",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          },
+          {
+            "from": "Indianapolis, IN",
+            "to": "Washington, D.C.",
+            "danger": 0.127,
+            "miles": 491.2,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Baltimore, MD",
+          "Pittsburgh, PA",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.209,
+        "total_miles": 387.8,
+        "additional_miles": 353.7,
+        "mile_increase_pct": 1037.0,
+        "total_towns_encountered": 8,
+        "segments": [
+          {
+            "from": "Baltimore, MD",
+            "to": "Pittsburgh, PA",
+            "danger": 0.076,
+            "miles": 196.6,
+            "towns": 3
+          },
+          {
+            "from": "Pittsburgh, PA",
+            "to": "Washington, D.C.",
+            "danger": 0.209,
+            "miles": 191.2,
+            "towns": 5
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.941,
+    "danger_reduction_pct": 94.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "Indianapolis, IN",
+    "direct_danger": 1.0,
+    "direct_miles": 99.2,
+    "direct_towns": 17,
+    "safer_alternative_exists": true,
+    "alternatives_found": 9,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "Indianapolis, IN"
+      ],
+      "max_segment_danger": 0.207,
+      "total_miles": 1220.0,
+      "additional_miles": 1120.8,
+      "mile_increase_pct": 1130.0,
+      "total_towns_encountered": 38,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "Indianapolis, IN",
+          "danger": 0.207,
+          "miles": 647.5,
+          "towns": 20
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.207,
+        "total_miles": 1220.0,
+        "additional_miles": 1120.8,
+        "mile_increase_pct": 1130.0,
+        "total_towns_encountered": 38,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Indianapolis, IN",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 930.9,
+        "additional_miles": 831.7,
+        "mile_increase_pct": 838.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Indianapolis, IN",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Philadelphia, PA",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.247,
+        "total_miles": 1082.8,
+        "additional_miles": 983.6,
+        "mile_increase_pct": 992.0,
+        "total_towns_encountered": 34,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Philadelphia, PA",
+            "danger": 0.247,
+            "miles": 500.7,
+            "towns": 18
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Indianapolis, IN",
+            "danger": 0.208,
+            "miles": 582.1,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Newark, NJ",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.266,
+        "total_miles": 1193.1,
+        "additional_miles": 1093.9,
+        "mile_increase_pct": 1103.0,
+        "total_towns_encountered": 39,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Newark, NJ",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Indianapolis, IN",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Birmingham, AL",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.274,
+        "total_miles": 840.5,
+        "additional_miles": 741.3,
+        "mile_increase_pct": 747.0,
+        "total_towns_encountered": 26,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.274,
+            "miles": 406.4,
+            "towns": 17
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Indianapolis, IN",
+            "danger": 0.173,
+            "miles": 434.1,
+            "towns": 9
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.793,
+    "danger_reduction_pct": 79.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Indianapolis, IN",
+    "to": "St. Louis, MO",
+    "direct_danger": 1.0,
+    "direct_miles": 230.9,
+    "direct_towns": 24,
+    "safer_alternative_exists": true,
+    "alternatives_found": 10,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Indianapolis, IN",
+        "Birmingham, AL",
+        "St. Louis, MO"
+      ],
+      "max_segment_danger": 0.173,
+      "total_miles": 834.2,
+      "additional_miles": 603.3,
+      "mile_increase_pct": 261.0,
+      "total_towns_encountered": 15,
+      "segments": [
+        {
+          "from": "Indianapolis, IN",
+          "to": "Birmingham, AL",
+          "danger": 0.173,
+          "miles": 434.1,
+          "towns": 9
+        },
+        {
+          "from": "Birmingham, AL",
+          "to": "St. Louis, MO",
+          "danger": 0.131,
+          "miles": 400.1,
+          "towns": 6
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.173,
+        "total_miles": 834.2,
+        "additional_miles": 603.3,
+        "mile_increase_pct": 261.0,
+        "total_towns_encountered": 15,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "Birmingham, AL",
+            "danger": 0.173,
+            "miles": 434.1,
+            "towns": 9
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "New York, NY",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.212,
+        "total_miles": 1524.0,
+        "additional_miles": 1293.1,
+        "mile_increase_pct": 560.0,
+        "total_towns_encountered": 43,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "New York, NY",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          },
+          {
+            "from": "New York, NY",
+            "to": "St. Louis, MO",
+            "danger": 0.212,
+            "miles": 876.5,
+            "towns": 23
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "Newark, NJ",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.213,
+        "total_miles": 1497.4,
+        "additional_miles": 1266.5,
+        "mile_increase_pct": 549.0,
+        "total_towns_encountered": 37,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "Newark, NJ",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "St. Louis, MO",
+            "danger": 0.213,
+            "miles": 863.0,
+            "towns": 21
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "Memphis, TN",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.259,
+        "total_miles": 626.3,
+        "additional_miles": 395.4,
+        "mile_increase_pct": 171.0,
+        "total_towns_encountered": 19,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "Memphis, TN",
+            "danger": 0.259,
+            "miles": 385.5,
+            "towns": 11
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "St. Louis, MO",
+            "danger": 0.244,
+            "miles": 240.8,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Indianapolis, IN",
+          "Baltimore, MD",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.296,
+        "total_miles": 1238.5,
+        "additional_miles": 1007.6,
+        "mile_increase_pct": 436.0,
+        "total_towns_encountered": 37,
+        "segments": [
+          {
+            "from": "Indianapolis, IN",
+            "to": "Baltimore, MD",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "St. Louis, MO",
+            "danger": 0.296,
+            "miles": 730.0,
+            "towns": 23
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.827,
+    "danger_reduction_pct": 83.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Indianapolis, IN",
+    "direct_danger": 0.883,
+    "direct_miles": 161.4,
+    "direct_towns": 15,
+    "safer_alternative_exists": true,
+    "alternatives_found": 10,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Chicago, IL",
+        "Baltimore, MD",
+        "Indianapolis, IN"
+      ],
+      "max_segment_danger": 0.224,
+      "total_miles": 1112.0,
+      "additional_miles": 950.6,
+      "mile_increase_pct": 589.0,
+      "total_towns_encountered": 29,
+      "segments": [
+        {
+          "from": "Chicago, IL",
+          "to": "Baltimore, MD",
+          "danger": 0.224,
+          "miles": 603.5,
+          "towns": 15
+        },
+        {
+          "from": "Baltimore, MD",
+          "to": "Indianapolis, IN",
+          "danger": 0.197,
+          "miles": 508.5,
+          "towns": 14
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.224,
+        "total_miles": 1112.0,
+        "additional_miles": 950.6,
+        "mile_increase_pct": 589.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Indianapolis, IN",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Newark, NJ",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.308,
+        "total_miles": 1336.9,
+        "additional_miles": 1175.5,
+        "mile_increase_pct": 728.0,
+        "total_towns_encountered": 48,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Newark, NJ",
+            "danger": 0.308,
+            "miles": 702.5,
+            "towns": 32
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Indianapolis, IN",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "New York, NY",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.31,
+        "total_miles": 1361.3,
+        "additional_miles": 1199.9,
+        "mile_increase_pct": 743.0,
+        "total_towns_encountered": 53,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "New York, NY",
+            "danger": 0.31,
+            "miles": 713.8,
+            "towns": 33
+          },
+          {
+            "from": "New York, NY",
+            "to": "Indianapolis, IN",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Atlanta, GA",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.333,
+        "total_miles": 1012.5,
+        "additional_miles": 851.1,
+        "mile_increase_pct": 527.0,
+        "total_towns_encountered": 44,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Atlanta, GA",
+            "danger": 0.333,
+            "miles": 585.1,
+            "towns": 24
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Indianapolis, IN",
+            "danger": 0.33,
+            "miles": 427.4,
+            "towns": 20
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Philadelphia, PA",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.339,
+        "total_miles": 1246.1,
+        "additional_miles": 1084.7,
+        "mile_increase_pct": 672.0,
+        "total_towns_encountered": 43,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Philadelphia, PA",
+            "danger": 0.339,
+            "miles": 664.0,
+            "towns": 27
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Indianapolis, IN",
+            "danger": 0.208,
+            "miles": 582.1,
+            "towns": 16
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.659,
+    "danger_reduction_pct": 75.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Cincinnati, OH",
+    "direct_danger": 0.845,
+    "direct_miles": 249.9,
+    "direct_towns": 28,
+    "safer_alternative_exists": true,
+    "alternatives_found": 7,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Chicago, IL",
+        "Baltimore, MD",
+        "Cincinnati, OH"
+      ],
+      "max_segment_danger": 0.24,
+      "total_miles": 1025.9,
+      "additional_miles": 776.0,
+      "mile_increase_pct": 311.0,
+      "total_towns_encountered": 30,
+      "segments": [
+        {
+          "from": "Chicago, IL",
+          "to": "Baltimore, MD",
+          "danger": 0.224,
+          "miles": 603.5,
+          "towns": 15
+        },
+        {
+          "from": "Baltimore, MD",
+          "to": "Cincinnati, OH",
+          "danger": 0.24,
+          "miles": 422.4,
+          "towns": 15
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 1025.9,
+        "additional_miles": 776.0,
+        "mile_increase_pct": 311.0,
+        "total_towns_encountered": 30,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Cincinnati, OH",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Newark, NJ",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.308,
+        "total_miles": 1261.2,
+        "additional_miles": 1011.3,
+        "mile_increase_pct": 405.0,
+        "total_towns_encountered": 55,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Newark, NJ",
+            "danger": 0.308,
+            "miles": 702.5,
+            "towns": 32
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Cincinnati, OH",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "New York, NY",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.31,
+        "total_miles": 1286.3,
+        "additional_miles": 1036.4,
+        "mile_increase_pct": 415.0,
+        "total_towns_encountered": 51,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "New York, NY",
+            "danger": 0.31,
+            "miles": 713.8,
+            "towns": 33
+          },
+          {
+            "from": "New York, NY",
+            "to": "Cincinnati, OH",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Philadelphia, PA",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.339,
+        "total_miles": 1164.7,
+        "additional_miles": 914.8,
+        "mile_increase_pct": 366.0,
+        "total_towns_encountered": 45,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Philadelphia, PA",
+            "danger": 0.339,
+            "miles": 664.0,
+            "towns": 27
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Cincinnati, OH",
+            "danger": 0.247,
+            "miles": 500.7,
+            "towns": 18
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Washington, D.C.",
+          "Cincinnati, OH"
+        ],
+        "max_segment_danger": 0.347,
+        "total_miles": 995.7,
+        "additional_miles": 745.8,
+        "mile_increase_pct": 298.0,
+        "total_towns_encountered": 42,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Washington, D.C.",
+            "danger": 0.347,
+            "miles": 593.5,
+            "towns": 24
+          },
+          {
+            "from": "Washington, D.C.",
+            "to": "Cincinnati, OH",
+            "danger": 0.326,
+            "miles": 402.2,
+            "towns": 18
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.605,
+    "danger_reduction_pct": 72.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "St. Louis, MO",
+    "direct_danger": 0.821,
+    "direct_miles": 307.6,
+    "direct_towns": 31,
+    "safer_alternative_exists": true,
+    "alternatives_found": 10,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "St. Louis, MO"
+      ],
+      "max_segment_danger": 0.212,
+      "total_miles": 1449.0,
+      "additional_miles": 1141.4,
+      "mile_increase_pct": 371.0,
+      "total_towns_encountered": 41,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "St. Louis, MO",
+          "danger": 0.212,
+          "miles": 876.5,
+          "towns": 23
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.212,
+        "total_miles": 1449.0,
+        "additional_miles": 1141.4,
+        "mile_increase_pct": 371.0,
+        "total_towns_encountered": 41,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "St. Louis, MO",
+            "danger": 0.212,
+            "miles": 876.5,
+            "towns": 23
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Newark, NJ",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.266,
+        "total_miles": 1421.7,
+        "additional_miles": 1114.1,
+        "mile_increase_pct": 362.0,
+        "total_towns_encountered": 44,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Newark, NJ",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "St. Louis, MO",
+            "danger": 0.213,
+            "miles": 863.0,
+            "towns": 21
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.274,
+        "total_miles": 806.5,
+        "additional_miles": 498.9,
+        "mile_increase_pct": 162.0,
+        "total_towns_encountered": 23,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.274,
+            "miles": 406.4,
+            "towns": 17
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Birmingham, AL",
+          "Memphis, TN",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.274,
+        "total_miles": 863.6,
+        "additional_miles": 556.0,
+        "mile_increase_pct": 181.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.274,
+            "miles": 406.4,
+            "towns": 17
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Memphis, TN",
+            "danger": 0.0,
+            "miles": 216.4,
+            "towns": 0
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "St. Louis, MO",
+            "danger": 0.244,
+            "miles": 240.8,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.296,
+        "total_miles": 1152.4,
+        "additional_miles": 844.8,
+        "mile_increase_pct": 275.0,
+        "total_towns_encountered": 38,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "St. Louis, MO",
+            "danger": 0.296,
+            "miles": 730.0,
+            "towns": 23
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.609,
+    "danger_reduction_pct": 74.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "St. Louis, MO",
+    "direct_danger": 0.816,
+    "direct_miles": 491.5,
+    "direct_towns": 51,
+    "safer_alternative_exists": true,
+    "alternatives_found": 56,
+    "best_alternative": {
+      "type": "2-stop",
+      "route": [
+        "Cleveland, OH",
+        "Detroit, MI",
+        "Atlanta, GA",
+        "St. Louis, MO"
+      ],
+      "max_segment_danger": 0.174,
+      "total_miles": 1154.9,
+      "additional_miles": 663.4,
+      "mile_increase_pct": 135.0,
+      "total_towns_encountered": 15,
+      "segments": [
+        {
+          "from": "Cleveland, OH",
+          "to": "Detroit, MI",
+          "danger": 0.151,
+          "miles": 91.1,
+          "towns": 2
+        },
+        {
+          "from": "Detroit, MI",
+          "to": "Atlanta, GA",
+          "danger": 0.08,
+          "miles": 597.4,
+          "towns": 5
+        },
+        {
+          "from": "Atlanta, GA",
+          "to": "St. Louis, MO",
+          "danger": 0.174,
+          "miles": 466.4,
+          "towns": 8
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.174,
+        "total_miles": 1154.9,
+        "additional_miles": 663.4,
+        "mile_increase_pct": 135.0,
+        "total_towns_encountered": 15,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Detroit, MI",
+            "danger": 0.151,
+            "miles": 91.1,
+            "towns": 2
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "St. Louis, MO",
+            "danger": 0.174,
+            "miles": 466.4,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1018.1,
+        "additional_miles": 526.6,
+        "mile_increase_pct": 107.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Atlanta, GA",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1224.1,
+        "additional_miles": 732.6,
+        "mile_increase_pct": 149.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Atlanta, GA",
+            "danger": 0.036,
+            "miles": 139.7,
+            "towns": 1
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "St. Louis, MO",
+            "danger": 0.174,
+            "miles": 466.4,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Kansas City, MO",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1433.6,
+        "additional_miles": 942.1,
+        "mile_increase_pct": 192.0,
+        "total_towns_encountered": 28,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Kansas City, MO",
+            "danger": 0.093,
+            "miles": 577.5,
+            "towns": 7
+          },
+          {
+            "from": "Kansas City, MO",
+            "to": "St. Louis, MO",
+            "danger": 0.136,
+            "miles": 238.1,
+            "towns": 5
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.212,
+        "total_miles": 1282.6,
+        "additional_miles": 791.1,
+        "mile_increase_pct": 161.0,
+        "total_towns_encountered": 34,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "St. Louis, MO",
+            "danger": 0.212,
+            "miles": 876.5,
+            "towns": 23
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.642,
+    "danger_reduction_pct": 79.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "Detroit, MI",
+    "direct_danger": 0.741,
+    "direct_miles": 236.2,
+    "direct_towns": 26,
+    "safer_alternative_exists": true,
+    "alternatives_found": 7,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "Detroit, MI"
+      ],
+      "max_segment_danger": 0.203,
+      "total_miles": 1055.1,
+      "additional_miles": 818.9,
+      "mile_increase_pct": 347.0,
+      "total_towns_encountered": 22,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "Detroit, MI",
+          "danger": 0.073,
+          "miles": 482.6,
+          "towns": 4
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 1055.1,
+        "additional_miles": 818.9,
+        "mile_increase_pct": 347.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Detroit, MI",
+            "danger": 0.073,
+            "miles": 482.6,
+            "towns": 4
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 818.6,
+        "additional_miles": 582.4,
+        "mile_increase_pct": 247.0,
+        "total_towns_encountered": 24,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Detroit, MI",
+            "danger": 0.123,
+            "miles": 396.2,
+            "towns": 9
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Philadelphia, PA",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.247,
+        "total_miles": 943.6,
+        "additional_miles": 707.4,
+        "mile_increase_pct": 299.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Philadelphia, PA",
+            "danger": 0.247,
+            "miles": 500.7,
+            "towns": 18
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Detroit, MI",
+            "danger": 0.079,
+            "miles": 442.9,
+            "towns": 4
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Newark, NJ",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.266,
+        "total_miles": 1031.1,
+        "additional_miles": 794.9,
+        "mile_increase_pct": 337.0,
+        "total_towns_encountered": 28,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Newark, NJ",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Detroit, MI",
+            "danger": 0.085,
+            "miles": 472.4,
+            "towns": 5
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Birmingham, AL",
+          "Detroit, MI"
+        ],
+        "max_segment_danger": 0.274,
+        "total_miles": 1049.0,
+        "additional_miles": 812.8,
+        "mile_increase_pct": 344.0,
+        "total_towns_encountered": 42,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.274,
+            "miles": 406.4,
+            "towns": 17
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Detroit, MI",
+            "danger": 0.265,
+            "miles": 642.6,
+            "towns": 25
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.538,
+    "danger_reduction_pct": 73.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "Cleveland, OH",
+    "direct_danger": 0.658,
+    "direct_miles": 222.3,
+    "direct_towns": 21,
+    "safer_alternative_exists": true,
+    "alternatives_found": 6,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "Cleveland, OH"
+      ],
+      "max_segment_danger": 0.203,
+      "total_miles": 978.6,
+      "additional_miles": 756.3,
+      "mile_increase_pct": 340.0,
+      "total_towns_encountered": 29,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "Cleveland, OH",
+          "danger": 0.154,
+          "miles": 406.1,
+          "towns": 11
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 978.6,
+        "additional_miles": 756.3,
+        "mile_increase_pct": 340.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Cleveland, OH",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.253,
+        "total_miles": 729.1,
+        "additional_miles": 506.8,
+        "mile_increase_pct": 228.0,
+        "total_towns_encountered": 29,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Cleveland, OH",
+            "danger": 0.253,
+            "miles": 306.7,
+            "towns": 14
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Philadelphia, PA",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.262,
+        "total_miles": 859.1,
+        "additional_miles": 636.8,
+        "mile_increase_pct": 286.0,
+        "total_towns_encountered": 33,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Philadelphia, PA",
+            "danger": 0.247,
+            "miles": 500.7,
+            "towns": 18
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Cleveland, OH",
+            "danger": 0.262,
+            "miles": 358.4,
+            "towns": 15
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Newark, NJ",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.266,
+        "total_miles": 953.4,
+        "additional_miles": 731.1,
+        "mile_increase_pct": 329.0,
+        "total_towns_encountered": 37,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Newark, NJ",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Cleveland, OH",
+            "danger": 0.196,
+            "miles": 394.7,
+            "towns": 14
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Birmingham, AL",
+          "Cleveland, OH"
+        ],
+        "max_segment_danger": 0.274,
+        "total_miles": 1024.4,
+        "additional_miles": 802.1,
+        "mile_increase_pct": 361.0,
+        "total_towns_encountered": 33,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.274,
+            "miles": 406.4,
+            "towns": 17
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Cleveland, OH",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.455,
+    "danger_reduction_pct": 69.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "Memphis, TN",
+    "direct_danger": 0.656,
+    "direct_miles": 480.3,
+    "direct_towns": 33,
+    "safer_alternative_exists": true,
+    "alternatives_found": 11,
+    "best_alternative": {
+      "type": "2-stop",
+      "route": [
+        "Chicago, IL",
+        "Detroit, MI",
+        "Atlanta, GA",
+        "Memphis, TN"
+      ],
+      "max_segment_danger": 0.131,
+      "total_miles": 1171.3,
+      "additional_miles": 691.0,
+      "mile_increase_pct": 144.0,
+      "total_towns_encountered": 10,
+      "segments": [
+        {
+          "from": "Chicago, IL",
+          "to": "Detroit, MI",
+          "danger": 0.131,
+          "miles": 237.7,
+          "towns": 4
+        },
+        {
+          "from": "Detroit, MI",
+          "to": "Atlanta, GA",
+          "danger": 0.08,
+          "miles": 597.4,
+          "towns": 5
+        },
+        {
+          "from": "Atlanta, GA",
+          "to": "Memphis, TN",
+          "danger": 0.037,
+          "miles": 336.2,
+          "towns": 1
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "2-stop",
+        "route": [
+          "Chicago, IL",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.131,
+        "total_miles": 1171.3,
+        "additional_miles": 691.0,
+        "mile_increase_pct": 144.0,
+        "total_towns_encountered": 10,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Detroit, MI",
+            "danger": 0.131,
+            "miles": 237.7,
+            "towns": 4
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Memphis, TN",
+            "danger": 0.037,
+            "miles": 336.2,
+            "towns": 1
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Chicago, IL",
+          "Detroit, MI",
+          "Baltimore, MD",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.131,
+        "total_miles": 1425.6,
+        "additional_miles": 945.3,
+        "mile_increase_pct": 197.0,
+        "total_towns_encountered": 20,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Detroit, MI",
+            "danger": 0.131,
+            "miles": 237.7,
+            "towns": 4
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Baltimore, MD",
+            "danger": 0.123,
+            "miles": 396.2,
+            "towns": 9
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Memphis, TN",
+            "danger": 0.058,
+            "miles": 791.7,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.224,
+        "total_miles": 1395.2,
+        "additional_miles": 914.9,
+        "mile_increase_pct": 190.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Memphis, TN",
+            "danger": 0.058,
+            "miles": 791.7,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Chicago, IL",
+          "Detroit, MI",
+          "Washington, D.C.",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.225,
+        "total_miles": 1396.3,
+        "additional_miles": 916.0,
+        "mile_increase_pct": 191.0,
+        "total_towns_encountered": 24,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Detroit, MI",
+            "danger": 0.131,
+            "miles": 237.7,
+            "towns": 4
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Washington, D.C.",
+            "danger": 0.225,
+            "miles": 394.9,
+            "towns": 14
+          },
+          {
+            "from": "Washington, D.C.",
+            "to": "Memphis, TN",
+            "danger": 0.059,
+            "miles": 763.7,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Detroit, MI",
+          "Memphis, TN"
+        ],
+        "max_segment_danger": 0.228,
+        "total_miles": 861.6,
+        "additional_miles": 381.3,
+        "mile_increase_pct": 79.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Detroit, MI",
+            "danger": 0.131,
+            "miles": 237.7,
+            "towns": 4
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Memphis, TN",
+            "danger": 0.228,
+            "miles": 623.9,
+            "towns": 18
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.525,
+    "danger_reduction_pct": 80.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Chicago, IL",
+    "to": "St. Louis, MO",
+    "direct_danger": 0.607,
+    "direct_miles": 259.5,
+    "direct_towns": 18,
+    "safer_alternative_exists": true,
+    "alternatives_found": 1,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Chicago, IL",
+        "Baltimore, MD",
+        "St. Louis, MO"
+      ],
+      "max_segment_danger": 0.296,
+      "total_miles": 1333.5,
+      "additional_miles": 1074.0,
+      "mile_increase_pct": 414.0,
+      "total_towns_encountered": 38,
+      "segments": [
+        {
+          "from": "Chicago, IL",
+          "to": "Baltimore, MD",
+          "danger": 0.224,
+          "miles": 603.5,
+          "towns": 15
+        },
+        {
+          "from": "Baltimore, MD",
+          "to": "St. Louis, MO",
+          "danger": 0.296,
+          "miles": 730.0,
+          "towns": 23
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Chicago, IL",
+          "Baltimore, MD",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.296,
+        "total_miles": 1333.5,
+        "additional_miles": 1074.0,
+        "mile_increase_pct": 414.0,
+        "total_towns_encountered": 38,
+        "segments": [
+          {
+            "from": "Chicago, IL",
+            "to": "Baltimore, MD",
+            "danger": 0.224,
+            "miles": 603.5,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "St. Louis, MO",
+            "danger": 0.296,
+            "miles": 730.0,
+            "towns": 23
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.311,
+    "danger_reduction_pct": 51.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "Kansas City, MO",
+    "direct_danger": 0.572,
+    "direct_miles": 540.2,
+    "direct_towns": 37,
+    "safer_alternative_exists": true,
+    "alternatives_found": 13,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "Kansas City, MO"
+      ],
+      "max_segment_danger": 0.224,
+      "total_miles": 1671.1,
+      "additional_miles": 1130.9,
+      "mile_increase_pct": 209.0,
+      "total_towns_encountered": 50,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "Kansas City, MO",
+          "danger": 0.224,
+          "miles": 1098.6,
+          "towns": 32
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.224,
+        "total_miles": 1671.1,
+        "additional_miles": 1130.9,
+        "mile_increase_pct": 209.0,
+        "total_towns_encountered": 50,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Kansas City, MO",
+            "danger": 0.224,
+            "miles": 1098.6,
+            "towns": 32
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Memphis, TN",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 1582.2,
+        "additional_miles": 1042.0,
+        "mile_increase_pct": 193.0,
+        "total_towns_encountered": 30,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Memphis, TN",
+            "danger": 0.058,
+            "miles": 791.7,
+            "towns": 7
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Kansas City, MO",
+            "danger": 0.16,
+            "miles": 368.1,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Philadelphia, PA",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 1545.5,
+        "additional_miles": 1005.3,
+        "mile_increase_pct": 186.0,
+        "total_towns_encountered": 43,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Philadelphia, PA",
+            "danger": 0.199,
+            "miles": 88.1,
+            "towns": 2
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Kansas City, MO",
+            "danger": 0.22,
+            "miles": 1035.0,
+            "towns": 26
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Philadelphia, PA",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.247,
+        "total_miles": 1535.7,
+        "additional_miles": 995.5,
+        "mile_increase_pct": 184.0,
+        "total_towns_encountered": 44,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Philadelphia, PA",
+            "danger": 0.247,
+            "miles": 500.7,
+            "towns": 18
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Kansas City, MO",
+            "danger": 0.22,
+            "miles": 1035.0,
+            "towns": 26
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Newark, NJ",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.266,
+        "total_miles": 1644.5,
+        "additional_miles": 1104.3,
+        "mile_increase_pct": 204.0,
+        "total_towns_encountered": 55,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Newark, NJ",
+            "danger": 0.266,
+            "miles": 558.7,
+            "towns": 23
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Kansas City, MO",
+            "danger": 0.223,
+            "miles": 1085.8,
+            "towns": 32
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.348,
+    "danger_reduction_pct": 61.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Detroit, MI",
+    "to": "St. Louis, MO",
+    "direct_danger": 0.572,
+    "direct_miles": 454.6,
+    "direct_towns": 28,
+    "safer_alternative_exists": true,
+    "alternatives_found": 18,
+    "best_alternative": {
+      "type": "2-stop",
+      "route": [
+        "Detroit, MI",
+        "Atlanta, GA",
+        "Birmingham, AL",
+        "St. Louis, MO"
+      ],
+      "max_segment_danger": 0.131,
+      "total_miles": 1137.2,
+      "additional_miles": 682.6,
+      "mile_increase_pct": 150.0,
+      "total_towns_encountered": 12,
+      "segments": [
+        {
+          "from": "Detroit, MI",
+          "to": "Atlanta, GA",
+          "danger": 0.08,
+          "miles": 597.4,
+          "towns": 5
+        },
+        {
+          "from": "Atlanta, GA",
+          "to": "Birmingham, AL",
+          "danger": 0.036,
+          "miles": 139.7,
+          "towns": 1
+        },
+        {
+          "from": "Birmingham, AL",
+          "to": "St. Louis, MO",
+          "danger": 0.131,
+          "miles": 400.1,
+          "towns": 6
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "2-stop",
+        "route": [
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.131,
+        "total_miles": 1137.2,
+        "additional_miles": 682.6,
+        "mile_increase_pct": 150.0,
+        "total_towns_encountered": 12,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Birmingham, AL",
+            "danger": 0.036,
+            "miles": 139.7,
+            "towns": 1
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Atlanta, GA",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.174,
+        "total_miles": 1063.8,
+        "additional_miles": 609.2,
+        "mile_increase_pct": 134.0,
+        "total_towns_encountered": 13,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "St. Louis, MO",
+            "danger": 0.174,
+            "miles": 466.4,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Detroit, MI",
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1109.2,
+        "additional_miles": 654.6,
+        "mile_increase_pct": 144.0,
+        "total_towns_encountered": 24,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Cleveland, OH",
+            "danger": 0.151,
+            "miles": 91.1,
+            "towns": 2
+          },
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "St. Louis, MO",
+            "danger": 0.131,
+            "miles": 400.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "New York, NY",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.212,
+        "total_miles": 1359.1,
+        "additional_miles": 904.5,
+        "mile_increase_pct": 199.0,
+        "total_towns_encountered": 27,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "New York, NY",
+            "danger": 0.073,
+            "miles": 482.6,
+            "towns": 4
+          },
+          {
+            "from": "New York, NY",
+            "to": "St. Louis, MO",
+            "danger": 0.212,
+            "miles": 876.5,
+            "towns": 23
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Newark, NJ",
+          "St. Louis, MO"
+        ],
+        "max_segment_danger": 0.213,
+        "total_miles": 1335.4,
+        "additional_miles": 880.8,
+        "mile_increase_pct": 194.0,
+        "total_towns_encountered": 26,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Newark, NJ",
+            "danger": 0.085,
+            "miles": 472.4,
+            "towns": 5
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "St. Louis, MO",
+            "danger": 0.213,
+            "miles": 863.0,
+            "towns": 21
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.441,
+    "danger_reduction_pct": 77.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Philadelphia, PA",
+    "to": "Washington, D.C.",
+    "direct_danger": 0.54,
+    "direct_miles": 120.4,
+    "direct_towns": 7,
+    "safer_alternative_exists": true,
+    "alternatives_found": 7,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Philadelphia, PA",
+        "Memphis, TN",
+        "Washington, D.C."
+      ],
+      "max_segment_danger": 0.059,
+      "total_miles": 1641.8,
+      "additional_miles": 1521.4,
+      "mile_increase_pct": 1264.0,
+      "total_towns_encountered": 12,
+      "segments": [
+        {
+          "from": "Philadelphia, PA",
+          "to": "Memphis, TN",
+          "danger": 0.047,
+          "miles": 878.1,
+          "towns": 6
+        },
+        {
+          "from": "Memphis, TN",
+          "to": "Washington, D.C.",
+          "danger": 0.059,
+          "miles": 763.7,
+          "towns": 6
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Memphis, TN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.059,
+        "total_miles": 1641.8,
+        "additional_miles": 1521.4,
+        "mile_increase_pct": 1264.0,
+        "total_towns_encountered": 12,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Memphis, TN",
+            "danger": 0.047,
+            "miles": 878.1,
+            "towns": 6
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Washington, D.C.",
+            "danger": 0.059,
+            "miles": 763.7,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Atlanta, GA",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.07,
+        "total_miles": 1206.1,
+        "additional_miles": 1085.7,
+        "mile_increase_pct": 902.0,
+        "total_towns_encountered": 12,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Atlanta, GA",
+            "danger": 0.07,
+            "miles": 663.2,
+            "towns": 7
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Washington, D.C.",
+            "danger": 0.067,
+            "miles": 542.9,
+            "towns": 5
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Birmingham, AL",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.135,
+        "total_miles": 1439.8,
+        "additional_miles": 1319.4,
+        "mile_increase_pct": 1096.0,
+        "total_towns_encountered": 19,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Birmingham, AL",
+            "danger": 0.135,
+            "miles": 780.0,
+            "towns": 12
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Washington, D.C.",
+            "danger": 0.087,
+            "miles": 659.8,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Indianapolis, IN",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.208,
+        "total_miles": 1073.3,
+        "additional_miles": 952.9,
+        "mile_increase_pct": 791.0,
+        "total_towns_encountered": 24,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Indianapolis, IN",
+            "danger": 0.208,
+            "miles": 582.1,
+            "towns": 16
+          },
+          {
+            "from": "Indianapolis, IN",
+            "to": "Washington, D.C.",
+            "danger": 0.127,
+            "miles": 491.2,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Philadelphia, PA",
+          "Pittsburgh, PA",
+          "Washington, D.C."
+        ],
+        "max_segment_danger": 0.209,
+        "total_miles": 449.5,
+        "additional_miles": 329.1,
+        "mile_increase_pct": 273.0,
+        "total_towns_encountered": 11,
+        "segments": [
+          {
+            "from": "Philadelphia, PA",
+            "to": "Pittsburgh, PA",
+            "danger": 0.145,
+            "miles": 258.3,
+            "towns": 6
+          },
+          {
+            "from": "Pittsburgh, PA",
+            "to": "Washington, D.C.",
+            "danger": 0.209,
+            "miles": 191.2,
+            "towns": 5
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.481,
+    "danger_reduction_pct": 89.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cincinnati, OH",
+    "to": "Pittsburgh, PA",
+    "direct_danger": 0.493,
+    "direct_miles": 256.1,
+    "direct_towns": 20,
+    "safer_alternative_exists": true,
+    "alternatives_found": 2,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cincinnati, OH",
+        "New York, NY",
+        "Pittsburgh, PA"
+      ],
+      "max_segment_danger": 0.203,
+      "total_miles": 892.6,
+      "additional_miles": 636.5,
+      "mile_increase_pct": 249.0,
+      "total_towns_encountered": 25,
+      "segments": [
+        {
+          "from": "Cincinnati, OH",
+          "to": "New York, NY",
+          "danger": 0.203,
+          "miles": 572.5,
+          "towns": 18
+        },
+        {
+          "from": "New York, NY",
+          "to": "Pittsburgh, PA",
+          "danger": 0.109,
+          "miles": 320.1,
+          "towns": 7
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "New York, NY",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.203,
+        "total_miles": 892.6,
+        "additional_miles": 636.5,
+        "mile_increase_pct": 249.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "New York, NY",
+            "danger": 0.203,
+            "miles": 572.5,
+            "towns": 18
+          },
+          {
+            "from": "New York, NY",
+            "to": "Pittsburgh, PA",
+            "danger": 0.109,
+            "miles": 320.1,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cincinnati, OH",
+          "Baltimore, MD",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.24,
+        "total_miles": 619.0,
+        "additional_miles": 362.9,
+        "mile_increase_pct": 142.0,
+        "total_towns_encountered": 18,
+        "segments": [
+          {
+            "from": "Cincinnati, OH",
+            "to": "Baltimore, MD",
+            "danger": 0.24,
+            "miles": 422.4,
+            "towns": 15
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Pittsburgh, PA",
+            "danger": 0.076,
+            "miles": 196.6,
+            "towns": 3
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.29,
+    "danger_reduction_pct": 59.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Detroit, MI",
+    "to": "Indianapolis, IN",
+    "direct_danger": 0.491,
+    "direct_miles": 239.3,
+    "direct_towns": 13,
+    "safer_alternative_exists": true,
+    "alternatives_found": 5,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Detroit, MI",
+        "Newark, NJ",
+        "Indianapolis, IN"
+      ],
+      "max_segment_danger": 0.185,
+      "total_miles": 1106.8,
+      "additional_miles": 867.5,
+      "mile_increase_pct": 363.0,
+      "total_towns_encountered": 21,
+      "segments": [
+        {
+          "from": "Detroit, MI",
+          "to": "Newark, NJ",
+          "danger": 0.085,
+          "miles": 472.4,
+          "towns": 5
+        },
+        {
+          "from": "Newark, NJ",
+          "to": "Indianapolis, IN",
+          "danger": 0.185,
+          "miles": 634.4,
+          "towns": 16
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Newark, NJ",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.185,
+        "total_miles": 1106.8,
+        "additional_miles": 867.5,
+        "mile_increase_pct": 363.0,
+        "total_towns_encountered": 21,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Newark, NJ",
+            "danger": 0.085,
+            "miles": 472.4,
+            "towns": 5
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Indianapolis, IN",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Baltimore, MD",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.197,
+        "total_miles": 904.7,
+        "additional_miles": 665.4,
+        "mile_increase_pct": 278.0,
+        "total_towns_encountered": 23,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Baltimore, MD",
+            "danger": 0.123,
+            "miles": 396.2,
+            "towns": 9
+          },
+          {
+            "from": "Baltimore, MD",
+            "to": "Indianapolis, IN",
+            "danger": 0.197,
+            "miles": 508.5,
+            "towns": 14
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "New York, NY",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.207,
+        "total_miles": 1130.1,
+        "additional_miles": 890.8,
+        "mile_increase_pct": 372.0,
+        "total_towns_encountered": 24,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "New York, NY",
+            "danger": 0.073,
+            "miles": 482.6,
+            "towns": 4
+          },
+          {
+            "from": "New York, NY",
+            "to": "Indianapolis, IN",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Philadelphia, PA",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.208,
+        "total_miles": 1025.0,
+        "additional_miles": 785.7,
+        "mile_increase_pct": 328.0,
+        "total_towns_encountered": 20,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Philadelphia, PA",
+            "danger": 0.079,
+            "miles": 442.9,
+            "towns": 4
+          },
+          {
+            "from": "Philadelphia, PA",
+            "to": "Indianapolis, IN",
+            "danger": 0.208,
+            "miles": 582.1,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Detroit, MI",
+          "Washington, D.C.",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.225,
+        "total_miles": 886.1,
+        "additional_miles": 646.8,
+        "mile_increase_pct": 270.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Detroit, MI",
+            "to": "Washington, D.C.",
+            "danger": 0.225,
+            "miles": 394.9,
+            "towns": 14
+          },
+          {
+            "from": "Washington, D.C.",
+            "to": "Indianapolis, IN",
+            "danger": 0.127,
+            "miles": 491.2,
+            "towns": 8
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.306,
+    "danger_reduction_pct": 62.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Newark, NJ",
+    "to": "Philadelphia, PA",
+    "direct_danger": 0.488,
+    "direct_miles": 76.8,
+    "direct_towns": 6,
+    "safer_alternative_exists": true,
+    "alternatives_found": 8,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Newark, NJ",
+        "Memphis, TN",
+        "Philadelphia, PA"
+      ],
+      "max_segment_danger": 0.073,
+      "total_miles": 1823.6,
+      "additional_miles": 1746.8,
+      "mile_increase_pct": 2274.0,
+      "total_towns_encountered": 16,
+      "segments": [
+        {
+          "from": "Newark, NJ",
+          "to": "Memphis, TN",
+          "danger": 0.073,
+          "miles": 945.5,
+          "towns": 10
+        },
+        {
+          "from": "Memphis, TN",
+          "to": "Philadelphia, PA",
+          "danger": 0.047,
+          "miles": 878.1,
+          "towns": 6
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Memphis, TN",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.073,
+        "total_miles": 1823.6,
+        "additional_miles": 1746.8,
+        "mile_increase_pct": 2274.0,
+        "total_towns_encountered": 16,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Memphis, TN",
+            "danger": 0.073,
+            "miles": 945.5,
+            "towns": 10
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Philadelphia, PA",
+            "danger": 0.047,
+            "miles": 878.1,
+            "towns": 6
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Detroit, MI",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.085,
+        "total_miles": 915.3,
+        "additional_miles": 838.5,
+        "mile_increase_pct": 1092.0,
+        "total_towns_encountered": 9,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Detroit, MI",
+            "danger": 0.085,
+            "miles": 472.4,
+            "towns": 5
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Philadelphia, PA",
+            "danger": 0.079,
+            "miles": 442.9,
+            "towns": 4
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Atlanta, GA",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.1,
+        "total_miles": 1402.1,
+        "additional_miles": 1325.3,
+        "mile_increase_pct": 1726.0,
+        "total_towns_encountered": 18,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Atlanta, GA",
+            "danger": 0.1,
+            "miles": 738.9,
+            "towns": 11
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Philadelphia, PA",
+            "danger": 0.07,
+            "miles": 663.2,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Birmingham, AL",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.135,
+        "total_miles": 1633.9,
+        "additional_miles": 1557.1,
+        "mile_increase_pct": 2027.0,
+        "total_towns_encountered": 22,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Birmingham, AL",
+            "danger": 0.089,
+            "miles": 853.9,
+            "towns": 10
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Philadelphia, PA",
+            "danger": 0.135,
+            "miles": 780.0,
+            "towns": 12
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Newark, NJ",
+          "Pittsburgh, PA",
+          "Philadelphia, PA"
+        ],
+        "max_segment_danger": 0.145,
+        "total_miles": 565.3,
+        "additional_miles": 488.5,
+        "mile_increase_pct": 636.0,
+        "total_towns_encountered": 10,
+        "segments": [
+          {
+            "from": "Newark, NJ",
+            "to": "Pittsburgh, PA",
+            "danger": 0.077,
+            "miles": 307.0,
+            "towns": 4
+          },
+          {
+            "from": "Pittsburgh, PA",
+            "to": "Philadelphia, PA",
+            "danger": 0.145,
+            "miles": 258.3,
+            "towns": 6
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.415,
+    "danger_reduction_pct": 85.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Kansas City, MO",
+    "direct_danger": 0.452,
+    "direct_miles": 699.9,
+    "direct_towns": 43,
+    "safer_alternative_exists": true,
+    "alternatives_found": 18,
+    "best_alternative": {
+      "type": "2-stop",
+      "route": [
+        "Cleveland, OH",
+        "Detroit, MI",
+        "Atlanta, GA",
+        "Kansas City, MO"
+      ],
+      "max_segment_danger": 0.151,
+      "total_miles": 1362.5,
+      "additional_miles": 662.6,
+      "mile_increase_pct": 95.0,
+      "total_towns_encountered": 11,
+      "segments": [
+        {
+          "from": "Cleveland, OH",
+          "to": "Detroit, MI",
+          "danger": 0.151,
+          "miles": 91.1,
+          "towns": 2
+        },
+        {
+          "from": "Detroit, MI",
+          "to": "Atlanta, GA",
+          "danger": 0.08,
+          "miles": 597.4,
+          "towns": 5
+        },
+        {
+          "from": "Atlanta, GA",
+          "to": "Kansas City, MO",
+          "danger": 0.03,
+          "miles": 674.0,
+          "towns": 4
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "Detroit, MI",
+          "Atlanta, GA",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.151,
+        "total_miles": 1362.5,
+        "additional_miles": 662.6,
+        "mile_increase_pct": 95.0,
+        "total_towns_encountered": 11,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Detroit, MI",
+            "danger": 0.151,
+            "miles": 91.1,
+            "towns": 2
+          },
+          {
+            "from": "Detroit, MI",
+            "to": "Atlanta, GA",
+            "danger": 0.08,
+            "miles": 597.4,
+            "towns": 5
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Kansas City, MO",
+            "danger": 0.03,
+            "miles": 674.0,
+            "towns": 4
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Atlanta, GA",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.154,
+        "total_miles": 1833.9,
+        "additional_miles": 1134.0,
+        "mile_increase_pct": 162.0,
+        "total_towns_encountered": 28,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Atlanta, GA",
+            "danger": 0.116,
+            "miles": 753.8,
+            "towns": 13
+          },
+          {
+            "from": "Atlanta, GA",
+            "to": "Kansas City, MO",
+            "danger": 0.03,
+            "miles": 674.0,
+            "towns": 4
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Birmingham, AL",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.154,
+        "total_miles": 1852.5,
+        "additional_miles": 1152.6,
+        "mile_increase_pct": 165.0,
+        "total_towns_encountered": 28,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Birmingham, AL",
+            "danger": 0.092,
+            "miles": 868.9,
+            "towns": 10
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Kansas City, MO",
+            "danger": 0.093,
+            "miles": 577.5,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "2-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Memphis, TN",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.16,
+        "total_miles": 1734.3,
+        "additional_miles": 1034.4,
+        "mile_increase_pct": 148.0,
+        "total_towns_encountered": 30,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Memphis, TN",
+            "danger": 0.077,
+            "miles": 960.1,
+            "towns": 11
+          },
+          {
+            "from": "Memphis, TN",
+            "to": "Kansas City, MO",
+            "danger": 0.16,
+            "miles": 368.1,
+            "towns": 8
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Kansas City, MO"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1195.5,
+        "additional_miles": 495.6,
+        "mile_increase_pct": 71.0,
+        "total_towns_encountered": 23,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Kansas City, MO",
+            "danger": 0.093,
+            "miles": 577.5,
+            "towns": 7
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.301,
+    "danger_reduction_pct": 67.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Indianapolis, IN",
+    "direct_danger": 0.419,
+    "direct_miles": 262.2,
+    "direct_towns": 16,
+    "safer_alternative_exists": true,
+    "alternatives_found": 3,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cleveland, OH",
+        "Birmingham, AL",
+        "Indianapolis, IN"
+      ],
+      "max_segment_danger": 0.196,
+      "total_miles": 1052.1,
+      "additional_miles": 789.9,
+      "mile_increase_pct": 301.0,
+      "total_towns_encountered": 25,
+      "segments": [
+        {
+          "from": "Cleveland, OH",
+          "to": "Birmingham, AL",
+          "danger": 0.196,
+          "miles": 618.0,
+          "towns": 16
+        },
+        {
+          "from": "Birmingham, AL",
+          "to": "Indianapolis, IN",
+          "danger": 0.173,
+          "miles": 434.1,
+          "towns": 9
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1052.1,
+        "additional_miles": 789.9,
+        "mile_increase_pct": 301.0,
+        "total_towns_encountered": 25,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Indianapolis, IN",
+            "danger": 0.173,
+            "miles": 434.1,
+            "towns": 9
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Newark, NJ",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1029.1,
+        "additional_miles": 766.9,
+        "mile_increase_pct": 292.0,
+        "total_towns_encountered": 30,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Newark, NJ",
+            "danger": 0.196,
+            "miles": 394.7,
+            "towns": 14
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Indianapolis, IN",
+            "danger": 0.185,
+            "miles": 634.4,
+            "towns": 16
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Indianapolis, IN"
+        ],
+        "max_segment_danger": 0.207,
+        "total_miles": 1053.6,
+        "additional_miles": 791.4,
+        "mile_increase_pct": 302.0,
+        "total_towns_encountered": 31,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Indianapolis, IN",
+            "danger": 0.207,
+            "miles": 647.5,
+            "towns": 20
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.223,
+    "danger_reduction_pct": 53.0,
+    "feasibility": "Theoretically possible but impractical"
+  },
+  {
+    "from": "Cleveland, OH",
+    "to": "Pittsburgh, PA",
+    "direct_danger": 0.408,
+    "direct_miles": 113.5,
+    "direct_towns": 7,
+    "safer_alternative_exists": true,
+    "alternatives_found": 3,
+    "best_alternative": {
+      "type": "1-stop",
+      "route": [
+        "Cleveland, OH",
+        "New York, NY",
+        "Pittsburgh, PA"
+      ],
+      "max_segment_danger": 0.154,
+      "total_miles": 726.2,
+      "additional_miles": 612.7,
+      "mile_increase_pct": 540.0,
+      "total_towns_encountered": 18,
+      "segments": [
+        {
+          "from": "Cleveland, OH",
+          "to": "New York, NY",
+          "danger": 0.154,
+          "miles": 406.1,
+          "towns": 11
+        },
+        {
+          "from": "New York, NY",
+          "to": "Pittsburgh, PA",
+          "danger": 0.109,
+          "miles": 320.1,
+          "towns": 7
+        }
+      ]
+    },
+    "all_alternatives": [
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "New York, NY",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.154,
+        "total_miles": 726.2,
+        "additional_miles": 612.7,
+        "mile_increase_pct": 540.0,
+        "total_towns_encountered": 18,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "New York, NY",
+            "danger": 0.154,
+            "miles": 406.1,
+            "towns": 11
+          },
+          {
+            "from": "New York, NY",
+            "to": "Pittsburgh, PA",
+            "danger": 0.109,
+            "miles": 320.1,
+            "towns": 7
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Birmingham, AL",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 1225.4,
+        "additional_miles": 1111.9,
+        "mile_increase_pct": 980.0,
+        "total_towns_encountered": 27,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Birmingham, AL",
+            "danger": 0.196,
+            "miles": 618.0,
+            "towns": 16
+          },
+          {
+            "from": "Birmingham, AL",
+            "to": "Pittsburgh, PA",
+            "danger": 0.134,
+            "miles": 607.4,
+            "towns": 11
+          }
+        ]
+      },
+      {
+        "type": "1-stop",
+        "route": [
+          "Cleveland, OH",
+          "Newark, NJ",
+          "Pittsburgh, PA"
+        ],
+        "max_segment_danger": 0.196,
+        "total_miles": 701.7,
+        "additional_miles": 588.2,
+        "mile_increase_pct": 518.0,
+        "total_towns_encountered": 18,
+        "segments": [
+          {
+            "from": "Cleveland, OH",
+            "to": "Newark, NJ",
+            "danger": 0.196,
+            "miles": 394.7,
+            "towns": 14
+          },
+          {
+            "from": "Newark, NJ",
+            "to": "Pittsburgh, PA",
+            "danger": 0.077,
+            "miles": 307.0,
+            "towns": 4
+          }
+        ]
+      }
+    ],
+    "confidence": "Modeled",
+    "danger_reduction": 0.254,
+    "danger_reduction_pct": 62.0,
+    "feasibility": "Theoretically possible but impractical"
+  }
+];
+
+// Counterfactual aggregate summary
+var COUNTERFACTUAL_AGGREGATE = {
+  "total_high_danger_corridors": 20,
+  "safer_alternative_exists_count": 20,
+  "no_safer_alternative_count": 0,
+  "percent_with_alternatives": 100.0
+};
