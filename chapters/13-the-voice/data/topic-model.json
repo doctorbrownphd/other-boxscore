@@ -1,0 +1,278 @@
+{
+  "model": "TF-IDF + K-means (sklearn)",
+  "vectorizer": "TfidfVectorizer(max_features=1000, ngram_range=(1,2))",
+  "n_topics": 10,
+  "n_chunks": 69,
+  "topics": [
+    {
+      "id": 1,
+      "label": "manually assign later",
+      "words": [
+        "league",
+        "players",
+        "negro",
+        "think",
+        "okay",
+        "negro league",
+        "baseball",
+        "baltimore",
+        "teams",
+        "ball",
+        "black",
+        "baseball players",
+        "ball players",
+        "black ball",
+        "active"
+      ],
+      "count": 12,
+      "representative_chunks": [
+        "as to their experiences and what they knew. There's things of this nature that are around. Do you think a exhibit of this nature would help baseball in Baltimore or hinder it? I think it would most definitely help baseball in Baltimore. I think it would enormously help the Bay of Ruth Museum, and I think it would have great attendance and great interest. Okay. As a Baltimoreian myself, I was a little not even about the neighborhood baseball league. Do you think a lot of Baltimoreians are as just as not even as I? Yes. And I think many major leagueers are just as naive as you, and many baseball people are just as naive of you. The point that I made was that the Negro leagues and black ball players are not the same thing. And it is that about which there has been some confusion. There is one and only one official Negro league. There is one and only one official Negro league baseball players association of Negro league players, and this is it. There may be pretenders, but this is it. This is the real thing. And then the original, do you have a date from",
+        "with black ball teams. There is a distinction. The Negro League's were a defined league with its rules and regulations and so forth to my knowledge. Whereas after they ended, there were still black ball teams playing one another, but that was not the Negro League. Okay. Well, how many teams did both go ahead? Baltimore had two well-known teams, the most recent being the Baltimore League giants. And prior to that, there was the Baltimore Black socks. Who was the owners of the Black Sacks and the League Giants, if you know? Okay. Can you tell me about this post on the wall here? I have a poster from a reunion of the Negro League baseball players in the fall of 1990. They had been reunions since then. They tried to get together once a year or so. And generally, centered around some sports memorabilia or baseball cards show most recently they've had such a meeting in Chantilly, Virginia. They get together as many of the people as are healthy and well enough to come. And that is becoming increasingly more difficult. They also have the Major League's has an Assistance Program where they will assist some of these",
+        "played for the Baltimore League Chains. And it was just an incredible player and a wonderful man. Okay. Now, Mr. Sam Lacey is currently a still ace. What's right for the Afro-American? Have you ever met Mr. Lacey? I've met Mr. Lacey at that that he would remember me. And I think that he's been just a wonderful for the sport of baseball and wonderful for the black ball players. Okay. Let's see Lianne Day. You just mentioned that he's deceased. I understand that they wrecked constructing a park and is honored. Are you familiar with this? Yes, I am. A gentleman by the name of Robert or Dr. Bob Heranomus. Been very instrumental in doing that. And has also been very instrumental in helping the Negro League ball players and perpetuating their memory. Okay. Do you know where the park would be located? Again, memory doesn't serve. I could get there if you wanted me to take you. But I can't exactly tell you where it is. Well, yeah, I heard rumors somewhere around Lincoln Park. It's in that general area. Now, baseball players of the day and baseball players of the Negro League, do you think of these"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "manually assign later",
+      "words": [
+        "negro",
+        "league",
+        "baseball",
+        "leagues",
+        "story",
+        "negro league",
+        "play",
+        "american",
+        "negro leagues",
+        "major",
+        "really",
+        "history",
+        "game",
+        "league baseball",
+        "robinson"
+      ],
+      "count": 12,
+      "representative_chunks": [
+        "kept them out of the major leagues. So guys, basically if you allow black to play with you, you can't play with us. And so that lasted for nearly 60 years before Jackie Robinson finally played the color barrier. So the Negro League really evolved as a result of the fact that these talented African-American baseball players needed a form to showcase those baseball skills. So they formed a League of Their Own right here in Kansas City in 1920. The Negro National League formed by Andrew Roof Foster and a contingent of eight independent black baseball team owners. They met here in Kansas City and out of that came the birth of the Negro National League, the first successful organized black baseball league. Now they had been black teams playing well before that. But it just didn't have an organized structure until 1920 when the Negro League was formed. Now this may be a rhetorical question for you, but you know why do you think it's so important for people to recognize and for people to understand the Negro leagues? Well, it is the history of our country. You know, it is the history of America at our worst.",
+        "1, 2, 3, 4, 5, 6, 7, 8, 9! Alright, we're joined now by Bob Kendrick, president of the Negro League's baseball museum, and of course in Kansas City, Missouri. And Bob, we'll start right with a bit about the museum for those that are in 110 percent familiar with the things that you're involved in over there in Missouri. I give us a bit of a synopsis on the Negro League's museum and how it came about. Well, the Negro League were created as a result of American segregation, obviously. At one point in time in this country, virtually everything was divided based on color. And so African-American ball players were shunned from the major leagues by really what was an unwritten rule that didn't allow them to play. There was never really any written documentation that said they couldn't play. It was almost like a gentleman's agreement that kept them out of the major leagues. So guys, basically if you allow black to play with you, you can't play with us. And so that lasted for nearly 60 years before Jackie Robinson finally played the color barrier. So the Negro League really evolved as a result of the",
+        "league baseball history in 1962. And so Buck's career was very significant, but he's best known as name is his grand ambassador for our sport. And of course, his role where he was narrating during Ken Burns's epic documentary on the history of baseball really catapulted him into national international stardom. He was 82 when that documentary came out and he passed away at age 94, months, sharpest, 95th birthday, but he really became the voice of the Negro League. He's the person that really helped a lot of people around the world care about the Negro League. And he brought those leagues to life with his wonderful stories and the charisma that he displayed particularly in the Burns documentary. And people fell in love with this story, but you know, you think about it. What's not to love about the underdog overcoming adversity to go on to greatness? That's the American story. Talking here with Bob Kendrick, president of the Negro League baseball museum. Now Bob, obviously we know the Negro leagues was enriched with talent as you mentioned on multiple occasions here in this interview. But you know, is there any players, there any one player or there"
+      ]
+    },
+    {
+      "id": 2,
+      "label": "manually assign later",
+      "words": [
+        "love",
+        "everybody",
+        "know",
+        "humor",
+        "hate",
+        "heart",
+        "open",
+        "open heart",
+        "heart love",
+        "things",
+        "sure everybody",
+        "soul",
+        "like",
+        "got",
+        "yeah"
+      ],
+      "count": 11,
+      "representative_chunks": [
+        "Primo studio Soul Food, the book starts here The sanctified segue Open your heart to love by Maurice White The world is weak for you To leave and celebrate All you dreams come true You never be loved Open your heart to love Open your heart to love by Maurice White The hearty fair dinner conversation was over Good afternoon, my friend Open your heart to love by Maurice White Now, show the world what you feel You know what I'm told You know I'm dead You can find your life You know what I'm told You'll find your love To leave your new baby And all of this is new for you You will do love You will do love You will do love You will do love You are Soul Food for the day If I speak in the tongues of men and of angels But have not love I'm a noisy gong or a clanging symbol And if I have prophetic powers And understand all mysteries And all knowledge And if I have all faith So as to remove mountains But have not love I am nothing Buck O'Neil was born in rural Florida 1911 He was",
+        "and in Darfur and that sort of thing. So so that of course is going to one extreme. I hope that that people can see some glimpse of love of concrete and abstract. I don't I'm not sure everybody can do that you know I'm not sure everybody can open up and and just see what love is is there in their life you know I in the last few months I really have been just tremendous awakening to that it's been quite liberating. One of the things that impressed me about Buck O'Neill and I've seen other interviews with him and things but even in this little clip that was his humor. Oh yes. So he had that piece where you know you know my wife died years ago and I'm single ladies and this is the end where he that's I that's why extended the clip that long where he goes you can stay here but I got to go to the bathroom. Hemer goes along. Here he is in this you know Hall of Fame situation he's done I got to go to the bathroom. How do you how do you understand humor as a way of",
+        "to the low, yeah, yeah Wake up, stop the water Wake up, everybody Need a little help, y'all Got some things, need a little help Save more Good afternoon, my friend You are listening to SoulTuck, a spiritual feast to 11 The World Soul I am your sacred chef, Chuck Freeman On KOOP Austin, 91.7 FM SoulTuck's first broadcast in our new Primo studio On today's menu Soul Food, the book starts here The sanctified segue Open your heart to love by Maurice White The hearty fair dinner conversation was Zoe Irene Van Zant And the soul stirrer with embodied faith in action The original SoulTuck guest Jaime Samuelson with his new book Do I End And now the sanctified segue Open your heart to love by Maurice White The hearty fair dinner conversation was over Good afternoon, my friend You are listening to SoulTuck's first broadcast in our new Primo studio Soul Food, the book starts here The sanctified segue Open your heart to love by Maurice White The world is weak for you To leave and celebrate All you dreams come true You never be loved Open your heart to love Open your heart to love by Maurice"
+      ]
+    },
+    {
+      "id": 5,
+      "label": "manually assign later",
+      "words": [
+        "yeah",
+        "love",
+        "know",
+        "try",
+        "mean",
+        "think",
+        "look",
+        "life",
+        "rational",
+        "friends",
+        "studio",
+        "just",
+        "work",
+        "loving",
+        "thanks"
+      ],
+      "count": 6,
+      "representative_chunks": [
+        "previous fire trap, right? Yep. Yeah. This is a big improvement. Yeah. Well glad you're able to be a part of it. Thanks. So what do you think about Buck? I mean here's a guy who you know all of his life you know lived under these racist conditions and even I knew the end was slided. But yeah he still has this very positive loving attitude. I wish that under certain or similar circumstances I would be as gracious I'm not sure I would be. Yeah. Well just as you look at your own life to the extent you're able to do that what is it you're pulling from? Is it some bullish system? You know when you are wrong or when you are slided. After the initial hurt. Well you know I try to take the big picture. I try to look at the big picture and I suppose my spiritual life is pretty much grounded in rationalism. So I try to look at it from a rational point of view. Love is not always rational. I know certainly when I've had an experience say of someone I thought we were really good friends and then all of",
+        "suppose my spiritual life is pretty much grounded in rationalism. So I try to look at it from a rational point of view. Love is not always rational. I know certainly when I've had an experience say of someone I thought we were really good friends and then all of a sudden I'm no longer in their life. That is often a difficult situation and corny as it sounds. I have to remember that little thing about you know some friends are for a reason some friends are for a season etc. Okay so maybe this friend was just for a season. To have that sort of universal love of mankind is difficult. I tend to love people in the concrete and have a hard time with the concept of loving people abstract. You know I love everybody. I don't think I can say that honestly. There are certain people I love but just mankind in general. I'm not at that point yet where I can be that loving. I mean that's something I need to work on. Well one of the things that I took note of there with with the book and that's one of the reasons I",
+        "dishes and talk about how it went down and happy to have congregant Zoe Irene Van Zat in the studio today. Just don't ask me to sing along with Buck. I'm surprised you could sing that well at that. I had to know that. That's a nice one. That great. So what are your thoughts? You said before we went on the air said I don't know anything about baseball but this isn't about baseball. No it's not. It's about love. I see a lot of love in this studio. Just the outpouring of the community to build this art to create this space. That's really wonderful. Oh yeah. I mean so many people gave of time, money and energy and good hard-edness and hard work. Yeah. It shows. It is wonderful studio. Especially if you've seen the previous homes of KOOP as I have. You saw us on our previous fire trap, right? Yep. Yeah. This is a big improvement. Yeah. Well glad you're able to be a part of it. Thanks. So what do you think about Buck? I mean here's a guy who you know all of his life you know lived under these racist conditions and"
+      ]
+    },
+    {
+      "id": 4,
+      "label": "manually assign later",
+      "words": [
+        "satchel",
+        "says",
+        "page",
+        "coolers",
+        "catch",
+        "catch satchel",
+        "buck",
+        "just absolutely",
+        "absolutely",
+        "nancy",
+        "satchel page",
+        "buck says",
+        "didn",
+        "just",
+        "know"
+      ],
+      "count": 5,
+      "representative_chunks": [
+        "for the satchel page all stars. They're playing an all white semi protein from the coolers brewing company. And Buck says the first year came up to the plate from the coolers team, Doug and satchel throws him a fastball and kids swung the bad amelias. He could have top-did dribbled it ball down the third page line, beat it out got him in field in. Well, one of the kids from the coolers dug out steps out on top of the dug out steps and he yells out less beat him. He ain't nothing but an overrated donkey. Well, satchel's nickname for Boko Neil was Nancy, which is a whole other story within itself. And so satchel looks over at Buck, he says Nancy, did you hear that? Buck said yes, satchel, I heard him. He said Nancy, bring him in. So Buck is playing first base. He turns emotions for the outfield to take a couple of steps in. And satchel looks over and Buck says Nancy, bring him all the way in. Mr. O'Neill says there were seven guys kneeling around the mound, satchel paid and the catcher, and satchel strikes out the side on the high",
+        "going to strike out. I mean, just absolutely incredible. One of the biggest draws in baseball history. Everybody wanted to see satchel pay pitch. And he filled up all parts from little towns to big cities. Just absolutely amazing. Now, you remember reading this somewhere, but didn't wasn't there a time in which satchel page let his outfielders and infielders leave the field and he would strike everybody out with no one behind him? Yeah, he did do that. I just the guys true what about famous stories that Boko Neil told and this didn't happen in a Negro league game. This happened in a they were playing in what was called the Denver Post tournament. And the Denver Post tournament was one of the first to you know, organized baseball tournaments to integrate. But anyway, satchel has a satchel page all stars and Boko Neil is playing first page for the satchel page all stars. They're playing an all white semi protein from the coolers brewing company. And Buck says the first year came up to the plate from the coolers team, Doug and satchel throws him a fastball and kids swung the bad amelias. He could have top-did",
+        "emotions for the outfield to take a couple of steps in. And satchel looks over and Buck says Nancy, bring him all the way in. Mr. O'Neill says there were seven guys kneeling around the mound, satchel paid and the catcher, and satchel strikes out the side on the high plate pitches. He looks into the coolers dug out, he says overrated donkey. Hey, and of course, Buck said that by now the kid that said that he was embarrassed, he was crying. He said something that he heard somebody else say he had no idea really what he was saying. And all the guys came out to apologize to satchel and his teammate. But Buck will Neil always say if he had one game to win. And any choice of any pitcher from any era, it would be satchel paid. He said that you might be when satchel was out there messing around. But when he was locked, locked in and loaded, forget about it. You won't go to touch it. So satchel was quite the care. No doubt satchel page was definitely somebody that would enlighten the major leagues with this personality and obviously as you mentioned with"
+      ]
+    },
+    {
+      "id": 7,
+      "label": "manually assign later",
+      "words": [
+        "gibson",
+        "leagues",
+        "major",
+        "know",
+        "play",
+        "great",
+        "major leagues",
+        "old",
+        "played",
+        "negro leagues",
+        "guys",
+        "giants",
+        "josh",
+        "josh gibson",
+        "negro"
+      ],
+      "count": 5,
+      "representative_chunks": [
+        "is in the hall of fame and rightfully so. Josh Gibson, who people referred to as the black baby Ruth, but there are others who saw Gibson play who would call Ruth the white Josh Gibson. Gibson was incredible. He combined power with average and everywhere that Gibson played his teams won. That is no coincidence. And everywhere he played, he hit. You know, and he was doing as a catcher putting a tremendous numbers lifetime batting average of 354 and head to head competition against major leagues hit over 400. And again, he's doing as a catcher, great and which made it up to the old Minneapolis millers, which were the New York Giants triple 18 before the Giants would move out to San Francisco. Well, Andrews makes it up to, you know, he gives to the millers. He's made MVP when he was 37 38 years old. As you know, there was no room in the major leagues for 37 year old third baseman. So he never got the opportunity to play in the major league, even though he could still play. And there are countless other guys, the great Cuban star Martin DeHigo, who is the only",
+        "you know, there was no room in the major leagues for 37 year old third baseman. So he never got the opportunity to play in the major league, even though he could still play. And there are countless other guys, the great Cuban star Martin DeHigo, who is the only baseball player to hold a distinction of being in five different countries baseball hall of the fame. He's in the Cuban, Mexican, Venezuelan, Dominican and in Cooperstown played all nine positions played all nine of them well. But you know, guys like Leon, they killed Smith, Booth, June Wilson, you know, all these guys would have been big stars in the major league. You know, as great as Roy Campanella was and Roy Campanella was one of the greatest catches in baseball history comes out of the Negro leagues from the Baltimore Eli Giants with Gold Coast, Georgia, the Brooklyn Dodgers. As great as he was in the Negro leagues, he never started in East West Austin again because he was always playing nine Giants Gibson. So I think you know, get it helps put in perspective when you compare and contrast the guys who made it into the major",
+        "the American story. Talking here with Bob Kendrick, president of the Negro League baseball museum. Now Bob, obviously we know the Negro leagues was enriched with talent as you mentioned on multiple occasions here in this interview. But you know, is there any players, there any one player or there any few players, several players that you know that would have definitely made fantastic major leagues because you know, obviously most most of the great ones weren't necessarily granted an opportunity. Oh man, I tell you, we already have enough time to show to go through all of them, but you know, cool pop of bill who is still believed to be the fastest man to ever play this game. Never hit less than 300 against all levels of competition, Negro League, including exhibition games against major leagues. You know, he stole bases at the lightning speed, great defensive outbuilder is in the hall of fame and rightfully so. Josh Gibson, who people referred to as the black baby Ruth, but there are others who saw Gibson play who would call Ruth the white Josh Gibson. Gibson was incredible. He combined power with average and everywhere that Gibson played his"
+      ]
+    },
+    {
+      "id": 8,
+      "label": "manually assign later",
+      "words": [
+        "sir",
+        "okay",
+        "benefits",
+        "baltimore",
+        "okay sir",
+        "representation",
+        "winner",
+        "recently",
+        "prior",
+        "gentlemen",
+        "difficulties",
+        "burr",
+        "requirements",
+        "richard",
+        "organization"
+      ],
+      "count": 5,
+      "representative_chunks": [
+        "old. Okay. Are your parents living, sir? Yes, my mother. Okay. Her name, sir? Betty, B-E-T-T-Y. Okay. Do you have any siblings? One brother, Jacob, J-A-C-O-B. Okay, sir. You don't have the answers if you want to, but they want to know what's your race, religious, and ethnic background? I have no trouble with that. I'm a Jewish Caucasian. Okay. Are you a native Baltimore, sir? Absolutely. And while we know what your occupation is, where were you educated, sir? I'm sorry, secondary college. I was educated at the University of Maryland, the University of Baltimore, and the University of Baltimore Law School. Okay. What is your relationship to sports in Baltimore, sir? I am General Counsel to the Negro League baseball players of America. Okay. And while you just answer the next question, what is your relationship to Negro baseball league? Okay. Are you representing any former Negro players at this time? Yes, but I would not disclose their names. Okay, sir. Okay. And... But... Okay. There's... There's... There's... There's... There's... Players do have certain benefits, or some of the... Groups are pushing to make a relief? Yes. Well, there's an issue as to whether or not they are",
+        "at this time? Yes, but I would not disclose their names. Okay, sir. Okay. And... But... Okay. There's... There's... There's... There's... There's... Players do have certain benefits, or some of the... Groups are pushing to make a relief? Yes. Well, there's an issue as to whether or not they are entitled to punches or not, and certain of them are entitled to receive medical benefits and punch and benefits from major league baseball, depending on meeting the requirements of the major league baseball. And one of those requirements, sir. I'm not thoroughly familiar with that, but I believe that the main requirements for punches and benefits was that they had played for three consecutive years prior to 1950. Okay. Excuse me. And what obstacles have you encountered if any working with the pensions or the associations? Well, I have not represented their interests as such regarding their pensions or their health benefits, which preceded my representation. I was not the first counsel that they had. This organization has only been around recently, recently since 1990 or 1991. And prior to that time, I don't believe that they had any representation. This association was started by a channel one named Richard",
+        "My name is Talmich Forte III. Today is December 16, 1998. I'm a student at the University of Baltimore History Department under grant. Today I will be conducting an interview with Mr. Charles Winner, Attorney at Law. Mr. Winner is currently representing former players of the Negro Baseball League. Baltimore City had two teams, the Baltimore Black Sox and the E-Lite Giants. Testing, one, two, three, testing. Today is December 16, 1998. My name is Talmich Forte. I will be interviewing Mr. Charles Winner, Attorney at Law. Mr. Winner, what is your full name, sir? Charles asked Winner. What is your address? You can address it at the farm, please. 315 North Charles Street, Baltimore 21201. And the phone number, sir? 410352000. Are you married, sir? Indeed. And your wife today, miss? Judy, J U D I. Okay. You have any children, sir? One son, Eric, ERIC, who's 30 years old. Okay. Are your parents living, sir? Yes, my mother. Okay. Her name, sir? Betty, B-E-T-T-Y. Okay. Do you have any siblings? One brother, Jacob, J-A-C-O-B. Okay, sir. You don't have the answers if you want to, but they want to know what's your race, religious, and ethnic background? I"
+      ]
+    },
+    {
+      "id": 9,
+      "label": "manually assign later",
+      "words": [
+        "interesting",
+        "different",
+        "worth",
+        "sell",
+        "babe",
+        "babe ruth",
+        "collector",
+        "discussions",
+        "ruth",
+        "museum",
+        "things",
+        "think",
+        "fan",
+        "dollars",
+        "afford"
+      ],
+      "count": 5,
+      "representative_chunks": [
+        "I have, for example, a friend that has a picture on his wall when he was a little boy with a Babe Ruth's arm around him. I don't know how much that's worth, but it's worth a million dollars to that man. The average collector is not, cannot afford the lineup card from Paul Ripkins record game. The average fan cannot afford Babe Ruth's uniform. I mean, these things may go for hundreds of thousands of dollars, but there are many collectors that have many things that they do collect. They collect because it's their favorite player, and they want to try to have many things that they can have in connection with that player. So there's all different ways of collecting. Okay. Do you have anything from the Negro Leads? I do. I have some very interesting things. I have some correspondence, which is very interesting. I'm going back into these 40s about pick up games. Of course, I've got photographs and other items, yes. What do you loan these to the museum or sell them or donate them? Well, I don't know at this stage in my life that I want to sell much of anything, but if",
+        "team of all time. Who was the greatest player of all time? Would Babe Ruth still been the giant that he was if he was playing today? They had different rules, somewhat then, different balls, different bats, and all those discussions are very interesting. And we all tend to know what we know right now without knowing much about history. And as more time goes by and you have less people that actually saw someone play, I mean, just today, there are many people in the American league cities that have no appreciation for the players in the national league. Because they don't see them. They read about them. Maybe they'll, you have television, but you don't see that many national league games here in Baltimore, certainly. Every now and then maybe. Well, do you think television would have made a difference back in the 30s, 40s and 50s, as far as the Negro league is concerned, or even announcements on radio? Sure. Anything would have made a difference. It's fun and interesting. Well, for me, I find interesting that more, I talk about it, talking to you and more read and more learn. And about players and these guys,",
+        "very helpful, particularly to the predominantly schools that have a predominantly black enrollment. I think that students relate to these players. Additionally, I think that it would be appropriate for the schools perhaps to have bus trips. And I think there will probably be children that are bus to the ballpark and to the museum to see and hear and ask questions. Sure. It's one's heritage. Now, the Camden Yards station, not only the house, the Negro league exhibits, but they also have other exhibits there. Do you think this is a good move for baseball in Baltimore, per se? Absolutely. I think one will enhance the other. So you feel someone going to the game, goes to the museum, watch the game, they will have a more fall enlightenment of baseball. Sure. And they can have discussions. I mean, there are discussions now about what was the greatest baseball team of all time. Who was the greatest player of all time? Would Babe Ruth still been the giant that he was if he was playing today? They had different rules, somewhat then, different balls, different bats, and all those discussions are very interesting. And we all tend to know"
+      ]
+    },
+    {
+      "id": 0,
+      "label": "manually assign later",
+      "words": [
+        "kansas city",
+        "kansas",
+        "city",
+        "sure",
+        "baseball",
+        "bob",
+        "thank",
+        "definitely",
+        "league baseball",
+        "haven",
+        "haven kansas",
+        "trip thank",
+        "yes point",
+        "trip",
+        "material"
+      ],
+      "count": 4,
+      "representative_chunks": [
+        "to Kansas City. Yes. At some point in time, and you do the show from KC. Oh, that would be splendid. I haven't been to Kansas City and I'm sure I would definitely enjoy the trip. But thank you again for joining the show. There you have it. That's again, Bob Kendrick of the Negro League baseball museum. I'm here to look here for JG Sports Talk.",
+        "owned kids. They ran every aspect of a baseball operation that could be done. And we hope that this serves as a spark to introduce them to the game of baseball and then doing the things to partner with people like major league baseball, the RBI program, the other entities that are doing things to try and get urban kids introduced to this game and then staying with the game. We certainly want to be a part of that. But again, given the rich history of African American participation in this sport, it is certainly alarming to see those numbers. And like I said, we want to be a part of the solution. Fantastic. Bob, thank you very much for the time. I really appreciate you giving me more than a few minutes here on JG Sports Talk. And at any time, anytime, and I hope we get you out to Kansas City. Yes. At some point in time, and you do the show from KC. Oh, that would be splendid. I haven't been to Kansas City and I'm sure I would definitely enjoy the trip. But thank you again for joining the show. There you have it. That's again,",
+        "out there messing around. But when he was locked, locked in and loaded, forget about it. You won't go to touch it. So satchel was quite the care. No doubt satchel page was definitely somebody that would enlighten the major leagues with this personality and obviously as you mentioned with his skill as well. We are joined here by Bob Kendrick, of course, of the Negro League's baseball museum. Now Bob, this is the topic that I'm sure hits close to home for you as somebody that is involved in, of course, the museum. But you know, there s been a recent trend of a downslide of African Americans in major league baseball. When you read statistics and when you read percentages that obviously clearly point out the deficiencies in baseball population when it comes to diversity, what are your thoughts and what goes through your mind? You know, it is very disconcerning to see how these numbers have rid of so dramatically from a high of about 27, 28% into 70s to now hovering around 8%, 7% of American born black playing this game. And so very disappointing, very alarming. And we joined major league baseball and wanting to"
+      ]
+    },
+    {
+      "id": 6,
+      "label": "manually assign later",
+      "words": [
+        "country",
+        "rikki",
+        "branch rikki",
+        "branch",
+        "did",
+        "make",
+        "going",
+        "museum",
+        "ii",
+        "war ii",
+        "war",
+        "world war",
+        "rikki did",
+        "bold",
+        "know"
+      ],
+      "count": 4,
+      "representative_chunks": [
+        "at the integration. Well, you know, and what it does is it puts an even greater point of emphasis on what Branch Rikki did. Right. I think sometimes lost in the equation is just how bold a move this was for Branch Rikki to make this attempt to sign Jackie Robinson to a modern day major league contract. The other owners I wanted to do this long before that, there were a number of owners who wanted to do this. You know, but they knew they would be ostracized by the peers if they tried to make a move this nature. You know, the climate, the social climate just was not going to allow that to happen because there really were, there just wasn't any co-mingling of the true races. You know, so no one was going to take that stand. Even if you felt it was going to be in the best interest of your ball club, you weren't going to take that stand. And so what Branch Rikki did was tremendously bold. You know, and I think the stars had aligned from what for him to make that move because of World War II. And World War II",
+        "in the best interest of your ball club, you weren't going to take that stand. And so what Branch Rikki did was tremendously bold. You know, and I think the stars had aligned from what for him to make that move because of World War II. And World War II was kind of triggering the climate of change in our country. And the sentiment was that these men were going over fighting for a country that they couldn't play baseball in that country. And that made, again, segregation appear to be even more ludicrous than we knew it to be. And so that kind of was that groundswell to make this move with our pastime, America's pastime. And so even though baseball had been vilified but not allowing blacks to play, when it opened its door, our country literally jumped on the Coachella baseball, which again, a mirror speaks to the reverence that baseball had in this country. And it still has in this country. Now, you know, this is one of the questions that I had heading into this one. Somebody I had as frequently mentioned throughout the museum and was a very huge pardoned thing. Is of course",
+        "am I next? And so I think that had as much to do. Maybe even more so than the social conditions of our time. Relative to not wanting these players in the league, but the game would have changed completely just as it did after 1947. Once you allowed the best players to take the field together, it improved our product. Right. The sport got better. And so you have to believe that that would have happened to have the doors open soon. And now Bob, this raises the question of the ownership and the responsibility that they take for not, you know, allowing African Americans to play in baseball earlier. Do you think there was a little trepidation between owners thinking that the average ticket would be driven down? And it's valued due to the fact that some people regularly attending the game may be a bit turned off at the integration. Well, you know, and what it does is it puts an even greater point of emphasis on what Branch Rikki did. Right. I think sometimes lost in the equation is just how bold a move this was for Branch Rikki to make this attempt to sign Jackie"
+      ]
+    }
+  ]
+}
