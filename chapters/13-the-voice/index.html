@@ -2461,42 +2461,77 @@ window.TOBS = window.TOBS || {};
 window.TOBS.ch13 = {};
 
 /* ======================================================================
-   DATA
+   DATA -- loaded from archive-index.json
+   Fallback hardcoded data removed. The JSON is the single source of truth.
    ====================================================================== */
 
-window.TOBS.ARCHIVE = [
-  { speaker: "Buck O'Neil", interviewer: "Fay Vincent", year: 2000, length: "2h 15m", lengthMin: 135, institution: "SABR Oral History Collection", access: "open", topics: ["barnstorming", "integration", "Monarchs", "community"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Buck O'Neil", interviewer: "Phil Dixon", year: 1985, length: "4h", lengthMin: 240, institution: "Phil Dixon Collection", access: "restricted", topics: ["first season", "Monarchs", "early career"], url: null, type: "audio" },
-  { speaker: "Buck O'Neil", interviewer: "Ken Burns", year: 1994, length: "6h", lengthMin: 360, institution: "PBS / Florentine Films", access: "restricted", topics: ["barnstorming", "community", "integration", "Monarchs"], url: null, type: "video" },
-  { speaker: "Buck O'Neil", interviewer: "SABR Convention", year: 1996, length: "1h 20m", lengthMin: 80, institution: "SABR Oral History Collection", access: "open", topics: ["Monarchs", "community", "faith"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Mamie Johnson", interviewer: "Bob Edwards", year: 2003, length: "12m", lengthMin: 12, institution: "NPR Archive", access: "open", topics: ["women", "pitching", "Paige", "AAGPBL"], url: "https://www.npr.org/2003/02/18/1164167/mamie-peanut-johnson-pitching-pioneer", type: "audio" },
-  { speaker: "Mamie Johnson", interviewer: "UBalt researchers", year: 2008, length: "1h 45m", lengthMin: 105, institution: "University of Baltimore", access: "open", topics: ["women", "integration", "community", "Clowns"], url: "https://archivesspace.ubalt.edu/repositories/2/resources/76", type: "audio" },
-  { speaker: "Mamie Johnson", interviewer: "NLBM staff", year: 2010, length: "55m", lengthMin: 55, institution: "NLBM Archive", access: "by-request", topics: ["women", "pitching", "family", "Paige"], url: "https://www.nlbm.com", type: "audio" },
-  { speaker: "Ernest Burke", interviewer: "UBalt researchers", year: 2008, length: "1h 30m", lengthMin: 90, institution: "University of Baltimore", access: "open", topics: ["Baltimore Elite Giants", "community", "segregation"], url: "https://archivesspace.ubalt.edu/repositories/2/resources/76", type: "audio" },
-  { speaker: "Hubert Simmons", interviewer: "UBalt researchers", year: 2008, length: "1h 15m", lengthMin: 75, institution: "University of Baltimore", access: "open", topics: ["Baltimore Elite Giants", "barnstorming", "equipment"], url: "https://archivesspace.ubalt.edu/repositories/2/resources/76", type: "audio" },
-  { speaker: "Gordon Hopkins", interviewer: "UBalt researchers", year: 2008, length: "1h 10m", lengthMin: 70, institution: "University of Baltimore", access: "open", topics: ["community", "fan experience", "Baltimore"], url: "https://archivesspace.ubalt.edu/repositories/2/resources/76", type: "audio" },
-  { speaker: "Connie Johnson", interviewer: "SHSMO staff", year: 1979, length: "2h 30m", lengthMin: 150, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "integration", "salary", "the bus"], url: null, type: "audio" },
-  { speaker: "Connie Johnson", interviewer: "SHSMO staff", year: 1980, length: "1h 45m", lengthMin: 105, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "white-team competition", "integration"], url: null, type: "audio" },
-  { speaker: "Hilton Smith", interviewer: "SHSMO staff", year: 1978, length: "2h", lengthMin: 120, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "Paige", "pitching", "barnstorming"], url: null, type: "audio" },
-  { speaker: "Othello Renfroe", interviewer: "SHSMO staff", year: 1979, length: "1h 50m", lengthMin: 110, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "barnstorming", "segregation", "the bus"], url: null, type: "audio" },
-  { speaker: "Buck O'Neil", interviewer: "SHSMO staff", year: 1981, length: "3h", lengthMin: 180, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "barnstorming", "faith", "community"], url: null, type: "audio" },
-  { speaker: "Gene Baker", interviewer: "SHSMO staff", year: 1979, length: "1h 30m", lengthMin: 90, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "integration", "Cubs"], url: null, type: "audio" },
-  { speaker: "Elston Howard", interviewer: "SHSMO staff", year: 1978, length: "1h 20m", lengthMin: 80, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "Yankees", "integration"], url: null, type: "audio" },
-  { speaker: "Hank Thompson", interviewer: "SHSMO staff", year: 1979, length: "1h 15m", lengthMin: 75, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "integration", "Giants"], url: null, type: "audio" },
-  { speaker: "Monte Irvin", interviewer: "Fay Vincent", year: 1998, length: "3h 30m", lengthMin: 210, institution: "SABR Oral History Collection", access: "open", topics: ["Newark Eagles", "integration", "Cuba", "East-West Game"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Monte Irvin", interviewer: "NBHOF staff", year: 2002, length: "2h", lengthMin: 120, institution: "NBHOF Library", access: "restricted", topics: ["Newark Eagles", "integration", "Giants", "talent"], url: "https://baseballhall.org", type: "audio" },
-  { speaker: "Quincy Trouppe", interviewer: "SABR researcher", year: 1988, length: "1h 40m", lengthMin: 100, institution: "SABR Oral History Collection", access: "open", topics: ["catching", "Cuba", "barnstorming", "Latin America"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Max Manning", interviewer: "Fay Vincent", year: 1999, length: "2h", lengthMin: 120, institution: "SABR Oral History Collection", access: "open", topics: ["Newark Eagles", "pitching", "WWII", "integration"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Dennis Biddle", interviewer: "NLBM staff", year: 2005, length: "1h", lengthMin: 60, institution: "NLBM Archive", access: "by-request", topics: ["late-era", "community", "family", "Monarchs"], url: "https://www.nlbm.com", type: "audio" },
-  { speaker: "Minnie Forbes", interviewer: "SABR researcher", year: 1992, length: "1h 20m", lengthMin: 80, institution: "SABR Oral History Collection", access: "open", topics: ["ownership", "Detroit Stars", "women", "economics"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Larry Doby", interviewer: "NBHOF staff", year: 1997, length: "2h 30m", lengthMin: 150, institution: "NBHOF Library", access: "restricted", topics: ["integration", "Newark Eagles", "Cleveland", "segregation"], url: "https://baseballhall.org", type: "audio" },
-  { speaker: "Leon Day", interviewer: "SABR researcher", year: 1993, length: "1h 30m", lengthMin: 90, institution: "SABR Oral History Collection", access: "open", topics: ["Newark Eagles", "pitching", "WWII", "East-West Game"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Wilmer Fields", interviewer: "SABR researcher", year: 1994, length: "1h 15m", lengthMin: 75, institution: "SABR Oral History Collection", access: "open", topics: ["Homestead Grays", "barnstorming", "Canada"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Mahlon Duckett", interviewer: "SABR researcher", year: 1990, length: "1h 10m", lengthMin: 70, institution: "SABR Oral History Collection", access: "open", topics: ["Philadelphia Stars", "East-West Game", "barnstorming", "equipment"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "Stanley Glenn", interviewer: "SABR researcher", year: 1991, length: "1h 25m", lengthMin: 85, institution: "SABR Oral History Collection", access: "open", topics: ["Philadelphia Stars", "catching", "community", "Comiskey Park"], url: "https://sabr.org/oralhistory", type: "audio" },
-  { speaker: "James Robinson", interviewer: "SHSMO staff", year: 1980, length: "1h", lengthMin: 60, institution: "SHSMO -- K0047", access: "by-request", topics: ["Monarchs", "barnstorming", "the bus", "salary"], url: null, type: "audio" },
-  { speaker: "Frazier Robinson", interviewer: "SABR researcher", year: 1995, length: "1h 35m", lengthMin: 95, institution: "SABR Oral History Collection", access: "open", topics: ["catching", "barnstorming", "segregation", "family"], url: "https://sabr.org/oralhistory", type: "audio" }
-];
+window.TOBS.ARCHIVE = [];
+window.TOBS.ARCHIVE_META = {};
+
+(function() {
+  var JSON_PATH = "data/archive-index.json";
+
+  function mapRecording(r) {
+    return {
+      speaker: r.speaker,
+      interviewer: r.interviewer,
+      year: r.yearRecorded,
+      length: r.length,
+      lengthMin: r.lengthMin || 0,
+      institution: r.institution,
+      access: r.access,
+      topics: r.topics || [],
+      url: r.url || null,
+      type: r.type || "audio",
+      confidence: r.confidence || "Reported",
+      notes: r.notes || "",
+      source: r.source || ""
+    };
+  }
+
+  function loadJSON() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", JSON_PATH, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200) {
+        try {
+          var data = JSON.parse(xhr.responseText);
+          window.TOBS.ARCHIVE_META = {
+            source: data.source,
+            methodology: data.methodology,
+            compiled: data.compiled,
+            totalRecordings: data.total_recordings,
+            speakers: data.speakers,
+            institutionCount: data.institution_count
+          };
+          window.TOBS.ARCHIVE = data.recordings.map(mapRecording);
+          if (data.gaps) window.TOBS.GAPS = data.gaps;
+          if (data.institutions) window.TOBS.INSTITUTIONS_LIST = data.institutions;
+          // Re-render the archive grid once data is loaded
+          if (window.TOBS.ch13 && window.TOBS.ch13.archiveRender) {
+            window.TOBS.ch13.archiveRender();
+          }
+          // Re-render gaps if that function exists
+          if (window.TOBS.ch13 && window.TOBS.ch13.gapsRender) {
+            window.TOBS.ch13.gapsRender();
+          }
+          // Re-render institutions if that function exists
+          if (window.TOBS.ch13 && window.TOBS.ch13.instRender) {
+            window.TOBS.ch13.instRender();
+          }
+        } catch (e) {
+          console.error("[TOBS] Failed to parse archive-index.json:", e);
+        }
+      } else {
+        console.error("[TOBS] Failed to load archive-index.json, status:", xhr.status);
+      }
+    };
+    xhr.send();
+  }
+
+  loadJSON();
+})();
 
 var TOPICS = [
   { id: "barnstorming", label: "Barnstorming", count: 18, x: 0.35, y: 0.3, passages: [
@@ -2530,23 +2565,23 @@ var TOPICS = [
     { text: "You'd see Joe Louis in the stands. Lena Horne. Count Basie. Everybody came.", speaker: "Leon Day", source: "SABR, 1993" }
   ]},
   { id: "equipment", label: "Equipment & Conditions", count: 7, x: 0.85, y: 0.4, passages: [
-    { text: "We had one set of uniforms. You washed them yourself and hung them on the bus to dry.", speaker: "Hubert Simmons", source: "UBalt, 2008" },
+    { text: "We had one set of uniforms. You washed them yourself and hung them on the bus to dry.", speaker: "Hubert Simmons", source: "UBalt, 1998" },
     { text: "The fields, some of them were cow pastures. You'd be playing and there'd be a hole in the outfield.", speaker: "Mahlon Duckett", source: "SABR, 1990" },
     { text: "We made do with what we had. And what we had was enough, because we could play.", speaker: "Frazier Robinson", source: "SABR, 1995" }
   ]},
   { id: "family", label: "Family Life", count: 9, x: 0.3, y: 0.75, passages: [
     { text: "My wife, she understood. She knew this was what I had to do. But it was hard on the families.", speaker: "Connie Johnson", source: "SHSMO, 1979" },
-    { text: "The players' wives, they ran the households. They raised the children. They held everything together.", speaker: "Mamie Johnson", source: "UBalt, 2008" },
+    { text: "The players' wives, they ran the households. They raised the children. They held everything together.", speaker: "Mamie Johnson", source: "UBalt, 1998" },
     { text: "You'd be gone six months. Come home and your kids had grown.", speaker: "Frazier Robinson", source: "SABR, 1995" }
   ]},
   { id: "faith", label: "Faith & Community", count: 8, x: 0.55, y: 0.8, passages: [
-    { text: "The church and the ball game. That was the community. Sunday morning church, Sunday afternoon baseball.", speaker: "Gordon Hopkins", source: "UBalt, 2008" },
+    { text: "The church and the ball game. That was the community. Sunday morning church, Sunday afternoon baseball.", speaker: "Gordon Hopkins", source: "UBalt, 1998" },
     { text: "Faith got us through. You had to believe that things would get better. And they did.", speaker: "Buck O'Neil", source: "SHSMO, 1981" },
-    { text: "The community supported us because we were theirs. We were their team.", speaker: "Ernest Burke", source: "UBalt, 2008" }
+    { text: "The community supported us because we were theirs. We were their team.", speaker: "Ernest Burke", source: "UBalt, 1998" }
   ]},
   { id: "women", label: "Women in the League", count: 5, x: 0.8, y: 0.7, passages: [
     { text: "The men on the team, they accepted me. I was a ballplayer. That's all that mattered.", speaker: "Mamie Johnson", source: "NPR, 2003" },
-    { text: "I went 33 and 8. Look it up. I could pitch.", speaker: "Mamie Johnson", source: "UBalt, 2008" },
+    { text: "I went 33 and 8. Look it up. I could pitch.", speaker: "Mamie Johnson", source: "UBalt, 1998" },
     { text: "Minnie Forbes ran the Detroit Stars. A woman. Owned and operated the team.", speaker: "Minnie Forbes", source: "SABR, 1992" }
   ]},
   { id: "competition", label: "White-Team Competition", count: 11, x: 0.45, y: 0.5, passages: [
@@ -2562,7 +2597,7 @@ var TOPICS = [
   { id: "the-bus", label: "The Bus", count: 9, x: 0.25, y: 0.45, passages: [
     { text: "The bus was our home. We lived on that bus six months a year.", speaker: "Othello Renfroe", source: "SHSMO, 1979" },
     { text: "Sleep on the bus, eat on the bus, play cards on the bus. That was life in the Negro Leagues.", speaker: "James Robinson", source: "SHSMO, 1980" },
-    { text: "You'd hang your uniform on the mirror to dry. The whole bus smelled like sweat and leather.", speaker: "Hubert Simmons", source: "UBalt, 2008" }
+    { text: "You'd hang your uniform on the mirror to dry. The whole bus smelled like sweat and leather.", speaker: "Hubert Simmons", source: "UBalt, 1998" }
   ]},
   { id: "comiskey", label: "Comiskey Park", count: 7, x: 0.6, y: 0.4, passages: [
     { text: "Comiskey was the cathedral. That's where the East-West Game was. That's where the world watched us.", speaker: "Stanley Glenn", source: "SABR, 1991" },
@@ -2576,24 +2611,13 @@ var TOPICS = [
   ]}
 ];
 
-var GAPS = [
-  { name: "Josh Gibson", years: "1911--1947", active: "1930--1946", note: "Died January 20, 1947, three months before Jackie Robinson's major league debut. Before systematic oral history collection began. Few recorded interviews survive.", secondary: "Substantial indirect testimony through contemporaries. Buck O'Neil, Monte Irvin, and others describe Gibson at length in their recorded interviews." },
-  { name: "Oscar Charleston", years: "1896--1954", active: "1915--1941", note: "Died October 5, 1954. No known substantial oral history recordings. The most complete account of his career comes through newspaper reporting and the recollections of contemporaries recorded decades later.", secondary: "Secondary testimony exists in the Fay Vincent interview series and in SABR oral histories from players who saw him play." },
-  { name: "Turkey Stearnes", years: "1901--1979", active: "1920--1940", note: "Died September 4, 1979. Few documented recordings despite living into the era of oral history collection. The gap is itself testimony: it documents what was not prioritized.", secondary: "Limited secondary testimony. Brief mentions in contemporaries' interviews." },
-  { name: "Mule Suttles", years: "1901--1966", active: "1921--1944", note: "Died March 9, 1966. Before the major oral history collection campaigns of the 1970s and 1980s. No known recorded interviews.", secondary: "Secondary testimony through players who competed against him, primarily in SABR collection interviews from the 1990s." },
-  { name: "Cristobal Torriente", years: "1893--1938", active: "1913--1932", note: "Died April 16, 1938 in New York. Decades before any organized oral history collection of Negro Leagues players. The earliest surviving recordings postdate his death by forty years.", secondary: "No direct testimony. Career documented through newspaper accounts and secondary historical sources." },
-  { name: "Ray Brown", years: "1908--1965", active: "1931--1945", note: "Died February 8, 1965. Among the greatest pitchers in Negro Leagues history. No known oral history recordings.", secondary: "Brief secondary testimony from Homestead Grays teammates in later recordings." }
-];
+/* GAPS and INSTITUTIONS are loaded from archive-index.json.
+   The JSON loader populates window.TOBS.GAPS and window.TOBS.INSTITUTIONS_LIST.
+   Rendering functions check those arrays; if empty, the JSON has not loaded yet
+   and the archiveRender / gapsRender / instRender callbacks will fire once it arrives. */
 
-var INSTITUTIONS = [
-  { name: "SABR Oral History Collection", collection: "Society for American Baseball Research", recordings: "500+", access: "open", accessLabel: "Open -- digitized MP3s", url: "https://sabr.org/oralhistory", note: "Largest single collection. Negro Leagues subset tagged as category." },
-  { name: "University of Baltimore", collection: "Negro League Oral History Collection", recordings: "8", access: "open", accessLabel: "Open -- digitized 2020", url: "https://archivesspace.ubalt.edu/repositories/2/resources/76", note: "Digitized by Aiden Faust, Fatemeh Rezaei, Laura Bell." },
-  { name: "State Historical Society of Missouri", collection: "Kansas City Monarchs Oral History Collection -- K0047", recordings: "18", access: "by-request", accessLabel: "By request -- physical and digital", url: null, note: "Interviews and correspondence, 1978--1981." },
-  { name: "Negro Leagues Baseball Museum", collection: "NLBM Archive -- Buck O'Neil Education & Research Center", recordings: "Varies", access: "by-request", accessLabel: "By request -- credentialed researchers", url: "https://www.nlbm.com/visit/buck-oneil-center/", note: "Internal archive. Some publicly accessible through museum." },
-  { name: "National Baseball Hall of Fame Library", collection: "Oral History Holdings", recordings: "Significant", access: "restricted", accessLabel: "Restricted -- on-site access", url: "https://baseballhall.org", note: "Major collection with varying access levels." },
-  { name: "NPR Archive", collection: "Historical interview recordings", recordings: "Multiple", access: "open", accessLabel: "Open -- online archive", url: "https://www.npr.org", note: "Includes the 2003 Bob Edwards / Mamie Johnson interview." },
-  { name: "PBS / Burns Archive", collection: "Ken Burns Baseball (1994) interview footage", recordings: "Multiple", access: "restricted", accessLabel: "Restricted -- PBS archives", url: null, note: "Full interview footage with Buck O'Neil and others. Broadcast excerpts are public; full footage requires institutional access." }
-];
+var GAPS = window.TOBS.GAPS || [];
+var INSTITUTIONS = window.TOBS.INSTITUTIONS_LIST || [];
 
 /* ======================================================================
    UTILITY
@@ -2613,7 +2637,7 @@ function escHtml(s) {
    ====================================================================== */
 
 (function() {
-  var ARCHIVE = window.TOBS.ARCHIVE;
+  /* ARCHIVE is read fresh on each render so JSON-loaded data is picked up */
   var grid = document.getElementById("archive-grid");
   var searchInput = document.getElementById("archive-search");
   var sortSelect = document.getElementById("archive-sort");
@@ -2669,6 +2693,7 @@ function escHtml(s) {
   }
 
   function render() {
+    var ARCHIVE = window.TOBS.ARCHIVE;
     var filtered = ARCHIVE.filter(function(e) {
       if (!matchesQuery(e, state.query)) return false;
       if (state.access !== "all") {
@@ -3150,53 +3175,94 @@ function escHtml(s) {
 
 /* ======================================================================
    GAP ACKNOWLEDGMENT
+   Loads from window.TOBS.GAPS (populated by archive-index.json loader).
    ====================================================================== */
 
 (function() {
   var list = document.getElementById("gaps-list");
   if (!list) return;
 
-  var html = "";
-  GAPS.forEach(function(g) {
-    html += '<li class="gaps__entry" role="listitem">';
-    html += '<div class="gaps__entry-name">' + escHtml(g.name) + '</div>';
-    html += '<div class="gaps__entry-years">' + g.active + ' -- d. ' + g.years.split("--")[1] + '</div>';
-    html += '<p class="gaps__entry-note">' + escHtml(g.note) + '</p>';
-    if (g.secondary) {
-      html += '<p class="gaps__entry-secondary">Secondary testimony: ' + escHtml(g.secondary) + '</p>';
+  function renderGaps() {
+    var gaps = window.TOBS.GAPS || [];
+    if (!gaps.length) return;
+
+    var html = "";
+    gaps.forEach(function(g) {
+      var yearsDisplay = g.active + " -- d. " + g.died;
+      html += '<li class="gaps__entry" role="listitem">';
+      html += '<div class="gaps__entry-name">' + escHtml(g.name) + '</div>';
+      html += '<div class="gaps__entry-years">' + yearsDisplay + '</div>';
+      html += '<p class="gaps__entry-note">' + escHtml(g.note) + '</p>';
+      if (g.secondary) {
+        html += '<p class="gaps__entry-secondary">Secondary testimony: ' + escHtml(g.secondary) + '</p>';
+      }
+      html += '</li>';
+    });
+    list.innerHTML = html;
+
+    // Re-observe for scroll reveal
+    if ("IntersectionObserver" in window) {
+      var gapObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("gaps__entry--visible");
+            gapObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      list.querySelectorAll(".gaps__entry").forEach(function(el) {
+        gapObs.observe(el);
+      });
+    } else {
+      list.querySelectorAll(".gaps__entry").forEach(function(el) {
+        el.classList.add("gaps__entry--visible");
+      });
     }
-    html += '</li>';
-  });
-  list.innerHTML = html;
+  }
+
+  renderGaps();
+  window.TOBS.ch13.gapsRender = renderGaps;
 })();
 
 /* ======================================================================
    INSTITUTIONAL MAP
+   Loads from window.TOBS.INSTITUTIONS_LIST (populated by archive-index.json loader).
    ====================================================================== */
 
 (function() {
   var grid = document.getElementById("institutions-grid");
   if (!grid) return;
 
-  var html = "";
-  INSTITUTIONS.forEach(function(inst) {
-    var accessColor = inst.access === "open" ? "var(--moss)" : inst.access === "restricted" ? "var(--amber)" : "var(--muted)";
-    html += '<div class="institution-card" role="listitem">';
-    html += '<div class="institution-card__name">' + escHtml(inst.name) + '</div>';
-    html += '<div class="institution-card__collection">' + escHtml(inst.collection) + '</div>';
-    html += '<div class="institution-card__stats">';
-    html += '<div><div class="institution-card__stat-num">' + inst.recordings + '</div><div class="institution-card__stat-label">Recordings</div></div>';
-    html += '</div>';
-    html += '<div class="institution-card__access" style="color:' + accessColor + '">' + escHtml(inst.accessLabel) + '</div>';
-    if (inst.note) {
-      html += '<div style="font-family:var(--serif);font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5">' + escHtml(inst.note) + '</div>';
-    }
-    if (inst.url) {
-      html += '<a class="institution-card__link" href="' + escHtml(inst.url) + '" target="_blank" rel="noopener">' + escHtml(inst.url) + '</a>';
-    }
-    html += '</div>';
-  });
-  grid.innerHTML = html;
+  function renderInstitutions() {
+    var institutions = window.TOBS.INSTITUTIONS_LIST || [];
+    if (!institutions.length) return;
+
+    var html = "";
+    institutions.forEach(function(inst) {
+      var accessColor = inst.access === "open" ? "var(--moss)" : inst.access === "restricted" ? "var(--amber)" : "var(--muted)";
+      var collection = inst.fullName || inst.collection || "";
+      var recordings = inst.totalRecordings || inst.negroLeaguesRecordings || inst.recordings || "";
+      var accessLabel = inst.accessLabel || inst.access || "";
+      html += '<div class="institution-card" role="listitem">';
+      html += '<div class="institution-card__name">' + escHtml(inst.name) + '</div>';
+      html += '<div class="institution-card__collection">' + escHtml(collection) + '</div>';
+      html += '<div class="institution-card__stats">';
+      html += '<div><div class="institution-card__stat-num">' + recordings + '</div><div class="institution-card__stat-label">Recordings</div></div>';
+      html += '</div>';
+      html += '<div class="institution-card__access" style="color:' + accessColor + '">' + escHtml(accessLabel) + '</div>';
+      if (inst.note) {
+        html += '<div style="font-family:var(--serif);font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5">' + escHtml(inst.note) + '</div>';
+      }
+      if (inst.url) {
+        html += '<a class="institution-card__link" href="' + escHtml(inst.url) + '" target="_blank" rel="noopener">' + escHtml(inst.url) + '</a>';
+      }
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
+
+  renderInstitutions();
+  window.TOBS.ch13.instRender = renderInstitutions;
 })();
 
 /* ======================================================================
