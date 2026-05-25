@@ -671,7 +671,7 @@ a:hover { color: var(--amber-2); }
   flex-shrink: 0;
 }
 
-.route__map-legend-dot--safe { background: var(--amber); }
+.route__map-legend-dot--safe { background: var(--moss); }
 .route__map-legend-dot--dark { background: var(--oxblood); }
 .route__map-legend-dot--unvisited { background: rgba(212,166,74,0.15); }
 
@@ -785,7 +785,7 @@ a:hover { color: var(--amber-2); }
   text-align: right;
 }
 
-.route__log-listings--safe { color: var(--amber); }
+.route__log-listings--safe { color: var(--moss); }
 .route__log-listings--dark { color: var(--oxblood); }
 
 .route__editorial {
@@ -2385,23 +2385,37 @@ function renderStop(idx) {
       routeDotsGroup.appendChild(pulse);
     } else {
       routeState.safeCities++;
-      // Amber dot with listing ring
+      // Green Book listing marker -- amber dot with listing ring + category icon
       var ringR = Math.min(3 + stop.l1 * 0.4, 14);
       var ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       ring.setAttribute('cx', pt[0]);
       ring.setAttribute('cy', pt[1]);
       ring.setAttribute('r', ringR);
       ring.setAttribute('fill', 'none');
-      ring.setAttribute('stroke', 'rgba(212,166,74,0.3)');
-      ring.setAttribute('stroke-width', '1');
+      ring.setAttribute('stroke', 'rgba(143,160,90,0.35)');
+      ring.setAttribute('stroke-width', '1.5');
       routeDotsGroup.appendChild(ring);
 
       var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       dot.setAttribute('cx', pt[0]);
       dot.setAttribute('cy', pt[1]);
       dot.setAttribute('r', '4');
-      dot.setAttribute('fill', '#d4a64a');
+      dot.setAttribute('fill', '#8fa05a');
       routeDotsGroup.appendChild(dot);
+
+      // Small Green Book icon (bed/hotel) for cities with hotel listings
+      if (stop.l1 >= 3) {
+        var icon = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        icon.setAttribute('x', pt[0]);
+        icon.setAttribute('y', pt[1] - ringR - 4);
+        icon.setAttribute('text-anchor', 'middle');
+        icon.setAttribute('font-family', 'var(--mono)');
+        icon.setAttribute('font-size', '7');
+        icon.setAttribute('fill', 'rgba(143,160,90,0.7)');
+        icon.setAttribute('letter-spacing', '0.06em');
+        icon.textContent = stop.l1 + ' listed';
+        routeDotsGroup.appendChild(icon);
+      }
     }
   }
 
