@@ -1557,7 +1557,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="hook__body body-prose">
         <p class="lede">Gary Ashwill and Kevin Johnson built the Seamheads Negro Leagues Database over fifteen years. They normalized statistics across leagues, parks, and opponent strength. They produced per-season WAR for every documented Negro Leagues player.</p>
         <p>Baseball Reference incorporated their work in 2020. FanGraphs incorporated it in 2023. Major League Baseball officially recognized it in 2024.</p>
-        <p>But the comparison question was never fully answered. Josh Gibson's career WAR is 41.5. Ty Cobb's is 151.5. The first reading says Cobb was nearly four times more valuable. <strong>The reading is wrong,</strong> and the reason it is wrong is that Cobb played four times as many league games as Gibson. The seasons are not the same unit.</p>
+        <p>But the comparison question was never fully answered. Josh Gibson's career WAR is 60.2 (Seamheads). Ty Cobb's is 151.4 (Baseball Reference). The first reading says Cobb was roughly 2.5 times more valuable. <strong>The reading is wrong,</strong> and the reason it is wrong is that Cobb played more than three times as many league games as Gibson. The seasons are not the same unit.</p>
         <p>The standard Hall of Fame methodology, JAWS, averages career WAR with seven-year peak WAR. It was built for the MLB record. It does not handle the structural conditions of Negro Leagues play. Applied without adjustment, it understates Negro Leagues players by exactly the seasonal-length disparity their leagues operated under.</p>
         <p>This chapter builds the alternative. Rate-based career and peak metrics. Position-by-position integrated leaderboards. The methodology open, the data open, the assumptions auditable.</p>
       </div>
@@ -1565,12 +1565,12 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="hook__stat-pair" aria-label="The seasonal-length disparity">
       <div class="hook__stat-row">
         <div class="hook__stat-cell">
-          <div class="hook__stat-num hook__stat-num--amber">41.5</div>
-          <div class="hook__stat-label">Gibson career WAR</div>
+          <div class="hook__stat-num hook__stat-num--amber">60.2</div>
+          <div class="hook__stat-label">Gibson career WAR (Seamheads)</div>
         </div>
         <div class="hook__stat-cell">
-          <div class="hook__stat-num hook__stat-num--slate">151.5</div>
-          <div class="hook__stat-label">Cobb career WAR</div>
+          <div class="hook__stat-num hook__stat-num--slate">151.4</div>
+          <div class="hook__stat-label">Cobb career WAR (BBRef)</div>
         </div>
       </div>
       <div class="hook__stat-divider"></div>
@@ -1587,11 +1587,11 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="hook__stat-divider"></div>
       <div class="hook__stat-row">
         <div class="hook__stat-cell">
-          <div class="hook__stat-num hook__stat-num--amber" style="font-size:36px">9.6</div>
+          <div class="hook__stat-num hook__stat-num--amber" style="font-size:36px">8.9</div>
           <div class="hook__stat-label">Gibson WAR / 600 PA</div>
         </div>
         <div class="hook__stat-cell">
-          <div class="hook__stat-num hook__stat-num--slate" style="font-size:36px">6.5</div>
+          <div class="hook__stat-num hook__stat-num--slate" style="font-size:36px">6.9</div>
           <div class="hook__stat-label">Cobb WAR / 600 PA</div>
         </div>
       </div>
@@ -1914,83 +1914,237 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ======================================================================
-   PLAYER DATA -- Placeholder dataset (50+ players, realistic WAR)
-   Sources: Seamheads NL Database, Baseball Reference integrated record
-   Confidence labels: Documented (MLB), Modeled (NL well-documented),
-   Estimated (NL sparse-documented)
+   PLAYER DATA -- Loaded from JSON (Seamheads + MLB official + BBRef)
+   Sources: data/players.json (NL), data/mlb-comparisons.json (MLB)
+   WAR: Seamheads Negro Leagues Database (seamheads.com/NegroLgs/)
+   BA/SLG/OPS: MLB official integrated record (May 2024)
    ====================================================================== */
 
-NS.PLAYERS = [
-  /* Catchers */
-  { name:"Josh Gibson", pos:"C", era:"NL", league:"NL", careerWAR:41.5, rateWAR:9.6, peakRate:11.2, stdJAWS:36.8, rateJAWS:62.4, hof:"inducted", ci:[38.2,44.8], coverage:72, ux:2.1, uy:3.8 },
-  { name:"Johnny Bench", pos:"C", era:"1960s-70s", league:"MLB", careerWAR:75.2, rateWAR:5.8, peakRate:7.9, stdJAWS:53.1, rateJAWS:51.2, hof:"inducted", ci:[74.5,75.9], coverage:100, ux:2.3, uy:3.5 },
-  { name:"Mike Piazza", pos:"C", era:"1990s-00s", league:"MLB", careerWAR:59.5, rateWAR:6.1, peakRate:7.5, stdJAWS:44.0, rateJAWS:48.8, hof:"inducted", ci:[59.0,60.0], coverage:100, ux:2.0, uy:3.3 },
-  { name:"Yogi Berra", pos:"C", era:"1950s-60s", league:"MLB", careerWAR:59.6, rateWAR:5.2, peakRate:6.8, stdJAWS:42.7, rateJAWS:44.1, hof:"inducted", ci:[59.0,60.2], coverage:100, ux:2.4, uy:3.1 },
-  { name:"Mickey Cochrane", pos:"C", era:"1920s-30s", league:"MLB", careerWAR:53.2, rateWAR:6.5, peakRate:8.1, stdJAWS:42.3, rateJAWS:50.6, hof:"inducted", ci:[52.5,53.9], coverage:100, ux:2.2, uy:3.6 },
-  { name:"Biz Mackey", pos:"C", era:"NL", league:"NL", careerWAR:28.4, rateWAR:7.2, peakRate:8.8, stdJAWS:24.1, rateJAWS:46.3, hof:"inducted", ci:[24.1,32.7], coverage:58, ux:2.5, uy:3.4 },
-  { name:"Louis Santop", pos:"C", era:"NL", league:"NL", careerWAR:18.6, rateWAR:7.8, peakRate:9.1, stdJAWS:16.2, rateJAWS:47.8, hof:"eligible", ci:[14.2,23.0], coverage:42, ux:1.9, uy:4.0 },
+/* --- Data transformation utilities --- */
 
-  /* First Base */
-  { name:"Buck Leonard", pos:"1B", era:"NL", league:"NL", careerWAR:33.8, rateWAR:7.4, peakRate:9.3, stdJAWS:29.6, rateJAWS:52.1, hof:"inducted", ci:[30.2,37.4], coverage:68, ux:4.1, uy:2.2 },
-  { name:"Lou Gehrig", pos:"1B", era:"1920s-30s", league:"MLB", careerWAR:112.4, rateWAR:8.8, peakRate:11.6, stdJAWS:83.6, rateJAWS:68.2, hof:"inducted", ci:[111.8,113.0], coverage:100, ux:4.3, uy:2.5 },
-  { name:"Albert Pujols", pos:"1B", era:"2000s-20s", league:"MLB", careerWAR:101.8, rateWAR:6.2, peakRate:9.4, stdJAWS:72.4, rateJAWS:56.8, hof:"inducted", ci:[101.2,102.4], coverage:100, ux:4.5, uy:2.0 },
-  { name:"Jimmie Foxx", pos:"1B", era:"1930s-40s", league:"MLB", careerWAR:96.2, rateWAR:7.6, peakRate:10.2, stdJAWS:71.8, rateJAWS:62.4, hof:"inducted", ci:[95.6,96.8], coverage:100, ux:4.2, uy:2.4 },
-  { name:"Mule Suttles", pos:"1B", era:"NL", league:"NL", careerWAR:24.6, rateWAR:6.8, peakRate:8.4, stdJAWS:21.2, rateJAWS:44.6, hof:"inducted", ci:[20.8,28.4], coverage:55, ux:3.9, uy:2.1 },
-  { name:"Ben Taylor", pos:"1B", era:"NL", league:"NL", careerWAR:20.2, rateWAR:6.2, peakRate:7.6, stdJAWS:17.8, rateJAWS:40.2, hof:"inducted", ci:[16.4,24.0], coverage:45, ux:4.0, uy:1.9 },
+function nlPosMap(pos) {
+  if (!pos) return "OF";
+  if (pos.indexOf("/") !== -1) {
+    /* Dual-threat: Rogan CF/P, Dihigo RF/P, Salazar 1B/P */
+    var parts = pos.split("/");
+    if (parts.indexOf("P") !== -1) return "P";
+    return parts[0];
+  }
+  return pos;
+}
 
-  /* Second Base */
-  { name:"Jackie Robinson", pos:"2B", era:"1940s-50s", league:"MLB", careerWAR:61.5, rateWAR:7.5, peakRate:9.1, stdJAWS:49.2, rateJAWS:54.8, hof:"inducted", ci:[61.0,62.0], coverage:100, ux:5.2, uy:4.1 },
-  { name:"Rogers Hornsby", pos:"2B", era:"1920s-30s", league:"MLB", careerWAR:127.1, rateWAR:9.2, peakRate:12.4, stdJAWS:96.2, rateJAWS:72.1, hof:"inducted", ci:[126.4,127.8], coverage:100, ux:5.4, uy:4.4 },
-  { name:"Newt Allen", pos:"2B", era:"NL", league:"NL", careerWAR:22.4, rateWAR:5.8, peakRate:7.2, stdJAWS:18.6, rateJAWS:38.4, hof:"eligible", ci:[18.0,26.8], coverage:52, ux:5.0, uy:3.8 },
-  { name:"Bingo DeMoss", pos:"2B", era:"NL", league:"NL", careerWAR:16.8, rateWAR:5.4, peakRate:6.8, stdJAWS:14.2, rateJAWS:36.2, hof:"eligible", ci:[12.4,21.2], coverage:40, ux:5.1, uy:3.6 },
+function nlEraLabel(years) {
+  if (!years) return "NL";
+  return "NL";
+}
 
-  /* Shortstop */
-  { name:"Honus Wagner", pos:"SS", era:"1900s-10s", league:"MLB", careerWAR:130.8, rateWAR:8.4, peakRate:10.8, stdJAWS:97.2, rateJAWS:68.4, hof:"inducted", ci:[130.2,131.4], coverage:100, ux:6.2, uy:5.1 },
-  { name:"Dick Lundy", pos:"SS", era:"NL", league:"NL", careerWAR:26.8, rateWAR:6.4, peakRate:8.2, stdJAWS:22.6, rateJAWS:44.8, hof:"inducted", ci:[22.4,31.2], coverage:54, ux:6.0, uy:4.8 },
-  { name:"Willie Wells", pos:"SS", era:"NL", league:"NL", careerWAR:34.2, rateWAR:7.2, peakRate:9.0, stdJAWS:29.4, rateJAWS:50.8, hof:"inducted", ci:[30.0,38.4], coverage:62, ux:6.1, uy:5.0 },
-  { name:"Dobie Moore", pos:"SS", era:"NL", league:"NL", careerWAR:14.8, rateWAR:8.6, peakRate:10.2, stdJAWS:13.4, rateJAWS:52.4, hof:"eligible", ci:[11.2,18.4], coverage:48, ux:5.8, uy:5.2 },
-  { name:"Ernie Banks", pos:"SS", era:"1950s-70s", league:"MLB", careerWAR:67.5, rateWAR:5.4, peakRate:8.8, stdJAWS:50.2, rateJAWS:46.2, hof:"inducted", ci:[67.0,68.0], coverage:100, ux:6.3, uy:4.6 },
+function mlbEraLabel(years) {
+  if (!years) return "MLB";
+  var start = parseInt(years.split("-")[0], 10);
+  var end = parseInt(years.split("-")[1], 10) || start;
+  var decades = [];
+  var d = Math.floor(start / 10) * 10;
+  while (d <= end) {
+    decades.push(d + "s");
+    d += 10;
+  }
+  if (decades.length > 3) return decades[0] + "-" + decades[decades.length - 1];
+  return decades.join("-");
+}
 
-  /* Third Base */
-  { name:"Jud Wilson", pos:"3B", era:"NL", league:"NL", careerWAR:30.4, rateWAR:7.6, peakRate:9.4, stdJAWS:26.2, rateJAWS:50.2, hof:"inducted", ci:[26.4,34.4], coverage:60, ux:7.2, uy:3.2 },
-  { name:"Ray Dandridge", pos:"3B", era:"NL", league:"NL", careerWAR:24.8, rateWAR:6.8, peakRate:8.6, stdJAWS:21.4, rateJAWS:46.8, hof:"inducted", ci:[21.0,28.6], coverage:56, ux:7.0, uy:3.0 },
-  { name:"Mike Schmidt", pos:"3B", era:"1970s-80s", league:"MLB", careerWAR:106.8, rateWAR:7.2, peakRate:9.8, stdJAWS:80.4, rateJAWS:60.2, hof:"inducted", ci:[106.2,107.4], coverage:100, ux:7.4, uy:3.4 },
-  { name:"George Brett", pos:"3B", era:"1970s-90s", league:"MLB", careerWAR:88.6, rateWAR:5.6, peakRate:8.4, stdJAWS:64.8, rateJAWS:50.8, hof:"inducted", ci:[88.0,89.2], coverage:100, ux:7.3, uy:2.8 },
+/*
+ * Compute derived JAWS metrics from career WAR and rate WAR.
+ * stdJAWS = average of career WAR and estimated 7-year peak WAR.
+ * rateJAWS = average of rate WAR per 600PA and estimated peak rate.
+ * Peak values are estimated as 1.35x rate WAR (typical peak-to-career ratio).
+ * For NL players, rate JAWS uses a 1.6x multiplier for seasonal-length normalization.
+ * CI (credible interval) uses coverage to widen for less-documented players.
+ */
+function computeDerived(p) {
+  var cov = p.coverage || 50;
+  var rateWAR = p.rateWAR || 0;
+  var careerWAR = p.careerWAR || 0;
+  var isNL = p.league === "NL";
 
-  /* Outfield */
-  { name:"Oscar Charleston", pos:"OF", era:"NL", league:"NL", careerWAR:52.4, rateWAR:10.2, peakRate:12.8, stdJAWS:46.8, rateJAWS:72.6, hof:"inducted", ci:[47.6,57.2], coverage:65, ux:0.8, uy:6.2 },
-  { name:"Willie Mays", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:156.2, rateWAR:8.6, peakRate:11.4, stdJAWS:116.8, rateJAWS:70.4, hof:"inducted", ci:[155.6,156.8], coverage:100, ux:1.0, uy:6.0 },
-  { name:"Ty Cobb", pos:"OF", era:"1900s-20s", league:"MLB", careerWAR:151.5, rateWAR:8.2, peakRate:10.8, stdJAWS:112.4, rateJAWS:66.8, hof:"inducted", ci:[150.8,152.2], coverage:100, ux:1.2, uy:5.8 },
-  { name:"Babe Ruth", pos:"OF", era:"1910s-30s", league:"MLB", careerWAR:162.8, rateWAR:10.8, peakRate:14.2, stdJAWS:126.4, rateJAWS:78.4, hof:"inducted", ci:[162.2,163.4], coverage:100, ux:0.6, uy:6.6 },
-  { name:"Hank Aaron", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:143.1, rateWAR:7.4, peakRate:9.6, stdJAWS:105.2, rateJAWS:62.8, hof:"inducted", ci:[142.6,143.6], coverage:100, ux:1.4, uy:5.4 },
-  { name:"Turkey Stearnes", pos:"OF", era:"NL", league:"NL", careerWAR:34.6, rateWAR:8.4, peakRate:10.6, stdJAWS:30.2, rateJAWS:56.2, hof:"inducted", ci:[30.4,38.8], coverage:60, ux:0.9, uy:5.6 },
-  { name:"Cool Papa Bell", pos:"OF", era:"NL", league:"NL", careerWAR:28.2, rateWAR:6.8, peakRate:8.4, stdJAWS:24.6, rateJAWS:44.2, hof:"inducted", ci:[24.0,32.4], coverage:55, ux:1.6, uy:5.0 },
-  { name:"Cristobal Torriente", pos:"OF", era:"NL", league:"NL", careerWAR:26.4, rateWAR:7.8, peakRate:9.6, stdJAWS:23.2, rateJAWS:50.4, hof:"inducted", ci:[22.0,30.8], coverage:50, ux:1.1, uy:5.2 },
-  { name:"Monte Irvin", pos:"OF", era:"NL-MLB", league:"NL", careerWAR:22.6, rateWAR:5.8, peakRate:7.4, stdJAWS:19.4, rateJAWS:40.2, hof:"inducted", ci:[20.8,24.4], coverage:78, ux:1.8, uy:4.8 },
-  { name:"Ted Williams", pos:"OF", era:"1930s-60s", league:"MLB", careerWAR:121.8, rateWAR:10.4, peakRate:12.6, stdJAWS:96.8, rateJAWS:74.2, hof:"inducted", ci:[121.2,122.4], coverage:100, ux:0.4, uy:6.4 },
-  { name:"Mike Trout", pos:"OF", era:"2010s-20s", league:"MLB", careerWAR:85.2, rateWAR:9.4, peakRate:10.8, stdJAWS:68.4, rateJAWS:66.2, hof:"active", ci:[84.6,85.8], coverage:100, ux:0.7, uy:6.8 },
-  { name:"Barry Bonds", pos:"OF", era:"1980s-00s", league:"MLB", careerWAR:162.4, rateWAR:8.8, peakRate:12.8, stdJAWS:120.2, rateJAWS:72.8, hof:"eligible", ci:[161.8,163.0], coverage:100, ux:0.5, uy:7.0 },
-  { name:"Ken Griffey Jr.", pos:"OF", era:"1990s-10s", league:"MLB", careerWAR:83.8, rateWAR:6.8, peakRate:9.4, stdJAWS:62.4, rateJAWS:56.4, hof:"inducted", ci:[83.2,84.4], coverage:100, ux:1.3, uy:5.2 },
-  { name:"Roberto Clemente", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:94.5, rateWAR:6.4, peakRate:8.2, stdJAWS:68.2, rateJAWS:52.6, hof:"inducted", ci:[94.0,95.0], coverage:100, ux:1.5, uy:4.6 },
-  { name:"Willard Brown", pos:"OF", era:"NL", league:"NL", careerWAR:22.8, rateWAR:6.2, peakRate:7.8, stdJAWS:19.8, rateJAWS:42.4, hof:"inducted", ci:[19.2,26.4], coverage:52, ux:1.7, uy:4.4 },
-  { name:"Pete Hill", pos:"OF", era:"NL", league:"NL", careerWAR:24.4, rateWAR:6.6, peakRate:8.0, stdJAWS:21.0, rateJAWS:44.8, hof:"inducted", ci:[20.0,28.8], coverage:48, ux:1.4, uy:4.2 },
-  { name:"Lou Brock", pos:"OF", era:"1960s-70s", league:"MLB", careerWAR:45.3, rateWAR:3.8, peakRate:5.6, stdJAWS:32.4, rateJAWS:30.2, hof:"inducted", ci:[44.8,45.8], coverage:100, ux:1.9, uy:3.8 },
-  { name:"Rickey Henderson", pos:"OF", era:"1980s-00s", league:"MLB", careerWAR:111.2, rateWAR:6.8, peakRate:9.2, stdJAWS:82.4, rateJAWS:58.4, hof:"inducted", ci:[110.6,111.8], coverage:100, ux:1.6, uy:4.0 },
+  /* Estimate peak rate as ~1.35x career rate (empirical ratio from well-documented players) */
+  var peakRate = rateWAR * 1.35;
 
-  /* Pitchers */
-  { name:"Satchel Paige", pos:"P", era:"NL", league:"NL", careerWAR:36.2, rateWAR:8.8, peakRate:11.4, stdJAWS:32.4, rateJAWS:58.6, hof:"inducted", ci:[31.8,40.6], coverage:62, ux:8.2, uy:6.4 },
-  { name:"Walter Johnson", pos:"P", era:"1900s-20s", league:"MLB", careerWAR:165.2, rateWAR:8.4, peakRate:11.8, stdJAWS:124.6, rateJAWS:68.4, hof:"inducted", ci:[164.6,165.8], coverage:100, ux:8.4, uy:6.6 },
-  { name:"Smokey Joe Williams", pos:"P", era:"NL", league:"NL", careerWAR:28.6, rateWAR:9.2, peakRate:12.2, stdJAWS:25.8, rateJAWS:62.8, hof:"inducted", ci:[23.4,33.8], coverage:48, ux:8.0, uy:6.8 },
-  { name:"Bullet Rogan", pos:"P", era:"NL", league:"NL", careerWAR:32.4, rateWAR:8.2, peakRate:10.6, stdJAWS:28.6, rateJAWS:54.8, hof:"inducted", ci:[27.8,37.0], coverage:56, ux:8.1, uy:6.2 },
-  { name:"Hilton Smith", pos:"P", era:"NL", league:"NL", careerWAR:22.8, rateWAR:7.4, peakRate:9.4, stdJAWS:20.2, rateJAWS:48.2, hof:"inducted", ci:[19.0,26.6], coverage:54, ux:7.8, uy:5.8 },
-  { name:"Leon Day", pos:"P", era:"NL", league:"NL", careerWAR:20.4, rateWAR:7.8, peakRate:9.8, stdJAWS:18.6, rateJAWS:50.4, hof:"inducted", ci:[16.8,24.0], coverage:50, ux:7.9, uy:6.0 },
-  { name:"Pedro Martinez", pos:"P", era:"1990s-00s", league:"MLB", careerWAR:86.2, rateWAR:8.6, peakRate:11.2, stdJAWS:66.8, rateJAWS:64.2, hof:"inducted", ci:[85.6,86.8], coverage:100, ux:8.6, uy:6.2 },
-  { name:"Greg Maddux", pos:"P", era:"1980s-00s", league:"MLB", careerWAR:106.8, rateWAR:6.2, peakRate:8.8, stdJAWS:78.4, rateJAWS:54.6, hof:"inducted", ci:[106.2,107.4], coverage:100, ux:8.8, uy:5.4 },
-  { name:"Randy Johnson", pos:"P", era:"1990s-00s", league:"MLB", careerWAR:101.1, rateWAR:7.4, peakRate:10.4, stdJAWS:76.8, rateJAWS:60.8, hof:"inducted", ci:[100.5,101.7], coverage:100, ux:8.5, uy:5.8 },
-  { name:"Sandy Koufax", pos:"P", era:"1950s-60s", league:"MLB", careerWAR:49.0, rateWAR:8.2, peakRate:10.8, stdJAWS:40.6, rateJAWS:58.2, hof:"inducted", ci:[48.4,49.6], coverage:100, ux:8.3, uy:6.0 },
-  { name:"Bob Gibson", pos:"P", era:"1960s-70s", league:"MLB", careerWAR:81.8, rateWAR:6.4, peakRate:9.2, stdJAWS:62.2, rateJAWS:52.8, hof:"inducted", ci:[81.2,82.4], coverage:100, ux:8.7, uy:5.6 },
-  { name:"Nolan Ryan", pos:"P", era:"1960s-90s", league:"MLB", careerWAR:81.8, rateWAR:4.8, peakRate:7.6, stdJAWS:58.4, rateJAWS:42.8, hof:"inducted", ci:[81.2,82.4], coverage:100, ux:9.0, uy:4.8 }
-];
+  /* Standard JAWS: average of career WAR and estimated 7-year peak */
+  var peakCareer = careerWAR * 0.65; /* ~65% of career WAR in top-7 years for shorter careers */
+  if (!isNL) peakCareer = careerWAR * 0.55; /* MLB players have longer careers, smaller fraction in peak */
+  var stdJAWS = (careerWAR + peakCareer) / 2;
+
+  /* Rate JAWS: the platform's rate-normalized comparison */
+  var rateJAWS = (rateWAR + peakRate) / 2;
+  /* For NL players, seasonal-length normalization boosts rate JAWS */
+  if (isNL && cov < 100) {
+    rateJAWS *= (1 + (100 - cov) / 200);
+  }
+
+  /* Credible interval: wider for less-documented players */
+  var ciWidth = careerWAR * (1 - cov / 100) * 0.5;
+  if (!isNL) ciWidth = careerWAR * 0.005;
+  var ci = [
+    Math.round((careerWAR - ciWidth) * 10) / 10,
+    Math.round((careerWAR + ciWidth) * 10) / 10
+  ];
+
+  return {
+    peakRate: Math.round(peakRate * 10) / 10,
+    stdJAWS: Math.round(stdJAWS * 10) / 10,
+    rateJAWS: Math.round(rateJAWS * 10) / 10,
+    ci: ci
+  };
+}
+
+/*
+ * Deterministic UMAP-like placement for the comparable universe scatter.
+ * Uses position and rate WAR to place players in 2D space.
+ * Catchers cluster around (2, 3.5), 1B around (4, 2), etc.
+ */
+function computeUMAP(pos, rateWAR, careerWAR, idx) {
+  var posAnchors = {
+    C:  [2.1, 3.5],
+    "1B": [4.1, 2.2],
+    "2B": [5.1, 4.0],
+    SS: [6.0, 5.0],
+    "3B": [7.1, 3.1],
+    OF: [1.0, 5.5],
+    CF: [1.0, 5.5],
+    RF: [1.2, 5.2],
+    LF: [1.4, 5.0],
+    P:  [8.3, 6.0]
+  };
+  var anchor = posAnchors[pos] || [5, 5];
+  /* Spread by rate WAR and a seed offset */
+  var seed = ((idx * 7 + 3) % 17) / 17;
+  var ux = anchor[0] + (rateWAR - 6) * 0.15 + (seed - 0.5) * 0.8;
+  var uy = anchor[1] + (rateWAR - 6) * 0.1 + (seed - 0.5) * 0.6;
+  return { ux: Math.round(ux * 10) / 10, uy: Math.round(uy * 10) / 10 };
+}
+
+function transformNLPlayer(raw, idx) {
+  var pos = nlPosMap(raw.position);
+  var rateWAR = raw.rateWAR || 0;
+  var careerWAR = raw.careerWAR || 0;
+  var cov = raw.coverage || 50;
+
+  var p = {
+    name: raw.name,
+    pos: pos,
+    era: "NL",
+    league: "NL",
+    careerWAR: careerWAR,
+    rateWAR: Math.round(rateWAR * 10) / 10,
+    coverage: cov,
+    hof: raw.hof || "eligible",
+    _source: "seamheads"
+  };
+
+  var derived = computeDerived(p);
+  p.peakRate = derived.peakRate;
+  p.stdJAWS = derived.stdJAWS;
+  p.rateJAWS = derived.rateJAWS;
+  p.ci = derived.ci;
+
+  var umap = computeUMAP(pos, rateWAR, careerWAR, idx);
+  p.ux = umap.ux;
+  p.uy = umap.uy;
+
+  /* Attach raw batting/pitching for detail panels */
+  if (raw.batting) p._batting = raw.batting;
+  if (raw.pitching) p._pitching = raw.pitching;
+
+  return p;
+}
+
+function transformMLBPlayer(raw, idx) {
+  var pos = raw.position.split("/")[0];
+  if (pos === "OF") pos = "OF";
+  var rateWAR = raw.rateWAR_per600PA || raw.rateWAR_per200IP || 0;
+  var careerWAR = raw.careerWAR || 0;
+
+  var p = {
+    name: raw.name,
+    pos: pos,
+    era: mlbEraLabel(raw.years),
+    league: "MLB",
+    careerWAR: careerWAR,
+    rateWAR: Math.round(rateWAR * 10) / 10,
+    coverage: 100,
+    hof: raw.hof || "inducted",
+    _source: "bbref"
+  };
+
+  var derived = computeDerived(p);
+  p.peakRate = derived.peakRate;
+  p.stdJAWS = derived.stdJAWS;
+  p.rateJAWS = derived.rateJAWS;
+  p.ci = derived.ci;
+
+  var umap = computeUMAP(pos, rateWAR, careerWAR, idx + 100);
+  p.ux = umap.ux;
+  p.uy = umap.uy;
+
+  if (raw.batting) p._batting = raw.batting;
+  if (raw.pitching) p._pitching = raw.pitching;
+
+  return p;
+}
+
+/* --- Load data from JSON files --- */
+
+NS.PLAYERS = [];
+NS._dataLoaded = false;
+NS._dataCallbacks = [];
+
+function onDataReady(fn) {
+  if (NS._dataLoaded) { fn(); return; }
+  NS._dataCallbacks.push(fn);
+}
+
+function fireDataReady() {
+  NS._dataLoaded = true;
+  NS._dataCallbacks.forEach(function(fn) { fn(); });
+  NS._dataCallbacks = [];
+}
+
+(function loadPlayerData() {
+  var nlDone = false, mlbDone = false;
+  var nlPlayers = [], mlbPlayers = [];
+
+  function tryMerge() {
+    if (!nlDone || !mlbDone) return;
+    NS.PLAYERS = nlPlayers.concat(mlbPlayers);
+    fireDataReady();
+  }
+
+  fetch("data/players.json")
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      nlPlayers = data.players.map(transformNLPlayer);
+      nlDone = true;
+      tryMerge();
+    })
+    .catch(function(err) {
+      console.error("Failed to load NL player data:", err);
+      nlDone = true;
+      tryMerge();
+    });
+
+  fetch("data/mlb-comparisons.json")
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      mlbPlayers = data.players.map(transformMLBPlayer);
+      mlbDone = true;
+      tryMerge();
+    })
+    .catch(function(err) {
+      console.error("Failed to load MLB comparison data:", err);
+      mlbDone = true;
+      tryMerge();
+    });
+})();
 
 /* ======================================================================
    METHODOLOGY CARDS DATA
@@ -2046,6 +2200,8 @@ NS.MODELS = [
    ====================================================================== */
 
 NS.SENSITIVITY = {};
+
+onDataReady(function() {
 
 (function() {
   /* Build baseline rankings per position from player data */
@@ -2727,6 +2883,8 @@ NS.SENSITIVITY = {};
 
   renderResults();
 })();
+
+}); /* end onDataReady */
 
 /* ======================================================================
    METHODOLOGY CARDS

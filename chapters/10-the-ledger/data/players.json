@@ -1,0 +1,991 @@
+{
+  "_metadata": {
+    "title": "Negro Leagues Career Leaders: Top 50 by Seamheads WAR",
+    "description": "Career statistics for the top 50 Negro Leagues players by Wins Above Replacement, sourced from the Seamheads Negro Leagues Database (seamheads.com/NegroLgs/) and MLB official integrated records (May 2024).",
+    "sources": [
+      {
+        "id": "seamheads",
+        "name": "Seamheads Negro Leagues Database",
+        "url": "https://www.seamheads.com/NegroLgs/",
+        "accessed": "2026-05-24",
+        "note": "Career WAR, batting stats, pitching stats from all-time leaderboards"
+      },
+      {
+        "id": "mlb-official",
+        "name": "MLB Press Release: Negro Leagues Statistics Enter the Major League Record",
+        "url": "https://www.mlb.com/press-release/press-release-statistics-of-the-negro-leagues-officially-enter-the-major-league-record",
+        "accessed": "2026-05-24",
+        "note": "Official batting average, SLG, OPS figures for Gibson, Charleston, Wilson, Stearnes, Leonard, Suttles"
+      },
+      {
+        "id": "bbref",
+        "name": "Baseball Reference Negro Leagues Section",
+        "url": "https://www.baseball-reference.com/register/negro-league-stats.shtml",
+        "accessed": "2026-05-24"
+      }
+    ],
+    "confidence_vocabulary": {
+      "Documented": "Figure appears in Seamheads database with game-level source data",
+      "Verified": "Figure confirmed across multiple independent sources (Seamheads, MLB official, Baseball Reference)",
+      "Estimated": "Figure derived from documented data via rate computation",
+      "Modeled": "Figure produced by the platform's WAR normalization or JAWS models"
+    },
+    "methodology_notes": [
+      "Career WAR figures are from Seamheads all-time WAR leaderboard (metrics tab).",
+      "Batting statistics are from Seamheads all-time batting leaderboard.",
+      "Pitching statistics are from Seamheads all-time pitching leaderboard.",
+      "MLB-official batting averages (Gibson .372, Charleston .363, etc.) differ slightly from Seamheads raw figures due to MLB's Statistical Review Committee adjustments. Both are documented here.",
+      "rateWAR (WAR per 600 PA) is computed as: (careerWAR / PA) * 600. For pitchers, rateWAR is (careerWAR / IP) * 200.",
+      "peakWAR is not available per-season from the Seamheads all-time view. Marked null where not independently available.",
+      "coverage represents the estimated percentage of career games documented in the statistical record."
+    ],
+    "generated": "2026-05-24",
+    "record_count": 50
+  },
+  "players": [
+    {
+      "id": 1,
+      "name": "Oscar Charleston",
+      "position": "CF",
+      "years": "1915-1941",
+      "careerWAR": 78.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1567, "PA": 6726, "AB": 5739, "H": 1999, "HR": 208, "RBI": 1286,
+        "BA": 0.348, "OBP": 0.430, "SLG": 0.569, "OPS": 0.999,
+        "BA_mlb_official": 0.363,
+        "OBP_mlb_official": 0.449,
+        "SLG_mlb_official": 0.614,
+        "OPS_mlb_official": 1.063,
+        "SB": 384
+      },
+      "rateWAR": 6.99,
+      "rateWAR_note": "Estimated: (78.3 / 6726) * 600",
+      "peakWAR": null,
+      "peakWAR_note": "Per-season breakdown not available from all-time view",
+      "coverage": 65,
+      "hof": "inducted",
+      "hof_year": 1976
+    },
+    {
+      "id": 2,
+      "name": "Martin Dihigo",
+      "position": "RF/P",
+      "years": "1922-1946",
+      "careerWAR": 70.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1021, "PA": 4118, "AB": 3527, "H": 1099, "HR": 133, "RBI": 730,
+        "BA": 0.312, "OBP": 0.403, "SLG": 0.509, "OPS": 0.911
+      },
+      "pitching": {
+        "W": 112, "L": 71, "ERA": 3.28, "G": 229, "GS": 178, "IP": 1571.2, "SO": 954
+      },
+      "rateWAR": 10.20,
+      "rateWAR_note": "Estimated: (70.0 / 4118) * 600; exceptionally high due to dual-threat value",
+      "peakWAR": null,
+      "coverage": 62,
+      "hof": "inducted",
+      "hof_year": 1977
+    },
+    {
+      "id": 3,
+      "name": "Willie Wells",
+      "position": "SS",
+      "years": "1924-1948",
+      "careerWAR": 69.5,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1507, "PA": 6635, "AB": 5702, "H": 1856, "HR": 180, "RBI": 1167,
+        "BA": 0.325, "OBP": 0.408, "SLG": 0.519, "OPS": 0.927,
+        "SB": 233
+      },
+      "rateWAR": 6.28,
+      "rateWAR_note": "Estimated: (69.5 / 6635) * 600",
+      "peakWAR": null,
+      "coverage": 62,
+      "hof": "inducted",
+      "hof_year": 1997
+    },
+    {
+      "id": 4,
+      "name": "Josh Gibson",
+      "position": "C",
+      "years": "1930-1946",
+      "careerWAR": 60.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 958, "PA": 4068, "AB": 3489, "H": 1277, "HR": 252, "RBI": 1091,
+        "BA": 0.366, "OBP": 0.451, "SLG": 0.694, "OPS": 1.145,
+        "BA_mlb_official": 0.372,
+        "OBP_mlb_official": 0.459,
+        "SLG_mlb_official": 0.718,
+        "OPS_mlb_official": 1.177
+      },
+      "rateWAR": 8.88,
+      "rateWAR_note": "Estimated: (60.2 / 4068) * 600",
+      "peakWAR": null,
+      "coverage": 72,
+      "hof": "inducted",
+      "hof_year": 1972
+    },
+    {
+      "id": 5,
+      "name": "Cristobal Torriente",
+      "position": "CF",
+      "years": "1912-1932",
+      "careerWAR": 60.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1233, "PA": 5139, "AB": 4385, "H": 1494, "HR": 79, "RBI": 902,
+        "BA": 0.341, "OBP": 0.427, "SLG": 0.503, "OPS": 0.930,
+        "SB": 258
+      },
+      "rateWAR": 7.00,
+      "rateWAR_note": "Estimated: (60.0 / 5139) * 600",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 6,
+      "name": "Turkey Stearnes",
+      "position": "CF",
+      "years": "1923-1940",
+      "careerWAR": 58.7,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1084, "PA": 4715, "AB": 4152, "H": 1443, "HR": 206, "RBI": 1065,
+        "BA": 0.348, "OBP": 0.416, "SLG": 0.620, "OPS": 1.037,
+        "BA_mlb_official": 0.348,
+        "SLG_mlb_official": 0.616,
+        "OPS_mlb_official": 1.033,
+        "SB": 147
+      },
+      "rateWAR": 7.47,
+      "rateWAR_note": "Estimated: (58.7 / 4715) * 600",
+      "peakWAR": null,
+      "coverage": 60,
+      "hof": "inducted",
+      "hof_year": 2000
+    },
+    {
+      "id": 7,
+      "name": "Bullet Rogan",
+      "position": "CF/P",
+      "years": "1916-1938",
+      "careerWAR": 57.1,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 748, "PA": 2599, "AB": 2261, "H": 754, "HR": 51, "RBI": 440,
+        "BA": 0.333, "OBP": 0.407, "SLG": 0.509, "OPS": 0.916,
+        "SB": 118
+      },
+      "pitching": {
+        "W": 130, "L": 61, "ERA": 2.70, "G": 236, "GS": 175, "IP": 1658.1, "SO": 1026
+      },
+      "rateWAR": 13.18,
+      "rateWAR_note": "Estimated: (57.1 / 2599) * 600; extremely high due to dual-threat value and limited PA denominator",
+      "peakWAR": null,
+      "coverage": 56,
+      "hof": "inducted",
+      "hof_year": 1998
+    },
+    {
+      "id": 8,
+      "name": "Joe Williams",
+      "position": "P",
+      "years": "1907-1932",
+      "careerWAR": 55.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 156, "L": 95, "ERA": 2.49, "G": 312, "GS": 259, "IP": 2285.2, "SO": 1588
+      },
+      "rateWAR": 4.83,
+      "rateWAR_note": "Estimated: (55.2 / 2285.2) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "inducted",
+      "hof_year": 1999
+    },
+    {
+      "id": 9,
+      "name": "John Henry Lloyd",
+      "position": "SS",
+      "years": "1906-1932",
+      "careerWAR": 54.8,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1339, "PA": 5713, "AB": 5129, "H": 1731, "HR": 32, "RBI": 884,
+        "BA": 0.337, "OBP": 0.387, "SLG": 0.444, "OPS": 0.831,
+        "SB": 223
+      },
+      "rateWAR": 5.76,
+      "rateWAR_note": "Estimated: (54.8 / 5713) * 600",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "inducted",
+      "hof_year": 1977
+    },
+    {
+      "id": 10,
+      "name": "Satchel Paige",
+      "position": "P",
+      "years": "1927-1947",
+      "careerWAR": 53.6,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 132, "L": 68, "ERA": 2.56, "G": 303, "GS": 231, "IP": 1709.0, "SO": 1655
+      },
+      "rateWAR": 6.27,
+      "rateWAR_note": "Estimated: (53.6 / 1709.0) * 200",
+      "peakWAR": null,
+      "coverage": 62,
+      "hof": "inducted",
+      "hof_year": 1971
+    },
+    {
+      "id": 11,
+      "name": "Jose Mendez",
+      "position": "P",
+      "years": "1907-1926",
+      "careerWAR": 49.1,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 143, "L": 61, "ERA": 2.22, "G": 295, "GS": 193, "IP": 1885.0, "SO": 1081
+      },
+      "rateWAR": 5.21,
+      "rateWAR_note": "Estimated: (49.1 / 1885.0) * 200",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 12,
+      "name": "Ray Brown",
+      "position": "P",
+      "years": "1931-1946",
+      "careerWAR": 47.7,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 145, "L": 59, "ERA": 3.14, "G": 274, "GS": 198, "IP": 1835.2, "SO": 889
+      },
+      "rateWAR": 5.20,
+      "rateWAR_note": "Estimated: (47.7 / 1835.2) * 200",
+      "peakWAR": null,
+      "coverage": 58,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 13,
+      "name": "Jud Wilson",
+      "position": "3B",
+      "years": "1922-1945",
+      "careerWAR": 46.9,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1190, "PA": 4766, "AB": 4107, "H": 1463, "HR": 104, "RBI": 929,
+        "BA": 0.356, "OBP": 0.436, "SLG": 0.535, "OPS": 0.971,
+        "BA_mlb_official": 0.350,
+        "SB": 127
+      },
+      "rateWAR": 5.91,
+      "rateWAR_note": "Estimated: (46.9 / 4766) * 600",
+      "peakWAR": null,
+      "coverage": 60,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 14,
+      "name": "Cool Papa Bell",
+      "position": "CF",
+      "years": "1922-1946",
+      "careerWAR": 46.1,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1514, "PA": 6913, "AB": 6050, "H": 1993, "HR": 78, "RBI": 763,
+        "BA": 0.329, "OBP": 0.403, "SLG": 0.462, "OPS": 0.865,
+        "SB": 373
+      },
+      "rateWAR": 4.00,
+      "rateWAR_note": "Estimated: (46.1 / 6913) * 600",
+      "peakWAR": null,
+      "coverage": 55,
+      "hof": "inducted",
+      "hof_year": 1974
+    },
+    {
+      "id": 15,
+      "name": "Pete Hill",
+      "position": "CF",
+      "years": "1904-1925",
+      "careerWAR": 45.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 961, "PA": 4094, "AB": 3476, "H": 1122, "HR": 58, "RBI": 554,
+        "BA": 0.323, "OBP": 0.407, "SLG": 0.459, "OPS": 0.866,
+        "SB": 178
+      },
+      "rateWAR": 6.63,
+      "rateWAR_note": "Estimated: (45.2 / 4094) * 600",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 16,
+      "name": "Ramon Bragana",
+      "position": "P",
+      "years": "1927-1946",
+      "careerWAR": 44.5,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 126, "L": 88, "ERA": 3.68, "G": 279, "GS": 217, "IP": 1859.1, "SO": 821
+      },
+      "rateWAR": 4.79,
+      "rateWAR_note": "Estimated: (44.5 / 1859.1) * 200",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "eligible"
+    },
+    {
+      "id": 17,
+      "name": "Eustaquio Pedroso",
+      "position": "1B",
+      "years": "1907-1926",
+      "careerWAR": 40.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": null,
+      "batting_note": "Batting stats not in Seamheads top-100 batting leaderboard",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without PA data",
+      "peakWAR": null,
+      "coverage": 40,
+      "hof": "eligible"
+    },
+    {
+      "id": 18,
+      "name": "Dick Redding",
+      "position": "P",
+      "years": "1911-1936",
+      "careerWAR": 39.9,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 148, "L": 121, "ERA": 3.04, "G": 336, "GS": 259, "IP": 2344.1, "SO": 1308
+      },
+      "rateWAR": 3.40,
+      "rateWAR_note": "Estimated: (39.9 / 2344.1) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "inducted",
+      "hof_year": 2024
+    },
+    {
+      "id": 19,
+      "name": "Mule Suttles",
+      "position": "1B",
+      "years": "1923-1944",
+      "careerWAR": 38.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1040, "PA": 4195, "AB": 3695, "H": 1243, "HR": 201, "RBI": 984,
+        "BA": 0.336, "OBP": 0.407, "SLG": 0.614, "OPS": 1.022,
+        "SLG_mlb_official": 0.621,
+        "SB": 95
+      },
+      "rateWAR": 5.48,
+      "rateWAR_note": "Estimated: (38.3 / 4195) * 600",
+      "peakWAR": null,
+      "coverage": 55,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 20,
+      "name": "Willie Foster",
+      "position": "P",
+      "years": "1923-1937",
+      "careerWAR": 38.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 150, "L": 76, "ERA": 2.67, "G": 313, "GS": 221, "IP": 2012.1, "SO": 1273
+      },
+      "rateWAR": 3.78,
+      "rateWAR_note": "Estimated: (38.0 / 2012.1) * 200",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "inducted",
+      "hof_year": 1996
+    },
+    {
+      "id": 21,
+      "name": "Newt Allen",
+      "position": "2B",
+      "years": "1922-1947",
+      "careerWAR": 37.8,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": null,
+      "batting_note": "Not in Seamheads top-100 batting leaderboard; known as a defense-first player",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without PA data",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "eligible"
+    },
+    {
+      "id": 22,
+      "name": "Dobie Moore",
+      "position": "SS",
+      "years": "1916-1926",
+      "careerWAR": 37.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 568, "PA": 2476, "AB": 2242, "H": 774, "HR": 37, "RBI": 436,
+        "BA": 0.345, "OBP": 0.387, "SLG": 0.516, "OPS": 0.903,
+        "SB": 80
+      },
+      "rateWAR": 9.01,
+      "rateWAR_note": "Estimated: (37.2 / 2476) * 600",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "eligible"
+    },
+    {
+      "id": 23,
+      "name": "Dick Lundy",
+      "position": "SS",
+      "years": "1916-1937",
+      "careerWAR": 36.8,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 962, "PA": 3982, "AB": 3568, "H": 1137, "HR": 53, "RBI": 653,
+        "BA": 0.319, "OBP": 0.377, "SLG": 0.451, "OPS": 0.828,
+        "SB": 123
+      },
+      "rateWAR": 5.55,
+      "rateWAR_note": "Estimated: (36.8 / 3982) * 600",
+      "peakWAR": null,
+      "coverage": 54,
+      "hof": "inducted",
+      "hof_year": 2024
+    },
+    {
+      "id": 24,
+      "name": "William Bell",
+      "position": "P",
+      "years": "1923-1937",
+      "careerWAR": 36.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 137, "L": 62, "ERA": 3.26, "G": 263, "GS": 190, "IP": 1732.0, "SO": 761
+      },
+      "rateWAR": 4.16,
+      "rateWAR_note": "Estimated: (36.0 / 1732.0) * 200",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "eligible"
+    },
+    {
+      "id": 25,
+      "name": "Jesus Valenzuela",
+      "position": "P",
+      "years": "1940-1946",
+      "careerWAR": 35.6,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 106, "L": 80, "ERA": 3.11, "G": 239, "GS": 188, "IP": 1561.1, "SO": null,
+        "SO_note": "Not recorded in Seamheads database"
+      },
+      "rateWAR": 4.56,
+      "rateWAR_note": "Estimated: (35.6 / 1561.1) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "eligible"
+    },
+    {
+      "id": 26,
+      "name": "Buck Leonard",
+      "position": "1B",
+      "years": "1933-1948",
+      "careerWAR": 34.4,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 707, "PA": 3064, "AB": 2543, "H": 869, "HR": 106, "RBI": 622,
+        "BA": 0.342, "OBP": 0.447, "SLG": 0.573, "OPS": 1.019,
+        "BA_mlb_official": 0.345,
+        "OBP_mlb_official": 0.452,
+        "OPS_mlb_official": 1.042,
+        "SB": 39
+      },
+      "rateWAR": 6.74,
+      "rateWAR_note": "Estimated: (34.4 / 3064) * 600",
+      "peakWAR": null,
+      "coverage": 68,
+      "hof": "inducted",
+      "hof_year": 1972
+    },
+    {
+      "id": 27,
+      "name": "Ben Taylor",
+      "position": "1B",
+      "years": "1909-1929",
+      "careerWAR": 34.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 999, "PA": 4150, "AB": 3670, "H": 1205, "HR": 39, "RBI": 701,
+        "BA": 0.328, "OBP": 0.393, "SLG": 0.455, "OPS": 0.848,
+        "SB": 110
+      },
+      "rateWAR": 4.96,
+      "rateWAR_note": "Estimated: (34.3 / 4150) * 600",
+      "peakWAR": null,
+      "coverage": 45,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 28,
+      "name": "Lazaro Salazar",
+      "position": "1B/P",
+      "years": "1930-1946",
+      "careerWAR": 34.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 651, "PA": 2587, "AB": 2189, "H": 718, "HR": 32, "RBI": 384,
+        "BA": 0.328, "OBP": 0.424, "SLG": 0.452, "OPS": 0.876,
+        "SB": 96
+      },
+      "pitching": {
+        "W": 62, "L": 54, "ERA": 3.65, "G": 167, "GS": 119, "IP": 973.0, "SO": 453
+      },
+      "rateWAR": 7.95,
+      "rateWAR_note": "Estimated: (34.3 / 2587) * 600; high due to dual-threat",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "eligible"
+    },
+    {
+      "id": 29,
+      "name": "Willard Brown",
+      "position": "CF",
+      "years": "1935-1948",
+      "careerWAR": 33.4,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 569, "PA": 2396, "AB": 2226, "H": 795, "HR": 78, "RBI": 523,
+        "BA": 0.357, "OBP": 0.400, "SLG": 0.584, "OPS": 0.985,
+        "SB": 116
+      },
+      "rateWAR": 8.36,
+      "rateWAR_note": "Estimated: (33.4 / 2396) * 600",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 30,
+      "name": "Wild Bill Wright",
+      "position": "CF",
+      "years": "1932-1946",
+      "careerWAR": 33.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 876, "PA": 3765, "AB": 3366, "H": 1139, "HR": 82, "RBI": 625,
+        "BA": 0.338, "OBP": 0.404, "SLG": 0.524, "OPS": 0.928,
+        "SB": 156
+      },
+      "rateWAR": 5.29,
+      "rateWAR_note": "Estimated: (33.2 / 3765) * 600",
+      "peakWAR": null,
+      "coverage": 55,
+      "hof": "eligible"
+    },
+    {
+      "id": 31,
+      "name": "Juan Padron",
+      "position": "P",
+      "years": "1915-1926",
+      "careerWAR": 33.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 83, "L": 82, "ERA": 2.72, "G": 232, "GS": 175, "IP": 1468.0, "SO": 866
+      },
+      "rateWAR": 4.50,
+      "rateWAR_note": "Estimated: (33.0 / 1468.0) * 200",
+      "peakWAR": null,
+      "coverage": 42,
+      "hof": "eligible"
+    },
+    {
+      "id": 32,
+      "name": "Carlos Moran",
+      "position": "3B",
+      "years": "1899-1915",
+      "careerWAR": 32.7,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 593, "PA": 2633, "AB": 2112, "H": 591, "HR": 3, "RBI": 205,
+        "BA": 0.280, "OBP": 0.410, "SLG": 0.330, "OPS": 0.740,
+        "SB": 206
+      },
+      "rateWAR": 7.45,
+      "rateWAR_note": "Estimated: (32.7 / 2633) * 600",
+      "peakWAR": null,
+      "coverage": 38,
+      "hof": "eligible"
+    },
+    {
+      "id": 33,
+      "name": "Bill Byrd",
+      "position": "P",
+      "years": "1933-1948",
+      "careerWAR": 31.1,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 107, "L": 74, "ERA": 3.59, "G": 233, "GS": 165, "IP": 1465.0, "SO": 788
+      },
+      "rateWAR": 4.25,
+      "rateWAR_note": "Estimated: (31.1 / 1465.0) * 200",
+      "peakWAR": null,
+      "coverage": 58,
+      "hof": "eligible"
+    },
+    {
+      "id": 34,
+      "name": "Jose Munoz",
+      "position": "P",
+      "years": "1900-1913",
+      "careerWAR": 30.8,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 108, "L": 89, "ERA": 1.89, "G": 242, "GS": 198, "IP": 1838.2, "SO": 773
+      },
+      "rateWAR": 3.35,
+      "rateWAR_note": "Estimated: (30.8 / 1838.2) * 200",
+      "peakWAR": null,
+      "coverage": 35,
+      "hof": "eligible"
+    },
+    {
+      "id": 35,
+      "name": "Sam Bankhead",
+      "position": "SS",
+      "years": "1932-1948",
+      "careerWAR": 30.5,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": null,
+      "batting_note": "Not in Seamheads top-100 batting leaderboard",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without PA data",
+      "peakWAR": null,
+      "coverage": 55,
+      "hof": "eligible"
+    },
+    {
+      "id": 36,
+      "name": "Hilton Smith",
+      "position": "P",
+      "years": "1932-1948",
+      "careerWAR": 30.3,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 91, "L": 48, "ERA": 3.03, "G": 222, "GS": 134, "IP": 1244.1, "SO": 831
+      },
+      "rateWAR": 4.87,
+      "rateWAR_note": "Estimated: (30.3 / 1244.1) * 200",
+      "peakWAR": null,
+      "coverage": 54,
+      "hof": "inducted",
+      "hof_year": 2001
+    },
+    {
+      "id": 37,
+      "name": "Bill Holland",
+      "position": "P",
+      "years": "1919-1941",
+      "careerWAR": 30.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 118, "L": 113, "ERA": 4.05, "G": 292, "GS": 230, "IP": 1939.2, "SO": 1080
+      },
+      "rateWAR": 3.11,
+      "rateWAR_note": "Estimated: (30.2 / 1939.2) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "eligible"
+    },
+    {
+      "id": 38,
+      "name": "Nip Winters",
+      "position": "P",
+      "years": "1921-1932",
+      "careerWAR": 29.7,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 111, "L": 60, "ERA": 3.51, "G": 218, "GS": 171, "IP": 1466.0, "SO": 772
+      },
+      "rateWAR": 4.05,
+      "rateWAR_note": "Estimated: (29.7 / 1466.0) * 200",
+      "peakWAR": null,
+      "coverage": 46,
+      "hof": "eligible"
+    },
+    {
+      "id": 39,
+      "name": "Hurley McNair",
+      "position": "RF",
+      "years": "1910-1937",
+      "careerWAR": 29.5,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 880, "PA": 3793, "AB": 3319, "H": 1062, "HR": 52, "RBI": 581,
+        "BA": 0.320, "OBP": 0.389, "SLG": 0.459, "OPS": 0.849,
+        "SB": 149
+      },
+      "rateWAR": 4.67,
+      "rateWAR_note": "Estimated: (29.5 / 3793) * 600",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "eligible"
+    },
+    {
+      "id": 40,
+      "name": "John Beckwith",
+      "position": "3B",
+      "years": "1919-1937",
+      "careerWAR": 28.9,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 629, "PA": 2539, "AB": 2291, "H": 792, "HR": 105, "RBI": 574,
+        "BA": 0.346, "OBP": 0.399, "SLG": 0.593, "OPS": 0.991,
+        "SB": 49
+      },
+      "rateWAR": 6.83,
+      "rateWAR_note": "Estimated: (28.9 / 2539) * 600",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "eligible"
+    },
+    {
+      "id": 41,
+      "name": "Biz Mackey",
+      "position": "C",
+      "years": "1920-1947",
+      "careerWAR": 28.9,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 1106, "PA": 4300, "AB": 3804, "H": 1232, "HR": 70, "RBI": 728,
+        "BA": 0.324, "OBP": 0.389, "SLG": 0.470, "OPS": 0.858,
+        "SB": 76
+      },
+      "rateWAR": 4.03,
+      "rateWAR_note": "Estimated: (28.9 / 4300) * 600",
+      "peakWAR": null,
+      "coverage": 58,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 42,
+      "name": "Carlos Royer",
+      "position": "P",
+      "years": "1899-1910",
+      "careerWAR": 28.6,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 91, "L": 50, "ERA": 1.87, "G": 167, "GS": 150, "IP": 1359.0, "SO": 670
+      },
+      "rateWAR": 4.21,
+      "rateWAR_note": "Estimated: (28.6 / 1359.0) * 200",
+      "peakWAR": null,
+      "coverage": 35,
+      "hof": "eligible"
+    },
+    {
+      "id": 43,
+      "name": "Barney Brown",
+      "position": "P",
+      "years": "1931-1948",
+      "careerWAR": 28.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 93, "L": 86, "ERA": 3.96, "G": 243, "GS": 171, "IP": 1476.2, "SO": 776
+      },
+      "rateWAR": 3.79,
+      "rateWAR_note": "Estimated: (28.0 / 1476.2) * 200",
+      "peakWAR": null,
+      "coverage": 55,
+      "hof": "eligible"
+    },
+    {
+      "id": 44,
+      "name": "Pelayo Chacon",
+      "position": "SS",
+      "years": "1908-1931",
+      "careerWAR": 27.4,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": null,
+      "batting_note": "Not in Seamheads top-100 batting leaderboard",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without PA data",
+      "peakWAR": null,
+      "coverage": 40,
+      "hof": "eligible"
+    },
+    {
+      "id": 45,
+      "name": "Henry McHenry",
+      "position": "P",
+      "years": "1930-1948",
+      "careerWAR": 27.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": null,
+      "pitching_note": "Not in Seamheads top-100 pitching leaderboard",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without IP data",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "eligible"
+    },
+    {
+      "id": 46,
+      "name": "George Scales",
+      "position": "2B",
+      "years": "1921-1946",
+      "careerWAR": 27.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": {
+        "G": 915, "PA": 3614, "AB": 3019, "H": 982, "HR": 81, "RBI": 658,
+        "BA": 0.325, "OBP": 0.424, "SLG": 0.516, "OPS": 0.940,
+        "SB": 63
+      },
+      "rateWAR": 4.48,
+      "rateWAR_note": "Estimated: (27.0 / 3614) * 600",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "eligible"
+    },
+    {
+      "id": 47,
+      "name": "Leon Day",
+      "position": "P",
+      "years": "1934-1946",
+      "careerWAR": 26.8,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 64, "L": 29, "ERA": 3.64, "G": 128, "GS": 95, "IP": 804.1, "SO": 568
+      },
+      "rateWAR": 6.67,
+      "rateWAR_note": "Estimated: (26.8 / 804.1) * 200",
+      "peakWAR": null,
+      "coverage": 50,
+      "hof": "inducted",
+      "hof_year": 1995
+    },
+    {
+      "id": 48,
+      "name": "Leroy Matlock",
+      "position": "P",
+      "years": "1929-1942",
+      "careerWAR": 26.2,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 99, "L": 63, "ERA": 3.99, "G": 226, "GS": 168, "IP": 1467.0, "SO": 687
+      },
+      "rateWAR": 3.57,
+      "rateWAR_note": "Estimated: (26.2 / 1467.0) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "eligible"
+    },
+    {
+      "id": 49,
+      "name": "Andy Cooper",
+      "position": "P",
+      "years": "1920-1939",
+      "careerWAR": 25.9,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "pitching": {
+        "W": 119, "L": 72, "ERA": 3.65, "G": 317, "GS": 181, "IP": 1675.1, "SO": 720
+      },
+      "rateWAR": 3.09,
+      "rateWAR_note": "Estimated: (25.9 / 1675.1) * 200",
+      "peakWAR": null,
+      "coverage": 48,
+      "hof": "inducted",
+      "hof_year": 2006
+    },
+    {
+      "id": 50,
+      "name": "Judy Johnson",
+      "position": "3B",
+      "years": "1918-1936",
+      "careerWAR": 25.0,
+      "warSource": "seamheads",
+      "warConfidence": "Documented",
+      "batting": null,
+      "batting_note": "Not in Seamheads top-100 batting leaderboard; defensive specialist",
+      "rateWAR": null,
+      "rateWAR_note": "Cannot compute without PA data",
+      "peakWAR": null,
+      "coverage": 52,
+      "hof": "inducted",
+      "hof_year": 1975
+    }
+  ]
+}

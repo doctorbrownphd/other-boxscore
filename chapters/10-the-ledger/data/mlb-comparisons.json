@@ -1,0 +1,395 @@
+{
+  "_metadata": {
+    "title": "MLB Comparison Players: Top 20 from the Segregation Era and Beyond",
+    "description": "Career statistics for MLB players used as comparison points in the integrated leaderboard. Focused on players active during or near the Negro Leagues era (1900-1960), plus select modern players for context.",
+    "sources": [
+      {
+        "id": "bbref",
+        "name": "Baseball Reference",
+        "url": "https://www.baseball-reference.com/",
+        "accessed": "2026-05-24",
+        "note": "Career WAR (bWAR), batting stats, pitching stats"
+      },
+      {
+        "id": "fangraphs",
+        "name": "FanGraphs",
+        "url": "https://www.fangraphs.com/",
+        "accessed": "2026-05-24",
+        "note": "fWAR cross-reference"
+      },
+      {
+        "id": "bbhof",
+        "name": "Baseball Hall of Fame",
+        "url": "https://baseballhall.org/",
+        "accessed": "2026-05-24"
+      }
+    ],
+    "methodology_notes": [
+      "All WAR figures are Baseball Reference bWAR unless otherwise noted.",
+      "These are the players the existing chapter uses as MLB comparison anchors.",
+      "Batting averages and counting stats are career totals from Baseball Reference.",
+      "rateWAR computed as (careerWAR / G) * 162 for position players to normalize to a full-season equivalent."
+    ],
+    "generated": "2026-05-24",
+    "record_count": 20
+  },
+  "players": [
+    {
+      "id": 1,
+      "name": "Babe Ruth",
+      "position": "OF/P",
+      "years": "1914-1935",
+      "careerWAR": 182.6,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2503, "PA": 10626, "AB": 8399, "H": 2873, "HR": 714, "RBI": 2214,
+        "BA": 0.342, "OBP": 0.474, "SLG": 0.690, "OPS": 1.164
+      },
+      "rateWAR_per600PA": 10.31,
+      "rateWAR_note": "Estimated: (182.6 / 10626) * 600",
+      "hof": "inducted",
+      "hof_year": 1936,
+      "era_overlap": "1914-1935, contemporary with Negro Leagues stars"
+    },
+    {
+      "id": 2,
+      "name": "Walter Johnson",
+      "position": "P",
+      "years": "1907-1927",
+      "careerWAR": 165.2,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "pitching": {
+        "W": 417, "L": 279, "ERA": 2.17, "G": 802, "GS": 666, "IP": 5914.1, "SO": 3509
+      },
+      "rateWAR_per200IP": 5.59,
+      "rateWAR_note": "Estimated: (165.2 / 5914.1) * 200",
+      "hof": "inducted",
+      "hof_year": 1936,
+      "era_overlap": "1907-1927, direct contemporary of Joe Williams, Jose Mendez"
+    },
+    {
+      "id": 3,
+      "name": "Ty Cobb",
+      "position": "OF",
+      "years": "1905-1928",
+      "careerWAR": 151.4,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 3034, "PA": 13103, "AB": 11434, "H": 4189, "HR": 117, "RBI": 1933,
+        "BA": 0.366, "OBP": 0.433, "SLG": 0.512, "OPS": 0.945
+      },
+      "rateWAR_per600PA": 6.93,
+      "rateWAR_note": "Estimated: (151.4 / 13103) * 600",
+      "hof": "inducted",
+      "hof_year": 1936,
+      "era_overlap": "1905-1928, direct contemporary of Lloyd, Hill, Charleston"
+    },
+    {
+      "id": 4,
+      "name": "Honus Wagner",
+      "position": "SS",
+      "years": "1897-1917",
+      "careerWAR": 130.8,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2794, "PA": 12042, "AB": 10439, "H": 3420, "HR": 101, "RBI": 1732,
+        "BA": 0.328, "OBP": 0.391, "SLG": 0.466, "OPS": 0.858
+      },
+      "rateWAR_per600PA": 6.52,
+      "rateWAR_note": "Estimated: (130.8 / 12042) * 600",
+      "hof": "inducted",
+      "hof_year": 1936,
+      "era_overlap": "1897-1917, contemporary of earliest Negro Leagues players"
+    },
+    {
+      "id": 5,
+      "name": "Rogers Hornsby",
+      "position": "2B",
+      "years": "1915-1937",
+      "careerWAR": 127.1,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2259, "PA": 9475, "AB": 8173, "H": 2930, "HR": 301, "RBI": 1584,
+        "BA": 0.358, "OBP": 0.434, "SLG": 0.577, "OPS": 1.010
+      },
+      "rateWAR_per600PA": 8.05,
+      "rateWAR_note": "Estimated: (127.1 / 9475) * 600",
+      "hof": "inducted",
+      "hof_year": 1942,
+      "era_overlap": "1915-1937, direct contemporary of Charleston, Rogan, Wells"
+    },
+    {
+      "id": 6,
+      "name": "Lou Gehrig",
+      "position": "1B",
+      "years": "1923-1939",
+      "careerWAR": 112.4,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2164, "PA": 9663, "AB": 8001, "H": 2721, "HR": 493, "RBI": 1995,
+        "BA": 0.340, "OBP": 0.447, "SLG": 0.632, "OPS": 1.080
+      },
+      "rateWAR_per600PA": 6.98,
+      "rateWAR_note": "Estimated: (112.4 / 9663) * 600",
+      "hof": "inducted",
+      "hof_year": 1939,
+      "era_overlap": "1923-1939, direct contemporary of Leonard, Suttles, Gibson"
+    },
+    {
+      "id": 7,
+      "name": "Lefty Grove",
+      "position": "P",
+      "years": "1925-1941",
+      "careerWAR": 106.8,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "pitching": {
+        "W": 300, "L": 141, "ERA": 3.06, "G": 616, "GS": 457, "IP": 3940.2, "SO": 2266
+      },
+      "rateWAR_per200IP": 5.42,
+      "rateWAR_note": "Estimated: (106.8 / 3940.2) * 200",
+      "hof": "inducted",
+      "hof_year": 1947,
+      "era_overlap": "1925-1941, direct contemporary of Paige, Foster, Smith"
+    },
+    {
+      "id": 8,
+      "name": "Christy Mathewson",
+      "position": "P",
+      "years": "1900-1916",
+      "careerWAR": 105.9,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "pitching": {
+        "W": 373, "L": 188, "ERA": 2.13, "G": 636, "GS": 552, "IP": 4788.2, "SO": 2507
+      },
+      "rateWAR_per200IP": 4.42,
+      "rateWAR_note": "Estimated: (105.9 / 4788.2) * 200",
+      "hof": "inducted",
+      "hof_year": 1936,
+      "era_overlap": "1900-1916, contemporary of Rube Foster, Joe Williams"
+    },
+    {
+      "id": 9,
+      "name": "Jimmie Foxx",
+      "position": "1B",
+      "years": "1925-1945",
+      "careerWAR": 96.2,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2317, "PA": 9817, "AB": 8134, "H": 2646, "HR": 534, "RBI": 1922,
+        "BA": 0.325, "OBP": 0.428, "SLG": 0.609, "OPS": 1.038
+      },
+      "rateWAR_per600PA": 5.88,
+      "rateWAR_note": "Estimated: (96.2 / 9817) * 600",
+      "hof": "inducted",
+      "hof_year": 1951,
+      "era_overlap": "1925-1945, direct contemporary of Gibson, Leonard, Suttles"
+    },
+    {
+      "id": 10,
+      "name": "Ted Williams",
+      "position": "OF",
+      "years": "1939-1960",
+      "careerWAR": 121.8,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2292, "PA": 9791, "AB": 7706, "H": 2654, "HR": 521, "RBI": 1839,
+        "BA": 0.344, "OBP": 0.482, "SLG": 0.634, "OPS": 1.116
+      },
+      "rateWAR_per600PA": 7.46,
+      "rateWAR_note": "Estimated: (121.8 / 9791) * 600",
+      "hof": "inducted",
+      "hof_year": 1966,
+      "era_overlap": "1939-1960, late overlap with Negro Leagues"
+    },
+    {
+      "id": 11,
+      "name": "Joe DiMaggio",
+      "position": "OF",
+      "years": "1936-1951",
+      "careerWAR": 79.1,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 1736, "PA": 7671, "AB": 6821, "H": 2214, "HR": 361, "RBI": 1537,
+        "BA": 0.325, "OBP": 0.398, "SLG": 0.579, "OPS": 0.977
+      },
+      "rateWAR_per600PA": 6.19,
+      "rateWAR_note": "Estimated: (79.1 / 7671) * 600",
+      "hof": "inducted",
+      "hof_year": 1955,
+      "era_overlap": "1936-1951, direct contemporary of Gibson, Paige, Wells"
+    },
+    {
+      "id": 12,
+      "name": "Mickey Mantle",
+      "position": "OF",
+      "years": "1951-1968",
+      "careerWAR": 110.3,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2401, "PA": 9907, "AB": 8102, "H": 2415, "HR": 536, "RBI": 1509,
+        "BA": 0.298, "OBP": 0.421, "SLG": 0.557, "OPS": 0.977
+      },
+      "rateWAR_per600PA": 6.68,
+      "rateWAR_note": "Estimated: (110.3 / 9907) * 600",
+      "hof": "inducted",
+      "hof_year": 1974,
+      "era_overlap": "1951-1968, post-integration era"
+    },
+    {
+      "id": 13,
+      "name": "Willie Mays",
+      "position": "OF",
+      "years": "1951-1973",
+      "careerWAR": 156.2,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2992, "PA": 12497, "AB": 10881, "H": 3283, "HR": 660, "RBI": 1903,
+        "BA": 0.302, "OBP": 0.384, "SLG": 0.557, "OPS": 0.941
+      },
+      "rateWAR_per600PA": 7.50,
+      "rateWAR_note": "Estimated: (156.2 / 12497) * 600",
+      "hof": "inducted",
+      "hof_year": 1979,
+      "era_overlap": "1951-1973, Negro Leagues alumnus (Birmingham Black Barons)"
+    },
+    {
+      "id": 14,
+      "name": "Hank Aaron",
+      "position": "OF",
+      "years": "1954-1976",
+      "careerWAR": 143.1,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 3298, "PA": 13941, "AB": 12364, "H": 3771, "HR": 755, "RBI": 2297,
+        "BA": 0.305, "OBP": 0.374, "SLG": 0.555, "OPS": 0.928
+      },
+      "rateWAR_per600PA": 6.16,
+      "rateWAR_note": "Estimated: (143.1 / 13941) * 600",
+      "hof": "inducted",
+      "hof_year": 1982,
+      "era_overlap": "1954-1976, began career in Negro Leagues (Indianapolis Clowns)"
+    },
+    {
+      "id": 15,
+      "name": "Jackie Robinson",
+      "position": "2B",
+      "years": "1947-1956",
+      "careerWAR": 61.5,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 1382, "PA": 5804, "AB": 4877, "H": 1518, "HR": 137, "RBI": 734,
+        "BA": 0.311, "OBP": 0.409, "SLG": 0.474, "OPS": 0.883
+      },
+      "rateWAR_per600PA": 6.36,
+      "rateWAR_note": "Estimated: (61.5 / 5804) * 600",
+      "hof": "inducted",
+      "hof_year": 1962,
+      "era_overlap": "1947-1956, integration pioneer; played in Negro Leagues 1945"
+    },
+    {
+      "id": 16,
+      "name": "Johnny Bench",
+      "position": "C",
+      "years": "1967-1983",
+      "careerWAR": 75.2,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2158, "PA": 8674, "AB": 7658, "H": 2048, "HR": 389, "RBI": 1376,
+        "BA": 0.267, "OBP": 0.342, "SLG": 0.476, "OPS": 0.817
+      },
+      "rateWAR_per600PA": 5.20,
+      "rateWAR_note": "Estimated: (75.2 / 8674) * 600",
+      "hof": "inducted",
+      "hof_year": 1989,
+      "era_overlap": "1967-1983, comparison anchor for Gibson at C"
+    },
+    {
+      "id": 17,
+      "name": "Mike Schmidt",
+      "position": "3B",
+      "years": "1972-1989",
+      "careerWAR": 106.8,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2404, "PA": 10062, "AB": 8352, "H": 2234, "HR": 548, "RBI": 1595,
+        "BA": 0.267, "OBP": 0.380, "SLG": 0.527, "OPS": 0.908
+      },
+      "rateWAR_per600PA": 6.37,
+      "rateWAR_note": "Estimated: (106.8 / 10062) * 600",
+      "hof": "inducted",
+      "hof_year": 1995,
+      "era_overlap": "1972-1989, comparison anchor for Wilson, Dandridge at 3B"
+    },
+    {
+      "id": 18,
+      "name": "Ernie Banks",
+      "position": "SS/1B",
+      "years": "1953-1971",
+      "careerWAR": 67.5,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 2528, "PA": 10395, "AB": 9421, "H": 2583, "HR": 512, "RBI": 1636,
+        "BA": 0.274, "OBP": 0.330, "SLG": 0.500, "OPS": 0.830
+      },
+      "rateWAR_per600PA": 3.89,
+      "rateWAR_note": "Estimated: (67.5 / 10395) * 600",
+      "hof": "inducted",
+      "hof_year": 1977,
+      "era_overlap": "1953-1971, comparison anchor for Wells, Lloyd at SS"
+    },
+    {
+      "id": 19,
+      "name": "Mickey Cochrane",
+      "position": "C",
+      "years": "1925-1937",
+      "careerWAR": 53.2,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": {
+        "G": 1482, "PA": 6207, "AB": 5169, "H": 1652, "HR": 119, "RBI": 832,
+        "BA": 0.320, "OBP": 0.419, "SLG": 0.478, "OPS": 0.897
+      },
+      "rateWAR_per600PA": 5.14,
+      "rateWAR_note": "Estimated: (53.2 / 6207) * 600",
+      "hof": "inducted",
+      "hof_year": 1947,
+      "era_overlap": "1925-1937, direct contemporary of Gibson"
+    },
+    {
+      "id": 20,
+      "name": "Cy Young",
+      "position": "P",
+      "years": "1890-1911",
+      "careerWAR": 163.6,
+      "warSource": "bbref",
+      "warConfidence": "Verified",
+      "batting": null,
+      "pitching": {
+        "W": 511, "L": 316, "ERA": 2.63, "G": 906, "GS": 815, "IP": 7356.0, "SO": 2803
+      },
+      "rateWAR_per200IP": 4.45,
+      "rateWAR_note": "Estimated: (163.6 / 7356.0) * 200",
+      "hof": "inducted",
+      "hof_year": 1937,
+      "era_overlap": "1890-1911, pre-Negro Leagues era but contextual comparison"
+    }
+  ]
+}
