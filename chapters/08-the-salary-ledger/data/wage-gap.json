@@ -1,0 +1,9 @@
+{
+  "source": "Bayesian salary imputation model (Ch 08)",
+  "scope": "Top 50 documented NLB players by WAR, 1920-1948",
+  "total_gap_2024_cpi": 82616433.94,
+  "total_gap_2024_lo": 53700682.06,
+  "total_gap_2024_hi": 119793829.21,
+  "note": "CPI-based inflation. Wage-index and GDP-share inflators would produce different figures. The full-league gap (2,300+ players) is not modeled here.",
+  "confidence": "Modeled -- 50 players, informative Bayesian priors, 90% credible intervals"
+}
