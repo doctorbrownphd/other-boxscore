@@ -36,7 +36,7 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--ink);
@@ -102,7 +102,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
 }
 
-.platform-nav__mark { width: 32px; height: 32px; flex-shrink: 0; }
+.platform-nav__mark { width: 32px; height: 32px; display: none; flex-shrink: 0; }
 
 .platform-nav__title {
   font-family: var(--mono);

@@ -1,0 +1,505 @@
+2026-05-24 14:33:25,013 [INFO] Green Book OCR pipeline -- Phase 1
+2026-05-24 14:33:25,013 [INFO] Target editions: [1936, 1938, 1940, 1941, 1942, 1947, 1948, 1949]
+2026-05-24 14:33:25,013 [INFO] Image resolution: pct:50
+2026-05-24 14:33:25,013 [INFO] Output: /Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/data/green_book_listings_raw.json
+2026-05-24 14:33:25,013 [INFO] ============================================================
+2026-05-24 14:33:25,013 [INFO] Processing 1936 edition: https://www.loc.gov/item/2016298176/
+2026-05-24 14:33:25,013 [INFO] Fetching item metadata for 1936: https://www.loc.gov/item/2016298176/?fo=json
+2026-05-24 14:33:26,193 [INFO]   84 page(s) found for 1936 edition
+  Downloading 1936:   0%|          | 0/84 [00:00<?, ?page/s]2026-05-24 14:34:11,420 [ERROR] Failed to download page 4 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00004/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(46180 bytes read, 203477 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(46180 bytes read, 203477 more expected)', IncompleteRead(46180 bytes read, 203477 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(46180 bytes read, 203477 more expected)', IncompleteRead(46180 bytes read, 203477 more expected))
+  Downloading 1936:   5%|▍         | 4/84 [00:45<15:04, 11.30s/page]  Downloading 1936:   7%|▋         | 6/84 [00:46<09:02,  6.95s/page]2026-05-24 14:34:58,214 [ERROR] Failed to download page 7 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00007/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(54616 bytes read, 196648 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(54616 bytes read, 196648 more expected)', IncompleteRead(54616 bytes read, 196648 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(54616 bytes read, 196648 more expected)', IncompleteRead(54616 bytes read, 196648 more expected))
+  Downloading 1936:   8%|▊         | 7/84 [01:32<20:08, 15.69s/page]  Downloading 1936:  10%|▉         | 8/84 [01:33<15:32, 12.27s/page]  Downloading 1936:  11%|█         | 9/84 [01:59<19:36, 15.69s/page]  Downloading 1936:  12%|█▏        | 10/84 [02:00<14:32, 11.79s/page]  Downloading 1936:  13%|█▎        | 11/84 [02:01<10:49,  8.90s/page]  Downloading 1936:  14%|█▍        | 12/84 [02:03<08:08,  6.78s/page]  Downloading 1936:  15%|█▌        | 13/84 [02:05<06:15,  5.28s/page]2026-05-24 14:36:11,476 [WARNING] HTTP 525 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00014/full/pct:50/0/default.jpg
+  Downloading 1936:  17%|█▋        | 14/84 [03:25<31:41, 27.17s/page]  Downloading 1936:  18%|█▊        | 15/84 [03:26<22:35, 19.64s/page]  Downloading 1936:  19%|█▉        | 16/84 [03:28<16:21, 14.44s/page]  Downloading 1936:  20%|██        | 17/84 [03:30<11:47, 10.56s/page]  Downloading 1936:  21%|██▏       | 18/84 [03:31<08:38,  7.85s/page]  Downloading 1936:  23%|██▎       | 19/84 [03:33<06:24,  5.92s/page]  Downloading 1936:  24%|██▍       | 20/84 [04:15<17:49, 16.71s/page]  Downloading 1936:  25%|██▌       | 21/84 [04:16<12:42, 12.11s/page]  Downloading 1936:  26%|██▌       | 22/84 [04:18<09:19,  9.03s/page]  Downloading 1936:  27%|██▋       | 23/84 [04:19<06:52,  6.75s/page]  Downloading 1936:  29%|██▊       | 24/84 [04:21<05:15,  5.25s/page]2026-05-24 14:38:32,441 [ERROR] Failed to download page 25 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00025/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(8192 bytes read, 300198 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(8192 bytes read, 300198 more expected)', IncompleteRead(8192 bytes read, 300198 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(8192 bytes read, 300198 more expected)', IncompleteRead(8192 bytes read, 300198 more expected))
+  Downloading 1936:  30%|██▉       | 25/84 [05:06<16:48, 17.10s/page]  Downloading 1936:  31%|███       | 26/84 [05:07<12:03, 12.48s/page]  Downloading 1936:  32%|███▏      | 27/84 [05:09<08:39,  9.12s/page]2026-05-24 14:39:20,642 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00028/full/pct:50/0/default.jpg
+  Downloading 1936:  33%|███▎      | 28/84 [05:57<19:33, 20.96s/page]  Downloading 1936:  35%|███▍      | 29/84 [05:59<13:49, 15.08s/page]  Downloading 1936:  36%|███▌      | 30/84 [06:00<09:50, 10.94s/page]  Downloading 1936:  37%|███▋      | 31/84 [06:02<07:12,  8.16s/page]2026-05-24 14:40:20,915 [ERROR] Failed to download page 32 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00032/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(7078 bytes read, 255517 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(7078 bytes read, 255517 more expected)', IncompleteRead(7078 bytes read, 255517 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(7078 bytes read, 255517 more expected)', IncompleteRead(7078 bytes read, 255517 more expected))
+  Downloading 1936:  38%|███▊      | 32/84 [06:54<18:37, 21.49s/page]  Downloading 1936:  39%|███▉      | 33/84 [06:56<13:13, 15.56s/page]  Downloading 1936:  40%|████      | 34/84 [06:57<09:24, 11.30s/page]  Downloading 1936:  42%|████▏     | 35/84 [07:00<07:13,  8.86s/page]  Downloading 1936:  43%|████▎     | 36/84 [07:02<05:16,  6.59s/page]2026-05-24 14:41:13,621 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00037/full/pct:50/0/default.jpg
+  Downloading 1936:  44%|████▍     | 37/84 [07:50<15:02, 19.21s/page]  Downloading 1936:  45%|████▌     | 38/84 [07:52<10:39, 13.89s/page]  Downloading 1936:  46%|████▋     | 39/84 [07:53<07:38, 10.20s/page]  Downloading 1936:  48%|████▊     | 40/84 [07:55<05:35,  7.62s/page]  Downloading 1936:  49%|████▉     | 41/84 [07:57<04:08,  5.77s/page]  Downloading 1936:  50%|█████     | 42/84 [08:00<03:31,  5.05s/page]  Downloading 1936:  51%|█████     | 43/84 [08:01<02:41,  3.95s/page]  Downloading 1936:  52%|█████▏    | 44/84 [08:03<02:07,  3.18s/page]  Downloading 1936:  54%|█████▎    | 45/84 [08:04<01:42,  2.63s/page]  Downloading 1936:  55%|█████▍    | 46/84 [08:05<01:25,  2.25s/page]  Downloading 1936:  56%|█████▌    | 47/84 [08:07<01:13,  1.99s/page]  Downloading 1936:  57%|█████▋    | 48/84 [08:09<01:11,  1.99s/page]2026-05-24 14:42:20,671 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00049/full/pct:50/0/default.jpg
+  Downloading 1936:  58%|█████▊    | 49/84 [08:58<09:21, 16.04s/page]2026-05-24 14:43:23,851 [WARNING] HTTP 520 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00050/full/pct:50/0/default.jpg
+  Downloading 1936:  60%|█████▉    | 50/84 [10:01<17:10, 30.30s/page]  Downloading 1936:  61%|██████    | 51/84 [10:03<11:57, 21.73s/page]  Downloading 1936:  62%|██████▏   | 52/84 [10:04<08:19, 15.61s/page]2026-05-24 14:44:31,654 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00053/full/pct:50/0/default.jpg
+2026-05-24 14:44:33,903 [WARNING] HTTP 503 on attempt 2/3 -- retrying in 4.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00053/full/pct:50/0/default.jpg
+  Downloading 1936:  63%|██████▎   | 53/84 [11:12<16:12, 31.39s/page]2026-05-24 14:45:24,289 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00054/full/pct:50/0/default.jpg
+  Downloading 1936:  64%|██████▍   | 54/84 [12:01<18:16, 36.56s/page]  Downloading 1936:  65%|██████▌   | 55/84 [12:03<12:38, 26.15s/page]2026-05-24 14:46:14,885 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00056/full/pct:50/0/default.jpg
+  Downloading 1936:  67%|██████▋   | 56/84 [12:52<15:21, 32.92s/page]2026-05-24 14:47:16,109 [ERROR] Failed to download page 57 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00057/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(46693 bytes read, 206916 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(46693 bytes read, 206916 more expected)', IncompleteRead(46693 bytes read, 206916 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(46693 bytes read, 206916 more expected)', IncompleteRead(46693 bytes read, 206916 more expected))
+  Downloading 1936:  68%|██████▊   | 57/84 [13:49<18:10, 40.38s/page]2026-05-24 14:47:58,240 [ERROR] Failed to download page 58 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00058/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(16115 bytes read, 241696 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(16115 bytes read, 241696 more expected)', IncompleteRead(16115 bytes read, 241696 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(16115 bytes read, 241696 more expected)', IncompleteRead(16115 bytes read, 241696 more expected))
+  Downloading 1936:  69%|██████▉   | 58/84 [14:32<17:43, 40.90s/page]2026-05-24 14:48:43,427 [WARNING] HTTP 503 on attempt 1/3 -- retrying in 2.0s: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00059/full/pct:50/0/default.jpg
+2026-05-24 14:49:30,572 [ERROR] Failed to download page 59 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00059/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(78564 bytes read, 186446 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(78564 bytes read, 186446 more expected)', IncompleteRead(78564 bytes read, 186446 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(78564 bytes read, 186446 more expected)', IncompleteRead(78564 bytes read, 186446 more expected))
+  Downloading 1936:  70%|███████   | 59/84 [16:04<23:28, 56.33s/page]  Downloading 1936:  71%|███████▏  | 60/84 [16:05<15:57, 39.91s/page]  Downloading 1936:  73%|███████▎  | 61/84 [16:07<10:51, 28.33s/page]  Downloading 1936:  74%|███████▍  | 62/84 [16:08<07:25, 20.25s/page]2026-05-24 14:50:17,033 [ERROR] Failed to download page 63 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00063/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(16115 bytes read, 242306 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(16115 bytes read, 242306 more expected)', IncompleteRead(16115 bytes read, 242306 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(16115 bytes read, 242306 more expected)', IncompleteRead(16115 bytes read, 242306 more expected))
+  Downloading 1936:  75%|███████▌  | 63/84 [16:50<09:23, 26.83s/page]  Downloading 1936:  76%|███████▌  | 64/84 [16:52<06:25, 19.28s/page]  Downloading 1936:  77%|███████▋  | 65/84 [16:54<04:25, 13.98s/page]  Downloading 1936:  79%|███████▊  | 66/84 [16:55<03:05, 10.29s/page]  Downloading 1936:  80%|███████▉  | 67/84 [16:57<02:10,  7.65s/page]  Downloading 1936:  81%|████████  | 68/84 [16:58<01:32,  5.79s/page]  Downloading 1936:  82%|████████▏ | 69/84 [17:00<01:07,  4.51s/page]  Downloading 1936:  83%|████████▎ | 70/84 [17:01<00:50,  3.58s/page]  Downloading 1936:  85%|████████▍ | 71/84 [17:02<00:37,  2.90s/page]  Downloading 1936:  86%|████████▌ | 72/84 [17:04<00:29,  2.47s/page]  Downloading 1936:  87%|████████▋ | 73/84 [17:05<00:23,  2.15s/page]2026-05-24 14:51:15,823 [ERROR] Failed to download page 74 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00074/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(7078 bytes read, 256452 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(7078 bytes read, 256452 more expected)', IncompleteRead(7078 bytes read, 256452 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(7078 bytes read, 256452 more expected)', IncompleteRead(7078 bytes read, 256452 more expected))
+  Downloading 1936:  88%|████████▊ | 74/84 [17:49<02:26, 14.63s/page]2026-05-24 14:52:26,713 [ERROR] Failed to download page 75 of 1936: https://tile.loc.gov/image-services/iiif/service:gdc:gdcscd:00:21:22:75:09:8:00212275098:00075/full/pct:50/0/default.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(62718 bytes read, 199846 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(62718 bytes read, 199846 more expected)', IncompleteRead(62718 bytes read, 199846 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 373, in download_page_images
+    for chunk in resp.iter_content(chunk_size=65536):
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(62718 bytes read, 199846 more expected)', IncompleteRead(62718 bytes read, 199846 more expected))
+  Downloading 1936:  89%|████████▉ | 75/84 [19:00<04:43, 31.51s/page]  Downloading 1936:  90%|█████████ | 76/84 [19:03<03:03, 22.90s/page]  Downloading 1936:  92%|█████████▏| 77/84 [19:05<01:57, 16.73s/page]  Downloading 1936:  93%|█████████▎| 78/84 [19:07<01:12, 12.14s/page]  Downloading 1936:  94%|█████████▍| 79/84 [19:08<00:44,  8.97s/page]  Downloading 1936:  95%|█████████▌| 80/84 [19:10<00:26,  6.73s/page]  Downloading 1936:  96%|█████████▋| 81/84 [19:11<00:15,  5.17s/page]  Downloading 1936:  98%|█████████▊| 82/84 [19:14<00:09,  4.60s/page]  Downloading 1936:  99%|█████████▉| 83/84 [19:16<00:03,  3.67s/page]  Downloading 1936: 100%|██████████| 84/84 [19:17<00:00,  3.03s/page]  Downloading 1936: 100%|██████████| 84/84 [19:17<00:00, 13.79s/page]
+  OCR 1936:   0%|          | 0/74 [00:00<?, ?page/s]  OCR 1936:   1%|▏         | 1/74 [00:00<00:37,  1.92page/s]  OCR 1936:   3%|▎         | 2/74 [00:00<00:20,  3.55page/s]  OCR 1936:   4%|▍         | 3/74 [00:01<00:26,  2.64page/s]  OCR 1936:   5%|▌         | 4/74 [00:02<00:50,  1.39page/s]  OCR 1936:   7%|▋         | 5/74 [00:03<00:58,  1.19page/s]  OCR 1936:   8%|▊         | 6/74 [00:04<00:52,  1.29page/s]  OCR 1936:   9%|▉         | 7/74 [00:04<00:48,  1.38page/s]  OCR 1936:  11%|█         | 8/74 [00:05<00:44,  1.48page/s]  OCR 1936:  12%|█▏        | 9/74 [00:05<00:40,  1.61page/s]  OCR 1936:  14%|█▎        | 10/74 [00:06<00:39,  1.64page/s]  OCR 1936:  15%|█▍        | 11/74 [00:06<00:37,  1.67page/s]  OCR 1936:  16%|█▌        | 12/74 [00:08<00:52,  1.19page/s]  OCR 1936:  18%|█▊        | 13/74 [00:09<00:55,  1.09page/s]  OCR 1936:  19%|█▉        | 14/74 [00:10<00:57,  1.04page/s]  OCR 1936:  20%|██        | 15/74 [00:11<00:49,  1.18page/s]  OCR 1936:  22%|██▏       | 16/74 [00:11<00:47,  1.21page/s]  OCR 1936:  23%|██▎       | 17/74 [00:12<00:46,  1.23page/s]  OCR 1936:  24%|██▍       | 18/74 [00:13<00:48,  1.16page/s]  OCR 1936:  26%|██▌       | 19/74 [00:14<00:40,  1.35page/s]  OCR 1936:  27%|██▋       | 20/74 [00:14<00:42,  1.28page/s]  OCR 1936:  28%|██▊       | 21/74 [00:15<00:37,  1.43page/s]  OCR 1936:  30%|██▉       | 22/74 [00:16<00:39,  1.31page/s]  OCR 1936:  31%|███       | 23/74 [00:17<00:40,  1.25page/s]  OCR 1936:  32%|███▏      | 24/74 [00:18<00:40,  1.24page/s]  OCR 1936:  34%|███▍      | 25/74 [00:18<00:40,  1.21page/s]  OCR 1936:  35%|███▌      | 26/74 [00:19<00:41,  1.17page/s]  OCR 1936:  36%|███▋      | 27/74 [00:20<00:41,  1.13page/s]  OCR 1936:  38%|███▊      | 28/74 [00:21<00:37,  1.22page/s]  OCR 1936:  39%|███▉      | 29/74 [00:22<00:34,  1.29page/s]  OCR 1936:  41%|████      | 30/74 [00:23<00:36,  1.20page/s]  OCR 1936:  42%|████▏     | 31/74 [00:23<00:34,  1.26page/s]  OCR 1936:  43%|████▎     | 32/74 [00:24<00:33,  1.27page/s]  OCR 1936:  45%|████▍     | 33/74 [00:25<00:33,  1.23page/s]  OCR 1936:  46%|████▌     | 34/74 [00:26<00:30,  1.30page/s]  OCR 1936:  47%|████▋     | 35/74 [00:26<00:28,  1.37page/s]  OCR 1936:  49%|████▊     | 36/74 [00:27<00:29,  1.27page/s]  OCR 1936:  50%|█████     | 37/74 [00:28<00:28,  1.28page/s]  OCR 1936:  51%|█████▏    | 38/74 [00:29<00:27,  1.32page/s]  OCR 1936:  53%|█████▎    | 39/74 [00:29<00:26,  1.34page/s]  OCR 1936:  54%|█████▍    | 40/74 [00:30<00:25,  1.33page/s]  OCR 1936:  55%|█████▌    | 41/74 [00:31<00:26,  1.26page/s]  OCR 1936:  57%|█████▋    | 42/74 [00:32<00:26,  1.23page/s]  OCR 1936:  58%|█████▊    | 43/74 [00:33<00:24,  1.25page/s]  OCR 1936:  59%|█████▉    | 44/74 [00:33<00:23,  1.26page/s]  OCR 1936:  61%|██████    | 45/74 [00:34<00:22,  1.30page/s]  OCR 1936:  62%|██████▏   | 46/74 [00:35<00:21,  1.32page/s]  OCR 1936:  64%|██████▎   | 47/74 [00:36<00:21,  1.24page/s]  OCR 1936:  65%|██████▍   | 48/74 [00:37<00:21,  1.20page/s]  OCR 1936:  66%|██████▌   | 49/74 [00:38<00:20,  1.19page/s]  OCR 1936:  68%|██████▊   | 50/74 [00:38<00:18,  1.27page/s]  OCR 1936:  69%|██████▉   | 51/74 [00:39<00:17,  1.32page/s]  OCR 1936:  70%|███████   | 52/74 [00:40<00:17,  1.28page/s]  OCR 1936:  72%|███████▏  | 53/74 [00:40<00:16,  1.30page/s]  OCR 1936:  73%|███████▎  | 54/74 [00:41<00:16,  1.24page/s]  OCR 1936:  74%|███████▍  | 55/74 [00:42<00:15,  1.22page/s]  OCR 1936:  76%|███████▌  | 56/74 [00:43<00:15,  1.17page/s]  OCR 1936:  77%|███████▋  | 57/74 [00:44<00:14,  1.15page/s]  OCR 1936:  78%|███████▊  | 58/74 [00:45<00:13,  1.18page/s]  OCR 1936:  80%|███████▉  | 59/74 [00:46<00:11,  1.27page/s]  OCR 1936:  81%|████████  | 60/74 [00:46<00:11,  1.25page/s]  OCR 1936:  82%|████████▏ | 61/74 [00:47<00:10,  1.24page/s]  OCR 1936:  84%|████████▍ | 62/74 [00:48<00:09,  1.23page/s]  OCR 1936:  85%|████████▌ | 63/74 [00:49<00:08,  1.24page/s]  OCR 1936:  86%|████████▋ | 64/74 [00:50<00:07,  1.26page/s]  OCR 1936:  88%|████████▊ | 65/74 [00:50<00:07,  1.22page/s]  OCR 1936:  89%|████████▉ | 66/74 [00:51<00:06,  1.26page/s]  OCR 1936:  91%|█████████ | 67/74 [00:52<00:05,  1.27page/s]  OCR 1936:  92%|█████████▏| 68/74 [00:53<00:04,  1.25page/s]  OCR 1936:  93%|█████████▎| 69/74 [00:54<00:03,  1.28page/s]  OCR 1936:  95%|█████████▍| 70/74 [00:54<00:03,  1.32page/s]  OCR 1936:  96%|█████████▌| 71/74 [00:55<00:02,  1.28page/s]  OCR 1936:  97%|█████████▋| 72/74 [00:56<00:01,  1.25page/s]  OCR 1936:  99%|█████████▊| 73/74 [00:57<00:00,  1.32page/s]  OCR 1936: 100%|██████████| 74/74 [00:57<00:00,  1.64page/s]  OCR 1936: 100%|██████████| 74/74 [00:57<00:00,  1.29page/s]
+2026-05-24 14:53:41,578 [INFO]   Parsed 2980 listings from 1936 edition (74 pages)
+2026-05-24 14:53:41,578 [INFO] ============================================================
+2026-05-24 14:53:41,578 [INFO] Processing 1938 edition: https://www.loc.gov/item/2016298177/
+2026-05-24 14:53:41,578 [INFO] Fetching item metadata for 1938: https://www.loc.gov/item/2016298177/?fo=json
+2026-05-24 14:53:42,173 [ERROR] Failed to fetch metadata for 1938 -- skipping
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 721, in main
+    image_urls = fetch_page_image_urls(item_url, year)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 305, in fetch_page_image_urls
+    resp = _polite_get(json_url)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 266, in _polite_get
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.loc.gov/item/2016298177/?fo=json
+2026-05-24 14:53:42,175 [INFO] ============================================================
+2026-05-24 14:53:42,175 [INFO] Processing 1940 edition: https://www.loc.gov/item/2016298178/
+2026-05-24 14:53:42,175 [INFO] Fetching item metadata for 1940: https://www.loc.gov/item/2016298178/?fo=json
+2026-05-24 14:54:58,197 [ERROR] Failed to fetch metadata for 1940 -- skipping
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 905, in _error_catcher
+    yield
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(3927 bytes read, 25729 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1155, in read
+    data = self._raw_read(amt)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/urllib3/response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(3927 bytes read, 25729 more expected)', IncompleteRead(3927 bytes read, 25729 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 721, in main
+    image_urls = fetch_page_image_urls(item_url, year)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 305, in fetch_page_image_urls
+    resp = _polite_get(json_url)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 265, in _polite_get
+    resp = session.get(url, stream=stream, timeout=timeout)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/sessions.py", line 827, in send
+    r.content
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 1042, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(3927 bytes read, 25729 more expected)', IncompleteRead(3927 bytes read, 25729 more expected))
+2026-05-24 14:54:58,203 [INFO] ============================================================
+2026-05-24 14:54:58,203 [INFO] Processing 1941 edition: https://www.loc.gov/item/2016298179/
+2026-05-24 14:54:58,203 [INFO] Fetching item metadata for 1941: https://www.loc.gov/item/2016298179/?fo=json
+2026-05-24 14:55:00,783 [ERROR] No resources found for 1941 at https://www.loc.gov/item/2016298179/
+2026-05-24 14:55:00,783 [WARNING] No image URLs found for 1941 -- skipping
+2026-05-24 14:55:00,783 [INFO] ============================================================
+2026-05-24 14:55:00,783 [INFO] Processing 1942 edition: https://www.loc.gov/item/2016298180/
+2026-05-24 14:55:00,783 [INFO] Fetching item metadata for 1942: https://www.loc.gov/item/2016298180/?fo=json
+2026-05-24 14:55:01,021 [ERROR] Failed to fetch metadata for 1942 -- skipping
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 721, in main
+    image_urls = fetch_page_image_urls(item_url, year)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 305, in fetch_page_image_urls
+    resp = _polite_get(json_url)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 266, in _polite_get
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.loc.gov/item/2016298180/?fo=json
+2026-05-24 14:55:01,022 [INFO] ============================================================
+2026-05-24 14:55:01,022 [INFO] Processing 1947 edition: https://www.loc.gov/item/2016298181/
+2026-05-24 14:55:01,022 [INFO] Fetching item metadata for 1947: https://www.loc.gov/item/2016298181/?fo=json
+2026-05-24 14:55:01,329 [ERROR] Failed to fetch metadata for 1947 -- skipping
+Traceback (most recent call last):
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 721, in main
+    image_urls = fetch_page_image_urls(item_url, year)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 305, in fetch_page_image_urls
+    resp = _polite_get(json_url)
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/pipeline/01_green_book_ocr.py", line 266, in _polite_get
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/.venv/lib/python3.14/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.loc.gov/item/2016298181/?fo=json
+2026-05-24 14:55:01,330 [INFO] ============================================================
+2026-05-24 14:55:01,330 [INFO] Processing 1948 edition: https://www.loc.gov/item/2016298182/
+2026-05-24 14:55:01,330 [INFO] Fetching item metadata for 1948: https://www.loc.gov/item/2016298182/?fo=json
+2026-05-24 14:55:06,537 [ERROR] No resources found for 1948 at https://www.loc.gov/item/2016298182/
+2026-05-24 14:55:06,538 [WARNING] No image URLs found for 1948 -- skipping
+2026-05-24 14:55:06,538 [INFO] ============================================================
+2026-05-24 14:55:06,538 [INFO] Processing 1949 edition: https://www.loc.gov/item/2016298183/
+2026-05-24 14:55:06,538 [INFO] Fetching item metadata for 1949: https://www.loc.gov/item/2016298183/?fo=json
+2026-05-24 14:55:10,117 [ERROR] No resources found for 1949 at https://www.loc.gov/item/2016298183/
+2026-05-24 14:55:10,117 [WARNING] No image URLs found for 1949 -- skipping
+2026-05-24 14:55:10,118 [INFO] ============================================================
+2026-05-24 14:55:10,127 [INFO] Deduplication: 2980 total -> 2980 unique (0 duplicates removed)
+2026-05-24 14:55:10,129 [INFO] Estimated OCR accuracy (heuristic): 48.7%
+2026-05-24 14:55:10,139 [INFO] Wrote 2980 listings to /Users/jeremyhaynes/TOBS/the-other-boxscore/other-boxscore/chapters/02-the-green-book-route/data/green_book_listings_raw.json
+2026-05-24 14:55:10,139 [INFO] ============================================================
+2026-05-24 14:55:10,139 [INFO] PIPELINE SUMMARY
+2026-05-24 14:55:10,139 [INFO]   Editions processed: [1936]
+2026-05-24 14:55:10,139 [INFO]   Total pages OCR'd:  74
+2026-05-24 14:55:10,139 [INFO]   Raw listings:       2980
+2026-05-24 14:55:10,139 [INFO]   After dedup:        2980
+2026-05-24 14:55:10,139 [INFO]   OCR accuracy est:   48.7%
+2026-05-24 14:55:10,139 [WARNING] OCR accuracy estimate is below 50%% -- manual review strongly recommended before proceeding to Phase 2.
