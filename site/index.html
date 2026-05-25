@@ -561,6 +561,23 @@ body::before {
   color: rgba(161,69,69,0.55);
 }
 
+/* Chapter accent colors on cards */
+.chapter-card[style*="--card-accent"] .chapter-card__number {
+  color: var(--card-accent);
+}
+.chapter-card[style*="--card-accent"] .chapter-card__cta--live {
+  color: var(--card-accent);
+}
+.chapter-card[style*="--card-accent"] .chapter-card__meta {
+  color: var(--card-accent);
+  opacity: 0.7;
+}
+.chapter-card[style*="--card-accent"] .badge--live {
+  border-color: var(--card-accent);
+  color: var(--card-accent);
+}
+
+
 /* Coda card -- distinct treatment with oxblood border */
 .coda-card {
   background: var(--ink);
@@ -970,7 +987,7 @@ body::before {
     </div>
     <p class="part__hook">"Have you heard how they got there?"</p>
     <div class="chapter-grid">
-      <a href="/chapters/01-the-color-line/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a">
+      <a href="/chapters/01-the-color-line/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a; --card-accent: #d4a64a">
         <div class="chapter-card__top">
           <span class="chapter-card__number">CH . 01</span>
           <span class="badge badge--live">Live</span>
@@ -981,7 +998,7 @@ body::before {
         <p class="chapter-card__meta">9 sections . 5 ML models . 2,300+ players</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/02-the-green-book-route/" class="chapter-card chapter-card--live" style="border-top: 3px solid #8fa05a">
+      <a href="/chapters/02-the-green-book-route/" class="chapter-card chapter-card--live" style="border-top: 3px solid #8fa05a; --card-accent: #8fa05a">
         <div class="chapter-card__top">
           <span class="chapter-card__number">CH . 02</span>
           <span class="badge badge--live">Live</span>
@@ -992,7 +1009,7 @@ body::before {
         <p class="chapter-card__meta">Animated map . Public domain data</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/03-the-sundown-corridor/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545">
+      <a href="/chapters/03-the-sundown-corridor/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545; --card-accent: #a14545">
         <div class="chapter-card__top">
           <span class="chapter-card__number">CH . 03</span>
           <span class="badge badge--live">Live</span>
@@ -1014,7 +1031,7 @@ body::before {
     </div>
     <p class="part__hook">"Have you heard what they built?"</p>
     <div class="chapter-grid">
-      <a href="/chapters/04-the-crowd-that-came/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a">
+      <a href="/chapters/04-the-crowd-that-came/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a; --card-accent: #d4a64a">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 04</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Crowd That Came</h4>
         <p class="chapter-card__desc">The East-West All-Star Game outdrew MLB ten times. 51,723 in 1943 -- more than 20,000 more than the MLB version that year.</p>
@@ -1022,7 +1039,7 @@ body::before {
         <p class="chapter-card__meta">Paired bar . SABR attendance data</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/05-the-winter-map/" class="chapter-card chapter-card--live" style="border-top: 3px solid #6f8aa8">
+      <a href="/chapters/05-the-winter-map/" class="chapter-card chapter-card--live" style="border-top: 3px solid #6f8aa8; --card-accent: #6f8aa8">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 05</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Winter Map</h4>
         <p class="chapter-card__desc">After the American season ended, where did they go? Twelve months a year, multiple countries, the best players in the world. Invisible to the history books.</p>
@@ -1030,7 +1047,7 @@ body::before {
         <p class="chapter-card__meta">Flow map . Seamheads data</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/06-the-collapse/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545">
+      <a href="/chapters/06-the-collapse/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545; --card-accent: #a14545">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 06</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Collapse</h4>
         <p class="chapter-card__desc">Every Negro Leagues franchise. When it started. When it died. Why. Integration killed the leagues. That sentence needs a chart.</p>
@@ -1049,7 +1066,7 @@ body::before {
     </div>
     <p class="part__hook">"Have you heard what was taken?"</p>
     <div class="chapter-grid">
-      <a href="/chapters/07-the-unsigned-letter/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545">
+      <a href="/chapters/07-the-unsigned-letter/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545; --card-accent: #a14545">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 07</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Unsigned Letter</h4>
         <p class="chapter-card__desc">Every documented pre-1947 MLB tryout given to a Black player. What happened after. The doors that opened and closed.</p>
@@ -1057,7 +1074,7 @@ body::before {
         <p class="chapter-card__meta">Research . SABR archives</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/08-the-salary-ledger/" class="chapter-card chapter-card--live" style="border-top: 3px solid #b96f4a">
+      <a href="/chapters/08-the-salary-ledger/" class="chapter-card chapter-card--live" style="border-top: 3px solid #b96f4a; --card-accent: #b96f4a">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 08</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Salary Ledger</h4>
         <p class="chapter-card__desc">Total wages stolen, in 2024 dollars. Same position, same performance, different paycheck. A number. Numbers are hard to argue with.</p>
@@ -1065,7 +1082,7 @@ body::before {
         <p class="chapter-card__meta">Compensation data . ML imputation</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/09-the-last-team/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545">
+      <a href="/chapters/09-the-last-team/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a14545; --card-accent: #a14545">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 09</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Last Team</h4>
         <p class="chapter-card__desc">The Red Sox integrated July 21, 1959. Twelve years after Robinson. Every team. Every player passed over. Every year of delay accounted for.</p>
@@ -1084,7 +1101,7 @@ body::before {
     </div>
     <p class="part__hook">"Have you heard what the numbers say?"</p>
     <div class="chapter-grid">
-      <a href="/chapters/10-the-ledger/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a">
+      <a href="/chapters/10-the-ledger/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a; --card-accent: #d4a64a">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 10</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Ledger</h4>
         <p class="chapter-card__desc">Input a player. Receive a career WAR, a Hall of Fame probability, and a stolen seasons figure. The advocacy spine of the platform.</p>
@@ -1092,7 +1109,7 @@ body::before {
         <p class="chapter-card__meta">ML engine . 500-trajectory ensemble</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/11-cooperstown/" class="chapter-card chapter-card--live" style="border-top: 3px solid #6f8aa8">
+      <a href="/chapters/11-cooperstown/" class="chapter-card chapter-card--live" style="border-top: 3px solid #6f8aa8; --card-accent: #6f8aa8">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 11</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">Cooperstown</h4>
         <p class="chapter-card__desc">Every Negro Leagues player ranked by the same methodology used to exclude them. Published with receipts. Timed for January ballot season.</p>
@@ -1100,7 +1117,7 @@ body::before {
         <p class="chapter-card__meta">HOF model . Full ranked output</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/12-the-other-hall/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a">
+      <a href="/chapters/12-the-other-hall/" class="chapter-card chapter-card--live" style="border-top: 3px solid #d4a64a; --card-accent: #d4a64a">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 12</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Other Hall</h4>
         <p class="chapter-card__desc">Players enshrined in the Cuban, Mexican, Venezuelan, and Dominican halls of fame that Cooperstown never counted. The dots with no US dot are the argument.</p>
@@ -1119,7 +1136,7 @@ body::before {
     </div>
     <p class="part__hook">"Have you heard who kept the record?"</p>
     <div class="chapter-grid">
-      <a href="/chapters/13-the-voice/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a08456">
+      <a href="/chapters/13-the-voice/" class="chapter-card chapter-card--live" style="border-top: 3px solid #a08456; --card-accent: #a08456">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 13</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Voice</h4>
         <p class="chapter-card__desc">A structured oral history collection. Submit a memory, a name, a city, a year. AI contextualizes each submission against the actual game schedule. The witnesses are still here.</p>
@@ -1127,7 +1144,7 @@ body::before {
         <p class="chapter-card__meta">Oral history . NLBM partnership</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-      <a href="/chapters/14-the-courier-archive/" class="chapter-card chapter-card--live" style="border-top: 3px solid #8a8270">
+      <a href="/chapters/14-the-courier-archive/" class="chapter-card chapter-card--live" style="border-top: 3px solid #8a8270; --card-accent: #8a8270">
         <div class="chapter-card__top"><span class="chapter-card__number">CH . 14</span><span class="badge badge--live">Live</span></div>
         <h4 class="chapter-card__title">The Courier Archive</h4>
         <p class="chapter-card__desc">Seventy-five years of Black baseball journalism, finally searchable. The Pittsburgh Courier. The Chicago Defender. The papers that kept the record when no one else would.</p>
