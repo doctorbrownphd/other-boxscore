@@ -48,6 +48,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -139,6 +140,19 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead {
   margin-top: 36px;
   border-bottom: 1px solid var(--rule);
+}
+
+.masthead__mark {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 40px 0;
+}
+
+.masthead__mark-svg {
+  width: 480px;
+  height: auto;
+  display: block;
+  opacity: 0.92;
 }
 
 .masthead__inner {
@@ -1870,6 +1884,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 600px) {
+  .masthead__mark { padding: 24px 20px 0; }
+  .masthead__mark-svg { width: 320px; }
   .page { padding-left: 20px !important; padding-right: 20px !important; }
   .hook__peak { font-size: 56px; }
   .hook__question { font-size: 32px; }

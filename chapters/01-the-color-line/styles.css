@@ -70,6 +70,22 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 }
 
 /* === Masthead === */
+.masthead__mark {
+  grid-column: 1 / -1;
+  padding: 0 0 20px;
+}
+
+.masthead__mark-svg {
+  width: 480px;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+}
+
+@media (max-width: 600px) {
+  .masthead__mark-svg { width: 320px; }
+}
+
 .masthead {
   display: grid;
   grid-template-columns: 1fr auto;
