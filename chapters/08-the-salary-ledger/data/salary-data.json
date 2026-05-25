@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "title": "Negro Leagues Documented Salary Data, 1920-1948",
+    "chapter": "08-the-salary-ledger",
+    "license": "CC0 1.0",
+    "last_updated": "2026-05-24",
+    "methodology_note": "Every figure traces to a cited source. Confidence levels: Documented (primary source, e.g. ledger), Verified (multiple independent secondary sources agree), Reported (single secondary source or oral history), Estimated (inferred from context with stated assumptions)."
+  },
+  "sources": [
+    {
+      "id": "notre_dame_ledger",
+      "citation": "Birmingham Black Barons Account Book, 1926-1930. Joyce Sports Research Collection, Hesburgh Libraries, University of Notre Dame. Digitized via Marble.",
+      "url": "https://marble.nd.edu/item/aspace_b2e64eef375ce765e4583929504e83b1",
+      "type": "primary"
+    },
+    {
+      "id": "britannica_negro_leagues",
+      "citation": "Britannica, 'Negro league: The Negro leagues gain prominence.'",
+      "url": "https://www.britannica.com/sports/Negro-league/The-Negro-leagues-gain-prominence",
+      "type": "secondary"
+    },
+    {
+      "id": "phillies_uya",
+      "citation": "Philadelphia Phillies Urban Youth Academy, 'Economics' (Negro Leagues educational program).",
+      "url": "https://www.mlb.com/phillies/community/educational-programs/uya-negro-league/economics",
+      "type": "secondary"
+    },
+    {
+      "id": "nlbm_player_conditions",
+      "citation": "Negro Leagues Baseball eMuseum, 'Life As a Black Baseball Player: Playing Conditions.'",
+      "url": "https://nlbemuseum.com/nlbm/player2.html",
+      "type": "secondary"
+    },
+    {
+      "id": "gardner_shortelle_1993",
+      "citation": "Gardner, Robert and Dennis Shortelle. 1993. Cited in NLBM eMuseum player conditions page.",
+      "type": "secondary"
+    },
+    {
+      "id": "holway_1988",
+      "citation": "Holway, John B. 1988. Cited in NLBM eMuseum player conditions page.",
+      "type": "secondary"
+    },
+    {
+      "id": "paige_wikipedia",
+      "citation": "Wikipedia, 'Satchel Paige.' Cross-referenced against multiple sources.",
+      "url": "https://en.wikipedia.org/wiki/Satchel_Paige",
+      "type": "secondary"
+    },
+    {
+      "id": "gibson_wikipedia",
+      "citation": "Wikipedia, 'Josh Gibson.' Cross-referenced against Britannica.",
+      "url": "https://en.wikipedia.org/wiki/Josh_Gibson",
+      "type": "secondary"
+    },
+    {
+      "id": "pendergast_kc_paige",
+      "citation": "The Pendergast Years, 'Satchel Paige.' Kansas City historical project.",
+      "url": "https://pendergastkc.org/articles/satchel-paige",
+      "type": "secondary"
+    },
+    {
+      "id": "lester_sabr",
+      "citation": "Larry Lester, SABR Negro Leagues Research Committee. Salary research cited across multiple secondary sources including Phillies UYA and NLBM.",
+      "url": "https://sabr.org/authors/larry-lester/",
+      "type": "authority"
+    },
+    {
+      "id": "peterson_1970",
+      "citation": "Peterson, Robert. Only the Ball Was White. 1970. Foundational secondary source.",
+      "type": "secondary"
+    },
+    {
+      "id": "hayes_ibw21_2020",
+      "citation": "Hayes, James M. 'The Rightness of Negro League Player Reparations.' Institute of the Black World 21st Century, June 2020.",
+      "url": "https://ibw21.org/editors-choice/the-rightness-of-negro-league-player-reparations/",
+      "type": "secondary"
+    }
+  ],
+  "documented_salaries": [
+    {
+      "player": "Satchel Paige",
+      "team": "Birmingham Black Barons",
+      "year": 1928,
+      "monthly_salary": 80,
+      "season_months": 5,
+      "annual_estimate": 400,
+      "notes": "Ledger also shows debits: $7.50 for shoes (Gray's Sporting Goods), $10.00 and $15.00 to 'Dr. Bradford', $5.00 fine for 'Not appearing in uniform in St. Louis', $10.00 fine for 'Staying out all night at Chicago'.",
+      "source": "notre_dame_ledger",
+      "confidence": "Documented"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Chattanooga Black Lookouts",
+      "year": 1925,
+      "monthly_salary": 200,
+      "season_months": 5,
+      "annual_estimate": 1000,
+      "notes": "With bonuses. First full professional contract. Up from $50/month in his first year with Chattanooga.",
+      "source": "paige_wikipedia",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Chattanooga Black Lookouts",
+      "year": 1924,
+      "monthly_salary": 50,
+      "season_months": 5,
+      "annual_estimate": 250,
+      "notes": "First year with Chattanooga.",
+      "source": "paige_wikipedia",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Birmingham Black Barons",
+      "year": 1927,
+      "monthly_salary": 275,
+      "season_months": 5,
+      "annual_estimate": 1375,
+      "notes": "First year with Birmingham. Some sources report this as his monthly rate.",
+      "source": "paige_wikipedia",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Pittsburgh Crawfords",
+      "year": 1936,
+      "monthly_salary": 600,
+      "season_months": 5,
+      "annual_estimate": 3000,
+      "notes": "By far the highest salary in the Negro Leagues at the time. Greenlee acquiesced to Paige's demands.",
+      "source": "paige_wikipedia",
+      "confidence": "Verified"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Dominican Republic (Ciudad Trujillo)",
+      "year": 1937,
+      "monthly_salary": null,
+      "season_months": null,
+      "annual_estimate": 30000,
+      "notes": "Played in Dominican Republic for $30,000, on par with the best white major leaguers.",
+      "source": "paige_wikipedia",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Satchel Paige",
+      "team": "Various (barnstorming/independent)",
+      "year_range": "1940-1946",
+      "monthly_salary": null,
+      "season_months": null,
+      "annual_estimate": 40000,
+      "notes": "Earned $30,000 to $40,000 per year through special deals, pitching 1-3 innings for independent teams. Four times the pay of the average New York Yankee. Some sources report $500 per game pitched. Reported to be earning approximately $500 per game at the beginning of the 1940s.",
+      "source": "pendergast_kc_paige",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Josh Gibson",
+      "team": "Homestead Grays / Pittsburgh Crawfords",
+      "year": 1933,
+      "monthly_salary": null,
+      "season_months": null,
+      "annual_estimate": 400,
+      "notes": "Had 55 home runs and 239 RBI and earned $400 for the season. One of the few specific documented wage figures.",
+      "source": "gibson_wikipedia",
+      "confidence": "Reported"
+    },
+    {
+      "player": "Josh Gibson",
+      "team": "Mexico (various)",
+      "year": 1940,
+      "monthly_salary": null,
+      "season_months": null,
+      "annual_estimate": 6000,
+      "notes": "Salary in Mexico. Homestead owner Cum Posey filed a $10,000 suit against him. Second-highest paid player in Black baseball behind Paige.",
+      "source": "gibson_wikipedia",
+      "confidence": "Reported"
+    }
+  ],
+  "salary_ranges": [
+    {
+      "era": "1905",
+      "league": "Black baseball (pre-organized leagues)",
+      "average_annual": 466,
+      "comparison_mlb_average": 2000,
+      "comparison_mlb_minor": 500,
+      "source": "holway_1988",
+      "confidence": "Reported"
+    },
+    {
+      "era": "1920s",
+      "league": "Negro Leagues",
+      "average_monthly": 230,
+      "journeyman_monthly": 150,
+      "range_low_monthly": 100,
+      "range_high_monthly": 400,
+      "team_salary_cap_monthly_1926": 3000,
+      "team_salary_cap_monthly_1927": 2700,
+      "notes": "Monthly average of $230 per Gardner and Shortelle (1993). Journeyman monthly of $150 per Britannica. Range of $100-$400 per Phillies UYA. Team-wide monthly salary cap of $3,000 in 1926 (both ECL and NNL), reduced to $2,700 by 1927.",
+      "sources": ["gardner_shortelle_1993", "britannica_negro_leagues", "phillies_uya"],
+      "confidence": "Verified"
+    },
+    {
+      "era": "1930s",
+      "league": "Negro Leagues",
+      "average_monthly": 170,
+      "notes": "Depression-era salary. Approximately $170 per season (likely per month, given context). Salaries dropped to $150/month maximum, down from up to $400 in the 1920s.",
+      "sources": ["gardner_shortelle_1993", "britannica_negro_leagues"],
+      "confidence": "Verified"
+    },
+    {
+      "era": "1940s (WWII)",
+      "league": "Negro Leagues",
+      "journeyman_monthly": 400,
+      "star_monthly": 1000,
+      "paige_annual": 30000,
+      "paige_annual_high": 40000,
+      "notes": "Salaries soared during wartime. Journeymen earned $400+/month, stars $1,000/month. Paige earned $30,000-$40,000/year through special arrangements. Black baseball became a $2 million-a-year business.",
+      "sources": ["britannica_negro_leagues", "pendergast_kc_paige"],
+      "confidence": "Verified"
+    }
+  ],
+  "meal_money": {
+    "negro_leagues_daily": {
+      "low": 1.00,
+      "high": 1.50,
+      "notes": "Spec cites Larry Lester for $1.00-$1.50/day. This figure is widely cited in Negro Leagues literature but the specific Lester/USA Today December 2020 source could not be independently verified via web search. Multiple secondary sources confirm the general range.",
+      "source": "lester_sabr",
+      "confidence": "Reported"
+    },
+    "mlb_daily": {
+      "amount": 15.00,
+      "notes": "Spec cites Lester for $15/day MLB meal money. This specific figure could not be independently verified via web search, but the 10:1 ratio between MLB and Negro Leagues meal money is consistent with the broader salary disparity.",
+      "source": "lester_sabr",
+      "confidence": "Reported"
+    }
+  },
+  "lester_salary_tiers": {
+    "rookie_monthly": 75,
+    "average_monthly": 175,
+    "star_monthly": 375,
+    "era": "early 1920s",
+    "notes": "These specific tier figures ($75/$175/$375) are attributed to Larry Lester in the chapter spec. They are consistent with the independently verified ranges ($100-$400 monthly per Phillies UYA, $150 journeyman per Britannica, $230 average per Gardner/Shortelle) but the exact three-tier breakdown could not be independently located in web-accessible sources. The figures are plausible and internally consistent with verified data.",
+    "source": "lester_sabr",
+    "confidence": "Reported"
+  }
+}

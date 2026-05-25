@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "World Series and Negro World Series Player Shares Comparison, 1920-1948",
+    "chapter": "08-the-salary-ledger",
+    "license": "CC0 1.0",
+    "last_updated": "2026-05-24",
+    "methodology_note": "MLB World Series shares are well documented through Baseball Almanac. Negro World Series financial data is sparse, with the 1924 series being the best documented."
+  },
+  "sources": [
+    {
+      "id": "baseball_almanac_ws",
+      "citation": "Baseball Almanac, 'World Series Gate Receipts and World Series Player Shares.'",
+      "url": "https://www.baseball-almanac.com/ws/wsshares.shtml",
+      "type": "authority"
+    },
+    {
+      "id": "sabr_1924_nws",
+      "citation": "SABR Games Project, 'October 20, 1924: Jose Mendez, Kansas City Monarchs shut out Hilldale Club to win first Negro League World Series.'",
+      "url": "https://sabr.org/gamesproj/game/october-20-1924-jose-mendez-kansas-city-monarchs-shut-out-hilldale-club-to-win-first-negro-league-world-series/",
+      "type": "authority"
+    },
+    {
+      "id": "br_1924_nws",
+      "citation": "Baseball Reference Bullpen, '1924 Negro World Series.'",
+      "url": "https://www.baseball-reference.com/bullpen/1924_Negro_World_Series",
+      "type": "secondary"
+    },
+    {
+      "id": "br_1925_nws",
+      "citation": "Baseball Reference Bullpen, '1925 Negro World Series.'",
+      "url": "https://www.baseball-reference.com/bullpen/1925_Negro_World_Series",
+      "type": "secondary"
+    }
+  ],
+  "comparisons": [
+    {
+      "year": 1924,
+      "event_mlb": "1924 World Series (Washington Senators def. New York Giants, 4-3)",
+      "event_negro": "1924 Colored World Series (Kansas City Monarchs def. Hilldale, 5-4-1)",
+      "mlb_winner_share": 5959.64,
+      "mlb_loser_share": 3820.29,
+      "negro_winner_share": 307.96,
+      "negro_loser_share": null,
+      "negro_total_net_profit": 23463.44,
+      "negro_winner_team_pct": 0.42,
+      "negro_winner_team_total": 9854.64,
+      "negro_winner_player_count": 16,
+      "ratio_winner": 19.35,
+      "notes": "The Monarchs' net profits of $23,463.44 were divided 42% to the winners ($9,854.64), split among 16 player shares of $307.96 each. The MLB winner share was 19.4x the Negro World Series winner share.",
+      "mlb_source": "baseball_almanac_ws",
+      "negro_source": "sabr_1924_nws",
+      "confidence": "Documented"
+    },
+    {
+      "year": 1925,
+      "event_mlb": "1925 World Series (Pittsburgh Pirates def. Washington Senators, 4-3)",
+      "event_negro": "1925 Negro World Series (Hilldale def. Kansas City Monarchs, 5-1)",
+      "mlb_winner_share": 5332.72,
+      "mlb_loser_share": 3734.60,
+      "negro_winner_share": null,
+      "negro_loser_share": 57.64,
+      "negro_total_gate_receipts": 21000,
+      "notes": "The 1925 Negro League World Series was a financial disaster with total gate receipts of only $21,000. Each losing Monarch received just $57.64, less than $10 per game. The Colored World Series was never the financial windfall that the white World Series was.",
+      "mlb_source": "baseball_almanac_ws",
+      "negro_source": "br_1925_nws",
+      "confidence": "Documented"
+    }
+  ],
+  "mlb_world_series_shares": [
+    { "year": 1920, "winner_share": 4168.00, "loser_share": 2419.60 },
+    { "year": 1921, "winner_share": 5265.00, "loser_share": 3510.00 },
+    { "year": 1922, "winner_share": 4545.71, "loser_share": 2842.86 },
+    { "year": 1923, "winner_share": 6143.49, "loser_share": 4112.88 },
+    { "year": 1924, "winner_share": 5959.64, "loser_share": 3820.29 },
+    { "year": 1925, "winner_share": 5332.72, "loser_share": 3734.60 },
+    { "year": 1926, "winner_share": 5584.51, "loser_share": 3417.75 },
+    { "year": 1927, "winner_share": 5782.24, "loser_share": 3985.47 },
+    { "year": 1928, "winner_share": 5813.20, "loser_share": 4181.30 },
+    { "year": 1929, "winner_share": 5620.57, "loser_share": 3782.01 },
+    { "year": 1930, "winner_share": 5038.07, "loser_share": 3536.68 },
+    { "year": 1931, "winner_share": 4467.59, "loser_share": 3023.00 },
+    { "year": 1932, "winner_share": 5231.77, "loser_share": 4244.60 },
+    { "year": 1933, "winner_share": 4256.72, "loser_share": 3019.86 },
+    { "year": 1934, "winner_share": 5389.57, "loser_share": 3354.68 },
+    { "year": 1935, "winner_share": 6544.76, "loser_share": 4198.53 },
+    { "year": 1936, "winner_share": 6430.55, "loser_share": 4655.57 },
+    { "year": 1937, "winner_share": 6471.11, "loser_share": 4489.96 },
+    { "year": 1938, "winner_share": 5728.76, "loser_share": 4674.87 },
+    { "year": 1939, "winner_share": 5541.89, "loser_share": 4193.39 },
+    { "year": 1940, "winner_share": 5803.62, "loser_share": 3531.81 },
+    { "year": 1941, "winner_share": 5943.31, "loser_share": 4829.40 },
+    { "year": 1942, "winner_share": 6192.53, "loser_share": 3351.77 },
+    { "year": 1943, "winner_share": 6139.46, "loser_share": 4321.96 },
+    { "year": 1944, "winner_share": 4626.01, "loser_share": 2743.79 },
+    { "year": 1945, "winner_share": 6443.34, "loser_share": 3930.22 },
+    { "year": 1946, "winner_share": 3742.34, "loser_share": 2140.89 },
+    { "year": 1947, "winner_share": 5830.03, "loser_share": 4081.19 },
+    { "year": 1948, "winner_share": 6772.07, "loser_share": 4570.73 }
+  ],
+  "source_note": "All MLB World Series shares from Baseball Almanac. Negro World Series financial data from SABR and Baseball Reference."
+}

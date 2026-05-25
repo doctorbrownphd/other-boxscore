@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "CPI Inflation Multipliers for Historical Dollar Conversion, 1920-1948 to 2024",
+    "chapter": "08-the-salary-ledger",
+    "license": "CC0 1.0",
+    "last_updated": "2026-05-24",
+    "base": "CPI-U, 1982-1984 = 100",
+    "methodology_note": "CPI-U annual average index values from in2013dollars.com, cross-referenced against BLS historical tables. The 2024 annual average CPI-U is 313.69. Multipliers are calculated as 313.69 / historical_cpi. These multipliers convert historical dollars to 2024 purchasing power equivalents. Note: CPI is one of three inflator methods used in this chapter. Wage index and GDP share inflators produce different (generally larger) results."
+  },
+  "sources": [
+    {
+      "id": "in2013dollars",
+      "citation": "in2013dollars.com, 'U.S. Consumer Price Index (CPI) by Year.' Based on BLS CPI-U data.",
+      "url": "https://www.in2013dollars.com/us-cpi",
+      "type": "authority"
+    },
+    {
+      "id": "bls_cpi",
+      "citation": "U.S. Bureau of Labor Statistics, CPI-U Historical Tables.",
+      "url": "https://www.bls.gov/cpi/tables/historical-cpi-u-202402.pdf",
+      "type": "primary"
+    },
+    {
+      "id": "minneapolis_fed",
+      "citation": "Federal Reserve Bank of Minneapolis, Consumer Price Index, 1913-.",
+      "url": "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-",
+      "type": "primary"
+    }
+  ],
+  "reference_year": 2024,
+  "reference_cpi": 313.69,
+  "annual_cpi": [
+    { "year": 1920, "cpi": 20.04, "multiplier_to_2024": 15.65 },
+    { "year": 1921, "cpi": 17.85, "multiplier_to_2024": 17.57 },
+    { "year": 1922, "cpi": 16.75, "multiplier_to_2024": 18.73 },
+    { "year": 1923, "cpi": 17.05, "multiplier_to_2024": 18.40 },
+    { "year": 1924, "cpi": 17.13, "multiplier_to_2024": 18.31 },
+    { "year": 1925, "cpi": 17.54, "multiplier_to_2024": 17.88 },
+    { "year": 1926, "cpi": 17.70, "multiplier_to_2024": 17.72 },
+    { "year": 1927, "cpi": 17.36, "multiplier_to_2024": 18.07 },
+    { "year": 1928, "cpi": 17.16, "multiplier_to_2024": 18.28 },
+    { "year": 1929, "cpi": 17.16, "multiplier_to_2024": 18.28 },
+    { "year": 1930, "cpi": 16.70, "multiplier_to_2024": 18.78 },
+    { "year": 1931, "cpi": 15.21, "multiplier_to_2024": 20.62 },
+    { "year": 1932, "cpi": 13.64, "multiplier_to_2024": 23.00 },
+    { "year": 1933, "cpi": 12.93, "multiplier_to_2024": 24.26 },
+    { "year": 1934, "cpi": 13.38, "multiplier_to_2024": 23.44 },
+    { "year": 1935, "cpi": 13.73, "multiplier_to_2024": 22.85 },
+    { "year": 1936, "cpi": 13.87, "multiplier_to_2024": 22.62 },
+    { "year": 1937, "cpi": 14.38, "multiplier_to_2024": 21.81 },
+    { "year": 1938, "cpi": 14.09, "multiplier_to_2024": 22.26 },
+    { "year": 1939, "cpi": 13.91, "multiplier_to_2024": 22.55 },
+    { "year": 1940, "cpi": 14.01, "multiplier_to_2024": 22.39 },
+    { "year": 1941, "cpi": 14.73, "multiplier_to_2024": 21.30 },
+    { "year": 1942, "cpi": 16.33, "multiplier_to_2024": 19.21 },
+    { "year": 1943, "cpi": 17.31, "multiplier_to_2024": 18.12 },
+    { "year": 1944, "cpi": 17.59, "multiplier_to_2024": 17.83 },
+    { "year": 1945, "cpi": 17.99, "multiplier_to_2024": 17.44 },
+    { "year": 1946, "cpi": 19.52, "multiplier_to_2024": 16.07 },
+    { "year": 1947, "cpi": 22.33, "multiplier_to_2024": 14.05 },
+    { "year": 1948, "cpi": 24.04, "multiplier_to_2024": 13.05 }
+  ],
+  "key_conversions": {
+    "description": "Pre-calculated conversions for figures used in the chapter narrative.",
+    "paige_1928_season": {
+      "nominal": 400,
+      "cpi_2024": 7312,
+      "notes": "$400 x 18.28 = $7,312 in 2024 dollars"
+    },
+    "paige_1928_monthly": {
+      "nominal": 80,
+      "cpi_2024": 1462,
+      "notes": "$80 x 18.28 = $1,462 in 2024 dollars"
+    },
+    "mlb_avg_1928_season": {
+      "nominal": 6800,
+      "cpi_2024": 124304,
+      "notes": "$6,800 x 18.28 = $124,304 in 2024 dollars"
+    },
+    "monarchs_1924_ws_share": {
+      "nominal": 307.96,
+      "cpi_2024": 5639,
+      "notes": "$307.96 x 18.31 = $5,639 in 2024 dollars"
+    },
+    "senators_1924_ws_share": {
+      "nominal": 5959.64,
+      "cpi_2024": 109121,
+      "notes": "$5,959.64 x 18.31 = $109,121 in 2024 dollars"
+    },
+    "gibson_1933_season": {
+      "nominal": 400,
+      "cpi_2024": 9704,
+      "notes": "$400 x 24.26 = $9,704 in 2024 dollars"
+    }
+  },
+  "inflator_comparison_note": "CPI measures consumer purchasing power and is the most conservative inflator. Wage index measures what the same labor would command today and produces roughly 1.5-2x larger figures. GDP share measures the relative share of economic output and produces roughly 3-4x larger figures than CPI. The chapter reports all three to show the methodological sensitivity."
+}

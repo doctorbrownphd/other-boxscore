@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "title": "MLB Historical Salary Data for Comparison, 1920-1948",
+    "chapter": "08-the-salary-ledger",
+    "license": "CC0 1.0",
+    "last_updated": "2026-05-24",
+    "methodology_note": "MLB salary data is better documented than Negro Leagues data but still has gaps in the pre-1950 era. Average salary figures before 1950 are estimates based on SABR research, economic histories, and the limited surviving records. Star salaries are better documented than averages."
+  },
+  "sources": [
+    {
+      "id": "sabr_salary_leaders",
+      "citation": "SABR Business of Baseball Research Committee, 'MLB's Annual Salary Leaders Since 1874.'",
+      "url": "https://sabr.org/research/article/mlbs-annual-salary-leaders-since-1874/",
+      "type": "authority"
+    },
+    {
+      "id": "sabr_bob_2009",
+      "citation": "SABR Business of Baseball, 'Ballplayer Pay and Performance in the Face of Economic Depression' (2009).",
+      "url": "http://research.sabr.org/business/download/BoB-2009-2.pdf",
+      "type": "authority"
+    },
+    {
+      "id": "eh_net_mlb",
+      "citation": "EH.net, 'The Economic History of Major League Baseball.'",
+      "url": "https://eh.net/encyclopedia/the-economic-history-of-major-league-baseball/",
+      "type": "secondary"
+    },
+    {
+      "id": "nlbm_emuseum",
+      "citation": "Negro Leagues Baseball eMuseum, 'Life As a Black Baseball Player: Playing Conditions.' Gardner and Shortelle (1993).",
+      "url": "https://nlbemuseum.com/nlbm/player2.html",
+      "type": "secondary"
+    },
+    {
+      "id": "baseball_almanac",
+      "citation": "Baseball Almanac, 'Major League Baseball Minimum Wage.'",
+      "url": "https://www.baseball-almanac.com/charts/salary/major_league_salaries.shtml",
+      "type": "secondary"
+    }
+  ],
+  "era_averages": [
+    {
+      "era": "1920s",
+      "average_annual_salary": 5000,
+      "average_annual_salary_high": 6000,
+      "notes": "Annual major league average $5,000-$6,000 per Gardner and Shortelle (1993), cited in NLBM eMuseum. MLB wages more than doubled during the 1920s while non-agricultural wages increased only 21% (SABR BoB 2009). EH.net reports 1920s average nominal salary of $6,992.",
+      "sources": ["nlbm_emuseum", "sabr_bob_2009", "eh_net_mlb"],
+      "confidence": "Verified"
+    },
+    {
+      "era": "1930s",
+      "average_annual_salary": 7000,
+      "notes": "Annual major league average approximately $7,000 per Gardner and Shortelle (1993). EH.net reports 1930 average nominal salary of $7,748. MLB wages increased 27% during the 1930s while general wages gained only 8% (SABR BoB 2009).",
+      "sources": ["nlbm_emuseum", "sabr_bob_2009", "eh_net_mlb"],
+      "confidence": "Verified"
+    },
+    {
+      "era": "1940s",
+      "average_annual_salary": 6000,
+      "average_annual_salary_late": 11197,
+      "minimum_salary_post_1946": 5000,
+      "notes": "From the 1940s through the late 1960s, the average major league salary was $6,000 (Baseball Almanac). After 1946 player negotiations, minimum salary set at $5,000. EH.net reports 1949 average nominal salary of $11,197. The late 1940s saw significant salary growth.",
+      "sources": ["baseball_almanac", "eh_net_mlb"],
+      "confidence": "Verified"
+    }
+  ],
+  "annual_estimates": [
+    { "year": 1920, "avg_salary": 5000, "top_salary": 20000, "top_player": "Babe Ruth", "notes": "Ruth's salary per Baseball-Reference. Average estimated from era data.", "confidence": "Estimated" },
+    { "year": 1921, "avg_salary": 5200, "top_salary": 30000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1922, "avg_salary": 5400, "top_salary": 52000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1923, "avg_salary": 5600, "top_salary": 52000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1924, "avg_salary": 5800, "top_salary": 52000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1925, "avg_salary": 6000, "top_salary": 52000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1926, "avg_salary": 6200, "top_salary": 52000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1927, "avg_salary": 6500, "top_salary": 70000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1928, "avg_salary": 6800, "top_salary": 70000, "top_player": "Babe Ruth", "notes": "The $7,200 figure used in the hook for average pitcher salary is derived from this range (season-length adjusted).", "confidence": "Estimated" },
+    { "year": 1929, "avg_salary": 7000, "top_salary": 70000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1930, "avg_salary": 7200, "top_salary": 80000, "top_player": "Babe Ruth", "notes": "Ruth's $80,000 was 2.4x the second-highest salary (Rogers Hornsby). EH.net reports average of $7,748.", "confidence": "Estimated" },
+    { "year": 1931, "avg_salary": 7000, "top_salary": 80000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1932, "avg_salary": 6800, "top_salary": 75000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1933, "avg_salary": 6500, "top_salary": 52000, "top_player": "Babe Ruth", "notes": "Depression impact. Slight salary decreases and purchasing power drops in 1933-1934 per SABR BoB.", "confidence": "Estimated" },
+    { "year": 1934, "avg_salary": 6500, "top_salary": 35000, "top_player": "Babe Ruth", "confidence": "Estimated" },
+    { "year": 1935, "avg_salary": 6600, "top_salary": 36000, "top_player": "Hank Greenberg", "confidence": "Estimated" },
+    { "year": 1936, "avg_salary": 6700, "top_salary": 36000, "top_player": "Lou Gehrig", "notes": "DiMaggio earned $8,500 as a rookie.", "confidence": "Estimated" },
+    { "year": 1937, "avg_salary": 6800, "top_salary": 36000, "top_player": "Lou Gehrig", "notes": "DiMaggio earned $17,000.", "confidence": "Estimated" },
+    { "year": 1938, "avg_salary": 6900, "top_salary": 36000, "top_player": "Lou Gehrig", "notes": "DiMaggio earned $25,000.", "confidence": "Estimated" },
+    { "year": 1939, "avg_salary": 7000, "top_salary": 35000, "top_player": "Hank Greenberg", "notes": "DiMaggio earned $27,500. Ted Williams earned $6,500.", "confidence": "Estimated" },
+    { "year": 1940, "avg_salary": 7200, "top_salary": 40000, "top_player": "Hank Greenberg", "notes": "DiMaggio earned $32,500. Williams earned $12,000.", "confidence": "Estimated" },
+    { "year": 1941, "avg_salary": 7400, "top_salary": 37000, "top_player": "Hank Greenberg", "confidence": "Estimated" },
+    { "year": 1942, "avg_salary": 7000, "top_salary": 37000, "top_player": "Ted Williams", "notes": "Wartime salary compression began.", "confidence": "Estimated" },
+    { "year": 1943, "avg_salary": 6800, "top_salary": 35000, "top_player": "Various", "notes": "Many top players serving in military.", "confidence": "Estimated" },
+    { "year": 1944, "avg_salary": 6500, "top_salary": 33000, "top_player": "Various", "notes": "War years. Diminished roster quality.", "confidence": "Estimated" },
+    { "year": 1945, "avg_salary": 6500, "top_salary": 35000, "top_player": "Various", "confidence": "Estimated" },
+    { "year": 1946, "avg_salary": 8000, "top_salary": 44000, "top_player": "Hank Greenberg", "notes": "Post-war salary jump. New $5,000 minimum established. EH.net reports mean of $18,500 (likely including higher-paid returnees).", "confidence": "Estimated" },
+    { "year": 1947, "avg_salary": 9000, "top_salary": 50000, "top_player": "Ted Williams", "notes": "Jackie Robinson earned $5,000 in his first MLB season.", "confidence": "Estimated" },
+    { "year": 1948, "avg_salary": 10000, "top_salary": 65000, "top_player": "Joe DiMaggio", "notes": "EH.net reports 1949 average of $11,197.", "confidence": "Estimated" }
+  ],
+  "salary_context": {
+    "mlb_meal_money_daily": 15.00,
+    "mlb_meal_money_notes": "Cited in spec from Lester. Could not be independently verified via web search, but the disparity with Negro Leagues meal money ($1.00-$1.50/day) is consistent with broader salary gaps.",
+    "mlb_meal_money_confidence": "Reported",
+    "mlb_1920s_wage_growth": "MLB wages more than doubled during the 1920s. Non-agricultural wages increased only 21%.",
+    "mlb_1930s_wage_growth": "MLB wages increased 27% during the 1930s, almost all in the first two years. General wages gained only 8%.",
+    "mlb_players_vs_general_population": "Ballplayers fared much better than the general populace during the Depression. They did not experience double-digit unemployment and their salaries grew relative to the average American salary.",
+    "wage_growth_source": "sabr_bob_2009"
+  }
+}
