@@ -233,12 +233,23 @@
   ],
   "tryoutDatabase": [
     {
+      "date": "1942-03-01",
+      "dateDisplay": "Mar 1942",
+      "team": "Chicago White Sox",
+      "players": "Nate Moreland, Jackie Robinson",
+      "location": "Pasadena, CA",
+      "outcome": "Manager Dykes praised Robinson ('worth $50,000') but no follow-up",
+      "result": "No signings",
+      "source": "SABR BioProject, Pittsburgh Courier, Chicago Defender",
+      "confidence": "Documented"
+    },
+    {
       "date": "1942-07-01",
       "dateDisplay": "Jul 1942",
       "team": "Pittsburgh Pirates",
-      "players": "Wendell Smith to select candidates",
+      "players": "Roy Campanella, Sammy Hughes, David Barnhill",
       "location": "Pittsburgh (announced, never held)",
-      "outcome": "Abandoned Aug 1942",
+      "outcome": "Owner Benswanger invited players, then canceled",
       "result": "No signings",
       "source": "Pittsburgh Courier, SABR BioProject",
       "confidence": "Documented"
