@@ -104,7 +104,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
 }
 
-.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+.platform-nav__mark { width: 32px; height: 32px; flex-shrink: 0; }
 
 .platform-nav__title {
   font-family: var(--mono);
@@ -1375,16 +1375,24 @@ img { max-width: 100%; height: auto; display: block; }
 <header class="masthead">
   <div class="masthead__inner">
     <div class="masthead__ruler">
-      <div class="masthead__part">Part Four -- What the Numbers Say</div>
+      <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+        <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="24" x2="6" y2="24" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="72" x2="6" y2="72" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+      </svg>
     </div>
     <div>
-      <h1 class="masthead__title">The Other <em>Hall</em></h1>
+      <div class="masthead__part">Part Four -- What the Numbers Say</div>
+      <h1 class="masthead__title">The Other <em>Hall.</em></h1>
       <p class="masthead__subtitle">Cooperstown is one Hall. The Cuban, Mexican, Caribbean, Dominican, Puerto Rican, and Venezuelan Halls have been inducting the same players, sometimes earlier, sometimes more completely. The comparison across institutions is a measurement of which institutions have been doing the work.</p>
     </div>
     <div class="masthead__meta">
-      <div class="masthead__meta-line">CHAPTER 12 OF 15</div>
-      <div class="masthead__meta-line">6 HALLS OF FAME</div>
-      <div class="masthead__meta-line masthead__meta-line--amber">THE MATRIX</div>
+      <div>Chapter 12 / 15</div>
+      <div class="masthead__meta-line">6 Halls of Fame</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">The matrix</div>
     </div>
   </div>
   <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">

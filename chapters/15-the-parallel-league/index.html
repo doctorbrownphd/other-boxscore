@@ -102,7 +102,7 @@ a:hover { color: var(--amber-2); }
   text-decoration: none;
 }
 
-.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+.platform-nav__mark { width: 32px; height: 32px; flex-shrink: 0; }
 
 .platform-nav__title {
   font-family: var(--mono);
@@ -128,9 +128,23 @@ a:hover { color: var(--amber-2); }
 
 .masthead {
   margin-top: 36px;
-  padding: 80px 32px 64px;
-  text-align: center;
   border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .masthead__part {
@@ -138,38 +152,47 @@ a:hover { color: var(--amber-2); }
   font-size: 11px;
   font-weight: 400;
   color: var(--slate);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.masthead__chapter-num {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 300;
-  color: var(--muted);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .masthead__title {
   font-family: var(--display);
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 900;
-  line-height: 1.0;
+  line-height: 0.96;
   color: var(--vellum);
-  margin: 0 auto 16px;
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
 }
 
 .masthead__subtitle {
-  font-family: var(--display);
-  font-size: 22px;
-  font-weight: 400;
+  font-family: var(--serif);
+  font-size: 20px;
   font-style: italic;
+  line-height: 1.4;
   color: var(--vellum-dim);
-  letter-spacing: 0.04em;
+  max-width: 760px;
+  margin-top: 16px;
 }
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
 
 /* ==========================================================================
    3. Prose Sections -- the core of this chapter
@@ -678,7 +701,8 @@ a:hover { color: var(--amber-2); }
    ========================================================================== */
 
 @media (max-width: 768px) {
-  .masthead { padding: 56px 24px 48px; }
+  .masthead__inner { grid-template-columns: 1fr; gap: 16px; padding: 32px 24px 0; }
+  .masthead__ruler { display: none; }
   .masthead__title { font-size: 44px; }
   .masthead__subtitle { font-size: 18px; }
 
@@ -745,10 +769,27 @@ a:hover { color: var(--amber-2); }
      ==================================================================== -->
 
 <header class="masthead" role="banner">
-  <div class="masthead__part">Coda</div>
-  <div class="masthead__chapter-num">Chapter 15</div>
-  <h1 class="masthead__title">The Parallel League</h1>
-  <div class="masthead__subtitle">Coda</div>
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+        <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="24" x2="6" y2="24" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="72" x2="6" y2="72" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div>
+      <div class="masthead__part">Coda</div>
+      <h1 class="masthead__title">The Parallel <em>League.</em></h1>
+      <p class="masthead__subtitle">The argument the platform makes, stated in plain language, with precise citations to the chapters that produced each finding.</p>
+    </div>
+    <div class="masthead__meta">
+      <div>Chapter 15 / 15</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">Coda</div>
+    </div>
+  </div>
 </header>
 
 <!-- ====================================================================

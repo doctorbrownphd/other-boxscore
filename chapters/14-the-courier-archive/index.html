@@ -101,7 +101,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
 }
 
-.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+.platform-nav__mark { width: 32px; height: 32px; flex-shrink: 0; }
 
 .platform-nav__title {
   font-family: var(--mono);
@@ -142,6 +142,12 @@ img { max-width: 100%; height: auto; display: block; }
   grid-template-columns: auto 1fr auto;
   gap: 28px;
   align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .masthead__part {
@@ -1296,19 +1302,26 @@ img { max-width: 100%; height: auto; display: block; }
 
 <header class="masthead">
   <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+        <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="24" x2="6" y2="24" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="72" x2="6" y2="72" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+      </svg>
+    </div>
     <div>
       <div class="masthead__part">Part Five -- What Remains</div>
-      <div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase">Chapter 14 of 15</div>
-      <h1 class="masthead__title">The Courier<br><em>Archive</em></h1>
+      <h1 class="masthead__title">The Courier <em>Archive.</em></h1>
       <p class="masthead__subtitle">The mainstream white press did not cover Negro Leagues baseball. The Black press did, with discipline, commitment, and advocacy journalism that drove the integration of the game. Seventy-five years of that record, indexed and made navigable.</p>
     </div>
-    <div></div>
     <div class="masthead__meta">
-      <div>PART FIVE</div>
-      <div class="masthead__meta-line">WHAT REMAINS</div>
+      <div>Chapter 14 / 15</div>
       <div class="masthead__meta-line">1920 -- 1975</div>
-      <div class="masthead__meta-line masthead__meta-line--amber">10 PUBLICATIONS</div>
-      <div class="masthead__meta-line">75 YEARS</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">10 publications</div>
+      <div class="masthead__meta-line">75 years</div>
     </div>
   </div>
 

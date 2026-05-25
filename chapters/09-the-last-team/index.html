@@ -102,7 +102,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
 }
 
-.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+.platform-nav__mark { width: 32px; height: 32px; flex-shrink: 0; }
 
 .platform-nav__title {
   font-family: var(--mono);
@@ -1072,10 +1072,17 @@ img { max-width: 100%; height: auto; display: block; }
 <header id="top" class="masthead" role="banner">
   <div class="masthead__inner">
     <div class="masthead__ruler">
-      <div class="masthead__part">Part Three -- The Record That Wasn't Kept</div>
-      <div class="masthead__chapter-num">Chapter 09</div>
+      <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+        <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="24" x2="6" y2="24" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="72" x2="6" y2="72" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+      </svg>
     </div>
     <div>
+      <div class="masthead__part">Part Three -- The Record That Wasn't Kept</div>
       <h1 class="masthead__title">The Last <em>Team.</em></h1>
       <p class="masthead__subtitle">
         Integration was not a moment in 1947. It was sixteen separate decisions
@@ -1083,9 +1090,9 @@ img { max-width: 100%; height: auto; display: block; }
       </p>
     </div>
     <div class="masthead__meta" aria-label="Chapter metadata">
-      <div class="masthead__meta-line">N = 16 Franchises</div>
+      <div>Chapter 09 / 15</div>
       <div class="masthead__meta-line masthead__meta-line--amber">Window -- 1947--1959</div>
-      <div class="masthead__meta-line">5 Models</div>
+      <div class="masthead__meta-line">N = 16 Franchises</div>
       <div class="masthead__meta-line masthead__meta-line--amber">Survival analysis</div>
     </div>
   </div>
