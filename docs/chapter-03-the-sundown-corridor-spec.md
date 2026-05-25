@@ -1,10 +1,10 @@
-# The Other Box Score — Chapter 03
+# The Other Box Score -- Chapter 03
 ## The Sundown Corridor · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-sundown-corridor/
 **GitHub:** other-boxscore/chapters/03-the-sundown-corridor/
-**Part:** One — The world they played in
+**Part:** One -- The world they played in
 **Position:** Chapter 03 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC COMPLETE

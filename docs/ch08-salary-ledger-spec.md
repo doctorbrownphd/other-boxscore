@@ -1,10 +1,10 @@
-# The Salary Ledger — Chapter 08
+# The Salary Ledger -- Chapter 08
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-salary-ledger/
 **GitHub:** other-boxscore/chapters/08-the-salary-ledger/
-**Part:** Two — The game they played
+**Part:** Two -- The game they played
 **Position:** Chapter 08 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC v1.0
@@ -46,19 +46,19 @@ This chapter calculates what that gap cost. Every documented Negro Leagues playe
 
 The chapter must produce findings that do not currently exist anywhere else on the web. The 2020 IBW21 reparations argument by James Hayes establishes the WAR plus average salary methodology at a conceptual level. This chapter operationalizes it at full scale, with confidence intervals, and produces several findings that are net new:
 
-**Finding 1 — The Aggregate**
+**Finding 1 -- The Aggregate**
 Total documented wage gap, 1920 through 1948, in 2024 dollars, with low and high bounds. The headline figure. Calculated three ways (CPI, wage index, GDP share) so readers see how the choice of inflator changes the answer.
 
-**Finding 2 — The Individual Ledger**
+**Finding 2 -- The Individual Ledger**
 Per-player career wage gap for every Negro Leagues player with sufficient documented service time. Ranked. The top of this list will contain names readers know (Gibson, Paige, Charleston, Bell) and names they do not. The not-knowing is part of the argument.
 
-**Finding 3 — The Team Ledger**
+**Finding 3 -- The Team Ledger**
 Per-franchise total wage gap. The Homestead Grays, the Kansas City Monarchs, the Pittsburgh Crawfords. Which franchise transferred the largest cumulative wealth out of Black labor.
 
-**Finding 4 — The Counterfactual**
+**Finding 4 -- The Counterfactual**
 A regression-based prediction of what each Negro Leagues star would have earned in MLB given their documented production, controlling for era, position, and league-wide salary inflation. Compared to what they actually earned. The delta is the per-player theft.
 
-**Finding 5 — The Compounding**
+**Finding 5 -- The Compounding**
 A finding the existing reparations literature does not address. If those wages had been paid, and invested at historical S&P returns, what would the estate of a deceased player be worth today. This is the intergenerational wealth transfer argument, made quantitatively for the first time.
 
 ---
@@ -101,7 +101,7 @@ The three inflators produce different results by design. The chapter shows all t
 
 The chapter implements Tenant 10 (ML maximized) through five distinct model applications, each with confidence labels and methodology documentation. This is the chapter where the ML genuinely earns its place because the underlying question is fundamentally a problem of imputation under sparse and unevenly documented data.
 
-### Model 1 — Salary Imputation
+### Model 1 -- Salary Imputation
 
 **Problem:** Documented salaries exist for some players in some seasons. Most player-seasons have no salary record. The chapter cannot reach its findings without filling those gaps.
 
@@ -113,7 +113,7 @@ The chapter implements Tenant 10 (ML maximized) through five distinct model appl
 
 **Why Bayesian and not regression:** The data is sparse, the priors are informative (we know the ranges from Lester), and the readers need credible intervals not point estimates. A flat OLS regression would understate uncertainty.
 
-### Model 2 — MLB Counterfactual Salary Prediction
+### Model 2 -- MLB Counterfactual Salary Prediction
 
 **Problem:** What would a Negro Leagues player have earned in MLB, given their documented production?
 
@@ -125,7 +125,7 @@ The chapter implements Tenant 10 (ML maximized) through five distinct model appl
 
 **Methodology note:** This approach builds on the Hayes IBW21 framing (use average MLB salary as the floor) but improves on it by predicting position-specific and production-specific MLB salaries rather than league-average.
 
-### Model 3 — Wage Gap and Reparations Calculation
+### Model 3 -- Wage Gap and Reparations Calculation
 
 **Problem:** Combine Models 1 and 2 to produce the gap, then inflate to 2024 dollars.
 
@@ -135,7 +135,7 @@ The chapter implements Tenant 10 (ML maximized) through five distinct model appl
 
 **Confidence:** Monte Carlo simulation over the joint posterior of Models 1 and 2 to produce career-level credible intervals. The headline figure is reported as a range, not a point estimate.
 
-### Model 4 — Compounded Estate Value
+### Model 4 -- Compounded Estate Value
 
 **Problem:** Translate the wage gap into the intergenerational wealth-transfer figure.
 
@@ -145,7 +145,7 @@ The chapter implements Tenant 10 (ML maximized) through five distinct model appl
 
 **Confidence label:** The S&P assumption is explicit and noted as a methodological choice, not the only choice. The methodology page documents alternatives (T-bills, average household savings rates, real estate appreciation by region) and shows how they shift the result.
 
-### Model 5 — Sensitivity Analysis Engine
+### Model 5 -- Sensitivity Analysis Engine
 
 **Problem:** Readers will want to know which assumptions drive the headline figure most.
 
@@ -161,7 +161,7 @@ The chapter implements Tenant 10 (ML maximized) through five distinct model appl
 
 Five visualizations carry the chapter. Each is purpose-built. Each is mobile-first per Tenant 13.
 
-### Fig 01 — The Single Ledger Entry
+### Fig 01 -- The Single Ledger Entry
 
 **The reader's entry point.** A reproduction of a real Birmingham Black Barons ledger page, rendered in two ways side by side.
 
@@ -177,7 +177,7 @@ Five visualizations carry the chapter. Each is purpose-built. Each is mobile-fir
 
 **Oh wow test:** The reader sees the modern ledger entry alongside the original and understands, without annotation, that the MLB Equivalent column has been documented in archives the whole time. The numbers were never missing. They were just never compared.
 
-### Fig 02 — The Aggregate Curve
+### Fig 02 -- The Aggregate Curve
 
 **The headline number, contextualized over time.**
 
@@ -199,7 +199,7 @@ A second visualization stacks below: the same data inflated to 2024 dollars usin
 
 **Mobile behavior:** Charts stack vertically. The headline number always sits at the top of viewport on mobile.
 
-### Fig 03 — The Individual Ledger (interactive)
+### Fig 03 -- The Individual Ledger (interactive)
 
 **The leaderboard.**
 
@@ -223,7 +223,7 @@ The five Hall of Famers at the top of this list will be names the reader knows. 
 
 **Mobile behavior:** Table collapses to card view at 768px. Each card shows player name, gap, and confidence label, with tap-to-expand for full breakdown.
 
-### Fig 04 — The Team Ledger
+### Fig 04 -- The Team Ledger
 
 **The franchise view.**
 
@@ -237,7 +237,7 @@ Below each bar: the names of the top three highest-gap players on that franchise
 
 **Mobile behavior:** Bars remain horizontal. Annotations move below bars on narrow viewports.
 
-### Fig 05 — The Sensitivity Dashboard
+### Fig 05 -- The Sensitivity Dashboard
 
 **The methodology made interactive.**
 
@@ -278,18 +278,18 @@ Oscar must verify provenance and clearance for every archival image. The Notre D
 
 **Pre-computed data files:**
 
-- `data/salary-ledger-imputed.json` — Model 1 output. Per player-season imputed salary with credible intervals.
-- `data/mlb-counterfactual.json` — Model 2 output. Per player-season predicted MLB salary.
-- `data/gap-by-player.json` — Model 3 output, player level.
-- `data/gap-by-team.json` — Model 3 output, team level.
-- `data/gap-aggregate.json` — Model 3 output, league total, with three inflator versions.
-- `data/estate-values.json` — Model 4 output. Per player compounded estate value, multiple compounding assumptions.
-- `data/sensitivity-grid.json` — Model 5 output. The pre-computed lookup table.
-- `data/asset-register.json` — Updated with new chapter assets.
+- `data/salary-ledger-imputed.json` -- Model 1 output. Per player-season imputed salary with credible intervals.
+- `data/mlb-counterfactual.json` -- Model 2 output. Per player-season predicted MLB salary.
+- `data/gap-by-player.json` -- Model 3 output, player level.
+- `data/gap-by-team.json` -- Model 3 output, team level.
+- `data/gap-aggregate.json` -- Model 3 output, league total, with three inflator versions.
+- `data/estate-values.json` -- Model 4 output. Per player compounded estate value, multiple compounding assumptions.
+- `data/sensitivity-grid.json` -- Model 5 output. The pre-computed lookup table.
+- `data/asset-register.json` -- Updated with new chapter assets.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Full per-model documentation. Hyperparameters. Validation approach. Limitations. Cross-references to Lester, Hayes, Peterson, and the SABR Business of Baseball research.
+- `METHODOLOGY.md` -- Full per-model documentation. Hyperparameters. Validation approach. Limitations. Cross-references to Lester, Hayes, Peterson, and the SABR Business of Baseball research.
 
 ---
 
@@ -309,31 +309,31 @@ Chapter 7 closes the barnstorming arc. The closing handoff written in the projec
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews the asset register for the chapter. Flags the Notre Dame ledger image attribution requirements. Verifies public domain status for all archival photos. Identifies any image that requires replacement or alternative treatment.
 
 **Specific gates:** The Birmingham Black Barons ledger images must have explicit Joyce Sports Research Collection attribution and confirmed reuse rights. Any player photo without documented PD status is replaced or removed.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Reviews every statistical claim against source. Verifies Lester's $75 / $175 / $375 figures. Verifies the Paige $80 monthly salary against the Notre Dame digitized ledger directly, not against secondary sources. Verifies SABR Business of Baseball salary curves. Verifies Hayes IBW21 piece is correctly attributed.
 
 **Specific gates:** Every salary figure in Section 1 (the hook) must trace to a primary or authoritative secondary source with URL in the methodology document. The headline aggregate figure must have its computation reproducible from the published JSON data files and the documented methodology.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews all five visualizations at 375px, 768px, and 1200px. Tests color scales for color-blindness accessibility. Verifies the side-by-side ledger comparison in Fig 01 renders intelligibly on mobile. Verifies the sensitivity dashboard is usable on mobile.
 
 **Specific gates:** Fig 01 must pass the oh wow test at 375px, not just desktop. Fig 03 mobile card view must show gap and confidence label without horizontal scroll. Fig 05 sensitivity controls must be tappable with thumb on mobile.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews the chapter against the 15 tenants. Confirms Tenant 10 (ML maximized) is satisfied through Models 1 through 5. Confirms Tenant 05 (connective tissue) handoffs are written in project owner's voice. Confirms Tenant 14 (citable) requirements.
 
 **Specific gates:** All five models documented. Both connective tissue paragraphs present. Citation block present and complete.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 Verifies Gate 1 (spec approval) before build. Verifies Gate 2 (build complete) before review cycle. Verifies Gate 3 (all five agents APPROVED) before merge. Conducts the oh wow test with five agent instances.
 

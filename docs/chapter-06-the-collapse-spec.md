@@ -56,10 +56,10 @@ A single horizontal-timeline visualization. Every documented Negro Leagues franc
 The cause-of-death taxonomy is the argument. Each franchise that ended gets a documented cause, sourced. The colors:
 
 - **--moss (#8fa05a):** Survived through 1962 (the persistence color)
-- **--amber (#d4a64a):** Active and thriving — used for bar segments during a franchise's healthy years
-- **--bronze (#b96f4a):** Depression economics — folded 1929-1934, documented financial collapse pre-integration
-- **--slate (#6f8aa8):** Wartime suspension — paused 1942-1945, documented manpower or travel constraints
-- **--oxblood (#a14545):** Integration-era collapse — folded 1947-1962, documented as integration-related
+- **--amber (#d4a64a):** Active and thriving -- used for bar segments during a franchise's healthy years
+- **--bronze (#b96f4a):** Depression economics -- folded 1929-1934, documented financial collapse pre-integration
+- **--slate (#6f8aa8):** Wartime suspension -- paused 1942-1945, documented manpower or travel constraints
+- **--oxblood (#a14545):** Integration-era collapse -- folded 1947-1962, documented as integration-related
 - **--ink-3 (#221f17):** Pre-1947 fold, cause uncertain or undocumented
 
 The pattern that emerges visually: the bars in oxblood cluster between 1947 and 1955. The argument is the cluster.
@@ -68,11 +68,11 @@ The pattern that emerges visually: the bars in oxblood cluster between 1947 and 
 
 Five annotations float above specific dates:
 
-- **April 15, 1947** — vertical --oxblood rule across the chart, label: *"Robinson debuts."*
-- **July 5, 1947** — vertical --oxblood rule, label: *"Doby debuts. Veeck pays Manley $15,000."*
-- **End of 1948 season** — vertical --oxblood rule with thicker stroke, label: *"NNL collapses."* (This is the moment the chart pivots.)
-- **1958** — vertical rule, label: *"Negro American League declared minor."*
-- **1962** — vertical --oxblood rule, label: *"NAL plays final season."*
+- **April 15, 1947** -- vertical --oxblood rule across the chart, label: *"Robinson debuts."*
+- **July 5, 1947** -- vertical --oxblood rule, label: *"Doby debuts. Veeck pays Manley $15,000."*
+- **End of 1948 season** -- vertical --oxblood rule with thicker stroke, label: *"NNL collapses."* (This is the moment the chart pivots.)
+- **1958** -- vertical rule, label: *"Negro American League declared minor."*
+- **1962** -- vertical --oxblood rule, label: *"NAL plays final season."*
 
 The reader sees the cluster of oxblood bars beginning at the 1947 line and ending at the 1962 line. The chart is the chapter.
 
@@ -81,7 +81,7 @@ The reader sees the cluster of oxblood bars beginning at the 1947 line and endin
 - **Hover any bar:** Reveals the franchise card (see below)
 - **Click any bar:** Opens a detail drawer with the full franchise story
 - **Filter by league:** Toggle to show NNL only, NAL only, or all
-- **Filter by cause of death:** Toggle the color categories on and off — let the reader isolate the integration-era collapses
+- **Filter by cause of death:** Toggle the color categories on and off -- let the reader isolate the integration-era collapses
 - **Year scrubber at the bottom:** Animates the chart year by year if the reader wants to watch it unfold
 
 ### The animation, if the reader presses play
@@ -127,12 +127,12 @@ She said it. He paid her $10,000, plus another $5,000 when Doby stayed on the In
 
 The 1946 Eagles championship roster. Same baseball-card format as Lost Seasons. Six cards, including:
 
-- **Larry Doby** — Cleveland Indians, July 5, 1947 — Eagles received $15,000
-- **Monte Irvin** — New York Giants, 1949 — Eagles received $5,000
-- **Don Newcombe** — Brooklyn Dodgers, 1946 (signed to farm) — Eagles received nothing
-- **Leon Day** — Mexican League, 1947 — Eagles received nothing
-- **Biz Mackey** — Retired as a player, managed Eagles to championship
-- **Larry Doby's photograph** — public domain, LOC, Oscar verifies
+- **Larry Doby** -- Cleveland Indians, July 5, 1947 -- Eagles received $15,000
+- **Monte Irvin** -- New York Giants, 1949 -- Eagles received $5,000
+- **Don Newcombe** -- Brooklyn Dodgers, 1946 (signed to farm) -- Eagles received nothing
+- **Leon Day** -- Mexican League, 1947 -- Eagles received nothing
+- **Biz Mackey** -- Retired as a player, managed Eagles to championship
+- **Larry Doby's photograph** -- public domain, LOC, Oscar verifies
 
 Below each card, in Space Mono: the date they left and the dollar amount the Eagles received (or did not receive).
 
@@ -164,7 +164,7 @@ A separate section below the case study. A scrollable ledger-format list of ever
 
 (Continued for every documented signing through 1955.)
 
-Each row is sourced. Compensation figures marked **(research)** are placeholders for Oscar and Elias to fill in from primary sources during the build. The blanks themselves are part of the methodology — the compensation record was deliberately incomplete because the entire practice was extractive.
+Each row is sourced. Compensation figures marked **(research)** are placeholders for Oscar and Elias to fill in from primary sources during the build. The blanks themselves are part of the methodology -- the compensation record was deliberately incomplete because the entire practice was extractive.
 
 ### The totals row at the bottom
 
@@ -227,7 +227,7 @@ Lighter ML lift than the deep statistical chapters. The Collapse is data assembl
 - Covariates: city size, league (NNL/NAL/other), peak attendance year, championship history
 - The key finding will be that the post-1947 hazard ratio is a large multiple of the pre-1947 ratio, controlling for everything else
 - Confidence intervals shown
-- The visualization is a hazard ratio plot, not a Kaplan-Meier curve — Vera and Elias work the display together
+- The visualization is a hazard ratio plot, not a Kaplan-Meier curve -- Vera and Elias work the display together
 
 This is supplementary to the centerpiece timeline. The centerpiece is the argument; the survival model is the statistical receipt.
 
@@ -246,15 +246,15 @@ Every franchise tagged **Disputed** is footnoted with the conflict.
 
 ## Data Sources
 
-- **Seamheads Negro Leagues Database** — franchise rosters, season records, league affiliations
-- **SABR Negro Leagues research** — franchise histories, business records, ownership records
-- **SABR Business Meetings 1933-1962** — the league meeting minutes, primary source for the dismantling
-- **Effa Manley's papers** — Baseball Hall of Fame archives, including the 1946 letter to Branch Rickey
-- **James Overmyer, *Queen of the Negro Leagues: Effa Manley and the Newark Eagles*** — the case study spine
-- **Pittsburgh Courier and Chicago Defender** — contemporaneous coverage of the collapse, 1947-1962
-- **Baseball Hall of Fame online collections** — Manley letter facsimiles, Veeck correspondence
-- **MLB historical attendance records** — for the Brooklyn Dodgers attendance shift documentation
-- **SABR Business of the Negro Leagues research** — for the compensation ledger reconstruction
+- **Seamheads Negro Leagues Database** -- franchise rosters, season records, league affiliations
+- **SABR Negro Leagues research** -- franchise histories, business records, ownership records
+- **SABR Business Meetings 1933-1962** -- the league meeting minutes, primary source for the dismantling
+- **Effa Manley's papers** -- Baseball Hall of Fame archives, including the 1946 letter to Branch Rickey
+- **James Overmyer, *Queen of the Negro Leagues: Effa Manley and the Newark Eagles*** -- the case study spine
+- **Pittsburgh Courier and Chicago Defender** -- contemporaneous coverage of the collapse, 1947-1962
+- **Baseball Hall of Fame online collections** -- Manley letter facsimiles, Veeck correspondence
+- **MLB historical attendance records** -- for the Brooklyn Dodgers attendance shift documentation
+- **SABR Business of the Negro Leagues research** -- for the compensation ledger reconstruction
 
 **Sources Oscar verifies before ship:** the Effa Manley quote to Veeck, every compensation figure in the ledger, every cause-of-death classification on the timeline, every roster exodus date on the Newark case study.
 
@@ -306,7 +306,7 @@ Standard Other Box Score blocks, plus chapter-specific:
 
 ## Build Sequence
 
-1. Elias assembles the canonical franchise dataset from Seamheads and SABR — every documented Negro Leagues franchise 1920-1962 with start and end years
+1. Elias assembles the canonical franchise dataset from Seamheads and SABR -- every documented Negro Leagues franchise 1920-1962 with start and end years
 2. Oscar establishes the cause-of-death taxonomy and classifies every franchise, with sources
 3. Vera prototypes the centerpiece timeline visualization with the four most-documented franchises (Newark Eagles, Homestead Grays, Kansas City Monarchs, Indianapolis Clowns)
 4. Oscar verifies every Newark Eagles data point in the case study and writes the prose

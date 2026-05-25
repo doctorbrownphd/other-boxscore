@@ -18,7 +18,7 @@ Then the map loads.
 
 The hook rotates through four players whose transnational careers carry the chapter. Oscar selects the four based on source quality. Each player's hook is two lines: a single fact about where they played, followed by the gap that makes the chapter necessary.
 
-Example hook lines, format only — Oscar writes the final copy after picking the four:
+Example hook lines, format only -- Oscar writes the final copy after picking the four:
 
 - *"Hey, have you heard of Martín Dihigo? He is in the Hall of Fame in Cuba, Mexico, Venezuela, and the United States. He played every position. He could not play in the major leagues."*
 - *"Hey, have you heard of Cristóbal Torriente? In October 1920, in Havana, he outhit Babe Ruth in a barnstorming series. Ruth batted .345. Torriente batted .433. He is now third all-time in career batting average."*
@@ -88,13 +88,13 @@ Elias determines the league scope based on Seamheads data quality. The acceptanc
 - Documented roster data with player-season granularity
 - City-level location data for every team
 - Date coverage spanning at least three decades of Negro Leagues era (roughly 1920-1948)
-- Acceptable completeness — every dataset's gaps documented in METHODOLOGY.md
+- Acceptable completeness -- every dataset's gaps documented in METHODOLOGY.md
 
-**Candidate leagues:** Cuban Winter League (the strongest data, longest run), Mexican League, Puerto Rican Winter League, Venezuelan League, Dominican League (1937 season specifically — well documented because of the Trujillo recruitment campaign).
+**Candidate leagues:** Cuban Winter League (the strongest data, longest run), Mexican League, Puerto Rican Winter League, Venezuelan League, Dominican League (1937 season specifically -- well documented because of the Trujillo recruitment campaign).
 
 If a league's data is too sparse to support honest visualization, it is excluded from the centerpiece and noted in METHODOLOGY.md. Elias signs off on what is in and what is out before Vera builds the map.
 
-**Calibration data:** The barnstorming game records (Negro Leagues teams vs MLB teams, vs Cuban teams, vs Mexican teams) used in Ch 08 The Parallel League as calibration also appear here as supporting evidence. The same players, the same head-to-head data, framed differently — Ch 08 uses it to calibrate the counterfactual, Ch 05 uses it to show that the rest of the world saw what the American major leagues refused to acknowledge.
+**Calibration data:** The barnstorming game records (Negro Leagues teams vs MLB teams, vs Cuban teams, vs Mexican teams) used in Ch 08 The Parallel League as calibration also appear here as supporting evidence. The same players, the same head-to-head data, framed differently -- Ch 08 uses it to calibrate the counterfactual, Ch 05 uses it to show that the rest of the world saw what the American major leagues refused to acknowledge.
 
 ---
 
@@ -104,14 +104,14 @@ Below the centerpiece map, four player profile cards. Same baseball-card proport
 
 - Public domain photograph (Oscar verifies provenance)
 - Name, position, years active
-- A single transnational statistic — Hall of Fame inductions in N countries, or seasons played outside the US, or career batting average across all leagues
+- A single transnational statistic -- Hall of Fame inductions in N countries, or seasons played outside the US, or career batting average across all leagues
 - One-line note in Space Mono below the card, in the Lost Seasons format
 - A small map icon linking back to that player in View 1
 
 Oscar selects the four. Selection criteria:
 - Source quality for the player's transnational career (documented contracts, newspaper coverage, hall of fame records in at least two countries)
-- Range of positions and roles — not all outfielders, not all pitchers
-- Range of careers — short and long, early and late, well-known and less-known
+- Range of positions and roles -- not all outfielders, not all pitchers
+- Range of careers -- short and long, early and late, well-known and less-known
 - At least one player whose case Cooperstown still has not fully made
 
 **Default rotation (Oscar's call):** Likely Dihigo, Torriente, and two others. Oscar writes the one-line notes himself, every one of them sourced.
@@ -161,7 +161,7 @@ Ch 05 ends with the dollar question: how does an entire system of leagues surviv
 
 *"They could play anywhere. They did play everywhere. And then, beginning in 1947, the system that had paid them disappeared."*
 
-That sets up Ch 06 The Collapse — the franchise timeline that ends with integration killing the Negro Leagues.
+That sets up Ch 06 The Collapse -- the franchise timeline that ends with integration killing the Negro Leagues.
 
 ---
 
@@ -187,14 +187,14 @@ The four anchor players must all be Documented or Verified. Other players on the
 
 Elias and Oscar reconcile this list before the chapter ships:
 
-- **Seamheads Negro Leagues Database** — primary source for US and cross-referenced winter league records
-- **Cuban Winter League records** — multiple sources, Seamheads partial, Cuban archives partial
-- **Liga Mexicana records** — varying coverage by decade
-- **Puerto Rican Winter League records** — well documented from 1938 forward
-- **Liga Venezolana records** — spotty pre-1946
-- **Dominican 1937 season** — extensively documented because of the Trujillo recruitment
-- **Newspaper archives** — Pittsburgh Courier and Chicago Defender covered winter league play extensively. La Habana newspapers covered American players in Cuba. Oscar handles the Spanish-language source verification.
-- **Baseball Reference Negro Leagues** — secondary reference for verification
+- **Seamheads Negro Leagues Database** -- primary source for US and cross-referenced winter league records
+- **Cuban Winter League records** -- multiple sources, Seamheads partial, Cuban archives partial
+- **Liga Mexicana records** -- varying coverage by decade
+- **Puerto Rican Winter League records** -- well documented from 1938 forward
+- **Liga Venezolana records** -- spotty pre-1946
+- **Dominican 1937 season** -- extensively documented because of the Trujillo recruitment
+- **Newspaper archives** -- Pittsburgh Courier and Chicago Defender covered winter league play extensively. La Habana newspapers covered American players in Cuba. Oscar handles the Spanish-language source verification.
+- **Baseball Reference Negro Leagues** -- secondary reference for verification
 
 **Disputed data must be labeled:** The Cuban records have known gaps in the late 1930s. Mexican League data is uneven before 1940. Oscar and Elias document every gap explicitly.
 
@@ -229,11 +229,11 @@ Standard Other Box Score blocks, plus chapter-specific:
 2. Elias determines which leagues have clean enough data to ship in the centerpiece
 3. Oscar selects the four anchor players based on source quality
 4. Oscar writes the four hook lines, with sources
-5. Vera prototypes View 1 (flow map) with one player — Dihigo, probably
+5. Vera prototypes View 1 (flow map) with one player -- Dihigo, probably
 6. Vera adds View 2 and View 3 as the data layer stabilizes
 7. Oscar verifies every photograph provenance for the anchor cards
 8. Elias produces the Career Months chart with full methodology documentation
-9. Ida reviews the chapter for tenet compliance — especially "subjects are protagonists" and "no romanticization"
+9. Ida reviews the chapter for tenet compliance -- especially "subjects are protagonists" and "no romanticization"
 10. Gates final review
 11. Ship
 

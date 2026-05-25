@@ -25,7 +25,7 @@ The platform's central argument: the Negro Leagues were a parallel major league.
 
 ### The architectural reality
 
-The platform has six chapters and one feature specced. The next nine chapters and the coda are ahead of us. The dependency structure of those nine chapters is not flat. One chapter — Ch 10 The Ledger — sits on the critical path of three other chapters plus the coda. The platform's back half depends on Ch 10 being right.
+The platform has six chapters and one feature specced. The next nine chapters and the coda are ahead of us. The dependency structure of those nine chapters is not flat. One chapter -- Ch 10 The Ledger -- sits on the critical path of three other chapters plus the coda. The platform's back half depends on Ch 10 being right.
 
 This document captures the architecture that makes the platform shippable given that dependency reality.
 
@@ -97,7 +97,7 @@ The book reads in chapter-number order. The team builds in dependency-aware orde
 
 **Parallel agents:**
 - Oscar-Ch02, Oscar-Ch03 (independent editorial streams)
-- Elias-Ledger (begins Ch 10 model work in parallel — does not wait)
+- Elias-Ledger (begins Ch 10 model work in parallel -- does not wait)
 - Vera (chapter visualizations)
 - Ida (coordinates across parallel Oscars)
 - Gates (serial review)
@@ -133,7 +133,7 @@ The book reads in chapter-number order. The team builds in dependency-aware orde
 - Elias-Ledger and Elias-Methodology
 - Vera (Ledger interface)
 - Ida (manages the external review process)
-- Gates (the decisive review — Ch 10 ships only when Gates approves)
+- Gates (the decisive review -- Ch 10 ships only when Gates approves)
 
 **Phase exit criteria:** Ch 10 live. External validation documented. The back half is unblocked.
 
@@ -417,7 +417,7 @@ The biggest risks to platform completion, ranked by likelihood × impact:
 
 ## Part 8: The Single Page of Platform Truth
 
-This document — Platform Architecture v1.0 — is the single page of platform truth. Every agent reads it before every task. Every chapter spec is subordinate to it. Every methodology question is resolved against it.
+This document -- Platform Architecture v1.0 -- is the single page of platform truth. Every agent reads it before every task. Every chapter spec is subordinate to it. Every methodology question is resolved against it.
 
 The document evolves. The canonical vocabulary stabilizes over time. The build phase ordering may shift as risks become reality. The agent topology may expand or contract as the work demands. Versioning is explicit: this is v1.0; the next material change is v1.1.
 

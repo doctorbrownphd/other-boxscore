@@ -1,10 +1,10 @@
-# The Courier Archive — Chapter 14
+# The Courier Archive -- Chapter 14
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-courier-archive/
 **GitHub:** other-boxscore/chapters/14-the-courier-archive/
-**Part:** Four — The game they remembered
+**Part:** Four -- The game they remembered
 **Position:** Chapter 14 of 15
 **License:** MIT (code) · CC0 (index and derived data, original rights retained per publication)
 **Status:** SPEC v1.0
@@ -89,25 +89,25 @@ Closing year (1995): the chapter extends through the integration aftermath and i
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Corpus Index
+### Finding 1 -- The Corpus Index
 A searchable index of every identified piece of Negro Leagues baseball journalism in the in-scope publications across the in-scope years. Article title, author, publication, date, page, content summary, player mentions, topic tags, digitization status, access pathway.
 
 The index has not existed before this chapter. The platform produces it. The contribution is the assembled navigability of a seventy-five-year record.
 
-### Finding 2 — The Coverage Timeline
+### Finding 2 -- The Coverage Timeline
 A year-by-year visualization of Black press baseball coverage volume and topic distribution. When did coverage peak? When did it thin? The East-West game years (1933 onward) produced coverage spikes. Depression years produced coverage drops. Jackie Robinson's 1947 arrival produced a massive spike in baseball coverage across Black press outlets. The years from 1948 through 1960 produced declining Negro Leagues coverage and growing integration-aftermath coverage. The shape of the timeline is itself a finding about the relationship between the Black press and the game it covered.
 
-### Finding 3 — The Advocacy Arc
+### Finding 3 -- The Advocacy Arc
 A tracked topic analysis of how the Black press's stance on integration evolved across the corpus years. From the early coverage that treated the Negro Leagues as an institution of pride and permanence, to the advocacy journalism of Smith and Lacy arguing for integration, to the post-integration coverage that documented the leagues' decline. The advocacy arc is the story of how the Black press simultaneously built the Negro Leagues and argued for their dissolution.
 
 The chapter traces this arc through specific writers and specific articles, not just aggregate topic modeling. The human editorial work of identifying the key inflection points is the chapter's contribution.
 
-### Finding 4 — The Three Writers
+### Finding 4 -- The Three Writers
 Featured sections for three writers whose work best represents the corpus: Wendell Smith, Sam Lacy, and a third writer selected through the editorial process. Each featured writer section includes: biographical context, career arc, representative articles (excerpted within copyright limits), editorial framing that lets the writing carry the argument.
 
 The chapter handles the copyright constraint carefully. The Black press publications are copyrighted material. The chapter presents excerpts under fair use principles, clearly attributed, with links or access pathways to full texts where available. Excerpts are brief. The chapter directs readers to source materials for full access.
 
-### Finding 5 — The Box Score Recovery
+### Finding 5 -- The Box Score Recovery
 A specific quantitative finding the chapter can produce that no chapter has yet made: how many Negro Leagues game box scores were published in the Black press that have not been incorporated into the Seamheads database? The Seamheads team has documented that box score coverage is approximately 75% complete. The chapter cross-references the corpus index against Seamheads coverage documentation to identify specific games documented in the Black press that represent coverage gaps in the integrated statistical record.
 
 The finding feeds back to Chapter 5 and the platform's foundational data infrastructure. The Black press is not just a journalistic record; it is a statistical recovery resource.
@@ -144,7 +144,7 @@ The finding feeds back to Chapter 5 and the platform's foundational data infrast
 
 Five model applications. The chapter's ML investment is heavier than Ch 13 because the corpus is larger and more structured. The Black press journalism corpus is longer-form text than oral history transcripts, which allows more robust NLP.
 
-### Model 1 — OCR Correction and Article Segmentation
+### Model 1 -- OCR Correction and Article Segmentation
 
 **Problem:** Digitized historical newspapers have OCR errors. Black press newspapers from the 1920s through 1950s have higher OCR error rates than contemporary publications because of print quality, font variation, and digitization resolution. The corpus index requires clean text.
 
@@ -156,7 +156,7 @@ Five model applications. The chapter's ML investment is heavier than Ch 13 becau
 
 **Why this matters:** The rest of the ML pipeline depends on clean text. Garbage in, garbage out applies to every subsequent model.
 
-### Model 2 — Named Entity Recognition and Player Linking
+### Model 2 -- Named Entity Recognition and Player Linking
 
 **Problem:** The corpus contains thousands of player name mentions across seventy-five years of journalism. The platform needs to link these mentions to canonical player IDs (the same IDs used throughout the platform's data infrastructure) for the corpus to be searchable by player.
 
@@ -170,7 +170,7 @@ Player entity mentions are then linked to canonical player IDs using a disambigu
 
 **Why this matters:** Player linking is the infrastructure for the searchable corpus. A reader who searches for Josh Gibson finds every article in the corpus that mentions him, linked to his canonical platform player ID and his statistical record in the Chapter 10 engine.
 
-### Model 3 — Topic Modeling and Advocacy Arc Analysis
+### Model 3 -- Topic Modeling and Advocacy Arc Analysis
 
 **Problem:** The corpus contains tens of thousands of articles across seventy-five years. Pattern identification at scale requires computational tools.
 
@@ -184,7 +184,7 @@ Second, a time-series analysis of topic prevalence. For each topic in the labele
 
 **Confidence label:** Topic modeling limitations for historical newspaper text are documented in the methodology. The year-by-year curves are presented with smoothing and uncertainty bands. The chapter explicitly notes that the topic model is an entry point and that human editorial work identifies the key inflection points.
 
-### Model 4 — Box Score Detection and Seamheads Cross-Reference
+### Model 4 -- Box Score Detection and Seamheads Cross-Reference
 
 **Problem:** Identifying which articles contain game box scores, extracting those box scores in structured form, and cross-referencing against Seamheads coverage to identify coverage gaps.
 
@@ -198,7 +198,7 @@ The extracted box scores are then cross-referenced against the Seamheads documen
 
 **Why this matters:** This is the model that makes the chapter a statistical-recovery resource, not just a journalism resource. The box score recovery finding connects Ch 14 back to the Ch 10 engine and potentially to the Seamheads and Baseball Reference integrated record.
 
-### Model 5 — Semantic Search Index
+### Model 5 -- Semantic Search Index
 
 **Problem:** The corpus index needs to be searchable by readers who come with specific questions: what did the Courier write about Oscar Charleston in 1935? What did Sam Lacy say about the Red Sox's integration delay? What did Black press writers say about the East-West game crowds?
 
@@ -214,7 +214,7 @@ The extracted box scores are then cross-referenced against the Seamheads documen
 
 Five visualizations. The chapter is text-heavy; the visualizations provide structure and navigation.
 
-### Fig 01 — The Corpus Timeline
+### Fig 01 -- The Corpus Timeline
 
 **The chapter's opening artifact.**
 
@@ -232,7 +232,7 @@ Lower panel: a stacked area chart showing annual article volume by topic (using 
 
 **Oh wow test:** The reader sees the shape of the advocacy arc in the lower panel. The reader understands that the Black press's relationship to the game it covered changed shape over those seventy-five years, and that the shape is documented.
 
-### Fig 02 — The Corpus Search
+### Fig 02 -- The Corpus Search
 
 **The chapter's primary interactive artifact.**
 
@@ -251,7 +251,7 @@ The search interface is designed to be genuinely useful to researchers, not just
 
 **Mobile behavior:** Search input and result list remain usable at 375px. Each result card shows publication, date, author, and excerpt. Tap-to-expand for full passage.
 
-### Fig 03 — The Three Writers
+### Fig 03 -- The Three Writers
 
 **Featured journalist sections.**
 
@@ -271,7 +271,7 @@ The excerpts are selected to show each writer's distinctive voice. Smith's advoc
 
 **Mobile behavior:** Sections stack vertically. Excerpts remain readable.
 
-### Fig 04 — The Box Score Recovery Candidates
+### Fig 04 -- The Box Score Recovery Candidates
 
 **The statistical finding made visual.**
 
@@ -293,7 +293,7 @@ The table is presented as a research workspace, not a finished dataset. The chap
 
 **Mobile behavior:** Table collapses to card view. Each card shows date, teams, and status.
 
-### Fig 05 — The Newspaper Map
+### Fig 05 -- The Newspaper Map
 
 **The institutional geography.**
 
@@ -329,24 +329,24 @@ The chapter's copyright compliance review is more complex than any prior chapter
 
 **Pre-computed data files:**
 
-- `data/corpus-index.json` — Per article, the full metadata record with topic tags, player mentions, coverage summary.
-- `data/coverage-timeline.json` — Annual article counts by publication and by topic.
-- `data/topic-structure.json` — Reviewed, manually-labeled topic structure.
-- `data/named-entities.json` — Per article, NER output with confidence scores.
-- `data/player-mentions.json` — Per player, the list of corpus articles mentioning them by canonical player ID.
-- `data/box-score-candidates.json` — Candidate box score recovery cases with extracted data and verification status.
-- `data/featured-excerpts.json` — Per featured writer, curated excerpt set with editorial context.
-- `data/permission-ledger.json` — Per excerpt, copyright compliance documentation.
-- `data/newspaper-map.json` — Per publication, geographic and institutional metadata.
-- `data/asset-register.json` — Updated for chapter.
+- `data/corpus-index.json` -- Per article, the full metadata record with topic tags, player mentions, coverage summary.
+- `data/coverage-timeline.json` -- Annual article counts by publication and by topic.
+- `data/topic-structure.json` -- Reviewed, manually-labeled topic structure.
+- `data/named-entities.json` -- Per article, NER output with confidence scores.
+- `data/player-mentions.json` -- Per player, the list of corpus articles mentioning them by canonical player ID.
+- `data/box-score-candidates.json` -- Candidate box score recovery cases with extracted data and verification status.
+- `data/featured-excerpts.json` -- Per featured writer, curated excerpt set with editorial context.
+- `data/permission-ledger.json` -- Per excerpt, copyright compliance documentation.
+- `data/newspaper-map.json` -- Per publication, geographic and institutional metadata.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Full documentation of all five models, including OCR correction pipeline details, NER fine-tuning approach, topic model hyperparameters, box score extraction approach, and semantic search infrastructure.
+- `METHODOLOGY.md` -- Full documentation of all five models, including OCR correction pipeline details, NER fine-tuning approach, topic model hyperparameters, box score extraction approach, and semantic search infrastructure.
 
-- `COPYRIGHT_NOTE.md` — A separate document establishing the chapter's copyright posture. The chapter presents an index of copyrighted material, brief excerpts under fair use, and access pathways to source holdings. It does not reproduce substantial copyrighted material. The document is signed by the project owner.
+- `COPYRIGHT_NOTE.md` -- A separate document establishing the chapter's copyright posture. The chapter presents an index of copyrighted material, brief excerpts under fair use, and access pathways to source holdings. It does not reproduce substantial copyrighted material. The document is signed by the project owner.
 
-- `BOX_SCORE_RECOVERY_PROTOCOL.md` — The protocol for how candidate box score recovery cases are identified, verified, and submitted to Seamheads researchers. This document establishes the chapter's relationship with the Seamheads project as collaborative rather than competitive.
+- `BOX_SCORE_RECOVERY_PROTOCOL.md` -- The protocol for how candidate box score recovery cases are identified, verified, and submitted to Seamheads researchers. This document establishes the chapter's relationship with the Seamheads project as collaborative rather than competitive.
 
 ---
 
@@ -364,25 +364,25 @@ The chapter's copyright compliance review is more complex than any prior chapter
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews all image assets and every article excerpt for provenance and rights compliance. The copyright complexity of this chapter is the highest in the platform. Oscar's review is the most intensive it has been.
 
 **Specific gates:** Every excerpt has documented fair use rationale or permission. Every image has documented clearance. The permission ledger is complete. The copyright note document is signed.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Reviews OCR quality, NER accuracy spot-checks, topic structure reviews, box score extraction accuracy, and Seamheads cross-reference methodology.
 
 **Specific gates:** OCR quality scores documented for the full corpus. NER spot-checks pass accuracy threshold. Topic structure is manually reviewed and labeled. Box score recovery candidates are flagged as candidates, not as confirmed data. The copyright compliance documentation is accurate.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews five visualizations at 375px, 768px, 1200px. The corpus search (Fig 02) is the chapter's most important accessibility surface: it must work for users with screen readers, low-vision settings, and mobile-only access.
 
 **Specific gates:** Fig 02 (corpus search) passes WCAG 2.1 AA accessibility standards. Fig 01 (corpus timeline) animation has documented pause control. Fig 05 (newspaper map) remains usable at 375px.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews against tenants. Particular attention to Tenant 14 (citable) and Tenant 10 (ML maximized). The copyright note and box score recovery protocol documents require Ida review.
 
@@ -394,7 +394,7 @@ Reviews editorial framing of all three featured writers. Applies the same postur
 
 **Specific gates:** All three featured writer sections pass the editorial integrity review. The advocacy arc narrative does not editorialize beyond what the corpus documents. The chapter's framing is consistent with the testimony ethics document from Chapter 13.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 Three gates. Oh wow test conducted with five agent instances.
 

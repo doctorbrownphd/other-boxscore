@@ -1,10 +1,10 @@
-# The Voice — Chapter 13
+# The Voice -- Chapter 13
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-voice/
 **GitHub:** other-boxscore/chapters/13-the-voice/
-**Part:** Four — The game they remembered
+**Part:** Four -- The game they remembered
 **Position:** Chapter 13 of 15
 **License:** MIT (code) · CC0 (data, with constraints documented per recording)
 **Status:** SPEC v1.0
@@ -50,27 +50,27 @@ This chapter is the resource. The voices of the players, assembled, indexed, and
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Aggregated Archive
+### Finding 1 -- The Aggregated Archive
 A single navigable index of every accessible Negro Leagues oral history recording across institutional collections. Title, speaker, interviewer, year recorded, host institution, length, accessibility status, content topics, with link or access pathway per recording. The aggregated index has not existed before this chapter. The platform produces it.
 
 The chapter does not host the recordings themselves except where explicit institutional permission has been granted. The platform links to host institutions, attributes properly, and respects the access policies the institutions have set. The contribution is the index, not the holding.
 
-### Finding 2 — The Topic Map
+### Finding 2 -- The Topic Map
 A topic-tagged exploration of the testimony content. What did the players talk about most often when they talked about their careers? What did they emphasize? What did they downplay? The chapter applies topic modeling to the available transcripts (with explicit acknowledgment of the limitations of computational topic modeling applied to oral testimony) and produces a navigable topic structure that lets readers find testimony on specific subjects: barnstorming logistics, segregation experiences, white-team competition, salary and economics, integration aftermath, women in the league, equipment and play conditions, family life, faith and community.
 
 The topic map is not a substitute for listening to the testimony. It is an entry point that helps readers find the relevant recordings. The chapter consistently directs readers from the topic map back to the source recordings.
 
-### Finding 3 — The Three Voices
+### Finding 3 -- The Three Voices
 Three featured speakers presented in depth: Buck O'Neil (the canonical voice, who recorded the most extensive testimony of any Negro Leagues figure), Mamie "Peanut" Johnson (the voice of the women's experience and the late-period Negro Leagues), and one third speaker selected through the editorial process described in the open questions below.
 
 Each featured speaker has a dedicated section with a curated selection of testimony excerpts (audio where rights permit, transcripts where they do not), biographical context, and editorial framing that lets the speaker carry the narrative rather than the platform interpreting it.
 
-### Finding 4 — The Gap Analysis
+### Finding 4 -- The Gap Analysis
 A documented finding the chapter must make visible: which players are absent from the oral history record. Players who died before oral history collection became systematic. Players who never sat for an interview. Players whose interviews exist only in informal contexts that did not enter institutional archives. The gap is itself testimony: it documents what the record cannot recover and what the platform cannot present.
 
 For each notable absence, a brief note. Josh Gibson, who died in 1947, gave few recorded interviews. The chapter notes the absence and what the historical record knows about him through secondary testimony (his contemporaries who described him in their own interviews). This is the chapter's most editorially careful section: the gap is presented as gap, not filled with speculation or contemporary reconstruction.
 
-### Finding 5 — The Institutional Map
+### Finding 5 -- The Institutional Map
 A map of the collections themselves. Which institutions hold which recordings. Which collections are publicly accessible. Which require credentialed access. Which have been fully digitized and which exist only on physical media. The institutional map is a research aid for future researchers and an honest accounting of the state of the testimonial record.
 
 ---
@@ -117,7 +117,7 @@ This is the chapter's most labor-intensive data work. Every excerpt the chapter 
 
 This chapter's ML investment is narrower than the statistical chapters and intentionally so. The technology serves the testimony; the testimony does not serve the technology. Three model applications.
 
-### Model 1 — Transcript Indexing and Search
+### Model 1 -- Transcript Indexing and Search
 
 **Problem:** The aggregated archive contains hundreds of hours of audio and accompanying transcripts. The chapter needs a search interface that lets readers find specific topics, names, places, and events across the corpus.
 
@@ -129,7 +129,7 @@ This chapter's ML investment is narrower than the statistical chapters and inten
 
 **Why this and not full-text grep:** Oral testimony rarely uses canonical terminology. A reader searching for "barnstorming" needs to find a passage where the speaker says "we'd play three towns in a day." Semantic embedding handles this; literal string match does not.
 
-### Model 2 — Topic Modeling
+### Model 2 -- Topic Modeling
 
 **Problem:** The topic map in Finding 2 requires identifying the major topics the testimony covers. Manual coding of hundreds of hours of transcript is impractical for the chapter timeline.
 
@@ -143,7 +143,7 @@ Critical methodological constraint: every topic produced by the model is manuall
 
 **Why this matters:** The topic map is the chapter's primary navigation aid for readers who want to explore the testimony by subject rather than by speaker. Without it, the archive is hard to navigate. With it, readers can find what they are looking for.
 
-### Model 3 — Audio Transcription (where transcripts are absent)
+### Model 3 -- Audio Transcription (where transcripts are absent)
 
 **Problem:** Some recordings in the aggregated archive do not have published transcripts. For the chapter to include them in the topic map and search index, transcripts must exist.
 
@@ -163,7 +163,7 @@ Critical methodological constraint: every topic produced by the model is manuall
 
 This chapter is structurally different from the statistical chapters. The visualizations are designed around audio and text, not data. Five primary artifacts.
 
-### Fig 01 — The Archive Index
+### Fig 01 -- The Archive Index
 
 **The chapter's central artifact.**
 
@@ -188,7 +188,7 @@ The chapter's posture is service: this index is built for researchers and curiou
 
 **Oh wow test:** The reader sees the scope of the testimonial record assembled in one place for the first time. Hundreds of recordings, dozens of speakers, multiple institutions, fifty-plus years of collection effort, navigable as a single resource.
 
-### Fig 02 — The Speaker Player
+### Fig 02 -- The Speaker Player
 
 **The audio interface.**
 
@@ -202,7 +202,7 @@ For featured speakers (Finding 3), the player is paired with biographical contex
 
 **Mobile behavior:** Player remains usable at 375px with transcript below. Tap-to-jump-to-audio-position remains functional on touch.
 
-### Fig 03 — The Topic Map
+### Fig 03 -- The Topic Map
 
 **The thematic navigation.**
 
@@ -216,7 +216,7 @@ Topics expected to surface include: barnstorming logistics, segregation experien
 
 **Mobile behavior:** Map collapses to a tap-driven list of topics with associated passages. The visual structure is preserved as long as it serves; below 375px the list view takes over.
 
-### Fig 04 — The Three Voices
+### Fig 04 -- The Three Voices
 
 **The featured speakers.**
 
@@ -236,7 +236,7 @@ The chapter handles the editorial framing with care. The introductory text is br
 
 **Mobile behavior:** Sections stack vertically. Audio players remain functional. Transcripts remain readable.
 
-### Fig 05 — The Gap Acknowledgment
+### Fig 05 -- The Gap Acknowledgment
 
 **The chapter's most editorially careful artifact.**
 
@@ -272,21 +272,21 @@ The chapter's asset documentation is more extensive than any prior chapter becau
 
 **Pre-computed data files:**
 
-- `data/archive-index.json` — Per recording, the full metadata record.
-- `data/transcripts/` — Directory of transcript files (one per recording where transcripts exist and permissions allow inclusion).
-- `data/topic-model-output.json` — The reviewed, manually-labeled topic structure with passage-to-topic mappings.
-- `data/featured-excerpts.json` — Per featured speaker, the curated excerpt set with editorial context.
-- `data/gap-record.json` — Per notable absence, the documented gap with secondary source context.
-- `data/permission-ledger.json` — Per recording, the documented permission status. This file is the chapter's most important compliance artifact.
-- `data/asset-register.json` — Updated for chapter.
+- `data/archive-index.json` -- Per recording, the full metadata record.
+- `data/transcripts/` -- Directory of transcript files (one per recording where transcripts exist and permissions allow inclusion).
+- `data/topic-model-output.json` -- The reviewed, manually-labeled topic structure with passage-to-topic mappings.
+- `data/featured-excerpts.json` -- Per featured speaker, the curated excerpt set with editorial context.
+- `data/gap-record.json` -- Per notable absence, the documented gap with secondary source context.
+- `data/permission-ledger.json` -- Per recording, the documented permission status. This file is the chapter's most important compliance artifact.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Documents the transcript indexing, topic modeling, and ASR transcription pipelines. Documents the editorial review process for model outputs.
+- `METHODOLOGY.md` -- Documents the transcript indexing, topic modeling, and ASR transcription pipelines. Documents the editorial review process for model outputs.
 
-- `TESTIMONY_ETHICS.md` — A separate document that establishes the chapter's posture on testimony presentation. Covers: speaker primacy, institutional respect, rights compliance, gap acknowledgment, editorial restraint. This document is signed by the project owner and reviewed by the extended agent roster.
+- `TESTIMONY_ETHICS.md` -- A separate document that establishes the chapter's posture on testimony presentation. Covers: speaker primacy, institutional respect, rights compliance, gap acknowledgment, editorial restraint. This document is signed by the project owner and reviewed by the extended agent roster.
 
-- `PERMISSION_PROTOCOL.md` — Documents the chapter's permission-acquisition process, including templates for outreach to institutions and rights holders, criteria for excerpt selection, and the path for handling declined permissions.
+- `PERMISSION_PROTOCOL.md` -- Documents the chapter's permission-acquisition process, including templates for outreach to institutions and rights holders, criteria for excerpt selection, and the path for handling declined permissions.
 
 ---
 
@@ -306,19 +306,19 @@ The chapter's asset documentation is more extensive than any prior chapter becau
 
 **The standard agent roster (Oscar, Elias, Vera, Ida, Gates) does not fully cover this chapter.** The chapter introduces a new ethical and editorial dimension that requires extensions to the agent roster for the back half of the platform. The spec proposes the following.
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews are significantly expanded for this chapter because every audio asset requires documented rights compliance. Oscar verifies that every recording in the chapter has documented permission, every excerpt has rights holder approval, every estate notification has been completed where applicable.
 
 **Specific gates:** Permission ledger is complete for every recording the chapter includes audio or transcript excerpts from. Institutional attribution is correct per recording. Estate notification record exists for every speaker whose estate holds rights.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Verifies that every transcript is accurate (especially platform-generated transcripts via Whisper), that every excerpt cited matches the audio source, that every speaker biographical claim is sourced, that the archive index is accurate.
 
 **Specific gates:** Platform-generated transcripts are manually reviewed and corrections are documented. Every speaker biographical claim has a source. The archive index entries match the host institution records.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews the visualizations and the audio interfaces. Particular focus:
 - Audio players must be accessible (keyboard navigation, screen reader compatibility, captions where applicable)
@@ -327,19 +327,19 @@ Reviews the visualizations and the audio interfaces. Particular focus:
 
 **Specific gates:** Audio interfaces pass WCAG 2.1 AA accessibility standards. Transcripts are usable as primary content for readers without audio access. Mobile reading experience is comfortable for long-form text.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews against tenants. Particular attention to Tenant 14 (citable). The methodology and ethics documents require Ida's review.
 
 **Specific gates:** Methodology, testimony ethics, permission protocol documents complete. Connective tissue paragraphs in project owner's voice. Citation block present.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 Final approval. Oh wow test conducted. The gate also requires sign-off on the testimony ethics document, which is the chapter's posture statement.
 
 **Specific gates:** Five-agent oh wow test passes. Extended agent roster all approve. Testimony ethics document is approved by the project owner.
 
-### Proposed Additional Agent — Testimony Editor
+### Proposed Additional Agent -- Testimony Editor
 
 The chapter proposes a new agent role for the back half of the platform. The Testimony Editor reviews:
 - Editorial framing of speaker excerpts (does the framing serve the speaker or impose interpretation?)

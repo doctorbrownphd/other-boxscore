@@ -88,8 +88,8 @@ The reader clicks any single position pair. A detail drawer opens from the right
 - Public domain photograph
 
 **Match explanation:**
-- A short paragraph from Oscar (50-100 words) explaining the match. Not generated — written by Oscar, one paragraph per NLB player in the matching pool, drawn from his research notes.
-- A similarity vector diagram showing which feature dimensions matched strongly and which did not. (Six radial axes, two overlapping shapes — one for each player.)
+- A short paragraph from Oscar (50-100 words) explaining the match. Not generated -- written by Oscar, one paragraph per NLB player in the matching pool, drawn from his research notes.
+- A similarity vector diagram showing which feature dimensions matched strongly and which did not. (Six radial axes, two overlapping shapes -- one for each player.)
 
 **See other candidates:**
 - Click-to-expand button labeled "See other candidates"
@@ -114,7 +114,7 @@ The URL renders the same lineup view. Open Graph metadata renders a preview imag
 
 The share text (default):
 
-*"I built my Shadow Nine at The Other Box Score. My MLB lineup found nine Negro Leagues parallels — [count] of them in the Negro Leagues Hall of Fame, [count] not yet. Build yours."*
+*"I built my Shadow Nine at The Other Box Score. My MLB lineup found nine Negro Leagues parallels -- [count] of them in the Negro Leagues Hall of Fame, [count] not yet. Build yours."*
 
 The reader can edit the text before sharing. The URL persists indefinitely.
 
@@ -179,14 +179,14 @@ Every match returned by the model is assigned a confidence tier:
 - **Moderate (60-79):** The profiles align on the main features but diverge on some dimensions.
 - **Weak (below 60):** The profiles are the closest available match at the position, but the alignment is approximate. The interface labels this clearly.
 
-A match below 60 still ships. The honesty is the point. The interface does not hide weak matches — it labels them. The reader sees what the data supports.
+A match below 60 still ships. The honesty is the point. The interface does not hide weak matches -- it labels them. The reader sees what the data supports.
 
 ### What the model does not do
 
 - It does not weight by hall-of-fame status, fame, or modern reputation
 - It does not adjust for park factors beyond the era adjustment
 - It does not attempt to project NLB career value into MLB context (that is the Ch 10 Ledger model)
-- It does not "improve" matches based on aesthetic considerations — if Buck Leonard and Lou Gehrig come out at 84% similarity, that is the number, even though their cultural symmetry is greater than 84%
+- It does not "improve" matches based on aesthetic considerations -- if Buck Leonard and Lou Gehrig come out at 84% similarity, that is the number, even though their cultural symmetry is greater than 84%
 - It does not include pitchers (pitcher matching is a separate, future feature)
 
 ---
@@ -344,7 +344,7 @@ Every match displayed in the lineup card view shows its similarity score visibly
 
 - **Strong match (80-100):** Score displayed in --moss green. No additional label.
 - **Moderate match (60-79):** Score displayed in --amber. Small label: "Moderate match."
-- **Weak match (below 60):** Score displayed in --bronze. Small label: "Weak match — see methodology."
+- **Weak match (below 60):** Score displayed in --bronze. Small label: "Weak match -- see methodology."
 
 The reader sees the confidence at a glance. The lineup card is honest about what the data supports.
 

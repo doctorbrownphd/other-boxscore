@@ -26,7 +26,7 @@ jobs:
       - name: No em dashes
         run: |
           echo "Checking for em dashes (U+2014) in all text files..."
-          if grep -rn $'\xe2\x80\x94' --include='*.html' --include='*.css' --include='*.js' --include='*.json' --include='*.md' . ; then
+          if grep -rn $'\xe2\x80\x94' --include='*.html' --include='*.css' --include='*.js' --include='*.json' --include='*.md' --exclude-dir='.claude' --exclude-dir='node_modules' . ; then
             echo "::error::Em dashes found. This project prohibits em dashes everywhere. Use commas, colons, or restructure."
             exit 1
           fi

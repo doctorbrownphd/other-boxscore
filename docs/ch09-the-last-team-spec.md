@@ -1,10 +1,10 @@
-# The Last Team — Chapter 09
+# The Last Team -- Chapter 09
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-last-team/
 **GitHub:** other-boxscore/chapters/09-the-last-team/
-**Part:** Three — The game they were kept from
+**Part:** Three -- The game they were kept from
 **Position:** Chapter 09 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC v1.0
@@ -52,23 +52,23 @@ This chapter asks a question the standard integration narrative does not. What d
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Hazard Curve
+### Finding 1 -- The Hazard Curve
 The empirical hazard function for franchise integration from 1947 through 1959. Not the cumulative integration rate (which has been published) but the hazard, which shows for each year the conditional probability that a remaining unintegrated team would integrate. The shape of this curve is itself the finding. There are visible peaks (1947, 1953, 1954) and visible plateaus (1948, 1956-1957) that the descriptive timeline obscures.
 
-### Finding 2 — The Cox Model
+### Finding 2 -- The Cox Model
 A Cox proportional hazards model identifies which team-level covariates predicted longer integration delay, controlling for the others. The candidate covariates include: league (AL/NL), region (Northeast / Midwest / South-leaning border / West Coast post-1958), ownership tenure, market size, prior-year team WAR, prior-year attendance, farm system depth, manager tenure, presence of a Black-population-significant home city.
 
 The headline finding: league dummy and prior-year competitive position are the two strongest predictors of delay, with effect sizes calculated and reported with confidence intervals. The AL integrated significantly more slowly than the NL even after controlling for region and market. That is a documented historical observation. This chapter quantifies it for the first time.
 
-### Finding 3 — The Forfeited WAR
+### Finding 3 -- The Forfeited WAR
 For each team, the chapter calculates total Negro Leagues player WAR that was signable but unsigned during the team's pre-integration window. This is the counterfactual roster value the team forfeited by waiting. Calculated at the level of: total WAR available league-wide each year, minus the WAR already signed by other teams, weighted by geographic and competitive reasonableness of the signing.
 
 The headline figure: the team with the highest forfeited WAR is not the Red Sox (the most famous late integrator) but a team the reader will not expect, because forfeited WAR depends on both years waited and quality of unsigned talent in those years, and the late-1940s talent pool was richest.
 
-### Finding 4 — The Competitive Counterfactual
+### Finding 4 -- The Competitive Counterfactual
 Using the forfeited WAR figures, the chapter estimates the alternative competitive outcomes for each franchise. How many additional wins per season would the late-integrating teams have had if they had integrated in 1947. Aggregated across the pre-integration window, how many pennants and World Series titles might have changed hands. This is the speculative finding. It is presented with explicit uncertainty bounds and is methodologically subordinate to Findings 1 through 3.
 
-### Finding 5 — The Manager-Owner Decomposition
+### Finding 5 -- The Manager-Owner Decomposition
 A frailty extension of the Cox model that partitions integration delay variance into team-frailty (persistent across ownership / management changes) and manager-owner-period frailty (specific to who was running the team at the time). The finding answers a question the historical literature debates without quantifying: was integration delay primarily an institutional characteristic of the franchise, or primarily a function of the specific person making the call. The answer changes the moral and historical reading of the period.
 
 ---
@@ -105,7 +105,7 @@ A frailty extension of the Cox model that partitions integration delay variance 
 
 Five model applications. Tenant 10 maximization.
 
-### Model 1 — Kaplan-Meier Hazard Estimation
+### Model 1 -- Kaplan-Meier Hazard Estimation
 
 **Problem:** What was the empirical pattern of integration timing across franchises?
 
@@ -117,22 +117,22 @@ Five model applications. Tenant 10 maximization.
 
 **Why this and not a simple timeline:** The hazard function shows the conditional probability of integration in each year given the team had not yet integrated. The cumulative integration rate flattens out the year-to-year structure. The hazard preserves it. The 1953-1954 spike (Banks, Hank Aaron's class) is invisible in the cumulative rate. It is the central feature of the hazard.
 
-### Model 2 — Cox Proportional Hazards Regression
+### Model 2 -- Cox Proportional Hazards Regression
 
 **Problem:** Which team-level covariates predicted longer integration delay, controlling for others?
 
 **Approach:** A Cox proportional hazards model with the integration event as the outcome and a vector of covariates measured at the team level. Time-varying covariates (annual attendance, prior-year WAR) are handled via the standard Andersen-Gill counting process formulation.
 
 Candidate covariates:
-- League (AL / NL) — binary
-- Region — categorical (Northeast / Midwest / South-leaning border / West)
-- Market size — log of metro population, time-varying
-- Black population share of metro — time-varying
-- Prior-year team WAR — time-varying
-- Prior-year attendance rank — time-varying
-- Owner tenure at time t — time-varying
-- Branch Rickey effect — binary indicator for Dodgers under Rickey
-- Bill Veeck effect — binary indicator for the franchise during Veeck's ownership tenure (Indians, then Browns/Orioles, then White Sox)
+- League (AL / NL) -- binary
+- Region -- categorical (Northeast / Midwest / South-leaning border / West)
+- Market size -- log of metro population, time-varying
+- Black population share of metro -- time-varying
+- Prior-year team WAR -- time-varying
+- Prior-year attendance rank -- time-varying
+- Owner tenure at time t -- time-varying
+- Branch Rickey effect -- binary indicator for Dodgers under Rickey
+- Bill Veeck effect -- binary indicator for the franchise during Veeck's ownership tenure (Indians, then Browns/Orioles, then White Sox)
 
 **Output:** Hazard ratios for each covariate with 95% confidence intervals. The Schoenfeld residuals test verifies the proportional hazards assumption for each covariate. Covariates that violate proportionality are reported with stratified estimation.
 
@@ -140,7 +140,7 @@ Candidate covariates:
 
 **Confidence label:** Every coefficient reported with 95% CI. Covariates with overlapping CI with zero are explicitly flagged as not statistically distinguishable from no effect.
 
-### Model 3 — Forfeited WAR Calculation
+### Model 3 -- Forfeited WAR Calculation
 
 **Problem:** How much Negro Leagues player WAR was theoretically signable but unsigned by each team in each pre-integration year?
 
@@ -158,7 +158,7 @@ Step 3: Aggregate per-team forfeited WAR as the sum of signability-weighted avai
 
 **Confidence label:** Per-team forfeited WAR is reported with bootstrap intervals reflecting uncertainty in the signing model and in the underlying Seamheads WAR data.
 
-### Model 4 — Competitive Counterfactual Simulation
+### Model 4 -- Competitive Counterfactual Simulation
 
 **Problem:** What is the range of plausible alternative competitive histories if late-integrating teams had integrated earlier?
 
@@ -172,7 +172,7 @@ Run 10,000 iterations. Report the distribution of counterfactual outcomes per te
 
 **Why this matters:** This is the model that makes the cost of delay visible in the currency baseball fans understand. WAR is abstract. Pennants are not. The counterfactual must be done with humility and explicit bounds, but it must be done.
 
-### Model 5 — Frailty Decomposition
+### Model 5 -- Frailty Decomposition
 
 **Problem:** Was integration delay driven by persistent franchise characteristics or by specific owner-manager periods?
 
@@ -190,7 +190,7 @@ Run 10,000 iterations. Report the distribution of counterfactual outcomes per te
 
 Five visualizations. Mobile-first.
 
-### Fig 01 — The Risk Set Over Time
+### Fig 01 -- The Risk Set Over Time
 
 **The chapter's entry point.**
 
@@ -208,7 +208,7 @@ To the right: the empirical hazard rate, updating as the years pass.
 
 **Oh wow test:** The reader watches the timeline play through and understands without annotation that the integration was not a moment, it was a process distributed unevenly across more than a decade.
 
-### Fig 02 — The Survival Curve and Hazard Function
+### Fig 02 -- The Survival Curve and Hazard Function
 
 **The Kaplan-Meier output, paired.**
 
@@ -222,7 +222,7 @@ Below the charts: a comparison band that shows what each curve would have looked
 
 **Mobile behavior:** Charts stack vertically. Confidence bands remain visible at all viewport sizes. Null comparison toggle becomes a tap target.
 
-### Fig 03 — The Cox Model Forest Plot
+### Fig 03 -- The Cox Model Forest Plot
 
 **The covariate effect sizes.**
 
@@ -238,7 +238,7 @@ Covariates that significantly accelerated integration (hazard ratio > 1) extend 
 
 **Mobile behavior:** Annotation column collapses to a tap-to-expand panel below the plot.
 
-### Fig 04 — The Forfeited WAR Ledger
+### Fig 04 -- The Forfeited WAR Ledger
 
 **The team-level cost.**
 
@@ -254,7 +254,7 @@ Each bar is decomposed into stacked segments by year of forfeiture. The reader c
 
 **Mobile behavior:** Bars remain horizontal. Annotations move below bars.
 
-### Fig 05 — The Counterfactual Standings
+### Fig 05 -- The Counterfactual Standings
 
 **The competitive outcome simulation.**
 
@@ -274,13 +274,13 @@ Default selection: Red Sox, 1948-1959. The reader sees the actual standings, the
 
 **Archival images required:**
 
-- Pumpsie Green debut, July 21, 1959 (Comiskey Park) — image clearance required.
-- Larry Doby debut, July 5, 1947 (Cleveland) — PD verification.
-- Hank Thompson Browns debut, July 17, 1947 — PD verification.
-- Branch Rickey portrait — PD verification.
-- Bill Veeck portrait — PD verification.
-- Tom Yawkey portrait — PD verification (likely available).
-- Team logos for sixteen original franchises (used at small scale in the risk set timeline) — trademark considerations, may need to use stylized representations.
+- Pumpsie Green debut, July 21, 1959 (Comiskey Park) -- image clearance required.
+- Larry Doby debut, July 5, 1947 (Cleveland) -- PD verification.
+- Hank Thompson Browns debut, July 17, 1947 -- PD verification.
+- Branch Rickey portrait -- PD verification.
+- Bill Veeck portrait -- PD verification.
+- Tom Yawkey portrait -- PD verification (likely available).
+- Team logos for sixteen original franchises (used at small scale in the risk set timeline) -- trademark considerations, may need to use stylized representations.
 
 **Documentation requirements:**
 
@@ -288,18 +288,18 @@ Oscar must verify provenance for every image. Team logos in Fig 01 are a sensiti
 
 **Pre-computed data files:**
 
-- `data/integration-events.json` — Per franchise, the integration date, first player, source citations.
-- `data/team-covariates.json` — Annual team covariate panel, 1947-1959.
-- `data/km-output.json` — Kaplan-Meier survival and hazard curves with confidence bands.
-- `data/cox-output.json` — Cox model coefficients, hazard ratios, confidence intervals, diagnostic test results.
-- `data/forfeited-war.json` — Per team forfeited WAR by year.
-- `data/counterfactual-distributions.json` — Monte Carlo output, per team-season.
-- `data/frailty-decomposition.json` — Frailty model variance components.
-- `data/asset-register.json` — Updated for chapter.
+- `data/integration-events.json` -- Per franchise, the integration date, first player, source citations.
+- `data/team-covariates.json` -- Annual team covariate panel, 1947-1959.
+- `data/km-output.json` -- Kaplan-Meier survival and hazard curves with confidence bands.
+- `data/cox-output.json` -- Cox model coefficients, hazard ratios, confidence intervals, diagnostic test results.
+- `data/forfeited-war.json` -- Per team forfeited WAR by year.
+- `data/counterfactual-distributions.json` -- Monte Carlo output, per team-season.
+- `data/frailty-decomposition.json` -- Frailty model variance components.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Full per-model documentation. Includes the explicit limitations panel for the counterfactual. Cross-references to the Cox proportional hazards literature, the Kaplan-Meier methodology, and the frailty extension references.
+- `METHODOLOGY.md` -- Full per-model documentation. Includes the explicit limitations panel for the counterfactual. Cross-references to the Cox proportional hazards literature, the Kaplan-Meier methodology, and the frailty extension references.
 
 ---
 
@@ -317,31 +317,31 @@ Oscar must verify provenance for every image. Team logos in Fig 01 are a sensiti
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews the asset register. Verifies PD status for all integration milestone player portraits. Reviews team logo use in Fig 01 for trademark compliance, recommends stylized fallback if needed. Flags any image without documented provenance.
 
 **Specific gates:** All sixteen team integration moments need either a verified player portrait or a documented absence with rationale. Trademark assessment for logos completed before Fig 01 ships.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Verifies every integration date against primary source. Verifies the n=16 team list is the correct universe. Verifies covariate data against Baseball Reference and SABR. Verifies the Cox model coefficients are reproducible from the published data. Verifies the Monte Carlo seed and iteration count are documented for reproducibility.
 
 **Specific gates:** Every integration date traces to a primary source URL. The Cox model results are reproducible from the published data files and methodology document. The Monte Carlo simulation seed is fixed and documented so the counterfactual distributions are exactly reproducible.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews all five visualizations at 375px, 768px, 1200px. The animated timeline in Fig 01 is tested with motion-sensitivity considerations (animation can be paused, default play speed is not aggressive). The forest plot in Fig 03 is tested for color-blindness accessibility (the significant / not-significant distinction does not rely on color alone). The counterfactual selector in Fig 05 is tested for tap target size on mobile.
 
 **Specific gates:** Fig 01 timeline animation has a documented pause control accessible by keyboard. Fig 03 significance distinction works in grayscale. Fig 05 selector controls are tappable with thumb on mobile.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Verifies all five models documented. Verifies Tenant 10 satisfaction. Verifies connective tissue paragraphs present in project owner's voice. Verifies citation block.
 
 **Specific gates:** Methodology document is complete. Citation block present. Both connective tissue paragraphs present.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 Three gates. Oh wow test conducted with five agent instances. Particular focus on the Fig 01 animated timeline as the chapter's central rhetorical moment.
 
