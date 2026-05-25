@@ -1418,6 +1418,128 @@ a:hover { color: var(--amber-2); }
 }
 
 /* ==========================================================================
+   AI Disclosure Block
+   ========================================================================== */
+
+.ai-disclosure {
+  border: 1px solid rgba(161,69,69,0.5);
+  background: rgba(161,69,69,0.08);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.ai-disclosure__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--oxblood-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.ai-disclosure__body {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+}
+
+.ai-disclosure__body strong {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Narratives Section
+   ========================================================================== */
+
+.narratives__controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.narratives__select {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum);
+  background: var(--ink-2);
+  border: 1px solid var(--rule-2);
+  padding: 8px 12px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+.narratives__select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.narratives__count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.narrative-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule-2);
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+
+.narrative-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.narrative-card__season {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+}
+
+.narrative-card__confidence {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.narrative-card__text {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum);
+  line-height: 1.6;
+}
+
+.narrative-card__meta {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.08em;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.narrative-card__placeholder {
+  color: var(--oxblood-2);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
@@ -1443,6 +1565,7 @@ a:hover { color: var(--amber-2); }
   .masthead__mark { text-decoration: none; padding: 24px 20px 0; }
   .masthead__mark-svg { width: 320px; }
   .platform-nav__links { display: none; }
+  .narratives__controls { flex-direction: column; align-items: flex-start; }
 }
 
 </style>
@@ -1534,6 +1657,7 @@ a:hover { color: var(--amber-2); }
       <a class="masthead__tab" href="#league" role="tab">Fig 02 League</a>
       <a class="masthead__tab" href="#heat" role="tab">Fig 03 Conclusion</a>
       <a class="masthead__tab" href="#facsimile" role="tab">Fig 04 The Book</a>
+      <a class="masthead__tab" href="#narratives" role="tab">Narratives</a>
       <a class="masthead__tab" href="#coda" role="tab">Coda</a>
     </nav>
   </div>
@@ -1962,6 +2086,34 @@ a:hover { color: var(--amber-2); }
 </section>
 
 <!-- ====================================================================
+     8b. AI-GENERATED NARRATIVES
+     ==================================================================== -->
+<section id="narratives" class="section" aria-label="AI-Generated Narratives">
+  <div class="section__label">AI-Generated Narratives</div>
+  <h2 class="section__heading">What the <em>data</em> says, season by season.</h2>
+
+  <div class="ai-disclosure">
+    <div class="ai-disclosure__label">AI-Generated Content</div>
+    <div class="ai-disclosure__body">
+      The narratives below are <strong>AI-generated</strong> by Claude (claude-sonnet-4-20250514). Each narrative synthesizes
+      schedule data, Green Book listing counts, and safety scores into prose. The underlying data is documented and verified,
+      but the prose itself is machine-generated. <strong>Model:</strong> Claude Sonnet 4. <strong>Confidence:</strong> varies per narrative
+      (labeled individually). <strong>Oscar review:</strong> pending for all 171 narratives. These are placeholders awaiting API
+      generation -- the current text is structural, not final. No narrative ships without Oscar sign-off.
+    </div>
+  </div>
+
+  <div class="narratives__controls">
+    <select id="narrative-team-select" class="narratives__select" aria-label="Select team">
+      <option value="">Loading teams...</option>
+    </select>
+    <span id="narrative-count" class="narratives__count"></span>
+  </div>
+
+  <div id="narratives-container"></div>
+</section>
+
+<!-- ====================================================================
      9. CODA
      ==================================================================== -->
 <footer id="coda" class="coda" aria-label="Coda">
@@ -2051,7 +2203,7 @@ function albersProject(lat, lon) {
 // =====================================================================
 
 var tabs = document.querySelectorAll('.masthead__tab');
-var sectionIds = ['hook', 'data', 'route', 'league', 'heat', 'facsimile', 'coda'];
+var sectionIds = ['hook', 'data', 'route', 'league', 'heat', 'facsimile', 'narratives', 'coda'];
 
 function updateActiveTab() {
   var scrollY = window.scrollY + 120;
@@ -2688,6 +2840,83 @@ var trendObserver = new IntersectionObserver(function(entries) {
 }, { threshold: 0.1 });
 
 trendObserver.observe(heatTrend);
+
+// =====================================================================
+// AI-GENERATED NARRATIVES (loaded from data/narratives.json)
+// =====================================================================
+
+var narrativeSelect = document.getElementById('narrative-team-select');
+var narrativeCount = document.getElementById('narrative-count');
+var narrativesContainer = document.getElementById('narratives-container');
+var narrativesData = null;
+
+function renderNarratives(team) {
+  if (!narrativesData) return;
+  narrativesContainer.innerHTML = '';
+  var filtered = narrativesData.narratives.filter(function(n) {
+    return n.team === team;
+  });
+  narrativeCount.textContent = filtered.length + ' season' + (filtered.length !== 1 ? 's' : '');
+
+  filtered.forEach(function(n) {
+    var card = document.createElement('div');
+    card.className = 'narrative-card';
+    var isPlaceholder = n.source === 'placeholder';
+    var confLabel = n.confidence || 'N/A';
+    var modelLabel = n.model || 'awaiting generation';
+
+    card.innerHTML =
+      '<div class="narrative-card__header">' +
+        '<span class="narrative-card__season">' + n.team + ' -- ' + n.season + '</span>' +
+        '<span class="narrative-card__confidence">Confidence: ' + confLabel + '</span>' +
+      '</div>' +
+      '<p class="narrative-card__text' + (isPlaceholder ? ' narrative-card__placeholder' : '') + '">' +
+        n.narrative +
+      '</p>' +
+      '<div class="narrative-card__meta">' +
+        '<span>Model: ' + modelLabel + '</span>' +
+        '<span>Words: ' + n.word_count + '</span>' +
+        '<span>Dark cities: ' + n.dark_cities_mentioned + '</span>' +
+        '<span>Oscar review: ' + (n.requires_oscar_review ? 'PENDING' : 'COMPLETE') + '</span>' +
+      '</div>';
+    narrativesContainer.appendChild(card);
+  });
+}
+
+fetch('data/narratives.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    narrativesData = data;
+    var teams = [];
+    var teamSet = {};
+    data.narratives.forEach(function(n) {
+      if (!teamSet[n.team]) {
+        teamSet[n.team] = true;
+        teams.push(n.team);
+      }
+    });
+    teams.sort();
+    narrativeSelect.innerHTML = '';
+    teams.forEach(function(t) {
+      var opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      narrativeSelect.appendChild(opt);
+    });
+    if (teams.length > 0) {
+      narrativeSelect.value = teams[0];
+      renderNarratives(teams[0]);
+    }
+  })
+  .catch(function(err) {
+    narrativesContainer.innerHTML =
+      '<p style="color:var(--oxblood-2);font-family:var(--mono);font-size:12px;">' +
+      'Failed to load narratives data. ' + err.message + '</p>';
+  });
+
+narrativeSelect.addEventListener('change', function() {
+  renderNarratives(this.value);
+});
 
 })();
 </script>

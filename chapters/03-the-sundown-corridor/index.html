@@ -907,6 +907,104 @@ a:hover { color: var(--amber-2); }
 }
 
 /* ==========================================================================
+   AI Disclosure Block
+   ========================================================================== */
+
+.ai-disclosure {
+  border: 1px solid rgba(161,69,69,0.5);
+  background: rgba(161,69,69,0.08);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.ai-disclosure__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--oxblood-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.ai-disclosure__body {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+}
+
+.ai-disclosure__body strong {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Case Study Narrative Expansion
+   ========================================================================== */
+
+.case-narrative {
+  background: var(--ink-3);
+  border: 1px solid var(--rule-2);
+  border-top: none;
+  padding: 28px 28px 24px;
+  margin-top: -1px;
+  margin-bottom: 16px;
+}
+
+.case-narrative__toggle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+  background: none;
+  border: 1px solid var(--rule-2);
+  padding: 8px 14px;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.case-narrative__toggle:hover {
+  color: var(--amber-2);
+  border-color: var(--amber-dim);
+}
+
+.case-narrative__toggle:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.case-narrative__prose {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum);
+  line-height: 1.65;
+  max-width: 740px;
+}
+
+.case-narrative__prose p {
+  margin-bottom: 14px;
+}
+
+.case-narrative__prose p:last-child {
+  margin-bottom: 0;
+}
+
+.case-narrative__meta {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.08em;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
    Ruler Mark (decorative vertical line)
    ========================================================================== */
 
@@ -929,6 +1027,7 @@ a:hover { color: var(--amber-2); }
 @media (max-width: 900px) {
   .masthead__mark { text-decoration: none; padding: 24px 20px 0; }
   .masthead__mark-svg { width: 320px; }
+  .case-narrative__meta { flex-direction: column; gap: 6px; }
 }
 
 </style>
@@ -1462,6 +1561,18 @@ a:hover { color: var(--amber-2); }
   <h2 class="section__heading" id="cases-heading">Here is what it meant, specifically.</h2>
   <p class="section__lede">Five documented cases. Four named towns and one aggregate number. Every claim sourced. Every gap in the documentation named as a gap, not papered over.</p>
 
+  <div class="ai-disclosure">
+    <div class="ai-disclosure__label">AI-Generated Content</div>
+    <div class="ai-disclosure__body">
+      The extended narratives below each case study card are <strong>AI-generated</strong> by Claude (claude-sonnet-4-20250514).
+      Each narrative synthesizes primary source documentation, corridor danger scores, and ballpark proximity data into prose.
+      The underlying facts are sourced and individually confidence-labeled (Documented, Verified, Probable) at the point of
+      each claim. The prose structure is machine-generated. <strong>Model:</strong> Claude Sonnet 4.
+      <strong>Confidence:</strong> AI-generated (labeled per narrative). <strong>Oscar review:</strong> pending for all five narratives.
+      No narrative ships without Oscar sign-off.
+    </div>
+  </div>
+
   <div class="cases__grid" id="cases-grid">
     <!-- JS populates 4 case cards -->
   </div>
@@ -1469,6 +1580,15 @@ a:hover { color: var(--amber-2); }
   <!-- Aggregate case 05 -->
   <div class="aggregate" id="aggregate-case">
     <!-- JS populates -->
+  </div>
+
+  <!-- Extended AI-Generated Narratives (from case-studies.json) -->
+  <div style="margin-top:48px;">
+    <div class="section__fig-label" style="margin-bottom:8px;">Extended case study narratives</div>
+    <h3 style="font-family:var(--display);font-size:28px;font-weight:700;color:var(--vellum);margin-bottom:24px;">
+      Five towns. Five stories the data tells.
+    </h3>
+    <div id="case-narratives-container"></div>
   </div>
 
   <!-- The Schedule Question -->
@@ -2026,6 +2146,87 @@ CASES.forEach(function(c){
     '<p class="case-card__body">'+c.body+'</p>'+
     '<div class="case-card__source">Source -- '+c.source+'</div>';
   casesGrid.appendChild(card);
+});
+
+// Load extended AI-generated narratives from case-studies.json
+var narrativesContainer = document.getElementById("case-narratives-container");
+
+fetch("data/case-studies.json")
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    var studies = data.case_studies;
+    studies.forEach(function(study, idx){
+      if (!study.narrative) return;
+
+      var wrapper = document.createElement("div");
+      wrapper.style.marginBottom = "24px";
+
+      // Header with toggle
+      var header = document.createElement("div");
+      header.style.cssText = "display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0;";
+      header.innerHTML =
+        '<h4 style="font-family:var(--display);font-size:24px;color:var(--vellum);font-weight:700;">'+
+          study.town+', '+study.state+
+          ' <span style="font-family:var(--mono);font-size:11px;color:var(--amber);font-weight:400;letter-spacing:0.06em;">'+
+          study.ballpark_distance_miles+' mi from '+study.nearest_ballpark+'</span>'+
+        '</h4>'+
+        '<button class="case-narrative__toggle" data-narrative-idx="'+idx+'" aria-expanded="false">'+
+          'Read narrative'+
+        '</button>';
+      wrapper.appendChild(header);
+
+      // Narrative panel (hidden by default)
+      var panel = document.createElement("div");
+      panel.className = "case-narrative";
+      panel.id = "case-narrative-"+idx;
+      panel.style.display = "none";
+
+      // Convert markdown-style narrative to HTML paragraphs
+      var paragraphs = study.narrative
+        .replace(/^#[^\n]*\n+/, '')
+        .split(/\n\n+/)
+        .filter(function(p){ return p.trim().length > 0; })
+        .map(function(p){
+          p = p.replace(/\[(Documented|Verified|Probable|AI-generated)\]/g,
+            '<span style="font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.06em;">[$1]</span>');
+          return '<p>'+p+'</p>';
+        })
+        .join('');
+
+      var modelLabel = study.narrative_model || 'unknown';
+      var wordCount = study.narrative_word_count || 'N/A';
+      var oscarStatus = study.oscar_approval || 'PENDING';
+      var confLabel = study.narrative_confidence || 'AI-generated';
+
+      panel.innerHTML =
+        '<div class="case-narrative__prose">'+paragraphs+'</div>'+
+        '<div class="case-narrative__meta">'+
+          '<span>Model: '+modelLabel+'</span>'+
+          '<span>Words: '+wordCount+'</span>'+
+          '<span>Confidence: '+confLabel+'</span>'+
+          '<span>Oscar review: '+oscarStatus+'</span>'+
+        '</div>';
+      wrapper.appendChild(panel);
+      narrativesContainer.appendChild(wrapper);
+    });
+  })
+  .catch(function(err){
+    narrativesContainer.innerHTML =
+      '<p style="color:var(--oxblood-2);font-family:var(--mono);font-size:11px;">'+
+      'Failed to load narrative data. '+err.message+'</p>';
+  });
+
+// Toggle narrative panels
+document.addEventListener("click", function(e){
+  var btn = e.target.closest(".case-narrative__toggle");
+  if (!btn) return;
+  var idx = btn.getAttribute("data-narrative-idx");
+  var panel = document.getElementById("case-narrative-"+idx);
+  if (!panel) return;
+  var isOpen = panel.style.display !== "none";
+  panel.style.display = isOpen ? "none" : "block";
+  btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+  btn.textContent = isOpen ? "Hide narrative" : "Read narrative";
 });
 
 // Aggregate case

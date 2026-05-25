@@ -1048,6 +1048,69 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 8px;
 }
 
+.rec-card__routing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.rec-card__committee {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  background: rgba(111,138,168,0.12);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.rec-card__cycle {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.rec-card__prob {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.rec-card__prob--high { color: var(--amber); }
+.rec-card__prob--mid { color: var(--slate); }
+.rec-card__prob--low { color: var(--muted); }
+
+.rec-card__prob-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.rec-card__prob-confidence {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--muted-2);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.rec-card__quant-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--rule);
+  margin: 10px 0;
+}
+
 .recommendation__footer {
   margin-top: 32px;
   font-family: var(--mono);
@@ -1910,13 +1973,18 @@ img { max-width: 100%; height: auto; display: block; }
 </style>
 
 <!-- ====================================================================
+     DATA
+     ==================================================================== -->
+<script src="hof-data.js"></script>
+
+<!-- ====================================================================
      JAVASCRIPT
      ==================================================================== -->
 
 <script>
 /* The Other Box Score -- Chapter 11: Cooperstown
    Single IIFE. Zero globals except window.TOBS namespace.
-   Data loaded from JSON pipeline: hof-standards.json, candidates.json, special-committee-2006.json */
+   Data loaded from hof-data.js: HOF_STANDARDS, HOF_CANDIDATES, HOF_PROBABILITY, HOF_COMMITTEE_2006 */
 
 ;(function() {
 "use strict";
@@ -1935,10 +2003,11 @@ window.TOBS.ch11 = {};
    and FanGraphs JAWS position averages.
    ================================================================== */
 
-var DATA_BASE = "data/";
-var HOF_STANDARDS = null;
-var CANDIDATES_DATA = null;
-var COMMITTEE_2006 = null;
+/* Data loaded synchronously from hof-data.js via script src */
+var HOF_STANDARDS = window.HOF_STANDARDS;
+var CANDIDATES_DATA = window.HOF_CANDIDATES;
+var COMMITTEE_2006 = window.HOF_COMMITTEE_2006;
+var PROBABILITY_DATA = window.HOF_PROBABILITY;
 
 /* Derived rendering arrays, built after data loads */
 var SLATE_CANDIDATES = [];
@@ -1946,6 +2015,7 @@ var RETRO_INDUCTED = [];
 var RETRO_NOT_INDUCTED = [];
 var HOF_BASELINES = {};
 var AUDIT_GRID = {};
+var PROBABILITY_MAP = {};
 
 var POSITIONS = ["C", "1B", "2B", "SS", "3B", "OF", "P"];
 var POSITION_LABELS = {
@@ -1953,25 +2023,17 @@ var POSITION_LABELS = {
   "SS": "Shortstop", "3B": "Third Base", "OF": "Outfield", "P": "Pitcher"
 };
 
-/* Load all three JSON files, then initialize */
-Promise.all([
-  fetch(DATA_BASE + "hof-standards.json").then(function(r) { return r.json(); }),
-  fetch(DATA_BASE + "candidates.json").then(function(r) { return r.json(); }),
-  fetch(DATA_BASE + "special-committee-2006.json").then(function(r) { return r.json(); })
-]).then(function(results) {
-  HOF_STANDARDS = results[0];
-  CANDIDATES_DATA = results[1];
-  COMMITTEE_2006 = results[2];
+/* Verify data loaded, then initialize */
+if (HOF_STANDARDS && CANDIDATES_DATA && COMMITTEE_2006) {
   buildDerivedData();
   renderAll();
-}).catch(function(err) {
-  console.error("[Ch11] Data load failed:", err);
-  /* Render a user-visible error */
+} else {
+  console.error("[Ch11] Data not loaded. Ensure hof-data.js is present.");
   var container = document.getElementById("slate-container");
   if (container) {
-    container.innerHTML = '<div style="padding:32px;border:1px solid var(--oxblood);background:var(--ink-2);font-family:var(--mono);font-size:12px;color:var(--oxblood);">Data pipeline error. JSON files not loaded. Check data/ directory.</div>';
+    container.innerHTML = '<div style="padding:32px;border:1px solid var(--oxblood);background:var(--ink-2);font-family:var(--mono);font-size:12px;color:var(--oxblood);">Data pipeline error. hof-data.js not loaded.</div>';
   }
-});
+}
 
 /* ==================================================================
    BUILD DERIVED DATA
@@ -2168,6 +2230,37 @@ function buildDerivedData() {
     });
   });
 
+  /* --- Probability map from hof-probability.json ---
+     Index by player name for O(1) lookup during rendering */
+  PROBABILITY_MAP = {};
+  if (PROBABILITY_DATA && PROBABILITY_DATA.candidates) {
+    PROBABILITY_DATA.candidates.forEach(function(p) {
+      PROBABILITY_MAP[p.name] = {
+        probability: p.hof_probability,
+        rateJAWS: p.rate_jaws,
+        jawsRank: p.jaws_rank,
+        eraCommittee: p.era_committee,
+        nextCycle: p.next_eligible_cycle,
+        components: p.probability_components,
+        confidence: p.confidence
+      };
+    });
+  }
+
+  /* Attach probability data to slate candidates */
+  SLATE_CANDIDATES.forEach(function(c) {
+    var prob = PROBABILITY_MAP[c.name];
+    if (prob) {
+      c.hofProbability = prob.probability;
+      c.rateJAWS = prob.rateJAWS;
+      c.jawsRank = prob.jawsRank;
+      c.eraCommittee = prob.eraCommittee;
+      c.nextCycle = prob.nextCycle;
+      c.probComponents = prob.components;
+      c.probConfidence = prob.confidence;
+    }
+  });
+
   /* Store for external reference */
   window.TOBS.ch11 = {
     candidates: SLATE_CANDIDATES,
@@ -2176,7 +2269,9 @@ function buildDerivedData() {
     retroNotInducted: RETRO_NOT_INDUCTED,
     standards: HOF_STANDARDS,
     committee2006: COMMITTEE_2006,
-    candidatesData: CANDIDATES_DATA
+    candidatesData: CANDIDATES_DATA,
+    probability: PROBABILITY_DATA,
+    probabilityMap: PROBABILITY_MAP
   };
 }
 
@@ -2290,6 +2385,9 @@ function renderSlate() {
       html += '<div><div class="slate-card__stat-val">' + fmtWAR(p.estimatedJAWS) + '</div>';
       html += '<div class="slate-card__stat-label">Est. JAWS</div>';
       html += '<div class="slate-card__band">Modeled: WAR * 0.75</div></div>';
+      html += '<div><div class="slate-card__stat-val">' + (p.rateJAWS !== null && p.rateJAWS !== undefined ? Number(p.rateJAWS).toFixed(2) : '--') + '</div>';
+      html += '<div class="slate-card__stat-label">Rate JAWS</div>';
+      html += '<div class="slate-card__band">' + (p.jawsRank ? '#' + p.jawsRank + ' overall' : 'N/A') + '</div></div>';
       html += '<div><div class="slate-card__stat-val slate-card__stat-val--muted">' + (p.rank42for21 ? '#' + p.rank42for21 : '--') + '</div>';
       html += '<div class="slate-card__stat-label">42 for 21 Rank</div>';
       html += '<div class="slate-card__band">Historian poll</div></div>';
@@ -2315,7 +2413,11 @@ function renderSlate() {
       html += '<div class="slate-card__percentile ' + pctClass + '">' + pctLabel(p.pctile) + '</div>';
       html += '<div class="slate-card__percentile-label">vs inducted HOF</div>';
       html += '<div class="slate-card__bar-flag ' + barFlagClass + '">' + barFlagText + '</div>';
-      if (p.careerWAR !== null) {
+      if (p.hofProbability !== null && p.hofProbability !== undefined) {
+        var probPct = Math.round(p.hofProbability * 100);
+        html += '<div class="slate-card__prob">' + probPct + '</div>';
+        html += '<div class="slate-card__prob-label">HOF Score</div>';
+      } else if (p.careerWAR !== null) {
         html += '<div class="slate-card__prob">' + fmtWAR(p.careerWAR) + '</div>';
         html += '<div class="slate-card__prob-label">Career WAR</div>';
       }
@@ -2557,12 +2659,46 @@ function renderRecommendation() {
       var caseText = p.annotation || "Case documented by historian advocacy.";
       var sourceCite = p.sources.join(", ");
 
+      /* Era committee routing from probability data */
+      var eraLabel = "";
+      var cycleLabel = "";
+      if (p.eraCommittee && PROBABILITY_DATA && PROBABILITY_DATA.era_committees) {
+        var committee = PROBABILITY_DATA.era_committees[p.eraCommittee];
+        if (committee) {
+          eraLabel = committee.name;
+        }
+      }
+      if (p.nextCycle) {
+        cycleLabel = "Next eligible: " + p.nextCycle;
+      }
+
+      /* Probability score display */
+      var probDisplay = "";
+      if (p.hofProbability !== null && p.hofProbability !== undefined) {
+        var pctScore = Math.round(p.hofProbability * 100);
+        var probClass = pctScore >= 60 ? "rec-card__prob--high" :
+                        pctScore >= 40 ? "rec-card__prob--mid" : "rec-card__prob--low";
+        probDisplay = '<div class="rec-card__prob ' + probClass + '">' + pctScore + '</div>';
+        probDisplay += '<div class="rec-card__prob-label">Composite Score</div>';
+        probDisplay += '<div class="rec-card__prob-confidence">Modeled</div>';
+      }
+
       var html = '<div>';
       html += '<div class="rec-card__name">' + esc(p.name) + '</div>';
       html += '<div class="rec-card__meta">' + esc(p.pos) + ' -- ' + esc(p.years) + '</div>';
+      if (eraLabel) {
+        html += '<div class="rec-card__routing">';
+        html += '<span class="rec-card__committee">' + esc(eraLabel) + '</span>';
+        if (cycleLabel) html += '<span class="rec-card__cycle">' + esc(cycleLabel) + '</span>';
+        html += '</div>';
+      }
       html += '<div class="rec-card__case">' + esc(caseText) + '<cite>Sources: ' + esc(sourceCite) + '</cite></div>';
       html += '</div>';
       html += '<div class="rec-card__quant">';
+      if (probDisplay) {
+        html += probDisplay;
+        html += '<div class="rec-card__quant-divider"></div>';
+      }
       html += '<div class="rec-card__quant-val">' + fmtWAR(p.careerWAR) + '</div>';
       html += '<div class="rec-card__quant-label">Career WAR</div>';
       html += '<div class="rec-card__quant-pctile">' + (p.estimatedJAWS !== null ? fmtWAR(p.estimatedJAWS) + ' est. JAWS' : 'WAR not available') + '</div>';
