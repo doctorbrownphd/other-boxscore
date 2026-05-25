@@ -1,10 +1,10 @@
-# The Other Box Score — Chapter 05
+# The Other Box Score -- Chapter 05
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-other-box-score/
 **GitHub:** other-boxscore/chapters/05-the-other-box-score/
-**Part:** Two — The game they played
+**Part:** Two -- The game they played
 **Position:** Chapter 05 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC COMPLETE

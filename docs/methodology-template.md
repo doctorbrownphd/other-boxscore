@@ -1,9 +1,9 @@
-# The Other Box Score — Chapter Methodology Template
+# The Other Box Score -- Chapter Methodology Template
 ## Canonical Structure for Every Chapter · v1.0
 
 **For:** Claude Code, chapter authors, agent reviewers
 **Authority:** Elias (statistical accuracy) + Oscar (historical accuracy) both approve before ship
-**Status:** TEMPLATE — copy and complete for each chapter
+**Status:** TEMPLATE -- copy and complete for each chapter
 **Last updated:** May 2026
 
 ---
@@ -24,7 +24,7 @@ The target reader for both: someone intelligent and serious who has no statistic
 ## METHODOLOGY.md Template
 
 ```markdown
-# [Chapter Title] — Methodology
+# [Chapter Title] -- Methodology
 ## theotherboxscore.org/chapters/[slug]/
 
 **Version:** 1.0

@@ -1,10 +1,10 @@
-# The Other Box Score — Chapter 02
+# The Other Box Score -- Chapter 02
 ## The Green Book Route · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-green-book-route/
 **GitHub:** other-boxscore/chapters/02-the-green-book-route/
-**Part:** One — The world they played in
+**Part:** One -- The world they played in
 **Position:** Chapter 02 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC COMPLETE

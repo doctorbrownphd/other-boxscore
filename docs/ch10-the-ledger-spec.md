@@ -1,10 +1,10 @@
-# The Ledger — Chapter 10
+# The Ledger -- Chapter 10
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-ledger/
 **GitHub:** other-boxscore/chapters/10-the-ledger/
-**Part:** Three — The game they were kept from
+**Part:** Three -- The game they were kept from
 **Position:** Chapter 10 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC v1.0
@@ -52,25 +52,25 @@ This chapter builds the alternative. Rate-based career and peak metrics. Positio
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Rate-Based Leaderboard
+### Finding 1 -- The Rate-Based Leaderboard
 A complete WAR-per-plate-appearance and WAR-per-game leaderboard, integrated across MLB and Negro Leagues records, for every position. This is the leaderboard that has been theorized in Seamheads blog posts but never produced as a finished platform artifact. The top of this leaderboard contains names like Josh Gibson, Oscar Charleston, Babe Ruth, Mike Trout, and Honus Wagner, ranked by the same methodology. The fact that the ranking is integrable at all is the finding.
 
-### Finding 2 — The Adjusted JAWS Distribution
+### Finding 2 -- The Adjusted JAWS Distribution
 For every Hall of Fame eligible position player and pitcher in history, a recalculated JAWS score using the platform's rate-adjusted methodology. Compared side by side with the standard JAWS distribution. Players whose rankings move significantly under the adjustment are identified explicitly.
 
 The headline pattern: Negro Leagues players move up substantially. A small number of MLB compilers (players who accumulated large career WAR through longevity rather than peak production) move down. The pattern is what JAWS was designed to do at MLB; the platform extends that logic across the color line.
 
-### Finding 3 — The Confidence Bands
+### Finding 3 -- The Confidence Bands
 Every player's WAR figure on the platform is reported with an uncertainty band that reflects the underlying data completeness. A Negro Leagues player from the well-documented 1940s NAL has a tight band. A player from the sparsely-documented 1920s ECL has a wider band. An MLB player has the standard bWAR uncertainty bands. The figure is not a point estimate; it is a credible interval, and the platform shows the interval everywhere.
 
 This is the methodological honesty move that no existing baseball reference does. Baseball Reference shows point estimates. Seamheads shows point estimates. The chapter argues that the right way to present heterogeneous-quality data is to surface the heterogeneity, not paper over it.
 
-### Finding 4 — The Methodology Sensitivity
+### Finding 4 -- The Methodology Sensitivity
 A reader-facing dashboard that allows the methodology to be adjusted: the JAWS peak window length, the rate-versus-count balance, the Negro Leagues seasonal-equivalent assumption, the MLE conversion factor (if applied), the defensive component weighting. The reader sees how the integrated leaderboard shifts under different methodological choices.
 
 This is the chapter's most important visualization for the same reason the Chapter 8 sensitivity dashboard was important: it is the chapter's good-faith engagement with its own methodology. The leaderboard is not produced from a single combination of choices. It is produced from a documented combination, with all other combinations available to the reader.
 
-### Finding 5 — The Comparable Universe Analysis
+### Finding 5 -- The Comparable Universe Analysis
 A clustering finding. The platform applies dimensionality reduction (UMAP) over the multi-component WAR space (offensive, defensive, baserunning, positional) to every player across both records. The resulting embedding shows which Negro Leagues players occupy similar regions of the value space as which MLB players. Josh Gibson clusters with Mike Piazza and Johnny Bench. Cool Papa Bell clusters with Lou Brock. Oscar Charleston clusters with Willie Mays. The clustering is not a ranking. It is a similarity map, and it gives the comparison question a different vocabulary than ranking alone provides.
 
 ---
@@ -108,7 +108,7 @@ A clustering finding. The platform applies dimensionality reduction (UMAP) over 
 
 Six models. The chapter is the platform's deepest ML investment, because it is the engine that produces the figures used elsewhere.
 
-### Model 1 — Rate-Normalized WAR Engine
+### Model 1 -- Rate-Normalized WAR Engine
 
 **Problem:** Per-season Seamheads-derived WAR uses seasonal counts. Comparing across leagues with different season lengths produces misleading totals. The platform needs WAR expressed as rates (per plate appearance, per inning, per defensive opportunity) so cross-league comparisons are unit-equivalent.
 
@@ -125,7 +125,7 @@ These rate figures are published alongside the existing seasonal WAR figures. Th
 
 **Why this matters:** This is the precondition for Findings 1 and 2. Without rate normalization, every cross-league comparison is unfair to Negro Leagues players. With it, the comparisons become unit-equivalent and defensible.
 
-### Model 2 — Extended JAWS Calculation
+### Model 2 -- Extended JAWS Calculation
 
 **Problem:** Standard JAWS averages career WAR with seven-year peak WAR. Negro Leagues careers had different shape and length constraints. The platform needs a JAWS extension that handles these constraints.
 
@@ -143,7 +143,7 @@ Each variant uses the same peak-seven-season conceptual framework. Each variant 
 
 **Why this and not just one variant:** The chapter argues that there is no single right answer. There are multiple defensible methodologies. Showing three variants forces the reader to confront the methodological choice rather than accepting it implicitly.
 
-### Model 3 — Uncertainty Quantification
+### Model 3 -- Uncertainty Quantification
 
 **Problem:** Per-season WAR figures from Seamheads and Baseball Reference are reported as point estimates. The underlying data quality varies substantially across player-seasons. The chapter needs a principled method for attaching uncertainty bands to every figure.
 
@@ -163,7 +163,7 @@ The posterior distribution of true career WAR is constructed by combining the pe
 
 **Why Bayesian:** The data quality varies hierarchically (within-season, across-seasons, across-leagues) and the priors are informative. A frequentist confidence interval approach would either understate uncertainty or require ad-hoc adjustments. The Bayesian framework handles the structure naturally.
 
-### Model 4 — Position Assignment
+### Model 4 -- Position Assignment
 
 **Problem:** JAWS compares players within positions. Negro Leagues players, particularly utility players and barnstorming-era multi-position players, do not have clean position assignments. The platform needs a defensible position assignment for every player.
 
@@ -175,7 +175,7 @@ For players with substantial WAR at two positions (a common pattern in Negro Lea
 
 **Confidence label:** Position assignment is flagged when the WAR distribution is near-tied across positions. Readers see this flag explicitly.
 
-### Model 5 — Comparable Universe Embedding
+### Model 5 -- Comparable Universe Embedding
 
 **Problem:** Ranking is one comparison. Similarity is another. The chapter wants to give readers a vocabulary beyond "X is better than Y" that includes "X is similar to Y."
 
@@ -196,7 +196,7 @@ UMAP produces a two-dimensional embedding that preserves local similarity struct
 
 **Why this matters:** This is the visualization that does what the chapter cannot do with leaderboards alone. It says "these are the comparable players" rather than "this player is ranked Nth." The ranking is one answer. The clustering is a different answer to a different question.
 
-### Model 6 — Hall of Fame Probability Estimation
+### Model 6 -- Hall of Fame Probability Estimation
 
 **Problem:** The chapter is the engine for Chapter 11 (Cooperstown), which produces ranked HOF candidates. The engine needs to convert JAWS-and-similar figures into induction probability estimates.
 
@@ -216,7 +216,7 @@ The model is calibrated using Platt scaling against actual induction rates withi
 
 Five visualizations.
 
-### Fig 01 — The Integrated Leaderboard
+### Fig 01 -- The Integrated Leaderboard
 
 **The chapter's central artifact.**
 
@@ -242,7 +242,7 @@ The integration is the point. The reader cannot filter to "only MLB" by default 
 
 **Oh wow test:** The reader sorts by Rate JAWS and sees Josh Gibson at or near the top of the catcher position, ranked by the same methodology that puts Mike Piazza and Johnny Bench just below. The reader sees Oscar Charleston ranked alongside Mays, Cobb, and Mantle in center field. The integration is the argument.
 
-### Fig 02 — The Standard JAWS vs. Rate JAWS Distribution
+### Fig 02 -- The Standard JAWS vs. Rate JAWS Distribution
 
 **The methodology comparison.**
 
@@ -260,7 +260,7 @@ The Negro Leagues players are color-coded distinctly. The visual confirms what t
 
 **Mobile behavior:** Plot remains usable at 375px. Hover replaced with tap-to-reveal on touch devices.
 
-### Fig 03 — The Confidence Band Visualization
+### Fig 03 -- The Confidence Band Visualization
 
 **The uncertainty made visible.**
 
@@ -276,7 +276,7 @@ The reader sees the data-quality variance explicitly. The variance is part of th
 
 **Mobile behavior:** Lollipops stack vertically on mobile. Confidence intervals remain visible.
 
-### Fig 04 — The Comparable Universe Map
+### Fig 04 -- The Comparable Universe Map
 
 **The similarity embedding.**
 
@@ -295,7 +295,7 @@ Readers can hover or tap any point to see player identity and basic stats. Reade
 
 **Mobile behavior:** Embedding plot zooms and pans on touch. Pre-annotated cluster labels remain visible at all zoom levels.
 
-### Fig 05 — The Methodology Sensitivity Dashboard
+### Fig 05 -- The Methodology Sensitivity Dashboard
 
 **The methodology made interactive.**
 
@@ -336,21 +336,21 @@ Oscar verifies permissions for all third-party logos and portraits. The chapter'
 
 **Pre-computed data files:**
 
-- `data/per-season-war-integrated.json` — Per player-season, the platform's WAR figures including rate-normalized variants. The foundational data file the rest of the platform depends on.
-- `data/career-war-with-bands.json` — Per player, career WAR figures with 90% credible intervals from Model 3.
-- `data/jaws-three-variants.json` — Per player, standard JAWS, rate JAWS, and adjusted career JAWS.
-- `data/positional-assignments.json` — Per player, primary and (where applicable) secondary position with rationale.
-- `data/embedding-coordinates.json` — Per player, UMAP coordinates with cluster annotations.
-- `data/hof-probabilities.json` — Per HOF-eligible player, calibrated induction probability.
-- `data/sensitivity-grid.json` — Pre-computed lookup for the Fig 05 dashboard.
-- `data/data-coverage-meta.json` — Per league-year, the Seamheads-documented box score coverage percentage used by Model 3.
-- `data/asset-register.json` — Updated for chapter.
+- `data/per-season-war-integrated.json` -- Per player-season, the platform's WAR figures including rate-normalized variants. The foundational data file the rest of the platform depends on.
+- `data/career-war-with-bands.json` -- Per player, career WAR figures with 90% credible intervals from Model 3.
+- `data/jaws-three-variants.json` -- Per player, standard JAWS, rate JAWS, and adjusted career JAWS.
+- `data/positional-assignments.json` -- Per player, primary and (where applicable) secondary position with rationale.
+- `data/embedding-coordinates.json` -- Per player, UMAP coordinates with cluster annotations.
+- `data/hof-probabilities.json` -- Per HOF-eligible player, calibrated induction probability.
+- `data/sensitivity-grid.json` -- Pre-computed lookup for the Fig 05 dashboard.
+- `data/data-coverage-meta.json` -- Per league-year, the Seamheads-documented box score coverage percentage used by Model 3.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — The chapter's most important document. The full methodology for all six models, including hyperparameters, validation approaches, limitations, and dependencies. Cross-references to the Ashwill normalization methodology, the Hirsch MLE methodology, the Jaffe JAWS methodology, and the SABR critique of JAWS.
+- `METHODOLOGY.md` -- The chapter's most important document. The full methodology for all six models, including hyperparameters, validation approaches, limitations, and dependencies. Cross-references to the Ashwill normalization methodology, the Hirsch MLE methodology, the Jaffe JAWS methodology, and the SABR critique of JAWS.
 
-- `REPRODUCIBILITY.md` — A separate document explaining how to reproduce every platform figure from the published data files, including all model training and inference steps.
+- `REPRODUCIBILITY.md` -- A separate document explaining how to reproduce every platform figure from the published data files, including all model training and inference steps.
 
 ---
 
@@ -368,13 +368,13 @@ Oscar verifies permissions for all third-party logos and portraits. The chapter'
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews the asset register. Confirms permissions for Seamheads, Baseball Reference, FanGraphs logos. Verifies portraits for the attribution panel. Documents text-only fallbacks where permissions cannot be obtained.
 
 **Specific gates:** Every third-party logo has documented permission. Attribution to Ashwill, Johnson, Lester, Jaffe, Hirsch is complete and accurate. The chapter does not claim invention of methodology it inherits.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 This chapter is Elias's most intensive review. Verifies that:
 - Every rate-normalized WAR figure is reproducible from the Seamheads-derived per-season WAR plus the published rate denominators
@@ -386,7 +386,7 @@ This chapter is Elias's most intensive review. Verifies that:
 
 **Specific gates:** Reproducibility document is sufficient for an independent researcher to reproduce the platform's figures from the published data. Every methodological extension of inherited work is attributed. The chapter's claims about JAWS limitations are sourced to the SABR critique, not asserted.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews the five visualizations at 375px, 768px, 1200px. Particular focus:
 - Fig 01 (the leaderboard) must remain usable on mobile, with the card view providing enough information at 375px to be the primary mobile reading experience.
@@ -395,13 +395,13 @@ Reviews the five visualizations at 375px, 768px, 1200px. Particular focus:
 
 **Specific gates:** Fig 01 card view passes the oh wow test at 375px. Fig 04 cluster annotations remain readable at all zoom levels. Fig 05 control values are clearly visible after adjustment on mobile.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews chapter against tenants. This chapter is the platform's most methodologically dense, so Tenant 10 (ML maximized) compliance is intrinsic. Tenant 14 (citable) compliance requires particular attention because the methodology document is the chapter's central artifact.
 
 **Specific gates:** All six models documented. Methodology document is comprehensive. Reproducibility document is complete. Connective tissue paragraphs in project owner's voice. Citation block present.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 The oh wow test for this chapter is different from prior chapters because the chapter is methodology-heavy. The primary test is whether a reader with statistics background can read the methodology document and reproduce a platform figure. The secondary test is whether a non-technical reader can use Fig 01 and Fig 05 to find a player and understand how the player's rating was produced.
 

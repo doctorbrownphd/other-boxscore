@@ -1,10 +1,10 @@
-# Cooperstown — Chapter 11
+# Cooperstown -- Chapter 11
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/cooperstown/
 **GitHub:** other-boxscore/chapters/11-cooperstown/
-**Part:** Three — The game they were kept from
+**Part:** Three -- The game they were kept from
 **Position:** Chapter 11 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC v1.0
@@ -56,29 +56,29 @@ The Hall has not done this work. The chapter does it.
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Ranked Slate
+### Finding 1 -- The Ranked Slate
 A complete ranked candidate slate of Negro Leagues players eligible for the Hall of Fame, ordered by Rate JAWS (the platform's primary metric), with full confidence intervals from the Chapter 10 Bayesian model.
 
 The slate is not invented from scratch. It is the universe of candidates who have been seriously argued by working Negro Leagues historians, evaluated by the platform's methodology. The starting pool includes the 42 for 21 Committee top-ranked candidates (Rap Dixon, Dick Redding, John Beckwith, John Donaldson, Gus Greenlee, Dick Lundy, Vic Harris, Grant "Home Run" Johnson, Newt Allen, Spottswood Poles), the McFarland book candidates, the Seamheads overlooked list (Beckwith, Lundy, George Scales, Dixon), and a handful of post-2006 Veterans Committee considerations who fell short.
 
 The output is ranked. The ranking is by the platform's methodology. The ranking is reproducible from the published data.
 
-### Finding 2 — The Bar Comparison
+### Finding 2 -- The Bar Comparison
 For each candidate on the slate, an explicit comparison to the median inducted Hall of Famer at the candidate's position. Candidates above the median are flagged as exceeding the bar. Candidates below the median are flagged as below, with documented exceptions for special-case considerations (career length truncation by integration, data coverage gaps, contemporary HOF outliers below median).
 
 The headline finding: a specific count of candidates whose Rate JAWS exceeds the median JAWS of inducted players at their position. The count is several. The names are documented. The platform commits to the names.
 
-### Finding 3 — The Pre-2006 Counterfactual
+### Finding 3 -- The Pre-2006 Counterfactual
 A retrospective analysis of the 2006 ballot. The committee considered thirty-nine candidates and elected seventeen. What does the platform's methodology say about the twenty-two who were not elected? Several of them rank above multiple players who were elected. The 2006 committee was constrained by the data available at the time. The platform shows what a redo of the 2006 vote would look like with the post-2020 integrated data and the platform's methodology.
 
 This is not a critique of the 2006 committee. The committee did its work under data constraints the platform does not have. The finding is that the data has changed, and the rankings produced by the new data are different.
 
-### Finding 4 — The Character Asterisk
+### Finding 4 -- The Character Asterisk
 Some excluded candidates were excluded for documented character concerns rather than statistical insufficiency. John Beckwith is the canonical case (the McFarland and Seamheads sources both note that "the special Hall committee was undoubtedly swayed by character issues"). The chapter handles this explicitly: candidates with documented exclusion-by-character receive an annotation, with a sourced narrative summary of the concerns. The chapter does not paper over the issue. The chapter also notes that the BBWAA character clause has been applied unevenly across players in the Hall, and surfaces the inconsistency without resolving it.
 
 This finding is the chapter's most editorially careful section. The platform takes a position: statistical evaluation should be statistical, and character considerations should be applied consistently. The chapter does not adjudicate any individual case. It surfaces the framework.
 
-### Finding 5 — The Living Players Question
+### Finding 5 -- The Living Players Question
 Several players on the slate are deceased. A small number of living players have legitimate cases (Bus Clarkson, others). For each living candidate on the slate, the chapter notes living status explicitly and notes the urgency consideration that Veterans Committee voting has historically given to living candidates. The chapter does not advocate. It documents.
 
 ---
@@ -119,7 +119,7 @@ Several players on the slate are deceased. A small number of living players have
 
 Four models. The chapter is application-heavy rather than methodology-heavy because Chapter 10 carries the methodology weight.
 
-### Model 1 — Slate Construction
+### Model 1 -- Slate Construction
 
 **Problem:** What is the universe of eligible candidates this chapter evaluates?
 
@@ -138,7 +138,7 @@ The slate is the union, deduplicated. Each candidate is annotated with which sou
 
 **Why this matters:** The chapter's candidate universe must be defensible. The platform did not invent the candidates. The platform draws them from documented historian work, with the data-driven addition as a small extension that surfaces names the historian process might have missed.
 
-### Model 2 — Bar Comparison
+### Model 2 -- Bar Comparison
 
 **Problem:** For each candidate, where do they sit relative to the inducted Hall of Famer distribution at their position?
 
@@ -150,7 +150,7 @@ The slate is the union, deduplicated. Each candidate is annotated with which sou
 
 **Why this matters:** The bar comparison is the chapter's central argumentative move. "This player exceeds the median Hall of Famer at his position" is a specific, defensible claim with a measurable referent. The chapter makes the claim where the data supports it and does not make the claim where it does not.
 
-### Model 3 — Position-Adjusted HOF Probability
+### Model 3 -- Position-Adjusted HOF Probability
 
 **Problem:** Chapter 10 Model 6 produces calibrated HOF induction probabilities for every HOF-eligible player. This chapter applies that model to the slate.
 
@@ -162,7 +162,7 @@ The slate is the union, deduplicated. Each candidate is annotated with which sou
 
 **Why this matters:** This model produces a specific quantitative finding: how many slate candidates have a model-predicted induction probability above 50%, above 75%, above 90%, when their actual status is not inducted. The gap between predicted and actual is itself the headline.
 
-### Model 4 — Era and Era-Committee Routing
+### Model 4 -- Era and Era-Committee Routing
 
 **Problem:** The Hall of Fame's current induction process for pre-integration Black baseball candidates runs through the Classic Baseball Era Committee. The committee considers a small ballot every two to three years. The chapter needs to identify which candidates the platform's methodology supports for inclusion on near-term ballots versus longer-term consideration.
 
@@ -180,7 +180,7 @@ The slate is the union, deduplicated. Each candidate is annotated with which sou
 
 Five visualizations.
 
-### Fig 01 — The Slate
+### Fig 01 -- The Slate
 
 **The chapter's central artifact.**
 
@@ -209,7 +209,7 @@ The visual hierarchy emphasizes the above-the-bar flag with color coding: candid
 
 **Oh wow test:** The reader scrolls through the slate and encounters specific named players (Beckwith, Lundy, Dixon, Donaldson, Redding) with specific position-percentile rankings (e.g., "62nd percentile of inducted shortstops"). The named-player specificity combined with the position-percentile specificity is the argument.
 
-### Fig 02 — The Distribution Plot
+### Fig 02 -- The Distribution Plot
 
 **The bar comparison made visual.**
 
@@ -225,7 +225,7 @@ For positions with multiple slate candidates above the median, the visualization
 
 **Mobile behavior:** Plots stack vertically with one position per row. Names remain readable on mobile.
 
-### Fig 03 — The 2006 Retrospective
+### Fig 03 -- The 2006 Retrospective
 
 **The chapter's most editorially loaded visualization.**
 
@@ -241,7 +241,7 @@ This is the chapter's most careful section. The visualization does not impugn th
 
 **Mobile behavior:** Columns stack vertically with clear visual separation between inducted and non-inducted blocks.
 
-### Fig 04 — The Era Committee Recommendation Slate
+### Fig 04 -- The Era Committee Recommendation Slate
 
 **The chapter's actionable output.**
 
@@ -260,7 +260,7 @@ For each recommended candidate:
 
 **Mobile behavior:** Single-column layout. Print-friendly at all viewport sizes.
 
-### Fig 05 — The Methodology Audit Panel
+### Fig 05 -- The Methodology Audit Panel
 
 **The chapter's transparency move.**
 
@@ -286,7 +286,7 @@ The reader cannot dismiss the chapter as cherry-picking the methodology because 
 **Archival images required:**
 
 - 2006 induction ceremony photos (Hall of Fame may have these available with permission)
-- Headshots for top-tier slate candidates: Beckwith, Lundy, Dixon, Donaldson, Redding, Greenlee, Harris, Johnson, Allen, Poles, Scales — PD status verification required per player
+- Headshots for top-tier slate candidates: Beckwith, Lundy, Dixon, Donaldson, Redding, Greenlee, Harris, Johnson, Allen, Poles, Scales -- PD status verification required per player
 - Buck O'Neil portrait (for the chapter's discussion of the O'Neil lifetime achievement award context)
 - 42 for 21 Committee logo/identification (with permission)
 - Negro Leagues Baseball Museum context image
@@ -297,19 +297,19 @@ Oscar verifies PD status for each candidate portrait. For candidates without ver
 
 **Pre-computed data files:**
 
-- `data/slate-candidates.json` — Per candidate, full record including source provenance, Rate JAWS, confidence band, percentile, recommendation tier.
-- `data/inducted-baseline.json` — Per position, inducted HOF distribution statistics.
-- `data/2006-retrospective.json` — The thirty-nine 2006 ballot candidates with platform metrics.
-- `data/era-committee-recommendation.json` — Filtered slate for the Fig 04 recommendation output.
-- `data/methodology-audit-grid.json` — Pre-computed lookup for Fig 05.
-- `data/character-annotations.json` — Per candidate where applicable, the sourced character/exclusion narrative.
-- `data/asset-register.json` — Updated for chapter.
+- `data/slate-candidates.json` -- Per candidate, full record including source provenance, Rate JAWS, confidence band, percentile, recommendation tier.
+- `data/inducted-baseline.json` -- Per position, inducted HOF distribution statistics.
+- `data/2006-retrospective.json` -- The thirty-nine 2006 ballot candidates with platform metrics.
+- `data/era-committee-recommendation.json` -- Filtered slate for the Fig 04 recommendation output.
+- `data/methodology-audit-grid.json` -- Pre-computed lookup for Fig 05.
+- `data/character-annotations.json` -- Per candidate where applicable, the sourced character/exclusion narrative.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Documents how this chapter consumes the Chapter 10 engine outputs and applies them. Cross-references Chapter 10 for the underlying methodology. Documents the slate construction logic, the bar comparison logic, the era committee routing.
+- `METHODOLOGY.md` -- Documents how this chapter consumes the Chapter 10 engine outputs and applies them. Cross-references Chapter 10 for the underlying methodology. Documents the slate construction logic, the bar comparison logic, the era committee routing.
 
-- `EDITORIAL_NOTE.md` — A separate document the chapter ships with. Explains the chapter's editorial posture: the slate is a measurement, not a demand. The chapter does not advocate for any specific induction. The chapter applies the platform's methodology transparently and reports what the methodology produces. The note is signed by the project owner and dated.
+- `EDITORIAL_NOTE.md` -- A separate document the chapter ships with. Explains the chapter's editorial posture: the slate is a measurement, not a demand. The chapter does not advocate for any specific induction. The chapter applies the platform's methodology transparently and reports what the methodology produces. The note is signed by the project owner and dated.
 
 ---
 
@@ -327,13 +327,13 @@ Oscar verifies PD status for each candidate portrait. For candidates without ver
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews candidate portraits. Verifies PD status for each. Reviews 42 for 21 Committee branding permission. Documents text-only fallbacks. Confirms the editorial note attribution.
 
 **Specific gates:** Every candidate portrait has documented provenance or a documented absence. The 42 for 21 reference has documented permission or is replaced with descriptive reference without branding.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Most intensive review for this chapter. Verifies that:
 - Every slate candidate's source provenance is correctly documented
@@ -345,7 +345,7 @@ Most intensive review for this chapter. Verifies that:
 
 **Specific gates:** The slate's source provenance is verifiable from public records. Every Rate JAWS figure is reproducible from Chapter 10 data. Every character annotation has citation. The 2006 retrospective is accurate.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews five visualizations at 375px, 768px, 1200px. Particular focus:
 - Fig 01 (the slate) must remain dignified on mobile. The named candidates deserve presentation that respects their case rather than visual compression that flattens them.
@@ -355,13 +355,13 @@ Reviews five visualizations at 375px, 768px, 1200px. Particular focus:
 
 **Specific gates:** Fig 01 cards remain readable and dignified at 375px. Fig 03 visual tone is reviewed in addition to legibility. Fig 04 print stylesheet renders the recommendation slate as a usable document.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews against tenants. Tenant 14 (citable) compliance is particularly important given the chapter's nature as platform-as-research-contribution. Tenant 05 (connective tissue) is reviewed.
 
 **Specific gates:** Methodology and editorial note documents complete. Connective tissue paragraphs in project owner's voice. Citation block present.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 The oh wow test for this chapter is different because the chapter is about specific named candidates with specific quantitative cases. The test asks whether five agent instances reading the chapter would, after reading, be able to name at least three slate candidates and articulate the platform's reason for their inclusion. The test measures whether the chapter's specificity lands.
 

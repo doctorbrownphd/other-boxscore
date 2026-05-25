@@ -32,7 +32,7 @@ The chapter is titled for the letter Marvin Williams never received.
 
 **What "performative" means in this chapter:**
 
-A tryout that was scheduled because of external pressure (newspaper activism, political pressure, civil rights organizing), held under conditions that made signing impossible (90 minutes, with the GM absent, with no follow-up communication), and followed by years of inaction by the same franchise — that is a performative tryout. The chapter applies this definition consistently and documents which tryouts meet it.
+A tryout that was scheduled because of external pressure (newspaper activism, political pressure, civil rights organizing), held under conditions that made signing impossible (90 minutes, with the GM absent, with no follow-up communication), and followed by years of inaction by the same franchise -- that is a performative tryout. The chapter applies this definition consistently and documents which tryouts meet it.
 
 **Why the chapter does not soften this:**
 
@@ -40,9 +40,9 @@ Because the documented record does not soften it. The Boston Red Sox held the fi
 
 **What the chapter is not:**
 
-It is not an argument that integration itself was bad. Integration was right. The chapter is specifically about how the manner of integration — particularly the use of performative tryouts that allowed franchises to claim openness while practicing exclusion — was a documented institutional choice. Naming that choice is the chapter.
+It is not an argument that integration itself was bad. Integration was right. The chapter is specifically about how the manner of integration -- particularly the use of performative tryouts that allowed franchises to claim openness while practicing exclusion -- was a documented institutional choice. Naming that choice is the chapter.
 
-**The closer:** The Red Sox who held the first tryout were the last team to integrate. The same Sam Jethroe they auditioned in 1945 won NL Rookie of the Year for the Boston Braves in 1950 — same city, different ownership, different decision. The choice to keep the door closed was a choice. The chapter ends on the receipt for that choice.
+**The closer:** The Red Sox who held the first tryout were the last team to integrate. The same Sam Jethroe they auditioned in 1945 won NL Rookie of the Year for the Boston Braves in 1950 -- same city, different ownership, different decision. The choice to keep the door closed was a choice. The chapter ends on the receipt for that choice.
 
 ---
 
@@ -57,7 +57,7 @@ A single horizontal timeline visualization. Spans 1945 to 1959. Sixteen MLB fran
 
 ### The visual argument
 
-For most franchises, the tryout dot and the integration marker are reasonably close in time, or the franchise integrated without ever holding a documented tryout. For specific franchises, the gap between tryout dot and integration marker is wide — sometimes years wide. That gap is the visual argument.
+For most franchises, the tryout dot and the integration marker are reasonably close in time, or the franchise integrated without ever holding a documented tryout. For specific franchises, the gap between tryout dot and integration marker is wide -- sometimes years wide. That gap is the visual argument.
 
 The Boston Red Sox swimlane is the chart's spine:
 
@@ -163,11 +163,11 @@ The cards establish the chronology without commentary. The arithmetic is the ind
 
 Three cards, same Lost Seasons proportions as Ch 02.
 
-**Jackie Robinson** — Kansas City Monarchs. Age 26 at the tryout. Signed October 1945 with the Dodgers organization. MLB debut April 15, 1947. Hall of Fame, 1962.
+**Jackie Robinson** -- Kansas City Monarchs. Age 26 at the tryout. Signed October 1945 with the Dodgers organization. MLB debut April 15, 1947. Hall of Fame, 1962.
 
-**Sam Jethroe** — Cleveland Buckeyes. Age 27 at the tryout. Said of the Red Sox afterward: *"We'll hear from the Red Sox like we'll hear from Adolf Hitler."* Signed by the Boston Braves in 1949 after being purchased from the Dodgers organization. MLB debut April 18, 1950, at age 32. NL Rookie of the Year, 1950. Out of MLB by 1954. Later sued MLB for a pension on the basis that he had been turned down in 1945 for being Black.
+**Sam Jethroe** -- Cleveland Buckeyes. Age 27 at the tryout. Said of the Red Sox afterward: *"We'll hear from the Red Sox like we'll hear from Adolf Hitler."* Signed by the Boston Braves in 1949 after being purchased from the Dodgers organization. MLB debut April 18, 1950, at age 32. NL Rookie of the Year, 1950. Out of MLB by 1954. Later sued MLB for a pension on the basis that he had been turned down in 1945 for being Black.
 
-**Marvin Williams** — Philadelphia Stars. Age 25 at the tryout. Hit .362/.407/.633 for Mexico City in 1945, the season after the tryout. Played fifteen more years across the Negro Leagues, Mexican League, Pacific Coast League. Never received an MLB contract.
+**Marvin Williams** -- Philadelphia Stars. Age 25 at the tryout. Hit .362/.407/.633 for Mexico City in 1945, the season after the tryout. Played fifteen more years across the Negro Leagues, Mexican League, Pacific Coast League. Never received an MLB contract.
 
 Each card sourced. Oscar verifies the Jethroe quote against Wendell Smith's contemporaneous Pittsburgh Courier reporting. The Williams batting line is from Seamheads and the SABR BioProject entry. The Robinson signing date is from Branch Rickey's documented contract record.
 
@@ -201,11 +201,11 @@ The context block establishes the mechanism. The cards establish the chronology.
 
 A second, briefer case study. Necessary for honest argument.
 
-The Yankees were not the last team to integrate. They were a middle-of-the-pack integrator — April 14, 1955, with Elston Howard. But the Yankees are a documented case of a franchise that explicitly and repeatedly declined to sign Black players in the late 1940s and early 1950s while other teams did, and the documented record on Yankees management commentary in that period is unambiguous.
+The Yankees were not the last team to integrate. They were a middle-of-the-pack integrator -- April 14, 1955, with Elston Howard. But the Yankees are a documented case of a franchise that explicitly and repeatedly declined to sign Black players in the late 1940s and early 1950s while other teams did, and the documented record on Yankees management commentary in that period is unambiguous.
 
 **The reason to include this case:** To prove the chapter's argument is not just "the Red Sox were bad." The pattern of delay was institutional. The Yankees are a different mechanism (no documented tryout, just years of declining to sign while running the league's most profitable franchise) but the same outcome (years of delay relative to the league's earliest integrators).
 
-This case study is shorter — one paragraph, three documented quotes from Yankees management of the period, integration date marker. Oscar handles the source verification. The point of including it is structural: the argument must hold beyond the most extreme case. The Yankees prove it does.
+This case study is shorter -- one paragraph, three documented quotes from Yankees management of the period, integration date marker. Oscar handles the source verification. The point of including it is structural: the argument must hold beyond the most extreme case. The Yankees prove it does.
 
 ---
 
@@ -248,7 +248,7 @@ Light ML lift, intentionally. Ch 07 is a primary-source verification chapter, no
 
 A simple counterfactual: given the documented tryout outcomes (player, year, age at tryout, subsequent Negro Leagues performance), what is the probability distribution over plausible MLB careers if the tryout had resulted in a signing? Elias builds this for the three Fenway 1945 players (Robinson, Jethroe, Williams) as a focused demonstration, using the same model architecture that Ch 10 will use for the full Ledger.
 
-For Robinson, the model output should approximate his actual career — a sanity check that the model is calibrated. For Jethroe, the model should show the career he actually had at the Braves, plus the years he lost waiting. For Williams, the model produces a counterfactual MLB career for a player who never received one.
+For Robinson, the model output should approximate his actual career -- a sanity check that the model is calibrated. For Jethroe, the model should show the career he actually had at the Braves, plus the years he lost waiting. For Williams, the model produces a counterfactual MLB career for a player who never received one.
 
 The three-player counterfactual block sits at the bottom of the case study section. It is restrained, not flashy. The argument is documented; the model adds dimension. The Williams output is the chapter's most quietly devastating chart.
 
@@ -256,18 +256,18 @@ The three-player counterfactual block sits at the bottom of the case study secti
 
 ## Data Sources
 
-- **Wendell Smith Papers** — National Baseball Hall of Fame Library, the principal archive
-- **Pittsburgh Courier** — 1942-1947, contemporaneous reporting on every documented tryout
-- **Chicago Defender** — same period, secondary coverage
-- **SABR BioProject** — entries for Jackie Robinson, Sam Jethroe, Marvin Williams, Pumpsie Green, every player named in the database
-- **Seamheads Negro Leagues Database** — career statistics for every player in the database, calibration data for the counterfactual model
-- **Baseball Reference** — MLB integration dates, debut games, roster verification
-- **Boston Globe archives** — 1945 contemporaneous coverage, the 1972 Robinson interview, Pumpsie Green debut coverage
-- **The MCAD investigation file (Massachusetts Commission Against Discrimination)** — administrative record forcing the 1959 Red Sox integration. May require an open-records request. Oscar tracks the status.
-- **Eddie Collins's correspondence with Wendell Smith** — Wendell Smith Papers, Baseball Hall of Fame, April 1945
-- **James Overmyer, *Queen of the Negro Leagues*** — for the Effa Manley correspondence that intersects this chapter
-- **Glenn Stout, *Tryout and Fallout*** — academic treatment of the Fenway tryout, useful secondary source but Oscar verifies all primary claims independently
-- **History Cooperative, *Tryout and Fallout*** — same essay, additional detail
+- **Wendell Smith Papers** -- National Baseball Hall of Fame Library, the principal archive
+- **Pittsburgh Courier** -- 1942-1947, contemporaneous reporting on every documented tryout
+- **Chicago Defender** -- same period, secondary coverage
+- **SABR BioProject** -- entries for Jackie Robinson, Sam Jethroe, Marvin Williams, Pumpsie Green, every player named in the database
+- **Seamheads Negro Leagues Database** -- career statistics for every player in the database, calibration data for the counterfactual model
+- **Baseball Reference** -- MLB integration dates, debut games, roster verification
+- **Boston Globe archives** -- 1945 contemporaneous coverage, the 1972 Robinson interview, Pumpsie Green debut coverage
+- **The MCAD investigation file (Massachusetts Commission Against Discrimination)** -- administrative record forcing the 1959 Red Sox integration. May require an open-records request. Oscar tracks the status.
+- **Eddie Collins's correspondence with Wendell Smith** -- Wendell Smith Papers, Baseball Hall of Fame, April 1945
+- **James Overmyer, *Queen of the Negro Leagues*** -- for the Effa Manley correspondence that intersects this chapter
+- **Glenn Stout, *Tryout and Fallout*** -- academic treatment of the Fenway tryout, useful secondary source but Oscar verifies all primary claims independently
+- **History Cooperative, *Tryout and Fallout*** -- same essay, additional detail
 
 **The platform's research note for this chapter:** Photographing or scanning the Eddie Collins letter, with Hall of Fame permission, would be a powerful addition. The platform's research budget should target one or two primary-source artifact images per Part Three chapter where the source is short enough to display directly.
 
@@ -285,7 +285,7 @@ Transition line:
 
 ### Going out to Ch 08 The Salary Ledger
 
-Ch 08 documents total wages stolen — the dollar value of careers paid below the major league market. Ch 07 sets up the question of *which* careers, and *how many*, were affected. The transition:
+Ch 08 documents total wages stolen -- the dollar value of careers paid below the major league market. Ch 07 sets up the question of *which* careers, and *how many*, were affected. The transition:
 
 *"Some of the men who knocked got an answer. Most did not. The next chapter is about what the answer should have been worth, in dollars, for every one of them."*
 

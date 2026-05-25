@@ -1,10 +1,10 @@
-# The Other Hall — Chapter 12
+# The Other Hall -- Chapter 12
 ## The Other Box Score · Full Specification v1.0
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-other-hall/
 **GitHub:** other-boxscore/chapters/12-the-other-hall/
-**Part:** Three — The game they were kept from
+**Part:** Three -- The game they were kept from
 **Position:** Chapter 12 of 15
 **License:** MIT (code) · CC0 (data)
 **Status:** SPEC v1.0
@@ -48,27 +48,27 @@ This chapter is the matrix. Every player. Every hall. Every induction year. The 
 
 ## Original Findings (the "oh wow" moments)
 
-### Finding 1 — The Matrix
+### Finding 1 -- The Matrix
 A complete six-hall induction matrix for every Negro Leagues-era player of established case. The matrix is the foundational artifact: rows are players (including the Chapter 11 slate candidates), columns are halls (Cooperstown, Cuban, Mexican, Caribbean Series, Dominican, Puerto Rican, Venezuelan), cells contain induction year or "not inducted."
 
 The matrix has never been published in this form. The data exists in scattered hall-of-fame records, but the cross-comparison has not been assembled as a single artifact. The chapter produces it.
 
-### Finding 2 — The Timing Lag
+### Finding 2 -- The Timing Lag
 For each player inducted into Cooperstown and at least one other hall, the year-difference between Cooperstown induction and earliest other-hall induction. The pattern is consistent: Cooperstown is the late hall. For some players the lag is decades. Méndez was inducted in Cuba in 1939; in Cooperstown in 2006. The lag is 67 years.
 
 The headline figure: the median Cooperstown lag, the maximum Cooperstown lag, the count of players whose Cooperstown induction lagged another hall by more than 25 years. These are calculable, specific, and damning when laid out as a single table.
 
-### Finding 3 — The Coverage Gap
+### Finding 3 -- The Coverage Gap
 For each hall, the count of Negro Leagues-era players inducted who are not yet in Cooperstown. The Caribbean Series Hall has inducted Wilmer Fields. The Cuban Hall has inducted players Cooperstown has never seriously considered. The pattern across halls reveals which Cooperstown candidates have peer-institution endorsement that the Hall has not acted on.
 
 The finding becomes actionable when combined with Chapter 11: candidates on the Chapter 11 slate who are also in one or more peer halls have an additional layer of institutional endorsement. The chapter quantifies this overlap.
 
-### Finding 4 — The Institutional Mission Comparison
+### Finding 4 -- The Institutional Mission Comparison
 A side-by-side examination of how each hall defines its mission, its eligibility criteria, and its induction process. Cooperstown's Classic Baseball Era Committee considers a ballot every two to three years. The Mexican Hall has annual elections. The Caribbean Series Hall votes annually during the Series. The differences in process produce different patterns of recognition, and the chapter makes those differences visible.
 
 This finding is the chapter's most institutionally honest section. It does not assert that any particular process is better. It documents the differences and lets the reader assess the implications.
 
-### Finding 5 — The Dihigo Map
+### Finding 5 -- The Dihigo Map
 Martín Dihigo is in five halls of fame. He is one of the few players whose career was honored across the institutional landscape during his lifetime and after. The chapter maps Dihigo's induction chronology across the five halls as a case study of what cross-institutional recognition can look like when it happens. The Dihigo map is paired with the Cool Papa Bell map (three halls) and the Josh Gibson map (Cooperstown only, despite playing extensively in Cuba, Mexico, and Puerto Rico) to show three trajectories.
 
 The Gibson contrast is the most editorially loaded element of the chapter. Gibson played and starred in multiple Caribbean leagues. He is in Cooperstown. He is not in the Cuban Hall. He is not in the Mexican Hall. He is not in any other hall. The chapter does not assert this is an oversight by those halls. The chapter asks why the cross-institutional recognition pattern for Gibson differs from Dihigo's, and what the difference indicates about each hall's induction criteria.
@@ -107,7 +107,7 @@ The Gibson contrast is the most editorially loaded element of the chapter. Gibso
 
 This chapter is intentionally less ML-heavy than Chapters 8-11. The chapter's contribution is institutional and comparative rather than methodologically novel. Three model applications.
 
-### Model 1 — Name Reconciliation
+### Model 1 -- Name Reconciliation
 
 **Problem:** Hall-of-fame records across six institutions use varying name conventions. Cristóbal Torriente in Cooperstown is the same player as Cristóbal Torriente Coureaux in the Cuban Hall. Martín Dihigo in five halls has slight name variations across each. The matrix requires accurate name reconciliation before any comparison can be made.
 
@@ -124,7 +124,7 @@ For the Negro Leagues universe, the reconciliation uses Seamheads canonical play
 
 **Why this matters:** Without name reconciliation, the matrix is unreliable. With it, the matrix is the foundational artifact the rest of the chapter depends on.
 
-### Model 2 — Induction-Lag Analysis
+### Model 2 -- Induction-Lag Analysis
 
 **Problem:** For players inducted into multiple halls, what is the year-by-year lag between halls?
 
@@ -142,7 +142,7 @@ The same computation runs for every pairwise hall comparison (not just Coopersto
 
 **Why this matters:** Finding 2 (the timing lag) requires this computation. The headline figures the chapter publishes come from this pipeline.
 
-### Model 3 — Cross-Hall Endorsement Score
+### Model 3 -- Cross-Hall Endorsement Score
 
 **Problem:** Chapter 11's slate candidates would benefit from an explicit measurement of which candidates also have peer-institution endorsement. The Hall of Fame consideration process is more likely to advance candidates with established institutional recognition elsewhere.
 
@@ -160,7 +160,7 @@ The same computation runs for every pairwise hall comparison (not just Coopersto
 
 Five visualizations.
 
-### Fig 01 — The Matrix
+### Fig 01 -- The Matrix
 
 **The chapter's central artifact.**
 
@@ -176,7 +176,7 @@ The visual pattern of the heat map is the immediate argument. Players inducted i
 
 **Oh wow test:** The reader scrolls through the matrix and immediately sees that Cooperstown is the right-side column with the most empty cells among the major halls. The reader sees Méndez at the top (1939 Cuba, 2006 Cooperstown, lag visible). The reader understands without annotation that the comparison across halls produces a specific pattern.
 
-### Fig 02 — The Lag Distribution
+### Fig 02 -- The Lag Distribution
 
 **The timing finding made visual.**
 
@@ -192,7 +192,7 @@ A second component shows the same distribution for each pairwise hall comparison
 
 **Mobile behavior:** Histogram remains visible at all viewport sizes. The pairwise comparison panel collapses to a selector at mobile.
 
-### Fig 03 — The Three Trajectories
+### Fig 03 -- The Three Trajectories
 
 **The case-study comparison.**
 
@@ -212,7 +212,7 @@ The three trajectories are positioned visually so the reader can compare. Dihigo
 
 **Mobile behavior:** Timelines stack vertically. Each trajectory remains legible at 375px.
 
-### Fig 04 — The Hall Profile Comparison
+### Fig 04 -- The Hall Profile Comparison
 
 **The institutional differences made visible.**
 
@@ -232,7 +232,7 @@ The chapter does not rank halls. The cards present each hall's profile and let t
 
 **Mobile behavior:** Cards stack vertically. Each card remains complete at 375px.
 
-### Fig 05 — The Slate Cross-Reference
+### Fig 05 -- The Slate Cross-Reference
 
 **The connection to Chapter 11.**
 
@@ -267,19 +267,19 @@ Oscar verifies image rights and provenance per source. Most institutional buildi
 
 **Pre-computed data files:**
 
-- `data/halls-master.json` — Per hall, full metadata (founding, location, induction process, total inductees, mission statement).
-- `data/matrix.json` — The full player-by-hall matrix with induction years and source citations per cell.
-- `data/name-reconciliation.json` — Canonical player IDs mapped to hall-specific name records.
-- `data/lag-analysis.json` — Per player, pairwise induction lag values across all hall pairs.
-- `data/cross-hall-endorsement.json` — Per Chapter 11 slate candidate, the peer-hall induction count and chronology.
-- `data/trajectories.json` — Detailed timeline data for the Dihigo / Bell / Gibson case study.
-- `data/asset-register.json` — Updated for chapter.
+- `data/halls-master.json` -- Per hall, full metadata (founding, location, induction process, total inductees, mission statement).
+- `data/matrix.json` -- The full player-by-hall matrix with induction years and source citations per cell.
+- `data/name-reconciliation.json` -- Canonical player IDs mapped to hall-specific name records.
+- `data/lag-analysis.json` -- Per player, pairwise induction lag values across all hall pairs.
+- `data/cross-hall-endorsement.json` -- Per Chapter 11 slate candidate, the peer-hall induction count and chronology.
+- `data/trajectories.json` -- Detailed timeline data for the Dihigo / Bell / Gibson case study.
+- `data/asset-register.json` -- Updated for chapter.
 
 **Methodology documentation:**
 
-- `METHODOLOGY.md` — Documents the matrix construction, the name reconciliation pipeline, the lag analysis, and the cross-hall endorsement scoring. Documents the universe (which players are in scope, why, and the source for each).
+- `METHODOLOGY.md` -- Documents the matrix construction, the name reconciliation pipeline, the lag analysis, and the cross-hall endorsement scoring. Documents the universe (which players are in scope, why, and the source for each).
 
-- `INSTITUTIONAL_NOTE.md` — A separate brief document acknowledging the chapter's position. The chapter compares institutions. The comparison is descriptive, not normative. Each hall's induction process reflects choices the institution has made about its mission and criteria, and the chapter respects those choices while documenting the resulting patterns.
+- `INSTITUTIONAL_NOTE.md` -- A separate brief document acknowledging the chapter's position. The chapter compares institutions. The comparison is descriptive, not normative. Each hall's induction process reflects choices the institution has made about its mission and criteria, and the chapter respects those choices while documenting the resulting patterns.
 
 ---
 
@@ -297,13 +297,13 @@ Oscar verifies image rights and provenance per source. Most institutional buildi
 
 ## The Agent Reviews
 
-### Oscar — Asset and Provenance
+### Oscar -- Asset and Provenance
 
 Reviews images for the six halls and the three featured players. Verifies PD status for player headshots. Confirms permissions for institutional building photographs. Documents text-only fallbacks where images cannot be sourced.
 
 **Specific gates:** Every hall has a sourced representative image or a documented absence. Player headshots have verified PD status. Institutional building photographs have documented attribution.
 
-### Elias — Data and Citation Integrity
+### Elias -- Data and Citation Integrity
 
 Particularly important review for this chapter because the matrix is the chapter's central artifact and its accuracy is non-negotiable. Verifies:
 - Every cell in the matrix has a sourced induction year or a sourced absence
@@ -314,7 +314,7 @@ Particularly important review for this chapter because the matrix is the chapter
 
 **Specific gates:** Every matrix cell has a source. Name reconciliation is independently verified. Lag calculations are reproducible from the published matrix.
 
-### Vera — Visual and Accessibility
+### Vera -- Visual and Accessibility
 
 Reviews five visualizations at 375px, 768px, 1200px. Particular focus:
 - Fig 01 (the matrix) must remain legible at mobile. The card view at 375px must preserve the matrix structure.
@@ -323,13 +323,13 @@ Reviews five visualizations at 375px, 768px, 1200px. Particular focus:
 
 **Specific gates:** Fig 01 mobile card view passes oh wow test at 375px. Fig 03 Gibson row is visually distinct without appearing diminished. Fig 04 cards have equal visual weight.
 
-### Ida — Spec Adherence and Tenant Compliance
+### Ida -- Spec Adherence and Tenant Compliance
 
 Reviews against tenants. The institutional note document requires Ida's review for tone and posture.
 
 **Specific gates:** Methodology and institutional note complete. Connective tissue paragraphs in project owner's voice. Citation block present and complete.
 
-### Gates — Merge Authority
+### Gates -- Merge Authority
 
 The oh wow test for this chapter is the matrix. Five agent instances must each independently identify that Cooperstown is the visibly late hall in the matrix pattern. The Méndez and Gibson cases must be specifically named by at least three agents.
 
