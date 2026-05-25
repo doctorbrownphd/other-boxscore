@@ -1,0 +1,1031 @@
+{
+  "methodology": {
+    "model": "Sensitivity analysis grid (108 combinations)",
+    "concept": "How does the headline gap figure change under different defensible assumptions?",
+    "base_gap_source": "Model 1-3 CPI-adjusted gap (salary-imputed.json)",
+    "dimensions": {
+      "inflator": {
+        "options": [
+          "CPI (1x)",
+          "Wage Index (2x CPI)",
+          "GDP Share (4x CPI)"
+        ],
+        "source": "BLS CPI-U, Census Bureau wage index, Measuring Worth GDP share"
+      },
+      "comparison": {
+        "options": [
+          "League Average (1x)",
+          "Position Average (1.1x)",
+          "Predicted/WAR-based (1x)"
+        ],
+        "source": "SABR Business of Baseball, WAR-based model"
+      },
+      "season": {
+        "options": [
+          "5 months (1x)",
+          "Documented games (0.8x)"
+        ],
+        "source": "Larry Lester documented season lengths, Seamheads game logs"
+      },
+      "barnstorming": {
+        "options": [
+          "Exclude (1x)",
+          "Include (1.15x)"
+        ],
+        "source": "Larry Lester estimates barnstorming added ~15% income"
+      },
+      "compounding": {
+        "options": [
+          "S&P 500 total returns",
+          "T-Bills (0.3x S&P)",
+          "None (nominal)"
+        ],
+        "source": "Robert Shiller dataset, Federal Reserve historical T-Bill rates"
+      }
+    },
+    "confidence_vocabulary": "Modeled. Each combination represents a defensible but different set of assumptions."
+  },
+  "base_gap_cpi": 82616433.94,
+  "estate_multiplier_sp500": 167.7,
+  "summary": {
+    "n_combinations": 108,
+    "min_headline": 66093147.15,
+    "max_headline": 70105166416.99,
+    "median_headline": 8312865583.04,
+    "base_case_headline": 82616433.94
+  },
+  "combinations": [
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 0.8,
+      "headline": 66093147.15
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 0.8,
+      "headline": 66093147.15
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 0.88,
+      "headline": 72702461.87
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 0.92,
+      "headline": 76007119.22
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 0.92,
+      "headline": 76007119.22
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.0,
+      "headline": 82616433.94
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.0,
+      "headline": 82616433.94
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.012,
+      "headline": 83607831.15
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.1,
+      "headline": 90878077.33
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.15,
+      "headline": 95008899.03
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.15,
+      "headline": 95008899.03
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.265,
+      "headline": 104509788.93
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.6,
+      "headline": 132186294.3
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.6,
+      "headline": 132186294.3
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 1.76,
+      "headline": 145404923.73
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.84,
+      "headline": 152014238.45
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 1.84,
+      "headline": 152014238.45
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 2.0,
+      "headline": 165232867.88
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 2.0,
+      "headline": 165232867.88
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 2.024,
+      "headline": 167215662.29
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 2.2,
+      "headline": 181756154.67
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 2.3,
+      "headline": 190017798.06
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 2.3,
+      "headline": 190017798.06
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 2.53,
+      "headline": 209019577.87
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 3.2,
+      "headline": 264372588.61
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 3.2,
+      "headline": 264372588.61
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 3.52,
+      "headline": 290809847.47
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 3.68,
+      "headline": 304028476.9
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 3.68,
+      "headline": 304028476.9
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 4.0,
+      "headline": 330465735.76
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 4.0,
+      "headline": 330465735.76
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 4.048,
+      "headline": 334431324.59
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "none",
+      "multiplier": 4.4,
+      "headline": 363512309.34
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 4.6,
+      "headline": 380035596.12
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 4.6,
+      "headline": 380035596.12
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "none",
+      "multiplier": 5.06,
+      "headline": 418039155.74
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 40.248,
+      "headline": 3325146233.22
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 40.248,
+      "headline": 3325146233.22
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 44.2728,
+      "headline": 3657660856.54
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 46.2852,
+      "headline": 3823918168.2
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 46.2852,
+      "headline": 3823918168.2
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 50.31,
+      "headline": 4156432791.52
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 50.31,
+      "headline": 4156432791.52
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 50.9137,
+      "headline": 4206309985.02
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 55.341,
+      "headline": 4572076070.67
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 57.8565,
+      "headline": 4779897710.25
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 57.8565,
+      "headline": 4779897710.25
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 63.6421,
+      "headline": 5257887481.27
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 80.496,
+      "headline": 6650292466.43
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 80.496,
+      "headline": 6650292466.43
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 88.5456,
+      "headline": 7315321713.08
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 92.5704,
+      "headline": 7647836336.4
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 92.5704,
+      "headline": 7647836336.4
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 100.62,
+      "headline": 8312865583.04
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 100.62,
+      "headline": 8312865583.04
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 101.8274,
+      "headline": 8412619970.04
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 110.682,
+      "headline": 9144152141.35
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 115.713,
+      "headline": 9559795420.5
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 115.713,
+      "headline": 9559795420.5
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 127.2843,
+      "headline": 10515774962.55
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 134.16,
+      "headline": 11083820777.39
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 134.16,
+      "headline": 11083820777.39
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 147.576,
+      "headline": 12192202855.13
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 154.284,
+      "headline": 12746393894.0
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 154.284,
+      "headline": 12746393894.0
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 160.992,
+      "headline": 13300584932.87
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 160.992,
+      "headline": 13300584932.87
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 167.7,
+      "headline": 13854775971.74
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 167.7,
+      "headline": 13854775971.74
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 169.7124,
+      "headline": 14021033283.4
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 177.0912,
+      "headline": 14630643426.16
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 184.47,
+      "headline": 15240253568.91
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 185.1408,
+      "headline": 15295672672.8
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 185.1408,
+      "headline": 15295672672.8
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 192.855,
+      "headline": 15932992367.5
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 192.855,
+      "headline": 15932992367.5
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 201.24,
+      "headline": 16625731166.09
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 201.24,
+      "headline": 16625731166.09
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 203.6549,
+      "headline": 16825239940.08
+    },
+    {
+      "inflator": "CPI",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 212.1405,
+      "headline": 17526291604.25
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "tbills",
+      "multiplier": 221.364,
+      "headline": 18288304282.69
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 231.426,
+      "headline": 19119590841.0
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 231.426,
+      "headline": 19119590841.0
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "tbills",
+      "multiplier": 254.5686,
+      "headline": 21031549925.1
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 268.32,
+      "headline": 22167641554.78
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 268.32,
+      "headline": 22167641554.78
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 295.152,
+      "headline": 24384405710.26
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 308.568,
+      "headline": 25492787788.0
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 308.568,
+      "headline": 25492787788.0
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 335.4,
+      "headline": 27709551943.48
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 335.4,
+      "headline": 27709551943.48
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 339.4248,
+      "headline": 28042066566.8
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 368.94,
+      "headline": 30480507137.82
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 385.71,
+      "headline": 31865984735.0
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 385.71,
+      "headline": 31865984735.0
+    },
+    {
+      "inflator": "wage_index",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 424.281,
+      "headline": 35052583208.5
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 536.64,
+      "headline": 44335283109.56
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 536.64,
+      "headline": 44335283109.56
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 590.304,
+      "headline": 48768811420.52
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 617.136,
+      "headline": 50985575576.0
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 617.136,
+      "headline": 50985575576.0
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 670.8,
+      "headline": 55419103886.95
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 670.8,
+      "headline": 55419103886.95
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "documented_games",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 678.8496,
+      "headline": 56084133133.6
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "exclude",
+      "compounding": "sp500",
+      "multiplier": 737.88,
+      "headline": 60961014275.65
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "league_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 771.42,
+      "headline": 63731969469.99
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "predicted",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 771.42,
+      "headline": 63731969469.99
+    },
+    {
+      "inflator": "gdp_share",
+      "comparison": "position_avg",
+      "season": "5mo",
+      "barnstorming": "include",
+      "compounding": "sp500",
+      "multiplier": 848.562,
+      "headline": 70105166416.99
+    }
+  ]
+}

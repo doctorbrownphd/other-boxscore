@@ -1,0 +1,5578 @@
+{
+  "methodology": {
+    "model": "Compounded estate value (S&P 500 total returns)",
+    "concept": "If stolen wages had been paid and invested, what would the estate be worth?",
+    "return_source": "Robert Shiller, 'Irrational Exuberance' dataset, decade averages",
+    "return_rates": {
+      "1920s": "15% nominal",
+      "1930s": "0% nominal (Depression)",
+      "1940s": "9% nominal",
+      "1950s_to_2024": "10.5% nominal"
+    },
+    "compounding": "Year-by-year from season year to 2024",
+    "wage_gap_source": "Model 1-3 output (salary-imputed.json)",
+    "confidence_vocabulary": "Modeled, with 90% credible interval propagated from wage gap model"
+  },
+  "aggregate": {
+    "players_modeled": 50,
+    "total_estate_2024": 13854901980.09,
+    "total_estate_2024_lo": 9005686287.06,
+    "total_estate_2024_hi": 20089607871.14,
+    "total_cpi_gap_2024": 82616433.94,
+    "estate_multiplier_over_cpi": 167.7,
+    "per_player_average": 277098039.6,
+    "note": "Top 50 documented NLB players only. The full league estate would be substantially larger."
+  },
+  "players": [
+    {
+      "name": "Oscar Charleston",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 78.3,
+      "careerGap2024_cpi": 2774371.82,
+      "estateValue2024": 465891974.9,
+      "estateValue2024_lo": 302829783.68,
+      "estateValue2024_hi": 675543363.6,
+      "estateMultiplier": 167.93,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 7981.59,
+          "compounded_2024": 30560676.81,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 8056.43,
+          "compounded_2024": 30847231.37,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 8023.0,
+          "compounded_2024": 30719231.39,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 8040.65,
+          "compounded_2024": 30786811.4,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 8004.58,
+          "compounded_2024": 30648703.12,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 7990.12,
+          "compounded_2024": 30593337.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 8032.08,
+          "compounded_2024": 30753997.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 8054.79,
+          "compounded_2024": 30840951.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 8004.72,
+          "compounded_2024": 30649239.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 7972.93,
+          "compounded_2024": 30527518.57,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 8517.85,
+          "compounded_2024": 32613960.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 8482.72,
+          "compounded_2024": 29797661.82,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 8508.93,
+          "compounded_2024": 27421771.52,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 8435.43,
+          "compounded_2024": 24940277.71,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 8553.65,
+          "compounded_2024": 23201658.86,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 8434.31,
+          "compounded_2024": 20988945.63,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Cristobal Torriente",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 60.0,
+      "careerGap2024_cpi": 2054562.57,
+      "estateValue2024": 344372885.99,
+      "estateValue2024_lo": 223842375.89,
+      "estateValue2024_hi": 499340684.68,
+      "estateMultiplier": 167.61,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5672.15,
+          "compounded_2024": 21718071.58,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5721.71,
+          "compounded_2024": 21907831.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5718.93,
+          "compounded_2024": 21897187.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5785.05,
+          "compounded_2024": 22150353.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5632.49,
+          "compounded_2024": 21566217.57,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5769.72,
+          "compounded_2024": 22091656.95,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5751.95,
+          "compounded_2024": 22023617.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5627.98,
+          "compounded_2024": 21548949.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5622.41,
+          "compounded_2024": 21527622.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5652.34,
+          "compounded_2024": 21642221.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6708.53,
+          "compounded_2024": 25686262.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6709.59,
+          "compounded_2024": 23569102.1,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6835.51,
+          "compounded_2024": 22028832.47,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6750.66,
+          "compounded_2024": 19959069.68,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6777.4,
+          "compounded_2024": 18383604.98,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6699.68,
+          "compounded_2024": 16672284.9,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Josh Gibson",
+      "position": "C",
+      "yearsActive": "1930-1945",
+      "careerWAR": 60.2,
+      "careerGap2024_cpi": 2051235.21,
+      "estateValue2024": 343812773.2,
+      "estateValue2024_lo": 223478302.58,
+      "estateValue2024_hi": 498528521.14,
+      "estateMultiplier": 167.61,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5655.71,
+          "compounded_2024": 21655124.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5694.63,
+          "compounded_2024": 21804145.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5622.45,
+          "compounded_2024": 21527775.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5726.85,
+          "compounded_2024": 21927512.18,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5702.24,
+          "compounded_2024": 21833283.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5680.07,
+          "compounded_2024": 21748396.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5640.68,
+          "compounded_2024": 21597576.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5650.54,
+          "compounded_2024": 21635329.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5726.21,
+          "compounded_2024": 21925061.69,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5606.17,
+          "compounded_2024": 21465441.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6787.44,
+          "compounded_2024": 25988400.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6824.54,
+          "compounded_2024": 23972892.54,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6690.76,
+          "compounded_2024": 21562345.91,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6830.54,
+          "compounded_2024": 20195243.69,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6737.75,
+          "compounded_2024": 18276054.9,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6710.09,
+          "compounded_2024": 16698190.39,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Turkey Stearnes",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 58.7,
+      "careerGap2024_cpi": 2022911.53,
+      "estateValue2024": 339131826.33,
+      "estateValue2024_lo": 220435687.11,
+      "estateValue2024_hi": 491741148.18,
+      "estateMultiplier": 167.65,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5586.86,
+          "compounded_2024": 21391505.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5671.08,
+          "compounded_2024": 21713974.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5664.26,
+          "compounded_2024": 21687861.59,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5651.46,
+          "compounded_2024": 21638851.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5591.61,
+          "compounded_2024": 21409692.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5577.23,
+          "compounded_2024": 21354632.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5650.52,
+          "compounded_2024": 21635252.56,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5657.8,
+          "compounded_2024": 21663126.93,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5594.03,
+          "compounded_2024": 21418958.24,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5562.79,
+          "compounded_2024": 21299343.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6663.91,
+          "compounded_2024": 25515417.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6588.84,
+          "compounded_2024": 23144937.72,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6658.73,
+          "compounded_2024": 21459122.67,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6536.41,
+          "compounded_2024": 19325615.96,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6645.43,
+          "compounded_2024": 18025638.16,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6609.51,
+          "compounded_2024": 16447895.09,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Bullet Rogan",
+      "position": "CF/P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 57.1,
+      "careerGap2024_cpi": 1994422.83,
+      "estateValue2024": 334426639.69,
+      "estateValue2024_lo": 217377315.8,
+      "estateValue2024_hi": 484918627.55,
+      "estateMultiplier": 167.68,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5564.69,
+          "compounded_2024": 21306618.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5573.33,
+          "compounded_2024": 21339700.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5550.03,
+          "compounded_2024": 21250486.82,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5523.07,
+          "compounded_2024": 21147259.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5553.01,
+          "compounded_2024": 21261896.93,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5563.07,
+          "compounded_2024": 21300415.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5510.75,
+          "compounded_2024": 21100087.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5572.21,
+          "compounded_2024": 21335411.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5526.45,
+          "compounded_2024": 21160201.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5547.78,
+          "compounded_2024": 21241871.81,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6563.91,
+          "compounded_2024": 25132527.74,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6526.63,
+          "compounded_2024": 22926409.64,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6510.91,
+          "compounded_2024": 20982742.41,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6487.45,
+          "compounded_2024": 19180860.33,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6531.54,
+          "compounded_2024": 17716713.09,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6446.98,
+          "compounded_2024": 16043436.0,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "John Henry Lloyd",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 54.8,
+      "careerGap2024_cpi": 1957062.48,
+      "estateValue2024": 328063210.17,
+      "estateValue2024_lo": 213241086.61,
+      "estateValue2024_hi": 475691654.75,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5435.84,
+          "compounded_2024": 20813265.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5389.76,
+          "compounded_2024": 20636829.68,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5317.55,
+          "compounded_2024": 20360345.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5380.38,
+          "compounded_2024": 20600914.64,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5507.68,
+          "compounded_2024": 21088333.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5413.79,
+          "compounded_2024": 20728838.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5460.65,
+          "compounded_2024": 20908260.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5412.75,
+          "compounded_2024": 20724856.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5481.55,
+          "compounded_2024": 20988284.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5489.37,
+          "compounded_2024": 21018226.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6430.31,
+          "compounded_2024": 24620987.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6410.4,
+          "compounded_2024": 22518122.88,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6407.39,
+          "compounded_2024": 20649127.99,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6405.07,
+          "compounded_2024": 18937294.78,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6414.92,
+          "compounded_2024": 17400382.93,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6457.31,
+          "compounded_2024": 16069142.41,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Joe Williams",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 55.2,
+      "careerGap2024_cpi": 1952808.53,
+      "estateValue2024": 327382282.86,
+      "estateValue2024_lo": 212798483.86,
+      "estateValue2024_hi": 474704310.14,
+      "estateMultiplier": 167.65,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5436.85,
+          "compounded_2024": 20817132.39,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5418.21,
+          "compounded_2024": 20745761.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5377.93,
+          "compounded_2024": 20591533.85,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5438.84,
+          "compounded_2024": 20824751.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5397.05,
+          "compounded_2024": 20664742.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5380.35,
+          "compounded_2024": 20600799.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5434.65,
+          "compounded_2024": 20808708.82,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5485.27,
+          "compounded_2024": 21002527.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5429.47,
+          "compounded_2024": 20788875.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5465.35,
+          "compounded_2024": 20926255.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6383.51,
+          "compounded_2024": 24441794.93,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6339.05,
+          "compounded_2024": 22267488.28,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6377.83,
+          "compounded_2024": 20553864.83,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6431.83,
+          "compounded_2024": 19016413.67,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6401.01,
+          "compounded_2024": 17362652.24,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6417.06,
+          "compounded_2024": 15968979.5,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Satchel Paige",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 53.6,
+      "careerGap2024_cpi": 1927843.33,
+      "estateValue2024": 323106903.11,
+      "estateValue2024_lo": 210019487.02,
+      "estateValue2024_hi": 468505009.52,
+      "estateMultiplier": 167.6,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5307.79,
+          "compounded_2024": 20322975.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5346.2,
+          "compounded_2024": 20470042.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5384.19,
+          "compounded_2024": 20615502.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5390.28,
+          "compounded_2024": 20638820.71,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5279.34,
+          "compounded_2024": 20214043.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5392.06,
+          "compounded_2024": 20645636.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5271.09,
+          "compounded_2024": 20182454.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5374.71,
+          "compounded_2024": 20579204.8,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5284.74,
+          "compounded_2024": 20234719.04,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5321.72,
+          "compounded_2024": 20376311.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6395.39,
+          "compounded_2024": 24487282.21,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 6360.91,
+          "compounded_2024": 22344276.96,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 6320.57,
+          "compounded_2024": 20369332.74,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 6271.22,
+          "compounded_2024": 18541552.52,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6332.02,
+          "compounded_2024": 17175517.81,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 6393.05,
+          "compounded_2024": 15909230.14,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Martin Dihigo",
+      "position": "RF/P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 70.0,
+      "careerGap2024_cpi": 1880214.4,
+      "estateValue2024": 316353153.36,
+      "estateValue2024_lo": 205629549.68,
+      "estateValue2024_hi": 458712072.37,
+      "estateMultiplier": 168.25,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5689.43,
+          "compounded_2024": 21784234.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5701.01,
+          "compounded_2024": 21828573.52,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5669.69,
+          "compounded_2024": 21708652.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5669.11,
+          "compounded_2024": 21706431.74,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5674.84,
+          "compounded_2024": 21728371.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5743.18,
+          "compounded_2024": 21990038.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5671.07,
+          "compounded_2024": 21713936.37,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5644.46,
+          "compounded_2024": 21612049.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5671.26,
+          "compounded_2024": 21714663.86,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5681.18,
+          "compounded_2024": 21752646.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5288.18,
+          "compounded_2024": 20247890.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5275.54,
+          "compounded_2024": 18531645.14,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5219.97,
+          "compounded_2024": 16822423.58,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5264.27,
+          "compounded_2024": 15564393.96,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5335.77,
+          "compounded_2024": 14473203.29,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5293.91,
+          "compounded_2024": 13173998.72,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Jose Mendez",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 49.1,
+      "careerGap2024_cpi": 1843279.17,
+      "estateValue2024": 308990216.66,
+      "estateValue2024_lo": 200843640.83,
+      "estateValue2024_hi": 448035814.16,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5111.72,
+          "compounded_2024": 19572243.48,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5062.13,
+          "compounded_2024": 19382368.54,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5119.74,
+          "compounded_2024": 19602951.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5185.74,
+          "compounded_2024": 19855658.35,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5130.81,
+          "compounded_2024": 19645337.1,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5224.83,
+          "compounded_2024": 20005329.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5161.33,
+          "compounded_2024": 19762195.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5080.48,
+          "compounded_2024": 19452628.78,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5097.45,
+          "compounded_2024": 19517605.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5190.0,
+          "compounded_2024": 19871969.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 6068.03,
+          "compounded_2024": 23233854.87,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5968.66,
+          "compounded_2024": 20966401.37,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5927.69,
+          "compounded_2024": 19103196.39,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5985.21,
+          "compounded_2024": 17695932.46,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 6061.54,
+          "compounded_2024": 16441844.5,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5979.74,
+          "compounded_2024": 14880700.11,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Willie Wells",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 69.5,
+      "careerGap2024_cpi": 1829049.64,
+      "estateValue2024": 307797407.41,
+      "estateValue2024_lo": 200068314.82,
+      "estateValue2024_hi": 446306240.75,
+      "estateMultiplier": 168.28,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5568.16,
+          "compounded_2024": 21319904.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5468.9,
+          "compounded_2024": 20939848.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5553.45,
+          "compounded_2024": 21263581.64,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5560.29,
+          "compounded_2024": 21289771.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5576.26,
+          "compounded_2024": 21350918.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5617.95,
+          "compounded_2024": 21510545.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5576.21,
+          "compounded_2024": 21350727.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 5529.4,
+          "compounded_2024": 21171496.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5557.37,
+          "compounded_2024": 21278590.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5600.15,
+          "compounded_2024": 21442391.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5085.93,
+          "compounded_2024": 19473496.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5097.09,
+          "compounded_2024": 17904795.17,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5040.55,
+          "compounded_2024": 16244205.85,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4997.91,
+          "compounded_2024": 14776871.29,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5085.89,
+          "compounded_2024": 13795407.2,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5097.35,
+          "compounded_2024": 12684855.31,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Ray Brown",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 47.7,
+      "careerGap2024_cpi": 1811858.09,
+      "estateValue2024": 303725533.36,
+      "estateValue2024_lo": 197421596.68,
+      "estateValue2024_hi": 440402023.37,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5006.39,
+          "compounded_2024": 19168945.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5036.57,
+          "compounded_2024": 19284501.96,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5076.39,
+          "compounded_2024": 19436968.59,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 5051.97,
+          "compounded_2024": 19343466.96,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5005.21,
+          "compounded_2024": 19164427.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5035.97,
+          "compounded_2024": 19282204.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4998.77,
+          "compounded_2024": 19139769.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4994.23,
+          "compounded_2024": 19122386.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5055.09,
+          "compounded_2024": 19355413.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 5139.92,
+          "compounded_2024": 19680218.35,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5904.69,
+          "compounded_2024": 22608443.02,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5893.96,
+          "compounded_2024": 20703999.06,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5923.72,
+          "compounded_2024": 19090402.25,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5925.54,
+          "compounded_2024": 17519511.53,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5915.8,
+          "compounded_2024": 16046526.74,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5938.61,
+          "compounded_2024": 14778347.3,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Jud Wilson",
+      "position": "3B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 46.9,
+      "careerGap2024_cpi": 1800752.13,
+      "estateValue2024": 301864100.63,
+      "estateValue2024_lo": 196211665.41,
+      "estateValue2024_hi": 437702945.91,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 5040.73,
+          "compounded_2024": 19300430.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 5042.68,
+          "compounded_2024": 19307896.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 5041.57,
+          "compounded_2024": 19303646.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4996.79,
+          "compounded_2024": 19132188.48,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 5047.98,
+          "compounded_2024": 19328189.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5077.9,
+          "compounded_2024": 19442750.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 5023.65,
+          "compounded_2024": 19235032.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4958.87,
+          "compounded_2024": 18986996.75,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 5023.68,
+          "compounded_2024": 19235147.49,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4923.02,
+          "compounded_2024": 18849730.84,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5773.84,
+          "compounded_2024": 22107432.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5855.18,
+          "compounded_2024": 20567774.67,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5845.21,
+          "compounded_2024": 18837387.68,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5814.12,
+          "compounded_2024": 17190086.03,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5988.03,
+          "compounded_2024": 16242449.63,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5946.09,
+          "compounded_2024": 14796961.43,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Cool Papa Bell",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 46.1,
+      "careerGap2024_cpi": 1785259.23,
+      "estateValue2024": 299349060.78,
+      "estateValue2024_lo": 194576889.51,
+      "estateValue2024_hi": 434056138.13,
+      "estateMultiplier": 167.68,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4983.03,
+          "compounded_2024": 19079502.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4999.62,
+          "compounded_2024": 19143024.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4918.57,
+          "compounded_2024": 18832692.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4946.63,
+          "compounded_2024": 18940131.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4936.18,
+          "compounded_2024": 18900119.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4878.97,
+          "compounded_2024": 18681067.97,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4980.26,
+          "compounded_2024": 19068896.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4994.15,
+          "compounded_2024": 19122080.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4920.64,
+          "compounded_2024": 18840618.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4948.38,
+          "compounded_2024": 18946831.63,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5980.23,
+          "compounded_2024": 22897677.81,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5820.29,
+          "compounded_2024": 20445214.87,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5842.89,
+          "compounded_2024": 18829911.0,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5813.04,
+          "compounded_2024": 17186892.89,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5915.02,
+          "compounded_2024": 16044411.0,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5782.55,
+          "compounded_2024": 14389988.93,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Pete Hill",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 45.2,
+      "careerGap2024_cpi": 1775283.83,
+      "estateValue2024": 297643368.99,
+      "estateValue2024_lo": 193468189.84,
+      "estateValue2024_hi": 431582885.03,
+      "estateMultiplier": 167.66,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4930.39,
+          "compounded_2024": 18877949.8,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4894.18,
+          "compounded_2024": 18739305.48,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4960.5,
+          "compounded_2024": 18993237.85,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4986.78,
+          "compounded_2024": 19093861.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4943.63,
+          "compounded_2024": 18928644.38,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 5006.68,
+          "compounded_2024": 19170056.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4923.96,
+          "compounded_2024": 18853330.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4946.17,
+          "compounded_2024": 18938369.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4914.39,
+          "compounded_2024": 18816687.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4922.66,
+          "compounded_2024": 18848352.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5806.24,
+          "compounded_2024": 22231488.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5797.25,
+          "compounded_2024": 20364281.15,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5875.51,
+          "compounded_2024": 18935035.64,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5772.83,
+          "compounded_2024": 17068007.6,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5710.53,
+          "compounded_2024": 15489734.67,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5744.39,
+          "compounded_2024": 14295027.03,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Ramon Bragana",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 44.5,
+      "careerGap2024_cpi": 1754351.57,
+      "estateValue2024": 294127995.38,
+      "estateValue2024_lo": 191183196.99,
+      "estateValue2024_hi": 426485593.3,
+      "estateMultiplier": 167.66,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4891.62,
+          "compounded_2024": 18729503.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4922.39,
+          "compounded_2024": 18847318.63,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4844.57,
+          "compounded_2024": 18549353.96,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4870.64,
+          "compounded_2024": 18649173.27,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4843.09,
+          "compounded_2024": 18543687.19,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4900.37,
+          "compounded_2024": 18763006.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4831.98,
+          "compounded_2024": 18501148.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4870.48,
+          "compounded_2024": 18648560.65,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4870.07,
+          "compounded_2024": 18646990.8,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4862.1,
+          "compounded_2024": 18616474.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5777.56,
+          "compounded_2024": 22121675.49,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5752.91,
+          "compounded_2024": 20208525.88,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5702.64,
+          "compounded_2024": 18377926.62,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5725.79,
+          "compounded_2024": 16928928.66,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5793.9,
+          "compounded_2024": 15715874.66,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5738.29,
+          "compounded_2024": 14279847.06,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Eustaquio Pedroso",
+      "position": "1B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 40.3,
+      "careerGap2024_cpi": 1676580.8,
+      "estateValue2024": 281114386.72,
+      "estateValue2024_lo": 182724351.37,
+      "estateValue2024_hi": 407615860.75,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4678.48,
+          "compounded_2024": 17913412.65,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4715.24,
+          "compounded_2024": 18054162.86,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4655.06,
+          "compounded_2024": 17823739.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4639.89,
+          "compounded_2024": 17765655.55,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4725.98,
+          "compounded_2024": 18095285.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4610.55,
+          "compounded_2024": 17653315.75,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4668.22,
+          "compounded_2024": 17874128.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4665.24,
+          "compounded_2024": 17862718.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4705.63,
+          "compounded_2024": 18017367.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4614.61,
+          "compounded_2024": 17668861.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5441.13,
+          "compounded_2024": 20833520.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5498.81,
+          "compounded_2024": 19315936.49,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5498.71,
+          "compounded_2024": 17720720.38,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5437.46,
+          "compounded_2024": 16076449.27,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5436.95,
+          "compounded_2024": 14747652.66,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5501.85,
+          "compounded_2024": 13691461.49,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Dick Redding",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 39.9,
+      "careerGap2024_cpi": 1662312.55,
+      "estateValue2024": 278654101.58,
+      "estateValue2024_lo": 181125166.03,
+      "estateValue2024_hi": 404048447.3,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4566.25,
+          "compounded_2024": 17483695.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4681.95,
+          "compounded_2024": 17926698.91,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4640.76,
+          "compounded_2024": 17768986.69,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4647.6,
+          "compounded_2024": 17795176.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4566.12,
+          "compounded_2024": 17483197.91,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4609.72,
+          "compounded_2024": 17650137.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4597.85,
+          "compounded_2024": 17604688.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4550.43,
+          "compounded_2024": 17423122.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4667.52,
+          "compounded_2024": 17871447.95,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4686.25,
+          "compounded_2024": 17943163.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5477.87,
+          "compounded_2024": 20974193.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5349.42,
+          "compounded_2024": 18791167.0,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5383.41,
+          "compounded_2024": 17349142.49,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5450.59,
+          "compounded_2024": 16115269.56,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5543.55,
+          "compounded_2024": 15036803.7,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5399.68,
+          "compounded_2024": 13437209.44,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Mule Suttles",
+      "position": "1B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 38.3,
+      "careerGap2024_cpi": 1637865.67,
+      "estateValue2024": 274724399.44,
+      "estateValue2024_lo": 178570859.64,
+      "estateValue2024_hi": 398350379.19,
+      "estateMultiplier": 167.73,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4623.27,
+          "compounded_2024": 17702019.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4629.02,
+          "compounded_2024": 17724035.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4603.92,
+          "compounded_2024": 17627930.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4528.98,
+          "compounded_2024": 17340992.72,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4543.05,
+          "compounded_2024": 17394865.28,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4604.34,
+          "compounded_2024": 17629538.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4601.03,
+          "compounded_2024": 17616864.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4552.09,
+          "compounded_2024": 17429478.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4541.63,
+          "compounded_2024": 17389428.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4583.07,
+          "compounded_2024": 17548097.69,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5333.75,
+          "compounded_2024": 20422373.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5381.13,
+          "compounded_2024": 18902556.25,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5270.87,
+          "compounded_2024": 16986459.27,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5246.27,
+          "compounded_2024": 15511174.98,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5298.76,
+          "compounded_2024": 14372814.17,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5274.53,
+          "compounded_2024": 13125771.21,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Newt Allen",
+      "position": "2B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 37.8,
+      "careerGap2024_cpi": 1627539.57,
+      "estateValue2024": 272958029.09,
+      "estateValue2024_lo": 177422718.91,
+      "estateValue2024_hi": 395789142.17,
+      "estateMultiplier": 167.71,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4579.34,
+          "compounded_2024": 17533815.91,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4561.68,
+          "compounded_2024": 17466197.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4490.87,
+          "compounded_2024": 17195073.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4510.67,
+          "compounded_2024": 17270885.63,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4555.86,
+          "compounded_2024": 17443913.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4531.92,
+          "compounded_2024": 17352249.67,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4503.1,
+          "compounded_2024": 17241900.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4564.43,
+          "compounded_2024": 17476727.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4511.3,
+          "compounded_2024": 17273297.84,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4589.25,
+          "compounded_2024": 17571760.27,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5345.13,
+          "compounded_2024": 20465946.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5372.23,
+          "compounded_2024": 18871292.79,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5270.42,
+          "compounded_2024": 16985009.05,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5236.27,
+          "compounded_2024": 15481608.88,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5204.67,
+          "compounded_2024": 14117596.33,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5308.68,
+          "compounded_2024": 13210754.16,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Willie Foster",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 38.0,
+      "careerGap2024_cpi": 1622461.43,
+      "estateValue2024": 271979155.09,
+      "estateValue2024_lo": 176786450.81,
+      "estateValue2024_hi": 394369774.88,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4495.2,
+          "compounded_2024": 17211652.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4458.63,
+          "compounded_2024": 17071629.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4586.07,
+          "compounded_2024": 17559584.38,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4519.58,
+          "compounded_2024": 17305001.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4605.92,
+          "compounded_2024": 17635587.96,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4468.13,
+          "compounded_2024": 17108004.4,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4553.71,
+          "compounded_2024": 17435681.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4538.06,
+          "compounded_2024": 17375759.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4519.08,
+          "compounded_2024": 17303086.65,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4520.79,
+          "compounded_2024": 17309634.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5194.29,
+          "compounded_2024": 19888395.41,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5277.11,
+          "compounded_2024": 18537160.15,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5370.59,
+          "compounded_2024": 17307827.41,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5211.79,
+          "compounded_2024": 15409231.06,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5294.37,
+          "compounded_2024": 14360906.35,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5288.29,
+          "compounded_2024": 13160013.24,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Dobie Moore",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 37.2,
+      "careerGap2024_cpi": 1616192.17,
+      "estateValue2024": 271014880.91,
+      "estateValue2024_lo": 176159672.59,
+      "estateValue2024_hi": 392971577.33,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4574.11,
+          "compounded_2024": 17513790.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4375.39,
+          "compounded_2024": 16752912.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4618.91,
+          "compounded_2024": 17685325.32,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4509.44,
+          "compounded_2024": 17266176.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4536.87,
+          "compounded_2024": 17371202.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4532.86,
+          "compounded_2024": 17355848.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4489.81,
+          "compounded_2024": 17191014.87,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4520.83,
+          "compounded_2024": 17309787.21,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4467.06,
+          "compounded_2024": 17103907.49,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4494.13,
+          "compounded_2024": 17207555.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5205.4,
+          "compounded_2024": 19930934.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5380.24,
+          "compounded_2024": 18899429.9,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5255.88,
+          "compounded_2024": 16938150.92,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5259.37,
+          "compounded_2024": 15549906.57,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5168.85,
+          "compounded_2024": 14020435.06,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5191.24,
+          "compounded_2024": 12918502.42,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Dick Lundy",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 36.8,
+      "careerGap2024_cpi": 1598196.32,
+      "estateValue2024": 267882492.27,
+      "estateValue2024_lo": 174123619.97,
+      "estateValue2024_hi": 388429613.79,
+      "estateMultiplier": 167.62,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4464.51,
+          "compounded_2024": 17094143.8,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4463.13,
+          "compounded_2024": 17088859.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4419.05,
+          "compounded_2024": 16920082.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4458.6,
+          "compounded_2024": 17071515.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4496.74,
+          "compounded_2024": 17217549.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4504.93,
+          "compounded_2024": 17248907.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4421.22,
+          "compounded_2024": 16928390.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4419.68,
+          "compounded_2024": 16922494.4,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4364.99,
+          "compounded_2024": 16713092.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4531.15,
+          "compounded_2024": 17349301.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5124.52,
+          "compounded_2024": 19621253.35,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5186.3,
+          "compounded_2024": 18218167.46,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5120.86,
+          "compounded_2024": 16503021.29,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5186.43,
+          "compounded_2024": 15334251.43,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5360.68,
+          "compounded_2024": 14540771.32,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5268.47,
+          "compounded_2024": 13110690.78,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "William Bell",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 36.0,
+      "careerGap2024_cpi": 1589562.69,
+      "estateValue2024": 266517640.56,
+      "estateValue2024_lo": 173236466.37,
+      "estateValue2024_hi": 386450578.82,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4415.77,
+          "compounded_2024": 16907523.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4368.24,
+          "compounded_2024": 16725536.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4399.19,
+          "compounded_2024": 16844040.32,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4379.5,
+          "compounded_2024": 16768649.36,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4416.72,
+          "compounded_2024": 16911160.87,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4409.79,
+          "compounded_2024": 16884626.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4414.76,
+          "compounded_2024": 16903656.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4415.85,
+          "compounded_2024": 16907829.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4452.76,
+          "compounded_2024": 17049154.27,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4486.95,
+          "compounded_2024": 17180064.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5205.7,
+          "compounded_2024": 19932083.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5262.51,
+          "compounded_2024": 18485874.02,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5269.73,
+          "compounded_2024": 16982785.38,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5181.03,
+          "compounded_2024": 15318285.73,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5106.77,
+          "compounded_2024": 13852043.91,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5169.47,
+          "compounded_2024": 12864327.35,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Jesus Valenzuela",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 35.6,
+      "careerGap2024_cpi": 1578075.68,
+      "estateValue2024": 264478440.51,
+      "estateValue2024_lo": 171910986.33,
+      "estateValue2024_hi": 383493738.74,
+      "estateMultiplier": 167.6,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4325.69,
+          "compounded_2024": 16562616.48,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4344.94,
+          "compounded_2024": 16636322.72,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4433.92,
+          "compounded_2024": 16977017.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4368.77,
+          "compounded_2024": 16727565.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4343.49,
+          "compounded_2024": 16630770.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4482.02,
+          "compounded_2024": 17161187.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4469.37,
+          "compounded_2024": 17112752.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4330.43,
+          "compounded_2024": 16580765.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4441.5,
+          "compounded_2024": 17006040.91,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4383.36,
+          "compounded_2024": 16783428.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5111.6,
+          "compounded_2024": 19571784.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5237.54,
+          "compounded_2024": 18398160.7,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5069.41,
+          "compounded_2024": 16337213.11,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5061.78,
+          "compounded_2024": 14965709.98,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5171.51,
+          "compounded_2024": 14027650.28,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5223.77,
+          "compounded_2024": 12999453.96,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Buck Leonard",
+      "position": "1B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 34.4,
+      "careerGap2024_cpi": 1564212.57,
+      "estateValue2024": 262261079.34,
+      "estateValue2024_lo": 170469701.57,
+      "estateValue2024_hi": 380278565.05,
+      "estateMultiplier": 167.66,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4378.95,
+          "compounded_2024": 16766543.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4324.73,
+          "compounded_2024": 16558940.74,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4392.5,
+          "compounded_2024": 16818425.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4360.38,
+          "compounded_2024": 16695440.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4362.65,
+          "compounded_2024": 16704132.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4313.75,
+          "compounded_2024": 16516899.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4379.8,
+          "compounded_2024": 16769798.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4294.0,
+          "compounded_2024": 16441278.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4400.74,
+          "compounded_2024": 16849975.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4426.07,
+          "compounded_2024": 16946961.04,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5037.42,
+          "compounded_2024": 19287756.52,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5035.28,
+          "compounded_2024": 17687672.19,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5183.39,
+          "compounded_2024": 16704537.03,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5116.19,
+          "compounded_2024": 15126579.13,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5014.08,
+          "compounded_2024": 13600623.55,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5137.8,
+          "compounded_2024": 12785515.93,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Lazaro Salazar",
+      "position": "1B/P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 34.3,
+      "careerGap2024_cpi": 1554682.22,
+      "estateValue2024": 260680066.65,
+      "estateValue2024_lo": 169442043.32,
+      "estateValue2024_hi": 377986096.64,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4299.96,
+          "compounded_2024": 16464098.99,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4433.62,
+          "compounded_2024": 16975869.21,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4346.51,
+          "compounded_2024": 16642334.09,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4328.3,
+          "compounded_2024": 16572609.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4325.61,
+          "compounded_2024": 16562310.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4341.29,
+          "compounded_2024": 16622347.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4378.31,
+          "compounded_2024": 16764092.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4355.85,
+          "compounded_2024": 16678095.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4266.5,
+          "compounded_2024": 16335984.13,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4332.71,
+          "compounded_2024": 16589495.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5096.26,
+          "compounded_2024": 19513048.75,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5015.34,
+          "compounded_2024": 17617627.98,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 5059.29,
+          "compounded_2024": 16304599.34,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4919.12,
+          "compounded_2024": 14543919.98,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5103.92,
+          "compounded_2024": 13844313.33,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5083.07,
+          "compounded_2024": 12649319.25,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Ben Taylor",
+      "position": "1B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 34.3,
+      "careerGap2024_cpi": 1551343.26,
+      "estateValue2024": 260117638.12,
+      "estateValue2024_lo": 169076464.78,
+      "estateValue2024_hi": 377170575.27,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4327.14,
+          "compounded_2024": 16568168.38,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4323.19,
+          "compounded_2024": 16553044.24,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4299.83,
+          "compounded_2024": 16463601.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4318.05,
+          "compounded_2024": 16533363.71,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4347.94,
+          "compounded_2024": 16647809.41,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4333.59,
+          "compounded_2024": 16592864.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4364.55,
+          "compounded_2024": 16711407.37,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4296.32,
+          "compounded_2024": 16450161.81,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4288.8,
+          "compounded_2024": 16421368.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4336.47,
+          "compounded_2024": 16603891.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5128.01,
+          "compounded_2024": 19634616.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4978.49,
+          "compounded_2024": 17488183.2,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4950.54,
+          "compounded_2024": 15954130.17,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5187.89,
+          "compounded_2024": 15338568.08,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5021.68,
+          "compounded_2024": 13621238.45,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5037.22,
+          "compounded_2024": 12535220.63,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Willard Brown",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 33.4,
+      "careerGap2024_cpi": 1544687.1,
+      "estateValue2024": 259059243.61,
+      "estateValue2024_lo": 168388508.35,
+      "estateValue2024_hi": 375635903.24,
+      "estateMultiplier": 167.71,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4334.49,
+          "compounded_2024": 16596310.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4330.74,
+          "compounded_2024": 16581952.4,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4302.71,
+          "compounded_2024": 16474628.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4334.95,
+          "compounded_2024": 16598072.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4311.15,
+          "compounded_2024": 16506944.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4217.04,
+          "compounded_2024": 16146606.95,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4323.47,
+          "compounded_2024": 16554116.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4292.27,
+          "compounded_2024": 16434654.78,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4398.55,
+          "compounded_2024": 16841589.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4262.64,
+          "compounded_2024": 16321204.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 5099.85,
+          "compounded_2024": 19526794.49,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5000.11,
+          "compounded_2024": 17564128.82,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4979.06,
+          "compounded_2024": 16046041.71,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5062.43,
+          "compounded_2024": 14967631.77,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4974.98,
+          "compounded_2024": 13494565.34,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4984.49,
+          "compounded_2024": 12404000.99,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Wild Bill Wright",
+      "position": "CF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 33.2,
+      "careerGap2024_cpi": 1534198.29,
+      "estateValue2024": 257162379.62,
+      "estateValue2024_lo": 167155546.75,
+      "estateValue2024_hi": 372885450.45,
+      "estateMultiplier": 167.62,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4234.97,
+          "compounded_2024": 16215259.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4279.5,
+          "compounded_2024": 16385759.78,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4382.46,
+          "compounded_2024": 16779982.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4238.33,
+          "compounded_2024": 16228124.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4283.92,
+          "compounded_2024": 16402683.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4260.24,
+          "compounded_2024": 16312015.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4246.16,
+          "compounded_2024": 16258104.39,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4246.28,
+          "compounded_2024": 16258563.86,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4265.96,
+          "compounded_2024": 16333916.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4218.75,
+          "compounded_2024": 16153154.36,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4945.0,
+          "compounded_2024": 18933889.97,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 5064.76,
+          "compounded_2024": 17791228.01,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4977.92,
+          "compounded_2024": 16042367.83,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5043.67,
+          "compounded_2024": 14912165.77,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 5013.01,
+          "compounded_2024": 13597721.19,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 5046.15,
+          "compounded_2024": 12557443.11,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Juan Padron",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 33.0,
+      "careerGap2024_cpi": 1528093.75,
+      "estateValue2024": 256250621.03,
+      "estateValue2024_lo": 166562903.67,
+      "estateValue2024_hi": 371563400.49,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4293.43,
+          "compounded_2024": 16439096.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4230.05,
+          "compounded_2024": 16196420.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4279.15,
+          "compounded_2024": 16384419.67,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4330.39,
+          "compounded_2024": 16580612.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4260.02,
+          "compounded_2024": 16311172.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4226.99,
+          "compounded_2024": 16184704.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4282.83,
+          "compounded_2024": 16398510.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4278.91,
+          "compounded_2024": 16383500.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4281.41,
+          "compounded_2024": 16393072.97,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4240.77,
+          "compounded_2024": 16237466.64,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4944.24,
+          "compounded_2024": 18930980.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4961.05,
+          "compounded_2024": 17426920.87,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4902.83,
+          "compounded_2024": 15800374.91,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 5092.11,
+          "compounded_2024": 15055383.96,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4925.24,
+          "compounded_2024": 13359646.27,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4889.79,
+          "compounded_2024": 12168338.19,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Carlos Moran",
+      "position": "3B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 32.7,
+      "careerGap2024_cpi": 1524009.08,
+      "estateValue2024": 255608292.72,
+      "estateValue2024_lo": 166145390.27,
+      "estateValue2024_hi": 370632024.44,
+      "estateMultiplier": 167.72,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4268.38,
+          "compounded_2024": 16343182.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4303.22,
+          "compounded_2024": 16476581.19,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4233.04,
+          "compounded_2024": 16207869.28,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4221.05,
+          "compounded_2024": 16161960.82,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4282.19,
+          "compounded_2024": 16396059.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4356.08,
+          "compounded_2024": 16678976.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4208.37,
+          "compounded_2024": 16113410.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4220.58,
+          "compounded_2024": 16160161.24,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4231.39,
+          "compounded_2024": 16201551.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4265.68,
+          "compounded_2024": 16332844.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4970.77,
+          "compounded_2024": 19032560.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4992.45,
+          "compounded_2024": 17537221.17,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4904.36,
+          "compounded_2024": 15805305.65,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4994.75,
+          "compounded_2024": 14767528.4,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4884.34,
+          "compounded_2024": 13248705.57,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4880.16,
+          "compounded_2024": 12144373.74,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Bill Byrd",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 31.1,
+      "careerGap2024_cpi": 1497820.11,
+      "estateValue2024": 251172496.33,
+      "estateValue2024_lo": 163262122.62,
+      "estateValue2024_hi": 364200119.68,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4188.16,
+          "compounded_2024": 16036028.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4214.32,
+          "compounded_2024": 16136192.35,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4176.74,
+          "compounded_2024": 15992302.44,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4197.54,
+          "compounded_2024": 16071943.48,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4181.98,
+          "compounded_2024": 16012365.86,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4220.31,
+          "compounded_2024": 16159127.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4177.23,
+          "compounded_2024": 15994178.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4265.7,
+          "compounded_2024": 16332921.02,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4126.19,
+          "compounded_2024": 15798751.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4131.15,
+          "compounded_2024": 15817743.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4867.77,
+          "compounded_2024": 18638184.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4885.66,
+          "compounded_2024": 17162094.76,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4722.32,
+          "compounded_2024": 15218644.42,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4875.94,
+          "compounded_2024": 14416253.55,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4959.57,
+          "compounded_2024": 13452765.92,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4795.22,
+          "compounded_2024": 11932998.89,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Jose Munoz",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 30.8,
+      "careerGap2024_cpi": 1492766.24,
+      "estateValue2024": 250357961.54,
+      "estateValue2024_lo": 162732675.0,
+      "estateValue2024_hi": 363019044.23,
+      "estateMultiplier": 167.71,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4225.97,
+          "compounded_2024": 16180798.99,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4126.15,
+          "compounded_2024": 15798598.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4184.08,
+          "compounded_2024": 16020406.54,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4201.0,
+          "compounded_2024": 16085191.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4148.99,
+          "compounded_2024": 15886050.58,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4206.33,
+          "compounded_2024": 16105599.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4171.22,
+          "compounded_2024": 15971166.94,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4191.36,
+          "compounded_2024": 16048280.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4193.49,
+          "compounded_2024": 16056436.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4145.24,
+          "compounded_2024": 15871692.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4867.3,
+          "compounded_2024": 18636384.76,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4817.74,
+          "compounded_2024": 16923508.88,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4880.47,
+          "compounded_2024": 15728315.22,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4733.05,
+          "compounded_2024": 13993783.53,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4798.42,
+          "compounded_2024": 13015648.75,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4836.65,
+          "compounded_2024": 12036098.26,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Bill Holland",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 30.2,
+      "careerGap2024_cpi": 1482218.75,
+      "estateValue2024": 248465854.21,
+      "estateValue2024_lo": 161502805.23,
+      "estateValue2024_hi": 360275488.6,
+      "estateMultiplier": 167.63,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4054.76,
+          "compounded_2024": 15525253.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4182.11,
+          "compounded_2024": 16012863.61,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4138.23,
+          "compounded_2024": 15844851.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4151.8,
+          "compounded_2024": 15896809.78,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4136.32,
+          "compounded_2024": 15837538.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4147.61,
+          "compounded_2024": 15880766.71,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4133.74,
+          "compounded_2024": 15827659.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4165.67,
+          "compounded_2024": 15949916.57,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4167.34,
+          "compounded_2024": 15956310.82,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4119.77,
+          "compounded_2024": 15774170.25,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4736.45,
+          "compounded_2024": 18135373.74,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4723.86,
+          "compounded_2024": 16593732.05,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4853.93,
+          "compounded_2024": 15642784.63,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4830.31,
+          "compounded_2024": 14281343.43,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4895.34,
+          "compounded_2024": 13278542.92,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4833.37,
+          "compounded_2024": 12027935.91,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Hilton Smith",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 30.3,
+      "careerGap2024_cpi": 1478286.64,
+      "estateValue2024": 247918262.98,
+      "estateValue2024_lo": 161146870.94,
+      "estateValue2024_hi": 359481481.32,
+      "estateMultiplier": 167.71,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4108.03,
+          "compounded_2024": 15729219.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4131.71,
+          "compounded_2024": 15819887.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4130.94,
+          "compounded_2024": 15816939.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4077.22,
+          "compounded_2024": 15611250.73,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4104.66,
+          "compounded_2024": 15716315.63,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4158.61,
+          "compounded_2024": 15922884.56,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4126.65,
+          "compounded_2024": 15800513.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4157.9,
+          "compounded_2024": 15920166.04,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4176.78,
+          "compounded_2024": 15992455.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4181.04,
+          "compounded_2024": 16008766.69,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4783.03,
+          "compounded_2024": 18313723.71,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4806.92,
+          "compounded_2024": 16885500.94,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4776.35,
+          "compounded_2024": 15392767.18,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4816.41,
+          "compounded_2024": 14240246.55,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4755.54,
+          "compounded_2024": 12899337.33,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4761.18,
+          "compounded_2024": 11848289.68,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Sam Bankhead",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 30.5,
+      "careerGap2024_cpi": 1478550.38,
+      "estateValue2024": 247911785.23,
+      "estateValue2024_lo": 161142660.4,
+      "estateValue2024_hi": 359472088.58,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4133.53,
+          "compounded_2024": 15826855.85,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4035.97,
+          "compounded_2024": 15453308.77,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4083.08,
+          "compounded_2024": 15633688.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4155.11,
+          "compounded_2024": 15909483.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4132.38,
+          "compounded_2024": 15822452.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4104.64,
+          "compounded_2024": 15716239.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4128.72,
+          "compounded_2024": 15808438.86,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4223.42,
+          "compounded_2024": 16171035.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4216.35,
+          "compounded_2024": 16143965.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4085.99,
+          "compounded_2024": 15644830.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4783.26,
+          "compounded_2024": 18314604.35,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4790.68,
+          "compounded_2024": 16828453.91,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4798.99,
+          "compounded_2024": 15465729.22,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4800.83,
+          "compounded_2024": 14194182.56,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4824.79,
+          "compounded_2024": 13087177.01,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4778.48,
+          "compounded_2024": 11891341.07,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Nip Winters",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 29.7,
+      "careerGap2024_cpi": 1468413.17,
+      "estateValue2024": 246299621.86,
+      "estateValue2024_lo": 160094754.21,
+      "estateValue2024_hi": 357134451.69,
+      "estateMultiplier": 167.73,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4103.1,
+          "compounded_2024": 15710342.55,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4085.78,
+          "compounded_2024": 15644026.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4112.94,
+          "compounded_2024": 15748018.89,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4137.31,
+          "compounded_2024": 15841329.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4060.49,
+          "compounded_2024": 15547193.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4065.89,
+          "compounded_2024": 15567869.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4078.04,
+          "compounded_2024": 15614390.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4159.9,
+          "compounded_2024": 15927823.84,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4138.01,
+          "compounded_2024": 15844009.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4168.14,
+          "compounded_2024": 15959373.94,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4812.72,
+          "compounded_2024": 18427403.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4707.42,
+          "compounded_2024": 16535982.47,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4797.1,
+          "compounded_2024": 15459638.31,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4779.09,
+          "compounded_2024": 14129905.86,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4691.62,
+          "compounded_2024": 12725955.2,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4667.98,
+          "compounded_2024": 11616359.66,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Hurley McNair",
+      "position": "RF",
+      "yearsActive": "1930-1945",
+      "careerWAR": 29.5,
+      "careerGap2024_cpi": 1464526.22,
+      "estateValue2024": 245577865.0,
+      "estateValue2024_lo": 159625612.25,
+      "estateValue2024_hi": 356087904.25,
+      "estateMultiplier": 167.68,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4046.12,
+          "compounded_2024": 15492172.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4164.59,
+          "compounded_2024": 15945781.36,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4031.97,
+          "compounded_2024": 15437993.19,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4095.52,
+          "compounded_2024": 15681319.52,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4059.07,
+          "compounded_2024": 15541756.27,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4106.71,
+          "compounded_2024": 15724164.87,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4076.32,
+          "compounded_2024": 15607804.72,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4066.84,
+          "compounded_2024": 15571506.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4154.84,
+          "compounded_2024": 15908449.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4112.05,
+          "compounded_2024": 15744611.17,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4738.19,
+          "compounded_2024": 18142036.02,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4764.61,
+          "compounded_2024": 16736876.55,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4709.85,
+          "compounded_2024": 15178457.29,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4795.76,
+          "compounded_2024": 14179192.55,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4756.12,
+          "compounded_2024": 12900910.57,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4735.68,
+          "compounded_2024": 11784832.43,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "John Beckwith",
+      "position": "3B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 28.9,
+      "careerGap2024_cpi": 1448234.17,
+      "estateValue2024": 242783500.81,
+      "estateValue2024_lo": 157809275.52,
+      "estateValue2024_hi": 352036076.17,
+      "estateMultiplier": 167.64,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4038.49,
+          "compounded_2024": 15462957.59,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3947.9,
+          "compounded_2024": 15116097.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4059.12,
+          "compounded_2024": 15541947.71,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4079.0,
+          "compounded_2024": 15618066.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4035.14,
+          "compounded_2024": 15450130.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4067.07,
+          "compounded_2024": 15572387.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4037.97,
+          "compounded_2024": 15460966.57,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4016.46,
+          "compounded_2024": 15378607.02,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4071.46,
+          "compounded_2024": 15589196.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4004.88,
+          "compounded_2024": 15334268.4,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4718.12,
+          "compounded_2024": 18065190.08,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4775.4,
+          "compounded_2024": 16774779.11,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4613.07,
+          "compounded_2024": 14866563.9,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4768.46,
+          "compounded_2024": 14098477.09,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4730.24,
+          "compounded_2024": 12830711.43,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4670.71,
+          "compounded_2024": 11623153.32,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Biz Mackey",
+      "position": "C",
+      "yearsActive": "1930-1945",
+      "careerWAR": 28.9,
+      "careerGap2024_cpi": 1445201.49,
+      "estateValue2024": 242344966.29,
+      "estateValue2024_lo": 157524228.09,
+      "estateValue2024_hi": 351400201.12,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4036.02,
+          "compounded_2024": 15453500.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4053.11,
+          "compounded_2024": 15518936.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4052.41,
+          "compounded_2024": 15516255.82,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3948.23,
+          "compounded_2024": 15117361.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4009.5,
+          "compounded_2024": 15351957.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4036.75,
+          "compounded_2024": 15456295.31,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4014.68,
+          "compounded_2024": 15371791.58,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4036.23,
+          "compounded_2024": 15454304.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4039.32,
+          "compounded_2024": 15466135.58,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4115.41,
+          "compounded_2024": 15757476.26,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4634.44,
+          "compounded_2024": 17744788.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4644.93,
+          "compounded_2024": 16316470.82,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4724.21,
+          "compounded_2024": 15224735.34,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4777.75,
+          "compounded_2024": 14125944.0,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4697.99,
+          "compounded_2024": 12743233.74,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4711.95,
+          "compounded_2024": 11725779.86,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Carlos Royer",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 28.6,
+      "careerGap2024_cpi": 1443303.77,
+      "estateValue2024": 242074552.57,
+      "estateValue2024_lo": 157348459.17,
+      "estateValue2024_hi": 351008101.23,
+      "estateMultiplier": 167.72,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4085.12,
+          "compounded_2024": 15641499.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 4014.7,
+          "compounded_2024": 15371868.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4083.16,
+          "compounded_2024": 15633994.37,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3984.41,
+          "compounded_2024": 15255890.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3972.77,
+          "compounded_2024": 15211322.56,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4056.64,
+          "compounded_2024": 15532452.05,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4063.18,
+          "compounded_2024": 15557493.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4012.67,
+          "compounded_2024": 15364095.5,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4026.33,
+          "compounded_2024": 15416398.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4006.02,
+          "compounded_2024": 15338633.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4713.98,
+          "compounded_2024": 18049338.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4569.39,
+          "compounded_2024": 16051117.8,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4729.45,
+          "compounded_2024": 15241622.31,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4764.1,
+          "compounded_2024": 14085586.27,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4728.01,
+          "compounded_2024": 12824662.58,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4620.65,
+          "compounded_2024": 11498578.03,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Barney Brown",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 28.0,
+      "careerGap2024_cpi": 1438475.6,
+      "estateValue2024": 241212225.12,
+      "estateValue2024_lo": 156787946.33,
+      "estateValue2024_hi": 349757726.42,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4036.08,
+          "compounded_2024": 15453729.95,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3995.47,
+          "compounded_2024": 15298238.49,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 4049.19,
+          "compounded_2024": 15503926.78,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4061.11,
+          "compounded_2024": 15549567.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4025.88,
+          "compounded_2024": 15414675.21,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4013.63,
+          "compounded_2024": 15367771.24,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4030.72,
+          "compounded_2024": 15433207.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3969.99,
+          "compounded_2024": 15200678.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 4036.62,
+          "compounded_2024": 15455797.56,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 4032.99,
+          "compounded_2024": 15441898.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4683.23,
+          "compounded_2024": 17931599.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4664.05,
+          "compounded_2024": 16383634.57,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4625.76,
+          "compounded_2024": 14907460.03,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4635.37,
+          "compounded_2024": 13704981.85,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4652.29,
+          "compounded_2024": 12619273.12,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4639.62,
+          "compounded_2024": 11545785.24,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Pelayo Chacon",
+      "position": "SS",
+      "yearsActive": "1930-1945",
+      "careerWAR": 27.4,
+      "careerGap2024_cpi": 1426011.34,
+      "estateValue2024": 239241922.7,
+      "estateValue2024_lo": 155507249.76,
+      "estateValue2024_hi": 346900787.92,
+      "estateMultiplier": 167.77,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4081.08,
+          "compounded_2024": 15626030.27,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3999.19,
+          "compounded_2024": 15312481.98,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3956.16,
+          "compounded_2024": 15147724.6,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4023.04,
+          "compounded_2024": 15403801.15,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3945.73,
+          "compounded_2024": 15107789.21,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4005.59,
+          "compounded_2024": 15336986.92,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 4033.29,
+          "compounded_2024": 15443047.33,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 4017.81,
+          "compounded_2024": 15383776.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3975.46,
+          "compounded_2024": 15221622.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3931.29,
+          "compounded_2024": 15052499.96,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4619.51,
+          "compounded_2024": 17687622.66,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4607.21,
+          "compounded_2024": 16183969.94,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4631.15,
+          "compounded_2024": 14924830.41,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4656.27,
+          "compounded_2024": 13766775.01,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4536.17,
+          "compounded_2024": 12304299.2,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4556.39,
+          "compounded_2024": 11338665.76,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Henry McHenry",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 27.2,
+      "careerGap2024_cpi": 1421657.33,
+      "estateValue2024": 238397761.88,
+      "estateValue2024_lo": 154958545.22,
+      "estateValue2024_hi": 345676754.72,
+      "estateMultiplier": 167.69,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 4038.58,
+          "compounded_2024": 15463302.19,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3967.12,
+          "compounded_2024": 15189689.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3940.65,
+          "compounded_2024": 15088338.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3992.44,
+          "compounded_2024": 15286636.94,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 4003.04,
+          "compounded_2024": 15327223.23,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 4012.53,
+          "compounded_2024": 15363559.46,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3957.9,
+          "compounded_2024": 15154386.88,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3913.29,
+          "compounded_2024": 14983579.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3981.14,
+          "compounded_2024": 15243370.41,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3987.78,
+          "compounded_2024": 15268794.28,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4519.28,
+          "compounded_2024": 17303852.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4644.46,
+          "compounded_2024": 16314819.82,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4541.61,
+          "compounded_2024": 14636269.4,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4670.48,
+          "compounded_2024": 13808788.44,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4577.38,
+          "compounded_2024": 12416080.76,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4640.94,
+          "compounded_2024": 11549070.09,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "George Scales",
+      "position": "2B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 27.0,
+      "careerGap2024_cpi": 1420945.9,
+      "estateValue2024": 238210832.81,
+      "estateValue2024_lo": 154837041.33,
+      "estateValue2024_hi": 345405707.57,
+      "estateMultiplier": 167.64,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 3913.03,
+          "compounded_2024": 14982584.32,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3965.77,
+          "compounded_2024": 15184520.29,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3981.45,
+          "compounded_2024": 15244557.37,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 4012.19,
+          "compounded_2024": 15362257.63,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3973.82,
+          "compounded_2024": 15215342.9,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 3972.25,
+          "compounded_2024": 15209331.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3971.47,
+          "compounded_2024": 15206344.99,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3947.13,
+          "compounded_2024": 15113149.67,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3948.83,
+          "compounded_2024": 15119658.79,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3957.09,
+          "compounded_2024": 15151285.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4725.51,
+          "compounded_2024": 18093485.62,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4547.92,
+          "compounded_2024": 15975699.09,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4553.7,
+          "compounded_2024": 14675231.9,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4592.95,
+          "compounded_2024": 13579562.45,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4652.3,
+          "compounded_2024": 12619300.24,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4612.59,
+          "compounded_2024": 11478520.56,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Leon Day",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 26.8,
+      "careerGap2024_cpi": 1411859.0,
+      "estateValue2024": 236767409.63,
+      "estateValue2024_lo": 153898816.26,
+      "estateValue2024_hi": 343312743.97,
+      "estateMultiplier": 167.7,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 3958.38,
+          "compounded_2024": 15156224.75,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3875.08,
+          "compounded_2024": 14837277.72,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3944.53,
+          "compounded_2024": 15103194.54,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3970.53,
+          "compounded_2024": 15202745.83,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3880.4,
+          "compounded_2024": 14857647.45,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 3915.3,
+          "compounded_2024": 14991275.91,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3973.12,
+          "compounded_2024": 15212662.67,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3946.73,
+          "compounded_2024": 15111618.11,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3992.0,
+          "compounded_2024": 15284952.22,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3933.63,
+          "compounded_2024": 15061459.57,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4647.48,
+          "compounded_2024": 17794716.87,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4566.39,
+          "compounded_2024": 16040579.55,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4648.59,
+          "compounded_2024": 14981034.38,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4573.98,
+          "compounded_2024": 13523475.56,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4531.04,
+          "compounded_2024": 12290384.15,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4548.15,
+          "compounded_2024": 11318160.36,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Andy Cooper",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 25.9,
+      "careerGap2024_cpi": 1399642.12,
+      "estateValue2024": 234678189.99,
+      "estateValue2024_lo": 152540823.49,
+      "estateValue2024_hi": 340283375.48,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 3880.58,
+          "compounded_2024": 14858336.65,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3891.72,
+          "compounded_2024": 14900990.55,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3941.93,
+          "compounded_2024": 15093239.41,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3935.42,
+          "compounded_2024": 15068313.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3905.13,
+          "compounded_2024": 14952336.04,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 3868.0,
+          "compounded_2024": 14810169.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3959.07,
+          "compounded_2024": 15158866.68,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3869.64,
+          "compounded_2024": 14816448.53,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3948.6,
+          "compounded_2024": 15118778.14,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3928.87,
+          "compounded_2024": 15043234.03,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4491.04,
+          "compounded_2024": 17195724.41,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4546.79,
+          "compounded_2024": 15971729.68,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4633.83,
+          "compounded_2024": 14933467.25,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4472.46,
+          "compounded_2024": 13223320.5,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4544.79,
+          "compounded_2024": 12327680.83,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4502.9,
+          "compounded_2024": 11205554.84,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Leroy Matlock",
+      "position": "P",
+      "yearsActive": "1930-1945",
+      "careerWAR": 26.2,
+      "careerGap2024_cpi": 1396590.02,
+      "estateValue2024": 234158651.76,
+      "estateValue2024_lo": 152203123.65,
+      "estateValue2024_hi": 339530045.06,
+      "estateMultiplier": 167.66,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 3886.48,
+          "compounded_2024": 14880927.13,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3880.78,
+          "compounded_2024": 14859102.43,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3906.6,
+          "compounded_2024": 14957964.52,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3856.75,
+          "compounded_2024": 14767094.06,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3960.65,
+          "compounded_2024": 15164916.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 3851.09,
+          "compounded_2024": 14745422.51,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3959.78,
+          "compounded_2024": 15161585.2,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3892.79,
+          "compounded_2024": 14905087.47,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3954.79,
+          "compounded_2024": 15142479.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3905.96,
+          "compounded_2024": 14955514.02,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4435.62,
+          "compounded_2024": 16983527.0,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4615.44,
+          "compounded_2024": 16212879.86,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4421.98,
+          "compounded_2024": 14250737.19,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4557.78,
+          "compounded_2024": 13475578.47,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4621.35,
+          "compounded_2024": 12535348.79,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4484.79,
+          "compounded_2024": 11160487.76,
+          "growth_factor": 2488.5
+        }
+      ]
+    },
+    {
+      "name": "Judy Johnson",
+      "position": "3B",
+      "yearsActive": "1930-1945",
+      "careerWAR": 25.0,
+      "careerGap2024_cpi": 1376652.18,
+      "estateValue2024": 230825939.34,
+      "estateValue2024_lo": 150036860.57,
+      "estateValue2024_hi": 334697612.04,
+      "estateMultiplier": 167.67,
+      "seasonsCompounded": 16,
+      "confidence": "Modeled",
+      "seasons": [
+        {
+          "year": 1930,
+          "gap_nominal": 3800.89,
+          "compounded_2024": 14553211.94,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1931,
+          "gap_nominal": 3855.95,
+          "compounded_2024": 14764030.94,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1932,
+          "gap_nominal": 3878.18,
+          "compounded_2024": 14849147.3,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1933,
+          "gap_nominal": 3892.88,
+          "compounded_2024": 14905432.07,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1934,
+          "gap_nominal": 3816.65,
+          "compounded_2024": 14613555.34,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1935,
+          "gap_nominal": 3939.76,
+          "compounded_2024": 15084930.7,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1936,
+          "gap_nominal": 3778.68,
+          "compounded_2024": 14468172.16,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1937,
+          "gap_nominal": 3840.15,
+          "compounded_2024": 14703534.39,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1938,
+          "gap_nominal": 3852.18,
+          "compounded_2024": 14749596.01,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1939,
+          "gap_nominal": 3840.42,
+          "compounded_2024": 14704568.19,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1940,
+          "gap_nominal": 4466.85,
+          "compounded_2024": 17103103.42,
+          "growth_factor": 3828.9
+        },
+        {
+          "year": 1941,
+          "gap_nominal": 4432.49,
+          "compounded_2024": 15570222.53,
+          "growth_factor": 3512.7
+        },
+        {
+          "year": 1942,
+          "gap_nominal": 4514.25,
+          "compounded_2024": 14548096.19,
+          "growth_factor": 3222.7
+        },
+        {
+          "year": 1943,
+          "gap_nominal": 4452.33,
+          "compounded_2024": 13163803.94,
+          "growth_factor": 2956.6
+        },
+        {
+          "year": 1944,
+          "gap_nominal": 4425.43,
+          "compounded_2024": 12003918.46,
+          "growth_factor": 2712.5
+        },
+        {
+          "year": 1945,
+          "gap_nominal": 4436.62,
+          "compounded_2024": 11040615.77,
+          "growth_factor": 2488.5
+        }
+      ]
+    }
+  ]
+}
