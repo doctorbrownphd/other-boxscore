@@ -79,13 +79,14 @@
       "league": "AL",
       "integrationDate": "1951-05-01",
       "firstPlayer": "Minnie Minoso",
-      "tryoutDate": null,
-      "tryoutPlayers": null,
-      "tryoutLocation": null,
-      "tryoutContext": null,
+      "tryoutDate": "1942-03-01",
+      "tryoutPlayers": "Nate Moreland, Jackie Robinson",
+      "tryoutLocation": "Pasadena, CA",
+      "tryoutContext": "Manager Jimmy Dykes praised Robinson ('He's worth $50,000 of anybody's money') but the team never contacted them again. The tryout was arranged through political and press pressure.",
       "gapDays": null,
       "source": "SABR BioProject, MLB.com, Chicago Sun-Times",
-      "confidence": "Documented"
+      "confidence": "Documented",
+      "tryoutOutcome": "No follow-up. No signings."
     },
     {
       "team": "Philadelphia Athletics",
@@ -122,12 +123,13 @@
       "integrationDate": "1954-04-13",
       "firstPlayer": "Curt Roberts",
       "tryoutDate": "1942-07-01",
-      "tryoutPlayers": "Wendell Smith to select candidates",
-      "tryoutLocation": "Pittsburgh (announced, never held)",
-      "tryoutContext": "Announced under Daily Worker pressure in July 1942. Wendell Smith was to select candidates. Abandoned by end of August 1942. No tryout was ever held. SABR notes Carlos Bernier, an Afro-Puerto Rican, debuted for the Pirates on April 22, 1953, but MLB officially recognizes Curt Roberts as the first Black Pirate.",
+      "tryoutPlayers": "Roy Campanella, Sammy Hughes, David Barnhill",
+      "tryoutLocation": "Pittsburgh (scheduled, then canceled)",
+      "tryoutContext": "Owner William Benswanger invited three Negro League players after sustained pressure from the Pittsburgh Courier and the Daily Worker. Campanella noted the invitation letter 'contained so many buts that I was discouraged.' Benswanger canceled before the tryout was held.",
       "gapDays": 4304,
       "source": "SABR BioProject, MLB.com, Pittsburgh Courier, Bucs Dugout",
-      "confidence": "Documented"
+      "confidence": "Documented",
+      "tryoutOutcome": "Canceled. No tryout held. No signings."
     },
     {
       "team": "St. Louis Cardinals",
@@ -225,7 +227,8 @@
       "tryoutContext": "Boston city councilman Isadore Muchnick threatened to revoke the Red Sox' Sunday game permit. Wendell Smith organized three Negro League players for a 90-minute workout. No follow-up from Red Sox management. Eddie Collins wrote to Smith on April 27, 1945, citing Joe Cronin's broken leg and 'concerns over Negro league contracts.' The Red Sox did not sign a Black player for fourteen more years. Pumpsie Green's signing in 1959 was forced by a Massachusetts Commission Against Discrimination investigation.",
       "gapDays": 5209,
       "source": "SABR BioProject, MLB.com, Wendell Smith Papers (Baseball HOF), Pittsburgh Courier, Boston Globe, Glenn Stout 'Tryout and Fallout'",
-      "confidence": "Documented"
+      "confidence": "Documented",
+      "tryoutOutcome": "90-minute workout. No signings. Red Sox became the last team to integrate, 14 years later."
     }
   ],
   "tryoutDatabase": [
