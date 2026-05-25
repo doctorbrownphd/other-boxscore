@@ -1548,7 +1548,7 @@ a:hover { color: var(--amber-2); }
     <div class="hook__prose">
       <p class="hook__dropcap">Have you heard of the Negro Motorist Green Book? Published annually from 1936 to 1966, it was a travel guide for Black Americans -- a directory of hotels, restaurants, barber shops, and gas stations where a Black traveler could expect to be served, or at least not turned away. Victor Hugo Green, a Harlem postal worker, compiled it. He sold it for seventy-five cents. It was the size of a passport.</p>
       <p style="margin-top:16px;">The Green Book has been rediscovered in recent years -- there was a movie, exhibits, digital archives. But no one has done what we do here: overlay every Green Book listing in America with every documented Negro Leagues game location from the same period. The result is a map of where teams could stop and where they could not. The cities with no listings go dark.</p>
-      <p style="margin-top:16px;">Between 1936 and 1948, Negro Leagues teams played in roughly 50 cities across the eastern half of the United States. For each of those cities, we asked a simple question: how many Green Book listings existed within walking distance of the ballpark? The answer ranged from 32 (New York) to zero. The zero cities are the ones that matter most.</p>
+      <p style="margin-top:16px;">Between 1936 and 1948, Negro Leagues teams played in 13 league cities across the eastern half of the United States. For each of those cities, we asked a simple question: how many Green Book listings existed within walking distance of the ballpark? Using the NYPL's geocoded 1947 edition (1,051 listings, CC0), the answer ranged from 24 (Washington, D.C.) to zero. Nine of the thirteen league cities had zero listings within a mile of the park. The zero cities are the ones that matter most.</p>
     </div>
     <aside class="hook__card" aria-label="Green Book reference">
       <div class="hook__card-cover">
@@ -1560,20 +1560,20 @@ a:hover { color: var(--amber-2); }
   </div>
   <div class="hook__stats" role="list" aria-label="Key statistics">
     <div class="hook__stat" role="listitem">
-      <span class="hook__stat-value">4,824</span>
-      <span class="hook__stat-label">Game-stops mapped</span>
+      <span class="hook__stat-value">1,051</span>
+      <span class="hook__stat-label">NYPL Green Book listings (1947)</span>
     </div>
     <div class="hook__stat" role="listitem">
-      <span class="hook__stat-value hook__stat-value--danger">17</span>
-      <span class="hook__stat-label">Dark cities (zero listings)</span>
+      <span class="hook__stat-value hook__stat-value--danger">9 of 13</span>
+      <span class="hook__stat-label">League cities dark (zero within 1 mi)</span>
     </div>
     <div class="hook__stat" role="listitem">
-      <span class="hook__stat-value hook__stat-value--danger">612</span>
-      <span class="hook__stat-label">Dark-city games</span>
+      <span class="hook__stat-value hook__stat-value--danger">2,932</span>
+      <span class="hook__stat-label">Games played in dark cities</span>
     </div>
     <div class="hook__stat" role="listitem">
-      <span class="hook__stat-value hook__stat-value--danger">21%</span>
-      <span class="hook__stat-label">Zero within 5 mi</span>
+      <span class="hook__stat-value hook__stat-value--danger">38%</span>
+      <span class="hook__stat-label">League cities zero within 5 mi</span>
     </div>
   </div>
 </section>
@@ -1587,7 +1587,7 @@ a:hover { color: var(--amber-2); }
   <div class="data__sources">
     <div class="data__source">
       <div class="data__source-name">The Green Book</div>
-      <div class="data__source-desc">Victor Hugo Green's Negro Motorist Green Book, 1936--1966. Digitized by the New York Public Library and Library of Congress. Every listing OCR'd, geocoded, and categorized. Hotels, restaurants, beauty parlors, gas stations.</div>
+      <div class="data__source-desc">Victor Hugo Green's Negro Motorist Green Book, 1947 edition. 1,051 listings across 20 categories and 23 states, digitized and geocoded by the NYPL Schomburg Center for Research in Black Culture. CC0 1.0 Public Domain. Hotels, tourist homes, restaurants, beauty parlors, gas stations, taverns, and more.</div>
     </div>
     <div class="data__source">
       <div class="data__source-name">Seamheads</div>
@@ -1724,7 +1724,7 @@ a:hover { color: var(--amber-2); }
       <strong>The swing.</strong> Negro Leagues teams did not play home-and-away series like major league clubs. They barnstormed -- long road trips through multiple cities, playing a game every day, sometimes two. The schedule was improvised. The route was shaped by where they could find a ballpark, an opponent, and an audience. What it was not shaped by was where they could find a safe place to eat or sleep.
     </div>
     <div class="route__editorial-note">
-      <strong>The safety score.</strong> We compute a composite score for each city using six weighted components: Green Book listings within 1 mile (30%), listings within 5 miles (15%), presence of a hotel listing (20%), category diversity (10%), Black population percentage (15%), and distance from known sundown towns (10%). A score of 0.50 or above suggests baseline accessibility. Below 0.35 is a city with almost nothing.
+      <strong>The safety score.</strong> We compute a composite score for each city using four weighted components derived from the NYPL Green Book data: listings within 1 mile of the ballpark (40%), listings within 5 miles (20%), presence of a hotel or tourist home listing (25%), and category diversity (15%). A score of 0.50 or above suggests baseline accessibility. Below 0.30 is a city where the Green Book offered almost nothing within reach. Note: the NYPL geocoding pipeline has known accuracy limitations, particularly for Northeast cities. See the methodology section.
     </div>
   </div>
 </section>
@@ -1989,167 +1989,27 @@ a:hover { color: var(--amber-2); }
 <!-- ====================================================================
      SCRIPTS
      ==================================================================== -->
+<script src="data/green-book-data.js"></script>
 <script>
 (function() {
 "use strict";
 
 // =====================================================================
-// DATA
+// DATA -- loaded from data/green-book-data.js (NYPL Green Book 1947)
+// ROUTES, LEAGUE_CITIES, HEATMAP_DATA, and GB_META are global vars
+// from that file. Ballpark/schedule data remains in data/ballparks.json
+// and data/schedule_1936_1948.json.
+//
+// The NYPL geocoding pipeline has known limitations: some listings in
+// the Northeast (New York, Pittsburgh, Philadelphia, Newark) geocode
+// to incorrect coordinates due to OCR errors in the source material.
+// All counts reflect the raw NYPL geocoded data as-is.
 // =====================================================================
 
-var ROUTES = [
-{team:"Kansas City Monarchs",season:1942,stops:[
-{dt:"Jul 04",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Memphis Red Sox",l1:14,l5:31,dark:false,ss:0.55},
-{dt:"Jul 06",city:"Sedalia",st:"MO",lat:38.7045,lon:-93.2283,opp:"Memphis Red Sox",l1:0,l5:0,dark:true,ss:0.08},
-{dt:"Jul 07",city:"St. Louis",st:"MO",lat:38.6270,lon:-90.1994,opp:"St. Louis Stars",l1:18,l5:42,dark:false,ss:0.58},
-{dt:"Jul 09",city:"Springfield",st:"MO",lat:37.2090,lon:-93.2923,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.05},
-{dt:"Jul 10",city:"Tulsa",st:"OK",lat:36.1540,lon:-95.9928,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
-{dt:"Jul 12",city:"Muskogee",st:"OK",lat:35.7479,lon:-95.3698,opp:"Houston Eagles",l1:1,l5:2,dark:false,ss:0.12},
-{dt:"Jul 14",city:"Little Rock",st:"AR",lat:34.7465,lon:-92.2896,opp:"Memphis Red Sox",l1:2,l5:4,dark:false,ss:0.15},
-{dt:"Jul 16",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
-{dt:"Jul 18",city:"Jackson",st:"MS",lat:32.2988,lon:-90.1848,opp:"Birmingham Barons",l1:1,l5:2,dark:false,ss:0.10},
-{dt:"Jul 19",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Birmingham Barons",l1:5,l5:12,dark:false,ss:0.35},
-{dt:"Jul 21",city:"Atlanta",st:"GA",lat:33.7490,lon:-84.3880,opp:"Atlanta Black Crackers",l1:8,l5:18,dark:false,ss:0.40},
-{dt:"Jul 23",city:"Nashville",st:"TN",lat:36.1627,lon:-86.7816,opp:"Memphis Red Sox",l1:3,l5:9,dark:false,ss:0.22},
-{dt:"Jul 24",city:"Louisville",st:"KY",lat:38.2527,lon:-85.7585,opp:"Chicago American Giants",l1:4,l5:11,dark:false,ss:0.25},
-{dt:"Jul 25",city:"Cincinnati",st:"OH",lat:39.1031,lon:-84.5120,opp:"Chicago American Giants",l1:6,l5:14,dark:false,ss:0.32},
-{dt:"Jul 26",city:"Indianapolis",st:"IN",lat:39.7684,lon:-86.1581,opp:"Indianapolis Clowns",l1:9,l5:19,dark:false,ss:0.38},
-{dt:"Jul 27",city:"Decatur",st:"IL",lat:39.8403,lon:-88.9548,opp:"Chicago American Giants",l1:0,l5:1,dark:true,ss:0.06},
-{dt:"Jul 28",city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,opp:"Chicago American Giants",l1:26,l5:64,dark:false,ss:0.65},
-{dt:"Jul 28",city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,opp:"Home",l1:14,l5:31,dark:false,ss:0.55}
-]},
-{team:"Homestead Grays",season:1943,stops:[
-{dt:"Aug 02",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Home",l1:17,l5:38,dark:false,ss:0.52},
-{dt:"Aug 03",city:"Wheeling",st:"WV",lat:40.0640,lon:-80.7209,opp:"Newark Eagles",l1:0,l5:1,dark:true,ss:0.04},
-{dt:"Aug 04",city:"Columbus",st:"OH",lat:39.9612,lon:-82.9988,opp:"Cleveland Buckeyes",l1:3,l5:8,dark:false,ss:0.25},
-{dt:"Aug 06",city:"Cincinnati",st:"OH",lat:39.1031,lon:-84.5120,opp:"Cleveland Buckeyes",l1:6,l5:14,dark:false,ss:0.32},
-{dt:"Aug 08",city:"Louisville",st:"KY",lat:38.2527,lon:-85.7585,opp:"Memphis Red Sox",l1:4,l5:11,dark:false,ss:0.25},
-{dt:"Aug 10",city:"Charlotte",st:"NC",lat:35.2271,lon:-80.8431,opp:"Newark Eagles",l1:3,l5:7,dark:false,ss:0.20},
-{dt:"Aug 12",city:"Richmond",st:"VA",lat:37.5407,lon:-77.4360,opp:"Philadelphia Stars",l1:6,l5:13,dark:false,ss:0.30},
-{dt:"Aug 14",city:"Washington",st:"DC",lat:38.9072,lon:-77.0369,opp:"Home",l1:19,l5:41,dark:false,ss:0.60},
-{dt:"Aug 16",city:"Baltimore",st:"MD",lat:39.2904,lon:-76.6122,opp:"Baltimore Elite Giants",l1:13,l5:27,dark:false,ss:0.48},
-{dt:"Aug 17",city:"Hagerstown",st:"MD",lat:39.6418,lon:-77.7200,opp:"Newark Eagles",l1:0,l5:1,dark:true,ss:0.03},
-{dt:"Aug 19",city:"Philadelphia",st:"PA",lat:39.9526,lon:-75.1652,opp:"Philadelphia Stars",l1:22,l5:49,dark:false,ss:0.58},
-{dt:"Aug 21",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Newark Eagles",l1:8,l5:32,dark:false,ss:0.42},
-{dt:"Aug 22",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
-{dt:"Aug 24",city:"Erie",st:"PA",lat:42.1292,lon:-80.0851,opp:"Cleveland Buckeyes",l1:1,l5:3,dark:false,ss:0.12},
-{dt:"Aug 25",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Home",l1:17,l5:38,dark:false,ss:0.52}
-]},
-{team:"Pittsburgh Crawfords",season:1936,stops:[
-{dt:"Jun 14",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Home",l1:17,l5:38,dark:false,ss:0.52},
-{dt:"Jun 16",city:"Akron",st:"OH",lat:41.0814,lon:-81.5190,opp:"Chicago American Giants",l1:2,l5:5,dark:false,ss:0.18},
-{dt:"Jun 17",city:"Cleveland",st:"OH",lat:41.4993,lon:-81.6944,opp:"Chicago American Giants",l1:11,l5:24,dark:false,ss:0.42},
-{dt:"Jun 19",city:"Toledo",st:"OH",lat:41.6528,lon:-83.5379,opp:"Chicago American Giants",l1:1,l5:4,dark:false,ss:0.14},
-{dt:"Jun 20",city:"Detroit",st:"MI",lat:42.3314,lon:-83.0458,opp:"Detroit Stars",l1:21,l5:47,dark:false,ss:0.55},
-{dt:"Jun 22",city:"Youngstown",st:"OH",lat:41.0998,lon:-80.6495,opp:"Cleveland Buckeyes",l1:1,l5:3,dark:false,ss:0.12},
-{dt:"Jun 24",city:"Cairo",st:"IL",lat:37.0053,lon:-89.1765,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.04},
-{dt:"Jun 26",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
-{dt:"Jun 28",city:"Tuscaloosa",st:"AL",lat:33.2098,lon:-87.5692,opp:"Birmingham Barons",l1:0,l5:1,dark:true,ss:0.03},
-{dt:"Jun 30",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Birmingham Barons",l1:5,l5:12,dark:false,ss:0.35},
-{dt:"Jul 02",city:"Quincy",st:"IL",lat:39.9356,lon:-91.4099,opp:"Chicago American Giants",l1:0,l5:0,dark:true,ss:0.02},
-{dt:"Jul 03",city:"Pittsburgh",st:"PA",lat:40.4478,lon:-79.9803,opp:"Home",l1:17,l5:38,dark:false,ss:0.52}
-]},
-{team:"Newark Eagles",season:1946,stops:[
-{dt:"Aug 01",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Home",l1:8,l5:32,dark:false,ss:0.42},
-{dt:"Aug 02",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
-{dt:"Aug 04",city:"Philadelphia",st:"PA",lat:39.9526,lon:-75.1652,opp:"Philadelphia Stars",l1:22,l5:49,dark:false,ss:0.58},
-{dt:"Aug 06",city:"Baltimore",st:"MD",lat:39.2904,lon:-76.6122,opp:"Baltimore Elite Giants",l1:13,l5:27,dark:false,ss:0.48},
-{dt:"Aug 08",city:"Washington",st:"DC",lat:38.9072,lon:-77.0369,opp:"Homestead Grays",l1:19,l5:41,dark:false,ss:0.60},
-{dt:"Aug 09",city:"Norfolk",st:"VA",lat:36.8508,lon:-76.2859,opp:"Philadelphia Stars",l1:3,l5:7,dark:false,ss:0.20},
-{dt:"Aug 11",city:"Greensboro",st:"NC",lat:36.0726,lon:-79.7920,opp:"Philadelphia Stars",l1:1,l5:3,dark:false,ss:0.12},
-{dt:"Aug 13",city:"Charlotte",st:"NC",lat:35.2271,lon:-80.8431,opp:"Homestead Grays",l1:3,l5:7,dark:false,ss:0.20},
-{dt:"Aug 15",city:"Richmond",st:"VA",lat:37.5407,lon:-77.4360,opp:"Homestead Grays",l1:6,l5:13,dark:false,ss:0.30},
-{dt:"Aug 17",city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,opp:"Homestead Grays",l1:17,l5:38,dark:false,ss:0.52},
-{dt:"Aug 19",city:"Buffalo",st:"NY",lat:42.8864,lon:-78.8784,opp:"Cleveland Buckeyes",l1:2,l5:6,dark:false,ss:0.15},
-{dt:"Aug 20",city:"New York",st:"NY",lat:40.8296,lon:-73.9262,opp:"New York Cubans",l1:41,l5:96,dark:false,ss:0.72},
-{dt:"Aug 22",city:"Newark",st:"NJ",lat:40.7357,lon:-74.1724,opp:"Home",l1:8,l5:32,dark:false,ss:0.42}
-]},
-{team:"Birmingham Black Barons",season:1948,stops:[
-{dt:"Jul 02",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Home",l1:5,l5:12,dark:false,ss:0.35},
-{dt:"Jul 03",city:"Tuscaloosa",st:"AL",lat:33.2098,lon:-87.5692,opp:"Memphis Red Sox",l1:0,l5:1,dark:true,ss:0.03},
-{dt:"Jul 04",city:"Jackson",st:"MS",lat:32.2988,lon:-90.1848,opp:"Memphis Red Sox",l1:1,l5:2,dark:false,ss:0.10},
-{dt:"Jul 06",city:"Shreveport",st:"LA",lat:32.5252,lon:-93.7502,opp:"Houston Eagles",l1:1,l5:3,dark:false,ss:0.12},
-{dt:"Jul 08",city:"New Orleans",st:"LA",lat:29.9511,lon:-90.0715,opp:"Houston Eagles",l1:9,l5:21,dark:false,ss:0.45},
-{dt:"Jul 10",city:"Mobile",st:"AL",lat:30.6954,lon:-88.0399,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
-{dt:"Jul 12",city:"Macon",st:"GA",lat:32.8407,lon:-83.6324,opp:"Atlanta Black Crackers",l1:1,l5:3,dark:false,ss:0.12},
-{dt:"Jul 14",city:"Savannah",st:"GA",lat:32.0809,lon:-81.0912,opp:"Atlanta Black Crackers",l1:2,l5:5,dark:false,ss:0.18},
-{dt:"Jul 16",city:"Atlanta",st:"GA",lat:33.7490,lon:-84.3880,opp:"Atlanta Black Crackers",l1:8,l5:18,dark:false,ss:0.40},
-{dt:"Jul 18",city:"Nashville",st:"TN",lat:36.1627,lon:-86.7816,opp:"Memphis Red Sox",l1:3,l5:9,dark:false,ss:0.22},
-{dt:"Jul 20",city:"Memphis",st:"TN",lat:35.1495,lon:-90.0490,opp:"Memphis Red Sox",l1:7,l5:16,dark:false,ss:0.42},
-{dt:"Jul 22",city:"Little Rock",st:"AR",lat:34.7465,lon:-92.2896,opp:"Memphis Red Sox",l1:2,l5:4,dark:false,ss:0.15},
-{dt:"Jul 23",city:"Dallas",st:"TX",lat:32.7767,lon:-96.7970,opp:"Houston Eagles",l1:4,l5:10,dark:false,ss:0.25},
-{dt:"Jul 25",city:"Houston",st:"TX",lat:29.7604,lon:-95.3698,opp:"Houston Eagles",l1:5,l5:12,dark:false,ss:0.32},
-{dt:"Jul 27",city:"San Antonio",st:"TX",lat:29.4241,lon:-98.4936,opp:"Houston Eagles",l1:2,l5:5,dark:false,ss:0.18},
-{dt:"Jul 30",city:"Birmingham",st:"AL",lat:33.5186,lon:-86.8104,opp:"Home",l1:5,l5:12,dark:false,ss:0.35}
-]}
-];
-
-var LEAGUE_CITIES = [
-{city:"Baltimore",st:"MD",lat:39.2987,lon:-76.5867,games:270,ss:0.3805,l1:6,l5:14,gbySeason:{"1938": 24, "1939": 25, "1940": 25, "1941": 25, "1942": 25, "1943": 25, "1944": 23, "1945": 25, "1946": 24, "1947": 25, "1948": 24}},
-{city:"Birmingham",st:"AL",lat:33.5125,lon:-86.8434,games:350,ss:0.4716,l1:2,l5:5,gbySeason:{"1936": 25, "1937": 26, "1938": 27, "1939": 26, "1940": 28, "1941": 27, "1942": 27, "1943": 28, "1944": 26, "1945": 29, "1946": 27, "1947": 27, "1948": 27}},
-{city:"Chicago",st:"IL",lat:41.7497,lon:-87.6349,games:363,ss:0.3339,l1:26,l5:64,gbySeason:{"1936": 27, "1937": 27, "1938": 27, "1939": 28, "1940": 28, "1941": 29, "1942": 29, "1943": 29, "1944": 27, "1945": 28, "1946": 28, "1947": 29, "1948": 27}},
-{city:"Cleveland",st:"OH",lat:41.5116,lon:-81.6346,games:133,ss:0.3407,l1:11,l5:24,gbySeason:{"1944": 27, "1945": 27, "1946": 25, "1947": 26, "1948": 28}},
-{city:"Indianapolis",st:"IN",lat:39.7872,lon:-86.1684,games:163,ss:0.3559,l1:7,l5:16,gbySeason:{"1943": 27, "1944": 28, "1945": 26, "1946": 26, "1947": 28, "1948": 28}},
-{city:"Kansas City",st:"MO",lat:39.0997,lon:-94.5577,games:352,ss:0.3445,l1:14,l5:31,gbySeason:{"1936": 26, "1937": 26, "1938": 26, "1939": 26, "1940": 28, "1941": 28, "1942": 28, "1943": 28, "1944": 27, "1945": 27, "1946": 29, "1947": 26, "1948": 27}},
-{city:"Memphis",st:"TN",lat:35.1417,lon:-90.03,games:344,ss:0.4750,l1:3,l5:8,gbySeason:{"1936": 26, "1937": 25, "1938": 25, "1939": 26, "1940": 27, "1941": 27, "1942": 27, "1943": 26, "1944": 28, "1945": 26, "1946": 28, "1947": 27, "1948": 26}},
-{city:"New York",st:"NY",lat:40.8267,lon:-73.9281,games:626,ss:0.3250,l1:32,l5:71,gbySeason:{"1936": 47, "1937": 47, "1938": 48, "1939": 46, "1940": 47, "1941": 49, "1942": 49, "1943": 48, "1944": 49, "1945": 49, "1946": 50, "1947": 49, "1948": 48}},
-{city:"Newark",st:"NJ",lat:40.7128,lon:-74.1594,games:285,ss:0.3453,l1:9,l5:19,gbySeason:{"1936": 24, "1937": 22, "1938": 23, "1939": 25, "1940": 24, "1941": 23, "1942": 23, "1943": 24, "1944": 25, "1945": 24, "1946": 24, "1947": 24}},
-{city:"Philadelphia",st:"PA",lat:39.971,lon:-75.2139,games:308,ss:0.3547,l1:15,l5:34,gbySeason:{"1936": 24, "1937": 24, "1938": 24, "1939": 25, "1940": 24, "1941": 23, "1942": 23, "1943": 24, "1944": 24, "1945": 24, "1946": 23, "1947": 22, "1948": 24}},
-{city:"Pittsburgh",st:"PA",lat:40.4417,lon:-79.9533,games:253,ss:0.3381,l1:17,l5:38,gbySeason:{"1936": 47, "1937": 49, "1938": 48, "1939": 24, "1940": 7, "1941": 10, "1942": 11, "1943": 8, "1944": 11, "1945": 9, "1946": 9, "1947": 12, "1948": 8}},
-{city:"St. Louis",st:"MO",lat:38.6339,lon:-90.231,games:105,ss:0.3555,l1:18,l5:42,gbySeason:{"1936": 27, "1937": 27, "1938": 26, "1939": 25}},
-{city:"Washington",st:"DC",lat:38.9218,lon:-77.0158,games:134,ss:0.4191,l1:12,l5:28,gbySeason:{"1940": 18, "1941": 15, "1942": 14, "1943": 16, "1944": 13, "1945": 14, "1946": 15, "1947": 13, "1948": 16}}
-];
-
-var HEATMAP_DATA = [
-{region:"Deep South",season:1936,ss:0.4733,games:51,darkCities:2,totalCities:2},
-{region:"Deep South",season:1937,ss:0.4733,games:51,darkCities:2,totalCities:2},
-{region:"Deep South",season:1938,ss:0.4732,games:52,darkCities:2,totalCities:2},
-{region:"Deep South",season:1939,ss:0.4733,games:52,darkCities:2,totalCities:2},
-{region:"Deep South",season:1940,ss:0.4733,games:55,darkCities:2,totalCities:2},
-{region:"Deep South",season:1941,ss:0.4733,games:54,darkCities:2,totalCities:2},
-{region:"Deep South",season:1942,ss:0.4733,games:54,darkCities:2,totalCities:2},
-{region:"Deep South",season:1943,ss:0.4732,games:54,darkCities:2,totalCities:2},
-{region:"Deep South",season:1944,ss:0.4734,games:54,darkCities:2,totalCities:2},
-{region:"Deep South",season:1945,ss:0.4732,games:55,darkCities:2,totalCities:2},
-{region:"Deep South",season:1946,ss:0.4733,games:55,darkCities:2,totalCities:2},
-{region:"Deep South",season:1947,ss:0.4733,games:54,darkCities:2,totalCities:2},
-{region:"Deep South",season:1948,ss:0.4733,games:53,darkCities:2,totalCities:2},
-{region:"Mid-Atlantic",season:1940,ss:0.4191,games:18,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1941,ss:0.4191,games:15,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1942,ss:0.4191,games:14,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1943,ss:0.4191,games:16,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1944,ss:0.4191,games:13,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1945,ss:0.4191,games:14,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1946,ss:0.4191,games:15,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1947,ss:0.4191,games:13,darkCities:1,totalCities:1},
-{region:"Mid-Atlantic",season:1948,ss:0.4191,games:16,darkCities:1,totalCities:1},
-{region:"Midwest",season:1936,ss:0.3446,games:80,darkCities:3,totalCities:3},
-{region:"Midwest",season:1937,ss:0.3446,games:80,darkCities:3,totalCities:3},
-{region:"Midwest",season:1938,ss:0.3445,games:79,darkCities:3,totalCities:3},
-{region:"Midwest",season:1939,ss:0.3442,games:79,darkCities:3,totalCities:3},
-{region:"Midwest",season:1940,ss:0.3392,games:56,darkCities:2,totalCities:2},
-{region:"Midwest",season:1941,ss:0.3391,games:57,darkCities:2,totalCities:2},
-{region:"Midwest",season:1942,ss:0.3391,games:57,darkCities:2,totalCities:2},
-{region:"Midwest",season:1943,ss:0.3445,games:84,darkCities:3,totalCities:3},
-{region:"Midwest",season:1944,ss:0.3439,games:109,darkCities:4,totalCities:4},
-{region:"Midwest",season:1945,ss:0.3435,games:108,darkCities:4,totalCities:4},
-{region:"Midwest",season:1946,ss:0.3436,games:108,darkCities:4,totalCities:4},
-{region:"Midwest",season:1947,ss:0.3437,games:109,darkCities:4,totalCities:4},
-{region:"Midwest",season:1948,ss:0.3438,games:110,darkCities:4,totalCities:4},
-{region:"Northeast",season:1936,ss:0.3378,games:142,darkCities:4,totalCities:4},
-{region:"Northeast",season:1937,ss:0.3377,games:142,darkCities:4,totalCities:4},
-{region:"Northeast",season:1938,ss:0.3438,games:167,darkCities:5,totalCities:5},
-{region:"Northeast",season:1939,ss:0.3454,games:145,darkCities:5,totalCities:5},
-{region:"Northeast",season:1940,ss:0.3461,games:127,darkCities:5,totalCities:5},
-{region:"Northeast",season:1941,ss:0.3455,games:130,darkCities:5,totalCities:5},
-{region:"Northeast",season:1942,ss:0.3455,games:131,darkCities:5,totalCities:5},
-{region:"Northeast",season:1943,ss:0.3459,games:129,darkCities:5,totalCities:5},
-{region:"Northeast",season:1944,ss:0.3450,games:132,darkCities:5,totalCities:5},
-{region:"Northeast",season:1945,ss:0.3457,games:131,darkCities:5,totalCities:5},
-{region:"Northeast",season:1946,ss:0.3452,games:130,darkCities:5,totalCities:5},
-{region:"Northeast",season:1947,ss:0.3453,games:132,darkCities:5,totalCities:5},
-{region:"Northeast",season:1948,ss:0.3457,games:104,darkCities:4,totalCities:4}
-];
+// (data validation -- fail loud if green-book-data.js did not load)
+if (typeof ROUTES === 'undefined' || typeof LEAGUE_CITIES === 'undefined') {
+  throw new Error('green-book-data.js failed to load. ROUTES and LEAGUE_CITIES are required.');
+}
 
 // =====================================================================
 // ALBERS USA PROJECTION (simplified for contiguous US)
