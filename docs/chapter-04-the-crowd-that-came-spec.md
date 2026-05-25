@@ -1,13 +1,13 @@
-# The Other Box Score — Chapter 04
-## The Crowd That Came · Full Specification v1.0
+# The Other Box Score -- Chapter 04
+## The Crowd That Came -- Full Specification v1.1
 
 **Series:** theotherboxscore.org
 **URL:** theotherboxscore.org/chapters/the-crowd-that-came/
 **GitHub:** other-boxscore/chapters/04-the-crowd-that-came/
-**Part:** Two — The game they played
+**Part:** Two -- The game they played
 **Position:** Chapter 04 of 15
 **License:** MIT (code) · CC0 (data)
-**Status:** SPEC COMPLETE
+**Status:** SPEC COMPLETE (v1.1)
 **Last updated:** May 2026
 
 ---
@@ -50,11 +50,15 @@ This chapter documents three things simultaneously:
 
 ---
 
-## The Original Finding
+## The Original Contribution
 
-The year-by-year dual-line attendance comparison -- East-West vs. MLB All-Star, 1933 to 1948 -- has never been presented as a designed, sourced, shareable data visualization at museum quality. The fact is known to historians. It has never been shown to a general audience in a form that makes the argument in ten seconds.
+Two original elements:
 
-That visualization is this chapter's original contribution. It is simple. It is devastating. It requires no annotation.
+**The dual-line attendance comparison:** The year-by-year East-West vs. MLB All-Star attendance, 1933 to 1948, has never been presented as a designed, sourced, shareable data visualization at museum quality. The fact is known to historians. It has never been shown to a general audience in a form that makes the argument in ten seconds. It is simple. It is devastating. It requires no annotation.
+
+**The side-by-side box score:** A designed presentation of two actual box scores from August 1, 1943: the MLB game played that day and the East-West All-Star Game. Same format. Same columns. Same typographic system. Side by side. One was history. One was forgotten. This presentation, at this quality, in this framing, has not been built before.
+
+The attendance chart is the hook. The box score is the closer. Together they make the chapter's argument: the crowd came, and the game they came to watch deserved the same record.
 
 ---
 
@@ -70,6 +74,7 @@ That visualization is this chapter's original contribution. It is simple. It is 
 | Pittsburgh Courier historical archive | 1933-1948 | ProQuest Historical Newspapers (research access) | Primary source. Courier sportswriter Wendell Smith's game coverage is the definitive contemporary account. |
 | Amsterdam News historical archive | 1933-1948 | ProQuest Historical Newspapers (research access) | New York community perspective. |
 | Baseball Hall of Fame player records | All inducted players | Public domain | Cross-reference East-West rosters against HOF induction dates. |
+| Retrosheet | 1943 MLB game log | Public domain | MLB box score for August 1, 1943 comparison date in Fig 05. |
 
 **The attendance figure note:**
 
@@ -176,6 +181,32 @@ Every headline and coverage claim must be sourced to a specific documented newsp
 
 ---
 
+### Fig 05 -- The Side-by-Side Box Score
+
+**What it shows:** Two box scores from August 1, 1943. Left panel: the MLB game played that day. Right panel: the East-West All-Star Game. Same typographic format. Same column structure. Same platform design language.
+
+**Design:**
+
+The platform's box score format is built in IBM Plex Mono on the dark background. Both box scores use identical formatting: the same column headers (AB, R, H, RBI, etc.), the same line score structure, the same typographic hierarchy. The only visual distinction is the header: one reads the MLB game, one reads East-West All-Star Game, Comiskey Park.
+
+The design argument: these are the same document. One recorded what happened in the white major leagues. One recorded what happened in the Negro Leagues. The official record treated them as different in kind. The platform presents them as different only in label.
+
+**The relationship to Fig 01:**
+
+The dual-line chart is the hook: it shows the crowd came. The side-by-side box score is the closer: it shows the game they came to watch deserved the same format the official record gave the other one. The attendance chart is the chapter's opening argument. The box score is its closing argument.
+
+**What is in the 1943 East-West box score:**
+
+Satchel Paige started for the West. Josh Gibson drew a walk, the only baserunner Paige allowed in three innings. Buck Leonard hit a ninth-inning home run for the East. West won 2-1. The box score contains the statistical record of a game between players who collectively hold multiple MLB all-time records as of 2024.
+
+**Vera's design mandate:** The two panels must be visually identical in format. The reader must be able to scan from one to the other without any visual cue that one is "more official" than the other. The formatting equality is the argument.
+
+**Oscar's review mandate:** The East-West box score must be verified against the Lester primary text and the Retrosheet game account. The MLB game box score must be verified against Retrosheet. Every statistical entry verified before the visualization ships.
+
+**Mobile:** At 375px the panels stack vertically. The format remains identical between them. The reader scrolls from one to the other and sees the same structure.
+
+---
+
 ## Content Sections
 
 **The Opening:** The date. The place. The number. August 1, 1943. Comiskey Park. 51,723. Three sentences before the first visualization appears.
@@ -191,6 +222,8 @@ Every headline and coverage claim must be sourced to a specific documented newsp
 **The Field (Fig 03):** The roster display with HOF markers.
 
 **The Press (Fig 04):** The split panel.
+
+**The Other Box Score (Fig 05):** The closer. Introduced with: *"There was always another box score. Here it is."* The two panels appear side by side. No annotation. The design makes the argument. This is the last visualization in the chapter before the closing number.
 
 **The Closing Number:** One sentence. The total documented East-West attendance across the game's 30-year run. The total documented attendance at all MLB All-Star Games across the same period. The comparison. No annotation.
 
@@ -252,7 +285,7 @@ This calculation uses the same methodology as the Criteria Compliance Model from
 
 **Elias:** Reviews the HOF Gap calculation methodology. Reviews the dual-line chart data for accuracy against multiple sources. Documents the Retrosheet/Lester cross-reference.
 
-**Vera:** Reviews Fig 01 for color accessibility -- gold on dark must meet WCAG AA contrast. Reviews the chart at 375px mobile. Reviews the split-panel press display for readability. Reviews the ballot facsimile design for accuracy to the historical format without reproducing copyrighted original material.
+**Vera:** Reviews Fig 01 for color accessibility -- gold on dark must meet WCAG AA contrast. Reviews the chart at 375px mobile. Reviews the split-panel press display for readability. Reviews the ballot facsimile design for accuracy to the historical format without reproducing copyrighted original material. Enforces format equality between the two box score panels in Fig 05 -- the reader must not be able to distinguish which panel is "more official" by any visual cue.
 
 **Ida:** Enforces the chapter's tonal mandate. The chart ends at 1948. No collapse data in this chapter. The celebrity layer stays documented and specific. The chapter earns the wonder and does not oversell it.
 
@@ -260,13 +293,15 @@ This calculation uses the same methodology as the Criteria Compliance Model from
 
 ---
 
-## Oh Wow Moment
+## Oh Wow Moments
 
-**Primary candidate:** The dual-line chart at first load. The moment the reader sees the gold line -- the East-West Game -- sitting above the blue line -- the MLB All-Star Game -- across multiple years, without being told it would be there. The visual argument lands before any text explains it.
+**Primary candidate (the hook):** The dual-line chart at first load. The moment the reader sees the gold line -- the East-West Game -- sitting above the blue line -- the MLB All-Star Game -- across multiple years, without being told it would be there. The visual argument lands before any text explains it.
 
-**Oh wow test:** All five agents must identify this moment independently without prompting. If fewer than three identify it, the chart design needs refinement. The gold line must be legible, distinguishable, and above the blue line in a way the reader registers in under five seconds.
+**Secondary candidate (the closer):** The side-by-side box score. The moment the reader sees both box scores formatted identically and understands, without annotation, that the platform has just made a structural argument about what the official record counted and what it didn't. The attendance chart opens the argument. The box score closes it.
 
-**Secondary candidate:** The 1943 data point hover/click. The moment the reader learns that Satchel Paige and Josh Gibson were on the same field in front of 51,723 people and the mainstream press did not cover it.
+**Tertiary candidate:** The 1943 data point hover/click. The moment the reader learns that Satchel Paige and Josh Gibson were on the same field in front of 51,723 people and the mainstream press did not cover it.
+
+**Oh wow test:** All five agents must identify at least one of these moments independently without prompting. If fewer than three identify the dual-line chart or the side-by-side box score, the design needs refinement. The chart's gold line must be legible and above blue in a way the reader registers in under five seconds. The box score panels must be visually identical, the formatting equality is the argument, and if the argument doesn't land without explanation, the design needs work.
 
 ---
 
@@ -307,9 +342,12 @@ All-Star Game, 1933-1962. Expanded edition. NoirTech Research, 2020.
 | 8 | Fig 03 roster display with HOF markers | Oscar verifies all HOF dates |
 | 9 | HOF Gap calculation run and labeled | Elias reviews methodology |
 | 10 | Fig 04 press split panel | Oscar sources every coverage claim to specific dated document |
-| 11 | METHODOLOGY.md complete | Elias and Oscar approve |
-| 12 | Citation block added | Gates verifies |
-| 13 | Full agent review | All five verdicts before Gates merge |
+| 11 | Verify MLB box score for August 1, 1943 from Retrosheet | Elias verifies |
+| 12 | Verify East-West 1943 box score against Lester and Retrosheet | Oscar sign-off on every statistical entry |
+| 13 | Fig 05 side-by-side box score built | Vera enforces format equality. Oh wow test: five agents, minimum three must identify the format equality argument unprompted |
+| 14 | METHODOLOGY.md complete | Elias and Oscar approve |
+| 15 | Citation block added | Gates verifies |
+| 16 | Full agent review | All five verdicts before Gates merge |
 
 ---
 

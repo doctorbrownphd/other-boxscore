@@ -59,6 +59,61 @@ No content produced by this platform makes fair use claims about commercially va
 
 ---
 
+## Coverage Map: Documented Completeness of the Negro Leagues Statistical Record
+
+**Owner:** Elias
+
+The Negro Leagues statistical record is not uniformly complete. The documented completeness varies by year and league, 1920-1948. This section documents that variation as platform-wide methodology infrastructure. Every chapter that uses Negro Leagues statistics references this section.
+
+### The 72% Figure
+
+MLB official historian John Thorn estimated that 72% of Negro Leagues records from 1920 to 1948 are included in the current integrated database (2024 MLB Statistical Review). This is an aggregate figure. The remaining 28% is undocumented: not because it didn't happen, but because nobody with institutional resources thought it was worth recording at the time.
+
+This figure is cited every time it appears in any chapter. It is presented as Thorn's estimate, not as an exact measurement.
+
+### Coverage by Year and League
+
+The coverage is not uniform. Key patterns documented from Seamheads' own database coverage documentation:
+
+- **Higher coverage:** The Negro National League in the late 1930s and early 1940s has relatively good box score recovery, because of consistent Black press reporting from cities with major Black newspapers (Chicago, Pittsburgh, New York).
+- **Lower coverage:** Earlier years (1920-1925) and smaller leagues (Negro Southern League, several short-lived circuits) have significant gaps. The Eastern Colored League (1923-1928) has partial coverage.
+- **Structural pattern:** The gaps are not random. They correlate with the institutional resources available to the Black press in those years and those cities. Communities with fewer resources left fewer records.
+
+### Leagues Tracked
+
+Seven leagues constitute the primary record:
+
+| League | Years | Notes |
+|--------|-------|-------|
+| Negro National League (NNL) | 1920-1931 | First organized Negro League. Founded by Rube Foster. |
+| Eastern Colored League (ECL) | 1923-1928 | Eastern counterpart to the NNL. |
+| American Negro League (ANL) | 1929 | One season. Successor to the ECL. |
+| East-West League (EWL) | 1932 | One season. |
+| Negro National League (NNL-2) | 1933-1948 | Reorganized. Better coverage in later years. |
+| Negro American League (NAL) | 1937-1948 | Southern and western teams. |
+| Negro Southern League (NSL) | 1920-1951 | Intermittent operation. Lowest coverage. |
+
+### What the Coverage Map Shows
+
+A grid visualization of documented completeness, year on the X axis (1920-1948), league on the Y axis, with each cell representing the estimated box score recovery rate for that league-year. This visualization makes the structured incompleteness visible as a designed element rather than a stated claim.
+
+The coverage map is a platform-level asset. It lives here in the global methodology because every chapter that cites Negro Leagues statistics must acknowledge which years and leagues its data draws from, and what the coverage limitations are for those specific league-years.
+
+### Data Source for Coverage Estimates
+
+Primary: Seamheads Negro Leagues Database coverage documentation (Gary Ashwill and Kevin Johnson, Agate Type Research). Supplemented by the 2024 MLB Statistical Review Committee findings. Where specific recovery rates by year and league are not published, the chapter uses the aggregate 72% estimate and notes the limitation.
+
+### How Chapters Reference This Section
+
+Every chapter that presents Negro Leagues statistics must:
+
+1. State which years and leagues its data covers
+2. Reference this section for the coverage context
+3. Include the 72% figure with Thorn attribution where aggregate coverage is relevant
+4. Label any claims that rely on league-years with low documented coverage
+
+---
+
 ## Versioning
 
 This document is versioned. When methodology changes, the version is updated and the change is documented below.
@@ -66,4 +121,5 @@ This document is versioned. When methodology changes, the version is updated and
 | Version | Date | Change |
 |---------|------|--------|
 | 1.0 | May 2026 | Initial document |
+| 1.1 | May 2026 | Added Coverage Map section documenting record completeness by year and league |
 

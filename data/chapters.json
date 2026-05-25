@@ -22,7 +22,7 @@
       "title": "The Green Book Route",
       "slug": "the-green-book-route",
       "description": "Every Negro Leagues road trip overlaid with Green Book safe establishment listings. Cities with no listings go dark.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-green-book-route/",
       "meta": "Animated map · Public domain data"
     },
@@ -35,7 +35,7 @@
       "title": "The Sundown Corridor",
       "slug": "the-sundown-corridor",
       "description": "Team schedules overlaid with the Loewen Sundown Towns database. Every night a Negro Leagues team was in danger, mapped.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-sundown-corridor/",
       "meta": "Choropleth · Loewen database"
     },
@@ -48,7 +48,7 @@
       "title": "The Crowd That Came",
       "slug": "the-crowd-that-came",
       "description": "The East-West All-Star Game outdrew MLB ten times. 51,723 in 1943 -- more than 20,000 more than the MLB version that year.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-crowd-that-came/",
       "meta": "Paired bar · SABR attendance data"
     },
@@ -61,7 +61,7 @@
       "title": "The Winter Map",
       "slug": "the-winter-map",
       "description": "After the American season ended, where did they go? Twelve months a year, multiple countries, the best players in the world.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-winter-map/",
       "meta": "Flow map · Seamheads data"
     },
@@ -74,7 +74,7 @@
       "title": "The Collapse",
       "slug": "the-collapse",
       "description": "Every Negro Leagues franchise. When it started. When it died. Why. Integration killed the leagues. That sentence needs a chart.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-collapse/",
       "meta": "Timeline · Franchise data"
     },
@@ -87,7 +87,7 @@
       "title": "The Unsigned Letter",
       "slug": "the-unsigned-letter",
       "description": "Every documented pre-1947 MLB tryout given to a Black player. What happened after. The doors that opened and closed.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-unsigned-letter/",
       "meta": "Research · SABR archives"
     },
@@ -100,7 +100,7 @@
       "title": "The Salary Ledger",
       "slug": "the-salary-ledger",
       "description": "Total wages stolen, in 2024 dollars. Same position, same performance, different paycheck.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-salary-ledger/",
       "meta": "Compensation data · ML imputation"
     },
@@ -113,7 +113,7 @@
       "title": "The Last Team",
       "slug": "the-last-team",
       "description": "The Red Sox integrated July 21, 1959. Twelve years after Robinson. Every team. Every player passed over. Every year of delay accounted for.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-last-team/",
       "meta": "Survival analysis · Cox model"
     },
@@ -126,7 +126,7 @@
       "title": "The Ledger",
       "slug": "the-ledger",
       "description": "Input a player. Receive a career WAR, a Hall of Fame probability, and a stolen seasons figure. The advocacy spine of the platform.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-ledger/",
       "meta": "ML engine · 500-trajectory ensemble"
     },
@@ -139,7 +139,7 @@
       "title": "Cooperstown",
       "slug": "cooperstown",
       "description": "Every Negro Leagues player ranked by the same methodology used to exclude them. Published with receipts.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/cooperstown/",
       "meta": "HOF model · Full ranked output"
     },
@@ -152,7 +152,7 @@
       "title": "The Other Hall",
       "slug": "the-other-hall",
       "description": "Players enshrined in the Cuban, Mexican, Venezuelan, and Dominican halls of fame that Cooperstown never counted.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-other-hall/",
       "meta": "Dot matrix · 5 national halls"
     },
@@ -165,7 +165,7 @@
       "title": "The Voice",
       "slug": "the-voice",
       "description": "A structured oral history collection. Submit a memory, a name, a city, a year. The witnesses are still here.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-voice/",
       "meta": "Oral history · NLBM partnership"
     },
@@ -178,7 +178,7 @@
       "title": "The Courier Archive",
       "slug": "the-courier-archive",
       "description": "Seventy-five years of Black baseball journalism, finally searchable. The Pittsburgh Courier. The Chicago Defender.",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-courier-archive/",
       "meta": "NLP · 75yr corpus · Semantic search"
     },
@@ -191,9 +191,22 @@
       "title": "The Parallel League",
       "slug": "the-parallel-league",
       "description": "The hardest question, asked last. What would baseball have looked like if none of this had happened?",
-      "status": "coming",
+      "status": "live",
       "url": "/chapters/the-parallel-league/",
       "meta": "Counterfactual model · Calibrated uncertainty"
+    },
+    {
+      "id": "the-shadow-nine",
+      "number": "S9",
+      "part": 0,
+      "part_title": "Signature Feature",
+      "part_hook": "Build your nine. Find theirs.",
+      "title": "The Shadow Nine",
+      "slug": "the-shadow-nine",
+      "description": "For every great MLB player, there is a Negro Leagues player at the same position whose style and statistical profile is comparable. Build your lineup. Find theirs.",
+      "status": "live",
+      "url": "/chapters/the-shadow-nine/",
+      "meta": "Interactive -- k-NN matching -- 9 positions"
     }
   ]
 }

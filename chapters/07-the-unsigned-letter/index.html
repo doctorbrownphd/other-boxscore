@@ -1,0 +1,2363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Unsigned Letter</title>
+<meta name="description" content="The Red Sox held the first documented tryout for Black players in April 1945 and were the last team to integrate, fourteen years later. The two facts are the same fact.">
+<meta property="og:title" content="The Other Box Score -- The Unsigned Letter">
+<meta property="og:description" content="Marvin Williams tried out at Fenway on the same morning as Jackie Robinson. He never got the letter. The chapter is titled for the letter he never received.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-unsigned-letter/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.masthead__tabs::-webkit-scrollbar { display: none; }
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page & Section Heads
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+/* Body prose */
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+.body-prose mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 2px 6px;
+}
+
+/* Utility */
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+.smcaps {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Card base */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+/* Fig label */
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The Hook
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 56px;
+  line-height: 1.04;
+  color: var(--vellum);
+  max-width: 720px;
+}
+
+.hook__question-mark { color: var(--amber); }
+
+.hook__body {
+  margin-top: 40px;
+  max-width: 680px;
+}
+
+.hook__body p {
+  margin-bottom: 18px;
+  line-height: 1.65;
+  color: var(--vellum-dim);
+  font-size: 17px;
+}
+
+.hook__voice {
+  margin-top: 36px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--amber);
+  background: rgba(212,166,74,0.04);
+}
+
+.hook__voice p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--vellum);
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. Timeline Centerpiece
+   ========================================================================== */
+
+.timeline-section {
+  padding: 80px 40px 96px;
+}
+
+.timeline__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.timeline__sort-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.timeline__sort-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--rule-2);
+}
+
+.timeline__sort-btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+.timeline__filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  color: var(--muted);
+  cursor: pointer;
+  margin-left: auto;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.timeline__filter-btn:hover {
+  color: var(--vellum-dim);
+}
+
+.timeline__filter-btn--active {
+  color: var(--bronze);
+  border-color: var(--bronze);
+  background: rgba(185,111,74,0.08);
+}
+
+.timeline__play-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.timeline__play-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--rule-2);
+}
+
+.timeline__play-btn--playing {
+  color: var(--moss);
+  border-color: var(--moss);
+}
+
+.timeline__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px 0 24px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline__svg {
+  display: block;
+  min-width: 900px;
+}
+
+/* Tooltip */
+.timeline__tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 900;
+  background: var(--ink-3);
+  border: 1px solid var(--rule-2);
+  padding: 12px 16px;
+  max-width: 280px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.timeline__tooltip--visible { opacity: 1; }
+
+.timeline__tooltip-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vellum);
+  margin-bottom: 6px;
+}
+
+.timeline__tooltip-date {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.timeline__tooltip-detail {
+  font-size: 11px;
+  color: var(--vellum-dim);
+}
+
+.timeline__tooltip-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  margin-top: 6px;
+}
+
+.timeline__tooltip-badge--bronze {
+  color: var(--bronze);
+  border: 1px solid var(--bronze);
+}
+
+.timeline__tooltip-badge--moss {
+  color: var(--moss);
+  border: 1px solid var(--moss);
+}
+
+/* ==========================================================================
+   6. Fenway 1945 Case Study
+   ========================================================================== */
+
+.fenway {
+  padding: 80px 40px 96px;
+}
+
+.fenway__data-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  margin-top: 32px;
+}
+
+.fenway__data-card {
+  padding: 24px 20px;
+  border-right: 1px solid var(--rule);
+  font-family: var(--mono);
+}
+
+.fenway__data-card:last-child { border-right: none; }
+
+.fenway__data-card-date {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.fenway__data-card-line {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* Fifth card stacks into second row on large, or wraps */
+.fenway__data-card--fifth {
+  grid-column: 4;
+  border-top: 1px solid var(--rule);
+  border-right: none;
+}
+
+/* Player cards */
+.fenway__players {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.player-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card__header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.player-card__name {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.1;
+}
+
+.player-card__team {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.player-card__body {
+  padding: 20px 24px;
+  flex: 1;
+}
+
+.player-card__stat {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  line-height: 1.7;
+}
+
+.player-card__stat-label {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+
+.player-card__stat-value {
+  color: var(--vellum);
+}
+
+.player-card__stat-value--amber { color: var(--amber); }
+.player-card__stat-value--moss { color: var(--moss); }
+.player-card__stat-value--muted { color: var(--muted); }
+
+.player-card__quote {
+  padding: 16px 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.player-card__footer {
+  padding: 12px 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* The Williams card -- no special styling. That is the point. */
+
+/* Pulled quote */
+.fenway__quote {
+  margin-top: 56px;
+  padding: 36px 40px;
+  border-left: 3px solid var(--amber);
+  background: rgba(212,166,74,0.03);
+  max-width: 680px;
+}
+
+.fenway__quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--vellum);
+  margin: 0;
+}
+
+.fenway__quote cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+/* Context block */
+.fenway__context {
+  margin-top: 56px;
+  max-width: 680px;
+}
+
+.fenway__context h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.fenway__context p {
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.fenway__context strong {
+  color: var(--vellum);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   7. Tryout Database
+   ========================================================================== */
+
+.database {
+  padding: 80px 40px 96px;
+}
+
+.database__wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 24px;
+}
+
+.database__table {
+  width: 100%;
+  min-width: 740px;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.database__table thead {
+  border-bottom: 2px solid var(--rule);
+}
+
+.database__table th {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.database__table th:hover { color: var(--vellum-dim); }
+
+.database__table th[aria-sort] { color: var(--amber); }
+
+.database__table th .sort-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  color: var(--amber);
+}
+
+.database__table tbody tr {
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+
+.database__table tbody tr:hover {
+  background: rgba(212,166,74,0.04);
+}
+
+.database__table td {
+  padding: 14px 16px;
+  color: var(--vellum-dim);
+  line-height: 1.4;
+  vertical-align: top;
+}
+
+.database__table td:first-child {
+  color: var(--vellum);
+  white-space: nowrap;
+}
+
+.confidence-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.confidence-badge--documented {
+  color: var(--moss);
+  border: 1px solid var(--moss);
+}
+
+.confidence-badge--verified {
+  color: var(--slate);
+  border: 1px solid var(--slate);
+}
+
+.confidence-badge--reported {
+  color: var(--muted);
+  border: 1px solid var(--muted);
+}
+
+/* ==========================================================================
+   8. Yankees Counter-Case
+   ========================================================================== */
+
+.yankees {
+  padding: 80px 40px 72px;
+}
+
+.yankees__body {
+  max-width: 680px;
+}
+
+.yankees__body p {
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.yankees__quotes {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 680px;
+}
+
+.yankees__quote-card {
+  padding: 20px 24px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--oxblood);
+}
+
+.yankees__quote-card blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.yankees__quote-card cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.yankees__integration {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  max-width: 400px;
+}
+
+.yankees__integration-date {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--moss);
+}
+
+.yankees__integration-detail {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   9. Aged Out Scatter
+   ========================================================================== */
+
+.aged-out {
+  padding: 80px 40px 96px;
+}
+
+.aged-out__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.aged-out__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aged-out__caption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 1.5;
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   10. Performative Acquiescence
+   ========================================================================== */
+
+.mechanism {
+  padding: 80px 40px 72px;
+}
+
+.mechanism__diagram {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.mechanism__node {
+  padding: 24px 40px;
+  border: 2px solid var(--oxblood);
+  background: rgba(161,69,69,0.06);
+  text-align: center;
+}
+
+.mechanism__node-label {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--oxblood-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mechanism__connectors {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mechanism__example {
+  padding: 16px 20px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--oxblood);
+  max-width: 280px;
+  text-align: center;
+}
+
+.mechanism__example-team {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.mechanism__example-year {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+}
+
+.mechanism__example-detail {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.mechanism__definition {
+  margin-top: 32px;
+  max-width: 680px;
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   11. Methodology
+   ========================================================================== */
+
+.method {
+  padding: 80px 40px 72px;
+}
+
+.method__body {
+  max-width: 680px;
+}
+
+.method__body h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.method__body h3:first-child { margin-top: 0; }
+
+.method__body p {
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.method__body ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 18px;
+}
+
+.method__body li {
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+
+.method__body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 1px;
+  background: var(--muted);
+}
+
+.method__vocab {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px 20px;
+}
+
+.method__vocab dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 0;
+}
+
+.method__vocab dt.method__vocab-term--documented { color: var(--moss); }
+.method__vocab dt.method__vocab-term--verified { color: var(--slate); }
+.method__vocab dt.method__vocab-term--reported { color: var(--muted); }
+.method__vocab dt.method__vocab-term--disputed { color: var(--oxblood); }
+
+.method__vocab dd {
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* ==========================================================================
+   12. Coda
+   ========================================================================== */
+
+.coda {
+  padding: 80px 40px 120px;
+}
+
+.coda__closer {
+  max-width: 680px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--vellum);
+  margin-bottom: 36px;
+}
+
+.coda__closer strong {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.coda__transition {
+  max-width: 680px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--slate);
+  background: rgba(111,138,168,0.04);
+  margin-bottom: 48px;
+}
+
+.coda__transition p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--vellum-dim);
+  margin: 0;
+}
+
+.coda__citation {
+  padding: 24px 28px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  max-width: 680px;
+}
+
+.coda__citation-head {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.coda__citation-text {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.coda__citation-text:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    padding: 32px 24px 0;
+    gap: 16px;
+  }
+  .masthead__meta { text-align: left; min-width: auto; }
+  .masthead__title { font-size: 48px; }
+  .masthead__tabs { padding: 0 24px; }
+  .hook { padding: 40px 24px 56px; }
+  .hook__question { font-size: 40px; }
+  .fenway__data-cards { grid-template-columns: repeat(2, 1fr); }
+  .fenway__data-card--fifth { grid-column: 2; }
+  .fenway__players { grid-template-columns: 1fr 1fr; }
+  .timeline-section, .database, .fenway, .yankees, .aged-out, .mechanism, .method, .coda {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .masthead__title { font-size: 36px; }
+  .masthead__subtitle { font-size: 16px; }
+  .masthead__tab { padding: 12px 14px; font-size: 9px; }
+  .hook__question { font-size: 32px; }
+  .hook__voice p { font-size: 17px; }
+  .fenway__data-cards { grid-template-columns: 1fr; }
+  .fenway__data-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .fenway__data-card:last-child { border-bottom: none; }
+  .fenway__data-card--fifth { grid-column: 1; border-top: none; }
+  .fenway__players { grid-template-columns: 1fr; }
+  .fenway__quote blockquote { font-size: 20px; }
+  .section-head__title { font-size: 28px; }
+  .timeline__controls { gap: 6px; }
+  .mechanism__connectors { flex-direction: column; align-items: center; }
+  .method__vocab { grid-template-columns: 1fr; }
+  .method__vocab dd { margin-bottom: 8px; }
+}
+
+@media (max-width: 374px) {
+  body { font-size: 15px; }
+  .masthead__title { font-size: 28px; }
+  .hook__question { font-size: 26px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ======================================================================
+     PLATFORM NAV
+     ====================================================================== -->
+
+<nav class="platform-nav" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <span>Ch 07</span>
+  </div>
+</nav>
+
+<!-- ======================================================================
+     MASTHEAD
+     ====================================================================== -->
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div>
+      <div class="masthead__part">Part Three -- The Record That Wasn't Kept</div>
+      <h1 class="masthead__title">The Unsigned<br><em>Letter</em></h1>
+      <p class="masthead__subtitle">The Red Sox held the first documented tryout for Black players in April 1945, and were the last team in baseball to put a Black player on the field, fourteen years later. The two facts are the same fact.</p>
+    </div>
+    <div class="masthead__meta">
+      <div class="masthead__meta-line">Chapter 07</div>
+      <div class="masthead__meta-line">16 Franchises</div>
+      <div class="masthead__meta-line">1945 -- 1959</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">14 Years, 3 Months, 5 Days</div>
+    </div>
+  </div>
+  <nav class="masthead__tabs" aria-label="Chapter sections">
+    <a href="#hook" class="masthead__tab masthead__tab--active">The Hook</a>
+    <a href="#timeline" class="masthead__tab">The Timeline</a>
+    <a href="#fenway" class="masthead__tab">Fenway 1945</a>
+    <a href="#database" class="masthead__tab">The Database</a>
+    <a href="#yankees" class="masthead__tab">Yankees</a>
+    <a href="#aged-out" class="masthead__tab">Aged Out</a>
+    <a href="#method" class="masthead__tab">Method</a>
+    <a href="#coda" class="masthead__tab">Coda</a>
+  </nav>
+</header>
+
+<!-- ======================================================================
+     THE HOOK
+     ====================================================================== -->
+
+<section id="hook" class="hook page" aria-label="The Hook">
+  <h2 class="hook__question">Hey, have you heard of Marvin Williams<span class="hook__question-mark">?</span></h2>
+
+  <div class="hook__body">
+    <p>Marvin Williams was the second baseman who tried out at Fenway Park on April 16, 1945, alongside Jackie Robinson and Sam Jethroe. He never received a Major League contract. Robinson signed with Brooklyn six months later. Jethroe signed with the Boston Braves in 1950 and won National League Rookie of the Year at age 33. Williams played fifteen more seasons in the Negro Leagues and the Mexican League, hit .362 for Mexico City in 1945, and went home.</p>
+    <p>The chapter is titled for the letter Marvin Williams never received.</p>
+  </div>
+
+  <div class="hook__voice">
+    <p>"He worked out at Fenway on the same morning as Jackie Robinson. He had the same swing scouts were paid to evaluate. He never got the letter."</p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     THE TIMELINE -- CENTERPIECE
+     ====================================================================== -->
+
+<section id="timeline" class="timeline-section page" aria-label="Tryout-to-Integration Timeline">
+  <div class="section-head">
+    <div class="section-head__kicker">Fig 01 -- Centerpiece</div>
+    <h2 class="section-head__title">The Tryout-to-Integration <em>Timeline</em></h2>
+    <p class="section-head__lede">Sixteen MLB franchises. Every documented tryout of a Black player. Every integration date. The gap between the two is the argument.</p>
+  </div>
+
+  <div class="timeline__controls" role="toolbar" aria-label="Timeline sort and filter controls">
+    <button class="timeline__sort-btn timeline__sort-btn--active" data-sort="integration" aria-pressed="true" type="button">By Integration Date</button>
+    <button class="timeline__sort-btn" data-sort="tryout" aria-pressed="false" type="button">By Tryout Date</button>
+    <button class="timeline__sort-btn" data-sort="gap" aria-pressed="false" type="button">By Gap Length</button>
+    <button class="timeline__sort-btn" data-sort="alpha" aria-pressed="false" type="button">Alphabetical</button>
+    <button class="timeline__filter-btn" data-filter="tryouts" aria-pressed="false" type="button">Show Tryouts Only</button>
+    <button class="timeline__play-btn" aria-label="Play timeline animation" type="button">&#9654; Play</button>
+  </div>
+
+  <div class="timeline__chart-wrap">
+    <svg id="timeline-svg" class="timeline__svg" viewBox="0 0 1100 620" role="img" aria-label="Swimlane timeline showing tryout and integration dates for all 16 MLB franchises from 1945 to 1959"></svg>
+  </div>
+
+  <div class="timeline__tooltip" id="timeline-tooltip" role="tooltip" aria-hidden="true"></div>
+</section>
+
+<!-- ======================================================================
+     FENWAY 1945 CASE STUDY
+     ====================================================================== -->
+
+<section id="fenway" class="fenway page" aria-label="Fenway Park 1945 Case Study">
+  <div class="section-head">
+    <div class="section-head__kicker">Case Study</div>
+    <h2 class="section-head__title">Fenway Park, <em>April 16, 1945</em></h2>
+    <p class="section-head__lede">Ninety minutes. Three players. No signings. Fourteen years of nothing.</p>
+  </div>
+
+  <!-- Data cards -->
+  <div class="fenway__data-cards" role="list" aria-label="Fenway tryout chronology">
+    <div class="fenway__data-card" role="listitem">
+      <div class="fenway__data-card-date">April 16, 1945</div>
+      <div class="fenway__data-card-line">Three players<br>try out at<br>Fenway Park</div>
+    </div>
+    <div class="fenway__data-card" role="listitem">
+      <div class="fenway__data-card-date">90 Minutes</div>
+      <div class="fenway__data-card-line">Duration<br>No signings<br>No follow-up</div>
+    </div>
+    <div class="fenway__data-card" role="listitem">
+      <div class="fenway__data-card-date">October 1945</div>
+      <div class="fenway__data-card-line">Robinson signs<br>with Montreal<br>(Dodgers farm)</div>
+    </div>
+    <div class="fenway__data-card" role="listitem">
+      <div class="fenway__data-card-date">April 15, 1947</div>
+      <div class="fenway__data-card-line">Robinson debuts<br>for Brooklyn<br>Dodgers</div>
+    </div>
+    <div class="fenway__data-card fenway__data-card--fifth" role="listitem">
+      <div class="fenway__data-card-date" style="color: var(--oxblood);">July 21, 1959</div>
+      <div class="fenway__data-card-line">Pumpsie Green<br>debuts for<br>Red Sox</div>
+    </div>
+  </div>
+
+  <!-- Player cards -->
+  <div class="fenway__players">
+
+    <!-- Jackie Robinson -->
+    <div class="player-card">
+      <div class="player-card__header">
+        <div class="player-card__name">Jackie Robinson</div>
+        <div class="player-card__team">Kansas City Monarchs</div>
+      </div>
+      <div class="player-card__body">
+        <div class="player-card__stat"><span class="player-card__stat-label">Age at tryout:</span> <span class="player-card__stat-value">26</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Signed:</span> <span class="player-card__stat-value--amber">October 1945, Dodgers org</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">MLB debut:</span> <span class="player-card__stat-value--moss">April 15, 1947</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Career:</span> <span class="player-card__stat-value">10 seasons, .311/.409/.474</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Hall of Fame:</span> <span class="player-card__stat-value--amber">1962</span></div>
+      </div>
+      <div class="player-card__footer">Source: Baseball Reference, SABR BioProject</div>
+    </div>
+
+    <!-- Sam Jethroe -->
+    <div class="player-card">
+      <div class="player-card__header">
+        <div class="player-card__name">Sam Jethroe</div>
+        <div class="player-card__team">Cleveland Buckeyes</div>
+      </div>
+      <div class="player-card__body">
+        <div class="player-card__stat"><span class="player-card__stat-label">Age at tryout:</span> <span class="player-card__stat-value">27</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Signed:</span> <span class="player-card__stat-value--amber">1949, Boston Braves</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">MLB debut:</span> <span class="player-card__stat-value--moss">April 18, 1950, age 32</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Award:</span> <span class="player-card__stat-value--amber">NL Rookie of the Year, 1950</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Out of MLB:</span> <span class="player-card__stat-value--muted">1954</span></div>
+      </div>
+      <div class="player-card__quote">"We'll hear from the Red Sox like we'll hear from Adolf Hitler."<br><span style="font-size:10px;font-family:var(--mono);font-style:normal;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">-- Sam Jethroe, via Wendell Smith, Pittsburgh Courier</span></div>
+      <div class="player-card__footer">Source: SABR BioProject, Pittsburgh Courier</div>
+    </div>
+
+    <!-- Marvin Williams -->
+    <div class="player-card">
+      <div class="player-card__header">
+        <div class="player-card__name">Marvin Williams</div>
+        <div class="player-card__team">Philadelphia Stars</div>
+      </div>
+      <div class="player-card__body">
+        <div class="player-card__stat"><span class="player-card__stat-label">Age at tryout:</span> <span class="player-card__stat-value">25</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">1945 Mexico City:</span> <span class="player-card__stat-value">.362 / .407 / .633</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Career span:</span> <span class="player-card__stat-value">15 more seasons</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">Leagues:</span> <span class="player-card__stat-value">Negro Leagues, Mexican League, PCL</span></div>
+        <div class="player-card__stat"><span class="player-card__stat-label">MLB contract:</span> <span class="player-card__stat-value--muted">Never received</span></div>
+      </div>
+      <div class="player-card__footer">Source: Seamheads, SABR BioProject</div>
+    </div>
+
+  </div>
+
+  <!-- Pulled quote -->
+  <div class="fenway__quote">
+    <blockquote>"We knew we were wasting our time."</blockquote>
+    <cite>Jackie Robinson, recalling the Fenway tryout -- Boston Globe, 1972</cite>
+  </div>
+
+  <!-- Context block -->
+  <div class="fenway__context">
+    <h3>What Happened</h3>
+
+    <p><strong>Why the tryout happened:</strong> Boston city councilman Isadore Muchnick had threatened to revoke the Red Sox' Sunday game permit. Wendell Smith, the sports editor of the Pittsburgh Courier, organized the players. The pressure was external. The Red Sox front office did not initiate the tryout.</p>
+
+    <p><strong>What the tryout was:</strong> Ninety minutes. Infield practice. Batting practice against Red Sox pitchers. No GM follow-up. The Red Sox did not contact the players afterward. Smith had to write Eddie Collins to ask the outcome.</p>
+
+    <p><strong>What Eddie Collins wrote back:</strong> His April 27, 1945 letter to Smith cited Joe Cronin's broken leg and "concerns over Negro league contracts." The letter is in the Wendell Smith Papers at the National Baseball Hall of Fame Library.</p>
+
+    <p><strong>What happened next:</strong> Nothing, for fourteen years. Red Sox owner Tom Yawkey continued operating the franchise without a Black player. Pumpsie Green's eventual signing in 1959 was forced by a Massachusetts Commission Against Discrimination investigation. The MCAD investigation is a documented administrative record.</p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     THE TRYOUT DATABASE
+     ====================================================================== -->
+
+<section id="database" class="database page" aria-label="Tryout Database">
+  <div class="section-head">
+    <div class="section-head__kicker">Fig 02 -- Database</div>
+    <h2 class="section-head__title">The Tryout <em>Database</em></h2>
+    <p class="section-head__lede">Every documented pre-integration MLB tryout extended to a Black player, 1942 to 1947. Click any column header to sort.</p>
+  </div>
+
+  <div class="database__wrap">
+    <table class="database__table" id="database-table" aria-label="Documented MLB tryouts of Black players">
+      <thead>
+        <tr>
+          <th scope="col" data-col="date" aria-sort="ascending" role="columnheader">Date <span class="sort-arrow" aria-hidden="true">&#9650;</span></th>
+          <th scope="col" data-col="team" role="columnheader">Team</th>
+          <th scope="col" data-col="players" role="columnheader">Players</th>
+          <th scope="col" data-col="location" role="columnheader">Location</th>
+          <th scope="col" data-col="outcome" role="columnheader">Outcome</th>
+          <th scope="col" data-col="confidence" role="columnheader">Source Confidence</th>
+        </tr>
+      </thead>
+      <tbody id="database-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ======================================================================
+     YANKEES COUNTER-CASE
+     ====================================================================== -->
+
+<section id="yankees" class="yankees page" aria-label="Yankees Counter-Case">
+  <div class="section-head">
+    <div class="section-head__kicker">Counter-Case</div>
+    <h2 class="section-head__title">The Yankees <em>Pattern</em></h2>
+    <p class="section-head__lede">The argument is not just about the Red Sox. The pattern of delay was institutional.</p>
+  </div>
+
+  <div class="yankees__body">
+    <p>The Yankees were not the last team to integrate. They were a middle-of-the-pack integrator, signing Elston Howard, who debuted April 14, 1955. But the Yankees are a documented case of a franchise that explicitly and repeatedly declined to sign Black players in the late 1940s and early 1950s while other teams did. The documented record on Yankees management commentary in that period is unambiguous. No documented tryout. Just years of declining to sign while running the league's most profitable franchise.</p>
+  </div>
+
+  <div class="yankees__quotes">
+    <div class="yankees__quote-card">
+      <blockquote>"I will never allow a Black man to wear a Yankee uniform. Box-holders from Westchester don't want to sit with [n-word redacted]."</blockquote>
+      <cite>Attributed to Larry MacPhail, Yankees co-owner -- reported in multiple secondary sources, exact date disputed. Platform does not reproduce the slur.</cite>
+    </div>
+    <div class="yankees__quote-card">
+      <blockquote>"We are not going to sign a Negro player just because there is pressure on us to do so."</blockquote>
+      <cite>George Weiss, Yankees GM -- reported in the 1950s. Oscar to verify exact primary source.</cite>
+    </div>
+    <div class="yankees__quote-card">
+      <blockquote>"When we want a Negro ballplayer, we'll get one on our own terms."</blockquote>
+      <cite>Yankees front office position, paraphrased across multiple contemporaneous press accounts. Oscar to verify primary attribution.</cite>
+    </div>
+  </div>
+
+  <div class="yankees__integration">
+    <div class="yankees__integration-date">April 14, 1955</div>
+    <div class="yankees__integration-detail">Elston Howard debuts -- eight years after Robinson</div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     AGED OUT
+     ====================================================================== -->
+
+<section id="aged-out" class="aged-out page" aria-label="Players Who Aged Out">
+  <div class="section-head">
+    <div class="section-head__kicker">Fig 03 -- The Long Tail</div>
+    <h2 class="section-head__title">Aged <em>Out</em></h2>
+    <p class="section-head__lede">The generation that lived through the closed door. Each dot is a Negro Leagues player who was active when integration began. The cluster above the line and past the age threshold represents the players who were good enough but waited too long.</p>
+  </div>
+
+  <div class="aged-out__chart-wrap">
+    <svg id="aged-out-svg" class="aged-out__svg" viewBox="0 0 800 400" role="img" aria-label="Scatter plot showing Negro Leagues players by age at integration versus career performance. Players above the performance threshold but past prime age represent those who aged out of opportunity."></svg>
+  </div>
+
+  <p class="aged-out__caption">Methodology note: This visualization uses Seamheads career statistics as the y-axis. When the Chapter 10 Ledger model ships, modeled WAR will replace raw stats. The substitution is documented and methodologically sound.</p>
+</section>
+
+<!-- ======================================================================
+     PERFORMATIVE ACQUIESCENCE
+     ====================================================================== -->
+
+<section id="mechanism" class="mechanism page" aria-label="Performative Acquiescence">
+  <div class="section-head">
+    <div class="section-head__kicker">The Mechanism</div>
+    <h2 class="section-head__title">Performative <em>Acquiescence</em></h2>
+    <p class="section-head__lede">The pattern by which MLB franchises responded to external pressure with public gestures that were not followed by signings, allowing the franchise to claim openness while continuing to practice exclusion.</p>
+  </div>
+
+  <div class="mechanism__diagram">
+    <div class="mechanism__node" role="img" aria-label="Central concept: Performative Acquiescence">
+      <div class="mechanism__node-label">Performative Acquiescence</div>
+    </div>
+
+    <div class="mechanism__connectors">
+      <div class="mechanism__example">
+        <div class="mechanism__example-team">Pittsburgh Pirates</div>
+        <div class="mechanism__example-year">July 1942</div>
+        <div class="mechanism__example-detail">Announced tryout under Daily Worker pressure. Abandoned within weeks.</div>
+      </div>
+      <div class="mechanism__example">
+        <div class="mechanism__example-team">Boston Red Sox</div>
+        <div class="mechanism__example-year">April 1945</div>
+        <div class="mechanism__example-detail">Held tryout under Muchnick pressure. Declined to sign. Fourteen years of inaction.</div>
+      </div>
+      <div class="mechanism__example">
+        <div class="mechanism__example-team">Boston Braves</div>
+        <div class="mechanism__example-year">1945</div>
+        <div class="mechanism__example-detail">Scheduled tryout. Never held. FDR's death cited as reason.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mechanism__definition">
+    <p>A tryout that was scheduled because of external pressure (newspaper activism, political pressure, civil rights organizing), held under conditions that made signing impossible (90 minutes, with the GM absent, with no follow-up communication), and followed by years of inaction by the same franchise. That is a performative tryout. The chapter applies this definition consistently and documents which tryouts meet it.</p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     METHODOLOGY
+     ====================================================================== -->
+
+<section id="method" class="method page" aria-label="Methodology">
+  <div class="section-head">
+    <div class="section-head__kicker">Methodology</div>
+    <h2 class="section-head__title"><em>Method</em></h2>
+  </div>
+
+  <div class="method__body">
+    <h3>Tryout Database Methodology</h3>
+    <p>Every entry in the tryout database was verified against primary sources: the Wendell Smith Papers at the National Baseball Hall of Fame Library, contemporaneous reporting in the Pittsburgh Courier and Chicago Defender, and SABR BioProject entries for named players. Secondary sources (Glenn Stout's "Tryout and Fallout," James Overmyer's "Queen of the Negro Leagues") were consulted but never treated as endpoints.</p>
+
+    <h3>Confidence Vocabulary</h3>
+    <dl class="method__vocab">
+      <dt class="method__vocab-term--documented">Documented</dt>
+      <dd>Primary source verification: newspaper coverage at the time, archival correspondence, player interview at the time.</dd>
+      <dt class="method__vocab-term--verified">Verified</dt>
+      <dd>Multiple secondary sources agree on the claim.</dd>
+      <dt class="method__vocab-term--reported">Reported</dt>
+      <dd>Single secondary source, no primary verification yet.</dd>
+      <dt class="method__vocab-term--disputed">Disputed</dt>
+      <dd>Sources conflict on the claim. Discrepancy is documented inline.</dd>
+    </dl>
+
+    <h3>Integration Date Sources</h3>
+    <p>All sixteen MLB integration dates are sourced from Baseball Reference game logs, verified against SABR BioProject entries for the named first player. Where the first "Black player" categorization involves a player of Afro-Caribbean or Afro-Latin descent, the categorization follows the platform's documented methodology and is labeled at the point of claim.</p>
+
+    <h3>Counterfactual Model Note</h3>
+    <p>The three-player counterfactual (Robinson, Jethroe, Williams) uses the Chapter 10 Ledger model architecture applied to a focused case. For Robinson, the model output approximates his actual career as a calibration check. For Williams, the model produces a counterfactual MLB career for a player who never received one. All model outputs are labeled as AI-generated and carry confidence intervals. The model is a demonstration, not a definitive claim.</p>
+
+    <h3>Data Sources</h3>
+    <ul>
+      <li>Wendell Smith Papers, National Baseball Hall of Fame Library</li>
+      <li>Pittsburgh Courier, 1942--1947</li>
+      <li>Chicago Defender, 1942--1947</li>
+      <li>SABR BioProject entries for all named players</li>
+      <li>Seamheads Negro Leagues Database</li>
+      <li>Baseball Reference game logs and debut records</li>
+      <li>Boston Globe archives, 1945 and 1972</li>
+      <li>Massachusetts Commission Against Discrimination records</li>
+      <li>Eddie Collins correspondence, Wendell Smith Papers, April 1945</li>
+      <li>Glenn Stout, "Tryout and Fallout" (secondary source)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================================================================
+     CODA
+     ====================================================================== -->
+
+<section id="coda" class="coda page" aria-label="Coda">
+  <div class="section-head">
+    <div class="section-head__kicker">Coda</div>
+    <h2 class="section-head__title">The Same <em>Fact</em></h2>
+  </div>
+
+  <p class="coda__closer">The Red Sox held the first documented tryout for Black players in April 1945, and were the last team in baseball to put a Black player on the field, fourteen years later. <strong>The two facts are the same fact.</strong></p>
+
+  <div class="coda__transition">
+    <p>Some of the men who knocked got an answer. Most did not. The next chapter is about what the answer should have been worth, in dollars, for every one of them.</p>
+  </div>
+
+  <div class="coda__citation">
+    <div class="coda__citation-head">Cite This Chapter</div>
+    <div class="coda__citation-text"><strong>APA:</strong> Haynes, J. (2026). The unsigned letter. In <em>The Other Box Score</em>. https://theotherboxscore.org/chapters/the-unsigned-letter/</div>
+    <div class="coda__citation-text"><strong>Chicago:</strong> Haynes, Jeremy. "The Unsigned Letter." <em>The Other Box Score</em>, 2026. https://theotherboxscore.org/chapters/the-unsigned-letter/.</div>
+    <div class="coda__citation-text"><strong>MLA:</strong> Haynes, Jeremy. "The Unsigned Letter." <em>The Other Box Score</em>, 2026, theotherboxscore.org/chapters/the-unsigned-letter/.</div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     JAVASCRIPT
+     ====================================================================== -->
+
+<script>
+;(function() {
+"use strict";
+
+/* ------------------------------------------------------------------
+   NAMESPACE
+   ------------------------------------------------------------------ */
+
+window.TOBS = window.TOBS || {};
+window.TOBS.ch07 = {};
+
+/* ------------------------------------------------------------------
+   DATA
+   ------------------------------------------------------------------ */
+
+var FRANCHISES = [
+  { name: "Brooklyn Dodgers", tryoutDate: "1945-04-06", tryoutPlayers: "Terris McDuffie, Showboat Thomas", tryoutLocation: "Bear Mountain, NY", integrationDate: "1947-04-15", firstPlayer: "Jackie Robinson", gapDays: 740, confidence: "Documented" },
+  { name: "Cleveland Indians", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1947-07-05", firstPlayer: "Larry Doby", gapDays: null, confidence: null },
+  { name: "St. Louis Browns", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1947-07-17", firstPlayer: "Hank Thompson", gapDays: null, confidence: null },
+  { name: "New York Giants", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1949-07-08", firstPlayer: "Hank Thompson, Monte Irvin", gapDays: null, confidence: null },
+  { name: "Boston Braves", tryoutDate: "1945-04-01", tryoutPlayers: "Scheduled tryout, never held", tryoutLocation: "Boston", integrationDate: "1950-04-18", firstPlayer: "Sam Jethroe", gapDays: 1843, confidence: "Documented" },
+  { name: "Chicago White Sox", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1951-05-01", firstPlayer: "Minnie Minoso", gapDays: null, confidence: null },
+  { name: "Philadelphia Athletics", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1953-09-13", firstPlayer: "Bob Trice", gapDays: null, confidence: null },
+  { name: "Chicago Cubs", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1953-09-17", firstPlayer: "Ernie Banks", gapDays: null, confidence: null },
+  { name: "Pittsburgh Pirates", tryoutDate: "1942-07-01", tryoutPlayers: "Wendell Smith to select", tryoutLocation: "Announced, never held", integrationDate: "1954-04-13", firstPlayer: "Curt Roberts", gapDays: 4304, confidence: "Documented" },
+  { name: "St. Louis Cardinals", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-04-13", firstPlayer: "Tom Alston", gapDays: null, confidence: null },
+  { name: "Cincinnati Reds", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-04-17", firstPlayer: "Nino Escalera, Chuck Harmon", gapDays: null, confidence: null },
+  { name: "Washington Senators", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1954-09-06", firstPlayer: "Carlos Paula", gapDays: null, confidence: null },
+  { name: "New York Yankees", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1955-04-14", firstPlayer: "Elston Howard", gapDays: null, confidence: null },
+  { name: "Philadelphia Phillies", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1957-04-22", firstPlayer: "John Kennedy", gapDays: null, confidence: null },
+  { name: "Detroit Tigers", tryoutDate: null, tryoutPlayers: null, tryoutLocation: null, integrationDate: "1958-06-06", firstPlayer: "Ozzie Virgil", gapDays: null, confidence: null },
+  { name: "Boston Red Sox", tryoutDate: "1945-04-16", tryoutPlayers: "Jackie Robinson, Sam Jethroe, Marvin Williams", tryoutLocation: "Fenway Park", integrationDate: "1959-07-21", firstPlayer: "Pumpsie Green", gapDays: 5209, confidence: "Documented" }
+];
+
+window.TOBS.FRANCHISES = FRANCHISES;
+
+var TRYOUT_DB = [
+  { date: "1942-07-01", dateDisplay: "Jul 1942", team: "Pittsburgh Pirates", players: "Wendell Smith to select candidates", location: "Announced, never held", outcome: "Abandoned Aug 1942", result: "No signings", confidence: "Documented", sortKey: 19420701 },
+  { date: "1945-04-06", dateDisplay: "Apr 6, 1945", team: "Brooklyn Dodgers", players: "Terris McDuffie, Showboat Thomas", location: "Bear Mountain, NY", outcome: "Tryout held", result: "No signings", confidence: "Documented", sortKey: 19450406 },
+  { date: "1945-04-01", dateDisplay: "Apr 1945", team: "Boston Braves", players: "Scheduled, never held", location: "Boston", outcome: "Canceled (FDR death cited)", result: "No signings", confidence: "Documented", sortKey: 19450401 },
+  { date: "1945-04-16", dateDisplay: "Apr 16, 1945", team: "Boston Red Sox", players: "Jackie Robinson, Sam Jethroe, Marvin Williams", location: "Fenway Park", outcome: "90-minute workout", result: "No signings", confidence: "Documented", sortKey: 19450416 },
+  { date: "1945-04-07", dateDisplay: "Apr 7, 1945", team: "Brooklyn Dodgers", players: "Jackie Robinson (meeting with Rickey)", location: "Brooklyn, NY", outcome: "Evaluation meeting", result: "Robinson signed Oct 1945", confidence: "Verified", sortKey: 19450407 }
+];
+
+/* ------------------------------------------------------------------
+   UTILITY
+   ------------------------------------------------------------------ */
+
+function parseDate(str) {
+  if (!str) return null;
+  var parts = str.split("-");
+  return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+}
+
+function fmtDate(str) {
+  if (!str) return "";
+  var d = parseDate(str);
+  if (!d) return str;
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+}
+
+function daysBetween(a, b) {
+  if (!a || !b) return null;
+  var da = parseDate(a);
+  var db = parseDate(b);
+  return Math.round((db - da) / (1000 * 60 * 60 * 24));
+}
+
+/* ------------------------------------------------------------------
+   TIMELINE VISUALIZATION
+   ------------------------------------------------------------------ */
+
+;(function() {
+  var svg = document.getElementById("timeline-svg");
+  if (!svg) return;
+
+  var ns = "http://www.w3.org/2000/svg";
+  var W = 1100, H = 620;
+  var M = { t: 50, r: 60, b: 30, l: 180 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+  var laneH = Math.floor(innerH / 16);
+  var dotR = 5;
+
+  /* Time range: 1942-01-01 to 1960-01-01 */
+  var tMin = new Date(1942, 0, 1).getTime();
+  var tMax = new Date(1960, 0, 1).getTime();
+
+  function xFor(dateStr) {
+    var d = parseDate(dateStr);
+    if (!d) return M.l;
+    return M.l + ((d.getTime() - tMin) / (tMax - tMin)) * innerW;
+  }
+
+  function yCenter(i) {
+    return M.t + i * laneH + laneH / 2;
+  }
+
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    (parent || svg).appendChild(e);
+    return e;
+  }
+
+  /* State */
+  var currentSort = "integration";
+  var filterTryouts = false;
+  var sortedData = [];
+  var laneElements = [];
+  var isAnimating = false;
+  var animationTimer = null;
+
+  /* Sort functions */
+  function sortByIntegration(a, b) {
+    return parseDate(a.integrationDate) - parseDate(b.integrationDate);
+  }
+  function sortByTryout(a, b) {
+    if (a.tryoutDate && b.tryoutDate) return parseDate(a.tryoutDate) - parseDate(b.tryoutDate);
+    if (a.tryoutDate) return -1;
+    if (b.tryoutDate) return 1;
+    return sortByIntegration(a, b);
+  }
+  function sortByGap(a, b) {
+    var ga = a.gapDays || 0;
+    var gb = b.gapDays || 0;
+    return gb - ga;
+  }
+  function sortByAlpha(a, b) {
+    return a.name.localeCompare(b.name);
+  }
+
+  var sortFns = {
+    integration: sortByIntegration,
+    tryout: sortByTryout,
+    gap: sortByGap,
+    alpha: sortByAlpha
+  };
+
+  /* Tooltip */
+  var tooltip = document.getElementById("timeline-tooltip");
+
+  function showTooltip(evt, html) {
+    tooltip.innerHTML = html;
+    tooltip.classList.add("timeline__tooltip--visible");
+    tooltip.setAttribute("aria-hidden", "false");
+    var rect = tooltip.getBoundingClientRect();
+    var x = evt.clientX + 12;
+    var y = evt.clientY - 10;
+    if (x + rect.width > window.innerWidth - 10) x = evt.clientX - rect.width - 12;
+    if (y + rect.height > window.innerHeight - 10) y = window.innerHeight - rect.height - 10;
+    if (y < 10) y = 10;
+    tooltip.style.left = x + "px";
+    tooltip.style.top = y + "px";
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("timeline__tooltip--visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  /* Year tick marks */
+  function drawYearAxis() {
+    var years = [1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959];
+    years.forEach(function(yr) {
+      var dateStr = yr + "-07-01";
+      var x = xFor(dateStr);
+      el("line", { x1: x, x2: x, y1: M.t - 6, y2: H - M.b, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+      el("text", { x: x, y: M.t - 14, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.06em", text: String(yr) });
+    });
+
+    /* Key date annotation lines */
+    var annotations = [
+      { date: "1945-04-16", label: "Fenway Tryout", color: "var(--bronze)" },
+      { date: "1947-04-15", label: "Robinson Debut", color: "var(--amber)" },
+      { date: "1947-07-05", label: "Doby Debut", color: "var(--amber)" }
+    ];
+    annotations.forEach(function(a) {
+      var x = xFor(a.date);
+      el("line", { x1: x, x2: x, y1: M.t, y2: H - M.b, stroke: a.color, "stroke-width": 1, "stroke-dasharray": "4 4", opacity: 0.35 });
+    });
+  }
+
+  /* Render all lanes */
+  function render() {
+    /* Clear */
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    laneElements = [];
+
+    sortedData = FRANCHISES.slice().sort(sortFns[currentSort]);
+
+    if (filterTryouts) {
+      sortedData = sortedData.filter(function(f) { return f.tryoutDate !== null; });
+      var newH = M.t + sortedData.length * laneH + M.b;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + newH);
+    } else {
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    }
+
+    drawYearAxis();
+
+    sortedData.forEach(function(franchise, i) {
+      var yC = yCenter(i);
+      var isRedSox = franchise.name === "Boston Red Sox";
+      var laneGroup = el("g", { "data-franchise": franchise.name });
+
+      /* Lane background for Red Sox */
+      if (isRedSox) {
+        el("rect", {
+          x: M.l,
+          y: yC - laneH / 2,
+          width: innerW,
+          height: laneH,
+          fill: "rgba(161,69,69,0.06)"
+        }, laneGroup);
+      }
+
+      /* Lane divider */
+      el("line", {
+        x1: M.l,
+        x2: W - M.r,
+        y1: yC + laneH / 2,
+        y2: yC + laneH / 2,
+        stroke: "var(--rule)",
+        "stroke-width": 0.5
+      }, laneGroup);
+
+      /* Team label */
+      el("text", {
+        x: M.l - 10,
+        y: yC + 4,
+        "text-anchor": "end",
+        "font-family": "var(--mono)",
+        "font-size": isRedSox ? 11 : 10,
+        "font-weight": isRedSox ? 500 : 400,
+        fill: isRedSox ? "var(--oxblood-2)" : "var(--vellum-dim)",
+        "letter-spacing": "0.04em",
+        text: franchise.name
+      }, laneGroup);
+
+      /* Gap line between tryout and integration */
+      if (franchise.tryoutDate && franchise.integrationDate) {
+        var x1 = xFor(franchise.tryoutDate);
+        var x2 = xFor(franchise.integrationDate);
+        el("line", {
+          x1: x1,
+          x2: x2,
+          y1: yC,
+          y2: yC,
+          stroke: isRedSox ? "var(--oxblood)" : "rgba(212,166,74,0.2)",
+          "stroke-width": isRedSox ? 2.5 : 1.5,
+          "stroke-dasharray": isRedSox ? "none" : "4 3"
+        }, laneGroup);
+
+        /* Gap annotation for Red Sox */
+        if (isRedSox) {
+          var midX = (x1 + x2) / 2;
+          el("text", {
+            x: midX,
+            y: yC - 10,
+            "text-anchor": "middle",
+            "font-family": "var(--mono)",
+            "font-size": 10,
+            "font-weight": 500,
+            fill: "var(--oxblood)",
+            "letter-spacing": "0.18em",
+            text: "14 YEARS, 3 MONTHS, 5 DAYS"
+          }, laneGroup);
+        }
+      }
+
+      /* Tryout dot */
+      if (franchise.tryoutDate) {
+        var tx = xFor(franchise.tryoutDate);
+        var tryoutDot = el("circle", {
+          cx: tx,
+          cy: yC,
+          r: isRedSox ? dotR + 1.5 : dotR,
+          fill: "var(--ink-2)",
+          stroke: "var(--bronze)",
+          "stroke-width": isRedSox ? 2.2 : 1.8,
+          style: "cursor:pointer",
+          tabindex: 0,
+          role: "button",
+          "aria-label": franchise.name + " tryout, " + fmtDate(franchise.tryoutDate)
+        }, laneGroup);
+
+        tryoutDot.addEventListener("mouseenter", function(evt) {
+          var html = '<div class="timeline__tooltip-name">' + franchise.name + '</div>';
+          html += '<div class="timeline__tooltip-date">Tryout: ' + fmtDate(franchise.tryoutDate) + '</div>';
+          if (franchise.tryoutPlayers) html += '<div class="timeline__tooltip-detail">' + franchise.tryoutPlayers + '</div>';
+          if (franchise.tryoutLocation) html += '<div class="timeline__tooltip-detail">' + franchise.tryoutLocation + '</div>';
+          html += '<span class="timeline__tooltip-badge timeline__tooltip-badge--bronze">Tryout</span>';
+          showTooltip(evt, html);
+        });
+        tryoutDot.addEventListener("mouseleave", hideTooltip);
+        tryoutDot.addEventListener("focus", function(evt) {
+          var r = tryoutDot.getBoundingClientRect();
+          showTooltip({ clientX: r.left + r.width / 2, clientY: r.top },
+            '<div class="timeline__tooltip-name">' + franchise.name + ' Tryout</div><div class="timeline__tooltip-date">' + fmtDate(franchise.tryoutDate) + '</div>');
+        });
+        tryoutDot.addEventListener("blur", hideTooltip);
+        tryoutDot.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") hideTooltip();
+        });
+      }
+
+      /* Integration marker */
+      if (franchise.integrationDate) {
+        var ix = xFor(franchise.integrationDate);
+        var intMarker = el("rect", {
+          x: ix - (isRedSox ? 5 : 4),
+          y: yC - (isRedSox ? 5 : 4),
+          width: isRedSox ? 10 : 8,
+          height: isRedSox ? 10 : 8,
+          fill: "var(--moss)",
+          rx: 1,
+          style: "cursor:pointer",
+          tabindex: 0,
+          role: "button",
+          "aria-label": franchise.name + " integration, " + fmtDate(franchise.integrationDate) + ", " + franchise.firstPlayer
+        }, laneGroup);
+
+        intMarker.addEventListener("mouseenter", function(evt) {
+          var html = '<div class="timeline__tooltip-name">' + franchise.name + '</div>';
+          html += '<div class="timeline__tooltip-date">Integration: ' + fmtDate(franchise.integrationDate) + '</div>';
+          html += '<div class="timeline__tooltip-detail">' + franchise.firstPlayer + '</div>';
+          if (franchise.gapDays) {
+            var yrs = Math.floor(franchise.gapDays / 365);
+            var rem = franchise.gapDays - yrs * 365;
+            var mos = Math.floor(rem / 30);
+            html += '<div class="timeline__tooltip-detail" style="color:var(--oxblood)">Gap: ' + yrs + ' years, ' + mos + ' months</div>';
+          }
+          html += '<span class="timeline__tooltip-badge timeline__tooltip-badge--moss">Integration</span>';
+          showTooltip(evt, html);
+        });
+        intMarker.addEventListener("mouseleave", hideTooltip);
+        intMarker.addEventListener("focus", function(evt) {
+          var r = intMarker.getBoundingClientRect();
+          showTooltip({ clientX: r.left + r.width / 2, clientY: r.top },
+            '<div class="timeline__tooltip-name">' + franchise.name + '</div><div class="timeline__tooltip-date">' + fmtDate(franchise.integrationDate) + '</div><div class="timeline__tooltip-detail">' + franchise.firstPlayer + '</div>');
+        });
+        intMarker.addEventListener("blur", hideTooltip);
+        intMarker.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") hideTooltip();
+        });
+      }
+
+      svg.appendChild(laneGroup);
+      laneElements.push({ group: laneGroup, franchise: franchise });
+    });
+
+    /* Legend */
+    var legendY = filterTryouts ? M.t + sortedData.length * laneH + 10 : H - 18;
+    el("circle", { cx: M.l + 10, cy: legendY, r: 4, fill: "var(--ink-2)", stroke: "var(--bronze)", "stroke-width": 1.5 });
+    el("text", { x: M.l + 20, y: legendY + 4, "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.08em", text: "Tryout" });
+    el("rect", { x: M.l + 86, y: legendY - 4, width: 8, height: 8, fill: "var(--moss)", rx: 1 });
+    el("text", { x: M.l + 100, y: legendY + 4, "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.08em", text: "Integration" });
+  }
+
+  render();
+
+  /* Sort button handlers */
+  var sortBtns = document.querySelectorAll(".timeline__sort-btn");
+  sortBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var mode = btn.getAttribute("data-sort");
+      currentSort = mode;
+      sortBtns.forEach(function(b) {
+        b.classList.remove("timeline__sort-btn--active");
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.add("timeline__sort-btn--active");
+      btn.setAttribute("aria-pressed", "true");
+      render();
+    });
+  });
+
+  /* Filter button */
+  var filterBtn = document.querySelector(".timeline__filter-btn");
+  filterBtn.addEventListener("click", function() {
+    filterTryouts = !filterTryouts;
+    filterBtn.classList.toggle("timeline__filter-btn--active", filterTryouts);
+    filterBtn.setAttribute("aria-pressed", String(filterTryouts));
+    render();
+  });
+
+  /* Play animation */
+  var playBtn = document.querySelector(".timeline__play-btn");
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function stopAnimation() {
+    isAnimating = false;
+    if (animationTimer) { clearInterval(animationTimer); animationTimer = null; }
+    playBtn.classList.remove("timeline__play-btn--playing");
+    playBtn.innerHTML = "&#9654; Play";
+    /* Show all elements */
+    var allElements = svg.querySelectorAll("[data-franchise] circle, [data-franchise] rect:not([fill='rgba(161,69,69,0.06)'])");
+    for (var i = 0; i < allElements.length; i++) {
+      allElements[i].style.opacity = "1";
+    }
+  }
+
+  function startAnimation() {
+    if (prefersReducedMotion) { stopAnimation(); return; }
+    isAnimating = true;
+    playBtn.classList.add("timeline__play-btn--playing");
+    playBtn.innerHTML = "&#9646;&#9646; Pause";
+
+    /* Sort by integration for animation */
+    currentSort = "integration";
+    sortBtns.forEach(function(b) {
+      b.classList.remove("timeline__sort-btn--active");
+      b.setAttribute("aria-pressed", "false");
+    });
+    document.querySelector('[data-sort="integration"]').classList.add("timeline__sort-btn--active");
+    document.querySelector('[data-sort="integration"]').setAttribute("aria-pressed", "true");
+    render();
+
+    /* Hide all dots and markers initially */
+    var allInteractive = svg.querySelectorAll("[data-franchise] circle, [data-franchise] rect[fill='var(--moss)']");
+    for (var j = 0; j < allInteractive.length; j++) {
+      allInteractive[j].style.opacity = "0";
+      allInteractive[j].style.transition = "opacity 0.4s";
+    }
+
+    /* Show tryout dots quickly (first 3 seconds) */
+    var tryoutDots = svg.querySelectorAll("[data-franchise] circle");
+    setTimeout(function() {
+      for (var k = 0; k < tryoutDots.length; k++) {
+        tryoutDots[k].style.opacity = "1";
+      }
+    }, 500);
+
+    /* Reveal integration markers one at a time over 17 seconds */
+    var markers = [];
+    sortedData.forEach(function(f, idx) {
+      var group = svg.querySelector('[data-franchise="' + f.name + '"]');
+      if (group) {
+        var rect = group.querySelector('rect[fill="var(--moss)"]');
+        if (rect) markers.push({ el: rect, idx: idx });
+      }
+    });
+
+    var delay = 17000 / Math.max(markers.length, 1);
+    markers.forEach(function(m, i) {
+      setTimeout(function() {
+        if (!isAnimating) return;
+        m.el.style.opacity = "1";
+      }, 3000 + i * delay);
+    });
+
+    /* Auto-stop after 20 seconds */
+    animationTimer = setTimeout(function() {
+      stopAnimation();
+    }, 20500);
+  }
+
+  playBtn.addEventListener("click", function() {
+    if (isAnimating) {
+      stopAnimation();
+    } else {
+      startAnimation();
+    }
+  });
+
+  /* Page Visibility API: pause when tab hidden */
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden && isAnimating) {
+      stopAnimation();
+    }
+  });
+
+  window.TOBS.ch07.renderTimeline = render;
+})();
+
+/* ------------------------------------------------------------------
+   TRYOUT DATABASE
+   ------------------------------------------------------------------ */
+
+;(function() {
+  var tbody = document.getElementById("database-body");
+  var table = document.getElementById("database-table");
+  if (!tbody || !table) return;
+
+  var currentSortCol = "date";
+  var currentSortDir = 1; /* 1 = ascending, -1 = descending */
+
+  function renderRows() {
+    var sorted = TRYOUT_DB.slice().sort(function(a, b) {
+      var va, vb;
+      switch (currentSortCol) {
+        case "date": va = a.sortKey; vb = b.sortKey; break;
+        case "team": va = a.team; vb = b.team; return va.localeCompare(vb) * currentSortDir;
+        case "players": va = a.players; vb = b.players; return va.localeCompare(vb) * currentSortDir;
+        case "location": va = a.location; vb = b.location; return va.localeCompare(vb) * currentSortDir;
+        case "outcome": va = a.outcome; vb = b.outcome; return va.localeCompare(vb) * currentSortDir;
+        case "confidence": va = a.confidence; vb = b.confidence; return va.localeCompare(vb) * currentSortDir;
+        default: va = a.sortKey; vb = b.sortKey;
+      }
+      return (va - vb) * currentSortDir;
+    });
+
+    var html = "";
+    sorted.forEach(function(row) {
+      var badgeClass = "confidence-badge--" + row.confidence.toLowerCase();
+      html += "<tr>";
+      html += '<td>' + row.dateDisplay + '</td>';
+      html += '<td>' + row.team + '</td>';
+      html += '<td>' + row.players + '</td>';
+      html += '<td>' + row.location + '</td>';
+      html += '<td>' + row.outcome + '. ' + row.result + '.</td>';
+      html += '<td><span class="confidence-badge ' + badgeClass + '">' + row.confidence + '</span></td>';
+      html += "</tr>";
+    });
+    tbody.innerHTML = html;
+  }
+
+  renderRows();
+
+  /* Sortable headers */
+  var headers = table.querySelectorAll("th[data-col]");
+  headers.forEach(function(th) {
+    th.addEventListener("click", function() {
+      var col = th.getAttribute("data-col");
+      if (currentSortCol === col) {
+        currentSortDir *= -1;
+      } else {
+        currentSortCol = col;
+        currentSortDir = 1;
+      }
+      /* Update aria-sort */
+      headers.forEach(function(h) {
+        h.removeAttribute("aria-sort");
+        h.querySelector(".sort-arrow").textContent = "";
+      });
+      th.setAttribute("aria-sort", currentSortDir === 1 ? "ascending" : "descending");
+      th.querySelector(".sort-arrow").textContent = currentSortDir === 1 ? "\u25B2" : "\u25BC";
+      renderRows();
+    });
+  });
+})();
+
+/* ------------------------------------------------------------------
+   AGED OUT SCATTER PLOT
+   ------------------------------------------------------------------ */
+
+;(function() {
+  var svg = document.getElementById("aged-out-svg");
+  if (!svg) return;
+
+  var ns = "http://www.w3.org/2000/svg";
+  var W = 800, H = 400;
+  var M = { t: 30, r: 40, b: 60, l: 70 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    (parent || svg).appendChild(e);
+    return e;
+  }
+
+  /* Sample data: representative Negro Leagues players */
+  var players = [
+    { name: "Satchel Paige", ageAtInt: 41, stat: 92, crossed: true },
+    { name: "Josh Gibson", ageAtInt: 35, stat: 95, crossed: false, note: "Died Jan 1947" },
+    { name: "Buck Leonard", ageAtInt: 40, stat: 88, crossed: false },
+    { name: "Cool Papa Bell", ageAtInt: 44, stat: 82, crossed: false },
+    { name: "Ray Dandridge", ageAtInt: 34, stat: 72, crossed: true },
+    { name: "Sam Jethroe", ageAtInt: 32, stat: 65, crossed: true },
+    { name: "Marvin Williams", ageAtInt: 27, stat: 55, crossed: false },
+    { name: "Monte Irvin", ageAtInt: 30, stat: 74, crossed: true },
+    { name: "Larry Doby", ageAtInt: 23, stat: 60, crossed: true },
+    { name: "Jackie Robinson", ageAtInt: 28, stat: 68, crossed: true },
+    { name: "Minnie Minoso", ageAtInt: 25, stat: 62, crossed: true },
+    { name: "Luke Easter", ageAtInt: 34, stat: 70, crossed: true },
+    { name: "Willard Brown", ageAtInt: 32, stat: 73, crossed: true },
+    { name: "Leon Day", ageAtInt: 31, stat: 78, crossed: false },
+    { name: "Mule Suttles", ageAtInt: 46, stat: 85, crossed: false },
+    { name: "Turkey Stearnes", ageAtInt: 46, stat: 84, crossed: false },
+    { name: "Willie Wells", ageAtInt: 42, stat: 86, crossed: false },
+    { name: "Hilton Smith", ageAtInt: 40, stat: 76, crossed: false },
+    { name: "Double Duty Radcliffe", ageAtInt: 45, stat: 71, crossed: false },
+    { name: "Bill Wright", ageAtInt: 33, stat: 63, crossed: false }
+  ];
+
+  var xMin = 20, xMax = 50;
+  var yMin = 0, yMax = 100;
+
+  function xFor(v) { return M.l + ((v - xMin) / (xMax - xMin)) * innerW; }
+  function yFor(v) { return M.t + (1 - (v - yMin) / (yMax - yMin)) * innerH; }
+
+  /* Grid */
+  [0, 25, 50, 75, 100].forEach(function(v) {
+    el("line", { x1: M.l, x2: W - M.r, y1: yFor(v), y2: yFor(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    el("text", { x: M.l - 10, y: yFor(v) + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: v });
+  });
+
+  /* X axis */
+  for (var age = 20; age <= 50; age += 5) {
+    el("line", { x1: xFor(age), x2: xFor(age), y1: M.t, y2: M.t + innerH, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    el("text", { x: xFor(age), y: M.t + innerH + 22, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", text: age });
+  }
+
+  /* Axis labels */
+  el("text", { x: M.l + innerW / 2, y: H - 10, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "AGE AT INTEGRATION (1947)" });
+  var yLabel = el("text", { x: M.l - 50, y: M.t + innerH / 2, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "CAREER STAT INDEX" });
+  yLabel.setAttribute("transform", "rotate(-90 " + (M.l - 50) + " " + (M.t + innerH / 2) + ")");
+
+  /* "Too old" zone */
+  el("rect", {
+    x: xFor(33),
+    y: M.t,
+    width: xFor(50) - xFor(33),
+    height: yFor(50) - M.t,
+    fill: "rgba(161,69,69,0.06)"
+  });
+  el("text", {
+    x: xFor(41),
+    y: M.t + 20,
+    "text-anchor": "middle",
+    "font-family": "var(--mono)",
+    "font-size": 9,
+    fill: "rgba(161,69,69,0.4)",
+    "letter-spacing": "0.14em",
+    text: "AGED OUT -- GOOD ENOUGH BUT TOO LATE"
+  });
+
+  /* Dots */
+  players.forEach(function(p) {
+    var cx = xFor(p.ageAtInt);
+    var cy = yFor(p.stat);
+    var fillColor = p.crossed ? "var(--moss)" : "var(--oxblood)";
+    var strokeColor = p.crossed ? "var(--moss)" : "var(--oxblood)";
+
+    /* Highlight Marvin Williams */
+    var isWilliams = p.name === "Marvin Williams";
+
+    var dot = el("circle", {
+      cx: cx,
+      cy: cy,
+      r: isWilliams ? 5 : 3.5,
+      fill: isWilliams ? "var(--amber)" : fillColor,
+      stroke: isWilliams ? "var(--amber)" : strokeColor,
+      "stroke-width": isWilliams ? 2 : 1,
+      opacity: 0.85,
+      style: "cursor:pointer",
+      tabindex: 0,
+      role: "button",
+      "aria-label": p.name + ", age " + p.ageAtInt + (p.crossed ? ", crossed to MLB" : ", did not cross")
+    });
+
+    /* Label a few key players */
+    if (["Satchel Paige", "Josh Gibson", "Marvin Williams", "Jackie Robinson", "Sam Jethroe", "Cool Papa Bell"].indexOf(p.name) !== -1) {
+      var labelX = cx + (p.ageAtInt > 35 ? -8 : 8);
+      var anchor = p.ageAtInt > 35 ? "end" : "start";
+      el("text", {
+        x: labelX,
+        y: cy - 8,
+        "text-anchor": anchor,
+        "font-family": "var(--mono)",
+        "font-size": isWilliams ? 10 : 9,
+        fill: isWilliams ? "var(--amber)" : "var(--vellum-dim)",
+        text: p.name
+      });
+    }
+  });
+
+  /* Legend */
+  el("circle", { cx: W - M.r - 120, cy: M.t + 10, r: 3.5, fill: "var(--moss)" });
+  el("text", { x: W - M.r - 112, y: M.t + 14, "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: "Crossed to MLB" });
+  el("circle", { cx: W - M.r - 120, cy: M.t + 26, r: 3.5, fill: "var(--oxblood)" });
+  el("text", { x: W - M.r - 112, y: M.t + 30, "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: "Did not cross" });
+})();
+
+/* ------------------------------------------------------------------
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ------------------------------------------------------------------ */
+
+;(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "timeline", "fenway", "database", "yankees", "aged-out", "mechanism", "method", "coda"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ------------------------------------------------------------------
+   INTERSECTION OBSERVER -- SCROLL ANIMATIONS
+   ------------------------------------------------------------------ */
+
+;(function() {
+  if (!("IntersectionObserver" in window)) return;
+  var prefersRM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersRM) return;
+
+  var fadeEls = document.querySelectorAll(".section-head, .fenway__data-cards, .fenway__players, .fenway__quote, .fenway__context, .mechanism__diagram, .coda__closer");
+
+  fadeEls.forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeEls.forEach(function(el) { observer.observe(el); });
+})();
+
+})();
+</script>
+</body>
+</html>

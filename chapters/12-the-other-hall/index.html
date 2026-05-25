@@ -1,0 +1,2443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Other Hall</title>
+<meta name="description" content="Cooperstown is one Hall. The Cuban, Mexican, Caribbean, Dominican, Puerto Rican, and Venezuelan Halls have been inducting the same players, sometimes earlier, sometimes more completely. The matrix is the argument.">
+<meta property="og:title" content="The Other Box Score -- The Other Hall">
+<meta property="og:description" content="Six Halls of Fame. One matrix. Cooperstown is consistently the late column. The comparison across institutions is a measurement of which institutions have been doing the work.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-other-hall/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Section heads & prose
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+.body-prose mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 2px 6px;
+}
+
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+
+.smcaps {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The Hook
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 56px;
+  line-height: 1.04;
+  color: var(--vellum);
+}
+
+.hook__question em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.hook__body {
+  margin-top: 32px;
+}
+
+.hook__hall-count {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 180px;
+  line-height: 1;
+  color: var(--amber);
+  text-align: center;
+  margin: 24px 0;
+}
+
+.hook__hall-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hook__stat-row {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.hook__stat-item {
+  padding: 20px 18px;
+  border-right: 1px solid var(--rule);
+}
+
+.hook__stat-item:last-child { border-right: none; }
+
+.hook__stat-num {
+  font-family: var(--mono);
+  font-size: 28px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.hook__stat-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. The Matrix -- Fig 01
+   ========================================================================== */
+
+.matrix-section {
+  padding: 0 40px 72px;
+}
+
+/* Controls bar */
+.matrix__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.matrix__filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.matrix__filter-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--muted-2);
+}
+
+.matrix__filter-btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+/* Desktop table */
+.matrix__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule);
+}
+
+.matrix__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px;
+}
+
+.matrix__table th,
+.matrix__table td {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.matrix__table th:last-child,
+.matrix__table td:last-child { border-right: none; }
+
+.matrix__table thead th {
+  background: var(--ink-2);
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 9px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.matrix__table thead th:first-child {
+  text-align: left;
+  min-width: 180px;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--ink-2);
+}
+
+.matrix__player-name {
+  text-align: left !important;
+  font-size: 12px;
+  color: var(--vellum);
+  letter-spacing: 0.02em;
+  position: sticky;
+  left: 0;
+  background: var(--ink);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.matrix__player-name--annotated {
+  cursor: pointer;
+}
+
+.matrix__player-name--annotated:hover {
+  color: var(--amber);
+}
+
+.matrix__table tbody tr:hover td {
+  background: rgba(212,166,74,0.04);
+}
+
+.matrix__table tbody tr:hover .matrix__player-name {
+  background: rgba(212,166,74,0.04);
+}
+
+/* Cell states */
+.matrix__cell--inducted {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.matrix__cell--empty {
+  color: var(--muted-2);
+}
+
+.matrix__cell--lag {
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+/* Decade color coding */
+.matrix__cell--d1930 { color: var(--moss); }
+.matrix__cell--d1940 { color: var(--slate); }
+.matrix__cell--d1950 { color: var(--bronze); }
+.matrix__cell--d1960 { color: var(--tan); }
+.matrix__cell--d1970 { color: var(--amber); }
+.matrix__cell--d1980 { color: var(--amber-2); }
+.matrix__cell--d1990 { color: var(--vellum-dim); }
+.matrix__cell--d2000 { color: var(--oxblood); }
+.matrix__cell--d2010 { color: var(--slate); }
+.matrix__cell--d2020 { color: var(--moss); }
+
+/* Annotation tooltip */
+.matrix__annotation {
+  display: none;
+  position: absolute;
+  background: var(--ink-2);
+  border: 1px solid var(--amber);
+  padding: 14px 18px;
+  max-width: 320px;
+  z-index: 10;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.matrix__annotation--visible {
+  display: block;
+}
+
+.matrix__annotation-name {
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--vellum);
+  margin-bottom: 6px;
+}
+
+.matrix__annotation-lag {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--oxblood);
+  margin-top: 8px;
+}
+
+/* Mobile cards */
+.matrix__cards {
+  display: none;
+}
+
+.matrix__card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 16px 18px;
+  margin-bottom: 8px;
+}
+
+.matrix__card-name {
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--vellum);
+  margin-bottom: 10px;
+}
+
+.matrix__card-halls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.matrix__card-hall {
+  text-align: center;
+  padding: 6px 4px;
+  border: 1px solid var(--rule);
+}
+
+.matrix__card-hall-name {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.matrix__card-hall-year {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.matrix__card-hall-year--inducted {
+  color: var(--amber);
+}
+
+.matrix__card-hall-year--empty {
+  color: var(--muted-2);
+}
+
+/* Decade legend */
+.matrix__legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+.matrix__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.matrix__legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+
+.matrix__legend-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   6. The Lag Distribution -- Fig 02
+   ========================================================================== */
+
+.lag-section {
+  padding: 0 40px 72px;
+}
+
+.lag__chart-wrap {
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.lag__chart-svg {
+  width: 100%;
+  height: auto;
+}
+
+.lag__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 24px;
+  border: 1px solid var(--rule);
+}
+
+.lag__stat {
+  padding: 20px 18px;
+  border-right: 1px solid var(--rule);
+}
+
+.lag__stat:last-child { border-right: none; }
+
+.lag__stat-num {
+  font-family: var(--mono);
+  font-size: 32px;
+  color: var(--oxblood);
+  line-height: 1;
+}
+
+.lag__stat-num--amber { color: var(--amber); }
+
+.lag__stat-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.lag__stat-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* Pairwise selector */
+.lag__pairwise {
+  margin-top: 32px;
+}
+
+.lag__pair-select {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum);
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 8px 12px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.lag__pair-select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   7. Three Trajectories -- Fig 03
+   ========================================================================== */
+
+.trajectories-section {
+  padding: 0 40px 72px;
+}
+
+.trajectory {
+  margin-bottom: 40px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  padding: 28px 32px;
+}
+
+.trajectory:last-child { margin-bottom: 0; }
+
+.trajectory__header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.trajectory__name {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--vellum);
+}
+
+.trajectory__lifespan {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.trajectory__hall-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.trajectory__timeline-wrap {
+  position: relative;
+  height: 80px;
+  margin: 20px 0 12px;
+}
+
+.trajectory__timeline-line {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--rule);
+}
+
+.trajectory__career-span {
+  position: absolute;
+  top: 38px;
+  height: 6px;
+  background: rgba(212,166,74,0.15);
+  border: 1px solid rgba(212,166,74,0.3);
+}
+
+.trajectory__induction-mark {
+  position: absolute;
+  top: 22px;
+  width: 2px;
+  height: 38px;
+  transform: translateX(-50%);
+}
+
+.trajectory__induction-mark::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: -4px;
+}
+
+.trajectory__induction-mark--cooperstown::before { background: var(--amber); }
+.trajectory__induction-mark--cuba::before { background: var(--moss); }
+.trajectory__induction-mark--mexico::before { background: var(--bronze); }
+.trajectory__induction-mark--caribbean::before { background: var(--slate); }
+.trajectory__induction-mark--dominican::before { background: var(--oxblood); }
+.trajectory__induction-mark--venezuela::before { background: var(--tan); }
+.trajectory__induction-mark--puertorico::before { background: #8e7bbf; }
+
+.trajectory__induction-label {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.trajectory__induction-year {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.trajectory__note {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  margin-top: 8px;
+  max-width: 700px;
+}
+
+.trajectory__empty-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Trajectory hall dots legend */
+.trajectory__legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+.trajectory__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trajectory__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.trajectory__legend-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   8. Hall Profiles -- Fig 04
+   ========================================================================== */
+
+.profiles-section {
+  padding: 0 40px 72px;
+}
+
+.profiles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.profile-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card__flag {
+  font-size: 24px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.profile-card__name {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.profile-card__location {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.profile-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.profile-card__stat {
+  padding: 8px 10px;
+  border: 1px solid var(--rule);
+}
+
+.profile-card__stat-num {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.profile-card__stat-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.profile-card__process {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+.profile-card__notables-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.profile-card__notable {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--vellum-dim);
+  line-height: 1.4;
+}
+
+.profile-card__notable + .profile-card__notable {
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   9. Slate Cross-Reference -- Fig 05
+   ========================================================================== */
+
+.slate-section {
+  padding: 0 40px 72px;
+}
+
+.slate__list {
+  margin-top: 24px;
+}
+
+.slate__row {
+  display: grid;
+  grid-template-columns: 200px 80px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  border-bottom: none;
+}
+
+.slate__row:last-child { border-bottom: 1px solid var(--rule); }
+
+.slate__row:hover {
+  background: rgba(212,166,74,0.04);
+}
+
+.slate__player {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum);
+}
+
+.slate__position {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slate__halls {
+  display: flex;
+  gap: 4px;
+}
+
+.slate__hall-cell {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--rule);
+}
+
+.slate__hall-cell--inducted {
+  background: rgba(212,166,74,0.15);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.slate__hall-cell--empty {
+  color: var(--muted-2);
+}
+
+.slate__endorsement {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--amber);
+  text-align: right;
+  min-width: 80px;
+}
+
+.slate__header {
+  display: grid;
+  grid-template-columns: 200px 80px 1fr auto;
+  gap: 12px;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  background: var(--ink-2);
+}
+
+.slate__header-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   10. Connective Tissue & Coda
+   ========================================================================== */
+
+.tissue {
+  padding: 0 40px 72px;
+}
+
+.tissue__block {
+  max-width: 640px;
+  border-left: 3px solid var(--amber);
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  background: rgba(212,166,74,0.03);
+}
+
+.tissue__direction {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.tissue__text {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   11. Citation & Method
+   ========================================================================== */
+
+.citation-section {
+  padding: 0 40px 72px;
+}
+
+.citation__block {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  max-width: 720px;
+}
+
+.citation__format {
+  margin-bottom: 20px;
+}
+
+.citation__format:last-child { margin-bottom: 0; }
+
+.citation__format-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.citation__format-text {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+.method-section {
+  padding: 0 40px 72px;
+}
+
+.method__content {
+  max-width: 640px;
+}
+
+.method__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.method__text {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.method__confidence {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+
+.method__confidence--verified { color: var(--moss); border-color: var(--moss); }
+.method__confidence--documented { color: var(--amber); border-color: var(--amber); }
+.method__confidence--reported { color: var(--slate); border-color: var(--slate); }
+
+/* ==========================================================================
+   12. Footer
+   ========================================================================== */
+
+.chapter-footer {
+  border-top: 1px solid var(--rule);
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chapter-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chapter-footer__left {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.chapter-footer__right {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   13. Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .profiles__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 0;
+    gap: 12px;
+  }
+
+  .masthead__meta {
+    text-align: left;
+    min-width: 0;
+  }
+
+  .masthead__title { font-size: 48px; }
+  .masthead__tabs { padding: 0 20px; }
+
+  .hook { padding: 36px 20px 56px; }
+
+  .hook__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hook__question { font-size: 36px; }
+  .hook__hall-count { font-size: 120px; }
+
+  .matrix-section,
+  .lag-section,
+  .trajectories-section,
+  .profiles-section,
+  .slate-section,
+  .tissue,
+  .citation-section,
+  .method-section { padding: 0 20px 56px; }
+
+  .lag__stats { grid-template-columns: repeat(2, 1fr); }
+  .lag__stat:nth-child(2) { border-right: none; }
+  .lag__stat:nth-child(1),
+  .lag__stat:nth-child(2) { border-bottom: 1px solid var(--rule); }
+
+  .profiles__grid { grid-template-columns: 1fr; }
+
+  .trajectory { padding: 20px; }
+  .trajectory__name { font-size: 22px; }
+
+  .section-head__title { font-size: 28px; }
+
+  .slate__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .slate__header { display: none; }
+
+  .chapter-footer { padding: 32px 20px; }
+}
+
+@media (max-width: 480px) {
+  .masthead__title { font-size: 36px; }
+
+  .matrix__table-wrap { display: none; }
+  .matrix__cards { display: block; }
+
+  .lag__chart-wrap { padding: 16px; }
+
+  .trajectory__header { gap: 8px; }
+  .trajectory__name { font-size: 20px; }
+  .trajectory__timeline-wrap { height: 100px; }
+
+  .profile-card__stats { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ====================================================================
+     PLATFORM NAV
+     ==================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <span>Ch. 12</span>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     MASTHEAD
+     ==================================================================== -->
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <div class="masthead__part">Part Four -- What the Numbers Say</div>
+    </div>
+    <div>
+      <h1 class="masthead__title">The Other <em>Hall</em></h1>
+      <p class="masthead__subtitle">Cooperstown is one Hall. The Cuban, Mexican, Caribbean, Dominican, Puerto Rican, and Venezuelan Halls have been inducting the same players, sometimes earlier, sometimes more completely. The comparison across institutions is a measurement of which institutions have been doing the work.</p>
+    </div>
+    <div class="masthead__meta">
+      <div class="masthead__meta-line">CHAPTER 12 OF 15</div>
+      <div class="masthead__meta-line">6 HALLS OF FAME</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">THE MATRIX</div>
+    </div>
+  </div>
+  <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">
+    <a href="#hook" class="masthead__tab masthead__tab--active" role="tab">The Hook</a>
+    <a href="#matrix" class="masthead__tab" role="tab">The Matrix</a>
+    <a href="#lag" class="masthead__tab" role="tab">The Lag</a>
+    <a href="#trajectories" class="masthead__tab" role="tab">Trajectories</a>
+    <a href="#profiles" class="masthead__tab" role="tab">Hall Profiles</a>
+    <a href="#slate" class="masthead__tab" role="tab">Slate</a>
+    <a href="#tissue" class="masthead__tab" role="tab">Connective</a>
+    <a href="#method" class="masthead__tab" role="tab">Method</a>
+  </nav>
+</header>
+
+<!-- ====================================================================
+     MAIN CONTENT
+     ==================================================================== -->
+
+<main class="page">
+
+  <!-- ==================================================================
+       THE HOOK
+       ================================================================== -->
+
+  <section id="hook" class="hook" aria-label="The Hook">
+    <div class="hook__grid">
+      <div>
+        <h2 class="hook__question">There are <em>six</em> Halls.</h2>
+        <div class="hook__body body-prose">
+          <p class="lede">Cooperstown is one of them.</p>
+          <p>The Cuban Baseball Hall of Fame opened in 1939, the same year five players were inducted to its inaugural class, including <strong>Jose Mendez</strong> and <strong>Cristobal Torriente</strong>, who would not enter Cooperstown until 2006. The Mexican Baseball Hall of Fame opened in 1939 as well. <strong>Martin Dihigo</strong>, the Cuban-born star who played in every league that would have him, is in five halls of fame.</p>
+          <p>The Caribbean Baseball Hall of Fame opened in 1996. Willard Brown is in it. Wilmer Fields is in it. The Dominican, Puerto Rican, and Venezuelan halls have continued operating throughout, inducting Negro Leagues players whose names Cooperstown was slow to recognize.</p>
+          <p>This chapter is the matrix. Every player. Every hall. Every induction year. <mark>The comparison is the argument.</mark></p>
+        </div>
+      </div>
+      <div>
+        <div aria-label="Six halls of fame" role="img">
+          <div class="hook__hall-count">6</div>
+          <div class="hook__hall-label">Halls of Fame</div>
+        </div>
+        <div class="hook__stat-row">
+          <div class="hook__stat-item">
+            <div class="hook__stat-num">67</div>
+            <div class="hook__stat-label">Years -- Max Lag<br>Mendez: Cuba 1939,<br>Cooperstown 2006</div>
+          </div>
+          <div class="hook__stat-item">
+            <div class="hook__stat-num">5</div>
+            <div class="hook__stat-label">Halls -- Dihigo<br>The most honored<br>player across institutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       FIG 01 -- THE MATRIX
+       ================================================================== -->
+
+  <section id="matrix" class="matrix-section" aria-label="The six-hall induction matrix">
+    <div class="section-head">
+      <div class="section-head__fig">Fig 01</div>
+      <h2 class="section-head__title">The <em>Matrix</em></h2>
+      <p class="section-head__lede">Every Negro Leagues-era player of established case. Every hall. Every induction year. The visual pattern of the matrix is the immediate argument: Cooperstown is the column with the most empty cells.</p>
+    </div>
+
+    <div class="matrix__controls" role="toolbar" aria-label="Matrix filters">
+      <button class="matrix__filter-btn matrix__filter-btn--active" data-filter="all" aria-pressed="true">All Players</button>
+      <button class="matrix__filter-btn" data-filter="multi" aria-pressed="false">Multi-Hall</button>
+      <button class="matrix__filter-btn" data-filter="cooperstown-only" aria-pressed="false">Cooperstown Only</button>
+      <button class="matrix__filter-btn" data-filter="not-cooperstown" aria-pressed="false">Not in Cooperstown</button>
+    </div>
+
+    <!-- Desktop table view -->
+    <div class="matrix__table-wrap" role="region" aria-label="Induction matrix table" tabindex="0">
+      <table class="matrix__table" id="matrix-table">
+        <thead>
+          <tr>
+            <th scope="col">Player</th>
+            <th scope="col">Cooperstown</th>
+            <th scope="col">Cuba</th>
+            <th scope="col">Mexico</th>
+            <th scope="col">Caribbean</th>
+            <th scope="col">Dominican Rep.</th>
+            <th scope="col">Venezuela</th>
+            <th scope="col">Puerto Rico</th>
+          </tr>
+        </thead>
+        <tbody id="matrix-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- Mobile card view -->
+    <div class="matrix__cards" id="matrix-cards" role="list" aria-label="Induction matrix cards"></div>
+
+    <!-- Decade legend -->
+    <div class="matrix__legend" id="matrix-legend" aria-label="Decade color legend"></div>
+  </section>
+
+  <!-- ==================================================================
+       FIG 02 -- THE LAG DISTRIBUTION
+       ================================================================== -->
+
+  <section id="lag" class="lag-section" aria-label="Cooperstown induction lag distribution">
+    <div class="section-head">
+      <div class="section-head__fig">Fig 02</div>
+      <h2 class="section-head__title">The <em>Lag</em></h2>
+      <p class="section-head__lede">For each player inducted into Cooperstown and at least one other hall, the years between Cooperstown induction and earliest other-hall induction. The distribution is right-skewed: Cooperstown is consistently late, sometimes by a generation.</p>
+    </div>
+
+    <div class="lag__stats" id="lag-stats">
+      <div class="lag__stat">
+        <div class="lag__stat-num" id="lag-median">--</div>
+        <div class="lag__stat-label">Median Lag (years)</div>
+        <div class="lag__stat-note">Cooperstown after earliest peer hall</div>
+      </div>
+      <div class="lag__stat">
+        <div class="lag__stat-num" id="lag-mean">--</div>
+        <div class="lag__stat-label">Mean Lag (years)</div>
+      </div>
+      <div class="lag__stat">
+        <div class="lag__stat-num" id="lag-max">--</div>
+        <div class="lag__stat-label">Maximum Lag (years)</div>
+        <div class="lag__stat-note" id="lag-max-player"></div>
+      </div>
+      <div class="lag__stat">
+        <div class="lag__stat-num lag__stat-num--amber" id="lag-count-25">--</div>
+        <div class="lag__stat-label">Players with 25+ year lag</div>
+      </div>
+    </div>
+
+    <div class="lag__chart-wrap">
+      <svg id="lag-chart-svg" class="lag__chart-svg" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Histogram of Cooperstown induction lag in years"></svg>
+    </div>
+
+    <div class="lag__pairwise">
+      <label for="pair-select" class="fig-label" style="margin-bottom:8px;display:block">Pairwise Hall Comparison</label>
+      <select id="pair-select" class="lag__pair-select" aria-label="Select hall pair for lag comparison">
+        <option value="cooperstown-cuba">Cooperstown vs. Cuba</option>
+        <option value="cooperstown-mexico">Cooperstown vs. Mexico</option>
+        <option value="cooperstown-caribbean">Cooperstown vs. Caribbean</option>
+        <option value="cuba-mexico">Cuba vs. Mexico</option>
+      </select>
+      <div id="pair-detail" class="body-prose" style="margin-top:12px">
+        <p style="font-size:14px;color:var(--vellum-dim)">Select a hall pair to see the pairwise lag distribution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       FIG 03 -- THREE TRAJECTORIES
+       ================================================================== -->
+
+  <section id="trajectories" class="trajectories-section" aria-label="Three recognition trajectories">
+    <div class="section-head">
+      <div class="section-head__fig">Fig 03</div>
+      <h2 class="section-head__title">Three <em>Trajectories</em></h2>
+      <p class="section-head__lede">Three players. Three patterns of cross-institutional recognition. Martin Dihigo is honored across the landscape. Cool Papa Bell has moderate coverage. Josh Gibson, despite playing in Cuba, Mexico, Puerto Rico, and the Dominican Republic, is in Cooperstown alone.</p>
+    </div>
+
+    <div id="trajectories-container"></div>
+
+    <div class="trajectory__legend">
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--amber)"></div>
+        <div class="trajectory__legend-label">Cooperstown</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--moss)"></div>
+        <div class="trajectory__legend-label">Cuba</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--bronze)"></div>
+        <div class="trajectory__legend-label">Mexico</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--slate)"></div>
+        <div class="trajectory__legend-label">Caribbean</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--oxblood)"></div>
+        <div class="trajectory__legend-label">Dominican Rep.</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:var(--tan)"></div>
+        <div class="trajectory__legend-label">Venezuela</div>
+      </div>
+      <div class="trajectory__legend-item">
+        <div class="trajectory__legend-dot" style="background:#8e7bbf"></div>
+        <div class="trajectory__legend-label">Puerto Rico</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       FIG 04 -- HALL PROFILES
+       ================================================================== -->
+
+  <section id="profiles" class="profiles-section" aria-label="Hall of Fame institutional profiles">
+    <div class="section-head">
+      <div class="section-head__fig">Fig 04</div>
+      <h2 class="section-head__title">The <em>Halls</em></h2>
+      <p class="section-head__lede">Each hall's founding, location, induction process, and Negro Leagues recognition record. The chapter does not rank halls. The comparison is descriptive, not normative. Each institution's process reflects choices about mission and criteria.</p>
+    </div>
+
+    <div class="profiles__grid" id="profiles-grid"></div>
+  </section>
+
+  <!-- ==================================================================
+       FIG 05 -- SLATE CROSS-REFERENCE
+       ================================================================== -->
+
+  <section id="slate" class="slate-section" aria-label="Chapter 11 slate cross-reference">
+    <div class="section-head">
+      <div class="section-head__fig">Fig 05</div>
+      <h2 class="section-head__title">The Slate <em>Cross-Reference</em></h2>
+      <p class="section-head__lede">Chapter 11 identified candidates Cooperstown has not yet recognized. This section maps those candidates against the six peer halls. Candidates with existing peer-hall inductions carry institutional endorsement that Cooperstown has not acted on.</p>
+    </div>
+
+    <div class="slate__header" aria-hidden="true">
+      <div class="slate__header-label">Player</div>
+      <div class="slate__header-label">Position</div>
+      <div class="slate__header-label">Hall Inductions</div>
+      <div class="slate__header-label" style="text-align:right">Peer Halls</div>
+    </div>
+    <div class="slate__list" id="slate-list" role="list"></div>
+  </section>
+
+  <!-- ==================================================================
+       CONNECTIVE TISSUE
+       ================================================================== -->
+
+  <section id="tissue" class="tissue" aria-label="Connective tissue">
+    <div class="section-head">
+      <div class="section-head__kicker">Connective Tissue</div>
+      <h2 class="section-head__title">Between <em>Chapters</em></h2>
+    </div>
+
+    <div class="tissue__block">
+      <div class="tissue__direction">From Chapter 11</div>
+      <p class="tissue__text">Cooperstown is one Hall. It is not the only Hall. The Latin American baseball halls of fame, the Cuban Hall in Havana, the Mexican Hall in Monterrey, the Puerto Rican Hall in San Juan, the Dominican Hall in San Pedro de Macoris, the Venezuelan Hall in Valencia, and the Caribbean Series Hall established in 1996, have been inducting the same players Cooperstown has and has not, sometimes earlier, sometimes more completely. The next chapter is the matrix: which players are in which Halls, and what the comparison says about which Halls have been doing the work.</p>
+    </div>
+
+    <div class="tissue__block">
+      <div class="tissue__direction">To Chapter 13</div>
+      <p class="tissue__text">The halls record. They induct. They preserve the names. But the names are not the testimony. The next chapter is the testimony itself: the oral histories of the players, in their own voices, recorded by the people who asked them while there was time to ask. The halls have been recording induction dates. This chapter is what is recorded in the voices of the players themselves.</p>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       METHOD
+       ================================================================== -->
+
+  <section id="method" class="method-section" aria-label="Methodology">
+    <div class="section-head">
+      <div class="section-head__kicker">Methodology</div>
+      <h2 class="section-head__title"><em>Method</em></h2>
+    </div>
+
+    <div class="method__content">
+      <div class="method__label">Matrix Construction</div>
+      <p class="method__text">The six-hall induction matrix was assembled from institutional records for each hall of fame: the National Baseball Hall of Fame (Cooperstown), the Cuban Baseball Hall of Fame, the Mexican Professional Baseball Hall of Fame, the Caribbean Baseball Hall of Fame, the Dominican Republic Sports Hall of Fame, the Puerto Rico Sports Hall of Fame, and the Venezuelan Baseball Hall of Fame. Each cell represents a verified induction year or a documented absence.</p>
+
+      <div class="method__label">Name Reconciliation</div>
+      <p class="method__text">Hall-of-fame records across six institutions use varying name conventions. The reconciliation pipeline uses Levenshtein-based fuzzy string matching for initial candidate identification, birth-year and birth-place matching for disambiguation, and manual verification for every reconciled identity. Seamheads canonical player IDs serve as the master identifier for Negro Leagues-era players.</p>
+      <p>
+        <span class="method__confidence method__confidence--verified">Verified</span>
+        <span class="method__confidence method__confidence--documented">Documented</span>
+        <span class="method__confidence method__confidence--reported">Reported</span>
+      </p>
+
+      <div class="method__label" style="margin-top:24px">Lag Analysis</div>
+      <p class="method__text">For each player inducted into Cooperstown and at least one other hall, the lag is computed as Cooperstown induction year minus the earliest other-hall induction year. Induction years are treated as facts when sourced from primary institutional records. Players inducted into now-defunct or hard-to-verify hall iterations are flagged with lower confidence.</p>
+
+      <div class="method__label">Cross-Hall Endorsement</div>
+      <p class="method__text">Per Chapter 11 slate candidate, the endorsement score is the count of peer-hall inductions plus the chronology of those inductions. The score is descriptive, not predictive. It documents existing institutional recognition without arguing for induction.</p>
+
+      <div class="method__label">Institutional Note</div>
+      <p class="method__text">This chapter compares institutions. The comparison is descriptive, not normative. Each hall's induction process reflects choices the institution has made about its mission and criteria. The chapter documents the resulting patterns and respects those choices. The Caribbean Series Hall operates on different criteria than country-specific halls, honoring Caribbean Series performance rather than lifetime career. Its inclusion in the matrix is methodologically defensible and treated as equivalent.</p>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       CITATION
+       ================================================================== -->
+
+  <section id="citation" class="citation-section" aria-label="Citation">
+    <div class="section-head">
+      <div class="section-head__kicker">Citation</div>
+      <h2 class="section-head__title">Cite This <em>Chapter</em></h2>
+    </div>
+
+    <div class="citation__block">
+      <div class="citation__format">
+        <div class="citation__format-label">Standard</div>
+        <div class="citation__format-text">Haynes, Jeremy. "The Other Hall." <em>The Other Box Score</em>, theotherboxscore.org/chapters/the-other-hall/, May 2026. Accessed [access date].</div>
+      </div>
+      <div class="citation__format">
+        <div class="citation__format-label">Chicago</div>
+        <div class="citation__format-text">Haynes, Jeremy. "The Other Hall." <em>The Other Box Score</em>. May 2026. https://theotherboxscore.org/chapters/the-other-hall/.</div>
+      </div>
+      <div class="citation__format">
+        <div class="citation__format-label">Data (CC0)</div>
+        <div class="citation__format-text">The Other Box Score. "Six-Hall Negro Leagues Recognition Matrix." CC0 1.0. https://github.com/other-boxscore/chapters/12-the-other-hall/data/. May 2026.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================================================
+     FOOTER
+     ==================================================================== -->
+
+<footer class="chapter-footer">
+  <div class="chapter-footer__inner">
+    <div class="chapter-footer__left">
+      The Other Box Score -- Chapter 12 -- The Other Hall
+    </div>
+    <div class="chapter-footer__right">
+      MIT (code) -- CC0 (data) -- 2026
+    </div>
+  </div>
+</footer>
+
+<!-- ====================================================================
+     DATA & SCRIPTS
+     ==================================================================== -->
+
+<script>
+;(function() {
+"use strict";
+
+/* ======================================================================
+   NAMESPACE
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+var NS = window.TOBS;
+
+/* ======================================================================
+   DATA -- MATRIX
+   ====================================================================== */
+
+// Hall key order: cooperstown, cuba, mexico, caribbean, dominican, venezuela, puertorico
+// Each player: { name, halls: { cooperstown: year|null, cuba: year|null, ... }, annotated: bool, annotation: string }
+
+var HALL_KEYS = ["cooperstown", "cuba", "mexico", "caribbean", "dominican", "venezuela", "puertorico"];
+var HALL_LABELS = {
+  cooperstown: "Cooperstown",
+  cuba: "Cuba",
+  mexico: "Mexico",
+  caribbean: "Caribbean",
+  dominican: "Dom. Rep.",
+  venezuela: "Venezuela",
+  puertorico: "Puerto Rico"
+};
+
+var HALL_ABBREVS = {
+  cooperstown: "COP",
+  cuba: "CUB",
+  mexico: "MEX",
+  caribbean: "CAR",
+  dominican: "DOM",
+  venezuela: "VEN",
+  puertorico: "PR"
+};
+
+var PLAYERS = [
+  { name: "Martin Dihigo", halls: { cooperstown: 1977, cuba: 1951, mexico: 1964, caribbean: null, dominican: 2002, venezuela: 1989, puertorico: null }, annotated: true, annotation: "Five halls. Cuba, Mexico, Cooperstown, Venezuela, Dominican Republic. The most honored player across institutions. Career: 1923--1945 across the Negro Leagues, Cuba, Mexico, Venezuela, Dominican Republic.", filter: "multi" },
+  { name: "Jose Mendez", halls: { cooperstown: 2006, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuba inducted Mendez in 1939. Cooperstown followed in 2006. The lag: 67 years. The maximum lag in the matrix.", filter: "multi" },
+  { name: "Cristobal Torriente", halls: { cooperstown: 2006, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Like Mendez, inducted into the Cuban Hall in 1939 and Cooperstown in 2006. A 67-year lag.", filter: "multi" },
+  { name: "Josh Gibson", halls: { cooperstown: 1972, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cooperstown only, despite documented play in Cuba, Mexico, Puerto Rico, and the Dominican Republic. Five peer-hall columns empty.", filter: "cooperstown-only" },
+  { name: "Satchel Paige", halls: { cooperstown: 1971, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Cool Papa Bell", halls: { cooperstown: 1974, cuba: 2014, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Three halls. Mexico inducted Bell in 1964, ten years before Cooperstown. Cuba inducted him in 2014, four decades after.", filter: "multi" },
+  { name: "Buck Leonard", halls: { cooperstown: 1972, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Monte Irvin", halls: { cooperstown: 1973, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Irvin in 1964, nine years before Cooperstown. He played in the Mexican League in 1942.", filter: "multi" },
+  { name: "Ray Dandridge", halls: { cooperstown: 1987, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Dandridge in 1964. Cooperstown did not follow until 1987, a 23-year lag. Dandridge played in the Mexican League from 1940 to 1948.", filter: "multi" },
+  { name: "Willie Wells", halls: { cooperstown: 1997, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Oscar Charleston", halls: { cooperstown: 1976, cuba: 2014, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuba inducted Charleston in 2014, thirty-eight years after Cooperstown. Charleston barnstormed in Cuba during the 1920s.", filter: "multi" },
+  { name: "Turkey Stearnes", halls: { cooperstown: 2000, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Willard Brown", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: 2001, dominican: null, venezuela: null, puertorico: 2002 }, annotated: true, annotation: "Brown was in the Caribbean and Puerto Rico halls before Cooperstown inducted him. He won the first Caribbean Series batting title in 1949 playing for Santurce.", filter: "multi" },
+  { name: "Wilmer Fields", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2003, dominican: null, venezuela: 1965, puertorico: null }, annotated: true, annotation: "Inducted into the Venezuelan Hall in 1965 and the Caribbean Hall in 2003. Never inducted into Cooperstown. Fields played 13 seasons in Venezuela.", filter: "not-cooperstown" },
+  { name: "Alejandro Oms", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "In the Cuban Hall since 1939 but never inducted into Cooperstown. Oms was one of the greatest hitters in Cuban baseball history.", filter: "not-cooperstown" },
+  { name: "Silvio Garcia", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" },
+  { name: "Leon Day", halls: { cooperstown: 1995, cuba: null, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Mexico inducted Day in 1964. Cooperstown followed in 1995, a 31-year lag.", filter: "multi" },
+  { name: "Rube Foster", halls: { cooperstown: 1981, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Bullet Rogan", halls: { cooperstown: 1998, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Mule Suttles", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Biz Mackey", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Pop Lloyd", halls: { cooperstown: 1977, cuba: 2014, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Pop Lloyd played extensively in Cuba. The Cuban Hall inducted him in 2014, thirty-seven years after Cooperstown.", filter: "multi" },
+  { name: "Judy Johnson", halls: { cooperstown: 1975, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Hilton Smith", halls: { cooperstown: 2001, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Andy Cooper", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Ray Brown", halls: { cooperstown: 2006, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "cooperstown-only" },
+  { name: "Luis Tiant Sr.", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: true, annotation: "Cuban Hall class of 1939 and Mexican Hall class of 1964. Never inducted into Cooperstown. Tiant was one of Cuba's greatest left-handed pitchers.", filter: "not-cooperstown" },
+  { name: "Tetelo Vargas", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2001, dominican: 1956, venezuela: null, puertorico: null }, annotated: true, annotation: "Dominican Republic's premier outfielder. In the Dominican Hall since 1956 and the Caribbean Hall since 2001. Never considered for Cooperstown.", filter: "not-cooperstown" },
+  { name: "Ramon Bragana", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" },
+  { name: "Lazaro Salazar", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, annotated: false, annotation: "", filter: "not-cooperstown" }
+];
+
+/* ======================================================================
+   DATA -- TRAJECTORIES
+   ====================================================================== */
+
+var TRAJECTORIES = [
+  {
+    name: "Martin Dihigo",
+    born: 1906,
+    died: 1971,
+    careerStart: 1923,
+    careerEnd: 1945,
+    inductions: [
+      { hall: "cuba", year: 1951 },
+      { hall: "mexico", year: 1964 },
+      { hall: "cooperstown", year: 1977 },
+      { hall: "venezuela", year: 1989 },
+      { hall: "dominican", year: 2002 }
+    ],
+    hallCount: 5,
+    note: "Dihigo played in Cuba, the Negro Leagues, Mexico, Venezuela, and the Dominican Republic. Five institutions have honored him. His career was visible across the hemisphere. The institutional recognition followed the geography of his career."
+  },
+  {
+    name: "Cool Papa Bell",
+    born: 1903,
+    died: 1991,
+    careerStart: 1922,
+    careerEnd: 1946,
+    inductions: [
+      { hall: "mexico", year: 1964 },
+      { hall: "cooperstown", year: 1974 },
+      { hall: "cuba", year: 2014 }
+    ],
+    hallCount: 3,
+    note: "Bell played in Mexico and Cuba during the winters. Mexico inducted him twenty years before his death. Cuba added him posthumously in 2014. Three halls recognized what one career produced."
+  },
+  {
+    name: "Josh Gibson",
+    born: 1911,
+    died: 1947,
+    careerStart: 1930,
+    careerEnd: 1946,
+    inductions: [
+      { hall: "cooperstown", year: 1972 }
+    ],
+    hallCount: 1,
+    note: "Gibson played winter ball in Cuba, Mexico, Puerto Rico, and the Dominican Republic. He is in Cooperstown. He is not in any other hall. Five peer-hall columns are empty. The chapter records this pattern without asserting what should be done about it."
+  }
+];
+
+/* ======================================================================
+   DATA -- HALL PROFILES
+   ====================================================================== */
+
+var HALL_PROFILES = [
+  { flag: "", name: "National Baseball Hall of Fame", location: "Cooperstown, New York", founded: 1936, totalInductees: 345, negroLeaguesCount: 35, process: "Classic Baseball Era Committee considers a ballot every two to three years. A 75% vote threshold is required for induction. The committee composition has varied over time.", notables: ["Josh Gibson (1972)", "Satchel Paige (1971)", "Martin Dihigo (1977)"] },
+  { flag: "", name: "Cuban Baseball Hall of Fame", location: "Havana, Cuba", founded: 1939, totalInductees: 74, negroLeaguesCount: 18, process: "Originally selected through sportswriter vote. Halted after the 1961 revolution. Resumed inducting members in 2014 with new selections by the Cuban Baseball Federation.", notables: ["Jose Mendez (1939)", "Cristobal Torriente (1939)", "Martin Dihigo (1951)"] },
+  { flag: "", name: "Mexican Baseball Hall of Fame", location: "Monterrey, Nuevo Leon", founded: 1939, totalInductees: 216, negroLeaguesCount: 12, process: "Annual elections coordinated originally through newspaper coupons by sportswriter Alejandro Aguilar Reyes. Now conducted by the Mexican Baseball Federation. New $18.3M building opened in Fundidora Park, 2019.", notables: ["Martin Dihigo (1964)", "Cool Papa Bell (1964)", "Ray Dandridge (1964)"] },
+  { flag: "", name: "Caribbean Baseball Hall of Fame", location: "Multi-country", founded: 1996, totalInductees: 118, negroLeaguesCount: 6, process: "Annual voting during the Caribbean Series by members of the Caribbean Professional Baseball Confederation. Honors Caribbean Series performance rather than lifetime career.", notables: ["Willard Brown (2001)", "Wilmer Fields (2003)", "Tetelo Vargas (2001)"] },
+  { flag: "", name: "Dominican Republic Sports Hall of Fame", location: "Santo Domingo", founded: 1963, totalInductees: 98, negroLeaguesCount: 4, process: "Selection by the Dominican Republic Olympic Committee and sports federation representatives. Covers all sports; baseball inductees are a subset of a broader national recognition.", notables: ["Tetelo Vargas (1956)", "Martin Dihigo (2002)"] },
+  { flag: "", name: "Venezuelan Baseball Hall of Fame", location: "Valencia, Venezuela", founded: 1948, totalInductees: 103, negroLeaguesCount: 5, process: "Annual selection by Venezuelan baseball journalists and federation officials. Covers players who competed in the Venezuelan professional winter league.", notables: ["Wilmer Fields (1965)", "Martin Dihigo (1989)"] },
+  { flag: "", name: "Puerto Rico Sports Hall of Fame", location: "San Juan", founded: 1956, totalInductees: 112, negroLeaguesCount: 3, process: "Selection by the Puerto Rico Olympic Committee. Covers all sports; baseball inductees recognized for contribution to Puerto Rican professional baseball.", notables: ["Willard Brown (2002)"] }
+];
+
+/* ======================================================================
+   DATA -- SLATE CROSS-REFERENCE (Chapter 11 candidates)
+   ====================================================================== */
+
+var SLATE_CANDIDATES = [
+  { name: "Alejandro Oms", position: "OF", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Wilmer Fields", position: "3B/P", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2003, dominican: null, venezuela: 1965, puertorico: null }, peerCount: 2 },
+  { name: "Luis Tiant Sr.", position: "P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Tetelo Vargas", position: "OF", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: 2001, dominican: 1956, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Ramon Bragana", position: "P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Lazaro Salazar", position: "OF/P", halls: { cooperstown: null, cuba: 1939, mexico: 1964, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 2 },
+  { name: "Silvio Garcia", position: "SS", halls: { cooperstown: null, cuba: 1939, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 1 },
+  { name: "Dick Lundy", position: "SS", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 },
+  { name: "Dobie Moore", position: "SS", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 },
+  { name: "Hurley McNair", position: "OF", halls: { cooperstown: null, cuba: null, mexico: null, caribbean: null, dominican: null, venezuela: null, puertorico: null }, peerCount: 0 }
+];
+
+/* ======================================================================
+   UTILITIES
+   ====================================================================== */
+
+function decadeClass(year) {
+  if (!year) return "";
+  var decade = Math.floor(year / 10) * 10;
+  return "matrix__cell--d" + decade;
+}
+
+function decadeColor(year) {
+  if (!year) return "var(--muted-2)";
+  var map = {
+    1930: "var(--moss)", 1940: "var(--slate)", 1950: "var(--bronze)",
+    1960: "var(--tan)", 1970: "var(--amber)", 1980: "var(--amber-2)",
+    1990: "var(--vellum-dim)", 2000: "var(--oxblood)", 2010: "var(--slate)",
+    2020: "var(--moss)"
+  };
+  return map[Math.floor(year / 10) * 10] || "var(--muted)";
+}
+
+var DECADE_LEGEND = [
+  { label: "1930s", color: "var(--moss)" },
+  { label: "1940s", color: "var(--slate)" },
+  { label: "1950s", color: "var(--bronze)" },
+  { label: "1960s", color: "var(--tan)" },
+  { label: "1970s", color: "var(--amber)" },
+  { label: "1980s", color: "var(--amber-2)" },
+  { label: "1990s", color: "var(--vellum-dim)" },
+  { label: "2000s", color: "var(--oxblood)" },
+  { label: "2010s", color: "var(--slate)" }
+];
+
+/* ======================================================================
+   FIG 01 -- THE MATRIX (Table + Cards)
+   ====================================================================== */
+
+(function() {
+  var tbody = document.getElementById("matrix-tbody");
+  var cardsContainer = document.getElementById("matrix-cards");
+  var legendContainer = document.getElementById("matrix-legend");
+  var activeFilter = "all";
+
+  function matchesFilter(player) {
+    if (activeFilter === "all") return true;
+    return player.filter === activeFilter;
+  }
+
+  function renderTable() {
+    var html = "";
+    PLAYERS.forEach(function(p) {
+      if (!matchesFilter(p)) return;
+      var rowClass = p.annotated ? "matrix__player-name matrix__player-name--annotated" : "matrix__player-name";
+      html += '<tr>';
+      html += '<td class="' + rowClass + '"';
+      if (p.annotated) {
+        html += ' tabindex="0" role="button" aria-label="' + p.name + ' -- click for details" data-annotation="' + p.annotation.replace(/"/g, '&quot;') + '"';
+      }
+      html += '>' + p.name + '</td>';
+      HALL_KEYS.forEach(function(hk) {
+        var year = p.halls[hk];
+        if (year) {
+          html += '<td class="matrix__cell--inducted ' + decadeClass(year) + '">' + year + '</td>';
+        } else {
+          html += '<td class="matrix__cell--empty">--</td>';
+        }
+      });
+      html += '</tr>';
+    });
+    tbody.innerHTML = html;
+
+    // Attach annotation handlers
+    tbody.querySelectorAll("[data-annotation]").forEach(function(el) {
+      el.addEventListener("click", function(e) {
+        showAnnotation(el, e);
+      });
+      el.addEventListener("keydown", function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          showAnnotation(el, e);
+        }
+      });
+    });
+  }
+
+  function renderCards() {
+    var html = "";
+    PLAYERS.forEach(function(p) {
+      if (!matchesFilter(p)) return;
+      html += '<div class="matrix__card" role="listitem">';
+      html += '<div class="matrix__card-name">' + p.name + '</div>';
+      html += '<div class="matrix__card-halls">';
+      HALL_KEYS.forEach(function(hk) {
+        var year = p.halls[hk];
+        html += '<div class="matrix__card-hall">';
+        html += '<div class="matrix__card-hall-name">' + HALL_ABBREVS[hk] + '</div>';
+        if (year) {
+          html += '<div class="matrix__card-hall-year matrix__card-hall-year--inducted" style="color:' + decadeColor(year) + '">' + year + '</div>';
+        } else {
+          html += '<div class="matrix__card-hall-year matrix__card-hall-year--empty">--</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div>';
+      if (p.annotated && p.annotation) {
+        html += '<div style="font-family:var(--serif);font-size:13px;color:var(--vellum-dim);margin-top:10px;line-height:1.45">' + p.annotation + '</div>';
+      }
+      html += '</div>';
+    });
+    cardsContainer.innerHTML = html;
+  }
+
+  function renderLegend() {
+    var html = "";
+    DECADE_LEGEND.forEach(function(d) {
+      html += '<div class="matrix__legend-item">';
+      html += '<div class="matrix__legend-swatch" style="background:' + d.color + '"></div>';
+      html += '<div class="matrix__legend-label">' + d.label + '</div>';
+      html += '</div>';
+    });
+    legendContainer.innerHTML = html;
+  }
+
+  function render() {
+    renderTable();
+    renderCards();
+  }
+
+  // Filter buttons
+  document.querySelectorAll(".matrix__filter-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      activeFilter = btn.getAttribute("data-filter");
+      document.querySelectorAll(".matrix__filter-btn").forEach(function(b) {
+        b.classList.remove("matrix__filter-btn--active");
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.add("matrix__filter-btn--active");
+      btn.setAttribute("aria-pressed", "true");
+      render();
+    });
+  });
+
+  // Annotation popup
+  var annotationEl = document.createElement("div");
+  annotationEl.className = "matrix__annotation";
+  annotationEl.setAttribute("role", "tooltip");
+  annotationEl.setAttribute("id", "matrix-annotation-tooltip");
+  document.body.appendChild(annotationEl);
+
+  function showAnnotation(el, e) {
+    var text = el.getAttribute("data-annotation");
+    var name = el.textContent;
+    annotationEl.innerHTML = '<div class="matrix__annotation-name">' + name + '</div>' + text;
+    annotationEl.classList.add("matrix__annotation--visible");
+
+    var rect = el.getBoundingClientRect();
+    var top = rect.bottom + window.scrollY + 8;
+    var left = rect.left + window.scrollX;
+    if (left + 320 > window.innerWidth) {
+      left = window.innerWidth - 340;
+    }
+    if (left < 10) left = 10;
+    annotationEl.style.top = top + "px";
+    annotationEl.style.left = left + "px";
+  }
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest("[data-annotation]") && !e.target.closest(".matrix__annotation")) {
+      annotationEl.classList.remove("matrix__annotation--visible");
+    }
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      annotationEl.classList.remove("matrix__annotation--visible");
+    }
+  });
+
+  renderLegend();
+  render();
+})();
+
+/* ======================================================================
+   FIG 02 -- LAG DISTRIBUTION
+   ====================================================================== */
+
+(function() {
+  // Compute lags
+  var lags = [];
+  PLAYERS.forEach(function(p) {
+    var coopYear = p.halls.cooperstown;
+    if (!coopYear) return;
+    var earliestOther = null;
+    var earliestHall = null;
+    HALL_KEYS.forEach(function(hk) {
+      if (hk === "cooperstown") return;
+      var yr = p.halls[hk];
+      if (yr && (earliestOther === null || yr < earliestOther)) {
+        earliestOther = yr;
+        earliestHall = hk;
+      }
+    });
+    if (earliestOther !== null) {
+      lags.push({
+        name: p.name,
+        cooperstown: coopYear,
+        earliest: earliestOther,
+        earliestHall: earliestHall,
+        lag: coopYear - earliestOther
+      });
+    }
+  });
+
+  lags.sort(function(a, b) { return b.lag - a.lag; });
+
+  if (lags.length === 0) return;
+
+  // Stats
+  var lagValues = lags.map(function(l) { return l.lag; });
+  var sorted = lagValues.slice().sort(function(a, b) { return a - b; });
+  var medianIdx = Math.floor(sorted.length / 2);
+  var median = sorted.length % 2 === 0 ? Math.round((sorted[medianIdx - 1] + sorted[medianIdx]) / 2) : sorted[medianIdx];
+  var mean = Math.round(lagValues.reduce(function(s, v) { return s + v; }, 0) / lagValues.length);
+  var maxLag = lags[0];
+  var over25 = lagValues.filter(function(v) { return v >= 25; }).length;
+
+  document.getElementById("lag-median").textContent = median;
+  document.getElementById("lag-mean").textContent = mean;
+  document.getElementById("lag-max").textContent = maxLag.lag;
+  document.getElementById("lag-max-player").textContent = maxLag.name + ": " + HALL_LABELS[maxLag.earliestHall] + " " + maxLag.earliest + ", Cooperstown " + maxLag.cooperstown;
+  document.getElementById("lag-count-25").textContent = over25;
+
+  // Histogram
+  var svg = document.getElementById("lag-chart-svg");
+  var ns = "http://www.w3.org/2000/svg";
+  var W = 800, H = 320;
+  var M = { t: 30, r: 30, b: 60, l: 60 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+
+  function el(tag, attrs) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    svg.appendChild(e);
+    return e;
+  }
+
+  // Bin lags by decade: 0-10, 11-20, 21-30, 31-40, 41-50, 51-60, 61-70
+  var bins = [
+    { label: "0--10", min: 0, max: 10, count: 0, players: [] },
+    { label: "11--20", min: 11, max: 20, count: 0, players: [] },
+    { label: "21--30", min: 21, max: 30, count: 0, players: [] },
+    { label: "31--40", min: 31, max: 40, count: 0, players: [] },
+    { label: "41--50", min: 41, max: 50, count: 0, players: [] },
+    { label: "51--60", min: 51, max: 60, count: 0, players: [] },
+    { label: "61--70", min: 61, max: 70, count: 0, players: [] }
+  ];
+
+  lags.forEach(function(l) {
+    bins.forEach(function(b) {
+      if (l.lag >= b.min && l.lag <= b.max) {
+        b.count++;
+        b.players.push(l.name);
+      }
+    });
+  });
+
+  var maxCount = Math.max.apply(null, bins.map(function(b) { return b.count; }));
+  if (maxCount === 0) maxCount = 1;
+
+  var barW = Math.floor(innerW / bins.length) - 8;
+  var gap = 8;
+
+  // Axis
+  el("line", { x1: M.l, x2: M.l, y1: M.t, y2: M.t + innerH, stroke: "var(--rule)", "stroke-width": 1 });
+  el("line", { x1: M.l, x2: M.l + innerW, y1: M.t + innerH, y2: M.t + innerH, stroke: "var(--rule)", "stroke-width": 1 });
+
+  // Y gridlines
+  var yTicks = [];
+  for (var i = 0; i <= maxCount; i++) { yTicks.push(i); }
+  yTicks.forEach(function(v) {
+    var y = M.t + innerH - (v / maxCount) * innerH;
+    el("line", { x1: M.l, x2: M.l + innerW, y1: y, y2: y, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    el("text", { x: M.l - 10, y: y + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", text: String(v) });
+  });
+
+  // Bars
+  bins.forEach(function(b, idx) {
+    var x = M.l + idx * (barW + gap) + gap / 2;
+    var barH = b.count > 0 ? (b.count / maxCount) * innerH : 0;
+    var y = M.t + innerH - barH;
+
+    if (b.count > 0) {
+      var isMax = b.players.indexOf(maxLag.name) >= 0;
+      el("rect", {
+        x: x, y: y, width: barW, height: barH,
+        fill: isMax ? "var(--oxblood)" : "var(--amber)",
+        opacity: isMax ? 0.9 : 0.7,
+        rx: 1
+      });
+
+      // Count label
+      el("text", { x: x + barW / 2, y: y - 8, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 11, fill: "var(--vellum)", text: String(b.count) });
+    }
+
+    // X label
+    el("text", { x: x + barW / 2, y: M.t + innerH + 20, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", text: b.label });
+  });
+
+  // X axis label
+  el("text", { x: M.l + innerW / 2, y: H - 10, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "LAG (YEARS)" });
+
+  // Y axis label
+  var yLabel = el("text", { x: M.l - 40, y: M.t + innerH / 2, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "PLAYERS" });
+  yLabel.setAttribute("transform", "rotate(-90 " + (M.l - 40) + " " + (M.t + innerH / 2) + ")");
+
+  // Median line
+  var medianBinIdx = bins.findIndex(function(b) { return median >= b.min && median <= b.max; });
+  if (medianBinIdx >= 0) {
+    var medX = M.l + medianBinIdx * (barW + gap) + gap / 2 + barW / 2;
+    el("line", { x1: medX, x2: medX, y1: M.t, y2: M.t + innerH, stroke: "var(--amber-2)", "stroke-width": 1.5, "stroke-dasharray": "4 4" });
+    el("text", { x: medX, y: M.t - 6, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--amber-2)", "letter-spacing": "0.08em", text: "MEDIAN: " + median + " YRS" });
+  }
+
+  // Max annotation
+  var maxBinIdx = bins.findIndex(function(b) { return maxLag.lag >= b.min && maxLag.lag <= b.max; });
+  if (maxBinIdx >= 0) {
+    var maxX = M.l + maxBinIdx * (barW + gap) + gap / 2 + barW / 2;
+    var maxBinH = (bins[maxBinIdx].count / maxCount) * innerH;
+    var maxY = M.t + innerH - maxBinH;
+    el("text", { x: maxX, y: maxY - 24, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--oxblood)", "letter-spacing": "0.06em", text: maxLag.name.toUpperCase() });
+    el("text", { x: maxX, y: maxY - 12, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--oxblood)", text: maxLag.lag + " YEARS" });
+  }
+
+  // Pairwise selector
+  var pairSelect = document.getElementById("pair-select");
+  var pairDetail = document.getElementById("pair-detail");
+
+  function computePairLags(hallA, hallB) {
+    var pairLags = [];
+    PLAYERS.forEach(function(p) {
+      var yrA = p.halls[hallA];
+      var yrB = p.halls[hallB];
+      if (yrA && yrB) {
+        pairLags.push({ name: p.name, lag: yrA - yrB, yearA: yrA, yearB: yrB });
+      }
+    });
+    return pairLags;
+  }
+
+  pairSelect.addEventListener("change", function() {
+    var val = pairSelect.value;
+    var parts = val.split("-");
+    // Parse hall names from value like "cooperstown-cuba"
+    var hallA, hallB;
+    if (val === "cooperstown-cuba") { hallA = "cooperstown"; hallB = "cuba"; }
+    else if (val === "cooperstown-mexico") { hallA = "cooperstown"; hallB = "mexico"; }
+    else if (val === "cooperstown-caribbean") { hallA = "cooperstown"; hallB = "caribbean"; }
+    else if (val === "cuba-mexico") { hallA = "cuba"; hallB = "mexico"; }
+
+    var pl = computePairLags(hallA, hallB);
+    if (pl.length === 0) {
+      pairDetail.innerHTML = '<p style="font-size:14px;color:var(--muted)">No players found in both halls.</p>';
+      return;
+    }
+    var html = '<p style="font-size:14px;color:var(--vellum-dim)"><strong>' + pl.length + ' players</strong> inducted into both ' + HALL_LABELS[hallA] + ' and ' + HALL_LABELS[hallB] + ':</p>';
+    pl.sort(function(a, b) { return Math.abs(b.lag) - Math.abs(a.lag); });
+    pl.forEach(function(item) {
+      var direction = item.lag > 0 ? HALL_LABELS[hallA] + " later by " + Math.abs(item.lag) + " years" : item.lag < 0 ? HALL_LABELS[hallB] + " later by " + Math.abs(item.lag) + " years" : "Same year";
+      html += '<p style="font-size:13px;color:var(--vellum-dim);margin-bottom:6px"><span style="color:var(--vellum)">' + item.name + '</span>: ' + HALL_LABELS[hallA] + ' ' + item.yearA + ', ' + HALL_LABELS[hallB] + ' ' + item.yearB + ' -- ' + direction + '</p>';
+    });
+    pairDetail.innerHTML = html;
+  });
+})();
+
+/* ======================================================================
+   FIG 03 -- THREE TRAJECTORIES
+   ====================================================================== */
+
+(function() {
+  var container = document.getElementById("trajectories-container");
+  var timeMin = 1900;
+  var timeMax = 2020;
+  var timeSpan = timeMax - timeMin;
+
+  var hallColors = {
+    cooperstown: "var(--amber)",
+    cuba: "var(--moss)",
+    mexico: "var(--bronze)",
+    caribbean: "var(--slate)",
+    dominican: "var(--oxblood)",
+    venezuela: "var(--tan)",
+    puertorico: "#8e7bbf"
+  };
+
+  function pct(year) {
+    return ((year - timeMin) / timeSpan) * 100;
+  }
+
+  TRAJECTORIES.forEach(function(t) {
+    var div = document.createElement("div");
+    div.className = "trajectory";
+    div.setAttribute("role", "article");
+    div.setAttribute("aria-label", t.name + " recognition trajectory");
+
+    var headerHtml = '<div class="trajectory__header">';
+    headerHtml += '<div class="trajectory__name">' + t.name + '</div>';
+    headerHtml += '<div class="trajectory__lifespan">' + t.born + ' -- ' + t.died + '</div>';
+    headerHtml += '<div class="trajectory__hall-count">' + t.hallCount + ' hall' + (t.hallCount !== 1 ? 's' : '') + '</div>';
+    headerHtml += '</div>';
+
+    var timelineHtml = '<div class="trajectory__timeline-wrap">';
+    timelineHtml += '<div class="trajectory__timeline-line"></div>';
+
+    // Career span
+    timelineHtml += '<div class="trajectory__career-span" style="left:' + pct(t.careerStart) + '%;width:' + (pct(t.careerEnd) - pct(t.careerStart)) + '%"></div>';
+
+    // Birth / death markers
+    timelineHtml += '<div style="position:absolute;top:48px;left:' + pct(t.born) + '%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:var(--muted-2)">' + t.born + '</div>';
+    timelineHtml += '<div style="position:absolute;top:48px;left:' + pct(t.died) + '%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:var(--muted-2)">' + t.died + '</div>';
+
+    // Induction marks
+    t.inductions.forEach(function(ind) {
+      var left = pct(ind.year);
+      var color = hallColors[ind.hall] || "var(--amber)";
+      timelineHtml += '<div class="trajectory__induction-mark trajectory__induction-mark--' + ind.hall + '" style="left:' + left + '%">';
+      timelineHtml += '<div class="trajectory__induction-label">' + HALL_LABELS[ind.hall] + '</div>';
+      timelineHtml += '<div class="trajectory__induction-year" style="color:' + color + '">' + ind.year + '</div>';
+      timelineHtml += '</div>';
+    });
+
+    // If cooperstown only, show empty marks for peer halls
+    if (t.hallCount === 1) {
+      timelineHtml += '<div class="trajectory__empty-note" style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);white-space:nowrap">Five peer-hall columns empty</div>';
+    }
+
+    timelineHtml += '</div>';
+
+    var noteHtml = '<div class="trajectory__note">' + t.note + '</div>';
+
+    div.innerHTML = headerHtml + timelineHtml + noteHtml;
+    container.appendChild(div);
+  });
+})();
+
+/* ======================================================================
+   FIG 04 -- HALL PROFILES
+   ====================================================================== */
+
+(function() {
+  var grid = document.getElementById("profiles-grid");
+  var html = "";
+
+  HALL_PROFILES.forEach(function(h) {
+    html += '<article class="profile-card">';
+    html += '<div class="profile-card__name">' + h.name + '</div>';
+    html += '<div class="profile-card__location">' + h.location + ' -- Founded ' + h.founded + '</div>';
+
+    html += '<div class="profile-card__stats">';
+    html += '<div class="profile-card__stat"><div class="profile-card__stat-num">' + h.totalInductees + '</div><div class="profile-card__stat-label">Total Inductees</div></div>';
+    html += '<div class="profile-card__stat"><div class="profile-card__stat-num">' + h.negroLeaguesCount + '</div><div class="profile-card__stat-label">Negro Leagues Era</div></div>';
+    html += '</div>';
+
+    html += '<div class="profile-card__process">' + h.process + '</div>';
+
+    html += '<div class="profile-card__notables-label">Notable Negro Leagues Inductees</div>';
+    h.notables.forEach(function(n) {
+      html += '<div class="profile-card__notable">' + n + '</div>';
+    });
+
+    html += '</article>';
+  });
+
+  grid.innerHTML = html;
+})();
+
+/* ======================================================================
+   FIG 05 -- SLATE CROSS-REFERENCE
+   ====================================================================== */
+
+(function() {
+  var list = document.getElementById("slate-list");
+  var html = "";
+
+  // Sort by peer count descending
+  var sorted = SLATE_CANDIDATES.slice().sort(function(a, b) { return b.peerCount - a.peerCount; });
+
+  sorted.forEach(function(c) {
+    html += '<div class="slate__row" role="listitem">';
+    html += '<div class="slate__player">' + c.name + '</div>';
+    html += '<div class="slate__position">' + c.position + '</div>';
+    html += '<div class="slate__halls">';
+    HALL_KEYS.forEach(function(hk) {
+      if (hk === "cooperstown") return; // Skip Cooperstown for slate candidates
+      var year = c.halls[hk];
+      if (year) {
+        html += '<div class="slate__hall-cell slate__hall-cell--inducted" title="' + HALL_LABELS[hk] + ' ' + year + '">' + year + '</div>';
+      } else {
+        html += '<div class="slate__hall-cell slate__hall-cell--empty" title="' + HALL_LABELS[hk] + ': not inducted">--</div>';
+      }
+    });
+    html += '</div>';
+    html += '<div class="slate__endorsement">' + c.peerCount + ' hall' + (c.peerCount !== 1 ? 's' : '') + '</div>';
+    html += '</div>';
+  });
+
+  list.innerHTML = html;
+})();
+
+/* ======================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ====================================================================== */
+
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "matrix", "lag", "trajectories", "profiles", "slate", "tissue", "method"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ======================================================================
+   SCROLL REVEAL ANIMATION
+   ====================================================================== */
+
+(function() {
+  if (!("IntersectionObserver" in window)) return;
+
+  var revealSections = document.querySelectorAll(".matrix-section, .lag-section, .trajectories-section, .profiles-section, .slate-section, .tissue, .method-section, .citation-section");
+
+  revealSections.forEach(function(section) {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(24px)";
+    section.style.transition = "opacity 600ms ease, transform 600ms ease";
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealSections.forEach(function(section) {
+    observer.observe(section);
+  });
+})();
+
+})();
+</script>
+</body>
+</html>

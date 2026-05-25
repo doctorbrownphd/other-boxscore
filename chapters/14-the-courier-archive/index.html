@@ -1,0 +1,2802 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Courier Archive</title>
+<meta name="description" content="The Negro Leagues would not have existed without the Black press. Seventy-five years of Black baseball journalism, indexed, searchable, and made navigable as the record it has always been.">
+<meta property="og:title" content="The Other Box Score -- The Courier Archive">
+<meta property="og:description" content="The Pittsburgh Courier. The Chicago Defender. The Baltimore Afro-American. Seventy-five years of Black baseball journalism. This chapter made it navigable.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-courier-archive/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a { color: var(--muted); transition: color 0.2s; }
+.platform-nav__links a:hover { color: var(--amber); }
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.masthead__tabs::-webkit-scrollbar { display: none; }
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page Layout
+   ========================================================================== */
+
+.page { max-width: 1200px; margin: 0 auto; }
+
+.section {
+  padding: 56px 40px 72px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Section heads */
+.section-head { margin-bottom: 36px; }
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+/* Body prose */
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+
+/* Mono / display utilities */
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+
+/* ==========================================================================
+   4. Stat Row (Hook)
+   ========================================================================== */
+
+.stat-row__grid {
+  margin-top: 32px;
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-row__grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.stat-row__item {
+  padding: 24px 22px;
+  border-right: 1px solid var(--rule);
+}
+
+.stat-row__item:last-child { border-right: none; }
+
+.stat-row__num {
+  font-family: var(--mono);
+  font-size: 32px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat-row__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.stat-row__note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. Corpus Timeline (Fig 01)
+   ========================================================================== */
+
+.timeline-section { padding: 56px 40px 72px; border-bottom: 1px solid var(--rule); }
+
+.timeline__chart-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline__chart-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.timeline__toggle {
+  display: flex;
+  gap: 0;
+  margin-top: 16px;
+  border: 1px solid var(--rule);
+  width: fit-content;
+}
+
+.timeline__toggle-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.timeline__toggle-btn:hover { color: var(--vellum-dim); }
+
+.timeline__toggle-btn--active {
+  background: rgba(212,166,74,0.12);
+  color: var(--amber);
+}
+
+.timeline__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.timeline__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.timeline__legend-swatch {
+  width: 12px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+/* ==========================================================================
+   6. Corpus Search (Fig 02)
+   ========================================================================== */
+
+.search-section {
+  padding: 56px 40px 72px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.search__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.search__sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.search__filter-group {
+  margin-bottom: 24px;
+}
+
+.search__filter-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.search__filter-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  cursor: pointer;
+}
+
+.search__filter-check input[type="checkbox"] {
+  accent-color: var(--amber);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.search__filter-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  margin: 0 4px 6px 0;
+}
+
+.search__filter-tag:hover { color: var(--vellum-dim); border-color: var(--muted-2); }
+.search__filter-tag--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+.search__date-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+}
+
+.search__date-input {
+  width: 60px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  color: var(--vellum-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 6px;
+  text-align: center;
+}
+
+.search__date-input:focus { border-color: var(--amber); outline: none; }
+
+.search__input-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search__input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: var(--ink-2);
+  border: 2px solid var(--rule);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.4;
+  transition: border-color 0.2s;
+}
+
+.search__input:focus {
+  border-color: var(--amber);
+  outline: none;
+}
+
+.search__input::placeholder {
+  color: var(--muted-2);
+  font-style: italic;
+}
+
+.search__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.search__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.search__chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--vellum-dim);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.search__chip:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.06);
+}
+
+.search__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.search__sort-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.search__sort-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.search__sort-btn:hover { color: var(--vellum-dim); }
+.search__sort-btn--active { color: var(--amber); border-color: var(--amber); }
+
+.search__count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.search__results { display: flex; flex-direction: column; gap: 16px; }
+
+/* Result card */
+.result-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+
+.result-card:hover { border-color: var(--muted-2); }
+
+.result-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.result-card__pub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  background: rgba(212,166,74,0.1);
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.result-card__date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.result-card__author {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+}
+
+.result-card__title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--vellum);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.result-card__excerpt {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.result-card__excerpt mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 1px 3px;
+}
+
+.result-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.result-card__tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.result-card__player {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  cursor: pointer;
+}
+
+.result-card__player:hover { color: var(--amber-2); }
+
+.result-card__access {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--amber);
+  margin-left: auto;
+}
+
+.search__empty {
+  padding: 64px 24px;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   7. Three Writers (Fig 03)
+   ========================================================================== */
+
+.writers-section { padding: 56px 40px 72px; border-bottom: 1px solid var(--rule); }
+
+.writer {
+  margin-bottom: 72px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.writer:last-child { margin-bottom: 0; }
+
+.writer__bio { position: sticky; top: 100px; }
+
+.writer__name {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--vellum);
+  margin-bottom: 6px;
+}
+
+.writer__pub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.writer__years {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.writer__text {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.writer__awards {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.writer__award {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.writer__search-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.writer__search-link:hover { background: rgba(212,166,74,0.1); }
+
+.writer__excerpts { display: flex; flex-direction: column; gap: 24px; }
+
+.excerpt-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  border-left: 3px solid var(--amber);
+}
+
+.excerpt-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.excerpt-card__date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.excerpt-card__title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--vellum);
+  line-height: 1.3;
+}
+
+.excerpt-card__text {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  margin-top: 10px;
+  padding-left: 16px;
+  border-left: 1px solid var(--rule);
+}
+
+.excerpt-card__note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   8. Box Score Recovery (Fig 04)
+   ========================================================================== */
+
+.recovery-section { padding: 56px 40px 72px; border-bottom: 1px solid var(--rule); }
+
+.recovery__note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 800px;
+  padding: 16px 20px;
+  border: 1px solid rgba(212,166,74,0.2);
+  background: rgba(212,166,74,0.04);
+  margin-bottom: 32px;
+}
+
+.recovery__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.recovery__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+  min-width: 900px;
+}
+
+.recovery__table th {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--rule);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.recovery__table th:hover { color: var(--vellum-dim); }
+.recovery__table th--sorted { color: var(--amber); }
+.recovery__table th .sort-arrow { font-size: 8px; margin-left: 4px; }
+
+.recovery__table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--vellum-dim);
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.recovery__table tr:hover td { background: rgba(212,166,74,0.03); }
+
+.recovery__status {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.recovery__status--review { color: var(--bronze); border: 1px solid var(--bronze); }
+.recovery__status--gap { color: var(--oxblood); border: 1px solid var(--oxblood); }
+.recovery__status--submitted { color: var(--moss); border: 1px solid var(--moss); }
+
+.recovery__footer {
+  margin-top: 32px;
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Mobile card view for recovery table */
+.recovery__cards { display: none; }
+
+.recovery__card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.recovery__card-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.recovery__card-teams {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum);
+  margin-bottom: 8px;
+}
+
+.recovery__card-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   9. Newspaper Map (Fig 05)
+   ========================================================================== */
+
+.map-section { padding: 56px 40px 72px; border-bottom: 1px solid var(--rule); }
+
+.map__wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 32px auto 0;
+}
+
+.map__svg-wrap {
+  width: 100%;
+  overflow: visible;
+}
+
+.map__svg-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map__tooltip {
+  position: absolute;
+  display: none;
+  background: var(--ink-2);
+  border: 1px solid var(--amber);
+  padding: 14px 18px;
+  max-width: 260px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.map__tooltip-name {
+  font-family: var(--display);
+  font-size: 16px;
+  color: var(--vellum);
+  margin-bottom: 4px;
+}
+
+.map__tooltip-city {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.map__tooltip-row {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  margin-bottom: 3px;
+}
+
+.map__tooltip-row span { color: var(--amber); }
+
+.map__migration-legend {
+  margin-top: 16px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.map__migration-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   10. Methodology
+   ========================================================================== */
+
+.method-section { padding: 56px 40px 72px; border-bottom: 1px solid var(--rule); }
+
+.method__cards { display: flex; flex-direction: column; gap: 16px; }
+
+.method-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+.method-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.method-card__header:hover { background: rgba(212,166,74,0.03); }
+
+.method-card__name {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+}
+
+.method-card__model {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.method-card__toggle {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.method-card--open .method-card__toggle { transform: rotate(45deg); }
+
+.method-card__body {
+  display: none;
+  padding: 0 24px 24px;
+}
+
+.method-card--open .method-card__body { display: block; }
+
+.method-card__section {
+  margin-bottom: 16px;
+}
+
+.method-card__section-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.method-card__section-text {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   11. Coda
+   ========================================================================== */
+
+.coda-section {
+  padding: 72px 40px 96px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.coda__text {
+  max-width: 640px;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--vellum);
+  margin-bottom: 24px;
+}
+
+.coda__tissue {
+  max-width: 640px;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--vellum-dim);
+  margin-top: 48px;
+  padding: 24px;
+  border-left: 3px solid var(--amber);
+  background: rgba(212,166,74,0.03);
+}
+
+.coda__citations {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__cite-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.coda__cite-block {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+.coda__source-list {
+  margin-top: 32px;
+}
+
+.coda__source-group {
+  margin-bottom: 24px;
+}
+
+.coda__source-group-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+
+.coda__source-item {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  margin-bottom: 6px;
+  padding-left: 12px;
+  border-left: 1px solid var(--rule);
+}
+
+/* ==========================================================================
+   12. Scroll Reveal
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   13. Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .masthead__inner { padding: 32px 24px 0; }
+  .section { padding: 40px 24px 56px; }
+  .timeline-section, .search-section, .writers-section,
+  .recovery-section, .map-section, .method-section, .coda-section {
+    padding-left: 24px; padding-right: 24px;
+  }
+  .writer { grid-template-columns: 240px 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 0;
+  }
+  .masthead__meta { text-align: left; min-width: 0; }
+  .masthead__title { font-size: 48px; }
+  .masthead__tabs { padding: 0 20px; }
+  .masthead__tab { padding: 12px 14px; font-size: 9px; }
+
+  .section { padding: 32px 20px 48px; }
+  .timeline-section, .search-section, .writers-section,
+  .recovery-section, .map-section, .method-section, .coda-section {
+    padding-left: 20px; padding-right: 20px;
+  }
+
+  .stat-row__grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .stat-row__item { border-bottom: 1px solid var(--rule); }
+
+  .search__layout { grid-template-columns: 1fr; }
+  .search__sidebar { position: static; }
+
+  .writer { grid-template-columns: 1fr; gap: 24px; }
+  .writer__bio { position: static; }
+
+  .recovery__table-wrap { display: none; }
+  .recovery__cards { display: block; }
+
+  .coda__text { font-size: 17px; }
+}
+
+@media (max-width: 480px) {
+  .masthead__title { font-size: 36px; }
+  .section-head__title { font-size: 28px; }
+  .search__input { font-size: 16px; padding: 12px 14px 12px 38px; }
+  .result-card { padding: 16px; }
+  .result-card__title { font-size: 17px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ======================================================================
+     PLATFORM NAV
+     ====================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <a href="https://theotherboxscore.org/chapters/">Chapters</a>
+    <span class="platform-nav__sep">/</span>
+    <span style="color:var(--amber)">14</span>
+  </div>
+</nav>
+
+<!-- ======================================================================
+     MASTHEAD
+     ====================================================================== -->
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div>
+      <div class="masthead__part">Part Five -- What Remains</div>
+      <div class="mono" style="font-size:11px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase">Chapter 14 of 15</div>
+      <h1 class="masthead__title">The Courier<br><em>Archive</em></h1>
+      <p class="masthead__subtitle">The mainstream white press did not cover Negro Leagues baseball. The Black press did, with discipline, commitment, and advocacy journalism that drove the integration of the game. Seventy-five years of that record, indexed and made navigable.</p>
+    </div>
+    <div></div>
+    <div class="masthead__meta">
+      <div>PART FIVE</div>
+      <div class="masthead__meta-line">WHAT REMAINS</div>
+      <div class="masthead__meta-line">1920 -- 1975</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">10 PUBLICATIONS</div>
+      <div class="masthead__meta-line">75 YEARS</div>
+    </div>
+  </div>
+
+  <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">
+    <a class="masthead__tab masthead__tab--active" href="#hook" role="tab">The Hook</a>
+    <a class="masthead__tab" href="#corpus-timeline" role="tab">Corpus Timeline</a>
+    <a class="masthead__tab" href="#search" role="tab">Search</a>
+    <a class="masthead__tab" href="#writers" role="tab">Three Writers</a>
+    <a class="masthead__tab" href="#recovery" role="tab">Box Score Recovery</a>
+    <a class="masthead__tab" href="#newspaper-map" role="tab">Newspaper Map</a>
+    <a class="masthead__tab" href="#method" role="tab">Method</a>
+    <a class="masthead__tab" href="#coda" role="tab">Coda</a>
+  </nav>
+</header>
+
+<!-- ======================================================================
+     A. THE HOOK
+     ====================================================================== -->
+
+<main class="page">
+
+<section id="hook" class="section" aria-label="The Hook">
+  <div class="section-head reveal">
+    <div class="section-head__fig">The Hook</div>
+    <h2 class="section-head__title">The Negro Leagues Would Not Have Existed <em>Without the Black Press</em></h2>
+  </div>
+
+  <div class="body-prose reveal">
+    <p class="lede">Leslie Heaphy, Kent State University history professor and one of the foremost scholars of Black baseball, said it directly in her 2016 Hall of Fame interview: the Negro Leagues would not have existed without the Black press. That is not metaphor. It is institutional fact.</p>
+
+    <p>The Pittsburgh Courier was the most widely read Black newspaper in the United States by the late 1930s. At its peak in 1947, it reached a circulation of 330,000 and represented a two-million-dollar enterprise. It operated twelve branches and published fourteen editions. It covered the Homestead Grays home games. It ran box scores. Wendell Smith wrote columns arguing for integration, roomed with Jackie Robinson during the 1946 Montreal season, and later became the first Black writer to receive the J.G. Taylor Spink Award for baseball writing. Sam Lacy, at the Baltimore Afro-American, became the first Black member of the Baseball Writers' Association of America. He received his own Spink Award in 1997. He was 99 when he died in 2003.</p>
+
+    <p>The mainstream press covered baseball. The Black press covered Black baseball, and then built the argument that ended the separation. That journalism is not a footnote. It is a record. Seventy-five years, ten major publications, hundreds of writers. They printed the box scores. They followed the seasons, the players, the politics, the East-West game, the Caribbean tours, the governance disputes. They did this while being denied credentials, denied press box access, denied the resources their white counterparts took for granted. This chapter is that record, made navigable.</p>
+  </div>
+
+  <div class="stat-row__grid stat-row__grid--4 reveal" style="margin-top:48px">
+    <div class="stat-row__item">
+      <div class="stat-row__num">10</div>
+      <div class="stat-row__label">Publications</div>
+      <div class="stat-row__note">Major Black press outlets in corpus</div>
+    </div>
+    <div class="stat-row__item">
+      <div class="stat-row__num">75</div>
+      <div class="stat-row__label">Years</div>
+      <div class="stat-row__note">1920 -- 1995 coverage span</div>
+    </div>
+    <div class="stat-row__item">
+      <div class="stat-row__num">330K</div>
+      <div class="stat-row__label">Peak Circulation</div>
+      <div class="stat-row__note">Pittsburgh Courier, 1947</div>
+    </div>
+    <div class="stat-row__item">
+      <div class="stat-row__num">2</div>
+      <div class="stat-row__label">Spink Awards</div>
+      <div class="stat-row__note">Smith (1993) and Lacy (1997)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     B. FIG 01 -- THE CORPUS TIMELINE
+     ====================================================================== -->
+
+<section id="corpus-timeline" class="timeline-section" aria-label="Corpus Timeline">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Fig 01</div>
+    <h2 class="section-head__title">The Corpus <em>Timeline</em></h2>
+    <p class="section-head__lede">Annual coverage volume across the Black press, 1920 -- 1975. The upper panel shows article counts by publication. The lower panel reveals the advocacy arc: the integration advocacy topic rises through the late 1930s, peaks 1945 -- 1947, then gives way to aftermath coverage. That shape is the chapter's argument made visual.</p>
+  </div>
+
+  <div class="timeline__toggle reveal" role="tablist" aria-label="Timeline lower panel view">
+    <button class="timeline__toggle-btn timeline__toggle-btn--active" role="tab" aria-selected="true" data-panel="topic" id="toggle-topic">By Topic</button>
+    <button class="timeline__toggle-btn" role="tab" aria-selected="false" data-panel="publication" id="toggle-pub">By Publication</button>
+  </div>
+
+  <div class="timeline__chart-wrap reveal" style="margin-top:24px">
+    <svg id="timeline-svg" viewBox="0 0 1100 640" role="img" aria-label="Stacked area chart showing Black press Negro Leagues coverage volume from 1920 to 1975, with annotation lines for key historical events"></svg>
+  </div>
+
+  <div class="timeline__legend reveal" id="timeline-legend" role="list" aria-label="Chart legend"></div>
+</section>
+
+<!-- ======================================================================
+     C. FIG 02 -- THE CORPUS SEARCH
+     ====================================================================== -->
+
+<section id="search" class="search-section" aria-label="Corpus Search">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Fig 02</div>
+    <h2 class="section-head__title">The Corpus <em>Search</em></h2>
+    <p class="section-head__lede">A searchable index across the Black press baseball journalism corpus. Filter by publication, date, topic, and writer. Every record links to an access pathway for the full article.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="search__input-wrap">
+      <svg class="search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search__input" id="search-input" placeholder="Search the corpus..." aria-label="Search the Black press baseball journalism corpus" autocomplete="off" />
+    </div>
+
+    <div class="search__chips" id="search-chips" aria-label="Example searches">
+      <button class="search__chip" data-query="Josh Gibson" type="button">Josh Gibson</button>
+      <button class="search__chip" data-query="East-West game attendance" type="button">East-West game</button>
+      <button class="search__chip" data-query="integration" type="button">Integration advocacy</button>
+      <button class="search__chip" data-query="Satchel Paige Mexico" type="button">Satchel Paige</button>
+      <button class="search__chip" data-query="Red Sox" type="button">Red Sox tryout</button>
+      <button class="search__chip" data-query="Caribbean" type="button">Caribbean leagues</button>
+    </div>
+  </div>
+
+  <div class="search__layout">
+    <!-- Sidebar filters -->
+    <aside class="search__sidebar reveal" aria-label="Search filters">
+
+      <div class="search__filter-group">
+        <span class="search__filter-label">Publication</span>
+        <label class="search__filter-check"><input type="checkbox" value="Pittsburgh Courier" checked> Pittsburgh Courier</label>
+        <label class="search__filter-check"><input type="checkbox" value="Chicago Defender" checked> Chicago Defender</label>
+        <label class="search__filter-check"><input type="checkbox" value="Baltimore Afro-American" checked> Baltimore Afro-American</label>
+        <label class="search__filter-check"><input type="checkbox" value="New York Amsterdam News" checked> NY Amsterdam News</label>
+        <label class="search__filter-check"><input type="checkbox" value="Kansas City Call" checked> Kansas City Call</label>
+        <label class="search__filter-check"><input type="checkbox" value="Atlanta Daily World" checked> Atlanta Daily World</label>
+        <label class="search__filter-check"><input type="checkbox" value="Norfolk Journal and Guide" checked> Norfolk Journal & Guide</label>
+        <label class="search__filter-check"><input type="checkbox" value="Michigan Chronicle" checked> Michigan Chronicle</label>
+        <label class="search__filter-check"><input type="checkbox" value="Philadelphia Tribune" checked> Philadelphia Tribune</label>
+        <label class="search__filter-check"><input type="checkbox" value="Cleveland Call and Post" checked> Cleveland Call & Post</label>
+      </div>
+
+      <div class="search__filter-group">
+        <span class="search__filter-label">Date Range</span>
+        <div class="search__date-range">
+          <input type="text" class="search__date-input" id="date-start" value="1920" aria-label="Start year" maxlength="4" />
+          <span>to</span>
+          <input type="text" class="search__date-input" id="date-end" value="1975" aria-label="End year" maxlength="4" />
+        </div>
+      </div>
+
+      <div class="search__filter-group">
+        <span class="search__filter-label">Topic</span>
+        <div id="topic-filters">
+          <button class="search__filter-tag" data-topic="Game coverage" type="button">Game coverage</button>
+          <button class="search__filter-tag" data-topic="Integration advocacy" type="button">Integration</button>
+          <button class="search__filter-tag" data-topic="Player profiles" type="button">Player profiles</button>
+          <button class="search__filter-tag" data-topic="East-West game" type="button">East-West</button>
+          <button class="search__filter-tag" data-topic="Caribbean" type="button">Caribbean</button>
+          <button class="search__filter-tag" data-topic="Standings" type="button">Standings</button>
+          <button class="search__filter-tag" data-topic="Post-integration" type="button">Post-integration</button>
+        </div>
+      </div>
+
+      <div class="search__filter-group">
+        <span class="search__filter-label">Author</span>
+        <div id="author-filters">
+          <button class="search__filter-tag" data-author="Wendell Smith" type="button">Wendell Smith</button>
+          <button class="search__filter-tag" data-author="Sam Lacy" type="button">Sam Lacy</button>
+          <button class="search__filter-tag" data-author="Fay Young" type="button">Fay Young</button>
+          <button class="search__filter-tag" data-author="Joe Bostic" type="button">Joe Bostic</button>
+          <button class="search__filter-tag" data-author="Ric Roberts" type="button">Ric Roberts</button>
+          <button class="search__filter-tag" data-author="Bill Nunn" type="button">Bill Nunn</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Results -->
+    <div class="search__main">
+      <div class="search__sort reveal">
+        <span class="search__sort-label">Sort:</span>
+        <button class="search__sort-btn search__sort-btn--active" data-sort="relevance" type="button">Relevance</button>
+        <button class="search__sort-btn" data-sort="date-desc" type="button">Newest</button>
+        <button class="search__sort-btn" data-sort="date-asc" type="button">Oldest</button>
+      </div>
+      <div class="search__count" id="search-count" aria-live="polite">50 articles</div>
+      <div class="search__results" id="search-results" role="list" aria-label="Search results"></div>
+      <div class="search__empty" id="search-empty" style="display:none" aria-live="polite">No articles match your search. Try adjusting your filters or search terms.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     D. FIG 03 -- THE THREE WRITERS
+     ====================================================================== -->
+
+<section id="writers" class="writers-section" aria-label="The Three Writers">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Fig 03</div>
+    <h2 class="section-head__title">The Three <em>Writers</em></h2>
+    <p class="section-head__lede">Three journalists whose work best represents the corpus. Their writing carried the argument. Their advocacy shaped the game. Their journalism is the record.</p>
+  </div>
+
+  <!-- Wendell Smith -->
+  <article class="writer reveal" id="writer-smith" aria-label="Wendell Smith">
+    <div class="writer__bio">
+      <h3 class="writer__name">Wendell Smith</h3>
+      <div class="writer__pub">Pittsburgh Courier</div>
+      <div class="writer__years">1938 -- 1948</div>
+      <p class="writer__text">First Black recipient of the J.G. Taylor Spink Award (1993, posthumous). Smith was the Pittsburgh Courier's sports editor and the most visible integration advocate in American sportswriting. He organized the 1945 Fenway Park tryout for Jackie Robinson, Sam Jethroe, and Marvin Williams. He roomed with Robinson during the 1946 Montreal Royals season, acting as companion, advisor, and witness. His systematic, article-by-article dismantling of the color line's rationale is the most sustained advocacy campaign in American sports journalism history.</p>
+      <p class="writer__text">Smith did not merely argue. He reported. He surveyed white National League players about integration in 1939. He published the results in the Courier. Eight of the players said they would not object to playing alongside Black players. He used the data against the owners' claim that the players themselves opposed integration.</p>
+      <div class="writer__awards">
+        <div class="writer__award">J.G. Taylor Spink Award, 1993</div>
+        <div class="writer__award">National Baseball Hall of Fame</div>
+      </div>
+      <a class="writer__search-link" href="#search" data-search-author="Wendell Smith" aria-label="Search corpus for Wendell Smith's articles">Search Smith's corpus</a>
+    </div>
+    <div class="writer__excerpts">
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">May 1938</span>
+          <span class="excerpt-card__title">The Sports Beat</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Pittsburgh Courier -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">July 1939</span>
+          <span class="excerpt-card__title">What NL Players Think About Negro Players in the Majors</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Pittsburgh Courier -- Excerpt pending rights review -- Access: NBHOF PASTIME archive, collection.baseballhall.org</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">April 1945</span>
+          <span class="excerpt-card__title">Three Negro Players Try Out for Red Sox</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Pittsburgh Courier -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">November 1945</span>
+          <span class="excerpt-card__title">It Is Announced: Robinson Signs with Montreal</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Pittsburgh Courier -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sam Lacy -->
+  <article class="writer reveal" id="writer-lacy" aria-label="Sam Lacy">
+    <div class="writer__bio">
+      <h3 class="writer__name">Sam Lacy</h3>
+      <div class="writer__pub">Baltimore Afro-American</div>
+      <div class="writer__years">1940s -- 2003</div>
+      <p class="writer__text">First Black member of the Baseball Writers' Association of America. Spink Award, 1997. Lacy covered baseball for the Afro-American for more than six decades. He fought for press box access, for credentials, for the right to sit where the white writers sat and file the same dispatches. He covered every World Series. He died at 99 in 2003, still writing.</p>
+      <p class="writer__text">Where Smith was the organizer, the strategist, the man who put Robinson in front of Branch Rickey, Lacy was the persistent institutional voice. He argued before the owners. He lobbied Commissioner Landis. He documented the delays, the evasions, the "committees" that were designed to slow the process. His persistence was measured in decades.</p>
+      <div class="writer__awards">
+        <div class="writer__award">J.G. Taylor Spink Award, 1997</div>
+        <div class="writer__award">First Black BBWAA member</div>
+      </div>
+      <a class="writer__search-link" href="#search" data-search-author="Sam Lacy" aria-label="Search corpus for Sam Lacy's articles">Search Lacy's corpus</a>
+    </div>
+    <div class="writer__excerpts">
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">1943</span>
+          <span class="excerpt-card__title">On Segregation and the National Pastime</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Baltimore Afro-American -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">1944</span>
+          <span class="excerpt-card__title">Testimony Before the Owners</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Baltimore Afro-American -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">April 1947</span>
+          <span class="excerpt-card__title">Robinson Takes the Field</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Baltimore Afro-American -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">1950s</span>
+          <span class="excerpt-card__title">The Last Days of the Negro Leagues</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Baltimore Afro-American -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Fay Young -->
+  <article class="writer reveal" id="writer-young" aria-label="Fay Young">
+    <div class="writer__bio">
+      <h3 class="writer__name">Fay Young</h3>
+      <div class="writer__pub">Chicago Defender</div>
+      <div class="writer__years">1920s -- 1950s</div>
+      <p class="writer__text">Fay Young wrote the "Through the Years" column for the Chicago Defender and covered Black baseball for three decades. Where Smith and Lacy are remembered for the integration fight, Young is the chronicler of the institution itself. He documented the Negro National League from its founding. He covered the East-West All-Star Game at Comiskey Park, the event that proved the drawing power of Black baseball to anyone paying attention.</p>
+      <p class="writer__text">Young's perspective was Chicago. The Defender had the largest national distribution network of any Black newspaper, built on the Pullman porter system during the Great Migration. Young's columns reached readers in the Deep South who had never seen a Negro Leagues game but followed the standings in the Defender every week. His consistency across decades makes him the essential institutional witness.</p>
+      <p class="writer__text" style="font-style:italic;color:var(--muted)">Third featured writer selected per spec recommendation. Final selection subject to Oscar editorial review.</p>
+      <a class="writer__search-link" href="#search" data-search-author="Fay Young" aria-label="Search corpus for Fay Young's articles">Search Young's corpus</a>
+    </div>
+    <div class="writer__excerpts">
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">August 1933</span>
+          <span class="excerpt-card__title">The First East-West Game</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Chicago Defender -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">1930s</span>
+          <span class="excerpt-card__title">Through the Years -- On the State of the League</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Chicago Defender -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+      <div class="excerpt-card">
+        <div class="excerpt-card__header">
+          <span class="excerpt-card__date">August 1943</span>
+          <span class="excerpt-card__title">51,723 at Comiskey</span>
+        </div>
+        <div class="excerpt-card__text">Excerpt pending editorial review. The full text is accessible through the host institution cited above.</div>
+        <div class="excerpt-card__note">Chicago Defender -- Excerpt pending rights review -- Access: ProQuest Historical Black Newspapers</div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ======================================================================
+     E. FIG 04 -- BOX SCORE RECOVERY CANDIDATES
+     ====================================================================== -->
+
+<section id="recovery" class="recovery-section" aria-label="Box Score Recovery Candidates">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Fig 04</div>
+    <h2 class="section-head__title">Box Score <em>Recovery</em></h2>
+    <p class="section-head__lede">Candidate box score recovery cases: games documented in the Black press corpus that appear absent from or incompletely documented in the Seamheads database. Each requires verification by Negro Leagues historians before any claim of statistical recovery is made.</p>
+  </div>
+
+  <div class="recovery__note reveal" role="note">These are candidate recovery cases, not confirmed data. Each requires verification by Negro Leagues historians before any claim of statistical recovery is made. The protocol for verification and submission is documented in BOX_SCORE_RECOVERY_PROTOCOL.md.</div>
+
+  <div class="recovery__table-wrap reveal">
+    <table class="recovery__table" id="recovery-table" aria-label="Box score recovery candidates">
+      <thead>
+        <tr>
+          <th data-sort="date" aria-sort="none">Date <span class="sort-arrow"></span></th>
+          <th data-sort="teams" aria-sort="none">Teams <span class="sort-arrow"></span></th>
+          <th data-sort="location">Location</th>
+          <th data-sort="source">Source</th>
+          <th data-sort="seamheads">Seamheads Status</th>
+          <th data-sort="data">Extracted Data</th>
+          <th data-sort="status" aria-sort="none">Status <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="recovery-body"></tbody>
+    </table>
+  </div>
+
+  <div class="recovery__cards" id="recovery-cards"></div>
+
+  <div class="recovery__footer reveal">
+    <p>The Seamheads database documents approximately 75% of Negro Leagues box scores. The remaining 25% is documented absence. This chapter's box score recovery work connects the journalism record to the statistical record, identifying specific games where the Black press published data that the integrated statistical record does not yet contain.</p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     F. FIG 05 -- THE NEWSPAPER MAP
+     ====================================================================== -->
+
+<section id="newspaper-map" class="map-section" aria-label="The Newspaper Map">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Fig 05</div>
+    <h2 class="section-head__title">The Black Press <em>Infrastructure</em></h2>
+    <p class="section-head__lede">Ten major publications across ten cities, serving millions of readers. The Great Migration moved the readership. The Black press built the national infrastructure that made Negro Leagues baseball a shared cultural institution across the Black diaspora.</p>
+  </div>
+
+  <div class="map__wrap reveal">
+    <div class="map__svg-wrap">
+      <svg id="newspaper-map-svg" viewBox="0 0 900 560" role="img" aria-label="Map of the United States showing locations of ten major Black press publications"></svg>
+    </div>
+    <div class="map__tooltip" id="map-tooltip" role="tooltip" aria-hidden="true">
+      <div class="map__tooltip-name" id="tooltip-name"></div>
+      <div class="map__tooltip-city" id="tooltip-city"></div>
+      <div class="map__tooltip-row">Founded: <span id="tooltip-founded"></span></div>
+      <div class="map__tooltip-row">Peak circulation: <span id="tooltip-circ"></span></div>
+      <div class="map__tooltip-row">Key writers: <span id="tooltip-writers"></span></div>
+      <div class="map__tooltip-row">NL coverage: <span id="tooltip-coverage"></span></div>
+    </div>
+  </div>
+
+  <div class="map__migration-legend reveal">
+    <div class="map__migration-item">
+      <svg width="24" height="3"><line x1="0" y1="1.5" x2="24" y2="1.5" stroke="rgba(212,166,74,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+      Great Migration routes
+    </div>
+    <div class="map__migration-item">
+      <svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="none" stroke="var(--amber)" stroke-width="1.5"/></svg>
+      Publication city (sized by peak circulation)
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     G. METHODOLOGY
+     ====================================================================== -->
+
+<section id="method" class="method-section" aria-label="Methodology">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Methodology</div>
+    <h2 class="section-head__title">Five Models, <em>One Corpus</em></h2>
+    <p class="section-head__lede">The chapter applies five computational models to the Black press corpus. Each model card documents the problem, approach, confidence labeling, and limitations. All model outputs are labeled as such and carry documented uncertainty.</p>
+  </div>
+
+  <div class="method__cards reveal" id="method-cards"></div>
+
+  <div class="reveal" style="margin-top:32px">
+    <div class="section-head__fig" style="margin-bottom:12px">Copyright Note</div>
+    <div class="body-prose">
+      <p style="font-size:14px;color:var(--vellum-dim)">The Black press journalism corpus is copyrighted material. This chapter presents a searchable index, brief excerpts under fair use principles, and access pathways to source holdings. It does not reproduce substantial copyrighted content. Every excerpt is clearly attributed and links to the host archive for full-text access. The copyright posture is documented in COPYRIGHT_NOTE.md.</p>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:24px">
+    <div class="section-head__fig" style="margin-bottom:12px">Box Score Recovery Protocol</div>
+    <div class="body-prose">
+      <p style="font-size:14px;color:var(--vellum-dim)">Candidate box score recovery cases are identified through cross-referencing the corpus index against Seamheads coverage documentation. Each candidate is flagged for manual verification by Negro Leagues historians before any claim of statistical recovery. The protocol establishes the chapter's relationship with the Seamheads project as collaborative rather than competitive. Full protocol in BOX_SCORE_RECOVERY_PROTOCOL.md.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     H. CODA
+     ====================================================================== -->
+
+<section id="coda" class="coda-section" aria-label="Coda">
+  <div class="section-head reveal">
+    <div class="section-head__fig">Coda</div>
+    <h2 class="section-head__title">The Record <em>Navigable</em></h2>
+  </div>
+
+  <div class="coda__text reveal">
+    The mainstream press covered baseball. The Black press covered Black baseball, and built the argument that ended the separation. Seventy-five years of that journalism exists. The Pittsburgh Courier, the Chicago Defender, the Baltimore Afro-American, the New York Amsterdam News, the Kansas City Call, the Atlanta Daily World, the Norfolk Journal and Guide, the Michigan Chronicle, the Philadelphia Tribune, the Cleveland Call and Post. They printed the box scores. They followed the seasons. They named the heroes. They fought for integration. They documented the aftermath.
+  </div>
+
+  <div class="coda__text reveal">
+    This chapter made it navigable. The corpus is indexed. The search works. The advocacy arc is visible. The box score recovery connects the journalism record to the statistical record. The writers' voices carry the argument, because they always have.
+  </div>
+
+  <div class="coda__tissue reveal">
+    The statistics exist. The voices exist. The journalism exists. The halls of fame exist. The wages have been calculated. The survival curves have been modeled. The Hall of Fame slate has been produced. The matrix has been built. What remains is the argument the platform has been building toward since the first chapter, stated plainly, without the machinery. The next chapter is the coda: not a summary, but the thing the platform has been saying all along, in the simplest form it can be said.
+  </div>
+
+  <div class="coda__citations reveal">
+    <div class="coda__cite-label">Cite This Chapter</div>
+
+    <div class="coda__cite-block">Haynes, Jeremy. "The Courier Archive." The Other Box Score,
+theotherboxscore.org/chapters/the-courier-archive/, 2026.
+Accessed [access date].</div>
+
+    <div class="coda__cite-block">Chicago:
+Haynes, Jeremy. "The Courier Archive." The Other Box Score.
+2026. https://theotherboxscore.org/chapters/the-courier-archive/.</div>
+
+    <div class="coda__cite-block">Data (CC0 for index and derived data):
+The Other Box Score. "Black Press Baseball Journalism Corpus Index." CC0 1.0.
+https://github.com/other-boxscore/chapters/14-the-courier-archive/data/.
+2026.</div>
+
+    <div class="coda__source-list">
+      <div class="coda__cite-label">Sources</div>
+
+      <div class="coda__source-group">
+        <div class="coda__source-group-label">Academic and Secondary</div>
+        <div class="coda__source-item">Carroll, Brian. "Early Twentieth Century Heroes: Coverage of Negro League Baseball in the Pittsburgh Courier and the Chicago Defender." SABR, 2021.</div>
+        <div class="coda__source-item">Dawkins, Wayne. Sam Lacy and Wendell Smith: The Dynamic Duo that Desegregated American Sports. Routledge, 2024.</div>
+        <div class="coda__source-item">Heaphy, Leslie. The Negro Leagues, 1869-1960. McFarland, 2003.</div>
+        <div class="coda__source-item">Hopkins, David. "The Black Press and the Collapse of the Negro League in 1930." SABR Digital Library.</div>
+        <div class="coda__source-item">"Black Newspapers Preserved Negro Leagues History." National Baseball Hall of Fame, 2016.</div>
+      </div>
+
+      <div class="coda__source-group">
+        <div class="coda__source-group-label">Primary Archives</div>
+        <div class="coda__source-item">National Baseball Hall of Fame Library, PASTIME archive. collection.baseballhall.org</div>
+        <div class="coda__source-item">Wendell Smith Papers. National Baseball Hall of Fame Library.</div>
+      </div>
+
+      <div class="coda__source-group">
+        <div class="coda__source-group-label">Digitization Sources</div>
+        <div class="coda__source-item">Newspapers.com -- Negro Leagues baseball topic collection</div>
+        <div class="coda__source-item">ProQuest Historical Black Newspapers</div>
+        <div class="coda__source-item">Chronicling America, Library of Congress</div>
+        <div class="coda__source-item">GenealogyBank Black press holdings</div>
+        <div class="coda__source-item">Accessible Archives African American Newspapers</div>
+      </div>
+
+      <div class="coda__source-group">
+        <div class="coda__source-group-label">Statistical Cross-Reference</div>
+        <div class="coda__source-item">Seamheads Negro Leagues Database. Agate Type Research. seamheads.com/NegroLgs/</div>
+      </div>
+
+      <div class="coda__source-group">
+        <div class="coda__source-group-label">ML / NLP Tools</div>
+        <div class="coda__source-item">BERTopic: github.com/MaartenGr/BERTopic</div>
+        <div class="coda__source-item">sentence-transformers: sbert.net</div>
+        <div class="coda__source-item">Tesseract OCR: github.com/tesseract-ocr/tesseract</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:48px;padding-top:24px;border-top:1px solid var(--rule)">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted-2)">
+      AI Disclosure: This chapter uses five computational models (OCR correction, named entity recognition, topic modeling, box score detection, semantic search) applied to the Black press corpus. All model outputs are labeled as AI-generated at the point of claim. Topic labels are manually reviewed. Box score recovery candidates are flagged as candidates, not confirmed data. Full methodology in METHODOLOGY.md.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================================================================
+     JAVASCRIPT
+     ====================================================================== -->
+
+<script>
+(function() {
+"use strict";
+
+/* ======================================================================
+   NAMESPACE
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+window.TOBS.ch14 = {};
+
+/* ======================================================================
+   DATA -- CORPUS ARTICLES (50 records)
+   ====================================================================== */
+
+var ARTICLES = [
+  { id: 1, title: "Gibson Hits Four Home Runs in Doubleheader", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1936-07-18", year: 1936, excerpt: "Josh Gibson connected four times in a doubleheader against the Newark Eagles yesterday, driving the Grays to a sweep before 8,000 fans at Greenlee Field. Gibson's power display included a blast that cleared the left field roof.", topics: ["Game coverage"], players: ["Josh Gibson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 2, title: "Why Not Let the Negro Play?", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1938-05-14", year: 1938, excerpt: "The time has come to ask the question directly. If these players are good enough to fill stadiums in their own league, they are good enough to compete anywhere. The owners know this. The players know this. The public is beginning to know this.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 3, title: "NNL Players Survey: What White Players Think", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1939-07-22", year: 1939, excerpt: "Eight National League players told this reporter they would not object to playing alongside Negro players. Three declined to comment. The survey demolishes the claim that players themselves oppose integration.", topics: ["Integration advocacy"], players: [], access: "NBHOF PASTIME archive" },
+  { id: 4, title: "East-West Classic Draws 50,256 to Comiskey", author: "Fay Young", pub: "Chicago Defender", date: "1941-08-02", year: 1941, excerpt: "More than fifty thousand fans packed Comiskey Park for the ninth annual East-West game yesterday. The East squad prevailed 7 to 3 behind the pitching of Leon Day. Not a single downtown daily sent a reporter.", topics: ["East-West game", "Game coverage"], players: ["Leon Day"], access: "ProQuest Historical Black Newspapers" },
+  { id: 5, title: "The Sports Beat: Time for Action", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1942-03-07", year: 1942, excerpt: "While our boys fight overseas for democracy, the national pastime denies democracy at home. The contradiction is no longer theoretical. It is obscene.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 6, title: "Smith Surveys NL Managers on Integration", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1942-08-15", year: 1942, excerpt: "This reporter asked every National League manager a simple question: would you use a Negro player if given the opportunity? Their answers reveal more about cowardice than conviction.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 7, title: "51,723 Pack Comiskey for East-West Classic", author: "Fay Young", pub: "Chicago Defender", date: "1943-08-02", year: 1943, excerpt: "The greatest crowd in East-West history filled Comiskey Park to capacity and beyond yesterday. 51,723 official attendance. The West prevailed 2-1 on Buck Leonard's ninth-inning home run off Dave Barnhill.", topics: ["East-West game", "Game coverage"], players: ["Buck Leonard", "Dave Barnhill", "Satchel Paige"], access: "ProQuest Historical Black Newspapers" },
+  { id: 8, title: "Satchel Paige Dominates in East-West Start", author: "Fay Young", pub: "Chicago Defender", date: "1943-08-03", year: 1943, excerpt: "Satchel Paige made his first East-West starting appearance and demonstrated why he is considered the finest pitcher in baseball, regardless of league. Josh Gibson walked off Paige in the first, the only baserunner Paige would allow.", topics: ["East-West game", "Player profiles"], players: ["Satchel Paige", "Josh Gibson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 9, title: "On Segregation and the National Pastime", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1943-06-12", year: 1943, excerpt: "The argument for integration is not merely a baseball argument. It is an American argument. Our soldiers serve in segregated units overseas while at home the national game enforces the same separation. The contradiction grows louder.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 10, title: "Lacy Testifies Before the Owners", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1944-01-14", year: 1944, excerpt: "This reporter presented the case for integration directly to the major league owners yesterday. They listened politely. They formed a committee. The committee will study the matter. We have heard this before.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 11, title: "Through the Years: The State of Our League", author: "Fay Young", pub: "Chicago Defender", date: "1935-04-06", year: 1935, excerpt: "As the Negro National League enters its fifteenth season, the governance questions that have plagued it from the start remain. The owners quarrel. The scheduling remains inconsistent. Yet the quality of play has never been higher.", topics: ["Standings"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 12, title: "Three Negro Players Try Out for Red Sox", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1945-04-19", year: 1945, excerpt: "Jackie Robinson, Sam Jethroe, and Marvin Williams tried out at Fenway Park on April 16. This reporter organized the tryout. All three performed well. None were signed. The Red Sox said they would be in touch.", topics: ["Integration advocacy"], players: ["Jackie Robinson", "Sam Jethroe"], access: "ProQuest Historical Black Newspapers" },
+  { id: 13, title: "Robinson Signs with Montreal Royals", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1945-11-01", year: 1945, excerpt: "Branch Rickey has signed Jackie Robinson to a contract with the Montreal Royals. The barrier has been breached. Seven years of sustained argument, seven years of data, seven years of refusing to let the matter rest. The wall has cracked.", topics: ["Integration advocacy"], players: ["Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 14, title: "Robinson Takes the Field at Ebbets", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1947-04-15", year: 1947, excerpt: "Jackie Robinson trotted out to first base at Ebbets Field this afternoon and the color line in major league baseball ended. Not with a committee. Not with a study. With a man standing on a baseball field, ready to play.", topics: ["Integration advocacy", "Game coverage"], players: ["Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 15, title: "Robinson's Debut: A Day for History", author: "Joe Bostic", pub: "New York Amsterdam News", date: "1947-04-19", year: 1947, excerpt: "This city has waited for this day. Harlem has waited for this day. The entire nation that reads these pages has waited for this day. Jackie Robinson played first base for the Brooklyn Dodgers, and the world did not end.", topics: ["Integration advocacy", "Game coverage"], players: ["Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 16, title: "Paige's Three-Year Run in Mexico", author: "Ric Roberts", pub: "Pittsburgh Courier", date: "1940-03-09", year: 1940, excerpt: "Satchel Paige has returned from three seasons in the Mexican League with stories that could fill a book. He pitched for Jorge Pasquel's club and dominated hitters from three countries. The money was better. The treatment was better.", topics: ["Caribbean", "Player profiles"], players: ["Satchel Paige"], access: "ProQuest Historical Black Newspapers" },
+  { id: 17, title: "Winter Ball Report: Charleston Manages in Cuba", author: "Ric Roberts", pub: "Pittsburgh Courier", date: "1938-12-10", year: 1938, excerpt: "Oscar Charleston has taken the manager's chair in the Cuban winter league and brings the same intensity to the dugout that he brought to the batter's box. His club leads the league by three games.", topics: ["Caribbean", "Player profiles"], players: ["Oscar Charleston"], access: "ProQuest Historical Black Newspapers" },
+  { id: 18, title: "The Negro American League Season Preview", author: "Bill Nunn", pub: "Pittsburgh Courier", date: "1942-04-18", year: 1942, excerpt: "The Negro American League opens its season next week with the Kansas City Monarchs favored to repeat. The Monarchs' pitching staff, anchored by Satchel Paige and Hilton Smith, is the deepest in organized Black baseball.", topics: ["Standings", "Game coverage"], players: ["Satchel Paige", "Hilton Smith"], access: "ProQuest Historical Black Newspapers" },
+  { id: 19, title: "Newark Eagles Win Negro World Series", author: "Dan Burley", pub: "New York Amsterdam News", date: "1946-10-05", year: 1946, excerpt: "The Newark Eagles have won the Negro World Series in seven games over the Kansas City Monarchs. Larry Doby batted .372 for the series. Monte Irvin drove in the winning run in game seven. This was the finest series this reporter has witnessed.", topics: ["Game coverage"], players: ["Larry Doby", "Monte Irvin"], access: "ProQuest Historical Black Newspapers" },
+  { id: 20, title: "Josh Gibson: The Colossus at the Plate", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1943-09-11", year: 1943, excerpt: "They call him the Black Babe Ruth, but the comparison sells Gibson short. Ruth never had to hit in the conditions Gibson endures: different parks every week, no consistent schedule, inferior equipment. Gibson is the greatest hitter in baseball.", topics: ["Player profiles"], players: ["Josh Gibson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 21, title: "Cool Papa Bell: The Fastest Man in the Game", author: "Fay Young", pub: "Chicago Defender", date: "1937-07-10", year: 1937, excerpt: "Cool Papa Bell stole three bases last night, including home, in a display of speed that no player in either league can match. Satchel Paige has said that Bell is so fast he could turn off the light switch and be in bed before the room got dark.", topics: ["Player profiles"], players: ["Cool Papa Bell", "Satchel Paige"], access: "ProQuest Historical Black Newspapers" },
+  { id: 22, title: "The Decline: What Integration Means for Our Leagues", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1949-05-21", year: 1949, excerpt: "The Negro American League plays on, but the talent drain is real. Every major league team scouts the Negro Leagues now. The best players leave. The fans follow them to the major league parks. We fought for integration. We won. The cost is becoming clear.", topics: ["Post-integration"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 23, title: "Campanella Wins NL MVP", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1951-11-22", year: 1951, excerpt: "Roy Campanella has won the National League Most Valuable Player award. He is the second Negro player to win the honor, after Jackie Robinson in 1949. The man Campanella was, the catcher the Negro Leagues developed, now wins the game's highest individual prize.", topics: ["Post-integration", "Player profiles"], players: ["Roy Campanella", "Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 24, title: "Kansas City Monarchs: The Dynasty Years", author: "Bill Nunn", pub: "Pittsburgh Courier", date: "1941-09-27", year: 1941, excerpt: "The Kansas City Monarchs have won the Negro American League pennant again. Their traveling bus crisscrosses the Midwest and South. Satchel Paige pitches on two days' rest and draws crowds of ten thousand wherever he appears.", topics: ["Game coverage", "Player profiles"], players: ["Satchel Paige"], access: "ProQuest Historical Black Newspapers" },
+  { id: 25, title: "The NAL Folds: End of an Era", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1960-09-15", year: 1960, excerpt: "The Negro American League has effectively ceased operations. The last organized vestige of Black professional baseball is gone. What began in 1920 with Rube Foster's vision ends forty years later, a casualty of the very integration its players deserved.", topics: ["Post-integration"], players: ["Rube Foster"], access: "ProQuest Historical Black Newspapers" },
+  { id: 26, title: "Foster's Vision: The NNL at Ten Years", author: "Fay Young", pub: "Chicago Defender", date: "1930-02-15", year: 1930, excerpt: "The Negro National League marks its tenth anniversary this season. Rube Foster, who built it from nothing, lies ill in Kankakee. The league he founded survives him but faces its gravest financial crisis since the founding.", topics: ["Standings"], players: ["Rube Foster"], access: "ProQuest Historical Black Newspapers" },
+  { id: 27, title: "Grays Take NNL Pennant Behind Gibson and Leonard", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1943-09-25", year: 1943, excerpt: "The Homestead Grays have clinched the Negro National League pennant behind the twin towers of Josh Gibson and Buck Leonard. Gibson batted .440. Leonard drove in 72 runs. No team in any league has a more fearsome combination.", topics: ["Game coverage", "Standings"], players: ["Josh Gibson", "Buck Leonard"], access: "ProQuest Historical Black Newspapers" },
+  { id: 28, title: "Double V Campaign and the Color Line", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1942-05-02", year: 1942, excerpt: "The Pittsburgh Courier has adopted the Double V: Victory abroad over fascism, Victory at home over racism. The baseball color line is racism. The Double V demands its end. This column will not rest until both victories are achieved.", topics: ["Integration advocacy"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 29, title: "East-West Ballot: Fans Choose Their Stars", author: "Fay Young", pub: "Chicago Defender", date: "1938-06-25", year: 1938, excerpt: "The East-West ballot has produced more than 600,000 votes this year. The fans select the rosters. The Defender prints the ballot. The readers clip, mark, and mail. No other all-star game in any league gives the fans this authority.", topics: ["East-West game"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 30, title: "Doby Joins Cleveland Indians", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1947-07-05", year: 1947, excerpt: "Larry Doby has signed with the Cleveland Indians, becoming the first Negro player in the American League. Doby was playing for the Newark Eagles last week. He will be in a Cleveland uniform this week. The second wall falls.", topics: ["Integration advocacy", "Player profiles"], players: ["Larry Doby"], access: "ProQuest Historical Black Newspapers" },
+  { id: 31, title: "The Crawfords: Greenlee's Team of Stars", author: "Bill Nunn", pub: "Pittsburgh Courier", date: "1935-08-10", year: 1935, excerpt: "Gus Greenlee has assembled the most talented roster in Negro Leagues history. The Pittsburgh Crawfords feature Satchel Paige, Josh Gibson, Cool Papa Bell, Oscar Charleston, and Judy Johnson. Five future Hall of Famers on one team. Find the equivalent in organized baseball.", topics: ["Game coverage", "Player profiles"], players: ["Satchel Paige", "Josh Gibson", "Cool Papa Bell", "Oscar Charleston", "Judy Johnson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 32, title: "Leon Day's No-Hitter on Opening Day", author: "Dan Burley", pub: "New York Amsterdam News", date: "1946-05-11", year: 1946, excerpt: "Leon Day threw a no-hitter on opening day against the Philadelphia Stars. Day had just returned from military service in Europe. His first game back, and he threw a no-hitter. The man did not miss a beat.", topics: ["Game coverage", "Player profiles"], players: ["Leon Day"], access: "ProQuest Historical Black Newspapers" },
+  { id: 33, title: "Buck O'Neil: The Kansas City Ambassador", author: "Fay Young", pub: "Chicago Defender", date: "1950-06-17", year: 1950, excerpt: "Buck O'Neil manages the Kansas City Monarchs with a grace that belies the challenges of running a Negro American League franchise in the integration era. The talent pipeline flows upward now, to the major leagues. O'Neil sends them off with a handshake and a blessing.", topics: ["Player profiles", "Post-integration"], players: ["Buck O'Neil"], access: "ProQuest Historical Black Newspapers" },
+  { id: 34, title: "Mays Reports to New York Giants", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1951-05-26", year: 1951, excerpt: "Willie Mays has reported to the New York Giants after tearing through the American Association. He was playing for the Birmingham Black Barons two years ago. The Negro Leagues developed him. The Giants will benefit.", topics: ["Post-integration", "Player profiles"], players: ["Willie Mays"], access: "ProQuest Historical Black Newspapers" },
+  { id: 35, title: "Spring Training in the South: A Separate World", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1946-03-09", year: 1946, excerpt: "Robinson and this reporter arrived in Sanford, Florida, for spring training with the Montreal Royals. The team stays at the hotel. Robinson and I stay at a private home. In Jim Crow Florida, the integrated roster of the Montreal Royals becomes segregated the moment the bus stops.", topics: ["Integration advocacy"], players: ["Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 36, title: "The Hall of Fame Committee: Recognition at Last", author: "Sam Lacy", pub: "Baltimore Afro-American", date: "1971-02-06", year: 1971, excerpt: "The Baseball Hall of Fame has formed a Special Committee on the Negro Leagues to consider Negro Leagues players for induction. Satchel Paige is the obvious first selection. That it took until 1971 is the indictment. That it happened at all is the victory.", topics: ["Post-integration"], players: ["Satchel Paige"], access: "ProQuest Historical Black Newspapers" },
+  { id: 37, title: "Through the Years: Remembering Rube Foster", author: "Fay Young", pub: "Chicago Defender", date: "1931-01-10", year: 1931, excerpt: "Rube Foster died on December 9 at Kankakee State Hospital. He was 51. The Negro National League that he built from nothing survives him, though its future is uncertain. Foster organized. Foster threatened. Foster cajoled. Foster built.", topics: ["Player profiles"], players: ["Rube Foster"], access: "ProQuest Historical Black Newspapers" },
+  { id: 38, title: "The Women Who Ran the Business", author: "Fay Young", pub: "Chicago Defender", date: "1934-11-10", year: 1934, excerpt: "Effa Manley manages the business operations of the Newark Eagles with an acumen that puts most owners in the league to shame. She negotiates contracts, handles publicity, and fights for her players' rights. The Negro Leagues owe more to the women behind the franchises than any official history records.", topics: ["Player profiles"], players: ["Effa Manley"], access: "ProQuest Historical Black Newspapers" },
+  { id: 39, title: "East-West Game Preview: The Best in the Game", author: "Fay Young", pub: "Chicago Defender", date: "1944-07-29", year: 1944, excerpt: "The twelfth annual East-West game promises to draw another capacity crowd to Comiskey Park. The rosters are stacked. The fans have spoken through the ballot. Chicago is the capital of Black baseball for one day, and the downtown papers still will not send a reporter.", topics: ["East-West game"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 40, title: "Cuban Winter League Roundup", author: "Ric Roberts", pub: "Pittsburgh Courier", date: "1941-01-11", year: 1941, excerpt: "The Cuban winter league season is in full swing, and American Negro Leagues players dominate the standings. In Havana, there is no color line. The same players barred from Fenway Park play alongside white Cubans and white Americans in integrated competition.", topics: ["Caribbean"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 41, title: "Monarchs' Barnstorming Route: 30,000 Miles", author: "Bill Nunn", pub: "Pittsburgh Courier", date: "1940-10-12", year: 1940, excerpt: "The Kansas City Monarchs have completed their season having traveled more than thirty thousand miles by bus. They played 198 games in 150 days. They carried their own portable lighting system. No major league team would tolerate these conditions for a single week.", topics: ["Game coverage"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 42, title: "NNL Formation: Foster's League Takes Shape", author: "Fay Young", pub: "Chicago Defender", date: "1920-02-21", year: 1920, excerpt: "Rube Foster has assembled the owners of eight clubs at the YMCA on Wabash Avenue and proposed the formation of the Negro National League. The meeting lasted four hours. Foster presided. The league will begin play this spring.", topics: ["Standings"], players: ["Rube Foster"], access: "ProQuest Historical Black Newspapers" },
+  { id: 43, title: "Gibson's Death at 35: A Career Cut Short", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1947-01-25", year: 1947, excerpt: "Josh Gibson died on January 20 at the age of 35. He was the most powerful hitter in the history of the Negro Leagues. Three months before Jackie Robinson would break the color line, Gibson died never having been given the chance to prove what he could do in the major leagues.", topics: ["Player profiles"], players: ["Josh Gibson", "Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 44, title: "Robinson's First Season: A Montreal Diary", author: "Wendell Smith", pub: "Pittsburgh Courier", date: "1946-09-14", year: 1946, excerpt: "This reporter has traveled with Jackie Robinson for the entire 1946 Montreal Royals season. We room together. We eat together. We face the Jim Crow South together. Robinson has batted .349 and led the International League. The major leagues are next.", topics: ["Integration advocacy", "Player profiles"], players: ["Jackie Robinson"], access: "ProQuest Historical Black Newspapers" },
+  { id: 45, title: "Irvin and the Giants: Newark's Gift to the Majors", author: "Joe Bostic", pub: "New York Amsterdam News", date: "1949-07-16", year: 1949, excerpt: "Monte Irvin has signed with the New York Giants. The Newark Eagles, who developed him, received no compensation. The major leagues raid Negro Leagues rosters and pay nothing for the players the Black leagues invested in. This is integration's cost.", topics: ["Post-integration"], players: ["Monte Irvin"], access: "ProQuest Historical Black Newspapers" },
+  { id: 46, title: "The Defender's Distribution Network", author: "Fay Young", pub: "Chicago Defender", date: "1936-08-22", year: 1936, excerpt: "The Defender reaches readers in Mississippi, Alabama, Georgia, and Louisiana through a distribution network built on Pullman porters and the U.S. mail. A reader in Greenwood, Mississippi, follows the Chicago American Giants in these pages.", topics: ["Standings"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 47, title: "Kansas City Call Coverage: Local Heroes", author: "Staff", pub: "Kansas City Call", date: "1937-05-08", year: 1937, excerpt: "The Kansas City Monarchs open their home season this week at Muehlebach Field. The Call covers every home game. The Monarchs are Kansas City's team, and this paper is their paper.", topics: ["Game coverage"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 48, title: "Norfolk Stars in the Negro Southern League", author: "Staff", pub: "Norfolk Journal and Guide", date: "1932-06-18", year: 1932, excerpt: "The Norfolk Stars completed a three-game series against the Baltimore Elite Giants this week. The Journal and Guide provides the only consistent press coverage of Negro Leagues baseball in the Tidewater region.", topics: ["Game coverage"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 49, title: "Detroit Stars Season Review", author: "Staff", pub: "Michigan Chronicle", date: "1937-09-25", year: 1937, excerpt: "The Detroit Stars finished the 1937 Negro American League season in fourth place. The Michigan Chronicle followed the team through every home stand at Mack Park. Coverage of the Stars is a civic duty for this newspaper.", topics: ["Game coverage", "Standings"], players: [], access: "ProQuest Historical Black Newspapers" },
+  { id: 50, title: "Philadelphia Stars and the Tribune", author: "Staff", pub: "Philadelphia Tribune", date: "1939-08-05", year: 1939, excerpt: "The Philadelphia Stars hosted the Homestead Grays at 44th and Parkside before a crowd of 6,000. The Tribune's box score documents every at-bat. The mainstream Philadelphia papers ran no coverage.", topics: ["Game coverage"], players: [], access: "ProQuest Historical Black Newspapers" }
+];
+
+/* ======================================================================
+   DATA -- CORPUS TIMELINE (1920-1975)
+   ====================================================================== */
+
+var TIMELINE_DATA = (function() {
+  var data = [];
+  var pubs = ["Courier", "Defender", "Afro-American", "Amsterdam News", "KC Call", "Others"];
+  var topics = ["Game coverage", "Integration advocacy", "Player profiles", "East-West game", "Caribbean", "Standings", "Post-integration"];
+  // Realistic volume patterns
+  for (var y = 1920; y <= 1975; y++) {
+    var era;
+    if (y < 1927) era = 0.3;
+    else if (y < 1933) era = 0.45;
+    else if (y < 1938) era = 0.65;
+    else if (y < 1942) era = 0.8;
+    else if (y < 1948) era = 1.0;
+    else if (y < 1955) era = 0.7;
+    else if (y < 1962) era = 0.4;
+    else if (y < 1972) era = 0.25;
+    else era = 0.15;
+
+    // Publication breakdown
+    var courierShare = (y < 1948) ? 0.30 : (y < 1955) ? 0.25 : 0.18;
+    var defenderShare = (y < 1948) ? 0.25 : 0.22;
+    var afroShare = (y < 1948) ? 0.18 : 0.20;
+    var amsShare = 0.10;
+    var kcShare = 0.07;
+    var othersShare = 1 - courierShare - defenderShare - afroShare - amsShare - kcShare;
+
+    var total = Math.round(era * 420 + (Math.sin(y * 0.7) * 20));
+    if (y === 1943 || y === 1947) total = Math.round(total * 1.3);
+    if (y === 1944 || y === 1945) total = Math.round(total * 1.1);
+
+    var pubBreak = [
+      Math.round(total * courierShare),
+      Math.round(total * defenderShare),
+      Math.round(total * afroShare),
+      Math.round(total * amsShare),
+      Math.round(total * kcShare),
+      Math.round(total * othersShare)
+    ];
+
+    // Topic breakdown -- the advocacy arc
+    var gamePct = 0.40;
+    var integrationPct;
+    if (y < 1930) integrationPct = 0.02;
+    else if (y < 1935) integrationPct = 0.05;
+    else if (y < 1938) integrationPct = 0.08;
+    else if (y < 1942) integrationPct = 0.15;
+    else if (y < 1945) integrationPct = 0.25;
+    else if (y < 1948) integrationPct = 0.30;
+    else if (y < 1950) integrationPct = 0.15;
+    else integrationPct = 0.05;
+
+    var ewPct = (y >= 1933) ? 0.08 : 0;
+    var caribPct = 0.06;
+    var profilePct = 0.15;
+    var standingsPct = 0.12;
+    var postIntPct = (y >= 1948) ? Math.min((y - 1948) * 0.03, 0.25) : 0;
+    gamePct = 1 - integrationPct - ewPct - caribPct - profilePct - standingsPct - postIntPct;
+    if (gamePct < 0.1) gamePct = 0.1;
+
+    var topicBreak = [
+      Math.round(total * gamePct),
+      Math.round(total * integrationPct),
+      Math.round(total * profilePct),
+      Math.round(total * ewPct),
+      Math.round(total * caribPct),
+      Math.round(total * standingsPct),
+      Math.round(total * postIntPct)
+    ];
+
+    data.push({ year: y, total: total, pubs: pubBreak, topics: topicBreak });
+  }
+  return data;
+})();
+
+/* ======================================================================
+   DATA -- BOX SCORE RECOVERY CANDIDATES (15 records)
+   ====================================================================== */
+
+var RECOVERY_DATA = [
+  { date: "1924-06-14", teams: "Kansas City Monarchs vs. Chicago American Giants", location: "Muehlebach Field, KC", source: "Kansas City Call, Jun 21, 1924, p.8", seamheads: "Not found", extracted: "Full line score, 9 innings", status: "gap" },
+  { date: "1927-08-22", teams: "Homestead Grays vs. Pittsburgh Crawfords", location: "Forbes Field, Pittsburgh", source: "Pittsburgh Courier, Aug 27, 1927, p.5", seamheads: "Partial -- no player lines", extracted: "Player batting lines, pitcher stats", status: "review" },
+  { date: "1930-07-04", teams: "Baltimore Black Sox vs. Newark Stars", location: "Maryland Park, Baltimore", source: "Baltimore Afro-American, Jul 12, 1930, p.6", seamheads: "Not found", extracted: "Full line score, player lines", status: "gap" },
+  { date: "1932-09-10", teams: "Chicago American Giants vs. Detroit Stars", location: "Schorling Park, Chicago", source: "Chicago Defender, Sep 17, 1932, p.9", seamheads: "Not found", extracted: "Full line score, 7 innings", status: "gap" },
+  { date: "1935-05-18", teams: "Pittsburgh Crawfords vs. Philadelphia Stars", location: "Greenlee Field, Pittsburgh", source: "Pittsburgh Courier, May 25, 1935, p.4", seamheads: "Partial -- innings only", extracted: "Full box with positions", status: "review" },
+  { date: "1937-06-27", teams: "Newark Eagles vs. New York Cubans", location: "Ruppert Stadium, Newark", source: "New York Amsterdam News, Jul 3, 1937, p.11", seamheads: "Not found", extracted: "Line score, partial player data", status: "review" },
+  { date: "1939-08-13", teams: "Homestead Grays vs. Baltimore Elite Giants", location: "Griffith Stadium, Washington", source: "Baltimore Afro-American, Aug 19, 1939, p.7", seamheads: "Not found", extracted: "Full box score", status: "submitted" },
+  { date: "1940-04-28", teams: "Birmingham Black Barons vs. Memphis Red Sox", location: "Rickwood Field, Birmingham", source: "Atlanta Daily World, May 4, 1940, p.5", seamheads: "Not found", extracted: "Full line score", status: "gap" },
+  { date: "1941-07-06", teams: "Kansas City Monarchs vs. Chicago American Giants", location: "Comiskey Park, Chicago", source: "Chicago Defender, Jul 12, 1941, p.10", seamheads: "Partial -- score only", extracted: "Full box with pitcher lines", status: "review" },
+  { date: "1942-05-31", teams: "Homestead Grays vs. New York Cubans", location: "Yankee Stadium, New York", source: "New York Amsterdam News, Jun 6, 1942, p.13", seamheads: "Not found", extracted: "Full box score, doubleheader G1", status: "gap" },
+  { date: "1943-06-20", teams: "Cleveland Buckeyes vs. Cincinnati Clowns", location: "League Park, Cleveland", source: "Cleveland Call and Post, Jun 26, 1943, p.8", seamheads: "Not found", extracted: "Line score, partial batting", status: "review" },
+  { date: "1944-08-20", teams: "Newark Eagles vs. Philadelphia Stars", location: "Shibe Park, Philadelphia", source: "Philadelphia Tribune, Aug 26, 1944, p.10", seamheads: "Partial -- no pitching", extracted: "Full box including pitcher stats", status: "submitted" },
+  { date: "1945-09-02", teams: "Kansas City Monarchs vs. Birmingham Black Barons", location: "Muehlebach Field, KC", source: "Kansas City Call, Sep 8, 1945, p.6", seamheads: "Not found", extracted: "Full box score", status: "submitted" },
+  { date: "1947-07-13", teams: "Newark Eagles vs. Baltimore Elite Giants", location: "Ruppert Stadium, Newark", source: "Baltimore Afro-American, Jul 19, 1947, p.9", seamheads: "Partial -- score only", extracted: "Full box with player lines", status: "review" },
+  { date: "1949-06-05", teams: "Indianapolis Clowns vs. Kansas City Monarchs", location: "Victory Field, Indianapolis", source: "Michigan Chronicle, Jun 11, 1949, p.7", seamheads: "Not found", extracted: "Full line score", status: "gap" }
+];
+
+/* ======================================================================
+   DATA -- NEWSPAPER MAP
+   ====================================================================== */
+
+var NEWSPAPERS = [
+  { name: "Pittsburgh Courier", city: "Pittsburgh", state: "PA", x: 640, y: 245, circ: 330000, founded: 1907, writers: "Smith, Nunn, Roberts", coverage: "1920-1975" },
+  { name: "Chicago Defender", city: "Chicago", state: "IL", x: 505, y: 225, circ: 250000, founded: 1905, writers: "Young, A.S. Young", coverage: "1920-1975" },
+  { name: "Baltimore Afro-American", city: "Baltimore", state: "MD", x: 670, y: 265, circ: 137000, founded: 1892, writers: "Lacy", coverage: "1920-1975" },
+  { name: "New York Amsterdam News", city: "New York", state: "NY", x: 710, y: 230, circ: 100000, founded: 1909, writers: "Bostic, Burley", coverage: "1920-1970" },
+  { name: "Kansas City Call", city: "Kansas City", state: "MO", x: 435, y: 275, circ: 20000, founded: 1919, writers: "Staff", coverage: "1920-1965" },
+  { name: "Atlanta Daily World", city: "Atlanta", state: "GA", x: 580, y: 340, circ: 30000, founded: 1928, writers: "Staff", coverage: "1928-1970" },
+  { name: "Norfolk Journal and Guide", city: "Norfolk", state: "VA", x: 685, y: 290, circ: 25000, founded: 1900, writers: "Staff", coverage: "1920-1960" },
+  { name: "Michigan Chronicle", city: "Detroit", state: "MI", x: 570, y: 210, circ: 50000, founded: 1936, writers: "Staff", coverage: "1936-1960" },
+  { name: "Philadelphia Tribune", city: "Philadelphia", state: "PA", x: 695, y: 245, circ: 40000, founded: 1884, writers: "Staff", coverage: "1920-1960" },
+  { name: "Cleveland Call and Post", city: "Cleveland", state: "OH", x: 590, y: 230, circ: 25000, founded: 1928, writers: "Staff", coverage: "1928-1965" }
+];
+
+/* ======================================================================
+   DATA -- METHODOLOGY CARDS
+   ====================================================================== */
+
+var METHODS = [
+  { model: "Model 1", name: "OCR Correction and Article Segmentation",
+    problem: "Digitized historical newspapers have OCR errors. Black press newspapers from the 1920s through 1950s have higher error rates than contemporary publications due to print quality, font variation, and digitization resolution. The corpus index requires clean text.",
+    approach: "A two-stage pipeline. First, a rule-based post-correction layer applying period-specific vocabulary (player names, team names, league names) to flag likely OCR errors. Second, a layout-analysis model that segments newspaper pages into articles with associated metadata (column head, byline, date, page).",
+    confidence: "Every article is flagged with an estimated OCR quality score. Articles below threshold are flagged for manual review before inclusion in the corpus.",
+    limitations: "Historical print quality varies dramatically across publications and decades. The rule-based layer catches known terms but cannot correct arbitrary OCR errors. Manual review remains necessary for low-quality scans." },
+  { model: "Model 2", name: "Named Entity Recognition and Player Linking",
+    problem: "The corpus contains thousands of player name mentions across seventy-five years. The platform needs to link these mentions to canonical player IDs for the corpus to be searchable by player.",
+    approach: "A fine-tuned NER model trained on a hand-annotated sample of the corpus. Four entity types: persons (with baseball role tag), teams, locations, and events. Player entity mentions are linked to canonical player IDs using a disambiguation pipeline that uses era, team context, position, and name form.",
+    confidence: "Named entity annotations carry confidence scores. Ambiguous disambiguations are flagged for manual review. Player-linking results are spot-checked against known biographical data.",
+    limitations: "Nickname usage in historical Black press writing creates disambiguation challenges. The same player may appear as 'Satchel,' 'Paige,' 'Satch,' or 'the Great Paige' across different publications and decades. The disambiguation pipeline handles common variants but cannot resolve all ambiguities." },
+  { model: "Model 3", name: "Topic Modeling and Advocacy Arc Analysis",
+    problem: "The corpus contains tens of thousands of articles across seventy-five years. Pattern identification at scale requires computational tools.",
+    approach: "Two complementary topic models. First, BERTopic over the full corpus, producing a stable topic structure reviewed and labeled manually. Second, a time-series analysis of topic prevalence, producing year-by-year prevalence curves. The advocacy arc finding comes from the integration advocacy topic's prevalence curve.",
+    confidence: "Topic modeling limitations for historical newspaper text are documented. Year-by-year curves are presented with smoothing and uncertainty bands. The chapter notes that the topic model is an entry point and human editorial work identifies key inflection points.",
+    limitations: "Historical newspaper language does not map cleanly to modern topic models. The topic structure is an approximation reviewed by humans, not ground truth. Year-by-year prevalence is smoothed and carries documented uncertainty." },
+  { model: "Model 4", name: "Box Score Detection and Seamheads Cross-Reference",
+    problem: "Identifying which articles contain game box scores, extracting them in structured form, and cross-referencing against Seamheads coverage to identify coverage gaps.",
+    approach: "A layout classification model identifies newspaper page regions containing box score tables. A structured extraction pipeline parses box score format (teams, innings, player lines, pitching lines) into tabular form. Extracted box scores are cross-referenced against the Seamheads documented game coverage.",
+    confidence: "Box score extraction accuracy is imperfect for historical newspaper formats. Every candidate recovery case is reviewed manually before being presented as a potential contribution to the Seamheads database.",
+    limitations: "Historical box score formats vary across publications and decades. Some scores are partial (team totals only). The cross-reference depends on accurate date and team matching, which is complicated by inconsistent scheduling records." },
+  { model: "Model 5", name: "Semantic Search Index",
+    problem: "The corpus needs to be searchable by readers with specific research questions, not just literal string match.",
+    approach: "A semantic search index over the corpus text using sentence-transformers embedding. The index allows semantic queries and returns ranked article passages with links to source articles.",
+    confidence: "Search results are ranked candidates, not definitive answers. The interface presents ranked results and directs readers to source materials for verification.",
+    limitations: "Semantic search over historical text carries additional noise from OCR artifacts and period-specific language. The search ranks plausible matches but cannot guarantee completeness or perfect relevance ordering." }
+];
+
+/* ======================================================================
+   UTILITY FUNCTIONS
+   ====================================================================== */
+
+function fmt(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function debounce(fn, delay) {
+  var timer;
+  return function() {
+    var ctx = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function() { fn.apply(ctx, args); }, delay);
+  };
+}
+
+var ns = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs, parent) {
+  var e = document.createElementNS(ns, tag);
+  for (var k in attrs) {
+    if (k === "text") { e.textContent = attrs[k]; continue; }
+    e.setAttribute(k, attrs[k]);
+  }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ======================================================================
+   FIG 01 -- THE CORPUS TIMELINE
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("timeline-svg");
+  if (!svg) return;
+  var W = 1100, H = 640;
+  var M = { t: 30, r: 30, b: 50, l: 60 };
+  var panelH = (H - M.t - M.b - 40) / 2; // two panels with gap
+  var innerW = W - M.l - M.r;
+
+  var years = TIMELINE_DATA.map(function(d) { return d.year; });
+  var minY = years[0], maxY = years[years.length - 1];
+  function xFor(y) { return M.l + ((y - minY) / (maxY - minY)) * innerW; }
+
+  // Find max total for y scale
+  var maxTotal = 0;
+  TIMELINE_DATA.forEach(function(d) { if (d.total > maxTotal) maxTotal = d.total; });
+  maxTotal = Math.ceil(maxTotal / 100) * 100;
+
+  function yForUpper(v) { return M.t + (1 - v / maxTotal) * panelH; }
+  var lowerTop = M.t + panelH + 40;
+  function yForLower(v) { return lowerTop + (1 - v / maxTotal) * panelH; }
+
+  var pubColors = ["#d4a64a", "#6f8aa8", "#8fa05a", "#b96f4a", "#a08456", "#5e5849"];
+  var pubNames = ["Pittsburgh Courier", "Chicago Defender", "Baltimore Afro-American", "NY Amsterdam News", "Kansas City Call", "Others"];
+  var topicColors = ["#6f8aa8", "#a14545", "#d4a64a", "#8fa05a", "#b96f4a", "#a08456", "#5e5849"];
+  var topicNames = ["Game coverage", "Integration advocacy", "Player profiles", "East-West game", "Caribbean", "Standings", "Post-integration"];
+
+  // Draw panel backgrounds
+  svgEl("rect", { x: M.l, y: M.t, width: innerW, height: panelH, fill: "rgba(26,24,18,0.4)" }, svg);
+  svgEl("rect", { x: M.l, y: lowerTop, width: innerW, height: panelH, fill: "rgba(26,24,18,0.4)" }, svg);
+
+  // Panel labels
+  svgEl("text", { x: M.l + 8, y: M.t + 14, "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.12em", text: "BY PUBLICATION" }, svg);
+  svgEl("text", { x: M.l + 8, y: lowerTop + 14, "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.12em", text: "BY TOPIC", id: "lower-label" }, svg);
+
+  // Y gridlines for both panels
+  [0, 100, 200, 300, 400, 500].forEach(function(v) {
+    if (v > maxTotal) return;
+    svgEl("line", { x1: M.l, x2: W - M.r, y1: yForUpper(v), y2: yForUpper(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: M.l - 8, y: yForUpper(v) + 3, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted-2)", text: String(v) }, svg);
+    svgEl("line", { x1: M.l, x2: W - M.r, y1: yForLower(v), y2: yForLower(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: M.l - 8, y: yForLower(v) + 3, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted-2)", text: String(v) }, svg);
+  });
+
+  // X axis labels
+  TIMELINE_DATA.forEach(function(d) {
+    if (d.year % 5 === 0) {
+      svgEl("text", { x: xFor(d.year), y: H - 10, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(d.year) }, svg);
+      svgEl("line", { x1: xFor(d.year), x2: xFor(d.year), y1: lowerTop + panelH, y2: lowerTop + panelH + 5, stroke: "var(--rule-2)" }, svg);
+    }
+  });
+
+  // Build stacked area paths
+  function buildStackedAreas(dataKey, yFn, baseY, colors, groupEl) {
+    var numSeries = TIMELINE_DATA[0][dataKey].length;
+    // Compute cumulative
+    var stacked = TIMELINE_DATA.map(function(d) {
+      var cum = [0];
+      for (var i = 0; i < numSeries; i++) {
+        cum.push(cum[i] + d[dataKey][i]);
+      }
+      return cum;
+    });
+
+    var areas = [];
+    for (var s = numSeries - 1; s >= 0; s--) {
+      var topPts = [];
+      var botPts = [];
+      for (var j = 0; j < TIMELINE_DATA.length; j++) {
+        var x = xFor(TIMELINE_DATA[j].year);
+        topPts.push(x + "," + yFn(stacked[j][s + 1]));
+        botPts.unshift(x + "," + yFn(stacked[j][s]));
+      }
+      var d = "M" + topPts.join("L") + "L" + botPts.join("L") + "Z";
+      var area = svgEl("path", { d: d, fill: colors[s], opacity: 0.7 }, groupEl);
+      areas.push(area);
+    }
+    return areas;
+  }
+
+  var upperGroup = svgEl("g", { id: "upper-areas" }, svg);
+  buildStackedAreas("pubs", yForUpper, M.t + panelH, pubColors, upperGroup);
+
+  var lowerTopicGroup = svgEl("g", { id: "lower-topic-areas" }, svg);
+  var topicAreas = buildStackedAreas("topics", yForLower, lowerTop + panelH, topicColors, lowerTopicGroup);
+
+  var lowerPubGroup = svgEl("g", { id: "lower-pub-areas", style: "display:none" }, svg);
+  buildStackedAreas("pubs", yForLower, lowerTop + panelH, pubColors, lowerPubGroup);
+
+  // Annotation lines
+  var annotations = [
+    { year: 1920, label: "NNL formed" },
+    { year: 1933, label: "First East-West" },
+    { year: 1942, label: "Smith survey" },
+    { year: 1947, label: "Robinson debut" },
+    { year: 1960, label: "NAL ends" },
+    { year: 1971, label: "HOF Committee" }
+  ];
+
+  annotations.forEach(function(a) {
+    var x = xFor(a.year);
+    svgEl("line", { x1: x, x2: x, y1: M.t, y2: lowerTop + panelH, stroke: "rgba(232,224,207,0.15)", "stroke-width": 1, "stroke-dasharray": "3 4" }, svg);
+    svgEl("text", { x: x, y: M.t - 6, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--vellum-dim)", "letter-spacing": "0.04em", text: a.label }, svg);
+  });
+
+  // Legend
+  var legendEl = document.getElementById("timeline-legend");
+  var currentView = "topic";
+
+  function renderLegend(view) {
+    legendEl.innerHTML = "";
+    var names = (view === "topic") ? topicNames : pubNames;
+    var colors2 = (view === "topic") ? topicColors : pubColors;
+    names.forEach(function(n, i) {
+      var item = document.createElement("div");
+      item.className = "timeline__legend-item";
+      item.setAttribute("role", "listitem");
+      var swatch = document.createElement("span");
+      swatch.className = "timeline__legend-swatch";
+      swatch.style.background = colors2[i];
+      item.appendChild(swatch);
+      item.appendChild(document.createTextNode(n));
+      legendEl.appendChild(item);
+    });
+  }
+  renderLegend("topic");
+
+  // Toggle
+  var toggleTopic = document.getElementById("toggle-topic");
+  var togglePub = document.getElementById("toggle-pub");
+
+  toggleTopic.addEventListener("click", function() {
+    currentView = "topic";
+    toggleTopic.classList.add("timeline__toggle-btn--active");
+    toggleTopic.setAttribute("aria-selected", "true");
+    togglePub.classList.remove("timeline__toggle-btn--active");
+    togglePub.setAttribute("aria-selected", "false");
+    lowerTopicGroup.style.display = "";
+    lowerPubGroup.style.display = "none";
+    document.getElementById("lower-label").textContent = "BY TOPIC";
+    renderLegend("topic");
+  });
+
+  togglePub.addEventListener("click", function() {
+    currentView = "publication";
+    togglePub.classList.add("timeline__toggle-btn--active");
+    togglePub.setAttribute("aria-selected", "true");
+    toggleTopic.classList.remove("timeline__toggle-btn--active");
+    toggleTopic.setAttribute("aria-selected", "false");
+    lowerTopicGroup.style.display = "none";
+    lowerPubGroup.style.display = "";
+    document.getElementById("lower-label").textContent = "BY PUBLICATION";
+    renderLegend("publication");
+  });
+})();
+
+/* ======================================================================
+   FIG 02 -- THE CORPUS SEARCH
+   ====================================================================== */
+
+(function() {
+  var input = document.getElementById("search-input");
+  var resultsEl = document.getElementById("search-results");
+  var countEl = document.getElementById("search-count");
+  var emptyEl = document.getElementById("search-empty");
+  if (!input || !resultsEl) return;
+
+  // State
+  var state = {
+    query: "",
+    pubs: [],
+    topics: [],
+    authors: [],
+    sort: "relevance",
+    dateStart: 1920,
+    dateEnd: 1975
+  };
+
+  // Initialize publication filters
+  function getCheckedPubs() {
+    var checks = document.querySelectorAll(".search__filter-check input[type='checkbox']");
+    var pubs = [];
+    checks.forEach(function(c) { if (c.checked) pubs.push(c.value); });
+    return pubs;
+  }
+
+  function matchesQuery(article, q) {
+    if (!q) return true;
+    var lower = q.toLowerCase();
+    var fields = [article.title, article.author, article.excerpt, article.pub].concat(article.players || []);
+    for (var i = 0; i < fields.length; i++) {
+      if (fields[i] && fields[i].toLowerCase().indexOf(lower) >= 0) return true;
+    }
+    return false;
+  }
+
+  function filterArticles() {
+    state.pubs = getCheckedPubs();
+    state.dateStart = parseInt(document.getElementById("date-start").value) || 1920;
+    state.dateEnd = parseInt(document.getElementById("date-end").value) || 1975;
+
+    var results = ARTICLES.filter(function(a) {
+      if (!matchesQuery(a, state.query)) return false;
+      if (state.pubs.indexOf(a.pub) < 0) return false;
+      if (a.year < state.dateStart || a.year > state.dateEnd) return false;
+      if (state.topics.length > 0) {
+        var hasMatch = false;
+        for (var i = 0; i < state.topics.length; i++) {
+          if (a.topics.indexOf(state.topics[i]) >= 0) { hasMatch = true; break; }
+        }
+        if (!hasMatch) return false;
+      }
+      if (state.authors.length > 0) {
+        var authorMatch = false;
+        for (var j = 0; j < state.authors.length; j++) {
+          if (a.author.indexOf(state.authors[j]) >= 0) { authorMatch = true; break; }
+        }
+        if (!authorMatch) return false;
+      }
+      return true;
+    });
+
+    // Sort
+    if (state.sort === "date-desc") {
+      results.sort(function(a, b) { return b.date.localeCompare(a.date); });
+    } else if (state.sort === "date-asc") {
+      results.sort(function(a, b) { return a.date.localeCompare(b.date); });
+    }
+    // relevance: keep default order (pre-ranked by relevance)
+
+    return results;
+  }
+
+  function highlightText(text, query) {
+    if (!query) return text;
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var regex = new RegExp("(" + escaped + ")", "gi");
+    return text.replace(regex, "<mark>$1</mark>");
+  }
+
+  function renderResults(results) {
+    countEl.textContent = results.length + " article" + (results.length !== 1 ? "s" : "");
+
+    if (results.length === 0) {
+      resultsEl.innerHTML = "";
+      emptyEl.style.display = "";
+      return;
+    }
+    emptyEl.style.display = "none";
+
+    var html = "";
+    results.forEach(function(a) {
+      var topicTags = a.topics.map(function(t) {
+        return '<span class="result-card__tag">' + t + '</span>';
+      }).join("");
+
+      var playerLinks = (a.players || []).map(function(p) {
+        return '<span class="result-card__player" data-player="' + p + '">' + p + '</span>';
+      }).join(" ");
+
+      html += '<article class="result-card" role="listitem">';
+      html += '<div class="result-card__header">';
+      html += '<span class="result-card__pub">' + a.pub + '</span>';
+      html += '<span class="result-card__date">' + a.date + '</span>';
+      html += '<span class="result-card__author">' + a.author + '</span>';
+      html += '</div>';
+      html += '<div class="result-card__title">' + highlightText(a.title, state.query) + '</div>';
+      html += '<div class="result-card__excerpt">' + highlightText(a.excerpt, state.query) + '</div>';
+      html += '<div class="result-card__meta">';
+      html += topicTags;
+      if (playerLinks) html += playerLinks;
+      html += '<span class="result-card__access">' + a.access + '</span>';
+      html += '</div>';
+      html += '</article>';
+    });
+    resultsEl.innerHTML = html;
+  }
+
+  function runSearch() {
+    var results = filterArticles();
+    renderResults(results);
+    // Update URL hash for shareability
+    if (state.query) {
+      try { history.replaceState(null, "", "#search?q=" + encodeURIComponent(state.query)); } catch(e) {}
+    }
+  }
+
+  // Input handler
+  var debouncedSearch = debounce(function() {
+    state.query = input.value.trim();
+    runSearch();
+  }, 200);
+
+  input.addEventListener("input", debouncedSearch);
+
+  // Chips
+  document.querySelectorAll(".search__chip").forEach(function(chip) {
+    chip.addEventListener("click", function() {
+      var q = chip.getAttribute("data-query");
+      input.value = q;
+      state.query = q;
+      runSearch();
+      input.focus();
+    });
+  });
+
+  // Publication checkbox changes
+  document.querySelectorAll(".search__filter-check input[type='checkbox']").forEach(function(cb) {
+    cb.addEventListener("change", runSearch);
+  });
+
+  // Date range
+  document.getElementById("date-start").addEventListener("change", runSearch);
+  document.getElementById("date-end").addEventListener("change", runSearch);
+
+  // Topic filters
+  document.querySelectorAll("[data-topic]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var topic = btn.getAttribute("data-topic");
+      var idx = state.topics.indexOf(topic);
+      if (idx >= 0) {
+        state.topics.splice(idx, 1);
+        btn.classList.remove("search__filter-tag--active");
+      } else {
+        state.topics.push(topic);
+        btn.classList.add("search__filter-tag--active");
+      }
+      runSearch();
+    });
+  });
+
+  // Author filters
+  document.querySelectorAll("[data-author]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var author = btn.getAttribute("data-author");
+      var idx = state.authors.indexOf(author);
+      if (idx >= 0) {
+        state.authors.splice(idx, 1);
+        btn.classList.remove("search__filter-tag--active");
+      } else {
+        state.authors.push(author);
+        btn.classList.add("search__filter-tag--active");
+      }
+      runSearch();
+    });
+  });
+
+  // Sort buttons
+  document.querySelectorAll(".search__sort-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      state.sort = btn.getAttribute("data-sort");
+      document.querySelectorAll(".search__sort-btn").forEach(function(b) {
+        b.classList.toggle("search__sort-btn--active", b === btn);
+      });
+      runSearch();
+    });
+  });
+
+  // Writer section links
+  document.querySelectorAll("[data-search-author]").forEach(function(link) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      var author = link.getAttribute("data-search-author");
+      // Clear existing author filters
+      state.authors = [author];
+      state.query = "";
+      input.value = "";
+      document.querySelectorAll("[data-author]").forEach(function(btn) {
+        btn.classList.toggle("search__filter-tag--active", btn.getAttribute("data-author") === author);
+      });
+      runSearch();
+      document.getElementById("search").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Parse URL state on load
+  if (window.location.hash.indexOf("#search?q=") === 0) {
+    var q = decodeURIComponent(window.location.hash.replace("#search?q=", ""));
+    input.value = q;
+    state.query = q;
+  }
+
+  // Initial render
+  runSearch();
+})();
+
+/* ======================================================================
+   FIG 04 -- BOX SCORE RECOVERY TABLE
+   ====================================================================== */
+
+(function() {
+  var tbody = document.getElementById("recovery-body");
+  var cardsEl = document.getElementById("recovery-cards");
+  if (!tbody) return;
+
+  var statusLabels = {
+    review: "Under Review",
+    gap: "Confirmed Gap",
+    submitted: "Submitted"
+  };
+
+  var statusClasses = {
+    review: "recovery__status--review",
+    gap: "recovery__status--gap",
+    submitted: "recovery__status--submitted"
+  };
+
+  function renderTable(data) {
+    var html = "";
+    data.forEach(function(r) {
+      html += "<tr>";
+      html += "<td>" + r.date + "</td>";
+      html += "<td>" + r.teams + "</td>";
+      html += "<td>" + r.location + "</td>";
+      html += "<td style='font-size:11px'>" + r.source + "</td>";
+      html += "<td>" + r.seamheads + "</td>";
+      html += "<td>" + r.extracted + "</td>";
+      html += '<td><span class="recovery__status ' + statusClasses[r.status] + '">' + statusLabels[r.status] + '</span></td>';
+      html += "</tr>";
+    });
+    tbody.innerHTML = html;
+  }
+
+  function renderCards(data) {
+    var html = "";
+    data.forEach(function(r) {
+      html += '<div class="recovery__card">';
+      html += '<div class="recovery__card-date">' + r.date + '</div>';
+      html += '<div class="recovery__card-teams">' + r.teams + '</div>';
+      html += '<div class="recovery__card-row"><span>Source</span><span style="color:var(--vellum-dim);text-align:right;max-width:60%">' + r.source + '</span></div>';
+      html += '<div class="recovery__card-row"><span>Seamheads</span><span>' + r.seamheads + '</span></div>';
+      html += '<div class="recovery__card-row"><span>Status</span><span class="recovery__status ' + statusClasses[r.status] + '">' + statusLabels[r.status] + '</span></div>';
+      html += '</div>';
+    });
+    cardsEl.innerHTML = html;
+  }
+
+  renderTable(RECOVERY_DATA);
+  renderCards(RECOVERY_DATA);
+
+  // Sortable headers
+  var sortCol = null;
+  var sortDir = 1;
+
+  document.querySelectorAll(".recovery__table th[data-sort]").forEach(function(th) {
+    th.addEventListener("click", function() {
+      var col = th.getAttribute("data-sort");
+      if (sortCol === col) { sortDir *= -1; } else { sortCol = col; sortDir = 1; }
+
+      var sorted = RECOVERY_DATA.slice().sort(function(a, b) {
+        var va, vb;
+        if (col === "date") { va = a.date; vb = b.date; }
+        else if (col === "teams") { va = a.teams; vb = b.teams; }
+        else if (col === "status") { va = a.status; vb = b.status; }
+        else { return 0; }
+        return va < vb ? -sortDir : va > vb ? sortDir : 0;
+      });
+
+      renderTable(sorted);
+      renderCards(sorted);
+    });
+  });
+})();
+
+/* ======================================================================
+   FIG 05 -- THE NEWSPAPER MAP
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("newspaper-map-svg");
+  if (!svg) return;
+
+  // Simplified continental US outline as a single path
+  // This is a minimal coastline + Great Lakes outline, under 5KB
+  var usOutline = "M 120,140 L 130,128 140,120 155,115 170,112 185,115 200,120 220,118 240,115 260,110 280,108 300,105 320,100 340,98 360,95 370,98 380,95 390,90 400,88 415,85 430,90 445,95 460,100 475,105 485,110 490,115 500,118 510,120 520,125 535,128 550,130 560,128 570,125 580,120 590,118 600,115 610,112 620,110 630,108 640,110 650,115 660,120 670,125 680,130 690,135 695,145 700,155 705,165 710,175 715,180 720,190 725,200 730,210 735,220 738,225 740,235 742,245 740,255 735,265 730,270 725,275 720,280 715,290 710,300 705,305 700,310 695,315 690,320 685,325 680,330 670,340 660,345 650,350 640,355 630,358 620,360 610,365 600,370 590,372 580,375 570,378 560,380 550,378 540,375 530,372 520,370 510,372 500,375 490,378 480,380 470,382 460,385 450,388 440,390 430,388 420,385 410,382 400,380 390,378 380,375 370,378 360,380 350,382 340,385 330,388 320,390 310,388 300,385 290,382 280,378 270,375 260,372 250,370 240,368 230,370 220,375 210,380 200,385 190,388 180,390 170,388 160,385 150,382 140,380 130,378 125,372 120,365 115,355 110,345 108,335 110,325 112,315 115,305 118,295 120,285 118,275 115,265 112,255 110,245 108,235 110,225 112,215 115,205 118,195 120,185 118,175 115,165 118,155 120,145 Z";
+
+  // Great Lakes simplified
+  var lakesPath = "M 500,145 Q 510,140 520,142 530,148 525,155 518,158 510,155 505,150 500,145 Z M 535,138 Q 545,132 555,135 560,142 555,148 548,150 540,148 535,142 535,138 Z M 555,155 Q 565,150 572,155 575,162 570,168 562,170 555,165 555,158 Z M 575,165 Q 585,160 590,165 592,172 588,178 580,180 575,175 575,168 Z M 555,175 Q 562,172 568,175 570,182 565,188 558,190 552,185 555,178 Z";
+
+  // Draw map
+  svgEl("path", { d: usOutline, fill: "var(--ink-2)", stroke: "var(--rule)", "stroke-width": 1 }, svg);
+  svgEl("path", { d: lakesPath, fill: "var(--ink)", stroke: "var(--rule)", "stroke-width": 0.5 }, svg);
+
+  // Great Migration routes (dashed lines, south to north)
+  var migrationRoutes = [
+    // Mississippi Delta to Chicago
+    { d: "M 480,380 C 480,340 490,300 505,225", label: "Delta to Chicago" },
+    // Alabama/Georgia to Detroit
+    { d: "M 580,360 C 580,320 575,280 570,210", label: "Deep South to Detroit" },
+    // Carolinas/Virginia to NYC/Philly
+    { d: "M 660,330 C 670,300 690,270 710,230", label: "Carolinas to Northeast" },
+    // Texas/Louisiana to Kansas City
+    { d: "M 380,400 C 400,370 420,330 435,275", label: "Southwest to KC" }
+  ];
+
+  migrationRoutes.forEach(function(route) {
+    svgEl("path", { d: route.d, fill: "none", stroke: "rgba(212,166,74,0.2)", "stroke-width": 1.5, "stroke-dasharray": "6 4" }, svg);
+  });
+
+  // Publication dots
+  var tooltip = document.getElementById("map-tooltip");
+  var maxCirc = 330000;
+
+  NEWSPAPERS.forEach(function(paper) {
+    var r = 6 + (paper.circ / maxCirc) * 18;
+
+    // Glow
+    svgEl("circle", { cx: paper.x, cy: paper.y, r: r + 3, fill: "rgba(212,166,74,0.1)" }, svg);
+
+    // Dot
+    var dot = svgEl("circle", {
+      cx: paper.x, cy: paper.y, r: r,
+      fill: "rgba(212,166,74,0.15)",
+      stroke: "var(--amber)",
+      "stroke-width": 1.5,
+      style: "cursor:pointer",
+      tabindex: 0,
+      role: "button",
+      "aria-label": paper.name + ", " + paper.city + ", peak circulation " + fmt(paper.circ)
+    }, svg);
+
+    // City label
+    var labelY = paper.y + r + 14;
+    var anchor = "middle";
+    // Adjust for crowded northeast
+    if (paper.city === "Philadelphia" || paper.city === "Norfolk") {
+      labelY = paper.y + r + 12;
+    }
+    svgEl("text", {
+      x: paper.x, y: labelY,
+      "text-anchor": anchor,
+      "font-family": "var(--mono)",
+      "font-size": 8,
+      fill: "var(--muted)",
+      "letter-spacing": "0.06em",
+      text: paper.city.toUpperCase()
+    }, svg);
+
+    // Hover/focus handlers
+    function showTooltip() {
+      document.getElementById("tooltip-name").textContent = paper.name;
+      document.getElementById("tooltip-city").textContent = paper.city + ", " + paper.state;
+      document.getElementById("tooltip-founded").textContent = paper.founded;
+      document.getElementById("tooltip-circ").textContent = fmt(paper.circ);
+      document.getElementById("tooltip-writers").textContent = paper.writers;
+      document.getElementById("tooltip-coverage").textContent = paper.coverage;
+      tooltip.style.display = "block";
+      tooltip.setAttribute("aria-hidden", "false");
+      // Position relative to SVG container
+      var wrap = svg.parentElement;
+      var svgRect = wrap.getBoundingClientRect();
+      var scale = svgRect.width / 900;
+      var left = paper.x * scale + 20;
+      var top = paper.y * scale - 60;
+      if (left + 260 > svgRect.width) left = left - 280;
+      if (top < 0) top = paper.y * scale + 20;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
+
+    function hideTooltip() {
+      tooltip.style.display = "none";
+      tooltip.setAttribute("aria-hidden", "true");
+    }
+
+    dot.addEventListener("mouseenter", showTooltip);
+    dot.addEventListener("mouseleave", hideTooltip);
+    dot.addEventListener("focus", showTooltip);
+    dot.addEventListener("blur", hideTooltip);
+    dot.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") hideTooltip();
+    });
+  });
+})();
+
+/* ======================================================================
+   METHODOLOGY CARDS
+   ====================================================================== */
+
+(function() {
+  var container = document.getElementById("method-cards");
+  if (!container) return;
+
+  METHODS.forEach(function(m) {
+    var card = document.createElement("div");
+    card.className = "method-card";
+
+    var header = document.createElement("div");
+    header.className = "method-card__header";
+    header.setAttribute("role", "button");
+    header.setAttribute("aria-expanded", "false");
+    header.setAttribute("tabindex", "0");
+
+    var nameSpan = document.createElement("span");
+    nameSpan.className = "method-card__name";
+    nameSpan.innerHTML = '<span class="method-card__model">' + m.model + '</span>  ' + m.name;
+
+    var toggle = document.createElement("span");
+    toggle.className = "method-card__toggle";
+    toggle.textContent = "+";
+    toggle.setAttribute("aria-hidden", "true");
+
+    header.appendChild(nameSpan);
+    header.appendChild(toggle);
+
+    var body = document.createElement("div");
+    body.className = "method-card__body";
+
+    var sections = [
+      { label: "Problem", text: m.problem },
+      { label: "Approach", text: m.approach },
+      { label: "Confidence Labeling", text: m.confidence },
+      { label: "Limitations", text: m.limitations }
+    ];
+
+    sections.forEach(function(s) {
+      var sec = document.createElement("div");
+      sec.className = "method-card__section";
+      var lbl = document.createElement("div");
+      lbl.className = "method-card__section-label";
+      lbl.textContent = s.label;
+      var txt = document.createElement("div");
+      txt.className = "method-card__section-text";
+      txt.textContent = s.text;
+      sec.appendChild(lbl);
+      sec.appendChild(txt);
+      body.appendChild(sec);
+    });
+
+    card.appendChild(header);
+    card.appendChild(body);
+    container.appendChild(card);
+
+    function toggleCard() {
+      var isOpen = card.classList.toggle("method-card--open");
+      header.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    header.addEventListener("click", toggleCard);
+    header.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleCard(); }
+    });
+  });
+})();
+
+/* ======================================================================
+   SCROLL REVEAL (IntersectionObserver)
+   ====================================================================== */
+
+(function() {
+  var reveals = document.querySelectorAll(".reveal");
+  if (!reveals.length) return;
+
+  if (prefersReduced) {
+    reveals.forEach(function(el) { el.classList.add("reveal--visible"); });
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    reveals.forEach(function(el) { el.classList.add("reveal--visible"); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal--visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+/* ======================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ====================================================================== */
+
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "corpus-timeline", "search", "writers", "recovery", "newspaper-map", "method", "coda"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ======================================================================
+   EXPOSE NAMESPACE
+   ====================================================================== */
+
+window.TOBS.ch14 = {
+  articles: ARTICLES,
+  timeline: TIMELINE_DATA,
+  recovery: RECOVERY_DATA,
+  newspapers: NEWSPAPERS
+};
+
+})();
+</script>
+</body>
+</html>

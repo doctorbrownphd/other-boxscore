@@ -1,0 +1,2764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Ledger</title>
+<meta name="description" content="A WAR reconstruction engine for the integrated record. Rate-normalized career value, position-by-position leaderboards, confidence bands, and a methodology built to handle the structural conditions of Negro Leagues play.">
+<meta property="og:title" content="The Other Box Score -- The Ledger">
+<meta property="og:description" content="The numbers exist. The methodology has not. Until now. Rate-based WAR, integrated leaderboards, and the engine that makes the comparison makeable.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-ledger/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page sections
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+.body-prose mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 2px 6px;
+}
+
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+
+.smcaps {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. Hook
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 48px;
+  line-height: 1.08;
+  color: var(--vellum);
+}
+
+.hook__question-mark { color: var(--amber); }
+
+.hook__body {
+  margin-top: 32px;
+}
+
+.hook__stat-pair {
+  padding: 32px;
+  background: var(--ink-2);
+  border: 1px solid rgba(212,166,74,0.32);
+}
+
+.hook__stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.hook__stat-cell { text-align: center; }
+
+.hook__stat-num {
+  font-family: var(--mono);
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hook__stat-num--amber { color: var(--amber); }
+.hook__stat-num--slate { color: var(--slate); }
+.hook__stat-num--muted { color: var(--muted); }
+
+.hook__stat-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.hook__stat-divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+}
+
+.hook__stat-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   5. Leaderboard (Fig 01)
+   ========================================================================== */
+
+.leaderboard {
+  padding: 0 40px 80px;
+}
+
+.leaderboard__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.leaderboard__filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.leaderboard__filter-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
+.leaderboard__filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: var(--ink-2);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.leaderboard__filter-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--rule-2);
+}
+
+.leaderboard__filter-btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+.leaderboard__search {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 12px;
+  background: var(--ink-2);
+  color: var(--vellum);
+  border: 1px solid var(--rule);
+  width: 200px;
+  transition: border-color 0.2s;
+}
+
+.leaderboard__search::placeholder { color: var(--muted-2); }
+.leaderboard__search:focus { border-color: var(--amber); outline: none; }
+
+.leaderboard__count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-left: auto;
+}
+
+/* Table */
+.leaderboard__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule);
+}
+
+.leaderboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.leaderboard__table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.leaderboard__table th {
+  background: var(--ink-3);
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.leaderboard__table th:hover { color: var(--vellum-dim); }
+
+.leaderboard__table th--sorted {
+  color: var(--amber);
+}
+
+.leaderboard__table th .sort-arrow {
+  margin-left: 4px;
+  font-size: 8px;
+  opacity: 0.4;
+}
+
+.leaderboard__table th--sorted .sort-arrow {
+  opacity: 1;
+  color: var(--amber);
+}
+
+.leaderboard__table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(42,38,29,0.6);
+  color: var(--vellum-dim);
+  white-space: nowrap;
+}
+
+.leaderboard__table tr:hover td {
+  background: rgba(212,166,74,0.04);
+}
+
+.leaderboard__table tr[data-league="NL"] td:first-child {
+  border-left: 3px solid var(--amber);
+}
+
+.leaderboard__table tr[data-league="MLB"] td:first-child {
+  border-left: 3px solid var(--slate);
+}
+
+.leaderboard__table .cell--player {
+  color: var(--vellum);
+  font-weight: 500;
+  font-size: 13px;
+  font-family: var(--serif);
+}
+
+.leaderboard__table .cell--amber { color: var(--amber); }
+.leaderboard__table .cell--slate { color: var(--slate); }
+
+.leaderboard__table .cell--hof {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.leaderboard__table .hof-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.hof-badge--inducted {
+  color: var(--amber);
+  border-color: rgba(212,166,74,0.4);
+  background: rgba(212,166,74,0.08);
+}
+
+.hof-badge--eligible {
+  color: var(--muted);
+  border-color: var(--rule);
+}
+
+.hof-badge--active {
+  color: var(--moss);
+  border-color: rgba(143,160,90,0.4);
+}
+
+/* Confidence band tooltip */
+.leaderboard__ci {
+  position: relative;
+  cursor: help;
+}
+
+.leaderboard__ci-bar {
+  display: inline-block;
+  height: 3px;
+  background: rgba(212,166,74,0.3);
+  position: relative;
+  vertical-align: middle;
+  margin-left: 6px;
+  min-width: 20px;
+}
+
+.leaderboard__ci-bar::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--amber);
+  border-radius: 50%;
+}
+
+/* Mobile card view */
+.leaderboard__cards {
+  display: none;
+}
+
+.leaderboard__card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.leaderboard__card:hover,
+.leaderboard__card:focus-within {
+  border-color: rgba(212,166,74,0.3);
+}
+
+.leaderboard__card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.leaderboard__card-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--vellum);
+  font-weight: 500;
+}
+
+.leaderboard__card-jaws {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--amber);
+}
+
+.leaderboard__card-meta {
+  display: flex;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.leaderboard__card-league {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.leaderboard__card-league--nl { background: var(--amber); }
+.leaderboard__card-league--mlb { background: var(--slate); }
+
+.leaderboard__card-detail {
+  display: none;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.leaderboard__card--expanded .leaderboard__card-detail {
+  display: block;
+}
+
+.leaderboard__card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.leaderboard__card-stat-val {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--vellum-dim);
+}
+
+.leaderboard__card-stat-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   6. JAWS Scatter (Fig 02)
+   ========================================================================== */
+
+.scatter-section {
+  padding: 0 40px 80px;
+}
+
+.scatter__container {
+  position: relative;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.scatter__svg-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scatter__svg {
+  width: 100%;
+  height: auto;
+}
+
+.scatter__legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.scatter__legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.scatter__tooltip {
+  position: absolute;
+  background: var(--ink-3);
+  border: 1px solid var(--amber);
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum);
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   7. Confidence Bands (Fig 03)
+   ========================================================================== */
+
+.confidence-section {
+  padding: 0 40px 80px;
+}
+
+.confidence__container {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.confidence__svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.confidence__svg {
+  width: 100%;
+  min-width: 700px;
+  height: auto;
+}
+
+/* ==========================================================================
+   8. Comparable Universe (Fig 04)
+   ========================================================================== */
+
+.universe-section {
+  padding: 0 40px 80px;
+}
+
+.universe__container {
+  position: relative;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.universe__controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.universe__toggle {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: var(--ink-3);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.universe__toggle--active {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.universe__canvas-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.universe__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.universe__tooltip {
+  position: absolute;
+  background: var(--ink-3);
+  border: 1px solid var(--amber);
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum);
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+  max-width: 240px;
+}
+
+.universe__cluster-label {
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--vellum-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: 0 0 8px var(--ink), 0 0 16px var(--ink);
+}
+
+/* ==========================================================================
+   9. Sensitivity Dashboard (Fig 05)
+   ========================================================================== */
+
+.sensitivity-section {
+  padding: 0 40px 80px;
+}
+
+.sensitivity__grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.sensitivity__panel {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  position: sticky;
+  top: 60px;
+}
+
+.sensitivity__control {
+  margin-bottom: 24px;
+}
+
+.sensitivity__control:last-child { margin-bottom: 0; }
+
+.sensitivity__control-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sensitivity__radio-group {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.sensitivity__radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sensitivity__radio-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+  flex: 1;
+}
+
+.sensitivity__radio-label:last-of-type { border-right: none; }
+
+.sensitivity__radio:checked + .sensitivity__radio-label {
+  color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+.sensitivity__radio:focus-visible + .sensitivity__radio-label {
+  outline: 2px solid var(--amber);
+  outline-offset: -2px;
+}
+
+.sensitivity__slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sensitivity__slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: var(--rule);
+  outline: none;
+  cursor: pointer;
+}
+
+.sensitivity__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--amber);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sensitivity__slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--amber);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sensitivity__slider-val {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--amber);
+  min-width: 40px;
+  text-align: right;
+}
+
+.sensitivity__toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sensitivity__toggle-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--rule);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sensitivity__toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sensitivity__toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: var(--muted);
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.sensitivity__toggle-input:checked + .sensitivity__toggle-switch {
+  background: rgba(212,166,74,0.3);
+}
+
+.sensitivity__toggle-input:checked + .sensitivity__toggle-switch::after {
+  transform: translateX(16px);
+  background: var(--amber);
+}
+
+.sensitivity__toggle-text {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* Results panel */
+.sensitivity__results {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.sensitivity__results-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.sensitivity__pos-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sensitivity__rank-corr {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.sensitivity__rank-corr-val {
+  color: var(--amber);
+}
+
+.sensitivity__top-list {
+  list-style: none;
+}
+
+.sensitivity__top-item {
+  display: grid;
+  grid-template-columns: 28px 1fr 80px 60px;
+  gap: 8px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(42,38,29,0.5);
+  font-family: var(--mono);
+  font-size: 12px;
+  transition: background 0.15s;
+}
+
+.sensitivity__top-item:hover {
+  background: rgba(212,166,74,0.03);
+}
+
+.sensitivity__top-rank {
+  color: var(--muted);
+  font-size: 10px;
+  text-align: right;
+}
+
+.sensitivity__top-name {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum);
+  font-weight: 500;
+}
+
+.sensitivity__top-jaws {
+  color: var(--amber);
+  text-align: right;
+}
+
+.sensitivity__top-move {
+  font-size: 10px;
+  text-align: right;
+}
+
+.sensitivity__top-move--up { color: var(--moss); }
+.sensitivity__top-move--down { color: var(--oxblood); }
+.sensitivity__top-move--same { color: var(--muted-2); }
+
+/* ==========================================================================
+   10. Methodology Explorer
+   ========================================================================== */
+
+.method-section {
+  padding: 0 40px 80px;
+}
+
+.method__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.method__card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.method__card:hover,
+.method__card:focus-within {
+  border-color: rgba(212,166,74,0.3);
+}
+
+.method__card-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.method__card-title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vellum);
+  margin-bottom: 8px;
+}
+
+.method__card-desc {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.method__card-conf {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.method__card-detail {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+.method__card--expanded .method__card-detail { display: block; }
+
+/* ==========================================================================
+   11. Connective Tissue & Citation
+   ========================================================================== */
+
+.tissue {
+  padding: 64px 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.tissue__text {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.citation-section {
+  padding: 0 40px 80px;
+}
+
+.citation__block {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  max-width: 720px;
+}
+
+.citation__block-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.citation__tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  max-width: 720px;
+}
+
+.citation__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  color: var(--muted);
+  background: var(--ink-3);
+  border: none;
+  border-right: 1px solid var(--rule);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.citation__tab:last-child { border-right: none; }
+
+.citation__tab--active {
+  color: var(--amber);
+  background: var(--ink-2);
+}
+
+/* ==========================================================================
+   12. Footer
+   ========================================================================== */
+
+.chapter-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chapter-footer__license {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chapter-footer__nav {
+  display: flex;
+  gap: 24px;
+}
+
+.chapter-footer__link {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.chapter-footer__link:hover { color: var(--amber); }
+
+/* ==========================================================================
+   13. Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .sensitivity__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sensitivity__panel {
+    position: static;
+  }
+
+  .method__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 0;
+    gap: 12px;
+  }
+
+  .masthead__meta {
+    text-align: left;
+    min-width: auto;
+  }
+
+  .masthead__tabs {
+    padding: 0 20px;
+  }
+
+  .masthead__tab {
+    padding: 12px 14px;
+    font-size: 9px;
+  }
+
+  .masthead__title { font-size: 48px; }
+
+  .hook {
+    padding: 32px 20px 48px;
+  }
+
+  .hook__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hook__question { font-size: 36px; }
+
+  .leaderboard {
+    padding: 0 20px 56px;
+  }
+
+  .leaderboard__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .leaderboard__search { width: 100%; }
+
+  .leaderboard__table-wrap { display: none; }
+  .leaderboard__cards { display: block; }
+
+  .scatter-section,
+  .confidence-section,
+  .universe-section,
+  .sensitivity-section,
+  .method-section,
+  .citation-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sensitivity__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tissue { padding: 40px 20px; }
+
+  .chapter-footer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .masthead__title { font-size: 36px; }
+  .hook__question { font-size: 28px; }
+  .hook__stat-num { font-size: 32px; }
+  .section-head__title { font-size: 28px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ====================================================================
+     Platform Nav
+     ==================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <a href="https://github.com/other-boxscore">GitHub</a>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     Masthead
+     ==================================================================== -->
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <div class="masthead__part">Part Four -- What the Numbers Say</div>
+    </div>
+    <div>
+      <h1 class="masthead__title">The Ledger</h1>
+      <p class="masthead__subtitle">A WAR reconstruction engine for the integrated record. The methodology that makes the comparison makeable, documented openly, the data open, the assumptions auditable.</p>
+    </div>
+    <div class="masthead__meta">
+      <div class="masthead__meta-line">Chapter 10 of 15</div>
+      <div class="masthead__meta-line">6 models -- 5 visualizations</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">The engine chapter</div>
+    </div>
+  </div>
+  <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">
+    <a class="masthead__tab masthead__tab--active" href="#hook" role="tab">The Hook</a>
+    <a class="masthead__tab" href="#leaderboard" role="tab">Leaderboard</a>
+    <a class="masthead__tab" href="#scatter" role="tab">JAWS Comparison</a>
+    <a class="masthead__tab" href="#confidence" role="tab">Confidence</a>
+    <a class="masthead__tab" href="#universe" role="tab">Comparables</a>
+    <a class="masthead__tab" href="#sensitivity" role="tab">Sensitivity</a>
+    <a class="masthead__tab" href="#method" role="tab">Method</a>
+    <a class="masthead__tab" href="#citation" role="tab">Cite</a>
+  </nav>
+</header>
+
+<!-- ====================================================================
+     THE HOOK
+     ==================================================================== -->
+
+<section id="hook" class="hook page" aria-label="The Hook">
+  <div class="hook__grid">
+    <div>
+      <h2 class="hook__question">The numbers exist<span class="hook__question-mark">.</span><br>The methodology has not<span class="hook__question-mark">.</span></h2>
+      <div class="hook__body body-prose">
+        <p class="lede">Gary Ashwill and Kevin Johnson built the Seamheads Negro Leagues Database over fifteen years. They normalized statistics across leagues, parks, and opponent strength. They produced per-season WAR for every documented Negro Leagues player.</p>
+        <p>Baseball Reference incorporated their work in 2020. FanGraphs incorporated it in 2023. Major League Baseball officially recognized it in 2024.</p>
+        <p>But the comparison question was never fully answered. Josh Gibson's career WAR is 41.5. Ty Cobb's is 151.5. The first reading says Cobb was nearly four times more valuable. <strong>The reading is wrong,</strong> and the reason it is wrong is that Cobb played four times as many league games as Gibson. The seasons are not the same unit.</p>
+        <p>The standard Hall of Fame methodology, JAWS, averages career WAR with seven-year peak WAR. It was built for the MLB record. It does not handle the structural conditions of Negro Leagues play. Applied without adjustment, it understates Negro Leagues players by exactly the seasonal-length disparity their leagues operated under.</p>
+        <p>This chapter builds the alternative. Rate-based career and peak metrics. Position-by-position integrated leaderboards. The methodology open, the data open, the assumptions auditable.</p>
+      </div>
+    </div>
+    <div class="hook__stat-pair" aria-label="The seasonal-length disparity">
+      <div class="hook__stat-row">
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--amber">41.5</div>
+          <div class="hook__stat-label">Gibson career WAR</div>
+        </div>
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--slate">151.5</div>
+          <div class="hook__stat-label">Cobb career WAR</div>
+        </div>
+      </div>
+      <div class="hook__stat-divider"></div>
+      <div class="hook__stat-row">
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--amber" style="font-size:32px">~55</div>
+          <div class="hook__stat-label">NL league games / season</div>
+        </div>
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--slate" style="font-size:32px">154</div>
+          <div class="hook__stat-label">MLB games / season</div>
+        </div>
+      </div>
+      <div class="hook__stat-divider"></div>
+      <div class="hook__stat-row">
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--amber" style="font-size:36px">9.6</div>
+          <div class="hook__stat-label">Gibson WAR / 600 PA</div>
+        </div>
+        <div class="hook__stat-cell">
+          <div class="hook__stat-num hook__stat-num--slate" style="font-size:36px">6.5</div>
+          <div class="hook__stat-label">Cobb WAR / 600 PA</div>
+        </div>
+      </div>
+      <div class="hook__stat-note">Same denominator. Different answer. The rate tells the truth the count obscured.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 01 -- THE INTEGRATED LEADERBOARD
+     ==================================================================== -->
+
+<section id="leaderboard" class="leaderboard page" aria-label="Integrated Leaderboard">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 01</div>
+    <h2 class="section-head__title">The Integrated <em>Leaderboard</em></h2>
+    <p class="section-head__lede">Every qualified player in the integrated record. Sorted by Rate JAWS by default. The integration is the point: Negro Leagues and MLB players ranked by the same methodology, in the same table, using the same units.</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="leaderboard__controls" role="toolbar" aria-label="Leaderboard filters">
+    <div class="leaderboard__filter-group" role="group" aria-label="Position filter">
+      <span class="leaderboard__filter-label">Pos</span>
+      <button class="leaderboard__filter-btn leaderboard__filter-btn--active" data-filter="pos" data-value="ALL" aria-pressed="true">All</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="C" aria-pressed="false">C</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="1B" aria-pressed="false">1B</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="2B" aria-pressed="false">2B</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="SS" aria-pressed="false">SS</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="3B" aria-pressed="false">3B</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="OF" aria-pressed="false">OF</button>
+      <button class="leaderboard__filter-btn" data-filter="pos" data-value="P" aria-pressed="false">P</button>
+    </div>
+    <div class="leaderboard__filter-group" role="group" aria-label="League filter">
+      <span class="leaderboard__filter-label">League</span>
+      <button class="leaderboard__filter-btn leaderboard__filter-btn--active" data-filter="league" data-value="ALL" aria-pressed="true">Both</button>
+      <button class="leaderboard__filter-btn" data-filter="league" data-value="NL" aria-pressed="false">Negro Lg</button>
+      <button class="leaderboard__filter-btn" data-filter="league" data-value="MLB" aria-pressed="false">MLB</button>
+    </div>
+    <input class="leaderboard__search" type="search" placeholder="Search player..." aria-label="Search players by name" id="lb-search" />
+    <span class="leaderboard__count" id="lb-count" aria-live="polite">Showing 0 players</span>
+  </div>
+
+  <!-- Desktop table -->
+  <div class="leaderboard__table-wrap" role="region" aria-label="Leaderboard table" tabindex="0">
+    <table class="leaderboard__table" id="lb-table">
+      <thead>
+        <tr>
+          <th data-sort="rank" aria-sort="none"># <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="name" aria-sort="none">Player <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="pos" aria-sort="none">Pos <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="era" aria-sort="none">Era <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="careerWAR" aria-sort="none">Career WAR <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="rateWAR" aria-sort="none">WAR/600 PA <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="peakRate" aria-sort="none">Peak Rate <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="stdJAWS" aria-sort="none">Std JAWS <span class="sort-arrow">&#9650;</span></th>
+          <th data-sort="rateJAWS" class="th--sorted" aria-sort="descending">Rate JAWS <span class="sort-arrow">&#9660;</span></th>
+          <th data-sort="hof" aria-sort="none">HOF <span class="sort-arrow">&#9650;</span></th>
+        </tr>
+      </thead>
+      <tbody id="lb-body"></tbody>
+    </table>
+  </div>
+
+  <!-- Mobile card view -->
+  <div class="leaderboard__cards" id="lb-cards" aria-label="Leaderboard cards"></div>
+</section>
+
+<!-- ====================================================================
+     FIG 02 -- STANDARD JAWS vs RATE JAWS
+     ==================================================================== -->
+
+<section id="scatter" class="scatter-section page" aria-label="JAWS Comparison Scatter Plot">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 02</div>
+    <h2 class="section-head__title">Standard JAWS vs. Rate <em>JAWS</em></h2>
+    <p class="section-head__lede">Each point is a player. Above the diagonal: players who score higher on rate JAWS than standard JAWS. Predominantly Negro Leagues players whose career totals were suppressed by short seasons. Below the diagonal: players whose career totals reflect longevity more than peak production.</p>
+  </div>
+  <div class="scatter__container">
+    <div class="scatter__svg-wrap">
+      <svg id="scatter-svg" class="scatter__svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Scatter plot comparing Standard JAWS against Rate JAWS for all qualified players"></svg>
+    </div>
+    <div class="scatter__legend">
+      <span><span class="scatter__legend-dot" style="background:var(--amber)"></span>Negro Leagues</span>
+      <span><span class="scatter__legend-dot" style="background:var(--slate)"></span>MLB</span>
+      <span style="color:var(--muted-2)">Diagonal = equal ranking under both methods</span>
+    </div>
+    <div class="scatter__tooltip" id="scatter-tip"></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 03 -- CONFIDENCE BANDS
+     ==================================================================== -->
+
+<section id="confidence" class="confidence-section page" aria-label="Confidence Band Visualization">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 03</div>
+    <h2 class="section-head__title">The Confidence <em>Bands</em></h2>
+    <p class="section-head__lede">Every WAR figure on the platform is a credible interval, not a point estimate. The width of the interval reflects the underlying data completeness. Players from sparsely-documented eras have wider intervals. The platform does not paper over uncertainty. It surfaces it.</p>
+  </div>
+  <div class="confidence__container">
+    <div class="confidence__svg-wrap">
+      <svg id="conf-svg" class="confidence__svg" viewBox="0 0 900 1100" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Horizontal lollipop chart showing WAR credible intervals for the top 50 players by Rate JAWS"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 04 -- COMPARABLE UNIVERSE MAP
+     ==================================================================== -->
+
+<section id="universe" class="universe-section page" aria-label="Comparable Universe Map">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 04</div>
+    <h2 class="section-head__title">The Comparable <em>Universe</em></h2>
+    <p class="section-head__lede">A UMAP dimensionality reduction over the multi-component WAR space. Players cluster by similarity in value profile, not by ranking. Gibson clusters with Piazza and Bench. Charleston clusters with Mays. The clustering is not narrative assertion. It is multi-dimensional similarity.</p>
+  </div>
+  <div class="universe__container">
+    <div class="universe__controls" role="toolbar" aria-label="Embedding color mode">
+      <button class="universe__toggle universe__toggle--active" data-color="position" aria-pressed="true">Color by Position</button>
+      <button class="universe__toggle" data-color="era" aria-pressed="false">Color by Era</button>
+    </div>
+    <div class="universe__canvas-wrap">
+      <canvas id="universe-canvas" class="universe__canvas" aria-label="UMAP embedding of player similarity"></canvas>
+      <div class="universe__tooltip" id="universe-tip"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 05 -- SENSITIVITY DASHBOARD
+     ==================================================================== -->
+
+<section id="sensitivity" class="sensitivity-section page" aria-label="Methodology Sensitivity Dashboard">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 05</div>
+    <h2 class="section-head__title">The Methodology <em>Sensitivity</em></h2>
+    <p class="section-head__lede">Adjust the methodology. See the leaderboard shift. The platform does not hide its choices. It exposes them. Every parameter is documented, every alternative is auditable.</p>
+  </div>
+  <div class="sensitivity__grid">
+    <!-- Controls panel -->
+    <div class="sensitivity__panel" role="form" aria-label="Methodology parameters">
+
+      <!-- Peak window -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">JAWS Peak Window</span>
+        <div class="sensitivity__radio-group" role="radiogroup" aria-label="Peak window length">
+          <input class="sensitivity__radio" type="radio" name="peak" id="peak-5" value="5" />
+          <label class="sensitivity__radio-label" for="peak-5">5 yr</label>
+          <input class="sensitivity__radio" type="radio" name="peak" id="peak-7" value="7" checked />
+          <label class="sensitivity__radio-label" for="peak-7">7 yr</label>
+          <input class="sensitivity__radio" type="radio" name="peak" id="peak-10" value="10" />
+          <label class="sensitivity__radio-label" for="peak-10">10 yr</label>
+        </div>
+      </div>
+
+      <!-- Rate vs Count balance -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">Rate vs. Count Balance</span>
+        <div class="sensitivity__slider-wrap">
+          <span class="mono" style="font-size:9px;color:var(--muted)">100% Rate</span>
+          <input class="sensitivity__slider" type="range" min="0" max="100" value="50" id="rate-slider" aria-label="Rate versus count balance" />
+          <span class="mono" style="font-size:9px;color:var(--muted)">100% Count</span>
+        </div>
+        <div style="text-align:center;margin-top:6px">
+          <span class="sensitivity__slider-val" id="rate-val">50 / 50</span>
+        </div>
+      </div>
+
+      <!-- Season equivalent -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">NL Season Equivalent</span>
+        <div class="sensitivity__radio-group" role="radiogroup" aria-label="Season equivalent assumption">
+          <input class="sensitivity__radio" type="radio" name="season" id="season-actual" value="actual" checked />
+          <label class="sensitivity__radio-label" for="season-actual">Actual</label>
+          <input class="sensitivity__radio" type="radio" name="season" id="season-162" value="162" />
+          <label class="sensitivity__radio-label" for="season-162">162-game</label>
+        </div>
+      </div>
+
+      <!-- MLE toggle -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">MLE Conversion</span>
+        <div class="sensitivity__toggle-wrap">
+          <input class="sensitivity__toggle-input" type="checkbox" id="mle-toggle" />
+          <label class="sensitivity__toggle-switch" for="mle-toggle" aria-label="Toggle MLE conversion"></label>
+          <span class="sensitivity__toggle-text" id="mle-label">Off</span>
+        </div>
+      </div>
+
+      <!-- Defensive weighting -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">Defensive Component</span>
+        <div class="sensitivity__radio-group" role="radiogroup" aria-label="Defensive component weighting">
+          <input class="sensitivity__radio" type="radio" name="defense" id="def-std" value="standard" />
+          <label class="sensitivity__radio-label" for="def-std">Standard</label>
+          <input class="sensitivity__radio" type="radio" name="defense" id="def-rate" value="rate" checked />
+          <label class="sensitivity__radio-label" for="def-rate">Rate-adj</label>
+          <input class="sensitivity__radio" type="radio" name="defense" id="def-down" value="down" />
+          <label class="sensitivity__radio-label" for="def-down">Down-wt</label>
+        </div>
+      </div>
+
+      <!-- Position filter -->
+      <div class="sensitivity__control">
+        <span class="sensitivity__control-label">Position</span>
+        <div class="sensitivity__radio-group" role="radiogroup" aria-label="Position filter" id="sens-pos-group">
+          <input class="sensitivity__radio" type="radio" name="sens-pos" id="sp-c" value="C" checked />
+          <label class="sensitivity__radio-label" for="sp-c">C</label>
+          <input class="sensitivity__radio" type="radio" name="sens-pos" id="sp-1b" value="1B" />
+          <label class="sensitivity__radio-label" for="sp-1b">1B</label>
+          <input class="sensitivity__radio" type="radio" name="sens-pos" id="sp-ss" value="SS" />
+          <label class="sensitivity__radio-label" for="sp-ss">SS</label>
+          <input class="sensitivity__radio" type="radio" name="sens-pos" id="sp-of" value="OF" />
+          <label class="sensitivity__radio-label" for="sp-of">OF</label>
+          <input class="sensitivity__radio" type="radio" name="sens-pos" id="sp-p" value="P" />
+          <label class="sensitivity__radio-label" for="sp-p">P</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="sensitivity__results" aria-live="polite">
+      <div class="sensitivity__results-head">
+        <span class="sensitivity__pos-label" id="sens-pos-label">Catcher -- Top 10</span>
+        <span class="sensitivity__rank-corr">Rank stability: <span class="sensitivity__rank-corr-val" id="sens-corr">1.000</span></span>
+      </div>
+      <ol class="sensitivity__top-list" id="sens-list"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     METHODOLOGY EXPLORER
+     ==================================================================== -->
+
+<section id="method" class="method-section page" aria-label="Methodology Explorer">
+  <div class="section-head">
+    <div class="section-head__fig">Models 1--6</div>
+    <h2 class="section-head__title">The <em>Engine</em></h2>
+    <p class="section-head__lede">Six models. Each documented with inputs, outputs, confidence labels, and the reasoning for why this approach and not an alternative. Click any card to expand the full methodology.</p>
+  </div>
+  <div class="method__grid" id="method-grid"></div>
+</section>
+
+<!-- ====================================================================
+     CONNECTIVE TISSUE
+     ==================================================================== -->
+
+<aside class="tissue" aria-label="Connective tissue to next chapter">
+  <p class="tissue__text">The engine produces a ranking. The ranking has not yet been applied to the question Cooperstown was built to answer. The next chapter asks the question the engine was built to address: which players, ranked by the methodology this platform extends from JAWS into the integrated record, belong in the Hall of Fame. The Hall has answered some of the question. The engine answers the rest.</p>
+</aside>
+
+<!-- ====================================================================
+     CITATION
+     ==================================================================== -->
+
+<section id="citation" class="citation-section page" aria-label="Citation">
+  <div class="section-head">
+    <h2 class="section-head__title">Cite This <em>Chapter</em></h2>
+  </div>
+  <div class="citation__tabs" role="tablist">
+    <button class="citation__tab citation__tab--active" data-cite="web" role="tab" aria-selected="true">Web</button>
+    <button class="citation__tab" data-cite="chicago" role="tab" aria-selected="false">Chicago</button>
+    <button class="citation__tab" data-cite="data" role="tab" aria-selected="false">Data (CC0)</button>
+  </div>
+  <div class="citation__block" id="citation-block" role="tabpanel">Haynes, Jeremy. "The Ledger." The Other Box Score,
+theotherboxscore.org/chapters/the-ledger/, 2026.
+Accessed <span id="cite-date"></span>.</div>
+</section>
+
+<!-- ====================================================================
+     FOOTER
+     ==================================================================== -->
+
+<footer class="chapter-footer">
+  <div class="chapter-footer__license">MIT (code) -- CC0 (data)</div>
+  <nav class="chapter-footer__nav">
+    <a class="chapter-footer__link" href="https://theotherboxscore.org">Home</a>
+    <a class="chapter-footer__link" href="https://github.com/other-boxscore">GitHub</a>
+    <a class="chapter-footer__link" href="#hook">Top</a>
+  </nav>
+</footer>
+
+<!-- ====================================================================
+     JAVASCRIPT
+     ==================================================================== -->
+
+<script>
+(function() {
+"use strict";
+
+/* ======================================================================
+   NAMESPACE
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+var NS = window.TOBS;
+
+/* ======================================================================
+   UTILITIES
+   ====================================================================== */
+
+function fmt(n) {
+  if (n === null || n === undefined) return "--";
+  if (typeof n === "number") {
+    if (n >= 1000) return n.toLocaleString("en-US");
+    if (n % 1 !== 0) return n.toFixed(1);
+  }
+  return String(n);
+}
+
+function fmtWAR(n) {
+  if (n === null || n === undefined) return "--";
+  return n.toFixed(1);
+}
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ======================================================================
+   PLAYER DATA -- Placeholder dataset (50+ players, realistic WAR)
+   Sources: Seamheads NL Database, Baseball Reference integrated record
+   Confidence labels: Documented (MLB), Modeled (NL well-documented),
+   Estimated (NL sparse-documented)
+   ====================================================================== */
+
+NS.PLAYERS = [
+  /* Catchers */
+  { name:"Josh Gibson", pos:"C", era:"NL", league:"NL", careerWAR:41.5, rateWAR:9.6, peakRate:11.2, stdJAWS:36.8, rateJAWS:62.4, hof:"inducted", ci:[38.2,44.8], coverage:72, ux:2.1, uy:3.8 },
+  { name:"Johnny Bench", pos:"C", era:"1960s-70s", league:"MLB", careerWAR:75.2, rateWAR:5.8, peakRate:7.9, stdJAWS:53.1, rateJAWS:51.2, hof:"inducted", ci:[74.5,75.9], coverage:100, ux:2.3, uy:3.5 },
+  { name:"Mike Piazza", pos:"C", era:"1990s-00s", league:"MLB", careerWAR:59.5, rateWAR:6.1, peakRate:7.5, stdJAWS:44.0, rateJAWS:48.8, hof:"inducted", ci:[59.0,60.0], coverage:100, ux:2.0, uy:3.3 },
+  { name:"Yogi Berra", pos:"C", era:"1950s-60s", league:"MLB", careerWAR:59.6, rateWAR:5.2, peakRate:6.8, stdJAWS:42.7, rateJAWS:44.1, hof:"inducted", ci:[59.0,60.2], coverage:100, ux:2.4, uy:3.1 },
+  { name:"Mickey Cochrane", pos:"C", era:"1920s-30s", league:"MLB", careerWAR:53.2, rateWAR:6.5, peakRate:8.1, stdJAWS:42.3, rateJAWS:50.6, hof:"inducted", ci:[52.5,53.9], coverage:100, ux:2.2, uy:3.6 },
+  { name:"Biz Mackey", pos:"C", era:"NL", league:"NL", careerWAR:28.4, rateWAR:7.2, peakRate:8.8, stdJAWS:24.1, rateJAWS:46.3, hof:"inducted", ci:[24.1,32.7], coverage:58, ux:2.5, uy:3.4 },
+  { name:"Louis Santop", pos:"C", era:"NL", league:"NL", careerWAR:18.6, rateWAR:7.8, peakRate:9.1, stdJAWS:16.2, rateJAWS:47.8, hof:"eligible", ci:[14.2,23.0], coverage:42, ux:1.9, uy:4.0 },
+
+  /* First Base */
+  { name:"Buck Leonard", pos:"1B", era:"NL", league:"NL", careerWAR:33.8, rateWAR:7.4, peakRate:9.3, stdJAWS:29.6, rateJAWS:52.1, hof:"inducted", ci:[30.2,37.4], coverage:68, ux:4.1, uy:2.2 },
+  { name:"Lou Gehrig", pos:"1B", era:"1920s-30s", league:"MLB", careerWAR:112.4, rateWAR:8.8, peakRate:11.6, stdJAWS:83.6, rateJAWS:68.2, hof:"inducted", ci:[111.8,113.0], coverage:100, ux:4.3, uy:2.5 },
+  { name:"Albert Pujols", pos:"1B", era:"2000s-20s", league:"MLB", careerWAR:101.8, rateWAR:6.2, peakRate:9.4, stdJAWS:72.4, rateJAWS:56.8, hof:"inducted", ci:[101.2,102.4], coverage:100, ux:4.5, uy:2.0 },
+  { name:"Jimmie Foxx", pos:"1B", era:"1930s-40s", league:"MLB", careerWAR:96.2, rateWAR:7.6, peakRate:10.2, stdJAWS:71.8, rateJAWS:62.4, hof:"inducted", ci:[95.6,96.8], coverage:100, ux:4.2, uy:2.4 },
+  { name:"Mule Suttles", pos:"1B", era:"NL", league:"NL", careerWAR:24.6, rateWAR:6.8, peakRate:8.4, stdJAWS:21.2, rateJAWS:44.6, hof:"inducted", ci:[20.8,28.4], coverage:55, ux:3.9, uy:2.1 },
+  { name:"Ben Taylor", pos:"1B", era:"NL", league:"NL", careerWAR:20.2, rateWAR:6.2, peakRate:7.6, stdJAWS:17.8, rateJAWS:40.2, hof:"inducted", ci:[16.4,24.0], coverage:45, ux:4.0, uy:1.9 },
+
+  /* Second Base */
+  { name:"Jackie Robinson", pos:"2B", era:"1940s-50s", league:"MLB", careerWAR:61.5, rateWAR:7.5, peakRate:9.1, stdJAWS:49.2, rateJAWS:54.8, hof:"inducted", ci:[61.0,62.0], coverage:100, ux:5.2, uy:4.1 },
+  { name:"Rogers Hornsby", pos:"2B", era:"1920s-30s", league:"MLB", careerWAR:127.1, rateWAR:9.2, peakRate:12.4, stdJAWS:96.2, rateJAWS:72.1, hof:"inducted", ci:[126.4,127.8], coverage:100, ux:5.4, uy:4.4 },
+  { name:"Newt Allen", pos:"2B", era:"NL", league:"NL", careerWAR:22.4, rateWAR:5.8, peakRate:7.2, stdJAWS:18.6, rateJAWS:38.4, hof:"eligible", ci:[18.0,26.8], coverage:52, ux:5.0, uy:3.8 },
+  { name:"Bingo DeMoss", pos:"2B", era:"NL", league:"NL", careerWAR:16.8, rateWAR:5.4, peakRate:6.8, stdJAWS:14.2, rateJAWS:36.2, hof:"eligible", ci:[12.4,21.2], coverage:40, ux:5.1, uy:3.6 },
+
+  /* Shortstop */
+  { name:"Honus Wagner", pos:"SS", era:"1900s-10s", league:"MLB", careerWAR:130.8, rateWAR:8.4, peakRate:10.8, stdJAWS:97.2, rateJAWS:68.4, hof:"inducted", ci:[130.2,131.4], coverage:100, ux:6.2, uy:5.1 },
+  { name:"Dick Lundy", pos:"SS", era:"NL", league:"NL", careerWAR:26.8, rateWAR:6.4, peakRate:8.2, stdJAWS:22.6, rateJAWS:44.8, hof:"inducted", ci:[22.4,31.2], coverage:54, ux:6.0, uy:4.8 },
+  { name:"Willie Wells", pos:"SS", era:"NL", league:"NL", careerWAR:34.2, rateWAR:7.2, peakRate:9.0, stdJAWS:29.4, rateJAWS:50.8, hof:"inducted", ci:[30.0,38.4], coverage:62, ux:6.1, uy:5.0 },
+  { name:"Dobie Moore", pos:"SS", era:"NL", league:"NL", careerWAR:14.8, rateWAR:8.6, peakRate:10.2, stdJAWS:13.4, rateJAWS:52.4, hof:"eligible", ci:[11.2,18.4], coverage:48, ux:5.8, uy:5.2 },
+  { name:"Ernie Banks", pos:"SS", era:"1950s-70s", league:"MLB", careerWAR:67.5, rateWAR:5.4, peakRate:8.8, stdJAWS:50.2, rateJAWS:46.2, hof:"inducted", ci:[67.0,68.0], coverage:100, ux:6.3, uy:4.6 },
+
+  /* Third Base */
+  { name:"Jud Wilson", pos:"3B", era:"NL", league:"NL", careerWAR:30.4, rateWAR:7.6, peakRate:9.4, stdJAWS:26.2, rateJAWS:50.2, hof:"inducted", ci:[26.4,34.4], coverage:60, ux:7.2, uy:3.2 },
+  { name:"Ray Dandridge", pos:"3B", era:"NL", league:"NL", careerWAR:24.8, rateWAR:6.8, peakRate:8.6, stdJAWS:21.4, rateJAWS:46.8, hof:"inducted", ci:[21.0,28.6], coverage:56, ux:7.0, uy:3.0 },
+  { name:"Mike Schmidt", pos:"3B", era:"1970s-80s", league:"MLB", careerWAR:106.8, rateWAR:7.2, peakRate:9.8, stdJAWS:80.4, rateJAWS:60.2, hof:"inducted", ci:[106.2,107.4], coverage:100, ux:7.4, uy:3.4 },
+  { name:"George Brett", pos:"3B", era:"1970s-90s", league:"MLB", careerWAR:88.6, rateWAR:5.6, peakRate:8.4, stdJAWS:64.8, rateJAWS:50.8, hof:"inducted", ci:[88.0,89.2], coverage:100, ux:7.3, uy:2.8 },
+
+  /* Outfield */
+  { name:"Oscar Charleston", pos:"OF", era:"NL", league:"NL", careerWAR:52.4, rateWAR:10.2, peakRate:12.8, stdJAWS:46.8, rateJAWS:72.6, hof:"inducted", ci:[47.6,57.2], coverage:65, ux:0.8, uy:6.2 },
+  { name:"Willie Mays", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:156.2, rateWAR:8.6, peakRate:11.4, stdJAWS:116.8, rateJAWS:70.4, hof:"inducted", ci:[155.6,156.8], coverage:100, ux:1.0, uy:6.0 },
+  { name:"Ty Cobb", pos:"OF", era:"1900s-20s", league:"MLB", careerWAR:151.5, rateWAR:8.2, peakRate:10.8, stdJAWS:112.4, rateJAWS:66.8, hof:"inducted", ci:[150.8,152.2], coverage:100, ux:1.2, uy:5.8 },
+  { name:"Babe Ruth", pos:"OF", era:"1910s-30s", league:"MLB", careerWAR:162.8, rateWAR:10.8, peakRate:14.2, stdJAWS:126.4, rateJAWS:78.4, hof:"inducted", ci:[162.2,163.4], coverage:100, ux:0.6, uy:6.6 },
+  { name:"Hank Aaron", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:143.1, rateWAR:7.4, peakRate:9.6, stdJAWS:105.2, rateJAWS:62.8, hof:"inducted", ci:[142.6,143.6], coverage:100, ux:1.4, uy:5.4 },
+  { name:"Turkey Stearnes", pos:"OF", era:"NL", league:"NL", careerWAR:34.6, rateWAR:8.4, peakRate:10.6, stdJAWS:30.2, rateJAWS:56.2, hof:"inducted", ci:[30.4,38.8], coverage:60, ux:0.9, uy:5.6 },
+  { name:"Cool Papa Bell", pos:"OF", era:"NL", league:"NL", careerWAR:28.2, rateWAR:6.8, peakRate:8.4, stdJAWS:24.6, rateJAWS:44.2, hof:"inducted", ci:[24.0,32.4], coverage:55, ux:1.6, uy:5.0 },
+  { name:"Cristobal Torriente", pos:"OF", era:"NL", league:"NL", careerWAR:26.4, rateWAR:7.8, peakRate:9.6, stdJAWS:23.2, rateJAWS:50.4, hof:"inducted", ci:[22.0,30.8], coverage:50, ux:1.1, uy:5.2 },
+  { name:"Monte Irvin", pos:"OF", era:"NL-MLB", league:"NL", careerWAR:22.6, rateWAR:5.8, peakRate:7.4, stdJAWS:19.4, rateJAWS:40.2, hof:"inducted", ci:[20.8,24.4], coverage:78, ux:1.8, uy:4.8 },
+  { name:"Ted Williams", pos:"OF", era:"1930s-60s", league:"MLB", careerWAR:121.8, rateWAR:10.4, peakRate:12.6, stdJAWS:96.8, rateJAWS:74.2, hof:"inducted", ci:[121.2,122.4], coverage:100, ux:0.4, uy:6.4 },
+  { name:"Mike Trout", pos:"OF", era:"2010s-20s", league:"MLB", careerWAR:85.2, rateWAR:9.4, peakRate:10.8, stdJAWS:68.4, rateJAWS:66.2, hof:"active", ci:[84.6,85.8], coverage:100, ux:0.7, uy:6.8 },
+  { name:"Barry Bonds", pos:"OF", era:"1980s-00s", league:"MLB", careerWAR:162.4, rateWAR:8.8, peakRate:12.8, stdJAWS:120.2, rateJAWS:72.8, hof:"eligible", ci:[161.8,163.0], coverage:100, ux:0.5, uy:7.0 },
+  { name:"Ken Griffey Jr.", pos:"OF", era:"1990s-10s", league:"MLB", careerWAR:83.8, rateWAR:6.8, peakRate:9.4, stdJAWS:62.4, rateJAWS:56.4, hof:"inducted", ci:[83.2,84.4], coverage:100, ux:1.3, uy:5.2 },
+  { name:"Roberto Clemente", pos:"OF", era:"1950s-70s", league:"MLB", careerWAR:94.5, rateWAR:6.4, peakRate:8.2, stdJAWS:68.2, rateJAWS:52.6, hof:"inducted", ci:[94.0,95.0], coverage:100, ux:1.5, uy:4.6 },
+  { name:"Willard Brown", pos:"OF", era:"NL", league:"NL", careerWAR:22.8, rateWAR:6.2, peakRate:7.8, stdJAWS:19.8, rateJAWS:42.4, hof:"inducted", ci:[19.2,26.4], coverage:52, ux:1.7, uy:4.4 },
+  { name:"Pete Hill", pos:"OF", era:"NL", league:"NL", careerWAR:24.4, rateWAR:6.6, peakRate:8.0, stdJAWS:21.0, rateJAWS:44.8, hof:"inducted", ci:[20.0,28.8], coverage:48, ux:1.4, uy:4.2 },
+  { name:"Lou Brock", pos:"OF", era:"1960s-70s", league:"MLB", careerWAR:45.3, rateWAR:3.8, peakRate:5.6, stdJAWS:32.4, rateJAWS:30.2, hof:"inducted", ci:[44.8,45.8], coverage:100, ux:1.9, uy:3.8 },
+  { name:"Rickey Henderson", pos:"OF", era:"1980s-00s", league:"MLB", careerWAR:111.2, rateWAR:6.8, peakRate:9.2, stdJAWS:82.4, rateJAWS:58.4, hof:"inducted", ci:[110.6,111.8], coverage:100, ux:1.6, uy:4.0 },
+
+  /* Pitchers */
+  { name:"Satchel Paige", pos:"P", era:"NL", league:"NL", careerWAR:36.2, rateWAR:8.8, peakRate:11.4, stdJAWS:32.4, rateJAWS:58.6, hof:"inducted", ci:[31.8,40.6], coverage:62, ux:8.2, uy:6.4 },
+  { name:"Walter Johnson", pos:"P", era:"1900s-20s", league:"MLB", careerWAR:165.2, rateWAR:8.4, peakRate:11.8, stdJAWS:124.6, rateJAWS:68.4, hof:"inducted", ci:[164.6,165.8], coverage:100, ux:8.4, uy:6.6 },
+  { name:"Smokey Joe Williams", pos:"P", era:"NL", league:"NL", careerWAR:28.6, rateWAR:9.2, peakRate:12.2, stdJAWS:25.8, rateJAWS:62.8, hof:"inducted", ci:[23.4,33.8], coverage:48, ux:8.0, uy:6.8 },
+  { name:"Bullet Rogan", pos:"P", era:"NL", league:"NL", careerWAR:32.4, rateWAR:8.2, peakRate:10.6, stdJAWS:28.6, rateJAWS:54.8, hof:"inducted", ci:[27.8,37.0], coverage:56, ux:8.1, uy:6.2 },
+  { name:"Hilton Smith", pos:"P", era:"NL", league:"NL", careerWAR:22.8, rateWAR:7.4, peakRate:9.4, stdJAWS:20.2, rateJAWS:48.2, hof:"inducted", ci:[19.0,26.6], coverage:54, ux:7.8, uy:5.8 },
+  { name:"Leon Day", pos:"P", era:"NL", league:"NL", careerWAR:20.4, rateWAR:7.8, peakRate:9.8, stdJAWS:18.6, rateJAWS:50.4, hof:"inducted", ci:[16.8,24.0], coverage:50, ux:7.9, uy:6.0 },
+  { name:"Pedro Martinez", pos:"P", era:"1990s-00s", league:"MLB", careerWAR:86.2, rateWAR:8.6, peakRate:11.2, stdJAWS:66.8, rateJAWS:64.2, hof:"inducted", ci:[85.6,86.8], coverage:100, ux:8.6, uy:6.2 },
+  { name:"Greg Maddux", pos:"P", era:"1980s-00s", league:"MLB", careerWAR:106.8, rateWAR:6.2, peakRate:8.8, stdJAWS:78.4, rateJAWS:54.6, hof:"inducted", ci:[106.2,107.4], coverage:100, ux:8.8, uy:5.4 },
+  { name:"Randy Johnson", pos:"P", era:"1990s-00s", league:"MLB", careerWAR:101.1, rateWAR:7.4, peakRate:10.4, stdJAWS:76.8, rateJAWS:60.8, hof:"inducted", ci:[100.5,101.7], coverage:100, ux:8.5, uy:5.8 },
+  { name:"Sandy Koufax", pos:"P", era:"1950s-60s", league:"MLB", careerWAR:49.0, rateWAR:8.2, peakRate:10.8, stdJAWS:40.6, rateJAWS:58.2, hof:"inducted", ci:[48.4,49.6], coverage:100, ux:8.3, uy:6.0 },
+  { name:"Bob Gibson", pos:"P", era:"1960s-70s", league:"MLB", careerWAR:81.8, rateWAR:6.4, peakRate:9.2, stdJAWS:62.2, rateJAWS:52.8, hof:"inducted", ci:[81.2,82.4], coverage:100, ux:8.7, uy:5.6 },
+  { name:"Nolan Ryan", pos:"P", era:"1960s-90s", league:"MLB", careerWAR:81.8, rateWAR:4.8, peakRate:7.6, stdJAWS:58.4, rateJAWS:42.8, hof:"inducted", ci:[81.2,82.4], coverage:100, ux:9.0, uy:4.8 }
+];
+
+/* ======================================================================
+   METHODOLOGY CARDS DATA
+   ====================================================================== */
+
+NS.MODELS = [
+  {
+    num: "Model 1",
+    title: "Rate-Normalized WAR",
+    desc: "A deterministic computation converting seasonal WAR into rates: WAR per 600 plate appearances, WAR per 162 team games, WAR per 100 innings pitched.",
+    conf: "Confidence: Inherits underlying per-season WAR uncertainty",
+    detail: "For each player-season, the platform computes WAR/600PA (the modern full-season equivalent), WAR/162G, and WAR/100IP for pitchers. The original Seamheads and Baseball Reference figures are preserved unchanged. The rate normalization is an additional column. This is the precondition for all cross-league comparisons: without rate normalization, every comparison is unfair to Negro Leagues players."
+  },
+  {
+    num: "Model 2",
+    title: "Extended JAWS",
+    desc: "Three JAWS variants for every player: Standard JAWS (the Jaffe benchmark), Rate JAWS (the platform extension), and Adjusted Career JAWS (projected to MLB-equivalent season counts).",
+    conf: "Confidence: Standard variant reproduces published; Rate and Adjusted carry additional methodological uncertainty",
+    detail: "Standard JAWS averages career bWAR with seven highest seasonal bWAR. Rate JAWS averages career rate-WAR per 600PA with seven-year peak rate-WAR. Adjusted Career JAWS projects career bWAR to MLB-equivalent season counts. Showing three variants forces the reader to confront the methodological choice rather than accepting it implicitly. There is no single right answer."
+  },
+  {
+    num: "Model 3",
+    title: "Uncertainty Quantification",
+    desc: "A Bayesian hierarchical model attaching credible intervals to every WAR figure, reflecting data completeness per league-year.",
+    conf: "Confidence: Model assumptions documented; posterior intervals calibrated against well-covered seasons",
+    detail: "For each player-season, observed WAR is treated as a noisy measurement of true underlying value. Noise variance depends on league-year box score coverage percentage (documented by Seamheads), number of documented game appearances, and league documentation quality. The posterior distribution of career WAR is constructed by combining per-season posteriors. Every figure on the platform is a credible interval, not a point estimate."
+  },
+  {
+    num: "Model 4",
+    title: "Position Assignment",
+    desc: "Each player assigned to the position at which they accumulated the most WAR. Multi-position Negro Leagues players may appear on two leaderboards.",
+    conf: "Confidence: Flagged when WAR distribution is near-tied across positions",
+    detail: "JAWS compares players within positions. Negro Leagues utility players do not have clean position assignments. The platform uses WAR-at-position where available, innings/games-at-position otherwise. Players with substantial WAR at two positions appear on both leaderboards. This is a deliberate departure from standard JAWS, which forces single-position assignment."
+  },
+  {
+    num: "Model 5",
+    title: "Comparable Universe Embedding",
+    desc: "UMAP dimensionality reduction over multi-component WAR space. Players cluster by similarity in value profile across offensive, defensive, and baserunning components.",
+    conf: "Confidence: UMAP hyperparameters documented; embedding stable under alternative parameter choices",
+    detail: "Each player is represented as a vector of career offensive WAR (rate-normalized), defensive WAR, baserunning WAR, positional adjustment, peak rate-WAR, career-to-peak ratio, and career length. UMAP produces a 2D embedding preserving local similarity. Gibson clusters with Piazza and Bench. Charleston clusters with Mays. The clustering gives the comparison a vocabulary beyond ranking: not 'who is better' but 'who is similar.'"
+  },
+  {
+    num: "Model 6",
+    title: "HOF Probability Estimation",
+    desc: "Calibrated logistic regression converting JAWS figures into Hall of Fame induction probability estimates. The engine for Chapter 11.",
+    conf: "Confidence: Out-of-distribution extrapolation flagged for top Negro Leagues players",
+    detail: "Training data: all HOF-eligible players in history with binary induction outcome. Features: rate JAWS, adjusted career JAWS, position, era, peak rate WAR, career length. Calibrated using Platt scaling. The model's predictions for Negro Leagues players involve extrapolation in some features. This is documented per-player. The narrative application lives in Chapter 11; this chapter builds the engine transparently."
+  }
+];
+
+/* ======================================================================
+   SENSITIVITY DATA -- Pre-computed lookup grid (placeholder)
+   ====================================================================== */
+
+NS.SENSITIVITY = {};
+
+(function() {
+  /* Build baseline rankings per position from player data */
+  var positions = ["C","1B","2B","SS","3B","OF","P"];
+  var posNames = { C:"Catcher", "1B":"First Base", "2B":"Second Base", SS:"Shortstop", "3B":"Third Base", OF:"Outfield", P:"Pitcher" };
+  NS.SENSITIVITY.posNames = posNames;
+
+  /* For each position, produce a default top-10 by rateJAWS */
+  NS.SENSITIVITY.defaults = {};
+  positions.forEach(function(pos) {
+    var filtered = NS.PLAYERS.filter(function(p) { return p.pos === pos; });
+    filtered.sort(function(a, b) { return b.rateJAWS - a.rateJAWS; });
+    NS.SENSITIVITY.defaults[pos] = filtered.slice(0, 10).map(function(p, i) {
+      return { name: p.name, jaws: p.rateJAWS, defaultRank: i + 1 };
+    });
+  });
+
+  /* Simulate perturbations: when params change, shuffle slightly */
+  NS.SENSITIVITY.compute = function(pos, params) {
+    var base = NS.SENSITIVITY.defaults[pos];
+    if (!base || !base.length) return { list: [], corr: 1.0 };
+
+    var items = base.map(function(b, i) {
+      var jaws = b.jaws;
+      /* Apply perturbations based on params */
+      var rateBalance = params.rateBalance / 100;
+      /* More count-weighted: reduce rate-JAWS advantage for NL players */
+      var player = NS.PLAYERS.filter(function(p) { return p.name === b.name; })[0];
+      if (player) {
+        var countJAWS = player.stdJAWS;
+        jaws = lerp(player.rateJAWS, countJAWS, rateBalance);
+
+        /* Peak window adjustment */
+        if (params.peak === 5) jaws *= 1.04;
+        if (params.peak === 10) jaws *= 0.97;
+
+        /* Season equivalent */
+        if (params.season === "162" && player.league === "NL") {
+          jaws *= 1.12;
+        }
+
+        /* MLE */
+        if (params.mle && player.league === "NL") {
+          jaws *= 0.94;
+        }
+
+        /* Defense downweight */
+        if (params.defense === "down") jaws *= 0.98;
+        if (params.defense === "standard") jaws *= 1.01;
+      }
+      return { name: b.name, jaws: jaws, defaultRank: b.defaultRank };
+    });
+
+    items.sort(function(a, b) { return b.jaws - a.jaws; });
+
+    /* Compute Spearman rank correlation */
+    var n = items.length;
+    var d2sum = 0;
+    items.forEach(function(item, i) {
+      var diff = (i + 1) - item.defaultRank;
+      d2sum += diff * diff;
+    });
+    var corr = n > 1 ? (1 - (6 * d2sum) / (n * (n * n - 1))) : 1;
+    corr = Math.max(0, Math.min(1, corr));
+
+    return { list: items, corr: corr };
+  };
+})();
+
+/* ======================================================================
+   FIG 01 -- INTEGRATED LEADERBOARD
+   ====================================================================== */
+
+(function() {
+  var players = NS.PLAYERS.slice();
+  var currentSort = "rateJAWS";
+  var sortDir = -1; /* -1 = desc */
+  var filterPos = "ALL";
+  var filterLeague = "ALL";
+  var searchTerm = "";
+
+  function getFiltered() {
+    return players.filter(function(p) {
+      if (filterPos !== "ALL" && p.pos !== filterPos) return false;
+      if (filterLeague !== "ALL" && p.league !== filterLeague) return false;
+      if (searchTerm && p.name.toLowerCase().indexOf(searchTerm) === -1) return false;
+      return true;
+    });
+  }
+
+  function getSorted(arr) {
+    var s = currentSort;
+    var d = sortDir;
+    return arr.slice().sort(function(a, b) {
+      var va = a[s], vb = b[s];
+      if (typeof va === "string") {
+        return d * va.localeCompare(vb);
+      }
+      return d * (va - vb);
+    });
+  }
+
+  function hofBadge(status) {
+    if (status === "inducted") return '<span class="hof-badge hof-badge--inducted">HOF</span>';
+    if (status === "active") return '<span class="hof-badge hof-badge--active">Active</span>';
+    return '<span class="hof-badge hof-badge--eligible">Eligible</span>';
+  }
+
+  function renderTable() {
+    var filtered = getSorted(getFiltered());
+    var tbody = document.getElementById("lb-body");
+    var html = "";
+    filtered.forEach(function(p, i) {
+      html += '<tr data-league="' + p.league + '" tabindex="0">';
+      html += '<td>' + (i + 1) + '</td>';
+      html += '<td class="cell--player">' + p.name + '</td>';
+      html += '<td>' + p.pos + '</td>';
+      html += '<td>' + p.era + '</td>';
+      html += '<td>' + fmtWAR(p.careerWAR) + '</td>';
+      html += '<td class="cell--amber">' + fmtWAR(p.rateWAR) + '</td>';
+      html += '<td>' + fmtWAR(p.peakRate) + '</td>';
+      html += '<td>' + fmtWAR(p.stdJAWS) + '</td>';
+      html += '<td class="cell--amber">' + fmtWAR(p.rateJAWS) + '</td>';
+      html += '<td class="cell--hof">' + hofBadge(p.hof) + '</td>';
+      html += '</tr>';
+    });
+    tbody.innerHTML = html;
+    document.getElementById("lb-count").textContent = "Showing " + filtered.length + " player" + (filtered.length !== 1 ? "s" : "");
+  }
+
+  function renderCards() {
+    var filtered = getSorted(getFiltered());
+    var container = document.getElementById("lb-cards");
+    var html = "";
+    filtered.forEach(function(p, i) {
+      html += '<div class="leaderboard__card" tabindex="0" role="button" aria-expanded="false" data-card-idx="' + i + '">';
+      html += '<div class="leaderboard__card-head">';
+      html += '<span class="leaderboard__card-name">';
+      html += '<span class="leaderboard__card-league leaderboard__card-league--' + (p.league === "NL" ? "nl" : "mlb") + '"></span>';
+      html += p.name;
+      html += '</span>';
+      html += '<span class="leaderboard__card-jaws">' + fmtWAR(p.rateJAWS) + '</span>';
+      html += '</div>';
+      html += '<div class="leaderboard__card-meta">';
+      html += '<span>' + p.pos + '</span>';
+      html += '<span>' + p.era + '</span>';
+      html += '<span>' + (p.hof === "inducted" ? "HOF" : p.hof === "active" ? "Active" : "Eligible") + '</span>';
+      html += '</div>';
+      html += '<div class="leaderboard__card-detail">';
+      html += '<div class="leaderboard__card-stats">';
+      html += '<div><div class="leaderboard__card-stat-val">' + fmtWAR(p.careerWAR) + '</div><div class="leaderboard__card-stat-label">Career WAR</div></div>';
+      html += '<div><div class="leaderboard__card-stat-val">' + fmtWAR(p.rateWAR) + '</div><div class="leaderboard__card-stat-label">WAR/600PA</div></div>';
+      html += '<div><div class="leaderboard__card-stat-val">' + fmtWAR(p.peakRate) + '</div><div class="leaderboard__card-stat-label">Peak Rate</div></div>';
+      html += '<div><div class="leaderboard__card-stat-val">' + fmtWAR(p.stdJAWS) + '</div><div class="leaderboard__card-stat-label">Std JAWS</div></div>';
+      html += '<div><div class="leaderboard__card-stat-val">' + fmtWAR(p.rateJAWS) + '</div><div class="leaderboard__card-stat-label">Rate JAWS</div></div>';
+      html += '<div><div class="leaderboard__card-stat-val">' + p.coverage + '%</div><div class="leaderboard__card-stat-label">Coverage</div></div>';
+      html += '</div>';
+      html += '</div>';
+      html += '</div>';
+    });
+    container.innerHTML = html;
+
+    /* Card expand/collapse */
+    container.querySelectorAll(".leaderboard__card").forEach(function(card) {
+      card.addEventListener("click", function() {
+        var expanded = card.classList.toggle("leaderboard__card--expanded");
+        card.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+      card.addEventListener("keydown", function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          var expanded = card.classList.toggle("leaderboard__card--expanded");
+          card.setAttribute("aria-expanded", expanded ? "true" : "false");
+        }
+      });
+    });
+  }
+
+  function render() {
+    renderTable();
+    renderCards();
+  }
+
+  /* Filter buttons */
+  document.querySelectorAll("[data-filter]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var filterType = btn.getAttribute("data-filter");
+      var value = btn.getAttribute("data-value");
+
+      if (filterType === "pos") {
+        filterPos = value;
+      } else if (filterType === "league") {
+        filterLeague = value;
+      }
+
+      /* Update active state */
+      btn.closest(".leaderboard__filter-group").querySelectorAll(".leaderboard__filter-btn").forEach(function(b) {
+        var isActive = b.getAttribute("data-value") === value;
+        b.classList.toggle("leaderboard__filter-btn--active", isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      render();
+    });
+  });
+
+  /* Search */
+  document.getElementById("lb-search").addEventListener("input", function(e) {
+    searchTerm = e.target.value.toLowerCase().trim();
+    render();
+  });
+
+  /* Sort headers */
+  document.querySelectorAll(".leaderboard__table th[data-sort]").forEach(function(th) {
+    th.addEventListener("click", function() {
+      var col = th.getAttribute("data-sort");
+      if (currentSort === col) {
+        sortDir *= -1;
+      } else {
+        currentSort = col;
+        sortDir = (col === "name" || col === "pos" || col === "era" || col === "hof") ? 1 : -1;
+      }
+
+      /* Update header states */
+      document.querySelectorAll(".leaderboard__table th").forEach(function(h) {
+        h.classList.remove("th--sorted");
+        h.setAttribute("aria-sort", "none");
+        h.querySelector(".sort-arrow").innerHTML = "&#9650;";
+      });
+      th.classList.add("th--sorted");
+      th.setAttribute("aria-sort", sortDir === -1 ? "descending" : "ascending");
+      th.querySelector(".sort-arrow").innerHTML = sortDir === -1 ? "&#9660;" : "&#9650;";
+
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ======================================================================
+   FIG 02 -- JAWS COMPARISON SCATTER
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("scatter-svg");
+  var ns = "http://www.w3.org/2000/svg";
+  var W = 800, H = 600;
+  var M = { t: 40, r: 40, b: 60, l: 70 };
+  var iW = W - M.l - M.r;
+  var iH = H - M.t - M.b;
+
+  /* Domain: 0 to max JAWS */
+  var maxVal = 0;
+  NS.PLAYERS.forEach(function(p) {
+    maxVal = Math.max(maxVal, p.stdJAWS, p.rateJAWS);
+  });
+  maxVal = Math.ceil(maxVal / 10) * 10 + 10;
+
+  function x(v) { return M.l + (v / maxVal) * iW; }
+  function y(v) { return M.t + (1 - v / maxVal) * iH; }
+
+  function el(tag, attrs) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    svg.appendChild(e);
+    return e;
+  }
+
+  /* Grid */
+  for (var gv = 0; gv <= maxVal; gv += 20) {
+    el("line", { x1: M.l, x2: W - M.r, y1: y(gv), y2: y(gv), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    el("line", { x1: x(gv), x2: x(gv), y1: M.t, y2: H - M.b, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    if (gv > 0) {
+      el("text", { x: M.l - 8, y: y(gv) + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted-2)", text: String(gv) });
+      el("text", { x: x(gv), y: H - M.b + 18, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted-2)", text: String(gv) });
+    }
+  }
+
+  /* Diagonal */
+  el("line", { x1: x(0), y1: y(0), x2: x(maxVal), y2: y(maxVal), stroke: "rgba(232,224,207,0.15)", "stroke-width": 1, "stroke-dasharray": "4 3" });
+
+  /* Axis labels */
+  el("text", { x: M.l + iW / 2, y: H - 10, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "STANDARD JAWS" });
+  var yLabel = el("text", { x: M.l - 50, y: M.t + iH / 2, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "RATE JAWS" });
+  yLabel.setAttribute("transform", "rotate(-90 " + (M.l - 50) + " " + (M.t + iH / 2) + ")");
+
+  /* Region labels */
+  el("text", { x: x(20), y: y(55), "text-anchor": "start", "font-family": "var(--mono)", "font-size": 9, fill: "rgba(212,166,74,0.35)", "letter-spacing": "0.1em", text: "RATE ADVANTAGE (above diagonal)" });
+  el("text", { x: x(70), y: y(30), "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "rgba(111,138,168,0.35)", "letter-spacing": "0.1em", text: "COUNT ADVANTAGE (below diagonal)" });
+
+  /* Points */
+  var tip = document.getElementById("scatter-tip");
+  var container = svg.closest(".scatter__container");
+
+  /* Compute biggest movers */
+  var movers = NS.PLAYERS.map(function(p) {
+    return { name: p.name, diff: p.rateJAWS - p.stdJAWS, p: p };
+  });
+  movers.sort(function(a, b) { return b.diff - a.diff; });
+  var topUp = movers.slice(0, 5).map(function(m) { return m.name; });
+  var topDown = movers.slice(-5).map(function(m) { return m.name; });
+  var labeled = topUp.concat(topDown);
+
+  NS.PLAYERS.forEach(function(p) {
+    var isNL = p.league === "NL";
+    var cx = x(p.stdJAWS);
+    var cy = y(p.rateJAWS);
+    var dot = el("circle", {
+      cx: cx, cy: cy,
+      r: 4.5,
+      fill: isNL ? "var(--amber)" : "var(--slate)",
+      opacity: 0.7,
+      style: "cursor:pointer",
+      "data-player": p.name
+    });
+
+    /* Label the biggest movers */
+    if (labeled.indexOf(p.name) !== -1) {
+      var lastName = p.name.split(" ").pop();
+      var above = p.rateJAWS > p.stdJAWS;
+      el("text", {
+        x: cx + 7, y: cy + (above ? -6 : 12),
+        "font-family": "var(--mono)", "font-size": 9,
+        fill: isNL ? "var(--amber)" : "var(--slate)",
+        "letter-spacing": "0.04em",
+        text: lastName
+      });
+    }
+
+    dot.addEventListener("mouseenter", function(e) {
+      tip.style.display = "block";
+      tip.innerHTML = '<strong>' + p.name + '</strong><br>Std JAWS: ' + fmtWAR(p.stdJAWS) + ' / Rate JAWS: ' + fmtWAR(p.rateJAWS) + '<br>Diff: ' + (p.rateJAWS - p.stdJAWS > 0 ? '+' : '') + fmtWAR(p.rateJAWS - p.stdJAWS);
+      var rect = container.getBoundingClientRect();
+      var ex = e.clientX - rect.left;
+      var ey = e.clientY - rect.top;
+      tip.style.left = (ex + 12) + "px";
+      tip.style.top = (ey - 10) + "px";
+      dot.setAttribute("r", 7);
+      dot.setAttribute("opacity", 1);
+    });
+
+    dot.addEventListener("mouseleave", function() {
+      tip.style.display = "none";
+      dot.setAttribute("r", 4.5);
+      dot.setAttribute("opacity", 0.7);
+    });
+  });
+})();
+
+/* ======================================================================
+   FIG 03 -- CONFIDENCE BANDS LOLLIPOP
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("conf-svg");
+  var ns = "http://www.w3.org/2000/svg";
+
+  /* Sort by rateJAWS, take top 30 for readability */
+  var sorted = NS.PLAYERS.slice().sort(function(a, b) { return b.rateJAWS - a.rateJAWS; });
+  var subset = sorted.slice(0, 30);
+
+  var W = 900, rowH = 34;
+  var totalH = 60 + subset.length * rowH + 20;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + totalH);
+
+  var M = { l: 200, r: 80, t: 50 };
+  var iW = W - M.l - M.r;
+
+  /* Domain: 0 to max career WAR */
+  var maxWAR = 0;
+  subset.forEach(function(p) {
+    maxWAR = Math.max(maxWAR, p.ci[1]);
+  });
+  maxWAR = Math.ceil(maxWAR / 20) * 20 + 10;
+
+  function xFor(v) { return M.l + (v / maxWAR) * iW; }
+
+  function el(tag, attrs) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    svg.appendChild(e);
+    return e;
+  }
+
+  /* Grid */
+  for (var gv = 0; gv <= maxWAR; gv += 20) {
+    el("line", { x1: xFor(gv), x2: xFor(gv), y1: M.t, y2: M.t + subset.length * rowH, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 });
+    el("text", { x: xFor(gv), y: M.t - 8, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted-2)", text: String(gv) });
+  }
+
+  /* Header */
+  el("text", { x: M.l - 12, y: M.t - 8, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.12em", text: "PLAYER" });
+  el("text", { x: M.l + iW / 2, y: 20, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.16em", text: "CAREER WAR -- 90% CREDIBLE INTERVAL" });
+  el("text", { x: W - 20, y: M.t - 8, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.08em", text: "COV%" });
+
+  subset.forEach(function(p, i) {
+    var yPos = M.t + i * rowH + rowH / 2;
+    var isNL = p.league === "NL";
+    var barColor = isNL ? "rgba(212,166,74,0.25)" : "rgba(111,138,168,0.2)";
+    var dotColor = isNL ? "var(--amber)" : "var(--slate)";
+
+    /* Name */
+    el("text", {
+      x: M.l - 12, y: yPos + 4,
+      "text-anchor": "end",
+      "font-family": "var(--serif)", "font-size": 13, fill: "var(--vellum-dim)",
+      text: p.name
+    });
+
+    /* CI bar */
+    el("line", {
+      x1: xFor(p.ci[0]), x2: xFor(p.ci[1]),
+      y1: yPos, y2: yPos,
+      stroke: barColor, "stroke-width": 4,
+      "stroke-linecap": "round"
+    });
+
+    /* CI caps */
+    el("line", { x1: xFor(p.ci[0]), x2: xFor(p.ci[0]), y1: yPos - 5, y2: yPos + 5, stroke: barColor, "stroke-width": 1.5 });
+    el("line", { x1: xFor(p.ci[1]), x2: xFor(p.ci[1]), y1: yPos - 5, y2: yPos + 5, stroke: barColor, "stroke-width": 1.5 });
+
+    /* Point estimate */
+    el("circle", { cx: xFor(p.careerWAR), cy: yPos, r: 4.5, fill: dotColor });
+
+    /* WAR value */
+    el("text", {
+      x: xFor(p.careerWAR) + 8, y: yPos + 3,
+      "font-family": "var(--mono)", "font-size": 9, fill: dotColor,
+      text: fmtWAR(p.careerWAR)
+    });
+
+    /* Coverage % */
+    el("text", {
+      x: W - 20, y: yPos + 4,
+      "text-anchor": "end",
+      "font-family": "var(--mono)", "font-size": 9,
+      fill: p.coverage < 60 ? "var(--oxblood)" : (p.coverage < 80 ? "var(--muted)" : "var(--moss)"),
+      text: p.coverage + "%"
+    });
+
+    /* Row line */
+    el("line", {
+      x1: 0, x2: W,
+      y1: yPos + rowH / 2, y2: yPos + rowH / 2,
+      stroke: "rgba(42,38,29,0.3)", "stroke-width": 0.5
+    });
+  });
+})();
+
+/* ======================================================================
+   FIG 04 -- COMPARABLE UNIVERSE (UMAP CANVAS)
+   ====================================================================== */
+
+(function() {
+  var canvas = document.getElementById("universe-canvas");
+  var ctx = canvas.getContext("2d");
+  var container = canvas.closest(".universe__canvas-wrap");
+  var tip = document.getElementById("universe-tip");
+  var colorMode = "position";
+
+  var posColors = { C: "#d4a64a", "1B": "#b96f4a", "2B": "#8fa05a", SS: "#6f8aa8", "3B": "#a08456", OF: "#a14545", P: "#c4bda9" };
+  var eraColors = { "NL": "#d4a64a", "NL-MLB": "#f0c878", "1900s-10s": "#6f8aa8", "1910s-30s": "#6f8aa8", "1920s-30s": "#6f8aa8", "1930s-40s": "#6f8aa8", "1930s-60s": "#8fa05a", "1940s-50s": "#8fa05a", "1950s-60s": "#8fa05a", "1950s-70s": "#8fa05a", "1960s-70s": "#b96f4a", "1960s-90s": "#b96f4a", "1970s-80s": "#b96f4a", "1970s-90s": "#b96f4a", "1980s-00s": "#a14545", "1990s-00s": "#a14545", "1990s-10s": "#a14545", "2000s-20s": "#c4bda9", "2010s-20s": "#c4bda9" };
+
+  /* Clusters to annotate */
+  var clusters = [
+    { label: "Gibson -- Piazza -- Bench", x: 2.2, y: 3.5 },
+    { label: "Charleston -- Mays -- Cobb", x: 1.0, y: 6.0 },
+    { label: "Bell -- Brock -- Henderson", x: 1.7, y: 4.0 },
+    { label: "Paige -- W. Johnson -- S.J. Williams", x: 8.2, y: 6.4 }
+  ];
+
+  function resize() {
+    var rect = container.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function getColor(p) {
+    if (colorMode === "position") return posColors[p.pos] || "#8a8270";
+    return eraColors[p.era] || "#8a8270";
+  }
+
+  /* Transform UMAP coords to canvas coords */
+  var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  NS.PLAYERS.forEach(function(p) {
+    minX = Math.min(minX, p.ux); maxX = Math.max(maxX, p.ux);
+    minY = Math.min(minY, p.uy); maxY = Math.max(maxY, p.uy);
+  });
+  var padX = (maxX - minX) * 0.1;
+  var padY = (maxY - minY) * 0.1;
+  minX -= padX; maxX += padX;
+  minY -= padY; maxY += padY;
+
+  function toCanvas(ux, uy) {
+    var rect = container.getBoundingClientRect();
+    var px = 40 + ((ux - minX) / (maxX - minX)) * (rect.width - 80);
+    var py = 30 + ((uy - minY) / (maxY - minY)) * (rect.height - 60);
+    return { x: px, y: py };
+  }
+
+  function draw() {
+    resize();
+    var rect = container.getBoundingClientRect();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    /* Points */
+    NS.PLAYERS.forEach(function(p) {
+      var pt = toCanvas(p.ux, p.uy);
+      var r = 3 + (p.rateJAWS / 80) * 6;
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = getColor(p);
+      ctx.globalAlpha = 0.7;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+
+    /* Cluster labels */
+    ctx.font = "9px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "rgba(232,224,207,0.5)";
+    ctx.textAlign = "center";
+    clusters.forEach(function(c) {
+      var pt = toCanvas(c.x, c.y - 0.4);
+      ctx.fillText(c.label.toUpperCase(), pt.x, pt.y);
+    });
+  }
+
+  draw();
+  window.addEventListener("resize", draw);
+
+  /* Hover / tap to identify */
+  function findNearest(ex, ey) {
+    var best = null, bestDist = Infinity;
+    NS.PLAYERS.forEach(function(p) {
+      var pt = toCanvas(p.ux, p.uy);
+      var d = Math.sqrt((pt.x - ex) * (pt.x - ex) + (pt.y - ey) * (pt.y - ey));
+      if (d < 20 && d < bestDist) {
+        bestDist = d;
+        best = p;
+      }
+    });
+    return best;
+  }
+
+  canvas.addEventListener("mousemove", function(e) {
+    var rect = canvas.getBoundingClientRect();
+    var ex = e.clientX - rect.left;
+    var ey = e.clientY - rect.top;
+    var p = findNearest(ex, ey);
+    if (p) {
+      tip.style.display = "block";
+      tip.innerHTML = '<strong>' + p.name + '</strong><br>' + p.pos + ' -- ' + p.era + '<br>Rate JAWS: ' + fmtWAR(p.rateJAWS);
+      tip.style.left = (ex + 14) + "px";
+      tip.style.top = (ey - 10) + "px";
+    } else {
+      tip.style.display = "none";
+    }
+  });
+
+  canvas.addEventListener("mouseleave", function() {
+    tip.style.display = "none";
+  });
+
+  /* Touch support */
+  canvas.addEventListener("touchstart", function(e) {
+    var t = e.touches[0];
+    var rect = canvas.getBoundingClientRect();
+    var p = findNearest(t.clientX - rect.left, t.clientY - rect.top);
+    if (p) {
+      tip.style.display = "block";
+      tip.innerHTML = '<strong>' + p.name + '</strong><br>' + p.pos + ' -- ' + p.era + '<br>Rate JAWS: ' + fmtWAR(p.rateJAWS);
+      tip.style.left = (t.clientX - rect.left + 14) + "px";
+      tip.style.top = (t.clientY - rect.top - 10) + "px";
+    }
+  }, { passive: true });
+
+  /* Color toggle */
+  document.querySelectorAll(".universe__toggle").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      colorMode = btn.getAttribute("data-color");
+      document.querySelectorAll(".universe__toggle").forEach(function(b) {
+        var isActive = b === btn;
+        b.classList.toggle("universe__toggle--active", isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      draw();
+    });
+  });
+})();
+
+/* ======================================================================
+   FIG 05 -- SENSITIVITY DASHBOARD
+   ====================================================================== */
+
+(function() {
+  function getParams() {
+    var peak = 7;
+    document.querySelectorAll("input[name='peak']").forEach(function(r) {
+      if (r.checked) peak = parseInt(r.value);
+    });
+
+    var rateBalance = parseInt(document.getElementById("rate-slider").value);
+    var season = "actual";
+    document.querySelectorAll("input[name='season']").forEach(function(r) {
+      if (r.checked) season = r.value;
+    });
+    var mle = document.getElementById("mle-toggle").checked;
+    var defense = "rate";
+    document.querySelectorAll("input[name='defense']").forEach(function(r) {
+      if (r.checked) defense = r.value;
+    });
+    var pos = "C";
+    document.querySelectorAll("input[name='sens-pos']").forEach(function(r) {
+      if (r.checked) pos = r.value;
+    });
+
+    return { peak: peak, rateBalance: rateBalance, season: season, mle: mle, defense: defense, pos: pos };
+  }
+
+  function renderResults() {
+    var params = getParams();
+    var result = NS.SENSITIVITY.compute(params.pos, params);
+
+    /* Position label */
+    var posName = NS.SENSITIVITY.posNames[params.pos] || params.pos;
+    document.getElementById("sens-pos-label").textContent = posName + " -- Top 10";
+
+    /* Correlation */
+    document.getElementById("sens-corr").textContent = result.corr.toFixed(3);
+
+    /* List */
+    var listEl = document.getElementById("sens-list");
+    var html = "";
+    result.list.forEach(function(item, i) {
+      var move = item.defaultRank - (i + 1);
+      var moveClass = move > 0 ? "sensitivity__top-move--up" : (move < 0 ? "sensitivity__top-move--down" : "sensitivity__top-move--same");
+      var moveText = move > 0 ? "+" + move : (move < 0 ? String(move) : "--");
+
+      html += '<li class="sensitivity__top-item">';
+      html += '<span class="sensitivity__top-rank">' + (i + 1) + '</span>';
+      html += '<span class="sensitivity__top-name">' + item.name + '</span>';
+      html += '<span class="sensitivity__top-jaws">' + item.jaws.toFixed(1) + '</span>';
+      html += '<span class="sensitivity__top-move ' + moveClass + '">' + moveText + '</span>';
+      html += '</li>';
+    });
+    listEl.innerHTML = html;
+  }
+
+  /* Rate slider label */
+  var rateSlider = document.getElementById("rate-slider");
+  var rateVal = document.getElementById("rate-val");
+  rateSlider.addEventListener("input", function() {
+    var v = parseInt(rateSlider.value);
+    rateVal.textContent = (100 - v) + " / " + v;
+    renderResults();
+  });
+
+  /* MLE toggle label */
+  var mleToggle = document.getElementById("mle-toggle");
+  var mleLabel = document.getElementById("mle-label");
+  mleToggle.addEventListener("change", function() {
+    mleLabel.textContent = mleToggle.checked ? "On" : "Off";
+    renderResults();
+  });
+
+  /* All radios */
+  document.querySelectorAll(".sensitivity__radio").forEach(function(r) {
+    r.addEventListener("change", renderResults);
+  });
+
+  renderResults();
+})();
+
+/* ======================================================================
+   METHODOLOGY CARDS
+   ====================================================================== */
+
+(function() {
+  var grid = document.getElementById("method-grid");
+  var html = "";
+  NS.MODELS.forEach(function(m) {
+    html += '<div class="method__card" tabindex="0" role="button" aria-expanded="false">';
+    html += '<div class="method__card-num">' + m.num + '</div>';
+    html += '<h3 class="method__card-title">' + m.title + '</h3>';
+    html += '<p class="method__card-desc">' + m.desc + '</p>';
+    html += '<div class="method__card-conf">' + m.conf + '</div>';
+    html += '<div class="method__card-detail">' + m.detail + '</div>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+
+  grid.querySelectorAll(".method__card").forEach(function(card) {
+    card.addEventListener("click", function() {
+      var expanded = card.classList.toggle("method__card--expanded");
+      card.setAttribute("aria-expanded", expanded ? "true" : "false");
+    });
+    card.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        var expanded = card.classList.toggle("method__card--expanded");
+        card.setAttribute("aria-expanded", expanded ? "true" : "false");
+      }
+    });
+  });
+})();
+
+/* ======================================================================
+   CITATION BLOCK
+   ====================================================================== */
+
+(function() {
+  var citations = {
+    web: 'Haynes, Jeremy. "The Ledger." The Other Box Score,\ntheotherboxscore.org/chapters/the-ledger/, 2026.\nAccessed ' + new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + '.',
+    chicago: 'Haynes, Jeremy. "The Ledger." The Other Box Score.\n2026. https://theotherboxscore.org/chapters/the-ledger/.',
+    data: 'The Other Box Score. "Integrated Baseball Value Dataset." CC0 1.0.\nhttps://github.com/other-boxscore/chapters/10-the-ledger/data/.\n\nFoundational methodology (inherited):\nAshwill, Gary. "Normalizing Negro League Statistics." Seamheads, 2011.\nhttp://seamheads.com/2011/11/22/normalizing-negro-league-statistics/\n\nJAWS methodology (extended):\nJaffe, Jay. The Cooperstown Casebook. St. Martin\'s Press, 2017.\n\nUncertainty quantification methodology:\nGelman, A. et al. Bayesian Data Analysis. Third Edition, CRC Press, 2013.\n\nDimensionality reduction methodology:\nMcInnes, L., Healy, J., Melville, J. "UMAP: Uniform Manifold Approximation\nand Projection for Dimension Reduction." arXiv:1802.03426, 2018.'
+  };
+
+  document.getElementById("cite-date").textContent = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+  document.querySelectorAll(".citation__tab").forEach(function(tab) {
+    tab.addEventListener("click", function() {
+      var mode = tab.getAttribute("data-cite");
+      document.querySelectorAll(".citation__tab").forEach(function(t) {
+        var isActive = t === tab;
+        t.classList.toggle("citation__tab--active", isActive);
+        t.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+      document.getElementById("citation-block").textContent = citations[mode];
+    });
+  });
+})();
+
+/* ======================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ====================================================================== */
+
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "leaderboard", "scatter", "confidence", "universe", "sensitivity", "method", "citation"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var scrollY = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= scrollY) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      t.classList.toggle("masthead__tab--active", href === cur);
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ======================================================================
+   SCROLL ANIMATIONS (IntersectionObserver)
+   ====================================================================== */
+
+(function() {
+  if (reducedMotion) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".section-head, .card, .method__card, .scatter__container, .confidence__container, .universe__container, .sensitivity__grid, .tissue").forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(el);
+  });
+})();
+
+})();
+</script>
+</body>
+</html>

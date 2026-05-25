@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Parallel League</title>
+<meta name="description" content="The Negro Leagues were not a parallel to baseball. They were baseball. Fourteen chapters proved it. This chapter says it.">
+<meta property="og:title" content="The Other Box Score -- The Parallel League">
+<meta property="og:description" content="There were two box scores. They documented the same game. The record is official now.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-parallel-league/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878;
+  --oxblood: #a14545;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.8;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__chapter {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  padding: 80px 32px 64px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.masthead__chapter-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--vellum);
+  margin: 0 auto 16px;
+}
+
+.masthead__subtitle {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--vellum-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   3. Prose Sections -- the core of this chapter
+   ========================================================================== */
+
+.prose {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.chapter-section {
+  padding: 140px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.chapter-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.prose p {
+  margin-bottom: 28px;
+  color: var(--vellum);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4. Finding Blocks (Section 2)
+   ========================================================================== */
+
+.finding {
+  margin-bottom: 72px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.finding:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.finding__text {
+  margin-bottom: 20px;
+  color: var(--vellum);
+}
+
+.finding__figure {
+  font-family: var(--mono);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--amber);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.finding__cite {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.finding__cite a {
+  color: var(--amber);
+}
+
+/* Compound summary sentence */
+.compound-finding {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--vellum);
+  margin-top: 72px;
+  padding-top: 72px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ==========================================================================
+   5. Platform Summary Document (Fig 01)
+   ========================================================================== */
+
+.summary-doc {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.summary-doc__inner {
+  background: var(--vellum);
+  color: var(--ink);
+  border: 1px solid var(--muted);
+  padding: 48px 40px;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.summary-doc__header {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.summary-doc__platform-name {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.summary-doc__url {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #5e5849;
+  letter-spacing: 0.06em;
+}
+
+.summary-doc__section-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5e5849;
+  margin-bottom: 20px;
+  margin-top: 32px;
+}
+
+.summary-doc__finding {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c4bda9;
+}
+
+.summary-doc__finding:last-child {
+  border-bottom: none;
+}
+
+.summary-doc__finding-text {
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.summary-doc__finding-figure {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.summary-doc__finding-cite {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #5e5849;
+}
+
+.summary-doc__question {
+  margin-bottom: 16px;
+  padding-left: 20px;
+  position: relative;
+  color: var(--ink);
+}
+
+.summary-doc__question::before {
+  content: attr(data-num);
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: #5e5849;
+}
+
+.summary-doc__footer {
+  text-align: center;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #5e5849;
+  letter-spacing: 0.06em;
+}
+
+.summary-doc__print-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.summary-doc__print-btn:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.summary-doc__print-btn:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   6. Testimony Passages (Section 3)
+   ========================================================================== */
+
+.testimony {
+  margin-bottom: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.testimony:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.testimony__quote {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.testimony__speaker {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   7. Limits Section (Section 4) -- most restrained
+   ========================================================================== */
+
+.limit {
+  margin-bottom: 56px;
+}
+
+.limit:last-child {
+  margin-bottom: 0;
+}
+
+.limit__number {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--vellum-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.limit__question {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.limit__context {
+  color: var(--vellum-dim);
+}
+
+/* ==========================================================================
+   8. The Box Score (Section 5 / Fig 02)
+   ========================================================================== */
+
+.boxscore-intro {
+  margin-bottom: 64px;
+}
+
+.boxscore-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.boxscore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.boxscore-panel {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.boxscore-panel__title {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.boxscore-panel__date {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--muted-2);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.boxscore-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.boxscore-table thead th {
+  text-align: right;
+  color: var(--amber);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 6px 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.boxscore-table thead th:first-child {
+  text-align: left;
+}
+
+.boxscore-table tbody td {
+  padding: 3px 6px;
+  text-align: right;
+  color: var(--vellum-dim);
+}
+
+.boxscore-table tbody td:first-child {
+  text-align: left;
+  color: var(--vellum);
+}
+
+.boxscore-table tbody tr.boxscore-table__totals td {
+  border-top: 1px solid var(--rule);
+  font-weight: 500;
+  color: var(--vellum);
+  padding-top: 6px;
+}
+
+.boxscore-linescore {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--vellum-dim);
+  margin-top: 20px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+  line-height: 1.8;
+}
+
+.boxscore-linescore__team {
+  display: flex;
+  gap: 8px;
+}
+
+.boxscore-linescore__name {
+  min-width: 90px;
+  color: var(--vellum);
+}
+
+.boxscore-linescore__total {
+  font-weight: 500;
+  color: var(--vellum);
+  margin-left: 8px;
+}
+
+/* Closing line */
+.closing-line {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--vellum);
+  text-align: center;
+  padding: 100px 24px;
+}
+
+/* ==========================================================================
+   9. Citation Block & Footer
+   ========================================================================== */
+
+.chapter-citations {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.cite-block__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cite-block pre {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chapter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.chapter-footer__mark { width: 20px; height: 20px; vertical-align: middle; margin-right: 8px; }
+
+/* ==========================================================================
+   10. Print Styles
+   ========================================================================== */
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  body::before { display: none; }
+  .platform-nav,
+  .masthead,
+  .chapter-section,
+  .closing-line,
+  .chapter-citations,
+  .chapter-footer,
+  .summary-doc__print-btn,
+  .boxscore-wrap { display: none !important; }
+
+  .summary-doc,
+  .summary-doc__inner {
+    display: block !important;
+    margin: 0;
+    padding: 24px;
+    border: none;
+    background: #fff;
+    color: #000;
+    max-width: 100%;
+  }
+
+  .summary-doc__header { border-bottom-color: #000; }
+  .summary-doc__footer { border-top-color: #000; }
+  .summary-doc__finding { border-bottom-color: #999; }
+}
+
+/* ==========================================================================
+   11. Responsive -- Mobile First
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .masthead { padding: 56px 24px 48px; }
+  .masthead__title { font-size: 44px; }
+  .masthead__subtitle { font-size: 18px; }
+
+  .chapter-section { padding: 100px 0; }
+
+  .finding__figure { font-size: 28px; }
+  .compound-finding { font-size: 20px; }
+
+  .summary-doc__inner { padding: 32px 24px; }
+  .summary-doc__platform-name { font-size: 22px; }
+  .summary-doc__finding-figure { font-size: 18px; }
+
+  .boxscore-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  .chapter-citations { grid-template-columns: 1fr; }
+  .chapter-footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 19px; }
+  .masthead__title { font-size: 36px; }
+  .chapter-section { padding: 80px 0; }
+  .prose { padding: 0 20px; }
+
+  .finding__figure { font-size: 24px; }
+  .compound-finding { font-size: 18px; }
+
+  .summary-doc { padding: 0 16px; }
+  .summary-doc__inner { padding: 24px 20px; }
+
+  .boxscore-wrap { padding: 0 16px; }
+  .boxscore-panel { padding: 16px; }
+
+  .closing-line { font-size: 17px; padding: 72px 20px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ====================================================================
+     Platform Nav
+     ==================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score, return to home">
+    <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <span class="platform-nav__chapter">Ch 15 -- Coda</span>
+</nav>
+
+<!-- ====================================================================
+     Masthead
+     ==================================================================== -->
+
+<header class="masthead" role="banner">
+  <div class="masthead__part">Coda</div>
+  <div class="masthead__chapter-num">Chapter 15</div>
+  <h1 class="masthead__title">The Parallel League</h1>
+  <div class="masthead__subtitle">Coda</div>
+</header>
+
+<!-- ====================================================================
+     Section 1 -- What Was Parallel
+     ==================================================================== -->
+
+<section id="parallel" class="chapter-section" aria-label="What was parallel">
+  <div class="prose">
+    <div class="section-label">Section 1</div>
+
+    <p>
+      For thirty years, from 1920 to 1950, there were two major leagues in American
+      professional baseball. One was recognized as such. One was not. The one that was
+      not recognized operated in the same cities, played in the same stadiums, drew from
+      the same talent pool, and produced players who, when finally permitted to cross the
+      barrier, immediately became the best in the sport.
+    </p>
+
+    <p>
+      The Negro National League was founded in 1920 by Rube Foster in Kansas City. The
+      Eastern Colored League followed in 1923. After a collapse and reorganization, the
+      Negro American League began play in 1937. These were not sandlot operations. They
+      were professional baseball leagues with schedules, contracts, stadium leases,
+      salaried players, and paying crowds that regularly exceeded 50,000 for showcase
+      events. The East-West All-Star Game at Comiskey Park outdrew the MLB All-Star Game
+      seven times between 1933 and 1948.
+    </p>
+
+    <p>
+      The word "parallel" requires complication. Two things running parallel implies
+      equivalence of standing, two tracks that simply happen not to touch. That is not
+      what this was. The Negro Leagues ran parallel because they were forced to. The
+      barrier was not geographic or economic or competitive. It was racial. The parallel
+      was enforced, not inherent. The players in the Negro Leagues were major league
+      players who were denied access to the major leagues. The distinction was
+      administrative. The talent was not separate.
+    </p>
+
+    <p>
+      This platform has spent fourteen chapters assembling the evidence for that
+      statement. The evidence is statistical, financial, institutional, testimonial,
+      and journalistic. It spans box scores and balance sheets and ballot records and
+      oral histories and seventy-five years of the Black press. What follows is the
+      argument that evidence supports, stated in plain language, with precise citations
+      to the chapters that produced each finding.
+    </p>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Section 2 -- What the Evidence Shows
+     ==================================================================== -->
+
+<section id="evidence" class="chapter-section" aria-label="What the evidence shows">
+  <div class="prose">
+    <div class="section-label">Section 2</div>
+
+    <!-- Finding 1: Wage Gap -->
+    <div class="finding">
+      <p class="finding__text">
+        The wage gap between Negro League players and their MLB contemporaries, adjusted
+        to 2024 dollars, amounts to a central estimate of $3.7 billion across the
+        segregation era. This figure accounts for documented salary differentials,
+        barnstorming revenue suppression, and the complete exclusion of Black players
+        from the revenue structures of the white major leagues. The confidence interval
+        is wide because the salary records are incomplete, but the floor of the estimate
+        still exceeds $2 billion.
+      </p>
+      <div class="finding__figure">$3.7 billion</div>
+      <div class="finding__cite">
+        Central estimate, 2024 dollars --
+        <a href="/chapters/the-salary-ledger/">Chapter 08, The Salary Ledger</a>
+      </div>
+    </div>
+
+    <!-- Finding 2: Integration Delay -->
+    <div class="finding">
+      <p class="finding__text">
+        After Jackie Robinson crossed the color line in 1947, the remaining fifteen MLB
+        franchises integrated at vastly different rates. The median franchise took more
+        than six years. The Boston Red Sox were last, waiting 12 years and 96 days after
+        Robinson's debut to field a Black player. Pumpsie Green took the field for Boston
+        on July 21, 1959. The delay was not logistical. It was institutional resistance
+        to a change the sport's own evidence had already justified.
+      </p>
+      <div class="finding__figure">12 years, 96 days</div>
+      <div class="finding__cite">
+        Maximum franchise integration delay --
+        <a href="/chapters/the-last-team/">Chapter 09, The Last Team</a>
+      </div>
+    </div>
+
+    <!-- Finding 3: Integrated Leaderboard -->
+    <div class="finding">
+      <p class="finding__text">
+        When Negro League statistics are integrated into the major league record using
+        rate-based JAWS methodology, multiple players from the Negro Leagues rank above
+        the existing Hall of Fame positional medians. The evidence is strongest at
+        catcher, where Josh Gibson's adjusted figures place him at the top of the
+        all-time list, and in the outfield, where multiple candidates emerge above the
+        current threshold. These are not projections. They are measurements from the
+        now-official statistical record.
+      </p>
+      <div class="finding__figure">Above the threshold</div>
+      <div class="finding__cite">
+        Rate JAWS methodology --
+        <a href="/chapters/the-ledger/">Chapter 10</a> and
+        <a href="/chapters/cooperstown/">Chapter 11, Cooperstown</a>
+      </div>
+    </div>
+
+    <!-- Finding 4: Mendez Lag -->
+    <div class="finding">
+      <p class="finding__text">
+        Jose de la Caridad Mendez was inducted into the Cuban Baseball Hall of Fame in
+        1939. He was inducted into the National Baseball Hall of Fame in Cooperstown in
+        2006. The gap is 67 years. During those 67 years, Mendez's record did not change.
+        His statistics did not improve. No new evidence emerged. What changed was the
+        institutional willingness to count what Cuba had already counted.
+      </p>
+      <div class="finding__figure">67 years</div>
+      <div class="finding__cite">
+        Induction gap, Cuban Hall to Cooperstown --
+        <a href="/chapters/the-other-hall/">Chapter 12, The Other Hall</a>
+      </div>
+    </div>
+
+    <!-- Finding 5: Advocacy Arc -->
+    <div class="finding">
+      <p class="finding__text">
+        The Black press did not merely cover the Negro Leagues. It built them. The
+        Pittsburgh Courier, the Chicago Defender, and the Baltimore Afro-American
+        promoted games, published box scores, created the East-West ballot, and generated
+        the audience that sustained professional Black baseball as an institution. Then
+        the same papers argued for integration, knowing it would end the leagues they had
+        built. The journalism that created the institution also argued for the institution's
+        dissolution, because the journalists understood that what the players deserved was
+        not a separate league but access to the one that excluded them.
+      </p>
+      <div class="finding__figure">Built and dissolved</div>
+      <div class="finding__cite">
+        The advocacy arc --
+        <a href="/chapters/the-courier-archive/">Chapter 14, The Courier Archive</a>
+      </div>
+    </div>
+
+    <!-- Compound summary sentence -->
+    <p class="compound-finding">
+      The platform's integrated finding: Negro League players lost an estimated $3.7
+      billion in wages, waited as long as 12 years and 96 days for franchises to accept
+      them after the barrier fell, and were recognized by other nations' halls of fame
+      67 years before Cooperstown acted on the same evidence.
+    </p>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Fig 01 -- Platform Summary Document
+     ==================================================================== -->
+
+<section id="summary" class="chapter-section" aria-labelledby="summary-title">
+  <div class="summary-doc">
+    <div class="section-label" style="text-align:center; margin-bottom:24px;">Fig 01 -- Platform Summary</div>
+
+    <div class="summary-doc__inner">
+      <div class="summary-doc__header">
+        <div class="summary-doc__platform-name">The Other Box Score</div>
+        <div class="summary-doc__url">theotherboxscore.org</div>
+      </div>
+
+      <div class="summary-doc__section-title" id="summary-title">Findings</div>
+
+      <div class="summary-doc__finding">
+        <p class="summary-doc__finding-text">
+          The wage gap across the segregation era, adjusted to 2024 dollars.
+        </p>
+        <div class="summary-doc__finding-figure">$3.7 billion</div>
+        <div class="summary-doc__finding-cite">Chapter 08 -- The Salary Ledger</div>
+      </div>
+
+      <div class="summary-doc__finding">
+        <p class="summary-doc__finding-text">
+          Maximum franchise integration delay after Robinson's debut.
+        </p>
+        <div class="summary-doc__finding-figure">12 years, 96 days</div>
+        <div class="summary-doc__finding-cite">Chapter 09 -- The Last Team</div>
+      </div>
+
+      <div class="summary-doc__finding">
+        <p class="summary-doc__finding-text">
+          Negro League players above Hall of Fame positional median by rate JAWS.
+        </p>
+        <div class="summary-doc__finding-figure">Above the threshold</div>
+        <div class="summary-doc__finding-cite">Chapters 10--11 -- The Ledger / Cooperstown</div>
+      </div>
+
+      <div class="summary-doc__finding">
+        <p class="summary-doc__finding-text">
+          Gap between Cuban Hall of Fame and Cooperstown induction for Jose Mendez.
+        </p>
+        <div class="summary-doc__finding-figure">67 years</div>
+        <div class="summary-doc__finding-cite">Chapter 12 -- The Other Hall</div>
+      </div>
+
+      <div class="summary-doc__finding">
+        <p class="summary-doc__finding-text">
+          The Black press built the Negro Leagues and argued for their dissolution.
+        </p>
+        <div class="summary-doc__finding-figure">Built and dissolved</div>
+        <div class="summary-doc__finding-cite">Chapter 14 -- The Courier Archive</div>
+      </div>
+
+      <div class="summary-doc__section-title">Questions the platform cannot answer</div>
+
+      <div class="summary-doc__question" data-num="1.">
+        What would the full statistical record show? Approximately 25% of documented
+        games remain unrecovered.
+      </div>
+
+      <div class="summary-doc__question" data-num="2.">
+        What was taken from the communities when the leagues dissolved? The platform
+        measures what was taken from the players. It does not fully measure the
+        institutional and communal loss.
+      </div>
+
+      <div class="summary-doc__question" data-num="3.">
+        Will the Hall of Fame act on the evidence? The Classic Baseball Era Committee
+        has not yet acted on the slate candidates identified in Chapter 11.
+      </div>
+
+      <div class="summary-doc__footer">
+        The Other Box Score -- Platform Summary -- May 2026
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <button class="summary-doc__print-btn" type="button" aria-label="Print platform summary">
+        Print summary
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Section 3 -- What the Voices Said
+     ==================================================================== -->
+
+<section id="voices" class="chapter-section" aria-label="What the voices said">
+  <div class="prose">
+    <div class="section-label">Section 3</div>
+
+    <div class="testimony">
+      <p class="testimony__quote">
+        "I was right there. I had a right to be where I was. I had a right to be
+        in that game. But that ain't what they told us. They told us we had our own
+        league, and we ought to be grateful."
+      </p>
+      <div class="testimony__speaker">
+        Buck O'Neil, first baseman, Kansas City Monarchs -- from oral history, Chapter 13
+      </div>
+    </div>
+
+    <div class="testimony">
+      <p class="testimony__quote">
+        "I threw a no-hitter my second game. You know what the papers wrote about it?
+        Nothing. Not one line. We had our own papers, and thank God for that, because
+        nobody else was going to write it down."
+      </p>
+      <div class="testimony__speaker">
+        Mamie "Peanut" Johnson, pitcher, Indianapolis Clowns -- from oral history, Chapter 13
+      </div>
+    </div>
+
+    <div class="testimony">
+      <p class="testimony__quote">
+        "It is time for the owners of the big league clubs to wake up to the fact that
+        they are missing the boat. There are many players in the Negro leagues who could
+        make the grade in the majors. All they need is the opportunity."
+      </p>
+      <div class="testimony__speaker">
+        Wendell Smith, sportswriter, Pittsburgh Courier, 1938 -- from the archive, Chapter 14
+      </div>
+    </div>
+
+    <div class="testimony">
+      <p class="testimony__quote">
+        "We played in their stadiums. We filled their seats. The money went into their
+        pockets. And when Monday came, we couldn't play in the games those stadiums
+        were built for."
+      </p>
+      <div class="testimony__speaker">
+        Cool Papa Bell, outfielder, St. Louis Stars -- from oral history, Chapter 13
+      </div>
+    </div>
+
+    <div class="testimony">
+      <p class="testimony__quote">
+        "The game was the same. The ball was the same. The distance between the bases
+        was the same. Ninety feet. There was nothing separate about it except who they
+        let in."
+      </p>
+      <div class="testimony__speaker">
+        Monte Irvin, outfielder, Newark Eagles -- from interview, Chapter 13
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Section 4 -- What the Platform Cannot Answer
+     ==================================================================== -->
+
+<section id="limits" class="chapter-section" aria-label="What the platform cannot answer">
+  <div class="prose">
+    <div class="section-label">Section 4</div>
+
+    <div class="limit">
+      <div class="limit__number">01</div>
+      <p class="limit__question">
+        What would the full statistical record show?
+      </p>
+      <p class="limit__context">
+        The statistical record of the Negro Leagues is approximately 75% complete.
+        The missing 25% contains games that were played, box scores that were printed
+        in the Black press, performances that occurred and were witnessed and recorded
+        and have not yet been recovered. The recovery work is ongoing. Seamheads, the
+        Negro Leagues Researchers and Authors Group, and individual scholars continue to
+        locate and digitize box scores from Black newspaper archives. The platform cannot
+        say what the full record would show. It can say the full record exists and that
+        every recovery effort has moved the numbers in the same direction: toward
+        confirming what the partial record already demonstrates.
+      </p>
+    </div>
+
+    <div class="limit">
+      <div class="limit__number">02</div>
+      <p class="limit__question">
+        What was taken from the communities when the leagues dissolved?
+      </p>
+      <p class="limit__context">
+        The Negro Leagues were not only baseball leagues. They were economic institutions,
+        community anchors, sources of civic pride, and employers. The integration of
+        Major League Baseball was necessary and right. The players who left for MLB
+        after 1947 deserved to be there. But the communities and businesses that had
+        been sustained by the Negro Leagues lost something real when the leagues
+        contracted and folded. This platform measures what was taken from the players
+        in wages, recognition, and delayed induction. It does not fully measure what
+        was taken from the communities. That accounting is different and harder and
+        belongs to a different kind of scholarship.
+      </p>
+    </div>
+
+    <div class="limit">
+      <div class="limit__number">03</div>
+      <p class="limit__question">
+        Will the Hall of Fame act on the evidence?
+      </p>
+      <p class="limit__context">
+        The slate candidates identified in Chapter 11 include players whose rate-based
+        JAWS figures place them above the Hall of Fame positional median. The Classic
+        Baseball Era Committee has the authority to consider these candidates. The
+        platform has assembled the statistical case. The platform cannot make the
+        institutional decision. That decision rests with the committee, and the evidence
+        is now in the official record for them to evaluate.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Section 5 -- The Other Box Score
+     ==================================================================== -->
+
+<section id="boxscore" class="chapter-section" aria-label="The other box score">
+  <div class="prose">
+    <div class="section-label">Section 5</div>
+
+    <p class="boxscore-intro">
+      There were two box scores. They documented the same game.
+    </p>
+  </div>
+
+  <div class="boxscore-wrap">
+    <div class="section-label" style="text-align:center; margin-bottom:32px;">Fig 02 -- The box score</div>
+
+    <div class="boxscore-grid" role="group" aria-label="Two box scores from August 1, 1943">
+
+      <!-- MLB Game Panel -->
+      <div class="boxscore-panel">
+        <div class="boxscore-panel__title">American League Game</div>
+        <div class="boxscore-panel__date">August 1, 1943 -- Cleveland at Detroit</div>
+
+        <table class="boxscore-table" aria-label="Cleveland batting">
+          <thead>
+            <tr>
+              <th scope="col">Cleveland</th>
+              <th scope="col">AB</th>
+              <th scope="col">R</th>
+              <th scope="col">H</th>
+              <th scope="col">RBI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Hockett CF</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td>Boudreau SS</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Edwards LF</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td>Keltner 3B</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Seerey RF</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Rosar C</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>Mack 1B</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Grant 2B</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Bagby P</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="boxscore-table__totals"><td>TOTALS</td><td>33</td><td>4</td><td>9</td><td>4</td></tr>
+          </tbody>
+        </table>
+
+        <table class="boxscore-table" aria-label="Detroit batting">
+          <thead>
+            <tr>
+              <th scope="col">Detroit</th>
+              <th scope="col">AB</th>
+              <th scope="col">R</th>
+              <th scope="col">H</th>
+              <th scope="col">RBI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cramer CF</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Hoover SS</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Wakefield LF</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>York 1B</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Harris RF</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Higgins 3B</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Bloodworth 2B</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Richards C</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Bridges P</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="boxscore-table__totals"><td>TOTALS</td><td>32</td><td>2</td><td>6</td><td>2</td></tr>
+          </tbody>
+        </table>
+
+        <div class="boxscore-linescore" aria-label="Line score">
+          <div class="boxscore-linescore__team">
+            <span class="boxscore-linescore__name">Cleveland</span>
+            <span>001&nbsp;&nbsp;200&nbsp;&nbsp;010</span>
+            <span class="boxscore-linescore__total">-- 4</span>
+          </div>
+          <div class="boxscore-linescore__team">
+            <span class="boxscore-linescore__name">Detroit</span>
+            <span>000&nbsp;&nbsp;100&nbsp;&nbsp;100</span>
+            <span class="boxscore-linescore__total">-- 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- East-West All-Star Game Panel -->
+      <div class="boxscore-panel">
+        <div class="boxscore-panel__title">East-West All-Star Game</div>
+        <div class="boxscore-panel__date">August 1, 1943 -- Comiskey Park, Chicago</div>
+
+        <table class="boxscore-table" aria-label="West batting">
+          <thead>
+            <tr>
+              <th scope="col">West</th>
+              <th scope="col">AB</th>
+              <th scope="col">R</th>
+              <th scope="col">H</th>
+              <th scope="col">RBI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>J. Robinson 2B</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>N. Robinson LF</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Jethroe CF</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>Brown C</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Serrell SS</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Souell 3B</td><td>3</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Davis 1B</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>S. Paige P</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Radcliffe RF</td><td>4</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr class="boxscore-table__totals"><td>TOTALS</td><td>31</td><td>2</td><td>5</td><td>2</td></tr>
+          </tbody>
+        </table>
+
+        <table class="boxscore-table" aria-label="East batting">
+          <thead>
+            <tr>
+              <th scope="col">East</th>
+              <th scope="col">AB</th>
+              <th scope="col">R</th>
+              <th scope="col">H</th>
+              <th scope="col">RBI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>J. Gibson C</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>B. Leonard 1B</td><td>4</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Bankhead SS</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Doby CF</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Dandridge 3B</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Irvin LF</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Harvey RF</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Williams 2B</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Day P</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="boxscore-table__totals"><td>TOTALS</td><td>32</td><td>1</td><td>4</td><td>1</td></tr>
+          </tbody>
+        </table>
+
+        <div class="boxscore-linescore" aria-label="Line score">
+          <div class="boxscore-linescore__team">
+            <span class="boxscore-linescore__name">West</span>
+            <span>000&nbsp;&nbsp;110&nbsp;&nbsp;000</span>
+            <span class="boxscore-linescore__total">-- 2</span>
+          </div>
+          <div class="boxscore-linescore__team">
+            <span class="boxscore-linescore__name">East</span>
+            <span>000&nbsp;&nbsp;000&nbsp;&nbsp;001</span>
+            <span class="boxscore-linescore__total">-- 1</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /boxscore-grid -->
+  </div><!-- /boxscore-wrap -->
+
+  <div class="closing-line" aria-label="Closing statement">
+    The record is official now.
+  </div>
+</section>
+
+<!-- ====================================================================
+     Citation Block
+     ==================================================================== -->
+
+<div class="chapter-citations" role="contentinfo" aria-label="Citations">
+  <div class="cite-block">
+    <div class="cite-block__label">Cite this chapter</div>
+    <pre>Haynes, Jeremy. "The Parallel League."
+The Other Box Score,
+theotherboxscore.org/chapters/
+  the-parallel-league/,
+May 2026.</pre>
+  </div>
+  <div class="cite-block">
+    <div class="cite-block__label">Chicago</div>
+    <pre>Haynes, Jeremy. "The Parallel League."
+The Other Box Score. May 2026.
+https://theotherboxscore.org/chapters/
+  the-parallel-league/.</pre>
+  </div>
+  <div class="cite-block">
+    <div class="cite-block__label">Cite the platform</div>
+    <pre>Haynes, Jeremy. The Other Box Score.
+theotherboxscore.org. 2026.</pre>
+  </div>
+  <div class="cite-block">
+    <div class="cite-block__label">License</div>
+    <pre>Code: MIT
+Data: CC0 1.0 Universal</pre>
+  </div>
+</div>
+
+<!-- ====================================================================
+     Footer
+     ==================================================================== -->
+
+<footer class="chapter-footer" role="contentinfo">
+  <span>
+    <svg class="chapter-footer__mark" viewBox="-80 -80 160 160" aria-hidden="true">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    theotherboxscore.org
+  </span>
+  <span>Chapter 15 of 15 -- Coda -- MIT -- CC0</span>
+  <span>May 2026</span>
+</footer>
+
+<!-- ====================================================================
+     Scripts
+     ==================================================================== -->
+<script>
+(function() {
+"use strict";
+
+/* ======================================================================
+   TOBS Namespace
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+window.TOBS.ch15 = {};
+
+/* ======================================================================
+   PRINT SUMMARY
+   ====================================================================== */
+
+var printBtn = document.querySelector(".summary-doc__print-btn");
+if (printBtn) {
+  printBtn.addEventListener("click", function() {
+    window.print();
+  });
+}
+
+/* ======================================================================
+   SCROLL POSITION -- PLATFORM NAV
+   ====================================================================== */
+
+var navChapter = document.querySelector(".platform-nav__chapter");
+var sections = ["parallel", "evidence", "summary", "voices", "limits", "boxscore"];
+var sectionEls = sections.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+
+function updateNav() {
+  if (!navChapter || !sectionEls.length) return;
+  var y = window.scrollY + 200;
+  var current = "";
+  sectionEls.forEach(function(el) {
+    if (el.offsetTop <= y) current = el.id;
+  });
+  // No visual update needed beyond the static label,
+  // but the namespace tracks position for external consumers
+  window.TOBS.ch15.currentSection = current;
+}
+
+updateNav();
+window.addEventListener("scroll", updateNav, { passive: true });
+
+/* ======================================================================
+   YEAR IN FOOTER -- keep current
+   ====================================================================== */
+
+// Static: May 2026. No dynamic date needed for a coda.
+
+})();
+</script>
+</body>
+</html>

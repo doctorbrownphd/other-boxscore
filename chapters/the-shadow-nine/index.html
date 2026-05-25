@@ -1,0 +1,2900 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Shadow Nine</title>
+<meta name="description" content="Build your nine. For every MLB player you pick, the Negro Leagues player closest to their style and statistical profile appears in the opposing card. Same nine positions. Two parallel rosters.">
+<meta property="og:title" content="The Other Box Score -- The Shadow Nine">
+<meta property="og:description" content="Build your nine. Same nine positions. Two parallel rosters. The argument the rest of the platform makes with chapters, this page makes with a click.">
+<meta property="og:url" content="https://theotherboxscore.org/shadow-nine/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a;
+  --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+
+  /* Shadow Nine specifics */
+  --card-bg: #161410;
+  --card-border: rgba(212,166,74,0.18);
+  --slot-bg: rgba(212,166,74,0.04);
+  --slot-hover: rgba(212,166,74,0.08);
+  --confidence-strong: var(--moss);
+  --confidence-moderate: var(--amber);
+  --confidence-weak: var(--bronze);
+  --drawer-width: 520px;
+  --field-green: #1a2a16;
+  --field-line: rgba(232,224,207,0.25);
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Landing / Hero
+   ========================================================================== */
+
+.shadow__hero {
+  margin-top: 36px;
+  min-height: calc(100vh - 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  position: relative;
+}
+
+.shadow__hero-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.shadow__hero-title {
+  font-family: var(--display);
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin-bottom: 32px;
+}
+
+.shadow__hero-title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.shadow__hero-lede {
+  font-family: var(--serif);
+  font-size: clamp(17px, 2.4vw, 22px);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--vellum-dim);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.shadow__hero-cta {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--amber);
+  border: none;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.shadow__hero-cta:hover {
+  background: var(--amber-2);
+  transform: translateY(-1px);
+}
+
+.shadow__hero-cta:active {
+  transform: translateY(0);
+}
+
+.shadow__hero-rule {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--amber));
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   3. Explorer -- Main Builder Layout
+   ========================================================================== */
+
+.shadow__explorer {
+  display: none;
+  padding: 36px 0 120px;
+  margin-top: 36px;
+}
+
+.shadow__explorer--active {
+  display: block;
+}
+
+.shadow__toolbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.shadow__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.shadow__toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shadow__progress {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.shadow__progress-count {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* View toggle */
+.shadow__view-toggle {
+  display: flex;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.shadow__view-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.shadow__view-btn:hover {
+  color: var(--vellum-dim);
+}
+
+.shadow__view-btn--active {
+  color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+/* Action buttons */
+.shadow__action-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.shadow__action-btn:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.shadow__action-btn--primary {
+  color: var(--ink);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.shadow__action-btn--primary:hover {
+  background: var(--amber-2);
+  border-color: var(--amber-2);
+}
+
+/* ==========================================================================
+   4. Lineup Card View
+   ========================================================================== */
+
+.shadow__cards-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.shadow__cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Individual lineup card */
+.lineup-card {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  position: relative;
+}
+
+.lineup-card__header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.lineup-card__league {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.lineup-card__league--mlb { color: var(--slate); }
+.lineup-card__league--nlb { color: var(--amber); }
+
+.lineup-card__title {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+}
+
+.lineup-card__title--nlb { color: var(--amber); }
+
+.lineup-card__count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+/* Lineup slots */
+.lineup-card__slots {
+  list-style: none;
+}
+
+.lineup-slot {
+  display: grid;
+  grid-template-columns: 36px 48px 1fr auto;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--rule);
+  min-height: 64px;
+  transition: background 0.15s;
+}
+
+.lineup-slot:last-child {
+  border-bottom: none;
+}
+
+.lineup-slot--filled {
+  cursor: pointer;
+}
+
+.lineup-slot--filled:hover {
+  background: var(--slot-hover);
+}
+
+.lineup-slot--empty {
+  cursor: pointer;
+}
+
+.lineup-slot--empty:hover {
+  background: var(--slot-hover);
+}
+
+.lineup-slot__order {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-2);
+  text-align: center;
+  padding: 0 4px;
+}
+
+.lineup-slot__pos {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 8px 0;
+  border-right: 1px solid var(--rule);
+}
+
+.lineup-slot__pos--nlb {
+  color: var(--amber-dim);
+}
+
+.lineup-slot__player {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+}
+
+.lineup-slot__photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.lineup-slot__photo-placeholder {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+}
+
+.lineup-slot__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lineup-slot__name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--vellum);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lineup-slot__meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lineup-slot__empty-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+  padding: 10px 16px;
+}
+
+.lineup-slot__score {
+  padding: 0 16px;
+  text-align: right;
+}
+
+.lineup-slot__score-num {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.lineup-slot__score-num--strong { color: var(--confidence-strong); }
+.lineup-slot__score-num--moderate { color: var(--confidence-moderate); }
+.lineup-slot__score-num--weak { color: var(--confidence-weak); }
+
+.lineup-slot__score-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Card footer */
+.lineup-card__footer {
+  padding: 12px 24px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lineup-card__avg {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.lineup-card__avg-num {
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   5. Field Diagram View
+   ========================================================================== */
+
+.shadow__field-view {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: none;
+}
+
+.shadow__field-view--active {
+  display: block;
+}
+
+.shadow__field-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--field-green);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+/* Field SVG background */
+.shadow__field-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Field player positions */
+.field-pos {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.field-pos:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.field-pos__label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.field-pos__mlb {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vellum);
+  line-height: 1.2;
+  white-space: nowrap;
+  background: rgba(19,17,13,0.85);
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.field-pos__nlb {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--amber);
+  line-height: 1.2;
+  white-space: nowrap;
+  background: rgba(19,17,13,0.85);
+  padding: 4px 10px;
+  border: 1px solid var(--card-border);
+  margin-top: 2px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.field-pos__score {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Field toggle overlay */
+.shadow__field-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shadow__field-toggle-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.shadow__field-switch {
+  width: 36px;
+  height: 20px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.shadow__field-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--muted);
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.shadow__field-switch--on {
+  background: rgba(212,166,74,0.15);
+  border-color: var(--amber);
+}
+
+.shadow__field-switch--on::after {
+  transform: translateX(16px);
+  background: var(--amber);
+}
+
+/* Field -- show/hide layers */
+.shadow__field-container--show-nlb .field-pos__mlb {
+  opacity: 0.3;
+  transform: translateY(-2px);
+}
+
+.shadow__field-container--show-nlb .field-pos__nlb {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shadow__field-container--show-mlb .field-pos__nlb {
+  opacity: 0.3;
+  transform: translateY(2px);
+}
+
+.shadow__field-container--show-mlb .field-pos__mlb {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. Position Picker Modal
+   ========================================================================== */
+
+.picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,11,9,0.88);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.picker-overlay--active {
+  display: flex;
+}
+
+.picker {
+  background: var(--ink-2);
+  border: 1px solid var(--card-border);
+  width: 100%;
+  max-width: 560px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.picker__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.picker__title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vellum);
+}
+
+.picker__close {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.picker__close:hover {
+  color: var(--vellum);
+  border-color: var(--vellum-dim);
+}
+
+.picker__search-wrap {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.picker__search {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--vellum);
+  background: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 10px 14px;
+  letter-spacing: 0.02em;
+}
+
+.picker__search::placeholder {
+  color: var(--muted-2);
+}
+
+.picker__filters {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.picker__filter-btn {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.picker__filter-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--vellum-dim);
+}
+
+.picker__filter-btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.06);
+}
+
+.picker__list {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.picker__item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.picker__item:hover {
+  background: var(--slot-hover);
+}
+
+.picker__item-name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--vellum);
+}
+
+.picker__item-years {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.picker__item-war {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--slate);
+  min-width: 52px;
+  text-align: right;
+}
+
+/* ==========================================================================
+   7. Detail Drawer
+   ========================================================================== */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,11,9,0.7);
+  z-index: 3000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.drawer-overlay--active {
+  display: block;
+  opacity: 1;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(var(--drawer-width), 90vw);
+  background: var(--ink-2);
+  border-left: 1px solid var(--card-border);
+  z-index: 3001;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer--open {
+  transform: translateX(0);
+}
+
+.drawer__header {
+  padding: 24px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.drawer__pos {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.drawer__score-display {
+  text-align: right;
+}
+
+.drawer__score-num {
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.drawer__score-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.drawer__close {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.drawer__close:hover {
+  color: var(--vellum);
+  border-color: var(--vellum-dim);
+}
+
+/* Drawer player cards */
+.drawer__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__player {
+  padding: 20px 24px;
+}
+
+.drawer__player:first-child {
+  border-right: 1px solid var(--rule);
+}
+
+.drawer__player-league {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.drawer__player-league--mlb { color: var(--slate); }
+.drawer__player-league--nlb { color: var(--amber); }
+
+.drawer__player-name {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.drawer__player-team {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--vellum-dim);
+  font-style: italic;
+}
+
+.drawer__player-years {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* Stat table in drawer */
+.drawer__stats {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__stats-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.drawer__stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.drawer__stats-table th {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__stats-table th:first-child {
+  text-align: left;
+}
+
+.drawer__stats-table td {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--vellum);
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.drawer__stats-table td:first-child {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-align: left;
+}
+
+.drawer__stats-table tr:first-child td {
+  color: var(--slate);
+}
+
+.drawer__stats-table tr:last-child td {
+  color: var(--amber);
+}
+
+/* Tags in drawer */
+.drawer__tags {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__tags-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.drawer__tags-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 0;
+}
+
+.drawer__tag-row {
+  display: contents;
+}
+
+.drawer__tag-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding: 6px 12px 6px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__tag-val {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+}
+
+.drawer__tag-val--mlb { color: var(--slate); }
+.drawer__tag-val--nlb { color: var(--amber); }
+
+.drawer__tag-val--match {
+  background: rgba(143,160,90,0.08);
+}
+
+/* Radar / similarity diagram */
+.drawer__radar {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: center;
+}
+
+.drawer__radar-svg {
+  width: 220px;
+  height: 220px;
+}
+
+/* Match explanation */
+.drawer__explanation {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__explanation-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.drawer__explanation-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--vellum-dim);
+}
+
+.drawer__explanation-text strong {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* Candidates */
+.drawer__candidates {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawer__candidates-toggle {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.drawer__candidates-toggle:hover {
+  color: var(--amber-2);
+}
+
+.drawer__candidates-list {
+  list-style: none;
+  margin-top: 12px;
+  display: none;
+}
+
+.drawer__candidates-list--open {
+  display: block;
+}
+
+.drawer__candidate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.drawer__candidate:hover {
+  background: var(--slot-hover);
+  margin: 0 -24px;
+  padding: 10px 24px;
+}
+
+.drawer__candidate-name {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+}
+
+.drawer__candidate-score {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.drawer__candidate-summary {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Provenance footer */
+.drawer__provenance {
+  padding: 16px 24px;
+  flex-shrink: 0;
+}
+
+.drawer__provenance-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.drawer__provenance-text {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.drawer__provenance-confidence {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border: 1px solid;
+  margin-top: 6px;
+}
+
+.drawer__provenance-confidence--documented {
+  color: var(--moss);
+  border-color: var(--moss);
+}
+
+.drawer__provenance-confidence--verified {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.drawer__provenance-confidence--reported {
+  color: var(--bronze);
+  border-color: var(--bronze);
+}
+
+/* ==========================================================================
+   8. Complete State -- Side-by-Side
+   ========================================================================== */
+
+.shadow__complete-banner {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  padding: 24px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  text-align: center;
+  display: none;
+}
+
+.shadow__complete-banner--active {
+  display: block;
+}
+
+.shadow__complete-text {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
+
+.shadow__footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+
+.shadow__footer-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.shadow__footer-cite {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.shadow__footer-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   10. Animations
+   ========================================================================== */
+
+@keyframes slotReveal {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,166,74,0); }
+  50% { box-shadow: 0 0 16px 2px rgba(212,166,74,0.15); }
+}
+
+.lineup-slot--revealing {
+  animation: slotReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lineup-card--complete {
+  animation: pulseGlow 2s ease-in-out 1;
+}
+
+/* ==========================================================================
+   11. Mobile -- 375px baseline
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .shadow__cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .shadow__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .shadow__toolbar-left,
+  .shadow__toolbar-right {
+    justify-content: center;
+  }
+
+  .lineup-slot {
+    grid-template-columns: 28px 40px 1fr auto;
+    min-height: 56px;
+  }
+
+  .lineup-slot__name {
+    font-size: 14px;
+  }
+
+  .lineup-slot__photo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .drawer {
+    width: 100vw;
+    --drawer-width: 100vw;
+  }
+
+  .drawer__pair {
+    grid-template-columns: 1fr;
+  }
+
+  .drawer__player:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .drawer__score-num {
+    font-size: 32px;
+  }
+
+  .shadow__field-container {
+    aspect-ratio: 3 / 4;
+  }
+
+  .field-pos__mlb,
+  .field-pos__nlb {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .shadow__hero-title {
+    font-size: clamp(36px, 10vw, 72px);
+  }
+
+  .picker {
+    max-height: 90vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .lineup-slot__score-num {
+    font-size: 14px;
+  }
+
+  .shadow__hero {
+    padding: 60px 16px;
+  }
+
+  .lineup-card__header {
+    padding: 16px 16px 12px;
+  }
+
+  .lineup-slot__player {
+    padding: 8px 10px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+     Platform Nav
+     ==================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <span style="color: var(--amber)">The Shadow Nine</span>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     Hero / Landing
+     ==================================================================== -->
+
+<section class="shadow__hero" id="hero" aria-label="The Shadow Nine introduction">
+  <div class="shadow__hero-kicker">The Other Box Score</div>
+  <h1 class="shadow__hero-title">The Shadow <em>Nine</em></h1>
+  <p class="shadow__hero-lede">
+    Build your nine. For every MLB player you pick, the Negro Leagues player closest to their style and statistical profile appears in the opposing card. Same nine positions. Two parallel rosters.
+  </p>
+  <button class="shadow__hero-cta" id="cta-build" type="button" aria-label="Build your lineup">
+    Build Your Lineup
+  </button>
+  <div class="shadow__hero-rule" aria-hidden="true"></div>
+</section>
+
+<!-- ====================================================================
+     Explorer
+     ==================================================================== -->
+
+<section class="shadow__explorer" id="explorer" aria-label="Lineup builder">
+
+  <!-- Toolbar -->
+  <div class="shadow__toolbar">
+    <div class="shadow__toolbar-left">
+      <div class="shadow__progress">
+        <span class="shadow__progress-count" id="progress-count">0</span> / 9 positions filled
+      </div>
+      <div class="shadow__view-toggle" role="tablist" aria-label="View mode">
+        <button class="shadow__view-btn shadow__view-btn--active" role="tab" aria-selected="true" data-view="cards" id="view-cards-btn" type="button">Lineup Cards</button>
+        <button class="shadow__view-btn" role="tab" aria-selected="false" data-view="field" id="view-field-btn" type="button">Field Diagram</button>
+      </div>
+    </div>
+    <div class="shadow__toolbar-right">
+      <button class="shadow__action-btn" id="btn-reset" type="button" aria-label="Reset lineup">Reset</button>
+      <button class="shadow__action-btn shadow__action-btn--primary" id="btn-share" type="button" aria-label="Share lineup" disabled>Share</button>
+    </div>
+  </div>
+
+  <!-- Complete banner -->
+  <div class="shadow__complete-banner" id="complete-banner" aria-live="polite">
+    <p class="shadow__complete-text">
+      Same nine positions. Two parallel rosters. The argument the rest of the platform makes with chapters, this page makes with a click.
+    </p>
+  </div>
+
+  <!-- Cards View -->
+  <div class="shadow__cards-view" id="cards-view">
+    <div class="shadow__cards-grid">
+
+      <!-- MLB Card -->
+      <div class="lineup-card" id="mlb-card" aria-label="MLB lineup card">
+        <div class="lineup-card__header">
+          <div>
+            <div class="lineup-card__league lineup-card__league--mlb">Major League Baseball</div>
+            <div class="lineup-card__title">Your Nine</div>
+          </div>
+          <div class="lineup-card__count" id="mlb-count">0 / 9</div>
+        </div>
+        <ol class="lineup-card__slots" id="mlb-slots" aria-label="MLB lineup slots">
+          <!-- JS fills these -->
+        </ol>
+        <div class="lineup-card__footer">
+          <div class="lineup-card__avg">
+            <span id="mlb-avg-label">Click a slot to begin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NLB Card -->
+      <div class="lineup-card" id="nlb-card" aria-label="Negro Leagues lineup card">
+        <div class="lineup-card__header">
+          <div>
+            <div class="lineup-card__league lineup-card__league--nlb">Negro Leagues Baseball</div>
+            <div class="lineup-card__title lineup-card__title--nlb">The Shadow Nine</div>
+          </div>
+          <div class="lineup-card__count" id="nlb-count">0 / 9</div>
+        </div>
+        <ol class="lineup-card__slots" id="nlb-slots" aria-label="Negro Leagues lineup slots">
+          <!-- JS fills these -->
+        </ol>
+        <div class="lineup-card__footer">
+          <div class="lineup-card__avg">
+            Avg similarity: <span class="lineup-card__avg-num" id="nlb-avg-score">--</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Field View -->
+  <div class="shadow__field-view" id="field-view" aria-label="Field diagram view">
+    <div class="shadow__field-container" id="field-container">
+
+      <!-- Field toggle -->
+      <div class="shadow__field-toggle">
+        <span class="shadow__field-toggle-label">Show NLB</span>
+        <button class="shadow__field-switch" id="field-switch" type="button"
+                role="switch" aria-checked="false" aria-label="Toggle between MLB and Negro Leagues names on the field diagram"></button>
+      </div>
+
+      <!-- Field SVG -->
+      <svg class="shadow__field-svg" viewBox="0 0 800 600" aria-hidden="true">
+        <!-- Outfield grass arc -->
+        <path d="M 100,540 Q 400,80 700,540" fill="none" stroke="rgba(143,160,90,0.15)" stroke-width="2"/>
+        <!-- Infield diamond -->
+        <polygon points="400,440 520,360 400,260 280,360" fill="none" stroke="var(--field-line)" stroke-width="1.5"/>
+        <!-- Baselines extending to outfield -->
+        <line x1="400" y1="440" x2="120" y2="200" stroke="var(--field-line)" stroke-width="1" opacity="0.4"/>
+        <line x1="400" y1="440" x2="680" y2="200" stroke="var(--field-line)" stroke-width="1" opacity="0.4"/>
+        <!-- Pitcher's mound -->
+        <circle cx="400" cy="360" r="6" fill="none" stroke="var(--field-line)" stroke-width="1.5"/>
+        <!-- Home plate -->
+        <polygon points="400,445 395,440 400,434 405,440" fill="var(--field-line)"/>
+        <!-- Bases -->
+        <rect x="516" y="356" width="8" height="8" fill="var(--field-line)" transform="rotate(45 520 360)"/>
+        <rect x="396" y="256" width="8" height="8" fill="var(--field-line)" transform="rotate(45 400 260)"/>
+        <rect x="276" y="356" width="8" height="8" fill="var(--field-line)" transform="rotate(45 280 360)"/>
+      </svg>
+
+      <!-- Position nodes -- JS populates content -->
+      <div class="field-pos" id="field-C"    style="left:50%;top:82%"   data-pos="C"></div>
+      <div class="field-pos" id="field-1B"   style="left:66%;top:62%"   data-pos="1B"></div>
+      <div class="field-pos" id="field-2B"   style="left:58%;top:50%"   data-pos="2B"></div>
+      <div class="field-pos" id="field-3B"   style="left:34%;top:62%"   data-pos="3B"></div>
+      <div class="field-pos" id="field-SS"   style="left:42%;top:50%"   data-pos="SS"></div>
+      <div class="field-pos" id="field-LF"   style="left:22%;top:30%"   data-pos="LF"></div>
+      <div class="field-pos" id="field-CF"   style="left:50%;top:18%"   data-pos="CF"></div>
+      <div class="field-pos" id="field-RF"   style="left:78%;top:30%"   data-pos="RF"></div>
+      <div class="field-pos" id="field-UTIL" style="left:50%;top:95%"   data-pos="UTIL"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="shadow__footer">
+    <p class="shadow__footer-text">
+      For every great MLB player, there is a Negro Leagues player at the same position whose style and statistical profile is comparable. They were not unknowns. They were not lesser talents. They were professionals at the same level of the same game.
+    </p>
+    <div class="shadow__footer-cite">The Other Box Score -- The Shadow Nine</div>
+    <a href="#" class="shadow__footer-link">Methodology</a>
+  </div>
+
+</section>
+
+<!-- ====================================================================
+     Picker Modal
+     ==================================================================== -->
+
+<div class="picker-overlay" id="picker-overlay" role="dialog" aria-modal="true" aria-label="Select a player">
+  <div class="picker">
+    <div class="picker__header">
+      <h2 class="picker__title" id="picker-title">Select C</h2>
+      <button class="picker__close" id="picker-close" type="button" aria-label="Close player picker">&times;</button>
+    </div>
+    <div class="picker__search-wrap">
+      <input class="picker__search" id="picker-search" type="search" placeholder="Search by name..." autocomplete="off" />
+    </div>
+    <div class="picker__filters" role="group" aria-label="Filter by era">
+      <button class="picker__filter-btn picker__filter-btn--active" data-era="all" type="button">All</button>
+      <button class="picker__filter-btn" data-era="dead-ball" type="button">Dead Ball</button>
+      <button class="picker__filter-btn" data-era="live-ball" type="button">Live Ball</button>
+      <button class="picker__filter-btn" data-era="post-integration" type="button">Post-Integration</button>
+      <button class="picker__filter-btn" data-era="modern" type="button">Modern</button>
+      <button class="picker__filter-btn" data-era="contemporary" type="button">Contemporary</button>
+    </div>
+    <ul class="picker__list" id="picker-list" aria-label="Player list">
+      <!-- JS fills -->
+    </ul>
+  </div>
+</div>
+
+<!-- ====================================================================
+     Detail Drawer
+     ==================================================================== -->
+
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<aside class="drawer" id="drawer" role="complementary" aria-label="Match detail">
+  <div class="drawer__header">
+    <div>
+      <div class="drawer__pos" id="drawer-pos">C</div>
+      <div class="drawer__score-display">
+        <div class="drawer__score-num" id="drawer-score">--</div>
+        <div class="drawer__score-label">similarity</div>
+      </div>
+    </div>
+    <button class="drawer__close" id="drawer-close" type="button" aria-label="Close detail drawer">&times;</button>
+  </div>
+  <div class="drawer__pair" id="drawer-pair">
+    <!-- JS fills -->
+  </div>
+  <div class="drawer__stats" id="drawer-stats">
+    <!-- JS fills -->
+  </div>
+  <div class="drawer__tags" id="drawer-tags">
+    <!-- JS fills -->
+  </div>
+  <div class="drawer__radar">
+    <svg class="drawer__radar-svg" id="drawer-radar" viewBox="0 0 220 220" aria-label="Similarity radar diagram">
+      <!-- JS draws -->
+    </svg>
+  </div>
+  <div class="drawer__explanation" id="drawer-explanation">
+    <!-- JS fills -->
+  </div>
+  <div class="drawer__candidates" id="drawer-candidates">
+    <!-- JS fills -->
+  </div>
+  <div class="drawer__provenance" id="drawer-provenance">
+    <!-- JS fills -->
+  </div>
+</aside>
+
+
+<script>
+/* ======================================================================
+   THE SHADOW NINE -- Interactive Lineup Builder
+   The Other Box Score -- theotherboxscore.org
+   ====================================================================== */
+
+(function() {
+"use strict";
+
+/* ======================================================================
+   NAMESPACE
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+var SN = window.TOBS.ShadowNine = {};
+
+/* ======================================================================
+   POSITIONS
+   ====================================================================== */
+
+var POSITIONS = [
+  { key: "C",    label: "C",    full: "Catcher" },
+  { key: "1B",   label: "1B",   full: "First Base" },
+  { key: "2B",   label: "2B",   full: "Second Base" },
+  { key: "3B",   label: "3B",   full: "Third Base" },
+  { key: "SS",   label: "SS",   full: "Shortstop" },
+  { key: "LF",   label: "LF",   full: "Left Field" },
+  { key: "CF",   label: "CF",   full: "Center Field" },
+  { key: "RF",   label: "RF",   full: "Right Field" },
+  { key: "UTIL", label: "UTIL", full: "Utility" }
+];
+
+/* ======================================================================
+   PLACEHOLDER MATCH DATA
+   k-NN model output -- ~20 NLB players, pre-computed matches
+   ====================================================================== */
+
+var NLB_MATCHES = {
+  "C": [
+    {
+      mlbPool: [
+        { id: "bench", name: "Johnny Bench", years: "1967-1983", team: "Cincinnati Reds", era: "modern", war: 75.2,
+          stats: { ba: .267, obp: .342, slg: .476, iso: .209, kPct: 17.2, bbPct: 10.5, ops_plus: 126 },
+          tags: { hit: "Power hitter", power: "Pull power", approach: "Aggressive", speed: "Station-to-station", glove: "Plus defender", arm: "Cannon" }
+        },
+        { id: "piazza", name: "Mike Piazza", years: "1992-2007", team: "New York Mets", era: "modern", war: 59.5,
+          stats: { ba: .308, obp: .377, slg: .545, iso: .237, kPct: 15.8, bbPct: 9.4, ops_plus: 143 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Slow", glove: "Average", arm: "Average" }
+        },
+        { id: "berra", name: "Yogi Berra", years: "1946-1965", team: "New York Yankees", era: "post-integration", war: 59.6,
+          stats: { ba: .285, obp: .348, slg: .482, iso: .197, kPct: 7.8, bbPct: 9.2, ops_plus: 125 },
+          tags: { hit: "Line-drive contact", power: "Pull power", approach: "Aggressive", speed: "Station-to-station", glove: "Above-average defender", arm: "Plus" }
+        }
+      ],
+      nlbMatches: {
+        "bench": {
+          primary: {
+            id: "gibson_j", name: "Josh Gibson", years: "1930-1946", team: "Homestead Grays", war: null,
+            stats: { ba: .372, obp: .440, slg: .648, iso: .276, kPct: 5.1, bbPct: 8.9, ops_plus: 184 },
+            tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Above-average defender", arm: "Plus" },
+            score: 84, confidence: "Strong",
+            explanation: "<strong>Josh Gibson</strong> caught for the Homestead Grays and Pittsburgh Crawfords from 1930 to 1946. He was a right-handed power hitter with exceptional bat-to-ball skills and the ability to drive the ball to all fields with authority. The match to Johnny Bench reflects shared elite power production from the catcher position across long careers as franchise cornerstones. The strongest dimension is power production; the weakest is plate approach, where Gibson was more selective and Bench more aggressive. Gibson hit approximately 800 home runs across league and barnstorming play, a total that no statistical adjustment diminishes.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database, career record. Lanctot, 'Negro League Baseball' (2004)."
+          },
+          alternates: [
+            { id: "mackey", name: "Biz Mackey", score: 68, summary: "Defensive wizard, switch-hitter with gap power. Hall of Fame 2006.", confidence: "Moderate" },
+            { id: "campanella_r", name: "Roy Campanella", score: 65, summary: "Three-time NL MVP after integration. Power-hitting catcher with leadership.", confidence: "Moderate" }
+          ]
+        },
+        "piazza": {
+          primary: {
+            id: "gibson_j", name: "Josh Gibson", years: "1930-1946", team: "Homestead Grays", war: null,
+            stats: { ba: .372, obp: .440, slg: .648, iso: .276, kPct: 5.1, bbPct: 8.9, ops_plus: 184 },
+            tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Above-average defender", arm: "Plus" },
+            score: 79, confidence: "Moderate",
+            explanation: "<strong>Josh Gibson</strong> caught for the Homestead Grays and Pittsburgh Crawfords from 1930 to 1946. He was a right-handed power hitter with exceptional bat-to-ball skills and the ability to drive the ball to all fields with authority. The match to Mike Piazza reflects two bat-first catchers with elite offensive production. The strongest dimension is hit tool and power profile; the weakest is defensive value, where Gibson was more complete behind the plate. Both redefined what was possible offensively from the catching position.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database, career record. Lanctot, 'Negro League Baseball' (2004)."
+          },
+          alternates: [
+            { id: "mackey", name: "Biz Mackey", score: 62, summary: "Defensive wizard, switch-hitter with gap power.", confidence: "Moderate" }
+          ]
+        },
+        "berra": {
+          primary: {
+            id: "mackey", name: "Biz Mackey", years: "1920-1947", team: "Hilldale / Newark Eagles", war: null,
+            stats: { ba: .322, obp: .380, slg: .465, iso: .143, kPct: 8.2, bbPct: 7.6, ops_plus: 133 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Plus defender", arm: "Cannon" },
+            score: 77, confidence: "Moderate",
+            explanation: "<strong>Biz Mackey</strong> caught for Hilldale, the Philadelphia Stars, and the Newark Eagles across a career spanning nearly three decades. He was a switch-hitting contact hitter with gap power who was considered the finest defensive catcher in Negro Leagues history. The match to Yogi Berra reflects two contact-oriented catchers with exceptional defensive reputations and leadership qualities. The strongest dimension is hit tool; the weakest is power, where Berra had more pull-side authority. Mackey mentored a young Larry Doby and Roy Campanella on the Newark Eagles.",
+            dataConfidence: "Verified",
+            source: "Seamheads Negro Leagues Database. Clark and Lester, 'The Negro Leagues Book' (1994)."
+          },
+          alternates: [
+            { id: "gibson_j", name: "Josh Gibson", score: 71, summary: "Greatest power-hitting catcher in baseball history. Hall of Fame 1972.", confidence: "Moderate" }
+          ]
+        }
+      }
+    },
+    {
+      id: "C",
+      defaultMlb: "bench"
+    }
+  ],
+  "1B": [
+    {
+      mlbPool: [
+        { id: "gehrig", name: "Lou Gehrig", years: "1923-1939", team: "New York Yankees", era: "live-ball", war: 112.4,
+          stats: { ba: .340, obp: .447, slg: .632, iso: .292, kPct: 8.3, bbPct: 15.6, ops_plus: 179 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Average", arm: "Average" }
+        },
+        { id: "pujols", name: "Albert Pujols", years: "2001-2022", team: "St. Louis Cardinals", era: "contemporary", war: 101.0,
+          stats: { ba: .296, obp: .374, slg: .544, iso: .248, kPct: 10.6, bbPct: 11.7, ops_plus: 143 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Station-to-station", glove: "Above-average defender", arm: "Average" }
+        }
+      ],
+      nlbMatches: {
+        "gehrig": {
+          primary: {
+            id: "leonard", name: "Buck Leonard", years: "1933-1950", team: "Homestead Grays", war: null,
+            stats: { ba: .320, obp: .394, slg: .546, iso: .226, kPct: 6.4, bbPct: 10.8, ops_plus: 155 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Above-average defender", arm: "Average" },
+            score: 84, confidence: "Strong",
+            explanation: "<strong>Buck Leonard</strong> played first base for the Homestead Grays from 1933 to 1950, forming one half of the most feared batting tandem in Negro Leagues history alongside Josh Gibson. He was a left-handed hitter with a compact swing, line-drive power to all fields, and a patient approach. The match to Lou Gehrig reflects two left-handed-hitting first basemen with all-fields power, patient approaches, and long tenures as the heart of dominant lineups. The strongest dimension is hit tool and approach; the weakest is raw power, where Gehrig's slugging was historically extreme. Leonard was inducted into the Baseball Hall of Fame in 1972.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
+          },
+          alternates: [
+            { id: "suttles", name: "Mule Suttles", score: 72, summary: "Right-handed slugger with exceptional pull-side power. Hall of Fame 2006.", confidence: "Moderate" }
+          ]
+        },
+        "pujols": {
+          primary: {
+            id: "leonard", name: "Buck Leonard", years: "1933-1950", team: "Homestead Grays", war: null,
+            stats: { ba: .320, obp: .394, slg: .546, iso: .226, kPct: 6.4, bbPct: 10.8, ops_plus: 155 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Above-average defender", arm: "Average" },
+            score: 81, confidence: "Strong",
+            explanation: "<strong>Buck Leonard</strong> played first base for the Homestead Grays from 1933 to 1950. He was a left-handed hitter with a compact swing and the ability to drive the ball to all fields. The match to Albert Pujols reflects two first basemen with exceptional hit tools, all-fields power, and long careers as franchise cornerstones. The strongest dimension is hit tool; the weakest is career length in the documented record, where Pujols's 22-year MLB career is more completely documented. Leonard won three consecutive Negro National League batting titles.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
+          },
+          alternates: [
+            { id: "suttles", name: "Mule Suttles", score: 70, summary: "Right-handed slugger. Led NNL in home runs multiple seasons.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "2B": [
+    {
+      mlbPool: [
+        { id: "hornsby", name: "Rogers Hornsby", years: "1915-1937", team: "St. Louis Cardinals", era: "live-ball", war: 127.0,
+          stats: { ba: .358, obp: .434, slg: .577, iso: .219, kPct: 6.1, bbPct: 10.1, ops_plus: 175 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Average", glove: "Average", arm: "Average" }
+        },
+        { id: "morgan", name: "Joe Morgan", years: "1963-1984", team: "Cincinnati Reds", era: "modern", war: 100.5,
+          stats: { ba: .271, obp: .392, slg: .427, iso: .156, kPct: 13.7, bbPct: 16.6, ops_plus: 132 },
+          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Average" }
+        }
+      ],
+      nlbMatches: {
+        "hornsby": {
+          primary: {
+            id: "johnson_g", name: "Grant Johnson", years: "1895-1916", team: "Page Fence Giants / Cuban X-Giants", war: null,
+            stats: { ba: .335, obp: .380, slg: .445, iso: .110, kPct: 7.2, bbPct: 6.5, ops_plus: 138 },
+            tags: { hit: "Pure hitter", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Average" },
+            score: 68, confidence: "Moderate",
+            explanation: "<strong>Grant Johnson</strong> played second base and shortstop for the Page Fence Giants and the Cuban X-Giants from 1895 to 1916. He was a right-handed contact hitter known as 'Home Run' Johnson in the dead-ball era, with a selective approach at the plate. The match to Rogers Hornsby reflects two right-handed-hitting middle infielders with exceptional bat-to-ball skills. The strongest dimension is hit tool; the weakest is power, where Hornsby's slugging was historically elite. Johnson was one of the earliest Black baseball stars, predating the formal Negro Leagues by a generation.",
+            dataConfidence: "Reported",
+            source: "Seamheads Negro Leagues Database. Loverro, 'The Encyclopedia of Negro League Baseball' (2003)."
+          },
+          alternates: [
+            { id: "wells_w", name: "Willie Wells", score: 63, summary: "Primarily a shortstop. Elite defensive player with line-drive power.", confidence: "Moderate" }
+          ]
+        },
+        "morgan": {
+          primary: {
+            id: "johnson_g", name: "Grant Johnson", years: "1895-1916", team: "Page Fence Giants / Cuban X-Giants", war: null,
+            stats: { ba: .335, obp: .380, slg: .445, iso: .110, kPct: 7.2, bbPct: 6.5, ops_plus: 138 },
+            tags: { hit: "Pure hitter", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Average" },
+            score: 71, confidence: "Moderate",
+            explanation: "<strong>Grant Johnson</strong> played second base and shortstop for the Page Fence Giants, Cuban X-Giants, and other early Black baseball teams. He was a right-handed hitter with excellent bat control and gap power. The match to Joe Morgan reflects two middle infielders who combined offensive production with solid defensive play. The strongest dimension is approach and speed; the weakest is power, where Morgan had more extra-base production. Johnson was a pioneering figure whose career spanned the transition from independent Black baseball to the organized Negro Leagues.",
+            dataConfidence: "Reported",
+            source: "Seamheads Negro Leagues Database. Loverro, 'The Encyclopedia of Negro League Baseball' (2003)."
+          },
+          alternates: [
+            { id: "warfield", name: "Frank Warfield", score: 62, summary: "Aggressive contact hitter with solid defense at second base.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "3B": [
+    {
+      mlbPool: [
+        { id: "schmidt", name: "Mike Schmidt", years: "1972-1989", team: "Philadelphia Phillies", era: "modern", war: 106.5,
+          stats: { ba: .267, obp: .380, slg: .527, iso: .260, kPct: 21.6, bbPct: 15.0, ops_plus: 147 },
+          tags: { hit: "Power hitter", power: "Pull power", approach: "Patient", speed: "Average", glove: "Plus defender", arm: "Cannon" }
+        },
+        { id: "brett", name: "George Brett", years: "1973-1993", team: "Kansas City Royals", era: "modern", war: 88.7,
+          stats: { ba: .305, obp: .369, slg: .487, iso: .182, kPct: 11.4, bbPct: 9.7, ops_plus: 135 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Aggressive", speed: "Plus runner", glove: "Average", arm: "Plus" }
+        }
+      ],
+      nlbMatches: {
+        "schmidt": {
+          primary: {
+            id: "dandridge", name: "Ray Dandridge", years: "1933-1949", team: "Newark Eagles / New York Cubans", war: null,
+            stats: { ba: .319, obp: .371, slg: .451, iso: .132, kPct: 5.8, bbPct: 7.4, ops_plus: 130 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Plus defender", arm: "Cannon" },
+            score: 72, confidence: "Moderate",
+            explanation: "<strong>Ray Dandridge</strong> played third base for the Newark Eagles and the New York Cubans from 1933 to 1949. He was a right-handed contact hitter known for one of the surest gloves in baseball history, with quick hands and exceptional range at the hot corner. The match to Mike Schmidt reflects two elite defensive third basemen with strong arms. The strongest dimension is defensive ability; the weakest is power, where Schmidt's home run production was historically elite and Dandridge was a gap hitter. Dandridge was inducted into the Baseball Hall of Fame in 1987.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Riley, 'The Biographical Encyclopedia of the Negro Baseball Leagues' (1994)."
+          },
+          alternates: [
+            { id: "wilson_j", name: "Jud Wilson", score: 70, summary: "Powerful left-handed hitter. Career .351 average in documented seasons.", confidence: "Moderate" }
+          ]
+        },
+        "brett": {
+          primary: {
+            id: "wilson_j", name: "Jud Wilson", years: "1922-1945", team: "Baltimore Black Sox / Homestead Grays", war: null,
+            stats: { ba: .351, obp: .402, slg: .521, iso: .170, kPct: 5.9, bbPct: 7.8, ops_plus: 152 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Aggressive", speed: "Average", glove: "Average", arm: "Plus" },
+            score: 80, confidence: "Strong",
+            explanation: "<strong>Jud Wilson</strong> played third base for the Baltimore Black Sox, Homestead Grays, and Philadelphia Stars from 1922 to 1945. He was a left-handed hitter with a fierce, aggressive approach and the ability to drive the ball to all fields. The match to George Brett reflects two aggressive, high-average third basemen with all-fields power. The strongest dimension is hit tool and approach; the weakest is speed, where Brett was faster. Wilson was known as 'Boojum' for the sound the ball made hitting outfield walls off his bat.",
+            dataConfidence: "Verified",
+            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
+          },
+          alternates: [
+            { id: "dandridge", name: "Ray Dandridge", score: 73, summary: "Elite defensive third baseman with contact-oriented approach.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "SS": [
+    {
+      mlbPool: [
+        { id: "ripken", name: "Cal Ripken Jr.", years: "1981-2001", team: "Baltimore Orioles", era: "modern", war: 95.9,
+          stats: { ba: .276, obp: .340, slg: .447, iso: .171, kPct: 11.1, bbPct: 8.8, ops_plus: 112 },
+          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Station-to-station", glove: "Plus defender", arm: "Plus" }
+        },
+        { id: "jeter", name: "Derek Jeter", years: "1995-2014", team: "New York Yankees", era: "contemporary", war: 72.4,
+          stats: { ba: .310, obp: .377, slg: .440, iso: .130, kPct: 15.0, bbPct: 9.5, ops_plus: 115 },
+          tags: { hit: "Pure hitter", power: "Opposite-field power", approach: "Selective", speed: "Plus runner", glove: "Average", arm: "Average" }
+        }
+      ],
+      nlbMatches: {
+        "ripken": {
+          primary: {
+            id: "wells", name: "Willie Wells", years: "1924-1948", team: "St. Louis Stars / Newark Eagles", war: null,
+            stats: { ba: .319, obp: .381, slg: .484, iso: .165, kPct: 6.1, bbPct: 8.6, ops_plus: 141 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Plus defender", arm: "Cannon" },
+            score: 82, confidence: "Strong",
+            explanation: "<strong>Willie Wells</strong> played shortstop for the St. Louis Stars and Newark Eagles from 1924 to 1948. He was a right-handed hitter with line-drive power, outstanding range, and one of the strongest arms of any shortstop in the Negro Leagues. The match to Cal Ripken Jr. reflects two power-hitting shortstops who redefined the position offensively while maintaining elite defensive standards. The strongest dimension is defensive value; the weakest is raw power, where Ripken had more over-the-fence production. Wells was the first baseball player to wear a batting helmet, after being hit in the head by a pitch in 1942.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Clark and Lester, 'The Negro Leagues Book' (1994)."
+          },
+          alternates: [
+            { id: "lloyd", name: "Pop Lloyd", score: 78, summary: "Considered the greatest shortstop of the dead-ball era. Hall of Fame 1977.", confidence: "Moderate" },
+            { id: "beckwith_j", name: "John Beckwith", score: 60, summary: "Power-hitting shortstop with a powerful throwing arm.", confidence: "Moderate" }
+          ]
+        },
+        "jeter": {
+          primary: {
+            id: "lloyd", name: "Pop Lloyd", years: "1906-1932", team: "Lincoln Giants / Atlantic City Bacharach Giants", war: null,
+            stats: { ba: .342, obp: .394, slg: .453, iso: .111, kPct: 5.5, bbPct: 7.9, ops_plus: 140 },
+            tags: { hit: "Pure hitter", power: "Opposite-field power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
+            score: 85, confidence: "Strong",
+            explanation: "<strong>Pop Lloyd</strong> played shortstop for the Lincoln Giants, Bacharach Giants, and numerous other teams across a career spanning 1906 to 1932. He was a left-handed contact hitter with an opposite-field approach and smooth defensive play. The match to Derek Jeter reflects two high-average, contact-oriented shortstops with opposite-field tendencies and leadership reputations. The strongest dimension is hit tool and approach; the weakest is defensive range, where Wells was considered superior to Lloyd in later assessments. Honus Wagner, when told he was being compared to Lloyd, reportedly said: 'It is a privilege to be compared to him.'",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
+          },
+          alternates: [
+            { id: "wells", name: "Willie Wells", score: 72, summary: "Power-hitting shortstop with elite defense and a cannon arm.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "LF": [
+    {
+      mlbPool: [
+        { id: "williams_t", name: "Ted Williams", years: "1939-1960", team: "Boston Red Sox", era: "post-integration", war: 121.9,
+          stats: { ba: .344, obp: .482, slg: .634, iso: .290, kPct: 11.8, bbPct: 20.6, ops_plus: 190 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Patient", speed: "Average", glove: "Average", arm: "Plus" }
+        },
+        { id: "bonds", name: "Barry Bonds", years: "1986-2007", team: "San Francisco Giants", era: "contemporary", war: 162.8,
+          stats: { ba: .298, obp: .444, slg: .607, iso: .309, kPct: 12.9, bbPct: 20.3, ops_plus: 182 },
+          tags: { hit: "Pure hitter", power: "Pull power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" }
+        }
+      ],
+      nlbMatches: {
+        "williams_t": {
+          primary: {
+            id: "stearnes", name: "Turkey Stearnes", years: "1923-1940", team: "Detroit Stars", war: null,
+            stats: { ba: .350, obp: .408, slg: .580, iso: .230, kPct: 6.8, bbPct: 8.5, ops_plus: 161 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Average", arm: "Plus" },
+            score: 76, confidence: "Moderate",
+            explanation: "<strong>Turkey Stearnes</strong> played center and left field for the Detroit Stars, Chicago American Giants, and other clubs from 1923 to 1940. He was a left-handed hitter with exceptional bat speed and the ability to drive the ball to all fields. The match to Ted Williams reflects two left-handed hitters with all-fields power and high career averages. The strongest dimension is hit tool; the weakest is plate approach, where Williams's patience was historically unmatched. Stearnes led the Negro National League in home runs seven times and was inducted into the Baseball Hall of Fame in 2000.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'The Complete Book of Baseball's Negro Leagues' (2001)."
+          },
+          alternates: [
+            { id: "charleston_o", name: "Oscar Charleston", score: 74, summary: "Widely considered the greatest all-around player in Negro Leagues history.", confidence: "Moderate" }
+          ]
+        },
+        "bonds": {
+          primary: {
+            id: "charleston_o", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
+            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
+            tags: { hit: "Pure hitter", power: "Pull power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Plus" },
+            score: 82, confidence: "Strong",
+            explanation: "<strong>Oscar Charleston</strong> played center field and later first base for the Indianapolis ABCs, Harrisburg Giants, and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and elite defensive range. The match to Barry Bonds reflects two left-handed, five-tool outfielders with pull-side power and elite all-around production. The strongest dimension is overall offensive value; the weakest is career arc comparability, as Charleston's prime years predated the Negro Leagues' most-documented era. Bill James ranked Charleston as the fourth-greatest player in baseball history.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Cottrell, 'The Best Pitcher in Baseball: The Life of Rube Foster' (2001)."
+          },
+          alternates: [
+            { id: "stearnes", name: "Turkey Stearnes", score: 70, summary: "Seven-time NNL home run champion. Left-handed all-fields power.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "CF": [
+    {
+      mlbPool: [
+        { id: "mays", name: "Willie Mays", years: "1951-1973", team: "San Francisco Giants", era: "post-integration", war: 156.2,
+          stats: { ba: .302, obp: .384, slg: .557, iso: .255, kPct: 10.4, bbPct: 12.4, ops_plus: 156 },
+          tags: { hit: "Power hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" }
+        },
+        { id: "trout", name: "Mike Trout", years: "2011-present", team: "Los Angeles Angels", era: "contemporary", war: 85.2,
+          stats: { ba: .303, obp: .413, slg: .587, iso: .284, kPct: 24.2, bbPct: 15.0, ops_plus: 176 },
+          tags: { hit: "Power hitter", power: "All-fields power", approach: "Patient", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" }
+        },
+        { id: "mantle", name: "Mickey Mantle", years: "1951-1968", team: "New York Yankees", era: "post-integration", war: 110.3,
+          stats: { ba: .298, obp: .421, slg: .557, iso: .259, kPct: 20.5, bbPct: 17.7, ops_plus: 172 },
+          tags: { hit: "Power hitter", power: "Pull power", approach: "Patient", speed: "Burner", glove: "Above-average defender", arm: "Plus" }
+        }
+      ],
+      nlbMatches: {
+        "mays": {
+          primary: {
+            id: "charleston", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
+            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" },
+            score: 91, confidence: "Strong",
+            explanation: "<strong>Oscar Charleston</strong> played center field for the Indianapolis ABCs, Harrisburg Giants, Homestead Grays, and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and defensive range that contemporaries compared to the most elite center fielders in any league. The match to Willie Mays reflects two five-tool center fielders at the absolute peak of the talent distribution: speed, power, arm, glove, hit tool. The strongest dimension is the five-tool completeness across every category. The weakest is career documentation completeness. Charleston was inducted into the Baseball Hall of Fame in 1976.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988). Bill James, 'The New Bill James Historical Baseball Abstract' (2001)."
+          },
+          alternates: [
+            { id: "bell", name: "Cool Papa Bell", score: 78, summary: "Fastest player in Negro Leagues history. Line-drive contact hitter. Hall of Fame 1974.", confidence: "Moderate" },
+            { id: "torriente", name: "Cristobal Torriente", score: 71, summary: "Cuban outfielder. Power hitter with strong arm. Hall of Fame 2006.", confidence: "Moderate" }
+          ]
+        },
+        "trout": {
+          primary: {
+            id: "charleston_cf", name: "Oscar Charleston", years: "1915-1941", team: "Indianapolis ABCs / Pittsburgh Crawfords", war: null,
+            stats: { ba: .364, obp: .434, slg: .595, iso: .231, kPct: 5.2, bbPct: 10.1, ops_plus: 170 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Burner", glove: "Plus defender", arm: "Cannon" },
+            score: 84, confidence: "Strong",
+            explanation: "<strong>Oscar Charleston</strong> played center field for the Indianapolis ABCs and Pittsburgh Crawfords from 1915 to 1941. He was a left-handed hitter with exceptional power, blazing speed, and elite range. The match to Mike Trout reflects two generational center fielders with all-fields power, elite plate discipline, and complete defensive profiles. The strongest dimension is overall offensive value; the weakest is plate approach, where Trout's walk rate is higher. Charleston predated Trout by nine decades, but the profiles overlap at the highest talent level.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
+          },
+          alternates: [
+            { id: "bell", name: "Cool Papa Bell", score: 71, summary: "Fastest player in Negro Leagues history. Hall of Fame 1974.", confidence: "Moderate" }
+          ]
+        },
+        "mantle": {
+          primary: {
+            id: "bell", name: "Cool Papa Bell", years: "1922-1946", team: "St. Louis Stars / Pittsburgh Crawfords", war: null,
+            stats: { ba: .341, obp: .391, slg: .465, iso: .124, kPct: 5.8, bbPct: 7.2, ops_plus: 133 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Burner", glove: "Plus defender", arm: "Plus" },
+            score: 70, confidence: "Moderate",
+            explanation: "<strong>Cool Papa Bell</strong> played center field for the St. Louis Stars, Pittsburgh Crawfords, and Homestead Grays from 1922 to 1946. He was widely considered the fastest player in baseball history, capable of scoring from first on a single. The match to Mickey Mantle reflects two elite center fielders whose speed was legendary. The strongest dimension is speed; the weakest is power, where Mantle's switch-hitting power was historically extreme. Satchel Paige said of Bell: 'If he bunts and it bounces twice, he's out.' Bell was inducted into the Baseball Hall of Fame in 1974.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Holway, 'Blackball Stars' (1988)."
+          },
+          alternates: [
+            { id: "charleston", name: "Oscar Charleston", score: 68, summary: "Greatest all-around player in Negro Leagues history. Five-tool dominance.", confidence: "Moderate" }
+          ]
+        }
+      }
+    }
+  ],
+  "RF": [
+    {
+      mlbPool: [
+        { id: "aaron", name: "Hank Aaron", years: "1954-1976", team: "Milwaukee/Atlanta Braves", era: "post-integration", war: 143.1,
+          stats: { ba: .305, obp: .374, slg: .555, iso: .250, kPct: 10.4, bbPct: 9.8, ops_plus: 155 },
+          tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Cannon" }
+        },
+        { id: "ruth", name: "Babe Ruth", years: "1914-1935", team: "New York Yankees", era: "live-ball", war: 183.1,
+          stats: { ba: .342, obp: .474, slg: .690, iso: .348, kPct: 15.4, bbPct: 19.6, ops_plus: 206 },
+          tags: { hit: "Slugger", power: "Pull power", approach: "Patient", speed: "Average", glove: "Average", arm: "Plus" }
+        }
+      ],
+      nlbMatches: {
+        "aaron": {
+          primary: {
+            id: "irvin", name: "Monte Irvin", years: "1937-1948", team: "Newark Eagles", war: null,
+            stats: { ba: .349, obp: .413, slg: .544, iso: .195, kPct: 6.5, bbPct: 9.2, ops_plus: 156 },
+            tags: { hit: "Pure hitter", power: "All-fields power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
+            score: 83, confidence: "Strong",
+            explanation: "<strong>Monte Irvin</strong> played right field for the Newark Eagles from 1937 to 1948 before integrating the New York Giants in 1949. He was a right-handed hitter with a complete offensive profile: contact, power to all fields, and a selective eye. The match to Hank Aaron reflects two right fielders with all-fields power, high averages, and strong defensive tools. The strongest dimension is hit tool and power profile; the weakest is career documentation, as Irvin's NLB prime was cut short by World War II service and then integration. The NLBM and many contemporaries believed Irvin would have been the right choice to integrate MLB before Jackie Robinson.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Irvin with Riley, 'Nice Guys Finish First' (1996)."
+          },
+          alternates: [
+            { id: "torriente", name: "Cristobal Torriente", score: 75, summary: "Cuban outfielder with power. Out-homered Babe Ruth in barnstorming games.", confidence: "Moderate" }
+          ]
+        },
+        "ruth": {
+          primary: {
+            id: "torriente_rf", name: "Cristobal Torriente", years: "1913-1932", team: "Cuban Stars / Chicago American Giants", war: null,
+            stats: { ba: .339, obp: .399, slg: .531, iso: .192, kPct: 7.1, bbPct: 8.8, ops_plus: 155 },
+            tags: { hit: "Slugger", power: "All-fields power", approach: "Aggressive", speed: "Average", glove: "Above-average defender", arm: "Cannon" },
+            score: 67, confidence: "Moderate",
+            explanation: "<strong>Cristobal Torriente</strong> played outfield for the Cuban Stars and Chicago American Giants from 1913 to 1932. He was a left-handed hitter with a stocky build, exceptional raw power, and a strong throwing arm. The match to Babe Ruth reflects two left-handed sluggers with similar body types and the ability to dominate pitching with raw power. The strongest dimension is power profile; the weakest is plate approach, where Ruth's patience was unmatched. Torriente famously out-homered Ruth three home runs to zero in a 1920 barnstorming game in Cuba. He was inducted into the Baseball Hall of Fame in 2006.",
+            dataConfidence: "Verified",
+            source: "Seamheads Negro Leagues Database. Figueredo, 'Cuban Baseball: A Statistical History' (2003)."
+          },
+          alternates: [
+            { id: "irvin", name: "Monte Irvin", score: 58, summary: "Complete outfielder. Hall of Fame 1973. NLB career interrupted by WWII.", confidence: "Weak" }
+          ]
+        }
+      }
+    }
+  ],
+  "UTIL": [
+    {
+      mlbPool: [
+        { id: "robinson_j", name: "Jackie Robinson", years: "1947-1956", team: "Brooklyn Dodgers", era: "post-integration", war: 61.5,
+          stats: { ba: .311, obp: .409, slg: .474, iso: .163, kPct: 7.6, bbPct: 13.6, ops_plus: 132 },
+          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Patient", speed: "Burner", glove: "Above-average defender", arm: "Plus" }
+        },
+        { id: "rose", name: "Pete Rose", years: "1963-1986", team: "Cincinnati Reds", era: "modern", war: 79.7,
+          stats: { ba: .303, obp: .375, slg: .409, iso: .106, kPct: 8.4, bbPct: 10.2, ops_plus: 118 },
+          tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Plus runner", glove: "Average", arm: "Average" }
+        }
+      ],
+      nlbMatches: {
+        "robinson_j": {
+          primary: {
+            id: "doby", name: "Larry Doby", years: "1942-1947", team: "Newark Eagles", war: null,
+            stats: { ba: .319, obp: .395, slg: .484, iso: .165, kPct: 8.1, bbPct: 10.2, ops_plus: 140 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Selective", speed: "Plus runner", glove: "Above-average defender", arm: "Plus" },
+            score: 79, confidence: "Moderate",
+            explanation: "<strong>Larry Doby</strong> played second base and outfield for the Newark Eagles from 1942 to 1947 before integrating the American League with the Cleveland Indians. He was a left-handed hitter with line-drive power, a selective approach, and the athleticism to play multiple positions. The match to Jackie Robinson reflects two players who crossed the color line, but the model matches them on statistical and stylistic similarity, not biography. The strongest dimension is approach and athleticism; the weakest is speed, where Robinson's baserunning was historically disruptive. Doby won the 1948 World Series with Cleveland, eleven weeks after Robinson's first full season in Brooklyn.",
+            dataConfidence: "Documented",
+            source: "Seamheads Negro Leagues Database. Moore, 'Larry Doby: The Struggle of the American League's First Black Player' (1999)."
+          },
+          alternates: [
+            { id: "minoso", name: "Minnie Minoso", score: 72, summary: "Cuban outfielder. Aggressive contact hitter with exceptional speed.", confidence: "Moderate" }
+          ]
+        },
+        "rose": {
+          primary: {
+            id: "smith_h", name: "Hilton Smith", years: "1932-1948", team: "Kansas City Monarchs", war: null,
+            stats: { ba: .298, obp: .345, slg: .401, iso: .103, kPct: 7.5, bbPct: 6.8, ops_plus: 115 },
+            tags: { hit: "Line-drive contact", power: "Gap power", approach: "Aggressive", speed: "Average", glove: "Average", arm: "Average" },
+            score: 64, confidence: "Moderate",
+            explanation: "<strong>Willard Brown</strong> played center field for the Kansas City Monarchs from 1935 to 1950. He was a right-handed contact hitter with gap power and an aggressive approach. The match to Pete Rose reflects two aggressive contact hitters who accumulated hits over long careers. The strongest dimension is hit tool and approach; the weakest is speed and defensive versatility. Brown was known as 'Home Run' Brown in the NNL and was inducted into the Baseball Hall of Fame in 2006.",
+            dataConfidence: "Reported",
+            source: "Seamheads Negro Leagues Database. Riley, 'The Biographical Encyclopedia of the Negro Baseball Leagues' (1994)."
+          },
+          alternates: [
+            { id: "doby", name: "Larry Doby", score: 58, summary: "Two-way talent. Integrated the American League in 1947.", confidence: "Weak" }
+          ]
+        }
+      }
+    }
+  ]
+};
+
+/* ======================================================================
+   STATE
+   ====================================================================== */
+
+var state = {
+  lineup: {},           /* pos -> { mlb: {...}, nlb: {...} } */
+  filledCount: 0,
+  activeView: localStorage.getItem("tobs-shadow-view") || "cards",
+  fieldShowNlb: false,
+  drawerOpen: false,
+  pickerOpen: false,
+  pickerPos: null,
+  pickerFilter: "all",
+  candidatesOpen: false
+};
+
+/* ======================================================================
+   HELPERS
+   ====================================================================== */
+
+function $(id) { return document.getElementById(id); }
+function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
+function qsa(sel, ctx) { return (ctx || document).querySelectorAll(sel); }
+
+function confidenceClass(score) {
+  if (score >= 80) return "strong";
+  if (score >= 60) return "moderate";
+  return "weak";
+}
+
+function confidenceLabel(score) {
+  if (score >= 80) return "";
+  if (score >= 60) return "Moderate match";
+  return "Weak match";
+}
+
+function confidenceColor(score) {
+  if (score >= 80) return "var(--confidence-strong)";
+  if (score >= 60) return "var(--confidence-moderate)";
+  return "var(--confidence-weak)";
+}
+
+function getMlbPool(pos) {
+  var posData = NLB_MATCHES[pos];
+  if (!posData || !posData[0]) return [];
+  return posData[0].mlbPool || [];
+}
+
+function getNlbMatch(pos, mlbId) {
+  var posData = NLB_MATCHES[pos];
+  if (!posData || !posData[0] || !posData[0].nlbMatches) return null;
+  return posData[0].nlbMatches[mlbId] || null;
+}
+
+function escHtml(str) {
+  var div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ======================================================================
+   RENDER LINEUP SLOTS
+   ====================================================================== */
+
+function renderSlots() {
+  var mlbSlots = $("mlb-slots");
+  var nlbSlots = $("nlb-slots");
+  var mlbHtml = "";
+  var nlbHtml = "";
+  var filled = 0;
+  var totalScore = 0;
+
+  POSITIONS.forEach(function(p, i) {
+    var entry = state.lineup[p.key];
+    var order = i + 1;
+
+    if (entry) {
+      filled++;
+      var mlb = entry.mlb;
+      var nlb = entry.nlb;
+      var cls = confidenceClass(nlb.score);
+      var label = confidenceLabel(nlb.score);
+      totalScore += nlb.score;
+
+      mlbHtml += '<li class="lineup-slot lineup-slot--filled" data-pos="' + p.key + '" role="button" tabindex="0" aria-label="' + escHtml(mlb.name) + ' at ' + p.full + '. Click to change.">';
+      mlbHtml += '<span class="lineup-slot__order">' + order + '</span>';
+      mlbHtml += '<span class="lineup-slot__pos">' + p.label + '</span>';
+      mlbHtml += '<div class="lineup-slot__player">';
+      mlbHtml += '<div class="lineup-slot__photo"><span class="lineup-slot__photo-placeholder">' + mlb.name.charAt(0) + '</span></div>';
+      mlbHtml += '<div class="lineup-slot__info">';
+      mlbHtml += '<div class="lineup-slot__name">' + escHtml(mlb.name) + '</div>';
+      mlbHtml += '<div class="lineup-slot__meta">' + escHtml(mlb.years) + ' // ' + escHtml(mlb.team) + '</div>';
+      mlbHtml += '</div></div>';
+      mlbHtml += '<div class="lineup-slot__score"></div>';
+      mlbHtml += '</li>';
+
+      nlbHtml += '<li class="lineup-slot lineup-slot--filled" data-pos="' + p.key + '" data-detail="true" role="button" tabindex="0" aria-label="' + escHtml(nlb.name) + ' at ' + p.full + '. Similarity score ' + nlb.score + '. Click for detail.">';
+      nlbHtml += '<span class="lineup-slot__order">' + order + '</span>';
+      nlbHtml += '<span class="lineup-slot__pos lineup-slot__pos--nlb">' + p.label + '</span>';
+      nlbHtml += '<div class="lineup-slot__player">';
+      nlbHtml += '<div class="lineup-slot__photo"><span class="lineup-slot__photo-placeholder">' + nlb.name.charAt(0) + '</span></div>';
+      nlbHtml += '<div class="lineup-slot__info">';
+      nlbHtml += '<div class="lineup-slot__name">' + escHtml(nlb.name) + '</div>';
+      nlbHtml += '<div class="lineup-slot__meta">' + escHtml(nlb.years) + ' // ' + escHtml(nlb.team) + '</div>';
+      nlbHtml += '</div></div>';
+      nlbHtml += '<div class="lineup-slot__score">';
+      nlbHtml += '<div class="lineup-slot__score-num lineup-slot__score-num--' + cls + '">' + nlb.score + '</div>';
+      if (label) {
+        nlbHtml += '<div class="lineup-slot__score-label">' + escHtml(label) + '</div>';
+      }
+      nlbHtml += '</div>';
+      nlbHtml += '</li>';
+    } else {
+      mlbHtml += '<li class="lineup-slot lineup-slot--empty" data-pos="' + p.key + '" role="button" tabindex="0" aria-label="Select a player for ' + p.full + '">';
+      mlbHtml += '<span class="lineup-slot__order">' + order + '</span>';
+      mlbHtml += '<span class="lineup-slot__pos">' + p.label + '</span>';
+      mlbHtml += '<span class="lineup-slot__empty-label">Select ' + p.full + '</span>';
+      mlbHtml += '<div class="lineup-slot__score"></div>';
+      mlbHtml += '</li>';
+
+      nlbHtml += '<li class="lineup-slot" data-pos="' + p.key + '">';
+      nlbHtml += '<span class="lineup-slot__order">' + order + '</span>';
+      nlbHtml += '<span class="lineup-slot__pos lineup-slot__pos--nlb">' + p.label + '</span>';
+      nlbHtml += '<span class="lineup-slot__empty-label" style="color:var(--muted-2);font-style:italic">Awaiting match...</span>';
+      nlbHtml += '<div class="lineup-slot__score"></div>';
+      nlbHtml += '</li>';
+    }
+  });
+
+  mlbSlots.innerHTML = mlbHtml;
+  nlbSlots.innerHTML = nlbHtml;
+
+  state.filledCount = filled;
+  $("progress-count").textContent = filled;
+  $("mlb-count").textContent = filled + " / 9";
+  $("nlb-count").textContent = filled + " / 9";
+  $("nlb-avg-score").textContent = filled > 0 ? Math.round(totalScore / filled) : "--";
+
+  if (filled > 0) {
+    $("mlb-avg-label").textContent = filled + " of 9 positions filled";
+  } else {
+    $("mlb-avg-label").textContent = "Click a slot to begin";
+  }
+
+  $("btn-share").disabled = filled < 9;
+
+  if (filled === 9) {
+    $("complete-banner").classList.add("shadow__complete-banner--active");
+    $("mlb-card").classList.add("lineup-card--complete");
+    $("nlb-card").classList.add("lineup-card--complete");
+  } else {
+    $("complete-banner").classList.remove("shadow__complete-banner--active");
+    $("mlb-card").classList.remove("lineup-card--complete");
+    $("nlb-card").classList.remove("lineup-card--complete");
+  }
+
+  bindSlotClicks();
+  renderFieldPositions();
+}
+
+function bindSlotClicks() {
+  /* MLB slots -- open picker */
+  qsa(".lineup-slot--empty, .lineup-slot--filled", $("mlb-slots")).forEach(function(slot) {
+    slot.addEventListener("click", function() {
+      openPicker(slot.getAttribute("data-pos"));
+    });
+    slot.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPicker(slot.getAttribute("data-pos")); }
+    });
+  });
+
+  /* NLB slots -- open detail */
+  qsa('[data-detail="true"]', $("nlb-slots")).forEach(function(slot) {
+    slot.addEventListener("click", function() {
+      openDrawer(slot.getAttribute("data-pos"));
+    });
+    slot.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDrawer(slot.getAttribute("data-pos")); }
+    });
+  });
+}
+
+/* ======================================================================
+   FIELD DIAGRAM RENDERING
+   ====================================================================== */
+
+function renderFieldPositions() {
+  POSITIONS.forEach(function(p) {
+    var el = $("field-" + p.key);
+    if (!el) return;
+
+    var entry = state.lineup[p.key];
+    var html = '<div class="field-pos__label">' + p.label + '</div>';
+
+    if (entry) {
+      html += '<div class="field-pos__mlb">' + escHtml(entry.mlb.name) + '</div>';
+      html += '<div class="field-pos__nlb">' + escHtml(entry.nlb.name) + '</div>';
+      html += '<div class="field-pos__score" style="color:' + confidenceColor(entry.nlb.score) + '">' + entry.nlb.score + '</div>';
+    } else {
+      html += '<div class="field-pos__mlb" style="color:var(--muted-2)">--</div>';
+      html += '<div class="field-pos__nlb" style="color:var(--muted-2)">--</div>';
+    }
+
+    el.innerHTML = html;
+  });
+}
+
+/* ======================================================================
+   PICKER
+   ====================================================================== */
+
+function openPicker(pos) {
+  state.pickerPos = pos;
+  state.pickerFilter = "all";
+  state.pickerOpen = true;
+
+  var posObj = POSITIONS.filter(function(p) { return p.key === pos; })[0];
+  $("picker-title").textContent = "Select " + (posObj ? posObj.full : pos);
+  $("picker-search").value = "";
+
+  qsa(".picker__filter-btn").forEach(function(btn) {
+    btn.classList.toggle("picker__filter-btn--active", btn.getAttribute("data-era") === "all");
+  });
+
+  renderPickerList();
+  $("picker-overlay").classList.add("picker-overlay--active");
+  $("picker-search").focus();
+  document.body.style.overflow = "hidden";
+}
+
+function closePicker() {
+  state.pickerOpen = false;
+  $("picker-overlay").classList.remove("picker-overlay--active");
+  document.body.style.overflow = "";
+}
+
+function renderPickerList() {
+  var pool = getMlbPool(state.pickerPos);
+  var search = ($("picker-search").value || "").toLowerCase().trim();
+  var era = state.pickerFilter;
+
+  var filtered = pool.filter(function(p) {
+    if (search && p.name.toLowerCase().indexOf(search) === -1) return false;
+    if (era !== "all" && p.era !== era) return false;
+    return true;
+  });
+
+  var html = "";
+  if (filtered.length === 0) {
+    html = '<li class="picker__item" style="cursor:default;text-align:center;color:var(--muted)"><span class="picker__item-name" style="color:var(--muted)">No players match this filter</span></li>';
+  } else {
+    filtered.forEach(function(p) {
+      html += '<li class="picker__item" data-player-id="' + p.id + '" role="button" tabindex="0">';
+      html += '<span class="picker__item-name">' + escHtml(p.name) + '</span>';
+      html += '<span class="picker__item-years">' + escHtml(p.years) + '</span>';
+      html += '<span class="picker__item-war">' + p.war.toFixed(1) + ' WAR</span>';
+      html += '</li>';
+    });
+  }
+
+  $("picker-list").innerHTML = html;
+
+  qsa(".picker__item[data-player-id]", $("picker-list")).forEach(function(item) {
+    item.addEventListener("click", function() {
+      selectPlayer(state.pickerPos, item.getAttribute("data-player-id"));
+    });
+    item.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectPlayer(state.pickerPos, item.getAttribute("data-player-id"));
+      }
+    });
+  });
+}
+
+function selectPlayer(pos, mlbId) {
+  var pool = getMlbPool(pos);
+  var mlb = pool.filter(function(p) { return p.id === mlbId; })[0];
+  if (!mlb) return;
+
+  var matchData = getNlbMatch(pos, mlbId);
+  if (!matchData || !matchData.primary) return;
+
+  var nlb = matchData.primary;
+  state.lineup[pos] = { mlb: mlb, nlb: nlb, alternates: matchData.alternates || [] };
+
+  closePicker();
+  renderSlots();
+}
+
+/* ======================================================================
+   DETAIL DRAWER
+   ====================================================================== */
+
+function openDrawer(pos) {
+  var entry = state.lineup[pos];
+  if (!entry) return;
+
+  state.drawerOpen = true;
+  state.candidatesOpen = false;
+  var mlb = entry.mlb;
+  var nlb = entry.nlb;
+  var cls = confidenceClass(nlb.score);
+
+  $("drawer-pos").textContent = pos;
+  var scoreEl = $("drawer-score");
+  scoreEl.textContent = nlb.score;
+  scoreEl.style.color = confidenceColor(nlb.score);
+
+  /* Player pair */
+  var pairHtml = '';
+  pairHtml += '<div class="drawer__player">';
+  pairHtml += '<div class="drawer__player-league drawer__player-league--mlb">MLB</div>';
+  pairHtml += '<div class="drawer__player-name">' + escHtml(mlb.name) + '</div>';
+  pairHtml += '<div class="drawer__player-team">' + escHtml(mlb.team) + '</div>';
+  pairHtml += '<div class="drawer__player-years">' + escHtml(mlb.years) + '</div>';
+  pairHtml += '</div>';
+  pairHtml += '<div class="drawer__player">';
+  pairHtml += '<div class="drawer__player-league drawer__player-league--nlb">NLB</div>';
+  pairHtml += '<div class="drawer__player-name">' + escHtml(nlb.name) + '</div>';
+  pairHtml += '<div class="drawer__player-team">' + escHtml(nlb.team) + '</div>';
+  pairHtml += '<div class="drawer__player-years">' + escHtml(nlb.years) + '</div>';
+  pairHtml += '</div>';
+  $("drawer-pair").innerHTML = pairHtml;
+
+  /* Stats table */
+  var statKeys = ["ba", "obp", "slg", "iso", "kPct", "bbPct", "ops_plus"];
+  var statLabels = ["BA", "OBP", "SLG", "ISO", "K%", "BB%", "OPS+"];
+
+  var statsHtml = '<div class="drawer__stats-title">Career Rate Statistics (Era-Adjusted)</div>';
+  statsHtml += '<table class="drawer__stats-table" aria-label="Statistical comparison">';
+  statsHtml += '<thead><tr><th></th>';
+  statLabels.forEach(function(l) { statsHtml += '<th>' + l + '</th>'; });
+  statsHtml += '</tr></thead><tbody>';
+
+  /* MLB row */
+  statsHtml += '<tr><td>MLB</td>';
+  statKeys.forEach(function(k) {
+    var val = mlb.stats[k];
+    if (k === "kPct" || k === "bbPct") {
+      statsHtml += '<td>' + val.toFixed(1) + '%</td>';
+    } else if (k === "ops_plus") {
+      statsHtml += '<td>' + Math.round(val) + '</td>';
+    } else {
+      statsHtml += '<td>' + val.toFixed(3).replace(/^0/, '') + '</td>';
+    }
+  });
+  statsHtml += '</tr>';
+
+  /* NLB row */
+  statsHtml += '<tr><td>NLB</td>';
+  statKeys.forEach(function(k) {
+    var val = nlb.stats[k];
+    if (k === "kPct" || k === "bbPct") {
+      statsHtml += '<td>' + val.toFixed(1) + '%</td>';
+    } else if (k === "ops_plus") {
+      statsHtml += '<td>' + Math.round(val) + '</td>';
+    } else {
+      statsHtml += '<td>' + val.toFixed(3).replace(/^0/, '') + '</td>';
+    }
+  });
+  statsHtml += '</tr>';
+  statsHtml += '</tbody></table>';
+  $("drawer-stats").innerHTML = statsHtml;
+
+  /* Tags grid */
+  var tagKeys = ["hit", "power", "approach", "speed", "glove", "arm"];
+  var tagLabels = ["Hit Tool", "Power", "Approach", "Speed", "Glove", "Arm"];
+
+  var tagsHtml = '<div class="drawer__tags-title">Qualitative Profile Tags</div>';
+  tagsHtml += '<div class="drawer__tags-grid">';
+  tagKeys.forEach(function(k, i) {
+    var mlbVal = mlb.tags[k];
+    var nlbVal = nlb.tags[k];
+    var isMatch = mlbVal === nlbVal;
+    var matchCls = isMatch ? " drawer__tag-val--match" : "";
+    tagsHtml += '<div class="drawer__tag-row">';
+    tagsHtml += '<div class="drawer__tag-label">' + tagLabels[i] + '</div>';
+    tagsHtml += '<div class="drawer__tag-val drawer__tag-val--mlb' + matchCls + '">' + escHtml(mlbVal) + '</div>';
+    tagsHtml += '<div class="drawer__tag-val drawer__tag-val--nlb' + matchCls + '">' + escHtml(nlbVal) + '</div>';
+    tagsHtml += '</div>';
+  });
+  tagsHtml += '</div>';
+  $("drawer-tags").innerHTML = tagsHtml;
+
+  /* Radar diagram */
+  drawRadar(mlb, nlb);
+
+  /* Explanation */
+  var expHtml = '<div class="drawer__explanation-title">Match Narrative</div>';
+  expHtml += '<div class="drawer__explanation-text">' + nlb.explanation + '</div>';
+  $("drawer-explanation").innerHTML = expHtml;
+
+  /* Candidates */
+  var alts = entry.alternates || [];
+  var candHtml = '';
+  if (alts.length > 0) {
+    candHtml += '<button class="drawer__candidates-toggle" id="candidates-toggle" type="button">See other candidates (' + alts.length + ')</button>';
+    candHtml += '<ul class="drawer__candidates-list" id="candidates-list">';
+    alts.forEach(function(alt) {
+      var altCls = confidenceClass(alt.score);
+      candHtml += '<li class="drawer__candidate">';
+      candHtml += '<div><div class="drawer__candidate-name">' + escHtml(alt.name) + '</div>';
+      candHtml += '<div class="drawer__candidate-summary">' + escHtml(alt.summary) + '</div></div>';
+      candHtml += '<div class="drawer__candidate-score" style="color:' + confidenceColor(alt.score) + '">' + alt.score + '</div>';
+      candHtml += '</li>';
+    });
+    candHtml += '</ul>';
+  }
+  $("drawer-candidates").innerHTML = candHtml;
+
+  if (alts.length > 0) {
+    $("candidates-toggle").addEventListener("click", function() {
+      state.candidatesOpen = !state.candidatesOpen;
+      $("candidates-list").classList.toggle("drawer__candidates-list--open", state.candidatesOpen);
+      this.textContent = state.candidatesOpen
+        ? "Hide other candidates"
+        : "See other candidates (" + alts.length + ")";
+    });
+  }
+
+  /* Provenance */
+  var provHtml = '<div class="drawer__provenance-title">Data Provenance</div>';
+  provHtml += '<div class="drawer__provenance-text">' + escHtml(nlb.source) + '</div>';
+  var confCls = nlb.dataConfidence.toLowerCase();
+  provHtml += '<div class="drawer__provenance-confidence drawer__provenance-confidence--' + confCls + '">' + escHtml(nlb.dataConfidence) + '</div>';
+  $("drawer-provenance").innerHTML = provHtml;
+
+  /* Show drawer */
+  $("drawer-overlay").classList.add("drawer-overlay--active");
+  requestAnimationFrame(function() {
+    $("drawer").classList.add("drawer--open");
+  });
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  state.drawerOpen = false;
+  $("drawer").classList.remove("drawer--open");
+  setTimeout(function() {
+    $("drawer-overlay").classList.remove("drawer-overlay--active");
+    document.body.style.overflow = "";
+  }, 350);
+}
+
+/* ======================================================================
+   RADAR DIAGRAM
+   ====================================================================== */
+
+function drawRadar(mlb, nlb) {
+  var svg = $("drawer-radar");
+  var cx = 110, cy = 110, r = 85;
+  var tagKeys = ["hit", "power", "approach", "speed", "glove", "arm"];
+  var tagLabels = ["Hit", "Power", "Approach", "Speed", "Glove", "Arm"];
+
+  /* Tag value to 0-1 scale */
+  var scaleMap = {
+    hit: { "Pure hitter": 1.0, "Line-drive contact": 0.8, "Power hitter": 0.7, "Slugger": 0.6, "Free swinger": 0.3 },
+    power: { "All-fields power": 1.0, "Pull power": 0.8, "Gap power": 0.6, "Opposite-field power": 0.5, "Below-average power": 0.2 },
+    approach: { "Patient": 1.0, "Selective": 0.8, "Two-strike specialist": 0.6, "Aggressive": 0.4, "Free swinger": 0.2 },
+    speed: { "Burner": 1.0, "Plus runner": 0.8, "Average": 0.5, "Station-to-station": 0.3, "Slow": 0.1 },
+    glove: { "Plus defender": 1.0, "Above-average defender": 0.8, "Average": 0.5, "Bat-first": 0.3, "Defensive liability": 0.1 },
+    arm: { "Cannon": 1.0, "Plus": 0.8, "Average": 0.5, "Below-average": 0.2 }
+  };
+
+  function getVal(tags, key) {
+    var map = scaleMap[key];
+    if (!map) return 0.5;
+    var v = map[tags[key]];
+    return v !== undefined ? v : 0.5;
+  }
+
+  function pointAt(i, val) {
+    var angle = (Math.PI * 2 * i / 6) - Math.PI / 2;
+    var dist = r * val;
+    return { x: cx + dist * Math.cos(angle), y: cy + dist * Math.sin(angle) };
+  }
+
+  var html = '';
+
+  /* Grid circles */
+  [0.25, 0.5, 0.75, 1.0].forEach(function(s) {
+    html += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * s) + '" fill="none" stroke="rgba(232,224,207,0.08)" stroke-width="1"/>';
+  });
+
+  /* Axes and labels */
+  tagKeys.forEach(function(k, i) {
+    var pt = pointAt(i, 1.05);
+    var labelPt = pointAt(i, 1.22);
+    html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + pt.x + '" y2="' + pt.y + '" stroke="rgba(232,224,207,0.1)" stroke-width="1"/>';
+    html += '<text x="' + labelPt.x + '" y="' + (labelPt.y + 3) + '" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)" letter-spacing="0.08em">' + tagLabels[i] + '</text>';
+  });
+
+  /* MLB polygon */
+  var mlbPts = tagKeys.map(function(k, i) {
+    var pt = pointAt(i, getVal(mlb.tags, k));
+    return pt.x + "," + pt.y;
+  }).join(" ");
+  html += '<polygon points="' + mlbPts + '" fill="rgba(111,138,168,0.15)" stroke="var(--slate)" stroke-width="1.5"/>';
+
+  /* NLB polygon */
+  var nlbPts = tagKeys.map(function(k, i) {
+    var pt = pointAt(i, getVal(nlb.tags, k));
+    return pt.x + "," + pt.y;
+  }).join(" ");
+  html += '<polygon points="' + nlbPts + '" fill="rgba(212,166,74,0.12)" stroke="var(--amber)" stroke-width="1.5"/>';
+
+  /* Dots */
+  tagKeys.forEach(function(k, i) {
+    var mlbPt = pointAt(i, getVal(mlb.tags, k));
+    var nlbPt = pointAt(i, getVal(nlb.tags, k));
+    html += '<circle cx="' + mlbPt.x + '" cy="' + mlbPt.y + '" r="3" fill="var(--slate)"/>';
+    html += '<circle cx="' + nlbPt.x + '" cy="' + nlbPt.y + '" r="3" fill="var(--amber)"/>';
+  });
+
+  /* Legend */
+  html += '<rect x="10" y="200" width="10" height="3" fill="var(--slate)"/>';
+  html += '<text x="24" y="203" font-family="var(--mono)" font-size="8" fill="var(--muted)">MLB</text>';
+  html += '<rect x="52" y="200" width="10" height="3" fill="var(--amber)"/>';
+  html += '<text x="66" y="203" font-family="var(--mono)" font-size="8" fill="var(--muted)">NLB</text>';
+
+  svg.innerHTML = html;
+}
+
+/* ======================================================================
+   VIEW TOGGLE
+   ====================================================================== */
+
+function setView(view) {
+  state.activeView = view;
+  localStorage.setItem("tobs-shadow-view", view);
+
+  $("view-cards-btn").classList.toggle("shadow__view-btn--active", view === "cards");
+  $("view-cards-btn").setAttribute("aria-selected", view === "cards" ? "true" : "false");
+  $("view-field-btn").classList.toggle("shadow__view-btn--active", view === "field");
+  $("view-field-btn").setAttribute("aria-selected", view === "field" ? "true" : "false");
+
+  if (view === "cards") {
+    $("cards-view").style.display = "";
+    $("field-view").classList.remove("shadow__field-view--active");
+  } else {
+    $("cards-view").style.display = "none";
+    $("field-view").classList.add("shadow__field-view--active");
+  }
+}
+
+/* ======================================================================
+   FIELD TOGGLE (MLB / NLB)
+   ====================================================================== */
+
+function toggleFieldLayer() {
+  state.fieldShowNlb = !state.fieldShowNlb;
+  var container = $("field-container");
+  var sw = $("field-switch");
+
+  if (state.fieldShowNlb) {
+    container.classList.add("shadow__field-container--show-nlb");
+    container.classList.remove("shadow__field-container--show-mlb");
+    sw.classList.add("shadow__field-switch--on");
+    sw.setAttribute("aria-checked", "true");
+  } else {
+    container.classList.remove("shadow__field-container--show-nlb");
+    container.classList.add("shadow__field-container--show-mlb");
+    sw.classList.remove("shadow__field-switch--on");
+    sw.setAttribute("aria-checked", "false");
+  }
+}
+
+/* ======================================================================
+   RESET
+   ====================================================================== */
+
+function resetLineup() {
+  state.lineup = {};
+  state.filledCount = 0;
+  renderSlots();
+}
+
+/* ======================================================================
+   SHARE (placeholder)
+   ====================================================================== */
+
+function shareLineup() {
+  if (state.filledCount < 9) return;
+  /* In production, this generates a server-side URL. */
+  /* For now, copy a summary to clipboard. */
+  var names = POSITIONS.map(function(p) {
+    var e = state.lineup[p.key];
+    return e ? e.mlb.name + " -> " + e.nlb.name : "";
+  }).filter(Boolean);
+
+  var text = "My Shadow Nine at The Other Box Score:\n" + names.join("\n") + "\n\nBuild yours at theotherboxscore.org/shadow-nine/";
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      var btn = $("btn-share");
+      btn.textContent = "COPIED";
+      setTimeout(function() { btn.textContent = "SHARE"; }, 2000);
+    });
+  }
+}
+
+/* ======================================================================
+   EVENT BINDINGS
+   ====================================================================== */
+
+function init() {
+  /* CTA */
+  $("cta-build").addEventListener("click", function() {
+    $("hero").style.display = "none";
+    $("explorer").classList.add("shadow__explorer--active");
+    renderSlots();
+    setView(state.activeView);
+  });
+
+  /* View toggle */
+  $("view-cards-btn").addEventListener("click", function() { setView("cards"); });
+  $("view-field-btn").addEventListener("click", function() { setView("field"); });
+
+  /* Field toggle */
+  $("field-switch").addEventListener("click", toggleFieldLayer);
+
+  /* Reset */
+  $("btn-reset").addEventListener("click", resetLineup);
+
+  /* Share */
+  $("btn-share").addEventListener("click", shareLineup);
+
+  /* Picker close */
+  $("picker-close").addEventListener("click", closePicker);
+  $("picker-overlay").addEventListener("click", function(e) {
+    if (e.target === $("picker-overlay")) closePicker();
+  });
+
+  /* Picker search */
+  $("picker-search").addEventListener("input", renderPickerList);
+
+  /* Picker era filters */
+  qsa(".picker__filter-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      state.pickerFilter = btn.getAttribute("data-era");
+      qsa(".picker__filter-btn").forEach(function(b) {
+        b.classList.toggle("picker__filter-btn--active", b.getAttribute("data-era") === state.pickerFilter);
+      });
+      renderPickerList();
+    });
+  });
+
+  /* Drawer close */
+  $("drawer-close").addEventListener("click", closeDrawer);
+  $("drawer-overlay").addEventListener("click", closeDrawer);
+
+  /* Escape key */
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      if (state.drawerOpen) closeDrawer();
+      else if (state.pickerOpen) closePicker();
+    }
+  });
+
+  /* Field positions -- open picker on click */
+  qsa(".field-pos").forEach(function(fp) {
+    fp.addEventListener("click", function() {
+      var pos = fp.getAttribute("data-pos");
+      if (state.lineup[pos]) {
+        openDrawer(pos);
+      } else {
+        openPicker(pos);
+      }
+    });
+  });
+}
+
+init();
+
+/* Pre-load one match so the Oh Wow lands before user interaction */
+selectPlayer("C", "bench");
+renderSlots();
+
+})();
+</script>
+</body>
+</html>

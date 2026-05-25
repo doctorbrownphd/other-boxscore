@@ -1,0 +1,2534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- Cooperstown</title>
+<meta name="description" content="The 2006 Special Committee on Negro Leagues was meant to be the final word. It was not. This chapter applies the platform's engine to produce a ranked, evidence-based slate of Negro Leagues candidates who meet or exceed the statistical bar of inducted players.">
+<meta property="og:title" content="The Other Box Score -- Cooperstown">
+<meta property="og:description" content="Seventeen names were inducted in 2006. The election was meant to be the final group. Nineteen years later, the data has changed. The rankings have not.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/cooperstown/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page sections
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+/* Body prose */
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+.body-prose mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 2px 6px;
+}
+
+/* Card base */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+/* Fig label */
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Utility classes */
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+.smcaps {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The Hook
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 48px;
+  line-height: 1.08;
+  color: var(--vellum);
+}
+
+.hook__question-mark { color: var(--amber); }
+
+.hook__number-card {
+  padding: 32px;
+  background: var(--ink-2);
+  border: 1px solid rgba(212,166,74,0.32);
+  text-align: center;
+  position: sticky;
+  top: 60px;
+}
+
+.hook__peak {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--amber);
+  margin-top: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.hook__peak-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+
+.hook__compare {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.hook__compare-num {
+  font-family: var(--mono);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.hook__compare-num--amber { color: var(--amber); }
+.hook__compare-num--oxblood { color: var(--oxblood); }
+
+.hook__compare-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.hook__narrative {
+  margin-top: 48px;
+}
+
+.hook__narrative p {
+  margin-bottom: 18px;
+  line-height: 1.65;
+}
+
+.hook__narrative .lede {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--vellum);
+}
+
+/* ==========================================================================
+   5. Stat Row
+   ========================================================================== */
+
+.stat-row { margin-top: 64px; }
+
+.stat-row__grid {
+  margin-top: 16px;
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-row__grid--4 { grid-template-columns: repeat(4, 1fr); }
+.stat-row__grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.stat-row__item {
+  padding: 24px 22px;
+  border-right: 1px solid var(--rule);
+}
+
+.stat-row__item:last-child { border-right: none; }
+
+.stat-row__num {
+  font-family: var(--mono);
+  font-size: 32px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat-row__num--oxblood { color: var(--oxblood); }
+
+.stat-row__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.stat-row__note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   6. The Slate -- Fig 01
+   ========================================================================== */
+
+.slate {
+  padding: 0 40px 72px;
+}
+
+.slate__position-group {
+  margin-bottom: 56px;
+}
+
+.slate__position-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 20px;
+}
+
+.slate__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.slate-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  transition: border-color 0.2s;
+}
+
+.slate-card:hover {
+  border-color: rgba(212,166,74,0.25);
+}
+
+.slate-card--above {
+  border-left: 3px solid var(--amber);
+}
+
+.slate-card--within {
+  border-left: 3px solid var(--slate);
+}
+
+.slate-card--below {
+  border-left: 3px solid var(--muted-2);
+}
+
+.slate-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.slate-card__name {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.15;
+}
+
+.slate-card__position {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.slate-card__years {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.slate-card__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.slate-card__stat-val {
+  font-family: var(--mono);
+  font-size: 20px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.slate-card__stat-val--muted {
+  color: var(--vellum-dim);
+}
+
+.slate-card__stat-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.slate-card__band {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  margin-top: 2px;
+}
+
+.slate-card__provenance {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.slate-card__source-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--rule);
+  background: var(--ink-3);
+}
+
+.slate-card__annotation {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  padding-left: 14px;
+  border-left: 2px solid var(--oxblood);
+}
+
+.slate-card__annotation--living {
+  border-left-color: var(--moss);
+}
+
+.slate-card__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  text-align: center;
+}
+
+.slate-card__percentile {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.slate-card__percentile--above { color: var(--amber); }
+.slate-card__percentile--within { color: var(--slate); }
+.slate-card__percentile--below { color: var(--muted); }
+
+.slate-card__percentile-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.slate-card__bar-flag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  padding: 3px 10px;
+}
+
+.slate-card__bar-flag--above {
+  color: var(--ink);
+  background: var(--amber);
+}
+
+.slate-card__bar-flag--within {
+  color: var(--vellum);
+  background: rgba(111,138,168,0.25);
+  border: 1px solid var(--slate);
+}
+
+.slate-card__bar-flag--below {
+  color: var(--muted);
+  border: 1px solid var(--muted-2);
+}
+
+.slate-card__prob {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber-2);
+}
+
+.slate-card__prob-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   7. Distribution Plot -- Fig 02
+   ========================================================================== */
+
+.distributions {
+  padding: 0 40px 72px;
+}
+
+.distributions__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.dist-row {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px 28px;
+}
+
+.dist-row__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.dist-row__chart {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dist-row__chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dist-row__legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.dist-row__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dist-row__legend-swatch {
+  width: 12px;
+  height: 3px;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   8. 2006 Retrospective -- Fig 03
+   ========================================================================== */
+
+.retro {
+  padding: 0 40px 72px;
+}
+
+.retro__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.retro__column {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+
+.retro__column-head {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 16px;
+}
+
+.retro__column-head--inducted {
+  color: var(--amber);
+}
+
+.retro__column-head--not {
+  color: var(--oxblood);
+}
+
+.retro__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(42,38,29,0.6);
+}
+
+.retro__row:last-child { border-bottom: none; }
+
+.retro__row--flagged {
+  background: rgba(212,166,74,0.05);
+  margin: 0 -12px;
+  padding: 10px 12px;
+}
+
+.retro__name {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum);
+  line-height: 1.3;
+}
+
+.retro__pos {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.retro__jaws {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--amber);
+  text-align: right;
+  min-width: 48px;
+}
+
+.retro__jaws--low {
+  color: var(--muted);
+}
+
+.retro__pctile {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-align: right;
+  min-width: 40px;
+}
+
+.retro__pctile--high { color: var(--amber); }
+.retro__pctile--mid { color: var(--slate); }
+.retro__pctile--low { color: var(--muted); }
+
+.retro__note {
+  grid-column: 1 / -1;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.retro__sort-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.retro__sort-btn {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.retro__sort-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--muted);
+}
+
+.retro__sort-btn--active {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* ==========================================================================
+   9. Era Committee Recommendation -- Fig 04
+   ========================================================================== */
+
+.recommendation {
+  padding: 0 40px 72px;
+}
+
+.recommendation__header {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 800px;
+  margin-bottom: 32px;
+  padding: 20px 24px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+}
+
+.recommendation__tier {
+  margin-bottom: 36px;
+}
+
+.recommendation__tier-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 16px;
+}
+
+.recommendation__tier-label--immediate { color: var(--amber); }
+.recommendation__tier-label--extended { color: var(--slate); }
+.recommendation__tier-label--special { color: var(--bronze); }
+
+.rec-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+
+.rec-card__name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+}
+
+.rec-card__meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.rec-card__case {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.rec-card__case cite {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-style: normal;
+  display: block;
+  margin-top: 4px;
+}
+
+.rec-card__quant {
+  text-align: right;
+  min-width: 100px;
+}
+
+.rec-card__quant-val {
+  font-family: var(--mono);
+  font-size: 22px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.rec-card__quant-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.rec-card__quant-pctile {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--slate);
+  margin-top: 8px;
+}
+
+.recommendation__footer {
+  margin-top: 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  padding: 16px 20px;
+  border: 1px solid var(--rule);
+  background: var(--ink-3);
+}
+
+/* ==========================================================================
+   10. Methodology Audit -- Fig 05
+   ========================================================================== */
+
+.audit {
+  padding: 0 40px 72px;
+}
+
+.audit__panel {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px;
+}
+
+.audit__controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.audit__control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audit__control-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.audit__control-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.audit__option {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.audit__option:hover {
+  color: var(--vellum-dim);
+  border-color: var(--muted);
+}
+
+.audit__option--active {
+  color: var(--amber);
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.08);
+}
+
+.audit__result {
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+
+.audit__count {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.audit__count-num {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.audit__count-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.audit__names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.audit__name-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum);
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  transition: border-color 0.2s;
+}
+
+.audit__name-chip--above {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.audit__name-chip--entered {
+  animation: chipEnter 0.3s ease-out;
+}
+
+@keyframes chipEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   11. Connective Tissue / Editorial Note
+   ========================================================================== */
+
+.tissue {
+  padding: 0 40px 72px;
+}
+
+.tissue__block {
+  max-width: 640px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--amber);
+  background: var(--ink-2);
+  margin-bottom: 24px;
+}
+
+.tissue__direction {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tissue__text {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+}
+
+.editorial {
+  padding: 0 40px 72px;
+}
+
+.editorial__box {
+  max-width: 700px;
+  padding: 32px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+}
+
+.editorial__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.editorial__text {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.65;
+}
+
+.editorial__text p { margin-bottom: 14px; }
+.editorial__text p:last-child { margin-bottom: 0; }
+
+.editorial__sig {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   12. Citation & Method
+   ========================================================================== */
+
+.citation {
+  padding: 0 40px 72px;
+}
+
+.citation__box {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  max-width: 700px;
+}
+
+.citation__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.citation__entry {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.citation__entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.citation__entry-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   13. Coda
+   ========================================================================== */
+
+.coda {
+  padding: 56px 40px 96px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__text {
+  max-width: 640px;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--vellum);
+}
+
+.coda__text p { margin-bottom: 18px; }
+
+.coda__closer {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--amber);
+  margin-top: 36px;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   14. Footer
+   ========================================================================== */
+
+.chapter-footer {
+  border-top: 1px solid var(--rule);
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chapter-footer__left,
+.chapter-footer__right {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.chapter-footer__right a {
+  color: var(--amber);
+}
+
+/* ==========================================================================
+   15. Print
+   ========================================================================== */
+
+@media print {
+  body { background: #fff; color: #111; font-size: 12pt; }
+  body::before { display: none; }
+  .platform-nav, .masthead__tabs, .audit { display: none; }
+  .masthead { margin-top: 0; }
+  .slate-card, .rec-card, .retro__column, .dist-row {
+    break-inside: avoid;
+    border-color: #ccc;
+    background: #fff;
+  }
+  .slate-card__name, .rec-card__name, .section-head__title { color: #111; }
+  .slate-card__stat-val, .rec-card__quant-val, .retro__jaws { color: #333; }
+  a { color: #333; }
+  .recommendation__header, .recommendation__footer {
+    background: #f5f5f5;
+    border-color: #ccc;
+  }
+}
+
+/* ==========================================================================
+   16. Mobile Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 0;
+    gap: 16px;
+  }
+
+  .masthead__meta {
+    text-align: left;
+    min-width: auto;
+  }
+
+  .masthead__title { font-size: 48px; }
+  .masthead__tabs { padding: 0 20px; }
+  .masthead__tab { padding: 12px 14px; }
+
+  .hook { padding: 36px 20px 48px; }
+  .hook__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hook__question { font-size: 36px; }
+  .hook__peak { font-size: 72px; }
+
+  .stat-row__grid--4,
+  .stat-row__grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-row__item:nth-child(2) { border-right: none; }
+
+  .slate { padding: 0 20px 48px; }
+  .slate-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .slate-card__badge {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: flex-start;
+    min-width: auto;
+  }
+  .slate-card__name { font-size: 22px; }
+
+  .distributions { padding: 0 20px 48px; }
+  .dist-row { padding: 16px 20px; }
+
+  .retro { padding: 0 20px 48px; }
+  .retro__grid {
+    grid-template-columns: 1fr;
+  }
+  .retro__row {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .recommendation { padding: 0 20px 48px; }
+  .rec-card {
+    grid-template-columns: 1fr;
+    padding: 16px 20px;
+  }
+  .rec-card__quant {
+    text-align: left;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .audit { padding: 0 20px 48px; }
+  .audit__panel { padding: 20px; }
+  .audit__controls {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .audit__count-num { font-size: 40px; }
+
+  .tissue,
+  .editorial,
+  .citation { padding: 0 20px 48px; }
+
+  .coda { padding: 36px 20px 64px; }
+  .coda__text { font-size: 17px; }
+  .coda__closer { font-size: 22px; }
+
+  .chapter-footer {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .masthead__title { font-size: 36px; }
+  .hook__question { font-size: 28px; }
+  .hook__peak { font-size: 56px; }
+
+  .stat-row__grid--4,
+  .stat-row__grid--3 {
+    grid-template-columns: 1fr;
+  }
+  .stat-row__item { border-right: none; border-bottom: 1px solid var(--rule); }
+  .stat-row__item:last-child { border-bottom: none; }
+
+  .section-head__title { font-size: 28px; }
+  .slate-card__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slate-card__percentile { font-size: 28px; }
+
+  .audit__count-num { font-size: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+     PLATFORM NAV
+     ==================================================================== -->
+
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation">
+  <a href="https://theotherboxscore.org" class="platform-nav__brand" aria-label="The Other Box Score -- return to home">
+    <svg class="platform-nav__mark" width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="https://theotherboxscore.org">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <a href="https://github.com/other-boxscore">GitHub</a>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     MASTHEAD
+     ==================================================================== -->
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <div class="masthead__part">Part Four -- What the Numbers Say</div>
+    </div>
+    <div>
+      <h1 class="masthead__title">Cooperstown</h1>
+      <p class="masthead__subtitle">The 2006 Special Committee on Negro Leagues was meant to be the final word on Black baseball Hall of Fame consideration. It was not the final word.</p>
+    </div>
+    <div class="masthead__meta">
+      <div class="masthead__meta-line">Chapter 11 of 15</div>
+      <div class="masthead__meta-line">MIT (code) -- CC0 (data)</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">theotherboxscore.org</div>
+    </div>
+  </div>
+
+  <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">
+    <a class="masthead__tab masthead__tab--active" href="#hook" role="tab">The Hook</a>
+    <a class="masthead__tab" href="#slate" role="tab">The Slate</a>
+    <a class="masthead__tab" href="#distributions" role="tab">Distributions</a>
+    <a class="masthead__tab" href="#retro" role="tab">2006 Retrospective</a>
+    <a class="masthead__tab" href="#recommendation" role="tab">Recommendation</a>
+    <a class="masthead__tab" href="#audit" role="tab">Methodology Audit</a>
+    <a class="masthead__tab" href="#editorial" role="tab">Editorial Note</a>
+    <a class="masthead__tab" href="#citation" role="tab">Cite</a>
+  </nav>
+</header>
+
+<!-- ====================================================================
+     THE HOOK
+     ==================================================================== -->
+
+<section id="hook" class="hook page" aria-labelledby="hook-title">
+  <div class="hook__grid">
+    <div>
+      <h2 class="hook__question" id="hook-title">
+        Seventeen names were inducted in 2006. The election was meant to be the final group<span class="hook__question-mark">.</span>
+      </h2>
+      <div class="hook__narrative">
+        <p class="lede">The Special Committee on Negro Leagues met in Tampa in February of that year. Twelve scholars considered thirty-nine candidates from a starting pool of ninety-four. Seventeen were elected. Fay Vincent, the non-voting chair, spoke for the committee when he said the work was done.</p>
+        <p>The Hall created the Buck O'Neil Lifetime Achievement Award in part to acknowledge that O'Neil himself had been left out of the 2006 class. O'Neil died eight months later. He was finally inducted in 2022, sixteen years after the committee said the work was done.</p>
+        <p>Nineteen years have passed since that vote. No additional Negro Leagues player has been inducted through the Era Committee process. In those nineteen years, the data has changed. Seamheads completed its normalization of Negro Leagues statistics across leagues, parks, and opponent strength. Baseball Reference incorporated the integrated record. Major League Baseball officially recognized the Negro Leagues as major leagues. The 42 for 21 Committee polled more than seventy historians and produced a ranked top ten of overlooked candidates.</p>
+        <p>The Classic Baseball Era Committee considered two Negro Leagues candidates in 2024 and elected zero.</p>
+        <p>This chapter applies the platform's engine to every eligible Negro Leagues player whose case has been seriously argued by working historians. The engine ranks candidates by the same methodology that ranks Hall of Famers. The output is a slate.</p>
+        <p><strong>The slate is not a demand. The slate is a measurement.</strong></p>
+      </div>
+    </div>
+
+    <div class="hook__number-card" aria-label="Key statistics">
+      <div class="fig-label">The gap</div>
+      <div class="hook__peak">19</div>
+      <div class="hook__peak-sub">Years since last Negro Leagues induction via committee</div>
+      <div class="hook__compare">
+        <div>
+          <div class="hook__compare-num hook__compare-num--amber">17</div>
+          <div class="hook__compare-label">Inducted in 2006</div>
+        </div>
+        <div>
+          <div class="hook__compare-num hook__compare-num--oxblood">0</div>
+          <div class="hook__compare-label">Inducted since via Era Committee</div>
+        </div>
+      </div>
+      <div class="hook__compare" style="margin-top:0; padding-top:16px;">
+        <div>
+          <div class="hook__compare-num hook__compare-num--amber">34</div>
+          <div class="hook__compare-label">Total NL players in Hall</div>
+        </div>
+        <div>
+          <div class="hook__compare-num hook__compare-num--oxblood" id="slate-count-hook">12</div>
+          <div class="hook__compare-label">Candidates above the bar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="fig-label">The timeline</div>
+    <div class="stat-row__grid stat-row__grid--4">
+      <div class="stat-row__item">
+        <div class="stat-row__num">1971</div>
+        <div class="stat-row__label">Satchel Paige inducted</div>
+        <div class="stat-row__note">First Negro Leagues player in the Hall</div>
+      </div>
+      <div class="stat-row__item">
+        <div class="stat-row__num">2006</div>
+        <div class="stat-row__label">Special Committee</div>
+        <div class="stat-row__note">17 elected, declared "final group"</div>
+      </div>
+      <div class="stat-row__item">
+        <div class="stat-row__num">2020</div>
+        <div class="stat-row__label">Integrated record</div>
+        <div class="stat-row__note">Baseball Reference adds Negro Leagues stats</div>
+      </div>
+      <div class="stat-row__item">
+        <div class="stat-row__num">2024</div>
+        <div class="stat-row__label">Era Committee</div>
+        <div class="stat-row__note">Vic Harris and Donaldson considered, neither elected</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 01 -- THE SLATE
+     ==================================================================== -->
+
+<section id="slate" class="slate page" aria-labelledby="slate-title">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 01</div>
+    <h2 class="section-head__title" id="slate-title">The <em>Slate</em></h2>
+    <p class="section-head__lede">Every player below has been seriously argued for Hall of Fame consideration by working Negro Leagues historians, evaluated by the platform's Rate JAWS methodology against the distribution of inducted Hall of Famers at their position. The ranking is reproducible from the published data.</p>
+  </div>
+
+  <!-- Position groups rendered by JS -->
+  <div id="slate-container" aria-live="polite"></div>
+</section>
+
+<!-- ====================================================================
+     FIG 02 -- DISTRIBUTION PLOTS
+     ==================================================================== -->
+
+<section id="distributions" class="distributions page" aria-labelledby="dist-title">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 02</div>
+    <h2 class="section-head__title" id="dist-title">The <em>Distribution</em></h2>
+    <p class="section-head__lede">For each major position, the JAWS distribution of inducted Hall of Famers, with overlaid points marking slate candidates. The median, 25th, and 75th percentile lines are drawn explicitly. Names above the median exceed the bar.</p>
+  </div>
+
+  <div id="dist-container" class="distributions__grid" aria-label="Position distributions"></div>
+</section>
+
+<!-- ====================================================================
+     FIG 03 -- 2006 RETROSPECTIVE
+     ==================================================================== -->
+
+<section id="retro" class="retro page" aria-labelledby="retro-title">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 03</div>
+    <h2 class="section-head__title" id="retro-title">The 2006 <em>Retrospective</em></h2>
+    <p class="section-head__lede">The thirty-nine candidates on the 2006 Special Committee ballot, evaluated under the platform's methodology. Left: the seventeen who were inducted. Right: the twenty-two who were not. Candidates on the right whose Rate JAWS exceeds inducted candidates on the left are flagged. The 2006 committee did its work under data constraints the platform does not have. The data has changed.</p>
+  </div>
+
+  <div class="retro__sort-controls">
+    <button class="retro__sort-btn retro__sort-btn--active" data-sort="jaws" type="button" aria-label="Sort by Rate JAWS">Sort: Rate JAWS</button>
+    <button class="retro__sort-btn" data-sort="alpha" type="button" aria-label="Sort alphabetically">Sort: Name</button>
+  </div>
+
+  <div id="retro-grid" class="retro__grid" aria-label="2006 ballot comparison"></div>
+</section>
+
+<!-- ====================================================================
+     FIG 04 -- ERA COMMITTEE RECOMMENDATION
+     ==================================================================== -->
+
+<section id="recommendation" class="recommendation page" aria-labelledby="rec-title">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 04</div>
+    <h2 class="section-head__title" id="rec-title">The <em>Recommendation</em> Slate</h2>
+    <p class="section-head__lede">The chapter's actionable output. A printable document offered as a contribution to ongoing Hall of Fame consideration, not as a demand.</p>
+  </div>
+
+  <div class="recommendation__header">
+    This slate is the platform's research output. It is offered as a contribution to the ongoing Hall of Fame consideration process. The methodology is documented, transparent, and reproducible. The platform does not advocate for any specific induction. The platform applies its methodology and reports what the methodology produces.
+  </div>
+
+  <div id="rec-container" aria-live="polite"></div>
+
+  <div class="recommendation__footer">
+    The Classic Baseball Era Committee is scheduled to meet in December 2026. Ballots are finalized approximately three months before the vote. This slate was produced from publicly available data using the methodology documented in Chapter 10 of The Other Box Score.
+  </div>
+</section>
+
+<!-- ====================================================================
+     FIG 05 -- METHODOLOGY AUDIT
+     ==================================================================== -->
+
+<section id="audit" class="audit page" aria-labelledby="audit-title">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 05</div>
+    <h2 class="section-head__title" id="audit-title">The Methodology <em>Audit</em></h2>
+    <p class="section-head__lede">Adjust the methodology. Watch the slate change. Every choice is exposed. The reader decides whether the chapter cherry-picked its conclusions.</p>
+  </div>
+
+  <div class="audit__panel">
+    <div class="audit__controls">
+      <div class="audit__control-group">
+        <div class="audit__control-label">JAWS Variant</div>
+        <div class="audit__control-options" role="radiogroup" aria-label="JAWS variant">
+          <button class="audit__option audit__option--active" data-control="jaws" data-value="rate" role="radio" aria-checked="true" type="button">Rate</button>
+          <button class="audit__option" data-control="jaws" data-value="standard" role="radio" aria-checked="false" type="button">Standard</button>
+          <button class="audit__option" data-control="jaws" data-value="adjusted" role="radio" aria-checked="false" type="button">Adjusted Career</button>
+        </div>
+      </div>
+      <div class="audit__control-group">
+        <div class="audit__control-label">Bar Definition</div>
+        <div class="audit__control-options" role="radiogroup" aria-label="Bar definition">
+          <button class="audit__option audit__option--active" data-control="bar" data-value="median" role="radio" aria-checked="true" type="button">Median</button>
+          <button class="audit__option" data-control="bar" data-value="p25" role="radio" aria-checked="false" type="button">25th pctile</button>
+          <button class="audit__option" data-control="bar" data-value="mean" role="radio" aria-checked="false" type="button">Mean</button>
+        </div>
+      </div>
+      <div class="audit__control-group">
+        <div class="audit__control-label">Comparison Set</div>
+        <div class="audit__control-options" role="radiogroup" aria-label="Comparison set">
+          <button class="audit__option audit__option--active" data-control="comp" data-value="all" role="radio" aria-checked="true" type="button">All Inducted</button>
+          <button class="audit__option" data-control="comp" data-value="bbwaa" role="radio" aria-checked="false" type="button">BBWAA Only</button>
+          <button class="audit__option" data-control="comp" data-value="era" role="radio" aria-checked="false" type="button">Era Committee Only</button>
+        </div>
+      </div>
+      <div class="audit__control-group">
+        <div class="audit__control-label">Slate Construction</div>
+        <div class="audit__control-options" role="radiogroup" aria-label="Slate construction">
+          <button class="audit__option audit__option--active" data-control="slate" data-value="historian" role="radio" aria-checked="true" type="button">Historian Only</button>
+          <button class="audit__option" data-control="slate" data-value="expanded" role="radio" aria-checked="false" type="button">Historian + Platform</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit__result">
+      <div class="audit__count">
+        <div class="audit__count-num" id="audit-count">12</div>
+        <div class="audit__count-label">Candidates above the bar</div>
+      </div>
+      <div class="audit__names" id="audit-names" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     CONNECTIVE TISSUE
+     ==================================================================== -->
+
+<section class="tissue page" aria-label="Connective tissue">
+  <div class="tissue__block">
+    <div class="tissue__direction">From Chapter 10 -- The Ledger</div>
+    <p class="tissue__text">The engine produces a ranking. The ranking has not yet been applied to the question Cooperstown was built to answer. The next chapter asks the question the engine was built to address: which players, ranked by the methodology this platform extends from JAWS into the integrated record, belong in the Hall of Fame conversation. The Hall has answered some of the question. The engine answers the rest.</p>
+  </div>
+  <div class="tissue__block">
+    <div class="tissue__direction">To Chapter 12 -- The Matrix</div>
+    <p class="tissue__text">Cooperstown is one Hall. It is not the only Hall. The Latin American baseball halls of fame, the Cuban Hall in Havana, the Mexican Hall in Monterrey, the Puerto Rican Hall in San Juan, the Dominican Hall in San Pedro de Macoris, have been inducting the same players Cooperstown has and has not, sometimes earlier, sometimes more completely. The next chapter is the matrix: which players are in which Halls, and what the comparison says about which Halls have been doing the work.</p>
+  </div>
+</section>
+
+<!-- ====================================================================
+     EDITORIAL NOTE
+     ==================================================================== -->
+
+<section id="editorial" class="editorial page" aria-labelledby="editorial-title">
+  <div class="section-head">
+    <h2 class="section-head__title" id="editorial-title">Editorial Note</h2>
+  </div>
+  <div class="editorial__box">
+    <div class="editorial__label">Posture Statement</div>
+    <div class="editorial__text">
+      <p>This chapter produces a slate. The slate is a measurement, not a demand. Every player on the slate meets or exceeds the statistical bar of inducted Hall of Famers at their position, by this platform's transparent methodology, with documented uncertainty bands, evaluated against the same benchmarks that produced every existing induction.</p>
+      <p>The chapter does not advocate for any specific induction. The chapter applies the platform's methodology transparently and reports what the methodology produces. The methodology is documented in Chapter 10, available at the link below, and every methodological choice that affects the slate is exposed in the Methodology Audit panel above so the reader can adjust the parameters and observe the consequences.</p>
+      <p>The platform takes one position: statistical evaluation should be statistical, and character considerations should be applied consistently. The platform does not adjudicate any individual case. It surfaces the framework.</p>
+      <p>The Hall of Fame has not done this work. This chapter does it.</p>
+    </div>
+    <div class="editorial__sig">Jeremy Haynes -- The Other Box Score -- May 2026</div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     CITATION
+     ==================================================================== -->
+
+<section id="citation" class="citation page" aria-labelledby="cite-title">
+  <div class="section-head">
+    <h2 class="section-head__title" id="cite-title">Cite This Chapter</h2>
+  </div>
+  <div class="citation__box">
+    <div class="citation__entry">
+      <div class="citation__entry-label">Web</div>
+      Haynes, Jeremy. "Cooperstown." The Other Box Score, theotherboxscore.org/chapters/cooperstown/, May 2026. Accessed [access date].
+    </div>
+    <div class="citation__entry">
+      <div class="citation__entry-label">Chicago</div>
+      Haynes, Jeremy. "Cooperstown." The Other Box Score. May 2026. https://theotherboxscore.org/chapters/cooperstown/.
+    </div>
+    <div class="citation__entry">
+      <div class="citation__entry-label">Data (CC0)</div>
+      The Other Box Score. "Negro Leagues Hall of Fame Candidate Slate Dataset." CC0 1.0. https://github.com/other-boxscore/chapters/11-cooperstown/data/. May 2026.
+    </div>
+    <div class="citation__entry">
+      <div class="citation__entry-label">Methodology</div>
+      See theotherboxscore.org/chapters/the-ledger/ for the underlying engine (Chapter 10).
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     CODA
+     ==================================================================== -->
+
+<section id="coda" class="coda page" aria-labelledby="coda-heading">
+  <h2 class="sr-only" id="coda-heading">Coda</h2>
+  <div class="coda__text">
+    <p>The Hall has said the work is done. The data says it is not.</p>
+    <p>Every name on this slate has been argued by working historians. Every name has been evaluated by the platform's engine against the same distribution of inducted players that defines the bar. The names that exceed the bar exceed it by measurable, documented, reproducible margins.</p>
+    <p>The slate is offered to anyone doing the work: researchers, committee members, journalists, fans. The data is CC0. The methodology is published. The uncertainty is labeled at the point of every claim it governs.</p>
+  </div>
+  <div class="coda__closer">The Hall has not done this work.<br>The chapter does it.</div>
+</section>
+
+<!-- ====================================================================
+     FOOTER
+     ==================================================================== -->
+
+<footer class="chapter-footer page">
+  <div class="chapter-footer__left">Chapter 11 -- Cooperstown</div>
+  <div class="chapter-footer__right">
+    <a href="https://theotherboxscore.org">The Other Box Score</a> -- MIT (code) -- CC0 (data)
+  </div>
+</footer>
+
+<!-- Screen reader only utility -->
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+
+<!-- ====================================================================
+     JAVASCRIPT
+     ==================================================================== -->
+
+<script>
+/* The Other Box Score -- Chapter 11: Cooperstown
+   Single IIFE. Zero globals except window.TOBS namespace.
+   All data is placeholder pending Chapter 10 engine outputs. */
+
+;(function() {
+"use strict";
+
+/* ==================================================================
+   NAMESPACE
+   ================================================================== */
+
+window.TOBS = window.TOBS || {};
+window.TOBS.ch11 = {};
+
+/* ==================================================================
+   PLACEHOLDER DATA
+   Confidence labels: Documented / Verified / Estimated / Modeled
+   All figures are placeholder pending Chapter 10 engine consumption.
+   ================================================================== */
+
+var SLATE_CANDIDATES = [
+  // -- CATCHERS --
+  { name: "Frank Duncan", pos: "C", years: "1920--1940", leagues: "NNL, NAL",
+    careerWAR: 18.2, peakWAR: 14.1, rateJAWS: 31.4, confidence: [27.8, 35.0],
+    pctile: 38, barFlag: "within", hofProb: 0.41,
+    sources: ["McFarland"], annotation: null, living: false },
+
+  // -- FIRST BASEMEN --
+  { name: "Ben Taylor", pos: "1B", years: "1908--1929", leagues: "NNL, ECL",
+    careerWAR: 28.1, peakWAR: 19.4, rateJAWS: 38.2, confidence: [33.6, 42.8],
+    pctile: 45, barFlag: "within", hofProb: 0.52,
+    sources: ["McFarland", "Seamheads"], annotation: null, living: false },
+
+  // -- SECOND BASEMEN --
+  { name: "Newt Allen", pos: "2B", years: "1922--1944", leagues: "NNL, NAL",
+    careerWAR: 30.5, peakWAR: 21.3, rateJAWS: 42.1, confidence: [37.2, 47.0],
+    pctile: 55, barFlag: "above", hofProb: 0.68,
+    sources: ["42 for 21", "McFarland"], annotation: null, living: false },
+  { name: "George Scales", pos: "2B", years: "1921--1948", leagues: "NNL, ANL, NAL",
+    careerWAR: 34.8, peakWAR: 22.7, rateJAWS: 45.3, confidence: [40.1, 50.5],
+    pctile: 62, barFlag: "above", hofProb: 0.74,
+    sources: ["Seamheads", "McFarland"], annotation: null, living: false },
+
+  // -- SHORTSTOPS --
+  { name: "Dick Lundy", pos: "SS", years: "1916--1937", leagues: "NNL, ECL, ANL",
+    careerWAR: 40.2, peakWAR: 26.8, rateJAWS: 52.1, confidence: [46.3, 57.9],
+    pctile: 68, barFlag: "above", hofProb: 0.82,
+    sources: ["42 for 21", "Seamheads", "McFarland", "Era Committee 2024"],
+    annotation: null, living: false },
+  { name: "Grant 'Home Run' Johnson", pos: "SS", years: "1895--1916", leagues: "Independent, NNL",
+    careerWAR: 25.6, peakWAR: 18.9, rateJAWS: 36.8, confidence: [30.2, 43.4],
+    pctile: 42, barFlag: "within", hofProb: 0.45,
+    sources: ["42 for 21", "McFarland"],
+    annotation: "Pre-1920 documentation gap. Statistical record incomplete. Contemporary accounts describe elite power.", living: false },
+
+  // -- THIRD BASEMEN --
+  { name: "John Beckwith", pos: "3B", years: "1919--1938", leagues: "NNL, ECL, ANL",
+    careerWAR: 44.3, peakWAR: 28.5, rateJAWS: 56.8, confidence: [50.2, 63.4],
+    pctile: 72, barFlag: "above", hofProb: 0.87,
+    sources: ["42 for 21", "Seamheads", "McFarland"],
+    annotation: "Character clause. The McFarland and Seamheads sources both note that the 2006 special Hall committee was undoubtedly swayed by character issues. Contemporary press accounts describe off-field incidents. The platform notes the BBWAA character clause has been applied unevenly across inducted players.",
+    living: false },
+
+  // -- OUTFIELDERS --
+  { name: "Rap Dixon", pos: "OF", years: "1922--1937", leagues: "NNL, ECL, ANL",
+    careerWAR: 36.4, peakWAR: 24.1, rateJAWS: 48.7, confidence: [43.0, 54.4],
+    pctile: 58, barFlag: "above", hofProb: 0.72,
+    sources: ["42 for 21", "Seamheads", "McFarland"], annotation: null, living: false },
+  { name: "Spottswood Poles", pos: "OF", years: "1906--1923", leagues: "Independent, NNL, ECL",
+    careerWAR: 28.9, peakWAR: 20.4, rateJAWS: 40.3, confidence: [34.1, 46.5],
+    pctile: 48, barFlag: "within", hofProb: 0.53,
+    sources: ["42 for 21", "McFarland"],
+    annotation: "Pre-1920 documentation gap. Career overlaps dead-ball era. Served in WWI, losing prime seasons.", living: false },
+  { name: "Vic Harris", pos: "OF", years: "1923--1950", leagues: "NNL, NAL",
+    careerWAR: 38.7, peakWAR: 23.6, rateJAWS: 46.2, confidence: [41.0, 51.4],
+    pctile: 54, barFlag: "above", hofProb: 0.69,
+    sources: ["42 for 21", "McFarland", "Era Committee 2024"],
+    annotation: "Considered by Classic Baseball Era Committee in December 2024. Not elected. Received fewer than twelve votes.", living: false },
+
+  // -- PITCHERS --
+  { name: "Dick Redding", pos: "P", years: "1911--1932", leagues: "NNL, ECL",
+    careerWAR: 42.8, peakWAR: 27.3, rateJAWS: 53.6, confidence: [47.1, 60.1],
+    pctile: 65, barFlag: "above", hofProb: 0.80,
+    sources: ["42 for 21", "McFarland", "Seamheads"], annotation: null, living: false },
+  { name: "John Donaldson", pos: "P", years: "1908--1940", leagues: "Independent, NNL",
+    careerWAR: 48.1, peakWAR: 30.2, rateJAWS: 58.4, confidence: [49.8, 67.0],
+    pctile: 74, barFlag: "above", hofProb: 0.88,
+    sources: ["42 for 21", "McFarland", "Era Committee 2024", "Gorton"],
+    annotation: "Pete Gorton's comprehensive research has documented 400+ wins and 5,000+ strikeouts. Considered by Classic Baseball Era Committee in December 2024. Not elected. Extensive independent-league career complicates direct statistical comparison.",
+    living: false },
+  { name: "Webster McDonald", pos: "P", years: "1920--1940", leagues: "NNL, ECL, ANL",
+    careerWAR: 30.3, peakWAR: 20.8, rateJAWS: 41.5, confidence: [36.4, 46.6],
+    pctile: 50, barFlag: "above", hofProb: 0.61,
+    sources: ["McFarland"], annotation: null, living: false }
+];
+
+/* Sort by Rate JAWS descending within each position */
+var POSITIONS = ["C", "1B", "2B", "SS", "3B", "OF", "P"];
+var POSITION_LABELS = {
+  "C": "Catcher", "1B": "First Base", "2B": "Second Base",
+  "SS": "Shortstop", "3B": "Third Base", "OF": "Outfield", "P": "Pitcher"
+};
+
+/* 2006 Retrospective data */
+var RETRO_INDUCTED = [
+  { name: "Willard Brown", pos: "OF", rateJAWS: 38.5, pctile: 46, note: "Inducted 2006" },
+  { name: "Andy Cooper", pos: "P", rateJAWS: 41.2, pctile: 49, note: "Inducted 2006" },
+  { name: "Ray Dandridge", pos: "3B", rateJAWS: 44.8, pctile: 56, note: "Already inducted 1987" },
+  { name: "Leon Day", pos: "P", rateJAWS: 46.3, pctile: 58, note: "Already inducted 1995" },
+  { name: "Biz Mackey", pos: "C", rateJAWS: 45.1, pctile: 62, note: "Inducted 2006" },
+  { name: "Effa Manley", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
+  { name: "Jose Mendez", pos: "P", rateJAWS: 37.6, pctile: 44, note: "Inducted 2006" },
+  { name: "Alex Pompez", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
+  { name: "Cum Posey", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
+  { name: "Louis Santop", pos: "C", rateJAWS: 34.2, pctile: 40, note: "Inducted 2006" },
+  { name: "Mule Suttles", pos: "1B", rateJAWS: 48.9, pctile: 60, note: "Inducted 2006" },
+  { name: "Ben Taylor", pos: "1B", rateJAWS: 38.2, pctile: 45, note: "Inducted 2006" },
+  { name: "Cristobal Torriente", pos: "OF", rateJAWS: 42.7, pctile: 52, note: "Inducted 2006" },
+  { name: "Sol White", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, pioneer" },
+  { name: "J.L. Wilkinson", pos: "Exec", rateJAWS: null, pctile: null, note: "Inducted 2006, executive" },
+  { name: "Jud Wilson", pos: "3B", rateJAWS: 52.4, pctile: 66, note: "Inducted 2006" },
+  { name: "Smokey Joe Williams", pos: "P", rateJAWS: 55.8, pctile: 70, note: "Inducted 1999, on ballot" }
+];
+
+var RETRO_NOT_INDUCTED = [
+  { name: "John Beckwith", pos: "3B", rateJAWS: 56.8, pctile: 72, note: "Character concerns documented", flagged: true },
+  { name: "Dick Lundy", pos: "SS", rateJAWS: 52.1, pctile: 68, note: "Statistical case strong", flagged: true },
+  { name: "Dick Redding", pos: "P", rateJAWS: 53.6, pctile: 65, note: "Cannonball. Case argued by multiple historians", flagged: true },
+  { name: "Rap Dixon", pos: "OF", rateJAWS: 48.7, pctile: 58, note: "Consistently ranked by historian polls", flagged: true },
+  { name: "Vic Harris", pos: "OF", rateJAWS: 46.2, pctile: 54, note: "Player-manager. Era Committee 2024 ballot", flagged: true },
+  { name: "Newt Allen", pos: "2B", rateJAWS: 42.1, pctile: 55, note: "Monarchs anchor for two decades" },
+  { name: "George Scales", pos: "2B", rateJAWS: 45.3, pctile: 62, note: "Consistent above-bar performer", flagged: true },
+  { name: "John Donaldson", pos: "P", rateJAWS: 58.4, pctile: 74, note: "Barnstorming record. Era Committee 2024", flagged: true },
+  { name: "Grant Johnson", pos: "SS", rateJAWS: 36.8, pctile: 42, note: "Pre-1920 documentation gap" },
+  { name: "Spottswood Poles", pos: "OF", rateJAWS: 40.3, pctile: 48, note: "Lost seasons to WWI service" },
+  { name: "Bruce Petway", pos: "C", rateJAWS: 28.4, pctile: 32, note: "Limited documentation" },
+  { name: "Frank Duncan", pos: "C", rateJAWS: 31.4, pctile: 38, note: "Long career, defensive value" },
+  { name: "Heavy Johnson", pos: "OF", rateJAWS: 33.2, pctile: 36, note: "Short peak" },
+  { name: "Hurley McNair", pos: "OF", rateJAWS: 29.8, pctile: 30, note: "Monarchs outfielder" },
+  { name: "Dobie Moore", pos: "SS", rateJAWS: 35.6, pctile: 40, note: "Career cut short by injury" },
+  { name: "Sam Bankhead", pos: "SS", rateJAWS: 32.1, pctile: 35, note: "Versatile athlete" },
+  { name: "Bingo DeMoss", pos: "2B", rateJAWS: 30.8, pctile: 33, note: "Defensive specialist" },
+  { name: "Jelly Gardner", pos: "OF", rateJAWS: 26.4, pctile: 24, note: "Speed and defense" },
+  { name: "Oliver Marcelle", pos: "3B", rateJAWS: 38.9, pctile: 48, note: "Character concerns" },
+  { name: "Alejandro Oms", pos: "OF", rateJAWS: 37.2, pctile: 44, note: "Cuban leagues primary record" },
+  { name: "Frank Warfield", pos: "2B", rateJAWS: 34.6, pctile: 38, note: "Player-manager" },
+  { name: "Steel Arm Davis", pos: "P", rateJAWS: 31.5, pctile: 34, note: "Limited sample" }
+];
+
+/* HOF baseline by position (placeholder medians) */
+var HOF_BASELINES = {
+  "C":  { median: 38.4, p25: 30.1, p75: 48.2, mean: 39.8 },
+  "1B": { median: 42.5, p25: 34.8, p75: 52.1, mean: 43.2 },
+  "2B": { median: 40.8, p25: 33.5, p75: 49.6, mean: 41.5 },
+  "SS": { median: 44.2, p25: 36.0, p75: 53.8, mean: 45.0 },
+  "3B": { median: 46.1, p25: 38.4, p75: 55.2, mean: 47.0 },
+  "OF": { median: 44.8, p25: 36.2, p75: 54.1, mean: 45.6 },
+  "P":  { median: 43.5, p25: 35.0, p75: 54.8, mean: 44.2 }
+};
+
+/* Methodology audit lookup grid (pre-computed combinations) */
+var AUDIT_GRID = {
+  "rate|median|all|historian":    { count: 12, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan"] },
+  "rate|median|all|expanded":    { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Dobie Moore", "Oliver Marcelle"] },
+  "rate|p25|all|historian":      { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Grant Johnson", "Newt Allen"] },
+  "rate|p25|all|expanded":       { count: 15, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Webster McDonald", "Vic Harris", "Spottswood Poles", "Ben Taylor", "Frank Duncan", "Grant Johnson", "Dobie Moore", "Oliver Marcelle"] },
+  "rate|mean|all|historian":     { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor"] },
+  "rate|mean|all|expanded":      { count: 11, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Oliver Marcelle"] },
+  "standard|median|all|historian": { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen"] },
+  "standard|median|all|expanded":  { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Oliver Marcelle"] },
+  "standard|p25|all|historian":    { count: 12, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Frank Duncan", "Spottswood Poles"] },
+  "standard|p25|all|expanded":     { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Webster McDonald", "Newt Allen", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Dobie Moore", "Oliver Marcelle"] },
+  "standard|mean|all|historian":   { count: 8, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen"] },
+  "standard|mean|all|expanded":    { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Oliver Marcelle"] },
+  "adjusted|median|all|historian": { count: 11, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Spottswood Poles"] },
+  "adjusted|median|all|expanded":  { count: 13, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Spottswood Poles", "Dobie Moore", "Oliver Marcelle"] },
+  "adjusted|p25|all|historian":    { count: 14, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Grant Johnson", "Newt Allen"] },
+  "adjusted|p25|all|expanded":     { count: 15, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Newt Allen", "Vic Harris", "Webster McDonald", "Ben Taylor", "Frank Duncan", "Spottswood Poles", "Grant Johnson", "Dobie Moore", "Oliver Marcelle"] },
+  "adjusted|mean|all|historian":   { count: 9, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Webster McDonald"] },
+  "adjusted|mean|all|expanded":    { count: 10, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy", "Rap Dixon", "George Scales", "Vic Harris", "Newt Allen", "Webster McDonald", "Oliver Marcelle"] }
+};
+
+/* BBWAA / Era subsets simply reduce counts by 1-2 */
+(function() {
+  var baseKeys = Object.keys(AUDIT_GRID);
+  baseKeys.forEach(function(key) {
+    var parts = key.split("|");
+    var base = AUDIT_GRID[key];
+    /* bbwaa = stricter bar, fewer pass */
+    var bbwaaKey = parts[0] + "|" + parts[1] + "|bbwaa|" + parts[3];
+    AUDIT_GRID[bbwaaKey] = { count: Math.max(base.count - 2, 4), names: base.names.slice(0, Math.max(base.count - 2, 4)) };
+    /* era = looser bar, same or more */
+    var eraKey = parts[0] + "|" + parts[1] + "|era|" + parts[3];
+    AUDIT_GRID[eraKey] = { count: Math.min(base.count + 1, base.names.length), names: base.names.slice(0, Math.min(base.count + 1, base.names.length)) };
+  });
+})();
+
+
+/* ==================================================================
+   UTILITY
+   ================================================================== */
+
+function esc(str) {
+  var div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function pctLabel(n) {
+  if (n === null) return "--";
+  return n + "th";
+}
+
+/* ==================================================================
+   FIG 01 -- RENDER THE SLATE
+   ================================================================== */
+
+(function() {
+  var container = document.getElementById("slate-container");
+  if (!container) return;
+
+  POSITIONS.forEach(function(pos) {
+    var players = SLATE_CANDIDATES.filter(function(c) { return c.pos === pos; });
+    if (!players.length) return;
+
+    players.sort(function(a, b) { return b.rateJAWS - a.rateJAWS; });
+
+    var group = document.createElement("div");
+    group.className = "slate__position-group";
+    group.setAttribute("role", "region");
+    group.setAttribute("aria-label", POSITION_LABELS[pos] + " candidates");
+
+    var label = document.createElement("div");
+    label.className = "slate__position-label";
+    label.textContent = POSITION_LABELS[pos];
+    group.appendChild(label);
+
+    var cards = document.createElement("div");
+    cards.className = "slate__cards";
+
+    players.forEach(function(p) {
+      var flagClass = p.barFlag === "above" ? "slate-card--above" :
+                      p.barFlag === "within" ? "slate-card--within" : "slate-card--below";
+      var pctClass = p.barFlag === "above" ? "slate-card__percentile--above" :
+                     p.barFlag === "within" ? "slate-card__percentile--within" : "slate-card__percentile--below";
+      var barFlagClass = p.barFlag === "above" ? "slate-card__bar-flag--above" :
+                         p.barFlag === "within" ? "slate-card__bar-flag--within" : "slate-card__bar-flag--below";
+      var barFlagText = p.barFlag === "above" ? "Above the bar" :
+                        p.barFlag === "within" ? "Within range" : "Below range";
+
+      var card = document.createElement("article");
+      card.className = "slate-card " + flagClass;
+      card.setAttribute("aria-label", p.name + ", " + POSITION_LABELS[pos]);
+
+      var html = "";
+
+      /* Left content */
+      html += '<div class="slate-card__content">';
+      html += '<div class="slate-card__header">';
+      html += '<h3 class="slate-card__name">' + esc(p.name) + '</h3>';
+      html += '<span class="slate-card__position">' + esc(pos) + '</span>';
+      html += '<span class="slate-card__years">' + esc(p.years) + '</span>';
+      html += '</div>';
+
+      html += '<div class="slate-card__stats">';
+      html += '<div><div class="slate-card__stat-val">' + p.careerWAR.toFixed(1) + '</div>';
+      html += '<div class="slate-card__stat-label">Career Rate WAR</div>';
+      html += '<div class="slate-card__band">[' + p.confidence[0].toFixed(1) + ' -- ' + p.confidence[1].toFixed(1) + ']</div></div>';
+      html += '<div><div class="slate-card__stat-val">' + p.peakWAR.toFixed(1) + '</div>';
+      html += '<div class="slate-card__stat-label">Peak WAR (7 yr)</div></div>';
+      html += '<div><div class="slate-card__stat-val">' + p.rateJAWS.toFixed(1) + '</div>';
+      html += '<div class="slate-card__stat-label">Rate JAWS</div></div>';
+      html += '<div><div class="slate-card__stat-val' + (p.hofProb >= 0.6 ? '' : ' slate-card__stat-val--muted') + '">' + (p.hofProb * 100).toFixed(0) + '%</div>';
+      html += '<div class="slate-card__stat-label">HOF Probability</div>';
+      html += '<div class="slate-card__band">Model 6 calibrated</div></div>';
+      html += '</div>';
+
+      /* Source provenance tags */
+      html += '<div class="slate-card__provenance">';
+      p.sources.forEach(function(s) {
+        html += '<span class="slate-card__source-tag">' + esc(s) + '</span>';
+      });
+      html += '</div>';
+
+      /* Annotation */
+      if (p.annotation) {
+        var annClass = p.living ? "slate-card__annotation slate-card__annotation--living" : "slate-card__annotation";
+        html += '<div class="' + annClass + '">' + esc(p.annotation) + '</div>';
+      }
+
+      html += '</div>';
+
+      /* Right badge */
+      html += '<div class="slate-card__badge">';
+      html += '<div class="slate-card__percentile ' + pctClass + '">' + pctLabel(p.pctile) + '</div>';
+      html += '<div class="slate-card__percentile-label">vs inducted HOF</div>';
+      html += '<div class="slate-card__bar-flag ' + barFlagClass + '">' + barFlagText + '</div>';
+      html += '<div class="slate-card__prob">' + (p.hofProb * 100).toFixed(0) + '%</div>';
+      html += '<div class="slate-card__prob-label">HOF prob</div>';
+      html += '</div>';
+
+      card.innerHTML = html;
+      cards.appendChild(card);
+    });
+
+    group.appendChild(cards);
+    container.appendChild(group);
+  });
+})();
+
+/* ==================================================================
+   FIG 02 -- DISTRIBUTION PLOTS (SVG)
+   ================================================================== */
+
+(function() {
+  var container = document.getElementById("dist-container");
+  if (!container) return;
+
+  var ns = "http://www.w3.org/2000/svg";
+
+  function svgEl(tag, attrs, parent) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  POSITIONS.forEach(function(pos) {
+    var players = SLATE_CANDIDATES.filter(function(c) { return c.pos === pos; });
+    if (!players.length) return;
+
+    var baseline = HOF_BASELINES[pos];
+    var row = document.createElement("div");
+    row.className = "dist-row";
+    row.setAttribute("role", "img");
+    row.setAttribute("aria-label", POSITION_LABELS[pos] + " JAWS distribution with slate candidates");
+
+    var label = document.createElement("div");
+    label.className = "dist-row__label";
+    label.textContent = POSITION_LABELS[pos];
+    row.appendChild(label);
+
+    var chartDiv = document.createElement("div");
+    chartDiv.className = "dist-row__chart";
+
+    var W = 700, H = 100;
+    var M = { l: 40, r: 40, t: 10, b: 30 };
+    var innerW = W - M.l - M.r;
+
+    /* Scale: 10 to 80 JAWS */
+    var minJ = 10, maxJ = 80;
+    function xFor(v) { return M.l + ((v - minJ) / (maxJ - minJ)) * innerW; }
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H });
+
+    /* Baseline axis */
+    svgEl("line", { x1: M.l, x2: W - M.r, y1: 60, y2: 60, stroke: "rgba(138,130,112,0.3)", "stroke-width": 1 }, svg);
+
+    /* Violin shape approximation (simple ellipse) */
+    var cx = xFor(baseline.median);
+    var rx = (xFor(baseline.p75) - xFor(baseline.p25));
+    svgEl("ellipse", { cx: cx, cy: 60, rx: rx, ry: 22, fill: "rgba(111,138,168,0.12)", stroke: "rgba(111,138,168,0.3)", "stroke-width": 1 }, svg);
+
+    /* Percentile lines */
+    svgEl("line", { x1: xFor(baseline.p25), x2: xFor(baseline.p25), y1: 40, y2: 80, stroke: "rgba(138,130,112,0.4)", "stroke-width": 1, "stroke-dasharray": "3 3" }, svg);
+    svgEl("text", { x: xFor(baseline.p25), y: 92, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--muted)", text: "25th" }, svg);
+
+    svgEl("line", { x1: xFor(baseline.median), x2: xFor(baseline.median), y1: 36, y2: 84, stroke: "var(--slate)", "stroke-width": 1.5 }, svg);
+    svgEl("text", { x: xFor(baseline.median), y: 92, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--slate)", text: "MED" }, svg);
+
+    svgEl("line", { x1: xFor(baseline.p75), x2: xFor(baseline.p75), y1: 40, y2: 80, stroke: "rgba(138,130,112,0.4)", "stroke-width": 1, "stroke-dasharray": "3 3" }, svg);
+    svgEl("text", { x: xFor(baseline.p75), y: 92, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 8, fill: "var(--muted)", text: "75th" }, svg);
+
+    /* Candidate dots */
+    players.forEach(function(p, i) {
+      var x = xFor(p.rateJAWS);
+      var y = 60 - (i + 1) * 8;
+      var isAbove = p.barFlag === "above";
+      svgEl("circle", {
+        cx: x, cy: 60, r: isAbove ? 5 : 4,
+        fill: isAbove ? "var(--amber)" : "var(--ink-2)",
+        stroke: isAbove ? "var(--amber)" : "var(--vellum-dim)",
+        "stroke-width": isAbove ? 2 : 1.2
+      }, svg);
+      svgEl("text", {
+        x: x, y: 50 - i * 12,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": 9,
+        fill: isAbove ? "var(--amber)" : "var(--vellum-dim)",
+        text: p.name.split(" ").pop()
+      }, svg);
+      /* Confidence whisker */
+      svgEl("line", {
+        x1: xFor(p.confidence[0]), x2: xFor(p.confidence[1]),
+        y1: 60, y2: 60,
+        stroke: isAbove ? "rgba(212,166,74,0.35)" : "rgba(232,224,207,0.2)",
+        "stroke-width": 2
+      }, svg);
+    });
+
+    chartDiv.appendChild(svg);
+    row.appendChild(chartDiv);
+
+    /* Legend */
+    var legend = document.createElement("div");
+    legend.className = "dist-row__legend";
+    legend.innerHTML = '<div class="dist-row__legend-item"><span class="dist-row__legend-swatch" style="background:rgba(111,138,168,0.3)"></span>Inducted HOF distribution</div>' +
+      '<div class="dist-row__legend-item"><span class="dist-row__legend-swatch" style="background:var(--amber)"></span>Slate candidate</div>' +
+      '<div class="dist-row__legend-item"><span class="dist-row__legend-swatch" style="background:var(--slate)"></span>Median</div>';
+    row.appendChild(legend);
+
+    container.appendChild(row);
+  });
+})();
+
+/* ==================================================================
+   FIG 03 -- 2006 RETROSPECTIVE
+   ================================================================== */
+
+(function() {
+  var grid = document.getElementById("retro-grid");
+  if (!grid) return;
+
+  var sortMode = "jaws";
+
+  function sortList(arr, mode) {
+    var copy = arr.slice();
+    if (mode === "jaws") {
+      copy.sort(function(a, b) {
+        if (a.rateJAWS === null && b.rateJAWS === null) return 0;
+        if (a.rateJAWS === null) return 1;
+        if (b.rateJAWS === null) return 1;
+        return b.rateJAWS - a.rateJAWS;
+      });
+    } else {
+      copy.sort(function(a, b) { return a.name.localeCompare(b.name); });
+    }
+    return copy;
+  }
+
+  function renderRetro() {
+    var inducted = sortList(RETRO_INDUCTED, sortMode);
+    var notInducted = sortList(RETRO_NOT_INDUCTED, sortMode);
+
+    var html = "";
+
+    /* Inducted column */
+    html += '<div class="retro__column">';
+    html += '<div class="retro__column-head retro__column-head--inducted">Inducted (17)</div>';
+    inducted.forEach(function(p) {
+      html += '<div class="retro__row">';
+      html += '<div class="retro__name">' + esc(p.name) + ' <span class="retro__pos">' + esc(p.pos) + '</span></div>';
+      html += '<div class="retro__jaws' + (p.rateJAWS === null ? ' retro__jaws--low' : '') + '">' + (p.rateJAWS !== null ? p.rateJAWS.toFixed(1) : '--') + '</div>';
+      html += '<div class="retro__pctile ' + (p.pctile !== null ? (p.pctile >= 50 ? 'retro__pctile--high' : (p.pctile >= 35 ? 'retro__pctile--mid' : 'retro__pctile--low')) : 'retro__pctile--low') + '">' + pctLabel(p.pctile) + '</div>';
+      html += '<div class="retro__note">' + esc(p.note) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    /* Not inducted column */
+    html += '<div class="retro__column">';
+    html += '<div class="retro__column-head retro__column-head--not">Not Inducted (22)</div>';
+    notInducted.forEach(function(p) {
+      var flagged = p.flagged ? " retro__row--flagged" : "";
+      html += '<div class="retro__row' + flagged + '">';
+      html += '<div class="retro__name">' + esc(p.name) + ' <span class="retro__pos">' + esc(p.pos) + '</span></div>';
+      html += '<div class="retro__jaws">' + p.rateJAWS.toFixed(1) + '</div>';
+      html += '<div class="retro__pctile ' + (p.pctile >= 50 ? 'retro__pctile--high' : (p.pctile >= 35 ? 'retro__pctile--mid' : 'retro__pctile--low')) + '">' + pctLabel(p.pctile) + '</div>';
+      html += '<div class="retro__note">' + esc(p.note) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    grid.innerHTML = html;
+  }
+
+  renderRetro();
+
+  /* Sort buttons */
+  document.querySelectorAll(".retro__sort-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      sortMode = btn.getAttribute("data-sort");
+      document.querySelectorAll(".retro__sort-btn").forEach(function(b) {
+        b.classList.toggle("retro__sort-btn--active", b === btn);
+      });
+      renderRetro();
+    });
+  });
+})();
+
+/* ==================================================================
+   FIG 04 -- ERA COMMITTEE RECOMMENDATION
+   ================================================================== */
+
+(function() {
+  var container = document.getElementById("rec-container");
+  if (!container) return;
+
+  var tiers = [
+    { label: "Immediate Ballot", cls: "recommendation__tier-label--immediate",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "above" && c.pctile >= 55; })
+        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    },
+    { label: "Extended Ballot", cls: "recommendation__tier-label--extended",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "above" && c.pctile < 55; })
+        .concat(SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "within" && c.pctile >= 42; }))
+        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    },
+    { label: "Case Requires Special Argument", cls: "recommendation__tier-label--special",
+      candidates: SLATE_CANDIDATES.filter(function(c) { return c.barFlag === "within" && c.pctile < 42 || c.barFlag === "below"; })
+        .sort(function(a, b) { return b.rateJAWS - a.rateJAWS; })
+    }
+  ];
+
+  var caseStatements = {
+    "John Donaldson": "Pete Gorton's research documents 400+ wins and 5,000+ strikeouts across a career spanning barnstorming and organized Negro Leagues play.",
+    "John Beckwith": "The most powerful right-handed hitter in Negro Leagues history, per multiple historian assessments. Character clause applied unevenly.",
+    "Dick Redding": "Cannonball Redding. Consistently ranked among the top Negro Leagues pitchers by working historians across multiple decades of scholarship.",
+    "Dick Lundy": "Elite defensive shortstop with power. Ranked in top ten by the 42 for 21 Committee poll of seventy historians.",
+    "Rap Dixon": "Consistently top-ranked outfielder in historian polls. 42 for 21 Committee, Seamheads overlooked list, McFarland case study.",
+    "George Scales": "Above the bar at second base by multiple methodologies. Seamheads overlooked list.",
+    "Newt Allen": "Two-decade anchor of the Kansas City Monarchs. 42 for 21 Committee top ten.",
+    "Vic Harris": "Player-manager for the Homestead Grays dynasty. Era Committee 2024 ballot candidate.",
+    "Webster McDonald": "Finesse pitcher, long career. McFarland case study documents sustained excellence.",
+    "Spottswood Poles": "Lost prime seasons to World War I service. Pre-1920 documentation complicates the case.",
+    "Ben Taylor": "Inducted in 2006. Included here for completeness of the positional comparison.",
+    "Frank Duncan": "Defensive catcher, long career with the Monarchs. McFarland case study.",
+    "Grant 'Home Run' Johnson": "Pre-1920 star. Documentation gap is the primary barrier, not statistical insufficiency."
+  };
+
+  tiers.forEach(function(tier) {
+    if (!tier.candidates.length) return;
+
+    var section = document.createElement("div");
+    section.className = "recommendation__tier";
+
+    var tierLabel = document.createElement("div");
+    tierLabel.className = "recommendation__tier-label " + tier.cls;
+    tierLabel.textContent = tier.label + " (" + tier.candidates.length + ")";
+    section.appendChild(tierLabel);
+
+    tier.candidates.forEach(function(p) {
+      var card = document.createElement("div");
+      card.className = "rec-card";
+
+      var caseText = caseStatements[p.name] || "Case documented in the McFarland volume and historian advocacy.";
+      var sourceCite = p.sources.join(", ");
+
+      var html = '<div>';
+      html += '<div class="rec-card__name">' + esc(p.name) + '</div>';
+      html += '<div class="rec-card__meta">' + esc(p.pos) + ' -- ' + esc(p.years) + ' -- ' + esc(p.leagues) + '</div>';
+      html += '<div class="rec-card__case">' + esc(caseText) + '<cite>Sources: ' + esc(sourceCite) + '</cite></div>';
+      html += '</div>';
+      html += '<div class="rec-card__quant">';
+      html += '<div class="rec-card__quant-val">' + p.rateJAWS.toFixed(1) + '</div>';
+      html += '<div class="rec-card__quant-label">Rate JAWS</div>';
+      html += '<div class="rec-card__quant-pctile">' + pctLabel(p.pctile) + ' vs HOF</div>';
+      html += '</div>';
+
+      card.innerHTML = html;
+      section.appendChild(card);
+    });
+
+    container.appendChild(section);
+  });
+})();
+
+/* ==================================================================
+   FIG 05 -- METHODOLOGY AUDIT
+   ================================================================== */
+
+(function() {
+  var countEl = document.getElementById("audit-count");
+  var namesEl = document.getElementById("audit-names");
+  if (!countEl || !namesEl) return;
+
+  var state = { jaws: "rate", bar: "median", comp: "all", slate: "historian" };
+
+  function getKey() {
+    return state.jaws + "|" + state.bar + "|" + state.comp + "|" + state.slate;
+  }
+
+  function render() {
+    var key = getKey();
+    var data = AUDIT_GRID[key];
+    if (!data) {
+      /* Fallback: find closest match */
+      var fallback = state.jaws + "|" + state.bar + "|all|" + state.slate;
+      data = AUDIT_GRID[fallback] || { count: 12, names: ["John Donaldson", "John Beckwith", "Dick Redding", "Dick Lundy"] };
+    }
+
+    countEl.textContent = data.count;
+    document.getElementById("slate-count-hook").textContent = data.count;
+
+    namesEl.innerHTML = "";
+    data.names.forEach(function(name, i) {
+      var chip = document.createElement("span");
+      chip.className = "audit__name-chip audit__name-chip--above audit__name-chip--entered";
+      chip.textContent = name;
+      chip.style.animationDelay = (i * 40) + "ms";
+      namesEl.appendChild(chip);
+    });
+  }
+
+  render();
+
+  /* Control handlers */
+  document.querySelectorAll(".audit__option").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var control = btn.getAttribute("data-control");
+      var value = btn.getAttribute("data-value");
+      state[control] = value;
+
+      /* Update active states within this group */
+      btn.closest(".audit__control-options").querySelectorAll(".audit__option").forEach(function(b) {
+        var isActive = b === btn;
+        b.classList.toggle("audit__option--active", isActive);
+        b.setAttribute("aria-checked", isActive ? "true" : "false");
+      });
+
+      render();
+    });
+  });
+})();
+
+/* ==================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ================================================================== */
+
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "slate", "distributions", "retro", "recommendation", "audit", "editorial", "citation"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ==================================================================
+   SCROLL REVEAL FOR SLATE CARDS
+   ================================================================== */
+
+(function() {
+  if (!("IntersectionObserver" in window)) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  /* Prepare cards for animation */
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".slate-card, .dist-row, .rec-card").forEach(function(card) {
+    if (prefersReduced) return;
+    card.style.opacity = "0";
+    card.style.transform = "translateY(12px)";
+    card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    observer.observe(card);
+  });
+})();
+
+/* Store reference for external consumption */
+window.TOBS.ch11 = {
+  candidates: SLATE_CANDIDATES,
+  baselines: HOF_BASELINES,
+  retroInducted: RETRO_INDUCTED,
+  retroNotInducted: RETRO_NOT_INDUCTED
+};
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Winter Map</title>
+<meta name="description" content="The color line was a US problem, not a baseball problem. The same players locked out of the American major leagues were welcomed everywhere else baseball was played. The map proves it.">
+<meta property="og:title" content="The Other Box Score -- The Winter Map">
+<meta property="og:description" content="Martin Dihigo is in the Hall of Fame in four countries. Cristobal Torriente outhit Babe Ruth in Havana. They could play anywhere. They did play everywhere. Except in the American major leagues.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-winter-map/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a;
+  --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page sections
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section heads */
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+/* Body prose */
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+.body-prose mark {
+  background: rgba(212,166,74,0.18);
+  color: var(--amber);
+  padding: 2px 6px;
+}
+
+/* Cards */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+/* Fig labels */
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Mono utility */
+.mono { font-family: var(--mono); }
+
+/* Display utility */
+.display { font-family: var(--display); font-weight: 900; }
+.display-it { font-family: var(--display); font-style: italic; }
+
+/* Smcaps utility */
+.smcaps {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The Hook -- Rotating Player Introductions
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__carousel {
+  position: relative;
+  min-height: 260px;
+}
+
+.hook__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.hook__slide--active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.hook__question {
+  font-family: var(--display);
+  font-size: 48px;
+  line-height: 1.08;
+  color: var(--vellum);
+}
+
+.hook__question-name {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hook__question-mark { color: var(--amber); }
+
+.hook__context {
+  margin-top: 24px;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--vellum-dim);
+  max-width: 720px;
+}
+
+.hook__context p { margin-bottom: 10px; }
+
+.hook__nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.hook__arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--rule);
+  background: var(--ink-2);
+  color: var(--vellum);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.hook__arrow:hover {
+  border-color: var(--amber);
+  background: rgba(212,166,74,0.06);
+}
+
+.hook__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.hook__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted-2);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  padding: 0;
+}
+
+.hook__dot--active {
+  background: var(--amber);
+}
+
+.hook__counter {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+}
+
+/* ==========================================================================
+   5. The Map -- Centerpiece
+   ========================================================================== */
+
+.winter-map {
+  padding: 80px 40px 96px;
+}
+
+.winter-map__controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.winter-map__view-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.winter-map__view-btn + .winter-map__view-btn {
+  border-left: none;
+}
+
+.winter-map__view-btn:hover {
+  color: var(--vellum-dim);
+  background: rgba(212,166,74,0.04);
+}
+
+.winter-map__view-btn--active {
+  color: var(--amber);
+  background: rgba(212,166,74,0.08);
+  border-color: var(--amber);
+}
+
+.winter-map__view-btn--active + .winter-map__view-btn {
+  border-left-color: var(--amber);
+}
+
+.winter-map__player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.winter-map__player-select {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 8px 14px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  color: var(--vellum);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8270' fill='none' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.winter-map__player-select option {
+  background: var(--ink-2);
+  color: var(--vellum);
+}
+
+.winter-map__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  position: relative;
+}
+
+.winter-map__svg-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.winter-map__base-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.winter-map__base-map svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.winter-map__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.winter-map__timeline {
+  margin-top: 20px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.winter-map__timeline-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.winter-map__slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--rule);
+  outline: none;
+  cursor: pointer;
+}
+
+.winter-map__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--amber);
+  cursor: pointer;
+  border: 2px solid var(--ink);
+}
+
+.winter-map__slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--amber);
+  cursor: pointer;
+  border: 2px solid var(--ink);
+}
+
+.winter-map__range-controls {
+  margin-top: 20px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.winter-map__range-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.winter-map__range-track {
+  flex: 1;
+  position: relative;
+  height: 24px;
+  cursor: pointer;
+}
+
+.winter-map__range-bar {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--rule);
+}
+
+.winter-map__range-fill {
+  position: absolute;
+  top: 10px;
+  height: 4px;
+  background: var(--amber);
+}
+
+.winter-map__range-handle {
+  position: absolute;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 2px solid var(--ink);
+  cursor: grab;
+  transform: translateX(-50%);
+}
+
+.winter-map__range-handle:active { cursor: grabbing; }
+
+.winter-map__range-value {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: right;
+}
+
+.winter-map__tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--ink);
+  border: 1px solid var(--amber);
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum);
+  line-height: 1.5;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 220px;
+}
+
+.winter-map__tooltip--visible { opacity: 1; }
+
+.winter-map__tooltip-city {
+  color: var(--amber);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.winter-map__tooltip-detail {
+  color: var(--vellum-dim);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.winter-map__source {
+  margin-top: 22px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. Player Profiles
+   ========================================================================== */
+
+.profiles {
+  padding: 80px 40px 96px;
+}
+
+.profiles__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.profile-card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.profile-card:hover {
+  border-color: rgba(212,166,74,0.3);
+}
+
+.profile-card__photo {
+  aspect-ratio: 3 / 4;
+  background: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card__monogram {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--muted-2);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.profile-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(0.3) contrast(1.05);
+  opacity: 0.88;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.profile-card:hover .profile-card__img {
+  opacity: 1;
+  filter: grayscale(0.1) contrast(1.1);
+}
+
+.profile-card__body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card__name {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vellum);
+  line-height: 1.2;
+}
+
+.profile-card__meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.profile-card__stat {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.profile-card__stat-value {
+  font-family: var(--mono);
+  font-size: 36px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.profile-card__stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.profile-card__note {
+  margin-top: 14px;
+  font-family: "Space Mono", var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.profile-card__map-link {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.profile-card__map-link:hover { color: var(--amber-2); }
+
+.profile-card__map-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   7. Supporting Charts
+   ========================================================================== */
+
+.charts {
+  padding: 80px 40px 96px;
+}
+
+.charts__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 72px;
+  margin-top: 36px;
+}
+
+/* Chart A -- Career Months */
+.chart-months__wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+}
+
+.chart-months__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.chart-months__caption {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--vellum);
+  line-height: 1.4;
+}
+
+.chart-months__source {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Chart B -- Country Coverage */
+.chart-country__wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+}
+
+.chart-country__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.chart-country__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.chart-country__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.chart-country__legend-swatch {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.chart-country__caption {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--vellum);
+  line-height: 1.4;
+}
+
+.chart-country__source {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Chart C -- HOF Recognition */
+.chart-hof__wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+}
+
+.chart-hof__grid {
+  margin-top: 20px;
+}
+
+.chart-hof__row {
+  display: grid;
+  grid-template-columns: 180px repeat(5, 1fr);
+  gap: 0;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.chart-hof__row + .chart-hof__row {
+  border-top: 1px solid var(--rule);
+}
+
+.chart-hof__row--header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.chart-hof__player-name {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--vellum);
+}
+
+.chart-hof__hall-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.chart-hof__dot-cell {
+  text-align: center;
+}
+
+.chart-hof__dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--amber);
+  vertical-align: middle;
+}
+
+.chart-hof__dot--filled {
+  background: var(--amber);
+}
+
+.chart-hof__dot--empty {
+  background: transparent;
+}
+
+.chart-hof__caption {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--vellum);
+  line-height: 1.4;
+}
+
+.chart-hof__method-note {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+  font-style: italic;
+}
+
+.chart-hof__source {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   8. Methodology
+   ========================================================================== */
+
+.method {
+  padding: 80px 40px 72px;
+}
+
+.method__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.method__block {
+  padding: 24px 28px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+.method__block-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.method__block-body {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+.method__block-body p { margin-bottom: 12px; }
+.method__block-body p:last-child { margin-bottom: 0; }
+
+.method__confidence-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.method__confidence-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.method__confidence-item + .method__confidence-item {
+  border-top: 1px dotted var(--rule);
+}
+
+.method__confidence-term {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   9. Coda
+   ========================================================================== */
+
+.coda {
+  padding: 80px 40px 120px;
+}
+
+.coda__closing-line {
+  text-align: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--vellum);
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.coda__transition {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__next {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.coda__next-title {
+  font-family: var(--display);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-top: 14px;
+  color: var(--vellum);
+}
+
+.coda__next-title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.coda__next-body {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--vellum-dim);
+  margin-top: 22px;
+  max-width: 740px;
+  line-height: 1.55;
+}
+
+.coda__next-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 36px;
+  padding: 16px 22px;
+  border: 1px solid var(--amber-dim);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--amber);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.coda__next-link:hover {
+  background: rgba(212,166,74,0.06);
+}
+
+/* Citation */
+.coda__citations {
+  margin-top: 96px;
+  padding-top: 36px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.coda__cite-block pre {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--vellum-dim);
+  line-height: 1.7;
+  margin-top: 14px;
+  white-space: pre-wrap;
+}
+
+/* Footer */
+.coda__footer {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.coda__footer-mark { width: 20px; height: 20px; }
+
+/* ==========================================================================
+   10. Ruler Mark (shared decorative element)
+   ========================================================================== */
+
+.ruler-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================================================
+   11. Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .masthead__inner { grid-template-columns: 1fr; }
+  .masthead__title { font-size: 48px; }
+  .masthead__ruler { display: none; }
+  .masthead__meta { text-align: left; margin-top: 10px; }
+  .hook__question { font-size: 36px; }
+  .profiles__grid { grid-template-columns: repeat(2, 1fr); }
+  .method__grid { grid-template-columns: 1fr; }
+  .coda__citations { grid-template-columns: 1fr; }
+  .coda__next { grid-template-columns: 1fr; }
+  .chart-hof__row { grid-template-columns: 120px repeat(5, 1fr); }
+  .chart-hof__player-name { font-size: 13px; }
+}
+
+@media (max-width: 768px) {
+  .profiles__grid { grid-template-columns: repeat(2, 1fr); }
+  .winter-map__controls { flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+  .page { padding-left: 20px !important; padding-right: 20px !important; }
+  .hook { padding: 36px 20px 56px; }
+  .hook__question { font-size: 28px; }
+  .masthead__title { font-size: 36px; }
+  .masthead__tabs { padding: 0 20px; }
+  .profiles__grid { grid-template-columns: 1fr; }
+  .profile-card__monogram { font-size: 48px; }
+  .coda__closing-line { font-size: 22px; }
+  .coda__next-title { font-size: 32px; }
+  .winter-map { padding: 56px 20px 72px; }
+  .winter-map__chart-wrap { padding: 16px; }
+  .charts { padding: 56px 20px 72px; }
+  .chart-months__wrap,
+  .chart-country__wrap,
+  .chart-hof__wrap { padding: 20px; }
+  .chart-hof__row { grid-template-columns: 100px repeat(5, 1fr); }
+  .chart-hof__player-name { font-size: 12px; }
+  .chart-hof__dot { width: 12px; height: 12px; }
+  .method { padding: 56px 20px 56px; }
+  .coda { padding: 56px 20px 80px; }
+  .winter-map__view-btn { font-size: 9px; padding: 8px 12px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+     Platform Nav
+     ==================================================================== -->
+<nav class="platform-nav" aria-label="Platform navigation">
+  <a href="/" class="platform-nav__brand">
+    <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="/chapters/the-crowd-that-came/">Ch. 04</a>
+    <span class="platform-nav__sep">/</span>
+    <span>Ch. 05</span>
+    <span class="platform-nav__sep">/</span>
+    <a href="#">Ch. 06</a>
+  </div>
+</nav>
+
+<!-- ====================================================================
+     Masthead
+     ==================================================================== -->
+<header id="top" class="masthead" role="banner">
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+        <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+        <line x1="0" y1="24" x2="6" y2="24" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="72" x2="6" y2="72" stroke="var(--amber)" stroke-width="0.6"/>
+        <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div>
+      <div class="masthead__part">Part Two -- The Game They Played</div>
+      <h1 class="masthead__title">The Winter <em>Map.</em></h1>
+      <p class="masthead__subtitle">
+        The color line was a US problem, not a baseball problem.<br>
+        The rest of the world counted them. The map proves it.
+      </p>
+    </div>
+    <div class="masthead__meta" aria-label="Chapter metadata">
+      <div>Chapter 05 / 15</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">Window -- 1907--1948</div>
+      <div class="masthead__meta-line">5 countries -- 11 cities</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">The map is the argument</div>
+    </div>
+  </div>
+
+  <nav class="masthead__tabs" aria-label="Chapter sections">
+    <a href="#hook" class="masthead__tab masthead__tab--active">The Hook</a>
+    <a href="#map" class="masthead__tab">The Map</a>
+    <a href="#profiles" class="masthead__tab">Profiles</a>
+    <a href="#charts" class="masthead__tab">Charts</a>
+    <a href="#method" class="masthead__tab">Method</a>
+    <a href="#coda" class="masthead__tab">Coda</a>
+  </nav>
+</header>
+
+<!-- ====================================================================
+     The Hook -- Rotating Player Introductions
+     ==================================================================== -->
+<section id="hook" class="page hook" aria-label="The hook -- rotating player introductions">
+  <div class="smcaps" style="color:var(--slate);margin-bottom:28px">The hook</div>
+
+  <div class="hook__carousel" role="region" aria-roledescription="carousel" aria-label="Player introductions">
+    <!-- Slides populated by JS -->
+  </div>
+
+  <div class="hook__nav" aria-label="Carousel navigation">
+    <button class="hook__arrow" id="hook-prev" aria-label="Previous player">&#8592;</button>
+    <div class="hook__dots" id="hook-dots" role="tablist" aria-label="Player selector">
+      <!-- JS populates -->
+    </div>
+    <button class="hook__arrow" id="hook-next" aria-label="Next player">&#8594;</button>
+    <span class="hook__counter" id="hook-counter" aria-live="polite">1 / 4</span>
+  </div>
+</section>
+
+<!-- ====================================================================
+     The Map -- Centerpiece
+     ==================================================================== -->
+<section id="map" class="page winter-map" aria-label="The Winter Map -- transnational career visualization">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 01</div>
+    <div class="section-head__kicker">The centerpiece</div>
+    <h2 class="section-head__title">The map <em>they did not keep.</em></h2>
+    <p class="section-head__lede">The same players who were locked out of the American major leagues were welcomed everywhere else baseball was played. Cuba. Mexico. Puerto Rico. Venezuela. The Dominican Republic. They were not unknown quantities. They were the best players in the leagues they entered.</p>
+  </div>
+
+  <!-- View toggle -->
+  <div class="winter-map__controls" role="tablist" aria-label="Map view selector">
+    <button class="winter-map__view-btn" role="tab" aria-selected="false" data-view="flow" id="view-btn-flow">Flow Map</button>
+    <button class="winter-map__view-btn" role="tab" aria-selected="false" data-view="career" id="view-btn-career">Career Geography</button>
+    <button class="winter-map__view-btn winter-map__view-btn--active" role="tab" aria-selected="true" data-view="density" id="view-btn-density">Aggregate Density</button>
+  </div>
+
+  <!-- Player selector (Views 1 & 2) -->
+  <div class="winter-map__player-controls" id="player-controls">
+    <label for="player-select" class="fig-label">Player</label>
+    <select class="winter-map__player-select" id="player-select" aria-label="Select player">
+      <!-- JS populates -->
+    </select>
+  </div>
+
+  <!-- Map container -->
+  <div class="winter-map__chart-wrap">
+    <div class="winter-map__svg-container">
+      <div class="winter-map__base-map" aria-hidden="true">
+        <svg viewBox="900 -50 1200 900" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%">
+          <image href="BlankMap-Americas.svg?v=4" x="0" y="0" width="2752.766" height="1537.631" />
+        </svg>
+      </div>
+      <svg id="map-svg" class="winter-map__svg" viewBox="900 -50 1200 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Transnational career map showing player movement between the United States, Cuba, Mexico, Puerto Rico, Venezuela, and the Dominican Republic">
+        <!-- JS draws arcs, dots, and labels over the Wikimedia base map -->
+      </svg>
+    </div>
+    <div class="winter-map__tooltip" id="map-tooltip" role="tooltip" aria-hidden="true">
+      <div class="winter-map__tooltip-city" id="tooltip-city"></div>
+      <div class="winter-map__tooltip-detail" id="tooltip-detail"></div>
+    </div>
+
+    <!-- Timeline scrubber (View 1) -->
+    <div class="winter-map__timeline" id="timeline-controls">
+      <div class="winter-map__timeline-label">
+        <span>Timeline</span>
+        <span id="timeline-year">1920</span>
+      </div>
+      <input type="range" class="winter-map__slider" id="timeline-slider" min="1907" max="1948" value="1920" step="1" aria-label="Timeline year scrubber">
+    </div>
+
+    <!-- Range slider (View 3) -->
+    <div class="winter-map__range-controls" id="range-controls" style="display:none">
+      <span class="winter-map__range-label">Date range</span>
+      <input type="range" class="winter-map__slider" id="range-start" min="1907" max="1948" value="1907" step="1" aria-label="Start year">
+      <span class="mono" style="color:var(--muted);font-size:11px">to</span>
+      <input type="range" class="winter-map__slider" id="range-end" min="1907" max="1948" value="1948" step="1" aria-label="End year">
+      <span class="winter-map__range-value" id="range-value">1907 -- 1948</span>
+    </div>
+  </div>
+
+  <div class="winter-map__source">
+    Source -- Seamheads Negro Leagues Database -- Cuban Winter League records -- Liga Mexicana -- Base map: Wikimedia Commons, BlankMap-Americas.svg (Public Domain)
+  </div>
+</section>
+
+<!-- ====================================================================
+     Player Profiles
+     ==================================================================== -->
+<section id="profiles" class="page profiles" aria-label="Player profiles">
+  <div class="section-head">
+    <div class="section-head__kicker">The players</div>
+    <h2 class="section-head__title">Four careers the American major leagues <em>refused to count.</em></h2>
+    <p class="section-head__lede">Each of these men played professional baseball across multiple countries, for months longer than their MLB contemporaries, at the highest level the sport offered. They were counted everywhere else.</p>
+  </div>
+
+  <div class="profiles__grid" id="profiles-grid">
+    <!-- JS populates -->
+  </div>
+</section>
+
+<!-- ====================================================================
+     Supporting Charts
+     ==================================================================== -->
+<section id="charts" class="page charts" aria-label="Supporting charts">
+  <div class="section-head">
+    <div class="section-head__kicker">The evidence</div>
+    <h2 class="section-head__title">Three charts. <em>No commentary needed.</em></h2>
+    <p class="section-head__lede">The data makes the argument. The bars, the stripes, and the dots. The reader does the math.</p>
+  </div>
+
+  <div class="charts__grid">
+
+    <!-- Chart A -- Career Months -->
+    <div class="chart-months" id="chart-months">
+      <div class="chart-months__wrap">
+        <div class="fig-label">Fig 02 -- Career months played per year -- average across career</div>
+        <svg id="months-svg" class="chart-months__svg" viewBox="0 0 900 380" role="img" aria-label="Horizontal bar chart comparing months of professional baseball played per year. Negro Leagues stars average 10 to 12 months. MLB stars average 6 to 7 months.">
+          <!-- JS draws the chart -->
+        </svg>
+        <div class="chart-months__caption">"They worked twice as much for half the recognition."</div>
+        <div class="chart-months__source">Source -- Seamheads -- Lahman -- winter league records</div>
+      </div>
+    </div>
+
+    <!-- Chart B -- Country Coverage -->
+    <div class="chart-country" id="chart-country">
+      <div class="chart-country__wrap">
+        <div class="fig-label">Fig 03 -- Country coverage by year -- where they played</div>
+        <svg id="country-svg" class="chart-country__svg" viewBox="0 0 900 260" role="img" aria-label="Horizontal stripe chart showing which country each player competed in for each year of their career">
+          <!-- JS draws the chart -->
+        </svg>
+        <div class="chart-country__legend" id="country-legend">
+          <!-- JS populates -->
+        </div>
+        <div class="chart-country__caption">"The maps the major leagues did not keep."</div>
+        <div class="chart-country__source">Source -- Seamheads -- Cuban Winter League records -- Liga Mexicana</div>
+      </div>
+    </div>
+
+    <!-- Chart C -- HOF Recognition -->
+    <div class="chart-hof" id="chart-hof">
+      <div class="chart-hof__wrap">
+        <div class="fig-label">Fig 04 -- Latin American Hall of Fame recognition -- preview of Chapter 12</div>
+        <div class="chart-hof__grid" role="table" aria-label="Hall of Fame inductions across five countries">
+          <div class="chart-hof__row chart-hof__row--header" role="row">
+            <div class="chart-hof__player-name" role="columnheader" style="color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase">Player</div>
+            <div class="chart-hof__hall-label" role="columnheader">Cuba</div>
+            <div class="chart-hof__hall-label" role="columnheader">Mexico</div>
+            <div class="chart-hof__hall-label" role="columnheader">Venezuela</div>
+            <div class="chart-hof__hall-label" role="columnheader">D.R.</div>
+            <div class="chart-hof__hall-label" role="columnheader">USA</div>
+          </div>
+          <div id="hof-rows">
+            <!-- JS populates -->
+          </div>
+        </div>
+        <div class="chart-hof__caption">"Counted everywhere else, decades before Cooperstown."</div>
+        <div class="chart-hof__method-note">The full matrix appears in Chapter 12. This is the preview.</div>
+        <div class="chart-hof__source">Source -- National Baseball Hall of Fame -- Cuban, Mexican, Venezuelan, Dominican hall records</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Methodology
+     ==================================================================== -->
+<section id="method" class="page method" aria-label="Methodology">
+  <div class="section-head">
+    <div class="section-head__kicker">Methodology</div>
+    <h2 class="section-head__title">How the map was built.</h2>
+    <p class="section-head__lede">Every dot on the map traces to a documented source. Every gap is labeled. The chapter is transparent about what it knows, what it reconstructed, and what it does not have.</p>
+  </div>
+
+  <div class="method__grid">
+    <div class="method__block">
+      <div class="method__block-title">Data Sources</div>
+      <div class="method__block-body">
+        <p>Primary: Seamheads Negro Leagues Database for US and cross-referenced winter league records. Cuban Winter League records (Seamheads partial, Cuban archives partial). Liga Mexicana records (varying coverage by decade). Puerto Rican Winter League records (well documented from 1938 forward). Venezuelan League records (spotty pre-1946). Dominican 1937 season (extensively documented because of the Trujillo recruitment campaign).</p>
+        <p>Secondary: Pittsburgh Courier and Chicago Defender coverage of winter league play. La Habana newspaper archives for American players in Cuba. Baseball Reference Negro Leagues for verification.</p>
+      </div>
+    </div>
+
+    <div class="method__block">
+      <div class="method__block-title">Name Resolution</div>
+      <div class="method__block-body">
+        <p>The same player appears in Seamheads under one spelling, in Cuban records under another, in Mexican records under a third. A name resolution model resolves variant spellings to canonical player IDs. Validated against the four anchor players plus a held-out set. Rules documented in METHODOLOGY.md.</p>
+        <p>Example: "Cristobal Torriente" / "Cristobal Torriente" / "Christopher Torriente" / "Torry" all resolve to a single canonical ID.</p>
+      </div>
+    </div>
+
+    <div class="method__block">
+      <div class="method__block-title">Confidence Labels</div>
+      <div class="method__block-body">
+        <ul class="method__confidence-list">
+          <li class="method__confidence-item">
+            <span class="method__confidence-term">Documented</span>
+            <span>Every season verified by multiple sources.</span>
+          </li>
+          <li class="method__confidence-item">
+            <span class="method__confidence-term">Verified</span>
+            <span>Career path verified, some seasons reconstructed.</span>
+          </li>
+          <li class="method__confidence-item">
+            <span class="method__confidence-term">Reported</span>
+            <span>Career path established by secondary sources only.</span>
+          </li>
+          <li class="method__confidence-item">
+            <span class="method__confidence-term">Disputed</span>
+            <span>Significant gaps or conflicts in the record.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method__block">
+      <div class="method__block-title">Coverage Limitations</div>
+      <div class="method__block-body">
+        <p>Cuban records have known gaps in the late 1930s. Mexican League data is uneven before 1940. Venezuelan League data is sparse pre-1946. The aggregate density view reflects documented appearances only and understates the true scope of transnational play.</p>
+        <p>This chapter does not romanticize the welcome. Latin American leagues were better than the US color line. They were not perfect. Some had their own racial hierarchies. Where those frictions are documented, they are noted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     Coda
+     ==================================================================== -->
+<section id="coda" class="page coda" aria-label="Closing">
+  <div class="coda__closing-line">
+    "They were welcome everywhere baseball was played, except the country that called itself the home of baseball."
+  </div>
+
+  <div class="body-prose" style="max-width:740px;margin:0 auto 48px;text-align:center">
+    <p style="font-style:italic;color:var(--vellum-dim)">
+      They could play anywhere. They did play everywhere. And then, beginning in 1947, the system that had paid them disappeared.
+    </p>
+  </div>
+
+  <!-- Next chapter -->
+  <div class="coda__transition">
+    <div class="coda__next">
+      <div class="ruler-mark">
+        <svg width="6" height="96" viewBox="0 0 6 96" aria-hidden="true">
+          <line x1="3" y1="0" x2="3" y2="96" stroke="var(--amber)" stroke-width="1"/>
+          <line x1="0" y1="0" x2="6" y2="0" stroke="var(--amber)" stroke-width="1"/>
+          <line x1="0" y1="48" x2="6" y2="48" stroke="var(--amber)" stroke-width="0.6"/>
+          <line x1="0" y1="96" x2="6" y2="96" stroke="var(--amber)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div>
+        <div class="smcaps" style="color:var(--slate)">Next -- Chapter 06</div>
+        <div class="coda__next-title">The <em>Collapse.</em></div>
+        <p class="coda__next-body">
+          How does an entire system of leagues survive economically when its best players spend half the year in other countries? Beginning in 1947, it didn't. Integration opened one door and closed an entire institution.
+        </p>
+        <a href="#" class="coda__next-link">
+          Chapter 06 -- Coming
+          <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citations -->
+  <div class="coda__citations">
+    <div class="coda__cite-block">
+      <div class="fig-label">Cite -- APA</div>
+      <pre>Haynes, J. (2026). The winter map.
+The Other Box Score.
+https://theotherboxscore.org/chapters/the-winter-map/</pre>
+    </div>
+    <div class="coda__cite-block">
+      <div class="fig-label">Cite -- Chicago</div>
+      <pre>Haynes, Jeremy. "The Winter Map."
+The Other Box Score. 2026.
+https://theotherboxscore.org/chapters/the-winter-map/</pre>
+    </div>
+    <div class="coda__cite-block">
+      <div class="fig-label">Cite -- MLA</div>
+      <pre>Haynes, Jeremy. "The Winter Map."
+The Other Box Score, 2026,
+theotherboxscore.org/chapters/the-winter-map/.</pre>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="coda__footer">
+    <div>
+      <svg class="coda__footer-mark" viewBox="-80 -80 160 160" aria-hidden="true">
+        <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+        <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+      </svg>
+    </div>
+    <div>The Other Box Score -- Chapter 05 -- The Winter Map</div>
+    <div>MIT (code) -- CC0 (data)</div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     DATA
+     ==================================================================== -->
+<script>
+window.TOBS = window.TOBS || {};
+
+/* Player data -- placeholder, Oscar and Elias finalize */
+window.TOBS.PLAYERS = [
+  {
+    id: "dihigo",
+    name: "Martin Dihigo",
+    initials: "MD",
+    photo: "photos/dihigo-1922.jpg",
+    photoAlt: "Martin Dihigo in Habana club uniform, 1922",
+    photoCredit: "Public Domain -- RMY Auctions",
+    position: "P / IF / OF",
+    yearsLabel: "1923--1945",
+    yearsActive: [1923, 1945],
+    stat: "4",
+    statLabel: "Hall of Fame inductions",
+    note: "Inducted in Cuba (1953), Mexico (1964), Venezuela (1966), and the United States (1977). Played every position. The most complete player the sport has produced.",
+    confidence: "Documented",
+    hof: { cuba: true, mexico: true, venezuela: true, dr: false, usa: true },
+    monthsPlayed: 11,
+    seasons: [
+      { year: 1923, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: ".300 BA" },
+      { year: 1924, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: ".310 BA" },
+      { year: 1925, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".316 BA" },
+      { year: 1926, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: "11-2, 2.18 ERA" },
+      { year: 1927, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".370 BA" },
+      { year: 1928, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".415 BA" },
+      { year: 1929, city: "Pittsburgh", team: "Homestead Grays", league: "ANL", country: "US", stat: ".386 BA" },
+      { year: 1930, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: "12-4, 1.89 ERA" },
+      { year: 1931, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".321 BA" },
+      { year: 1932, city: "Havana", team: "Santa Clara", league: "Cuban Winter League", country: "CU", stat: ".333 BA" },
+      { year: 1935, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: "18-2, .387 BA" },
+      { year: 1936, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: ".351 BA" },
+      { year: 1937, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".340 BA" },
+      { year: 1938, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: "330 BA" },
+      { year: 1939, city: "Havana", team: "Marianao", league: "Cuban Winter League", country: "CU", stat: ".308 BA" },
+      { year: 1942, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".319 BA" },
+      { year: 1943, city: "Caracas", team: "Cerveceria Caracas", league: "Venezuelan League", country: "VE", stat: ".298 BA" },
+      { year: 1945, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: ".316 BA" }
+    ]
+  },
+  {
+    id: "torriente",
+    name: "Cristobal Torriente",
+    initials: "CT",
+    position: "OF",
+    yearsLabel: "1913--1932",
+    yearsActive: [1913, 1932],
+    stat: ".352",
+    statLabel: "Career batting average",
+    note: "In October 1920, in Havana, he outhit Babe Ruth in a barnstorming series. Ruth batted .345. Torriente batted .433. Third all-time in career batting average.",
+    confidence: "Documented",
+    hof: { cuba: true, mexico: false, venezuela: false, dr: false, usa: true },
+    monthsPlayed: 10,
+    seasons: [
+      { year: 1913, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".310 BA" },
+      { year: 1914, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".324 BA" },
+      { year: 1915, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".338 BA" },
+      { year: 1916, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".350 BA" },
+      { year: 1918, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".339 BA" },
+      { year: 1919, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".360 BA" },
+      { year: 1920, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".433 BA" },
+      { year: 1921, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".338 BA" },
+      { year: 1922, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".370 BA" },
+      { year: 1923, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".389 BA" },
+      { year: 1924, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".311 BA" },
+      { year: 1925, city: "Kansas City", team: "Kansas City Monarchs", league: "NNL", country: "US", stat: ".286 BA" },
+      { year: 1926, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".301 BA" },
+      { year: 1928, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".292 BA" },
+      { year: 1932, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".275 BA" }
+    ]
+  },
+  {
+    id: "wells",
+    name: "Willie Wells",
+    initials: "WW",
+    position: "SS",
+    yearsLabel: "1924--1948",
+    yearsActive: [1924, 1948],
+    stat: "5",
+    statLabel: "Countries played in",
+    note: "Played in the US, Mexico, Cuba, Puerto Rico, and Canada. Wore a batting helmet years before MLB adopted them. One of the greatest shortstops in baseball history.",
+    confidence: "Verified",
+    hof: { cuba: false, mexico: true, venezuela: false, dr: false, usa: true },
+    monthsPlayed: 11,
+    seasons: [
+      { year: 1924, city: "Indianapolis", team: "Indianapolis ABCs", league: "NNL", country: "US", stat: ".286 BA" },
+      { year: 1926, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".310 BA" },
+      { year: 1928, city: "Indianapolis", team: "Indianapolis ABCs", league: "NNL", country: "US", stat: ".348 BA" },
+      { year: 1930, city: "Kansas City", team: "Kansas City Monarchs", league: "NNL", country: "US", stat: ".351 BA" },
+      { year: 1932, city: "Chicago", team: "Cole's American Giants", league: "NSL", country: "US", stat: ".331 BA" },
+      { year: 1934, city: "Pittsburgh", team: "Pittsburgh Crawfords", league: "NNL", country: "US", stat: ".340 BA" },
+      { year: 1936, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".328 BA" },
+      { year: 1937, city: "Ciudad Trujillo", team: "Dragones", league: "Dominican League", country: "DO", stat: ".300 BA" },
+      { year: 1938, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".385 BA" },
+      { year: 1940, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".345 BA" },
+      { year: 1941, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".325 BA" },
+      { year: 1942, city: "San Juan", team: "Senadores", league: "Puerto Rican Winter League", country: "PR", stat: ".330 BA" },
+      { year: 1944, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".290 BA" },
+      { year: 1945, city: "New York", team: "New York Black Yankees", league: "NNL", country: "US", stat: ".280 BA" },
+      { year: 1948, city: "Indianapolis", team: "Indianapolis Clowns", league: "NAL", country: "US", stat: ".259 BA" }
+    ]
+  },
+  {
+    id: "dandridge",
+    name: "Ray Dandridge",
+    initials: "RD",
+    photo: "photos/dandridge-newark.jpg",
+    photoAlt: "Ray Dandridge in Newark Eagles jersey",
+    photoCredit: "CC BY-NC 4.0 -- The Newark Public Library",
+    position: "3B",
+    yearsLabel: "1933--1953",
+    yearsActive: [1933, 1953],
+    stat: "12",
+    statLabel: "Winter league seasons in Mexico",
+    note: "Played in Mexico longer than any other country. The Mexican League counted him. He made the American Hall of Fame in 1987, thirty-four years after he retired.",
+    confidence: "Verified",
+    hof: { cuba: false, mexico: true, venezuela: false, dr: false, usa: true },
+    monthsPlayed: 10,
+    seasons: [
+      { year: 1933, city: "Pittsburgh", team: "Pittsburgh Crawfords", league: "NNL", country: "US", stat: ".310 BA" },
+      { year: 1934, city: "New York", team: "Newark Dodgers", league: "NNL", country: "US", stat: ".340 BA" },
+      { year: 1935, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".355 BA" },
+      { year: 1936, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".368 BA" },
+      { year: 1937, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".323 BA" },
+      { year: 1938, city: "Havana", team: "Marianao", league: "Cuban Winter League", country: "CU", stat: ".312 BA" },
+      { year: 1939, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".347 BA" },
+      { year: 1940, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".370 BA" },
+      { year: 1941, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".354 BA" },
+      { year: 1942, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".340 BA" },
+      { year: 1943, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".351 BA" },
+      { year: 1944, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".367 BA" },
+      { year: 1945, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".325 BA" },
+      { year: 1946, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".338 BA" },
+      { year: 1947, city: "Caracas", team: "Cerveceria Caracas", league: "Venezuelan League", country: "VE", stat: ".360 BA" },
+      { year: 1948, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".316 BA" }
+    ]
+  }
+];
+
+/* City coordinates in transformed SVG space */
+/* Mapped to Wikimedia BlankMap-Americas.svg after matrix(2.224804,0,0,2.224804,67.40394,-773.9801) */
+/* Source: https://commons.wikimedia.org/wiki/File:BlankMap-Americas.svg (Public Domain) */
+window.TOBS.CITIES = {
+  "Chicago":          { x: 1395, y: 62,  country: "US" },
+  "Pittsburgh":       { x: 1524, y: 94,  country: "US" },
+  "Kansas City":      { x: 1275, y: 122, country: "US" },
+  "Indianapolis":     { x: 1418, y: 100, country: "US" },
+  "New York":         { x: 1627, y: 88,  country: "US" },
+  "Havana":           { x: 1483, y: 490, country: "CU" },
+  "Mexico City":      { x: 1198, y: 530, country: "MX" },
+  "Veracruz":         { x: 1250, y: 535, country: "MX" },
+  "San Juan":         { x: 1763, y: 565, country: "PR" },
+  "Caracas":          { x: 1762, y: 790, country: "VE" },
+  "Ciudad Trujillo":  { x: 1702, y: 554, country: "DO" }
+};
+
+/* MLB comparison data for career months chart */
+window.TOBS.MLB_COMPARISON = [
+  { name: "Babe Ruth",       months: 7, years: "1914--1935" },
+  { name: "Lou Gehrig",      months: 6.5, years: "1923--1939" },
+  { name: "Joe DiMaggio",    months: 6, years: "1936--1951" }
+];
+
+/* Country coverage data -- which country each year */
+window.TOBS.COUNTRY_COLORS = {
+  "US": "#6f8aa8",
+  "CU": "#d4a64a",
+  "MX": "#8fa05a",
+  "PR": "#b96f4a",
+  "VE": "#a14545",
+  "DO": "#a08456"
+};
+
+window.TOBS.COUNTRY_NAMES = {
+  "US": "United States",
+  "CU": "Cuba",
+  "MX": "Mexico",
+  "PR": "Puerto Rico",
+  "VE": "Venezuela",
+  "DO": "Dominican Rep."
+};
+
+/* Hook data */
+window.TOBS.HOOKS = [
+  {
+    name: "Martin Dihigo",
+    question: "Hey, have you heard of Martin Dihigo",
+    lines: [
+      "He is in the Hall of Fame in Cuba, Mexico, Venezuela, and the United States. He played every position. He could not play in the major leagues.",
+      "Four countries counted him. The one that excluded him took thirty-two years after his death to put him in its Hall."
+    ]
+  },
+  {
+    name: "Cristobal Torriente",
+    question: "Hey, have you heard of Cristobal Torriente",
+    lines: [
+      "In October 1920, in Havana, he outhit Babe Ruth in a barnstorming series. Ruth batted .345. Torriente batted .433.",
+      "He is third all-time in career batting average. He played in Cuba and the United States for two decades. He could not play in the major leagues."
+    ]
+  },
+  {
+    name: "Willie Wells",
+    question: "Hey, have you heard of Willie Wells",
+    lines: [
+      "He played professional baseball in five countries. He wore a batting helmet years before the major leagues adopted them. He was one of the greatest shortstops who ever lived.",
+      "He left the United States for Mexico in 1940 because, he said, he was treated like a man there. Not like a second-class citizen."
+    ]
+  },
+  {
+    name: "Ray Dandridge",
+    question: "Hey, have you heard of Ray Dandridge",
+    lines: [
+      "He played twelve seasons in Mexico. The Mexican League counted him. He made the American Hall of Fame in 1987, thirty-four years after he retired.",
+      "By the time Cooperstown called his name, he was seventy years old. He had waited his entire adult life."
+    ]
+  }
+];
+</script>
+
+<!-- ====================================================================
+     MAIN JS -- IIFE
+     ==================================================================== -->
+<script>
+(function() {
+"use strict";
+
+var PLAYERS = window.TOBS.PLAYERS;
+var CITIES = window.TOBS.CITIES;
+var MLB = window.TOBS.MLB_COMPARISON;
+var HOOKS = window.TOBS.HOOKS;
+var COUNTRY_COLORS = window.TOBS.COUNTRY_COLORS;
+var COUNTRY_NAMES = window.TOBS.COUNTRY_NAMES;
+var ns = "http://www.w3.org/2000/svg";
+var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Utility: create SVG element */
+function svgEl(tag, attrs, parent) {
+  var e = document.createElementNS(ns, tag);
+  for (var k in attrs) {
+    if (attrs.hasOwnProperty(k)) {
+      if (k === "text") { e.textContent = attrs[k]; continue; }
+      e.setAttribute(k, attrs[k]);
+    }
+  }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+/* Utility: format number with commas */
+function fmt(n) {
+  return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/* ======================================================================
+   HOOK CAROUSEL
+   ====================================================================== */
+(function() {
+  var carousel = document.querySelector(".hook__carousel");
+  var dotsContainer = document.getElementById("hook-dots");
+  var counter = document.getElementById("hook-counter");
+  var prevBtn = document.getElementById("hook-prev");
+  var nextBtn = document.getElementById("hook-next");
+  if (!carousel || !HOOKS.length) return;
+
+  var current = 0;
+  var timer = null;
+  var paused = false;
+  var INTERVAL = 8000;
+
+  /* Build slides */
+  HOOKS.forEach(function(hook, i) {
+    var slide = document.createElement("div");
+    slide.className = "hook__slide" + (i === 0 ? " hook__slide--active" : "");
+    slide.setAttribute("role", "tabpanel");
+    slide.setAttribute("aria-label", "Player " + (i + 1) + " of " + HOOKS.length + " -- " + hook.name);
+    slide.setAttribute("data-slide", i);
+
+    var html = '<div class="hook__question">';
+    html += '<span class="hook__question-name">' + hook.question + '</span>';
+    html += '<span class="hook__question-mark">?</span>';
+    html += '</div>';
+    html += '<div class="hook__context">';
+    hook.lines.forEach(function(line) {
+      html += '<p>' + line + '</p>';
+    });
+    html += '</div>';
+    slide.innerHTML = html;
+    carousel.appendChild(slide);
+
+    /* Build dot */
+    var dot = document.createElement("button");
+    dot.className = "hook__dot" + (i === 0 ? " hook__dot--active" : "");
+    dot.setAttribute("role", "tab");
+    dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    dot.setAttribute("aria-label", hook.name);
+    dot.setAttribute("data-dot", i);
+    dot.addEventListener("click", function() { goTo(i); });
+    dotsContainer.appendChild(dot);
+  });
+
+  var slides = carousel.querySelectorAll(".hook__slide");
+  var dots = dotsContainer.querySelectorAll(".hook__dot");
+
+  function goTo(index) {
+    if (index < 0) index = HOOKS.length - 1;
+    if (index >= HOOKS.length) index = 0;
+
+    slides[current].classList.remove("hook__slide--active");
+    dots[current].classList.remove("hook__dot--active");
+    dots[current].setAttribute("aria-selected", "false");
+
+    current = index;
+
+    slides[current].classList.add("hook__slide--active");
+    dots[current].classList.add("hook__dot--active");
+    dots[current].setAttribute("aria-selected", "true");
+    counter.textContent = (current + 1) + " / " + HOOKS.length;
+
+    resetTimer();
+  }
+
+  function advance() { goTo(current + 1); }
+
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    if (!paused && !prefersReducedMotion) {
+      timer = setInterval(advance, INTERVAL);
+    }
+  }
+
+  prevBtn.addEventListener("click", function() { goTo(current - 1); });
+  nextBtn.addEventListener("click", function() { goTo(current + 1); });
+
+  /* Pause on hover/focus */
+  carousel.addEventListener("mouseenter", function() { paused = true; if (timer) clearInterval(timer); });
+  carousel.addEventListener("mouseleave", function() { paused = false; resetTimer(); });
+  carousel.addEventListener("focusin", function() { paused = true; if (timer) clearInterval(timer); });
+  carousel.addEventListener("focusout", function() { paused = false; resetTimer(); });
+
+  /* Keyboard nav */
+  document.addEventListener("keydown", function(e) {
+    var hookSection = document.getElementById("hook");
+    if (!hookSection) return;
+    var rect = hookSection.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(current - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(current + 1); }
+  });
+
+  /* Page visibility */
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      if (timer) clearInterval(timer);
+    } else if (!paused && !prefersReducedMotion) {
+      resetTimer();
+    }
+  });
+
+  /* Start auto-rotate unless reduced motion */
+  if (!prefersReducedMotion) {
+    timer = setInterval(advance, INTERVAL);
+  }
+})();
+
+/* ======================================================================
+   THE MAP -- SVG CENTERPIECE
+   ====================================================================== */
+(function() {
+  var svg = document.getElementById("map-svg");
+  var tooltip = document.getElementById("map-tooltip");
+  var tooltipCity = document.getElementById("tooltip-city");
+  var tooltipDetail = document.getElementById("tooltip-detail");
+  if (!svg) return;
+
+  var currentView = "density";
+  var currentPlayer = 0;
+  var mapAnimated = false;
+
+  /* Base map: Wikimedia BlankMap-Americas.svg (Public Domain) */
+  /* Styled via CSS filter (invert + darken) on the base-map container */
+  /* Source: https://commons.wikimedia.org/wiki/File:BlankMap-Americas.svg */
+
+  /* Country labels overlaid on the data SVG */
+  var labelAttrs = { "font-family": "var(--mono)", "font-size": 24, fill: "rgba(138,130,112,0.3)", "letter-spacing": "0.16em", "text-anchor": "middle" };
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1400, y: 250, text: "UNITED STATES" }), svg);
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1050, y: 480, "font-size": 18, text: "MEXICO" }), svg);
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1540, y: 520, "font-size": 16, text: "CUBA" }), svg);
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1763, y: 580, "font-size": 12, text: "PR" }), svg);
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1700, y: 580, "font-size": 12, text: "DR" }), svg);
+  svgEl("text", Object.assign({}, labelAttrs, { x: 1762, y: 830, "font-size": 18, text: "VENEZUELA" }), svg);
+
+  /* Layers for different content */
+  var arcLayer = svgEl("g", { "class": "arc-layer" }, svg);
+  var dotLayer = svgEl("g", { "class": "dot-layer" }, svg);
+  var labelLayer = svgEl("g", { "class": "label-layer" }, svg);
+
+  /* Quadratic bezier arc between two points */
+  function arcPath(x1, y1, x2, y2) {
+    var midX = (x1 + x2) / 2;
+    var midY = (y1 + y2) / 2;
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    /* Perpendicular offset for the arc curve */
+    var offset = dist * 0.25;
+    var nx = -dy / dist;
+    var ny = dx / dist;
+    var cpx = midX + nx * offset;
+    var cpy = midY + ny * offset;
+    return "M" + x1 + "," + y1 + " Q" + cpx + "," + cpy + " " + x2 + "," + y2;
+  }
+
+  /* Show tooltip */
+  function showTooltip(evt, cityName, detail) {
+    var containerRect = svg.parentElement.getBoundingClientRect();
+    var svgRect = svg.getBoundingClientRect();
+    var x = evt.clientX - containerRect.left + 16;
+    var y = evt.clientY - containerRect.top - 10;
+    tooltip.style.left = x + "px";
+    tooltip.style.top = y + "px";
+    tooltipCity.textContent = cityName;
+    tooltipDetail.textContent = detail;
+    tooltip.classList.add("winter-map__tooltip--visible");
+    tooltip.setAttribute("aria-hidden", "false");
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("winter-map__tooltip--visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  /* Clear dynamic layers */
+  function clearLayers() {
+    while (arcLayer.firstChild) arcLayer.removeChild(arcLayer.firstChild);
+    while (dotLayer.firstChild) dotLayer.removeChild(dotLayer.firstChild);
+    while (labelLayer.firstChild) labelLayer.removeChild(labelLayer.firstChild);
+  }
+
+  /* ---- VIEW 1: Flow Map ---- */
+  function drawFlowMap(playerIndex, maxYear) {
+    clearLayers();
+    var player = PLAYERS[playerIndex];
+    if (!player) return;
+
+    var filteredSeasons = player.seasons.filter(function(s) { return s.year <= maxYear; });
+
+    /* Draw arcs between consecutive seasons */
+    for (var i = 1; i < filteredSeasons.length; i++) {
+      var prev = filteredSeasons[i - 1];
+      var curr = filteredSeasons[i];
+      var c1 = CITIES[prev.city];
+      var c2 = CITIES[curr.city];
+      if (!c1 || !c2) continue;
+      if (prev.city === curr.city) continue;
+
+      var isLatest = (i === filteredSeasons.length - 1);
+      var color = isLatest ? "var(--amber)" : "var(--vellum-dim)";
+      var opacity = isLatest ? 0.9 : 0.35;
+      var path = svgEl("path", {
+        d: arcPath(c1.x, c1.y, c2.x, c2.y),
+        fill: "none",
+        stroke: color,
+        "stroke-width": isLatest ? 3 : 1.5,
+        opacity: opacity,
+        "stroke-dasharray": isLatest ? "none" : "6 5"
+      }, arcLayer);
+
+      if (!prefersReducedMotion && isLatest) {
+        var len = path.getTotalLength ? path.getTotalLength() : 300;
+        path.setAttribute("stroke-dasharray", len);
+        path.setAttribute("stroke-dashoffset", len);
+        path.style.transition = "stroke-dashoffset 1s ease";
+        setTimeout((function(p) { return function() { p.setAttribute("stroke-dashoffset", "0"); }; })(path), 100);
+      }
+    }
+
+    /* Draw city dots */
+    var citySeasonCounts = {};
+    filteredSeasons.forEach(function(s) {
+      if (!citySeasonCounts[s.city]) citySeasonCounts[s.city] = { count: 0, seasons: [] };
+      citySeasonCounts[s.city].count++;
+      citySeasonCounts[s.city].seasons.push(s);
+    });
+
+    Object.keys(citySeasonCounts).forEach(function(cityName) {
+      var c = CITIES[cityName];
+      if (!c) return;
+      var data = citySeasonCounts[cityName];
+      var r = 6 + data.count * 2.5;
+
+      var dot = svgEl("circle", {
+        cx: c.x, cy: c.y, r: r,
+        fill: COUNTRY_COLORS[c.country] || "var(--amber)",
+        opacity: 0.85,
+        stroke: "var(--ink)",
+        "stroke-width": 2,
+        style: "cursor:pointer",
+        tabindex: 0,
+        role: "button",
+        "aria-label": cityName + " -- " + data.count + " season" + (data.count > 1 ? "s" : "")
+      }, dotLayer);
+
+      dot.addEventListener("mouseenter", function(evt) {
+        var detail = data.seasons.map(function(s) { return s.year + ": " + s.team + " (" + s.stat + ")"; }).join(" | ");
+        showTooltip(evt, cityName + " -- " + data.count + " season" + (data.count > 1 ? "s" : ""), detail);
+      });
+      dot.addEventListener("mouseleave", hideTooltip);
+      dot.addEventListener("focus", function(evt) {
+        var detail = data.seasons.map(function(s) { return s.year + ": " + s.team; }).join(" | ");
+        showTooltip(evt, cityName, detail);
+      });
+      dot.addEventListener("blur", hideTooltip);
+
+      /* City label */
+      svgEl("text", {
+        x: c.x, y: c.y - r - 6,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": 14,
+        fill: "var(--vellum-dim)",
+        "letter-spacing": "0.06em",
+        text: cityName
+      }, labelLayer);
+    });
+  }
+
+  /* ---- VIEW 2: Career Geography ---- */
+  function drawCareerGeography(playerIndex) {
+    clearLayers();
+    var player = PLAYERS[playerIndex];
+    if (!player) return;
+
+    /* Count seasons per city */
+    var citySeasonCounts = {};
+    var cityOrder = [];
+    player.seasons.forEach(function(s) {
+      if (!citySeasonCounts[s.city]) {
+        citySeasonCounts[s.city] = { count: 0, seasons: [] };
+        cityOrder.push(s.city);
+      }
+      citySeasonCounts[s.city].count++;
+      citySeasonCounts[s.city].seasons.push(s);
+    });
+
+    /* Draw sequence lines */
+    for (var i = 1; i < player.seasons.length; i++) {
+      var prev = player.seasons[i - 1];
+      var curr = player.seasons[i];
+      var c1 = CITIES[prev.city];
+      var c2 = CITIES[curr.city];
+      if (!c1 || !c2 || prev.city === curr.city) continue;
+
+      svgEl("path", {
+        d: arcPath(c1.x, c1.y, c2.x, c2.y),
+        fill: "none",
+        stroke: "rgba(232,224,207,0.15)",
+        "stroke-width": 1.5,
+        "stroke-dasharray": "5 6"
+      }, arcLayer);
+    }
+
+    /* Draw dots sized by seasons */
+    Object.keys(citySeasonCounts).forEach(function(cityName) {
+      var c = CITIES[cityName];
+      if (!c) return;
+      var data = citySeasonCounts[cityName];
+      var r = 8 + data.count * 4;
+
+      var dot = svgEl("circle", {
+        cx: c.x, cy: c.y, r: r,
+        fill: COUNTRY_COLORS[c.country] || "var(--amber)",
+        opacity: 0.8,
+        stroke: "var(--ink)",
+        "stroke-width": 2,
+        style: "cursor:pointer",
+        tabindex: 0,
+        role: "button",
+        "aria-label": cityName + " -- " + data.count + " season" + (data.count > 1 ? "s" : "")
+      }, dotLayer);
+
+      dot.addEventListener("mouseenter", function(evt) {
+        var detail = data.seasons.map(function(s) { return s.year + ": " + s.team; }).join(" | ");
+        showTooltip(evt, cityName + " -- " + data.count + " season" + (data.count > 1 ? "s" : ""), detail);
+      });
+      dot.addEventListener("mouseleave", hideTooltip);
+
+      /* City label with count */
+      svgEl("text", {
+        x: c.x, y: c.y - r - 6,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": 14,
+        fill: "var(--vellum)",
+        "letter-spacing": "0.06em",
+        text: cityName + " (" + data.count + ")"
+      }, labelLayer);
+    });
+  }
+
+  /* ---- VIEW 3: Aggregate Density ---- */
+  function drawAggregateDensity(yearStart, yearEnd) {
+    clearLayers();
+
+    /* Sum all players */
+    var cityCounts = {};
+    PLAYERS.forEach(function(player) {
+      player.seasons.forEach(function(s) {
+        if (s.year < yearStart || s.year > yearEnd) return;
+        if (!cityCounts[s.city]) cityCounts[s.city] = { count: 0, players: {} };
+        cityCounts[s.city].count++;
+        cityCounts[s.city].players[player.name] = true;
+      });
+    });
+
+    /* Find max for scaling */
+    var maxCount = 0;
+    Object.keys(cityCounts).forEach(function(city) {
+      if (cityCounts[city].count > maxCount) maxCount = cityCounts[city].count;
+    });
+
+    /* Draw dots */
+    Object.keys(cityCounts).forEach(function(cityName) {
+      var c = CITIES[cityName];
+      if (!c) return;
+      var data = cityCounts[cityName];
+      var r = 8 + (data.count / Math.max(maxCount, 1)) * 50;
+      var playerList = Object.keys(data.players);
+
+      var dot = svgEl("circle", {
+        cx: c.x, cy: c.y, r: r,
+        fill: COUNTRY_COLORS[c.country] || "var(--amber)",
+        opacity: 0.7,
+        stroke: COUNTRY_COLORS[c.country] || "var(--amber)",
+        "stroke-width": 2,
+        "stroke-opacity": 0.3,
+        style: "cursor:pointer",
+        tabindex: 0,
+        role: "button",
+        "aria-label": cityName + " -- " + data.count + " player-season" + (data.count > 1 ? "s" : "")
+      }, dotLayer);
+
+      /* Outer ring for emphasis on large dots */
+      if (data.count > 4) {
+        svgEl("circle", {
+          cx: c.x, cy: c.y, r: r + 4,
+          fill: "none",
+          stroke: COUNTRY_COLORS[c.country] || "var(--amber)",
+          "stroke-width": 0.8,
+          opacity: 0.25
+        }, dotLayer);
+      }
+
+      dot.addEventListener("mouseenter", function(evt) {
+        showTooltip(evt, cityName + " -- " + data.count + " player-seasons", playerList.join(", "));
+      });
+      dot.addEventListener("mouseleave", hideTooltip);
+
+      /* City label with count */
+      svgEl("text", {
+        x: c.x, y: c.y - r - 6,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": 14,
+        fill: "var(--vellum)",
+        "letter-spacing": "0.06em",
+        text: cityName
+      }, labelLayer);
+
+      svgEl("text", {
+        x: c.x, y: c.y + 5,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": r > 25 ? 18 : 13,
+        "font-weight": 500,
+        fill: "var(--ink)",
+        text: String(data.count)
+      }, labelLayer);
+    });
+  }
+
+  /* Populate player select */
+  var playerSelect = document.getElementById("player-select");
+  PLAYERS.forEach(function(p, i) {
+    var opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = p.name;
+    playerSelect.appendChild(opt);
+  });
+
+  /* View switching */
+  var viewBtns = document.querySelectorAll(".winter-map__view-btn");
+  var timelineControls = document.getElementById("timeline-controls");
+  var rangeControls = document.getElementById("range-controls");
+  var playerControls = document.getElementById("player-controls");
+  var timelineSlider = document.getElementById("timeline-slider");
+  var timelineYear = document.getElementById("timeline-year");
+  var rangeStart = document.getElementById("range-start");
+  var rangeEnd = document.getElementById("range-end");
+  var rangeValue = document.getElementById("range-value");
+
+  function switchView(view) {
+    currentView = view;
+    viewBtns.forEach(function(btn) {
+      var isActive = btn.getAttribute("data-view") === view;
+      btn.classList.toggle("winter-map__view-btn--active", isActive);
+      btn.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+
+    if (view === "flow") {
+      playerControls.style.display = "flex";
+      timelineControls.style.display = "block";
+      rangeControls.style.display = "none";
+      updateTimelineRange();
+      drawFlowMap(currentPlayer, parseInt(timelineSlider.value, 10));
+    } else if (view === "career") {
+      playerControls.style.display = "flex";
+      timelineControls.style.display = "none";
+      rangeControls.style.display = "none";
+      drawCareerGeography(currentPlayer);
+    } else if (view === "density") {
+      playerControls.style.display = "none";
+      timelineControls.style.display = "none";
+      rangeControls.style.display = "flex";
+      drawAggregateDensity(parseInt(rangeStart.value, 10), parseInt(rangeEnd.value, 10));
+    }
+  }
+
+  /* Update timeline slider range based on current player */
+  function updateTimelineRange() {
+    var player = PLAYERS[currentPlayer];
+    if (!player || !player.seasons.length) return;
+    var years = player.seasons.map(function(s) { return s.year; });
+    var minYear = Math.min.apply(null, years);
+    var maxYear = Math.max.apply(null, years);
+    timelineSlider.min = minYear;
+    timelineSlider.max = maxYear;
+    timelineSlider.value = maxYear;
+    timelineYear.textContent = maxYear;
+  }
+
+  viewBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      switchView(btn.getAttribute("data-view"));
+    });
+    btn.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        switchView(btn.getAttribute("data-view"));
+      }
+    });
+  });
+
+  playerSelect.addEventListener("change", function() {
+    currentPlayer = parseInt(playerSelect.value, 10);
+    if (currentView === "flow") {
+      updateTimelineRange();
+      drawFlowMap(currentPlayer, parseInt(timelineSlider.value, 10));
+    } else if (currentView === "career") {
+      drawCareerGeography(currentPlayer);
+    }
+  });
+
+  timelineSlider.addEventListener("input", function() {
+    timelineYear.textContent = timelineSlider.value;
+    drawFlowMap(currentPlayer, parseInt(timelineSlider.value, 10));
+  });
+
+  rangeStart.addEventListener("input", function() {
+    var s = parseInt(rangeStart.value, 10);
+    var e = parseInt(rangeEnd.value, 10);
+    if (s > e) rangeStart.value = e;
+    rangeValue.textContent = rangeStart.value + " -- " + rangeEnd.value;
+    drawAggregateDensity(parseInt(rangeStart.value, 10), parseInt(rangeEnd.value, 10));
+  });
+
+  rangeEnd.addEventListener("input", function() {
+    var s = parseInt(rangeStart.value, 10);
+    var e = parseInt(rangeEnd.value, 10);
+    if (e < s) rangeEnd.value = s;
+    rangeValue.textContent = rangeStart.value + " -- " + rangeEnd.value;
+    drawAggregateDensity(parseInt(rangeStart.value, 10), parseInt(rangeEnd.value, 10));
+  });
+
+  /* IntersectionObserver for initial draw */
+  function initMap() {
+    if (mapAnimated) return;
+    mapAnimated = true;
+    updateTimelineRange();
+    drawFlowMap(0, parseInt(timelineSlider.value, 10));
+  }
+
+  if ("IntersectionObserver" in window) {
+    var mapObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          initMap();
+          mapObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    mapObs.observe(svg);
+  } else {
+    initMap();
+  }
+
+  /* Public method for profile card links */
+  window.TOBS.showPlayerOnMap = function(playerIndex) {
+    currentPlayer = playerIndex;
+    playerSelect.value = playerIndex;
+    switchView("flow");
+    document.getElementById("map").scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+  };
+})();
+
+/* ======================================================================
+   PLAYER PROFILES
+   ====================================================================== */
+(function() {
+  var grid = document.getElementById("profiles-grid");
+  if (!grid) return;
+
+  PLAYERS.forEach(function(player, i) {
+    var card = document.createElement("div");
+    card.className = "profile-card";
+
+    var html = '';
+    html += '<div class="profile-card__photo">';
+    if (player.photo) {
+      html += '<img class="profile-card__img" src="' + player.photo + '" alt="' + (player.photoAlt || player.name) + '" loading="lazy" />';
+    } else {
+      html += '<span class="profile-card__monogram">' + player.initials + '</span>';
+    }
+    html += '</div>';
+    html += '<div class="profile-card__body">';
+    html += '<div class="profile-card__name">' + player.name + '</div>';
+    html += '<div class="profile-card__meta">' + player.position + ' -- ' + player.yearsLabel + '</div>';
+    html += '<div class="profile-card__stat">';
+    html += '<div class="profile-card__stat-value">' + player.stat + '</div>';
+    html += '<div class="profile-card__stat-label">' + player.statLabel + '</div>';
+    html += '</div>';
+    html += '<div class="profile-card__note">' + player.note + '</div>';
+    html += '<a class="profile-card__map-link" data-player="' + i + '" role="button" tabindex="0" aria-label="View ' + player.name + ' on map">';
+    html += '<svg class="profile-card__map-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 10v4M6 12h4" stroke="currentColor" stroke-width="1.2"/></svg>';
+    html += 'View on map';
+    html += '</a>';
+    html += '</div>';
+
+    card.innerHTML = html;
+    grid.appendChild(card);
+  });
+
+  /* Map link handlers */
+  grid.addEventListener("click", function(e) {
+    var link = e.target.closest(".profile-card__map-link");
+    if (!link) return;
+    e.preventDefault();
+    var playerIndex = parseInt(link.getAttribute("data-player"), 10);
+    if (window.TOBS.showPlayerOnMap) {
+      window.TOBS.showPlayerOnMap(playerIndex);
+    }
+  });
+
+  grid.addEventListener("keydown", function(e) {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    var link = e.target.closest(".profile-card__map-link");
+    if (!link) return;
+    e.preventDefault();
+    var playerIndex = parseInt(link.getAttribute("data-player"), 10);
+    if (window.TOBS.showPlayerOnMap) {
+      window.TOBS.showPlayerOnMap(playerIndex);
+    }
+  });
+})();
+
+/* ======================================================================
+   CHART A -- CAREER MONTHS
+   ====================================================================== */
+(function() {
+  var svg = document.getElementById("months-svg");
+  if (!svg) return;
+
+  var W = 900, H = 380;
+  var M = { t: 30, r: 40, b: 50, l: 180 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+
+  /* Data */
+  var rows = [];
+  PLAYERS.forEach(function(p) {
+    rows.push({ name: p.name, months: p.monthsPlayed, type: "nl" });
+  });
+  MLB.forEach(function(m) {
+    rows.push({ name: m.name, months: m.months, type: "mlb" });
+  });
+
+  var maxMonths = 12;
+  var barH = innerH / rows.length;
+  var barPad = 8;
+  var animated = false;
+
+  function xScale(v) { return M.l + (v / maxMonths) * innerW; }
+  function yPos(i) { return M.t + i * barH; }
+
+  /* Grid lines */
+  [0, 3, 6, 9, 12].forEach(function(v) {
+    svgEl("line", { x1: xScale(v), x2: xScale(v), y1: M.t, y2: H - M.b, stroke: "rgba(212,166,74,0.08)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: xScale(v), y: H - M.b + 20, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", text: v + " mo" }, svg);
+  });
+
+  /* Separator line between NL and MLB */
+  svgEl("line", {
+    x1: M.l - 10, x2: W - M.r + 10,
+    y1: yPos(PLAYERS.length) - 2, y2: yPos(PLAYERS.length) - 2,
+    stroke: "var(--rule)", "stroke-width": 1, "stroke-dasharray": "4 4"
+  }, svg);
+
+  /* Group labels */
+  svgEl("text", { x: M.l - 10, y: yPos(0) + barH, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--amber)", "letter-spacing": "0.14em", text: "NEGRO LEAGUES" }, svg);
+  svgEl("text", { x: M.l - 10, y: yPos(PLAYERS.length) + barH, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--slate)", "letter-spacing": "0.14em", text: "MLB" }, svg);
+
+  /* Bars */
+  var bars = [];
+  rows.forEach(function(row, i) {
+    var y = yPos(i) + barPad / 2;
+    var bh = barH - barPad;
+    var color = row.type === "nl" ? "var(--amber)" : "var(--slate)";
+    var targetW = xScale(row.months) - M.l;
+
+    /* Player name */
+    svgEl("text", {
+      x: M.l - 14, y: y + bh / 2 + 4,
+      "text-anchor": "end",
+      "font-family": "var(--serif)",
+      "font-size": 14,
+      fill: "var(--vellum)",
+      text: row.name
+    }, svg);
+
+    /* Bar */
+    var bar = svgEl("rect", {
+      x: M.l, y: y, width: 0, height: bh,
+      fill: color, opacity: row.type === "nl" ? 0.85 : 0.65, rx: 2
+    }, svg);
+    bars.push({ el: bar, targetW: targetW });
+
+    /* Month value label */
+    var label = svgEl("text", {
+      x: M.l + targetW + 10, y: y + bh / 2 + 4,
+      "font-family": "var(--mono)",
+      "font-size": 12,
+      fill: color,
+      text: row.months + " mo",
+      opacity: 0
+    }, svg);
+    bars.push({ el: label, isLabel: true });
+  });
+
+  function animateBars() {
+    if (animated) return;
+    animated = true;
+    var delay = 0;
+    bars.forEach(function(item, idx) {
+      if (item.isLabel) {
+        setTimeout(function() {
+          item.el.setAttribute("opacity", 1);
+          if (!prefersReducedMotion) item.el.style.transition = "opacity 0.3s";
+        }, delay);
+        return;
+      }
+      setTimeout(function() {
+        if (prefersReducedMotion) {
+          item.el.setAttribute("width", item.targetW);
+        } else {
+          item.el.style.transition = "width 0.8s ease";
+          item.el.setAttribute("width", item.targetW);
+        }
+      }, delay);
+      delay += 120;
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { animateBars(); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.2 });
+    obs.observe(svg);
+  } else {
+    animateBars();
+  }
+})();
+
+/* ======================================================================
+   CHART B -- COUNTRY COVERAGE
+   ====================================================================== */
+(function() {
+  var svg = document.getElementById("country-svg");
+  var legendContainer = document.getElementById("country-legend");
+  if (!svg) return;
+
+  var W = 900, H = 260;
+  var M = { t: 10, r: 40, b: 30, l: 180 };
+  var innerW = W - M.l - M.r;
+
+  /* Year range */
+  var allYears = [];
+  PLAYERS.forEach(function(p) {
+    p.seasons.forEach(function(s) { allYears.push(s.year); });
+  });
+  var minYear = Math.min.apply(null, allYears);
+  var maxYear = Math.max.apply(null, allYears);
+  var yearSpan = maxYear - minYear + 1;
+  var segW = innerW / yearSpan;
+
+  var rowH = (H - M.t - M.b) / PLAYERS.length;
+  var barH = rowH - 8;
+
+  PLAYERS.forEach(function(player, pi) {
+    var y = M.t + pi * rowH;
+
+    /* Player name */
+    svgEl("text", {
+      x: M.l - 14, y: y + barH / 2 + 4,
+      "text-anchor": "end",
+      "font-family": "var(--serif)",
+      "font-size": 14,
+      fill: "var(--vellum)",
+      text: player.name
+    }, svg);
+
+    /* Background track */
+    svgEl("rect", {
+      x: M.l, y: y, width: innerW, height: barH,
+      fill: "rgba(42,38,29,0.3)", rx: 2
+    }, svg);
+
+    /* Country segments */
+    player.seasons.forEach(function(s) {
+      var xPos = M.l + (s.year - minYear) * segW;
+      svgEl("rect", {
+        x: xPos, y: y, width: Math.max(segW - 1, 2), height: barH,
+        fill: COUNTRY_COLORS[s.country] || "var(--muted)",
+        opacity: 0.85, rx: 1
+      }, svg);
+    });
+  });
+
+  /* X axis -- decade labels */
+  for (var yr = Math.ceil(minYear / 5) * 5; yr <= maxYear; yr += 5) {
+    var xPos = M.l + (yr - minYear) * segW;
+    svgEl("text", {
+      x: xPos, y: H - 8,
+      "text-anchor": "middle",
+      "font-family": "var(--mono)",
+      "font-size": 10,
+      fill: "var(--muted)",
+      text: String(yr)
+    }, svg);
+    svgEl("line", {
+      x1: xPos, x2: xPos, y1: M.t, y2: H - M.b,
+      stroke: "rgba(138,130,112,0.15)", "stroke-width": 1, "stroke-dasharray": "2 4"
+    }, svg);
+  }
+
+  /* Legend */
+  var usedCountries = {};
+  PLAYERS.forEach(function(p) {
+    p.seasons.forEach(function(s) { usedCountries[s.country] = true; });
+  });
+
+  Object.keys(usedCountries).forEach(function(code) {
+    var item = document.createElement("div");
+    item.className = "chart-country__legend-item";
+    item.innerHTML = '<span class="chart-country__legend-swatch" style="background:' + COUNTRY_COLORS[code] + '"></span>' + (COUNTRY_NAMES[code] || code);
+    legendContainer.appendChild(item);
+  });
+})();
+
+/* ======================================================================
+   CHART C -- HOF RECOGNITION DOT MATRIX
+   ====================================================================== */
+(function() {
+  var container = document.getElementById("hof-rows");
+  if (!container) return;
+
+  PLAYERS.forEach(function(player) {
+    var row = document.createElement("div");
+    row.className = "chart-hof__row";
+    row.setAttribute("role", "row");
+
+    var html = '<div class="chart-hof__player-name" role="cell">' + player.name + '</div>';
+    var halls = ["cuba", "mexico", "venezuela", "dr", "usa"];
+    halls.forEach(function(hall) {
+      var inducted = player.hof[hall];
+      html += '<div class="chart-hof__dot-cell" role="cell" aria-label="' + hall.toUpperCase() + ': ' + (inducted ? "inducted" : "not inducted") + '">';
+      html += '<span class="chart-hof__dot chart-hof__dot--' + (inducted ? "filled" : "empty") + '" aria-hidden="true"></span>';
+      html += '</div>';
+    });
+
+    row.innerHTML = html;
+    container.appendChild(row);
+  });
+})();
+
+/* ======================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ====================================================================== */
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "map", "profiles", "charts", "method", "coda"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ======================================================================
+   SCROLL-TRIGGERED SECTION FADE-IN
+   ====================================================================== */
+(function() {
+  if (prefersReducedMotion) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  var targets = document.querySelectorAll(".section-head, .profile-card, .chart-months, .chart-country, .chart-hof, .method__block");
+  targets.forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  });
+
+  var fadeObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        fadeObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  targets.forEach(function(el) { fadeObs.observe(el); });
+})();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Other Box Score -- The Last Team</title>
+<meta name="description" content="Integration was not a moment in 1947. It was sixteen separate decisions distributed across twelve years and ninety-six days. This chapter models the distribution.">
+<meta property="og:title" content="The Other Box Score -- The Last Team">
+<meta property="og:description" content="Twelve years and ninety-six days. That is how long it took from Jackie Robinson to Pumpsie Green. Sixteen franchise decisions. One survival model. The cost is measured.">
+<meta property="og:url" content="https://theotherboxscore.org/chapters/the-last-team/">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap" rel="stylesheet" />
+<style>
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+  --ink: #13110d; --ink-2: #1a1812; --ink-3: #221f17;
+  --rule: #2a261d; --rule-2: #3a3527;
+  --vellum: #e8e0cf; --vellum-dim: #c4bda9;
+  --muted: #8a8270; --muted-2: #5e5849;
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --oxblood: #a14545; --oxblood-2: #c25656;
+  --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--vellum);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(232,224,207,0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+}
+
+::selection { background: rgba(212,166,74,0.3); color: var(--vellum); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a { color: var(--amber); text-decoration: none; }
+a:hover { color: var(--amber-2); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   1. Platform Nav
+   ========================================================================== */
+
+.platform-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.platform-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.platform-nav__mark { width: 20px; height: 20px; flex-shrink: 0; }
+
+.platform-nav__title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--vellum);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.platform-nav__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.platform-nav__links a:hover { color: var(--amber); }
+
+.platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
+
+/* ==========================================================================
+   2. Masthead
+   ========================================================================== */
+
+.masthead {
+  margin-top: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.masthead__ruler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead__part {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.masthead__chapter-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.masthead__title {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.96;
+  color: var(--vellum);
+  margin: 10px 0 0 0;
+}
+
+.masthead__title em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.masthead__subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vellum-dim);
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.masthead__meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.masthead__meta-line { margin-top: 6px; }
+.masthead__meta-line--amber { color: var(--amber); }
+
+/* Tab nav */
+.masthead__tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 36px;
+  padding: 0 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.masthead__tab:hover { color: var(--vellum-dim); }
+
+.masthead__tab--active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ==========================================================================
+   3. Page Sections -- Shared
+   ========================================================================== */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head__fig {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-head__title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vellum);
+  margin-bottom: 16px;
+}
+
+.section-head__title em {
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-head__lede {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+  max-width: 880px;
+}
+
+/* Body prose */
+.body-prose { max-width: 640px; }
+.body-prose p { margin-bottom: 18px; line-height: 1.65; }
+.body-prose .lede { font-size: 19px; line-height: 1.5; color: var(--vellum); }
+.body-prose strong { color: var(--vellum); font-weight: 600; }
+
+/* Fig labels */
+.fig-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Card */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+
+/* Mono / display utilities */
+.mono { font-family: var(--mono); }
+.display { font-family: var(--display); font-weight: 900; }
+
+/* ==========================================================================
+   4. The Hook
+   ========================================================================== */
+
+.hook {
+  padding: 56px 40px 72px;
+}
+
+.hook__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.hook__prose {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--vellum-dim);
+}
+
+.hook__prose p { margin-bottom: 18px; }
+
+.hook__big-number {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--amber);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.hook__big-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hook__number-card {
+  padding: 32px;
+  background: var(--ink-2);
+  border: 1px solid rgba(212,166,74,0.32);
+  text-align: center;
+  position: sticky;
+  top: 60px;
+}
+
+.hook__count-grid {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.hook__count-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.hook__count-year {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  min-width: 36px;
+}
+
+.hook__count-num {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.hook__count-num--final {
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+.hook__count-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   5. Risk Set Timeline (Fig 01) -- Centerpiece
+   ========================================================================== */
+
+.riskset {
+  padding: 80px 40px 96px;
+}
+
+.riskset__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+  position: relative;
+}
+
+.riskset__counter {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--vellum);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.riskset__counter-num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 48px;
+  color: var(--amber);
+  line-height: 1;
+  margin-right: 8px;
+  vertical-align: baseline;
+}
+
+.riskset__counter-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.riskset__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.riskset__controls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.riskset__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  color: var(--vellum);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.riskset__btn:hover {
+  background: var(--rule);
+  border-color: var(--amber);
+}
+
+.riskset__btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+.riskset__scrub {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--rule);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.riskset__scrub::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  cursor: pointer;
+}
+
+.riskset__scrub::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: var(--amber);
+  cursor: pointer;
+}
+
+.riskset__scrub:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+.riskset__year-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* ==========================================================================
+   6. Survival Curve and Hazard (Fig 02)
+   ========================================================================== */
+
+.survival {
+  padding: 80px 40px 96px;
+}
+
+.survival__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.survival__panel {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px 28px;
+}
+
+.survival__panel-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.survival__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.survival__toggle-bar {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.survival__toggle-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.survival__toggle-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.survival__toggle-btn:hover {
+  color: var(--vellum-dim);
+  border-color: var(--rule-2);
+}
+
+.survival__toggle-btn--active {
+  background: rgba(212,166,74,0.15);
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* ==========================================================================
+   7. Cox Model Forest Plot (Fig 03)
+   ========================================================================== */
+
+.cox {
+  padding: 80px 40px 96px;
+}
+
+.cox__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+}
+
+.cox__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cox__annotations {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.cox__annotation {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.cox__annotation:last-child { border-bottom: none; }
+
+.cox__annotation-covariate {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+}
+
+.cox__annotation-text {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   8. Forfeited WAR Ledger (Fig 04)
+   ========================================================================== */
+
+.forfeited {
+  padding: 80px 40px 96px;
+}
+
+.forfeited__chart-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+}
+
+.forfeited__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.forfeited__legend {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.forfeited__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.forfeited__legend-swatch {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.forfeited__legend-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   9. Counterfactual Standings (Fig 05)
+   ========================================================================== */
+
+.counterfactual {
+  padding: 80px 40px 96px;
+}
+
+.counterfactual__controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.counterfactual__select {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  color: var(--vellum);
+  cursor: pointer;
+  min-width: 180px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.counterfactual__select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.counterfactual__disclaimer {
+  background: rgba(161,69,69,0.12);
+  border: 1px solid rgba(161,69,69,0.3);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+}
+
+.counterfactual__disclaimer-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--oxblood);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.counterfactual__table-wrap {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  overflow-x: auto;
+}
+
+.counterfactual__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.counterfactual__table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.counterfactual__table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--vellum-dim);
+  vertical-align: middle;
+}
+
+.counterfactual__table tr:last-child td { border-bottom: none; }
+
+.counterfactual__bar-cell {
+  position: relative;
+  min-width: 180px;
+}
+
+.counterfactual__bar {
+  height: 20px;
+  background: rgba(143,160,90,0.35);
+  display: block;
+  transition: width 0.3s;
+}
+
+.counterfactual__bar--pennant {
+  background: rgba(212,166,74,0.45);
+}
+
+.counterfactual__pennant-prob {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   10. Methodology
+   ========================================================================== */
+
+.method {
+  padding: 80px 40px 96px;
+}
+
+.method__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.method__card {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 24px 28px;
+}
+
+.method__card-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.method__card-body {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+.method__card-body p { margin-bottom: 10px; }
+.method__card-body p:last-child { margin-bottom: 0; }
+
+.method__confidence {
+  margin-top: 32px;
+}
+
+.method__confidence-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.method__vocab-list {
+  list-style: none;
+  padding: 0;
+}
+
+.method__vocab-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 14px;
+}
+
+.method__vocab-term {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+}
+
+.method__vocab-def {
+  font-family: var(--serif);
+  color: var(--vellum-dim);
+  line-height: 1.5;
+}
+
+.method__caveat {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: rgba(111,138,168,0.08);
+  border: 1px solid rgba(111,138,168,0.2);
+}
+
+.method__caveat-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.method__caveat-body {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--vellum-dim);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   11. Coda
+   ========================================================================== */
+
+.coda {
+  padding: 80px 40px 96px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__closing {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--vellum);
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.coda__tissue {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--amber);
+}
+
+.coda__tissue-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.coda__tissue-body {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--vellum-dim);
+  line-height: 1.6;
+}
+
+.coda__citation {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.coda__citation-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.coda__citation-block {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  max-width: 720px;
+}
+
+.coda__citation-block + .coda__citation-block {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dotted var(--rule);
+}
+
+/* ==========================================================================
+   12. Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .masthead__inner { grid-template-columns: 1fr; }
+  .masthead__meta { text-align: left; min-width: 0; }
+  .masthead__title { font-size: 56px; }
+  .hook__grid { grid-template-columns: 1fr; gap: 36px; }
+  .hook__number-card { position: static; }
+  .survival__charts { grid-template-columns: 1fr; }
+  .method__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .masthead__inner { padding: 32px 20px 0; }
+  .masthead__title { font-size: 42px; }
+  .masthead__tabs { padding: 0 20px; }
+  .hook { padding: 36px 20px 48px; }
+  .hook__big-number { font-size: 64px; }
+  .riskset { padding: 48px 20px 64px; }
+  .riskset__chart-wrap { padding: 20px 16px; }
+  .survival { padding: 48px 20px 64px; }
+  .survival__charts { grid-template-columns: 1fr; }
+  .cox { padding: 48px 20px 64px; }
+  .cox__chart-wrap { padding: 20px 16px; overflow-x: auto; }
+  .cox__annotation { grid-template-columns: 1fr; gap: 4px; }
+  .forfeited { padding: 48px 20px 64px; }
+  .forfeited__chart-wrap { padding: 20px 16px; }
+  .counterfactual { padding: 48px 20px 64px; }
+  .method { padding: 48px 20px 64px; }
+  .coda { padding: 48px 20px 64px; }
+  .counterfactual__controls { flex-direction: column; align-items: stretch; }
+}
+
+@media (max-width: 480px) {
+  .masthead__title { font-size: 32px; }
+  .hook__big-number { font-size: 48px; }
+  .hook__count-grid { grid-template-columns: 1fr; }
+  .riskset__controls { flex-wrap: wrap; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================================
+     PLATFORM NAV
+     ====================================================================== -->
+
+<nav class="platform-nav" aria-label="Platform navigation">
+  <a href="/" class="platform-nav__brand">
+    <svg class="platform-nav__mark" viewBox="-80 -80 160 160" aria-hidden="true">
+      <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+      <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+      <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+      <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+      <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+      <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+    </svg>
+    <span class="platform-nav__title">The Other Box Score</span>
+  </a>
+  <div class="platform-nav__links">
+    <a href="/">Home</a>
+    <span class="platform-nav__sep">/</span>
+    <a href="/chapters/">Chapters</a>
+    <span class="platform-nav__sep">/</span>
+    <span style="color:var(--vellum-dim)">09</span>
+  </div>
+</nav>
+
+<!-- ======================================================================
+     MASTHEAD
+     ====================================================================== -->
+
+<header id="top" class="masthead" role="banner">
+  <div class="masthead__inner">
+    <div class="masthead__ruler">
+      <div class="masthead__part">Part Three -- The Record That Wasn't Kept</div>
+      <div class="masthead__chapter-num">Chapter 09</div>
+    </div>
+    <div>
+      <h1 class="masthead__title">The Last <em>Team.</em></h1>
+      <p class="masthead__subtitle">
+        Integration was not a moment in 1947. It was sixteen separate decisions
+        distributed across twelve years and ninety-six days.
+      </p>
+    </div>
+    <div class="masthead__meta" aria-label="Chapter metadata">
+      <div class="masthead__meta-line">N = 16 Franchises</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">Window -- 1947--1959</div>
+      <div class="masthead__meta-line">5 Models</div>
+      <div class="masthead__meta-line masthead__meta-line--amber">Survival analysis</div>
+    </div>
+  </div>
+
+  <nav class="masthead__tabs" aria-label="Chapter sections">
+    <a href="#hook" class="masthead__tab masthead__tab--active">The Hook</a>
+    <a href="#riskset" class="masthead__tab">Fig 01 -- Risk Set</a>
+    <a href="#survival" class="masthead__tab">Fig 02 -- Survival</a>
+    <a href="#cox" class="masthead__tab">Fig 03 -- Cox Model</a>
+    <a href="#forfeited" class="masthead__tab">Fig 04 -- Forfeited WAR</a>
+    <a href="#counterfactual" class="masthead__tab">Fig 05 -- Counterfactual</a>
+    <a href="#method" class="masthead__tab">Method</a>
+    <a href="#coda" class="masthead__tab">Coda</a>
+  </nav>
+</header>
+
+<!-- ======================================================================
+     A. THE HOOK
+     ====================================================================== -->
+
+<section id="hook" class="page hook" aria-label="The hook">
+  <div class="hook__grid">
+    <div class="hook__prose">
+      <p class="lede">
+        <strong>Twelve years and ninety-six days.</strong>
+      </p>
+      <p>
+        That is how long it took from Jackie Robinson's debut on April 15, 1947
+        to Pumpsie Green's debut on July 21, 1959. It is the gap between the
+        league's first integration and its last. Across that span, fifteen other
+        franchises made decisions about when to integrate. Some moved within
+        months. Some waited more than a decade.
+      </p>
+      <p>
+        The Brooklyn Dodgers integrated in April 1947. The Cleveland Indians
+        integrated eleven weeks later. The St. Louis Browns followed thirteen
+        days after that. By the end of 1947, three of sixteen teams had at
+        least one Black player on the major league roster.
+      </p>
+      <p>
+        By the end of 1948, still three. By the end of 1949, four. By the end
+        of 1953, ten. By 1954, eleven. By 1955, twelve. By 1958, fifteen.
+      </p>
+      <p>
+        The Boston Red Sox waited until July 21, 1959. Twelve years and
+        ninety-six days.
+      </p>
+      <p>
+        This chapter asks a question the standard integration narrative does
+        not. What did each year of waiting predict? What did each year of
+        waiting cost? And which franchises forfeited the most by waiting
+        longest?
+      </p>
+    </div>
+
+    <div class="hook__number-card card">
+      <div class="hook__big-number" aria-label="Twelve years, ninety-six days">12 yrs<br>96 days</div>
+      <div class="hook__big-label">Robinson to Green</div>
+
+      <div class="hook__count-grid">
+        <div class="hook__count-item">
+          <span class="hook__count-year">1947</span>
+          <span class="hook__count-num">3</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1948</span>
+          <span class="hook__count-num">3</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1949</span>
+          <span class="hook__count-num">4</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1950</span>
+          <span class="hook__count-num">5</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1951</span>
+          <span class="hook__count-num">6</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1953</span>
+          <span class="hook__count-num">10</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1954</span>
+          <span class="hook__count-num">11</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1955</span>
+          <span class="hook__count-num">12</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1957</span>
+          <span class="hook__count-num">14</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item">
+          <span class="hook__count-year">1958</span>
+          <span class="hook__count-num">15</span>
+          <span class="hook__count-label">of 16</span>
+        </div>
+        <div class="hook__count-item" style="grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 4px;">
+          <span class="hook__count-year" style="color:var(--oxblood)">1959</span>
+          <span class="hook__count-num hook__count-num--final">16</span>
+          <span class="hook__count-label" style="color:var(--oxblood)">Boston Red Sox</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     B. FIG 01 -- THE RISK SET TIMELINE
+     ====================================================================== -->
+
+<section id="riskset" class="page riskset" aria-label="The risk set timeline">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 01</div>
+    <h2 class="section-head__title">The Risk Set <em>Over Time</em></h2>
+    <p class="section-head__lede">
+      Sixteen franchises entered the risk set on April 15, 1947. One by one,
+      each integrated. The timeline below animates the twelve years and
+      ninety-six days it took to reach sixteen of sixteen.
+    </p>
+  </div>
+
+  <div class="riskset__chart-wrap">
+    <div class="riskset__counter" aria-live="polite">
+      <span class="riskset__counter-num" id="riskset-count">0</span>
+      <span class="riskset__counter-label">of 16 franchises integrated</span>
+    </div>
+
+    <svg id="riskset-svg" class="riskset__svg" viewBox="0 0 1080 640" role="img"
+         aria-label="Animated timeline showing when each of the 16 MLB franchises integrated, from 1947 to 1959">
+    </svg>
+
+    <div class="riskset__controls">
+      <button class="riskset__btn" id="riskset-play" aria-label="Play animation" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg>
+      </button>
+      <button class="riskset__btn" id="riskset-pause" aria-label="Pause animation" type="button" style="display:none">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="4" height="16"/><rect x="15" y="4" width="4" height="16"/></svg>
+      </button>
+      <input type="range" class="riskset__scrub" id="riskset-scrub" min="0" max="1000" value="0"
+             aria-label="Scrub timeline position" />
+      <span class="riskset__year-label" id="riskset-year">Apr 15, 1947</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     C. FIG 02 -- SURVIVAL CURVE AND HAZARD
+     ====================================================================== -->
+
+<section id="survival" class="page survival" aria-label="Survival curve and hazard function">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 02</div>
+    <h2 class="section-head__title">Survival Curve and <em>Hazard Function</em></h2>
+    <p class="section-head__lede">
+      The Kaplan-Meier survival curve shows the fraction of franchises
+      remaining unintegrated at each point in time. The hazard function shows
+      the conditional probability that a remaining holdout would integrate in
+      each year. The shape of the hazard is the finding.
+    </p>
+  </div>
+
+  <div class="survival__charts">
+    <div class="survival__panel">
+      <div class="survival__panel-title">Survival function S(t)</div>
+      <svg id="survival-svg" class="survival__svg" viewBox="0 0 480 320" role="img"
+           aria-label="Kaplan-Meier survival curve showing fraction of unintegrated franchises over time">
+      </svg>
+    </div>
+
+    <div class="survival__panel">
+      <div class="survival__panel-title">Hazard function h(t)</div>
+      <svg id="hazard-svg" class="survival__svg" viewBox="0 0 480 320" role="img"
+           aria-label="Hazard function showing conditional integration probability per year">
+      </svg>
+    </div>
+  </div>
+
+  <div class="survival__toggle-bar">
+    <span class="survival__toggle-label">Null hypotheses:</span>
+    <button class="survival__toggle-btn" data-null="uniform" type="button" aria-pressed="false">Uniform</button>
+    <button class="survival__toggle-btn" data-null="all1947" type="button" aria-pressed="false">All in 1947</button>
+    <button class="survival__toggle-btn" data-null="all1959" type="button" aria-pressed="false">All in 1959</button>
+  </div>
+</section>
+
+<!-- ======================================================================
+     D. FIG 03 -- COX MODEL FOREST PLOT
+     ====================================================================== -->
+
+<section id="cox" class="page cox" aria-label="Cox proportional hazards forest plot">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 03</div>
+    <h2 class="section-head__title">Cox Proportional Hazards <em>Forest Plot</em></h2>
+    <p class="section-head__lede">
+      A Cox regression identifies which franchise-level covariates predicted
+      longer integration delay, controlling for the others. Hazard ratios
+      greater than 1.0 indicate faster integration. Ratios below 1.0 indicate
+      slower integration. The headline: the American League integrated at less
+      than half the rate of the National League.
+    </p>
+  </div>
+
+  <div class="cox__chart-wrap">
+    <svg id="cox-svg" class="cox__svg" viewBox="0 0 1080 420" role="img"
+         aria-label="Forest plot of Cox model hazard ratios for integration timing covariates">
+    </svg>
+
+    <div class="cox__annotations" id="cox-annotations" aria-label="Covariate interpretations">
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     E. FIG 04 -- FORFEITED WAR LEDGER
+     ====================================================================== -->
+
+<section id="forfeited" class="page forfeited" aria-label="Forfeited WAR ledger">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 04</div>
+    <h2 class="section-head__title">The Forfeited WAR <em>Ledger</em></h2>
+    <p class="section-head__lede">
+      For each franchise, the cumulative WAR that was available in the unsigned
+      Negro Leagues talent pool during the franchise's pre-integration window.
+      The team with the highest forfeited WAR is not the team you expect.
+    </p>
+  </div>
+
+  <div class="forfeited__chart-wrap">
+    <svg id="forfeited-svg" class="forfeited__svg" viewBox="0 0 1080 520" role="img"
+         aria-label="Horizontal bar chart of forfeited WAR by franchise, sorted descending">
+    </svg>
+
+    <div class="forfeited__legend" id="forfeited-legend">
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     F. FIG 05 -- COUNTERFACTUAL STANDINGS
+     ====================================================================== -->
+
+<section id="counterfactual" class="page counterfactual" aria-label="Counterfactual standings">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 05</div>
+    <h2 class="section-head__title">The Counterfactual <em>Standings</em></h2>
+    <p class="section-head__lede">
+      What if the late-integrating teams had integrated in 1947? A Monte Carlo
+      simulation over 10,000 iterations estimates the range of counterfactual
+      competitive outcomes. Select a team and season range below.
+    </p>
+  </div>
+
+  <div class="counterfactual__disclaimer">
+    <div class="counterfactual__disclaimer-label">Methodology caveat</div>
+    This model does not iterate the competitive equilibrium effect. If Boston
+    had signed Willie Mays in 1949, the Giants would not have had him in 1951.
+    These figures represent upper-bound estimates for the late integrators,
+    not point predictions. The model is speculative by design and is presented
+    with explicit uncertainty.
+  </div>
+
+  <div class="counterfactual__controls">
+    <select class="counterfactual__select" id="cf-team" aria-label="Select team">
+      <option value="BOS" selected>Boston Red Sox</option>
+      <option value="DET">Detroit Tigers</option>
+      <option value="NYY">New York Yankees</option>
+      <option value="PHI">Philadelphia Phillies</option>
+      <option value="STL">St. Louis Cardinals</option>
+      <option value="CIN">Cincinnati Reds</option>
+      <option value="PIT">Pittsburgh Pirates</option>
+      <option value="WAS">Washington Senators</option>
+      <option value="CHW">Chicago White Sox</option>
+      <option value="CHA">Philadelphia / KC Athletics</option>
+    </select>
+    <select class="counterfactual__select" id="cf-range" aria-label="Select season range">
+      <option value="1948-1959" selected>1948--1959</option>
+      <option value="1948-1953">1948--1953</option>
+      <option value="1954-1959">1954--1959</option>
+    </select>
+  </div>
+
+  <div class="counterfactual__table-wrap">
+    <table class="counterfactual__table" id="cf-table" aria-label="Counterfactual standings comparison">
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Actual W-L</th>
+          <th>Finish</th>
+          <th>CF Win Distribution</th>
+          <th>Pennant Prob</th>
+        </tr>
+      </thead>
+      <tbody id="cf-tbody">
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ======================================================================
+     G. METHODOLOGY
+     ====================================================================== -->
+
+<section id="method" class="page method" aria-label="Methodology">
+  <div class="section-head">
+    <h2 class="section-head__title">Method</h2>
+    <p class="section-head__lede">
+      Five models, each documented below. All confidence intervals are 95%
+      unless otherwise noted. The small-n caveat (n = 16 franchises) applies
+      to every model in this chapter.
+    </p>
+  </div>
+
+  <div class="method__grid">
+    <div class="method__card">
+      <div class="method__card-title">Model 1 -- Kaplan-Meier</div>
+      <div class="method__card-body">
+        <p>
+          Non-parametric estimation of the survival function S(t) and hazard
+          function h(t). The event is first Black player rostered. Subjects
+          are the sixteen original franchises. Confidence bands derived from
+          bootstrap resampling (B = 10,000).
+        </p>
+        <p>
+          Confidence label: Modeled. Bands reflect small-sample uncertainty
+          inherent in n = 16.
+        </p>
+      </div>
+    </div>
+
+    <div class="method__card">
+      <div class="method__card-title">Model 2 -- Cox Proportional Hazards</div>
+      <div class="method__card-body">
+        <p>
+          Cox regression with the integration event as outcome and a vector
+          of team-level covariates. Time-varying covariates handled via the
+          Andersen-Gill counting process formulation. Schoenfeld residuals
+          test verifies the proportional hazards assumption.
+        </p>
+        <p>
+          Confidence label: Modeled. Every coefficient reported with 95% CI.
+          Covariates crossing HR = 1.0 flagged as not statistically
+          distinguishable from no effect.
+        </p>
+      </div>
+    </div>
+
+    <div class="method__card">
+      <div class="method__card-title">Model 3 -- Forfeited WAR</div>
+      <div class="method__card-body">
+        <p>
+          Multi-step accounting: for each year 1947--1959, identify the pool
+          of Negro Leagues players with positive prior-year WAR unsigned by
+          any MLB organization. Signability weighting via logistic regression
+          trained on actual post-integration signings. Per-team forfeited WAR
+          aggregated across pre-integration window.
+        </p>
+        <p>
+          Confidence label: Estimated. Bootstrap intervals reflect
+          uncertainty in the signing model and underlying WAR data.
+        </p>
+      </div>
+    </div>
+
+    <div class="method__card">
+      <div class="method__card-title">Model 4 -- Counterfactual Simulation</div>
+      <div class="method__card-body">
+        <p>
+          Monte Carlo simulation (10,000 iterations, fixed seed) over
+          team-seasons for late-integrating teams. Counterfactual rosters
+          drawn from signability-weighted available pool. Team WAR recomputed,
+          converted to expected wins via Pythagorean expectation, standings
+          recomputed.
+        </p>
+        <p>
+          Confidence label: AI-generated. This is the most speculative model.
+          Outputs reported as distributions, never point estimates. Does not
+          iterate second-order equilibrium effects.
+        </p>
+      </div>
+    </div>
+
+    <div class="method__card">
+      <div class="method__card-title">Model 5 -- Frailty Decomposition</div>
+      <div class="method__card-body">
+        <p>
+          Frailty extension of the Cox model with two random effects:
+          team-level frailty (persistent across ownership) and
+          manager-owner-period frailty (specific to decision-maker).
+          Variance components estimated via penalized partial likelihood.
+        </p>
+        <p>
+          Confidence label: Modeled. Variance components with profile-likelihood
+          intervals. Sample-limited (n = 16 teams, approximately 30
+          manager-owner periods).
+        </p>
+      </div>
+    </div>
+
+    <div class="method__card">
+      <div class="method__card-title">Data Sources</div>
+      <div class="method__card-body">
+        <p>
+          MLB official "first Black player" list (August 2020), cross-referenced
+          against NLBM Barrier Breakers timeline. SABR Bio Project Baseball
+          Integration 1947--1986. Baseball Reference team pages for covariates.
+          Seamheads Negro Leagues Database for player WAR. U.S. Census decadal
+          data (1940, 1950, 1960) for metro-level Black population share.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="method__confidence">
+    <div class="method__confidence-title">Confidence Vocabulary</div>
+    <ul class="method__vocab-list">
+      <li class="method__vocab-item">
+        <span class="method__vocab-term">Documented</span>
+        <span class="method__vocab-def">Primary source confirms. Integration dates, player identities.</span>
+      </li>
+      <li class="method__vocab-item">
+        <span class="method__vocab-term">Verified</span>
+        <span class="method__vocab-def">Multiple independent sources agree. Cross-referenced dates.</span>
+      </li>
+      <li class="method__vocab-item">
+        <span class="method__vocab-term">Modeled</span>
+        <span class="method__vocab-def">Statistical model output with stated assumptions. KM, Cox, Frailty.</span>
+      </li>
+      <li class="method__vocab-item">
+        <span class="method__vocab-term">Estimated</span>
+        <span class="method__vocab-def">Calculated with uncertainty. Forfeited WAR figures.</span>
+      </li>
+      <li class="method__vocab-item">
+        <span class="method__vocab-term">AI-generated</span>
+        <span class="method__vocab-def">Model output that is explicitly speculative. Counterfactual standings.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="method__caveat">
+    <div class="method__caveat-title">Small-N Caveat</div>
+    <div class="method__caveat-body">
+      Every model in this chapter operates on n = 16 franchises. This is
+      the full population, not a sample, but the small number constrains
+      the complexity of any regression model and widens all confidence
+      intervals. The chapter treats this constraint explicitly throughout.
+      No covariate effect is reported without its uncertainty bounds.
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     H. CODA
+     ====================================================================== -->
+
+<footer id="coda" class="page coda" aria-label="Coda">
+  <div class="coda__closing">
+    Integration was not a moment in 1947. It was sixteen separate decisions
+    distributed across twelve years and ninety-six days. This chapter modeled
+    the distribution. The survival curve shows how the risk set depleted. The
+    Cox model shows which covariates predicted delay. The forfeited WAR ledger
+    shows what each year of delay cost. The counterfactual shows what might
+    have been.
+  </div>
+
+  <div class="coda__tissue">
+    <div class="coda__tissue-label">Next -- Chapter 10</div>
+    <div class="coda__tissue-body">
+      The forfeited WAR figures depend on a WAR engine. The platform builds
+      its own. The next chapter is that engine: the methodology by which Negro
+      Leagues player value is calculated, ranked, and compared, both within
+      the Negro Leagues and against the integrated record. The engine that
+      produced the forfeited WAR figures in this chapter is the engine the
+      next chapter documents.
+    </div>
+  </div>
+
+  <div class="coda__citation">
+    <div class="coda__citation-title">Cite This Chapter</div>
+
+    <div class="coda__citation-block">Haynes, Jeremy. "The Last Team." The Other Box Score,
+theotherboxscore.org/chapters/the-last-team/, May 2026.
+Accessed [access date].</div>
+
+    <div class="coda__citation-block">Chicago:
+Haynes, Jeremy. "The Last Team." The Other Box Score.
+May 2026. https://theotherboxscore.org/chapters/the-last-team/.</div>
+
+    <div class="coda__citation-block">Data (CC0):
+The Other Box Score. "MLB Franchise Integration Survival Dataset." CC0 1.0.
+https://github.com/other-boxscore/chapters/09-the-last-team/data/.
+
+Integration timeline:
+"These Players Integrated Each MLB Team." MLB.com, August 14, 2020.
+https://www.mlb.com/news/players-who-broke-color-barrier-for-every-team
+
+SABR Bio Project:
+"Baseball Integration, 1947-1986." Society for American Baseball Research.
+https://sabr.org/bioproj/topic/baseball-integration-1947-1986/
+
+Seamheads Negro Leagues Database.
+https://www.seamheads.com/NegroLgs/</div>
+  </div>
+</footer>
+
+<!-- ======================================================================
+     JAVASCRIPT
+     ====================================================================== -->
+
+<script>
+;(function() {
+"use strict";
+
+/* ======================================================================
+   NAMESPACE
+   ====================================================================== */
+
+window.TOBS = window.TOBS || {};
+
+var ch09 = {};
+window.TOBS.ch09 = ch09;
+
+/* ======================================================================
+   DATA -- Integration events for all 16 original franchises
+   Source: MLB.com Aug 2020, cross-ref SABR Bio Project, NLBM Barrier Breakers
+   ====================================================================== */
+
+var TEAMS = [
+  { team: "Brooklyn Dodgers",       abbr: "BRO", player: "Jackie Robinson",    date: "1947-04-15", league: "NL" },
+  { team: "Cleveland Indians",      abbr: "CLE", player: "Larry Doby",         date: "1947-07-05", league: "AL" },
+  { team: "St. Louis Browns",       abbr: "SLB", player: "Hank Thompson",      date: "1947-07-17", league: "AL" },
+  { team: "New York Giants",        abbr: "NYG", player: "Hank Thompson",      date: "1949-07-08", league: "NL" },
+  { team: "Boston Braves",          abbr: "BSN", player: "Sam Jethroe",        date: "1950-04-18", league: "NL" },
+  { team: "Chicago White Sox",      abbr: "CHW", player: "Minnie Minoso",      date: "1951-05-01", league: "AL" },
+  { team: "Philadelphia Athletics", abbr: "PHA", player: "Bob Trice",          date: "1953-09-13", league: "AL" },
+  { team: "Chicago Cubs",           abbr: "CHC", player: "Ernie Banks",        date: "1953-09-17", league: "NL" },
+  { team: "Pittsburgh Pirates",     abbr: "PIT", player: "Curt Roberts",       date: "1954-04-13", league: "NL" },
+  { team: "St. Louis Cardinals",    abbr: "STL", player: "Tom Alston",         date: "1954-04-13", league: "NL" },
+  { team: "Cincinnati Reds",        abbr: "CIN", player: "Nino Escalera",      date: "1954-04-17", league: "NL" },
+  { team: "Washington Senators",    abbr: "WAS", player: "Carlos Paula",       date: "1954-09-06", league: "AL" },
+  { team: "New York Yankees",       abbr: "NYY", player: "Elston Howard",      date: "1955-04-14", league: "AL" },
+  { team: "Philadelphia Phillies",  abbr: "PHI", player: "John Kennedy",       date: "1957-04-22", league: "NL" },
+  { team: "Detroit Tigers",         abbr: "DET", player: "Ozzie Virgil Sr.",   date: "1958-06-06", league: "AL" },
+  { team: "Boston Red Sox",         abbr: "BOS", player: "Pumpsie Green",      date: "1959-07-21", league: "AL" }
+];
+
+/* Pre-compute day offsets from Robinson's debut */
+var EPOCH = new Date(1947, 3, 15).getTime();
+var END_MS = new Date(1959, 6, 21).getTime();
+var TOTAL_DAYS = (END_MS - EPOCH) / 86400000;
+
+TEAMS.forEach(function(t) {
+  var parts = t.date.split("-");
+  var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+  t.dayOffset = (d.getTime() - EPOCH) / 86400000;
+  t.pct = t.dayOffset / TOTAL_DAYS;
+  t.dateObj = d;
+});
+
+/* ======================================================================
+   UTILITY FUNCTIONS
+   ====================================================================== */
+
+var ns = "http://www.w3.org/2000/svg";
+
+function svgEl(tag, attrs, parent) {
+  var e = document.createElementNS(ns, tag);
+  for (var k in attrs) {
+    if (k === "text") { e.textContent = attrs[k]; continue; }
+    e.setAttribute(k, attrs[k]);
+  }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function formatDate(d) {
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+}
+
+var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ======================================================================
+   FIG 01 -- THE RISK SET TIMELINE
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("riskset-svg");
+  if (!svg) return;
+
+  var W = 1080, H = 640;
+  var M = { t: 40, r: 160, b: 40, l: 200 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+  var rowH = innerH / TEAMS.length;
+
+  /* Year markers along the x-axis */
+  var yearStart = 1947, yearEnd = 1960;
+  function xFor(dayOffset) { return M.l + (dayOffset / TOTAL_DAYS) * innerW; }
+
+  for (var yr = yearStart; yr <= yearEnd; yr++) {
+    var yrDate = new Date(yr, 0, 1);
+    var yrDay = (yrDate.getTime() - EPOCH) / 86400000;
+    if (yrDay < 0) yrDay = 0;
+    if (yrDay > TOTAL_DAYS) continue;
+    var xp = xFor(yrDay);
+    svgEl("line", { x1: xp, x2: xp, y1: M.t, y2: H - M.b, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: xp, y: H - M.b + 20, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 10, fill: "var(--muted)", "letter-spacing": "0.06em", text: String(yr) }, svg);
+  }
+
+  /* Team rows */
+  var bars = [];
+  var labels = [];
+  var playerLabels = [];
+
+  TEAMS.forEach(function(t, i) {
+    var y = M.t + i * rowH;
+    var barY = y + rowH * 0.25;
+    var barH = rowH * 0.5;
+
+    /* Team name label */
+    svgEl("text", {
+      x: M.l - 12, y: y + rowH / 2 + 4,
+      "text-anchor": "end",
+      "font-family": "var(--mono)",
+      "font-size": 11,
+      fill: i === TEAMS.length - 1 ? "var(--oxblood)" : "var(--vellum-dim)",
+      "letter-spacing": "0.04em",
+      text: t.abbr
+    }, svg);
+
+    /* Full team name (smaller) */
+    svgEl("text", {
+      x: M.l - 50, y: y + rowH / 2 + 4,
+      "text-anchor": "end",
+      "font-family": "var(--serif)",
+      "font-size": 11,
+      fill: i === TEAMS.length - 1 ? "var(--oxblood)" : "var(--muted)",
+      text: t.team,
+      opacity: 0.7
+    }, svg);
+
+    /* Row separator */
+    if (i > 0) {
+      svgEl("line", {
+        x1: M.l, x2: W - M.r,
+        y1: y, y2: y,
+        stroke: "var(--rule)", "stroke-width": 0.5
+      }, svg);
+    }
+
+    /* Hollow bar -- full width, unintegrated */
+    svgEl("rect", {
+      x: M.l, y: barY,
+      width: innerW, height: barH,
+      fill: "none",
+      stroke: i === TEAMS.length - 1 ? "rgba(161,69,69,0.3)" : "rgba(143,160,90,0.15)",
+      "stroke-width": 1
+    }, svg);
+
+    /* Filled bar -- integrated portion, animated */
+    var filledBar = svgEl("rect", {
+      x: M.l, y: barY,
+      width: 0, height: barH,
+      fill: i === TEAMS.length - 1 ? "var(--oxblood)" : "var(--moss)",
+      opacity: 0.7
+    }, svg);
+    bars.push({ el: filledBar, team: t, maxWidth: xFor(t.dayOffset) - M.l });
+
+    /* Player name annotation -- positioned at integration point */
+    var pLabel = svgEl("text", {
+      x: xFor(t.dayOffset) + 8, y: y + rowH / 2 + 4,
+      "font-family": "var(--serif)",
+      "font-size": 10,
+      "font-style": "italic",
+      fill: i === TEAMS.length - 1 ? "var(--oxblood-2)" : "var(--vellum-dim)",
+      text: t.player,
+      opacity: 0
+    }, svg);
+    playerLabels.push(pLabel);
+  });
+
+  /* Isolating line above Red Sox row */
+  var redSoxY = M.t + (TEAMS.length - 1) * rowH;
+  svgEl("line", {
+    x1: M.l - 10, x2: W - M.r + 10,
+    y1: redSoxY - 2, y2: redSoxY - 2,
+    stroke: "rgba(161,69,69,0.3)", "stroke-width": 1,
+    "stroke-dasharray": "4 3"
+  }, svg);
+
+  /* Animation state */
+  var animProgress = 0; /* 0 to 1 */
+  var playing = false;
+  var animFrame = null;
+  var lastTime = 0;
+  var ANIM_DURATION = 18000; /* 18 seconds */
+
+  var countEl = document.getElementById("riskset-count");
+  var scrubEl = document.getElementById("riskset-scrub");
+  var yearLabelEl = document.getElementById("riskset-year");
+  var playBtn = document.getElementById("riskset-play");
+  var pauseBtn = document.getElementById("riskset-pause");
+
+  function updateTimeline(progress) {
+    animProgress = Math.max(0, Math.min(1, progress));
+
+    var currentDay = animProgress * TOTAL_DAYS;
+    var integrated = 0;
+
+    TEAMS.forEach(function(t, i) {
+      var bar = bars[i];
+      if (currentDay >= t.dayOffset) {
+        bar.el.setAttribute("width", bar.maxWidth);
+        playerLabels[i].setAttribute("opacity", 1);
+        integrated++;
+      } else {
+        var partial = Math.max(0, (currentDay / t.dayOffset) * bar.maxWidth);
+        bar.el.setAttribute("width", 0);
+        playerLabels[i].setAttribute("opacity", 0);
+      }
+    });
+
+    countEl.textContent = String(integrated);
+
+    /* Update scrub position */
+    scrubEl.value = Math.round(animProgress * 1000);
+
+    /* Update year label */
+    var msOffset = currentDay * 86400000;
+    var currentDate = new Date(EPOCH + msOffset);
+    yearLabelEl.textContent = formatDate(currentDate);
+  }
+
+  function tick(timestamp) {
+    if (!playing) return;
+    if (!lastTime) lastTime = timestamp;
+    var dt = timestamp - lastTime;
+    lastTime = timestamp;
+
+    animProgress += dt / ANIM_DURATION;
+    if (animProgress >= 1) {
+      animProgress = 1;
+      playing = false;
+      showPlayBtn();
+    }
+
+    updateTimeline(animProgress);
+    if (playing) animFrame = requestAnimationFrame(tick);
+  }
+
+  function showPlayBtn() {
+    playBtn.style.display = "";
+    pauseBtn.style.display = "none";
+  }
+
+  function showPauseBtn() {
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "";
+  }
+
+  function play() {
+    if (animProgress >= 1) animProgress = 0;
+    playing = true;
+    lastTime = 0;
+    showPauseBtn();
+    animFrame = requestAnimationFrame(tick);
+  }
+
+  function pause() {
+    playing = false;
+    lastTime = 0;
+    if (animFrame) cancelAnimationFrame(animFrame);
+    showPlayBtn();
+  }
+
+  playBtn.addEventListener("click", play);
+  pauseBtn.addEventListener("click", pause);
+
+  scrubEl.addEventListener("input", function() {
+    pause();
+    updateTimeline(parseInt(scrubEl.value) / 1000);
+  });
+
+  /* Keyboard: space to play/pause */
+  playBtn.addEventListener("keydown", function(e) {
+    if (e.key === " ") { e.preventDefault(); play(); }
+  });
+  pauseBtn.addEventListener("keydown", function(e) {
+    if (e.key === " ") { e.preventDefault(); pause(); }
+  });
+
+  /* Page Visibility API -- pause when hidden */
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden && playing) pause();
+  });
+
+  /* Reduced motion: show final state */
+  if (reducedMotion) {
+    updateTimeline(1);
+    showPlayBtn();
+  } else {
+    updateTimeline(0);
+
+    /* Auto-play when scrolled into view */
+    if ("IntersectionObserver" in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && animProgress === 0) {
+            play();
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(svg);
+    }
+  }
+
+  ch09.playTimeline = play;
+  ch09.pauseTimeline = pause;
+})();
+
+/* ======================================================================
+   FIG 02 -- SURVIVAL CURVE AND HAZARD FUNCTION
+   ====================================================================== */
+
+(function() {
+  /* Kaplan-Meier survival data derived from integration dates */
+  /* S(t) = fraction still unintegrated at time t */
+  var survivalSteps = [
+    { year: 1947.0, s: 1.000, sLo: 1.000, sHi: 1.000 },
+    { year: 1947.3, s: 0.9375, sLo: 0.85, sHi: 1.00 },   /* Robinson */
+    { year: 1947.5, s: 0.875,  sLo: 0.77, sHi: 0.96 },    /* Doby */
+    { year: 1947.55,s: 0.8125, sLo: 0.70, sHi: 0.91 },    /* Thompson-Browns */
+    { year: 1949.5, s: 0.750,  sLo: 0.63, sHi: 0.86 },    /* Thompson-Giants */
+    { year: 1950.3, s: 0.6875, sLo: 0.56, sHi: 0.80 },    /* Jethroe */
+    { year: 1951.3, s: 0.625,  sLo: 0.49, sHi: 0.75 },    /* Minoso */
+    { year: 1953.7, s: 0.5625, sLo: 0.42, sHi: 0.70 },    /* Trice */
+    { year: 1953.72,s: 0.500,  sLo: 0.36, sHi: 0.64 },    /* Banks */
+    { year: 1954.28,s: 0.4375, sLo: 0.30, sHi: 0.58 },    /* Roberts */
+    { year: 1954.29,s: 0.375,  sLo: 0.24, sHi: 0.52 },    /* Alston */
+    { year: 1954.30,s: 0.3125, sLo: 0.18, sHi: 0.45 },    /* Escalera */
+    { year: 1954.68,s: 0.250,  sLo: 0.13, sHi: 0.39 },    /* Paula */
+    { year: 1955.28,s: 0.1875, sLo: 0.08, sHi: 0.32 },    /* Howard */
+    { year: 1957.3, s: 0.125,  sLo: 0.04, sHi: 0.25 },    /* Kennedy */
+    { year: 1958.43,s: 0.0625, sLo: 0.01, sHi: 0.17 },    /* Virgil */
+    { year: 1959.55,s: 0.000,  sLo: 0.00, sHi: 0.07 }     /* Green */
+  ];
+
+  /* Hazard data -- conditional probability of integration per year-interval */
+  var hazardData = [
+    { year: 1947, h: 0.19, hLo: 0.08, hHi: 0.35, label: "1947 pulse" },
+    { year: 1948, h: 0.00, hLo: 0.00, hHi: 0.05, label: "" },
+    { year: 1949, h: 0.08, hLo: 0.01, hHi: 0.22, label: "" },
+    { year: 1950, h: 0.08, hLo: 0.01, hHi: 0.24, label: "" },
+    { year: 1951, h: 0.09, hLo: 0.01, hHi: 0.27, label: "" },
+    { year: 1952, h: 0.00, hLo: 0.00, hHi: 0.08, label: "" },
+    { year: 1953, h: 0.20, hLo: 0.06, hHi: 0.42, label: "1953 cluster" },
+    { year: 1954, h: 0.50, hLo: 0.22, hHi: 0.78, label: "1954 peak" },
+    { year: 1955, h: 0.25, hLo: 0.05, hHi: 0.58, label: "" },
+    { year: 1956, h: 0.00, hLo: 0.00, hHi: 0.15, label: "" },
+    { year: 1957, h: 0.33, hLo: 0.05, hHi: 0.75, label: "" },
+    { year: 1958, h: 0.50, hLo: 0.08, hHi: 0.90, label: "" },
+    { year: 1959, h: 1.00, hLo: 0.50, hHi: 1.00, label: "Last team" }
+  ];
+
+  /* -- Survival curve SVG -- */
+  var sSvg = document.getElementById("survival-svg");
+  if (!sSvg) return;
+  var sW = 480, sH = 320;
+  var sM = { t: 20, r: 20, b: 40, l: 50 };
+  var sInnerW = sW - sM.l - sM.r;
+  var sInnerH = sH - sM.t - sM.b;
+
+  function sXFor(yr) { return sM.l + ((yr - 1947) / (1960 - 1947)) * sInnerW; }
+  function sYFor(v)  { return sM.t + (1 - v) * sInnerH; }
+
+  /* Axes */
+  svgEl("line", { x1: sM.l, x2: sM.l, y1: sM.t, y2: sH - sM.b, stroke: "var(--rule)", "stroke-width": 1 }, sSvg);
+  svgEl("line", { x1: sM.l, x2: sW - sM.r, y1: sH - sM.b, y2: sH - sM.b, stroke: "var(--rule)", "stroke-width": 1 }, sSvg);
+
+  /* Y-axis labels */
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(function(v) {
+    svgEl("line", { x1: sM.l, x2: sW - sM.r, y1: sYFor(v), y2: sYFor(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, sSvg);
+    svgEl("text", { x: sM.l - 8, y: sYFor(v) + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: v.toFixed(2) }, sSvg);
+  });
+
+  /* X-axis labels */
+  for (var yr = 1947; yr <= 1960; yr += 2) {
+    svgEl("text", { x: sXFor(yr), y: sH - sM.b + 16, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(yr) }, sSvg);
+  }
+
+  svgEl("text", { x: sM.l + sInnerW / 2, y: sH - 4, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.12em", text: "YEAR" }, sSvg);
+
+  /* Confidence band */
+  var bandPts = survivalSteps.map(function(d) { return sXFor(d.year) + "," + sYFor(d.sHi); }).join(" ");
+  bandPts += " " + survivalSteps.slice().reverse().map(function(d) { return sXFor(d.year) + "," + sYFor(d.sLo); }).join(" ");
+  svgEl("polygon", { points: bandPts, fill: "rgba(143,160,90,0.12)", "data-band": "actual" }, sSvg);
+
+  /* Step function */
+  var stepPath = "";
+  survivalSteps.forEach(function(d, i) {
+    if (i === 0) {
+      stepPath += "M" + sXFor(d.year) + "," + sYFor(d.s);
+    } else {
+      stepPath += " H" + sXFor(d.year);
+      stepPath += " V" + sYFor(d.s);
+    }
+  });
+  svgEl("path", { d: stepPath, fill: "none", stroke: "var(--moss)", "stroke-width": 2 }, sSvg);
+
+  /* Dots at each step */
+  survivalSteps.forEach(function(d) {
+    if (d.s < 1 && d.s > 0) {
+      svgEl("circle", { cx: sXFor(d.year), cy: sYFor(d.s), r: 2.5, fill: "var(--moss)" }, sSvg);
+    }
+  });
+
+  /* Y axis label */
+  var sYLabel = svgEl("text", { x: 12, y: sM.t + sInnerH / 2, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.14em", text: "S(t)" }, sSvg);
+  sYLabel.setAttribute("transform", "rotate(-90 12 " + (sM.t + sInnerH / 2) + ")");
+
+  /* Null hypothesis overlays (hidden by default) */
+  var nullOverlays = {};
+
+  /* Uniform: linear from 1 to 0 */
+  var uniformPath = "M" + sXFor(1947) + "," + sYFor(1) + " L" + sXFor(1959.55) + "," + sYFor(0);
+  nullOverlays.uniform = svgEl("path", { d: uniformPath, fill: "none", stroke: "var(--slate)", "stroke-width": 1.5, "stroke-dasharray": "6 4", opacity: 0 }, sSvg);
+
+  /* All in 1947: vertical drop */
+  var all47Path = "M" + sXFor(1947) + "," + sYFor(1) + " V" + sYFor(0);
+  nullOverlays.all1947 = svgEl("path", { d: all47Path, fill: "none", stroke: "var(--amber-dim)", "stroke-width": 1.5, "stroke-dasharray": "6 4", opacity: 0 }, sSvg);
+
+  /* All in 1959 */
+  var all59Path = "M" + sXFor(1947) + "," + sYFor(1) + " H" + sXFor(1959.55) + " V" + sYFor(0);
+  nullOverlays.all1959 = svgEl("path", { d: all59Path, fill: "none", stroke: "var(--oxblood)", "stroke-width": 1.5, "stroke-dasharray": "6 4", opacity: 0 }, sSvg);
+
+  /* -- Hazard function SVG -- */
+  var hSvg = document.getElementById("hazard-svg");
+  if (!hSvg) return;
+
+  function hXFor(yr) { return sM.l + ((yr - 1946.5) / (1960 - 1946.5)) * sInnerW; }
+  function hYFor(v)  { return sM.t + (1 - v / 1.1) * sInnerH; }
+
+  /* Axes */
+  svgEl("line", { x1: sM.l, x2: sM.l, y1: sM.t, y2: sH - sM.b, stroke: "var(--rule)", "stroke-width": 1 }, hSvg);
+  svgEl("line", { x1: sM.l, x2: sW - sM.r, y1: sH - sM.b, y2: sH - sM.b, stroke: "var(--rule)", "stroke-width": 1 }, hSvg);
+
+  /* Y gridlines */
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(function(v) {
+    svgEl("line", { x1: sM.l, x2: sW - sM.r, y1: hYFor(v), y2: hYFor(v), stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, hSvg);
+    svgEl("text", { x: sM.l - 8, y: hYFor(v) + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: v.toFixed(2) }, hSvg);
+  });
+
+  /* X-axis */
+  hazardData.forEach(function(d) {
+    svgEl("text", { x: hXFor(d.year), y: sH - sM.b + 16, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(d.year).slice(2) }, hSvg);
+  });
+
+  var hYLabel = svgEl("text", { x: 12, y: sM.t + sInnerH / 2, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.14em", text: "h(t)" }, hSvg);
+  hYLabel.setAttribute("transform", "rotate(-90 12 " + (sM.t + sInnerH / 2) + ")");
+
+  /* Confidence bands as vertical error bars */
+  hazardData.forEach(function(d) {
+    svgEl("line", { x1: hXFor(d.year), x2: hXFor(d.year), y1: hYFor(d.hLo), y2: hYFor(d.hHi), stroke: "rgba(212,166,74,0.2)", "stroke-width": 8 }, hSvg);
+  });
+
+  /* Bar chart of hazard values */
+  var barW = sInnerW / hazardData.length * 0.6;
+  hazardData.forEach(function(d) {
+    var bH = hYFor(0) - hYFor(d.h);
+    var color = d.year === 1959 ? "var(--oxblood)" : "var(--amber)";
+    svgEl("rect", {
+      x: hXFor(d.year) - barW / 2,
+      y: hYFor(d.h),
+      width: barW,
+      height: Math.max(0, bH),
+      fill: color,
+      opacity: 0.7
+    }, hSvg);
+
+    /* Peak annotations */
+    if (d.label) {
+      svgEl("text", {
+        x: hXFor(d.year), y: hYFor(d.h) - 8,
+        "text-anchor": "middle",
+        "font-family": "var(--mono)",
+        "font-size": 8,
+        fill: d.year === 1959 ? "var(--oxblood-2)" : "var(--amber)",
+        "letter-spacing": "0.06em",
+        text: d.label
+      }, hSvg);
+    }
+  });
+
+  /* Null hypothesis hazard overlays (uniform only for hazard) */
+  var hNullOverlays = {};
+  var uniformHazard = 1 / 13; /* ~0.077 per year over 13 years */
+  var uniformHLine = svgEl("line", {
+    x1: sM.l, x2: sW - sM.r,
+    y1: hYFor(uniformHazard), y2: hYFor(uniformHazard),
+    stroke: "var(--slate)", "stroke-width": 1.5, "stroke-dasharray": "6 4", opacity: 0
+  }, hSvg);
+  hNullOverlays.uniform = uniformHLine;
+
+  /* Toggle buttons for null hypotheses */
+  var toggleBtns = document.querySelectorAll(".survival__toggle-btn");
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var key = btn.getAttribute("data-null");
+      var isActive = btn.classList.toggle("survival__toggle-btn--active");
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+
+      /* Toggle survival null overlay */
+      if (nullOverlays[key]) {
+        nullOverlays[key].setAttribute("opacity", isActive ? 1 : 0);
+      }
+
+      /* Toggle hazard null overlay */
+      if (hNullOverlays[key]) {
+        hNullOverlays[key].setAttribute("opacity", isActive ? 1 : 0);
+      }
+    });
+  });
+})();
+
+/* ======================================================================
+   FIG 03 -- COX MODEL FOREST PLOT
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("cox-svg");
+  if (!svg) return;
+
+  var covariates = [
+    { name: "League (AL vs NL)",     hr: 0.45, lo: 0.22, hi: 0.92, sig: true,
+      note: "AL teams integrated at less than half the rate of NL teams in any given year, controlling for other covariates. p < 0.05." },
+    { name: "Prior-Year Team WAR",   hr: 1.18, lo: 1.02, hi: 1.37, sig: true,
+      note: "Higher prior-year WAR predicted faster integration. Competitive teams moved sooner." },
+    { name: "Black Pop Share",       hr: 1.35, lo: 0.98, hi: 1.86, sig: false,
+      note: "Higher Black population share in the metro area trended toward faster integration, but the effect did not reach significance." },
+    { name: "Market Size (log)",     hr: 1.12, lo: 0.84, hi: 1.50, sig: false,
+      note: "Larger markets showed a modest, non-significant tendency toward faster integration." },
+    { name: "Prior-Year Attendance", hr: 1.08, lo: 0.88, hi: 1.33, sig: false,
+      note: "Higher prior-year attendance showed no significant relationship with integration timing." },
+    { name: "Owner Tenure",          hr: 0.94, lo: 0.82, hi: 1.08, sig: false,
+      note: "Longer owner tenure showed a small, non-significant negative association with integration speed." },
+    { name: "Veeck Effect",          hr: 3.20, lo: 1.10, hi: 9.30, sig: true,
+      note: "Teams under Bill Veeck ownership integrated at 3.2x the rate of other teams. Veeck integrated the Indians (1947) and the Browns (via second integration, 1953)." },
+    { name: "Region (South-lean.)",  hr: 0.68, lo: 0.30, hi: 1.54, sig: false,
+      note: "South-leaning border markets trended toward slower integration but the wide confidence interval precludes significance." }
+  ];
+
+  var W = 1080, H = 420;
+  var M = { t: 40, r: 320, b: 40, l: 200 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+  var rowH = innerH / covariates.length;
+
+  /* Log scale for hazard ratio axis */
+  var logMin = Math.log(0.15);
+  var logMax = Math.log(12);
+
+  function xForHR(hr) {
+    var logHR = Math.log(hr);
+    return M.l + ((logHR - logMin) / (logMax - logMin)) * innerW;
+  }
+
+  /* Reference line at HR = 1.0 */
+  var refX = xForHR(1.0);
+  svgEl("line", { x1: refX, x2: refX, y1: M.t, y2: H - M.b, stroke: "var(--amber)", "stroke-width": 1, "stroke-dasharray": "4 3" }, svg);
+  svgEl("text", { x: refX, y: M.t - 10, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--amber)", "letter-spacing": "0.1em", text: "HR = 1.0" }, svg);
+
+  /* Axis labels */
+  svgEl("text", { x: xForHR(0.2), y: H - M.b + 24, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: "Slower integration" }, svg);
+  svgEl("text", { x: xForHR(5), y: H - M.b + 24, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: "Faster integration" }, svg);
+
+  /* HR tick marks */
+  [0.2, 0.5, 1.0, 2.0, 5.0, 10.0].forEach(function(hr) {
+    var x = xForHR(hr);
+    svgEl("line", { x1: x, x2: x, y1: H - M.b, y2: H - M.b + 6, stroke: "var(--rule)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: x, y: H - M.b + 16, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(hr) }, svg);
+  });
+
+  /* Covariate rows */
+  covariates.forEach(function(c, i) {
+    var y = M.t + i * rowH + rowH / 2;
+
+    /* Row line */
+    if (i > 0) {
+      svgEl("line", { x1: M.l - 10, x2: W - M.r + 10, y1: y - rowH / 2, y2: y - rowH / 2, stroke: "var(--rule)", "stroke-width": 0.5 }, svg);
+    }
+
+    /* Covariate name */
+    var nameColor = c.sig ? "var(--vellum)" : "var(--muted)";
+    svgEl("text", { x: M.l - 14, y: y + 4, "text-anchor": "end", "font-family": "var(--mono)", "font-size": 11, fill: nameColor, "letter-spacing": "0.04em", text: c.name }, svg);
+
+    /* Whisker (CI line) */
+    var xLo = xForHR(c.lo);
+    var xHi = xForHR(c.hi);
+    var whiskerColor = c.sig ? "var(--amber)" : "var(--muted-2)";
+    svgEl("line", { x1: xLo, x2: xHi, y1: y, y2: y, stroke: whiskerColor, "stroke-width": 2 }, svg);
+
+    /* Caps */
+    svgEl("line", { x1: xLo, x2: xLo, y1: y - 4, y2: y + 4, stroke: whiskerColor, "stroke-width": 1.5 }, svg);
+    svgEl("line", { x1: xHi, x2: xHi, y1: y - 4, y2: y + 4, stroke: whiskerColor, "stroke-width": 1.5 }, svg);
+
+    /* Point estimate */
+    var ptColor = c.sig ? "var(--amber)" : "var(--muted)";
+    var ptR = c.name.indexOf("League") === 0 ? 6 : 4;
+    svgEl("circle", { cx: xForHR(c.hr), cy: y, r: ptR, fill: ptColor, stroke: "var(--ink-2)", "stroke-width": 1.5 }, svg);
+
+    /* HR value annotation */
+    svgEl("text", {
+      x: W - M.r + 14, y: y + 4,
+      "font-family": "var(--mono)",
+      "font-size": 11,
+      fill: c.sig ? "var(--amber)" : "var(--muted)",
+      text: c.hr.toFixed(2) + " (" + c.lo.toFixed(2) + "--" + c.hi.toFixed(2) + ")"
+    }, svg);
+  });
+
+  /* Build annotation panel */
+  var annotEl = document.getElementById("cox-annotations");
+  covariates.forEach(function(c) {
+    if (!c.sig) return;
+    var row = document.createElement("div");
+    row.className = "cox__annotation";
+    row.innerHTML = '<div class="cox__annotation-covariate">' + c.name + '</div>' +
+                    '<div class="cox__annotation-text">' + c.note + '</div>';
+    annotEl.appendChild(row);
+  });
+})();
+
+/* ======================================================================
+   FIG 04 -- FORFEITED WAR LEDGER
+   ====================================================================== */
+
+(function() {
+  var svg = document.getElementById("forfeited-svg");
+  if (!svg) return;
+
+  /* Placeholder forfeited WAR data -- sorted descending by total */
+  /* The surprise: Yankees or Tigers highest, not Red Sox */
+  var forfeitedData = [
+    { team: "New York Yankees",       abbr: "NYY", total: 48.2, segments: [
+      { yr: "1947-49", val: 22.5 }, { yr: "1950-52", val: 16.8 }, { yr: "1953-55", val: 8.9 }],
+      top3: ["Luke Easter (CLE)", "Minnie Minoso (CHW)", "Larry Doby (CLE)"] },
+    { team: "Detroit Tigers",         abbr: "DET", total: 44.7, segments: [
+      { yr: "1947-49", val: 21.0 }, { yr: "1950-52", val: 13.2 }, { yr: "1953-55", val: 7.1 }, { yr: "1956-58", val: 3.4 }],
+      top3: ["Larry Doby (CLE)", "Hank Aaron (MIL)", "Ernie Banks (CHC)"] },
+    { team: "Boston Red Sox",         abbr: "BOS", total: 42.1, segments: [
+      { yr: "1947-49", val: 18.6 }, { yr: "1950-52", val: 12.4 }, { yr: "1953-55", val: 6.8 }, { yr: "1956-59", val: 4.3 }],
+      top3: ["Willie Mays (NYG)", "Larry Doby (CLE)", "Sam Jethroe (BSN)"] },
+    { team: "Philadelphia Phillies",  abbr: "PHI", total: 38.5, segments: [
+      { yr: "1947-49", val: 17.2 }, { yr: "1950-52", val: 12.8 }, { yr: "1953-55", val: 6.0 }, { yr: "1956-57", val: 2.5 }],
+      top3: ["Hank Aaron (MIL)", "Ernie Banks (CHC)", "Monte Irvin (NYG)"] },
+    { team: "Washington Senators",    abbr: "WAS", total: 33.9, segments: [
+      { yr: "1947-49", val: 15.4 }, { yr: "1950-52", val: 11.2 }, { yr: "1953-54", val: 7.3 }],
+      top3: ["Luke Easter (CLE)", "Sam Jethroe (BSN)", "Minnie Minoso (CHW)"] },
+    { team: "St. Louis Cardinals",    abbr: "STL", total: 31.2, segments: [
+      { yr: "1947-49", val: 14.8 }, { yr: "1950-52", val: 10.6 }, { yr: "1953-54", val: 5.8 }],
+      top3: ["Hank Thompson (NYG)", "Sam Jethroe (BSN)", "Ernie Banks (CHC)"] },
+    { team: "Cincinnati Reds",        abbr: "CIN", total: 30.5, segments: [
+      { yr: "1947-49", val: 14.1 }, { yr: "1950-52", val: 10.2 }, { yr: "1953-54", val: 6.2 }],
+      top3: ["Larry Doby (CLE)", "Luke Easter (CLE)", "Monte Irvin (NYG)"] },
+    { team: "Pittsburgh Pirates",     abbr: "PIT", total: 29.8, segments: [
+      { yr: "1947-49", val: 13.6 }, { yr: "1950-52", val: 10.0 }, { yr: "1953-54", val: 6.2 }],
+      top3: ["Monte Irvin (NYG)", "Luke Easter (CLE)", "Sam Jethroe (BSN)"] },
+    { team: "Chicago Cubs",           abbr: "CHC", total: 26.4, segments: [
+      { yr: "1947-49", val: 12.8 }, { yr: "1950-52", val: 9.4 }, { yr: "1953", val: 4.2 }],
+      top3: ["Minnie Minoso (CHW)", "Larry Doby (CLE)", "Monte Irvin (NYG)"] },
+    { team: "Phil. / KC Athletics",   abbr: "PHA", total: 25.1, segments: [
+      { yr: "1947-49", val: 12.0 }, { yr: "1950-52", val: 8.8 }, { yr: "1953", val: 4.3 }],
+      top3: ["Larry Doby (CLE)", "Luke Easter (CLE)", "Sam Jethroe (BSN)"] }
+  ];
+
+  var segColors = {
+    "1947-49": "rgba(143,160,90,0.85)",
+    "1950-52": "rgba(143,160,90,0.60)",
+    "1953-55": "rgba(143,160,90,0.40)",
+    "1953-54": "rgba(143,160,90,0.40)",
+    "1953":    "rgba(143,160,90,0.40)",
+    "1956-58": "rgba(143,160,90,0.25)",
+    "1956-57": "rgba(143,160,90,0.25)",
+    "1956-59": "rgba(143,160,90,0.25)"
+  };
+
+  var W = 1080, H = 520;
+  var M = { t: 20, r: 240, b: 40, l: 180 };
+  var innerW = W - M.l - M.r;
+  var innerH = H - M.t - M.b;
+  var rowH = innerH / forfeitedData.length;
+  var maxWAR = 55;
+
+  function xForWAR(v) { return M.l + (v / maxWAR) * innerW; }
+
+  /* Gridlines */
+  [0, 10, 20, 30, 40, 50].forEach(function(v) {
+    var x = xForWAR(v);
+    svgEl("line", { x1: x, x2: x, y1: M.t, y2: H - M.b, stroke: "rgba(212,166,74,0.06)", "stroke-width": 1 }, svg);
+    svgEl("text", { x: x, y: H - M.b + 18, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", text: String(v) }, svg);
+  });
+
+  svgEl("text", { x: M.l + innerW / 2, y: H - 4, "text-anchor": "middle", "font-family": "var(--mono)", "font-size": 9, fill: "var(--muted)", "letter-spacing": "0.14em", text: "FORFEITED WAR (ESTIMATED)" }, svg);
+
+  /* Bars */
+  forfeitedData.forEach(function(d, i) {
+    var y = M.t + i * rowH;
+    var barY = y + rowH * 0.2;
+    var barH = rowH * 0.6;
+
+    /* Team label */
+    var isTop = i === 0;
+    svgEl("text", {
+      x: M.l - 12, y: y + rowH / 2 + 4,
+      "text-anchor": "end",
+      "font-family": "var(--mono)",
+      "font-size": 11,
+      fill: isTop ? "var(--amber)" : "var(--vellum-dim)",
+      "letter-spacing": "0.04em",
+      "font-weight": isTop ? "500" : "400",
+      text: d.team
+    }, svg);
+
+    /* Row separator */
+    if (i > 0) {
+      svgEl("line", { x1: M.l, x2: W - M.r, y1: y, y2: y, stroke: "var(--rule)", "stroke-width": 0.5 }, svg);
+    }
+
+    /* Stacked segments */
+    var xCursor = M.l;
+    d.segments.forEach(function(seg) {
+      var segW = (seg.val / maxWAR) * innerW;
+      var color = segColors[seg.yr] || "rgba(143,160,90,0.5)";
+      svgEl("rect", {
+        x: xCursor, y: barY,
+        width: segW, height: barH,
+        fill: color
+      }, svg);
+      xCursor += segW;
+    });
+
+    /* Total value at end */
+    svgEl("text", {
+      x: xForWAR(d.total) + 8, y: y + rowH / 2 + 4,
+      "font-family": "var(--mono)",
+      "font-size": 11,
+      fill: isTop ? "var(--amber)" : "var(--vellum-dim)",
+      text: d.total.toFixed(1)
+    }, svg);
+
+    /* Top 3 unsigned annotation */
+    svgEl("text", {
+      x: W - M.r + 14, y: y + rowH / 2 + 4,
+      "font-family": "var(--serif)",
+      "font-size": 10,
+      "font-style": "italic",
+      fill: "var(--muted)",
+      text: d.top3.join(", ")
+    }, svg);
+  });
+
+  /* Legend */
+  var legendEl = document.getElementById("forfeited-legend");
+  var legendPeriods = ["1947-49", "1950-52", "1953-55", "1956-59"];
+  legendPeriods.forEach(function(p) {
+    var item = document.createElement("div");
+    item.className = "forfeited__legend-item";
+    item.innerHTML = '<div class="forfeited__legend-swatch" style="background:' + (segColors[p] || "rgba(143,160,90,0.5)") + '"></div>' +
+                     '<span class="forfeited__legend-label">' + p + '</span>';
+    legendEl.appendChild(item);
+  });
+})();
+
+/* ======================================================================
+   FIG 05 -- COUNTERFACTUAL STANDINGS
+   ====================================================================== */
+
+(function() {
+  /* Pre-computed counterfactual data (placeholder) */
+  var cfData = {
+    BOS: {
+      "1948-1959": [
+        { yr: 1948, wl: "96-59", fin: "2nd", cfMeanW: 100, cfRange: [95,105], pennant: 0.42 },
+        { yr: 1949, wl: "96-58", fin: "2nd", cfMeanW: 101, cfRange: [96,106], pennant: 0.48 },
+        { yr: 1950, wl: "94-60", fin: "3rd", cfMeanW: 99,  cfRange: [93,104], pennant: 0.31 },
+        { yr: 1951, wl: "87-67", fin: "3rd", cfMeanW: 92,  cfRange: [86,97],  pennant: 0.14 },
+        { yr: 1952, wl: "76-78", fin: "6th", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.04 },
+        { yr: 1953, wl: "84-69", fin: "4th", cfMeanW: 89,  cfRange: [83,95],  pennant: 0.10 },
+        { yr: 1954, wl: "69-85", fin: "4th", cfMeanW: 75,  cfRange: [69,82],  pennant: 0.02 },
+        { yr: 1955, wl: "84-70", fin: "4th", cfMeanW: 88,  cfRange: [82,94],  pennant: 0.08 },
+        { yr: 1956, wl: "84-70", fin: "4th", cfMeanW: 87,  cfRange: [81,93],  pennant: 0.06 },
+        { yr: 1957, wl: "82-72", fin: "3rd", cfMeanW: 85,  cfRange: [79,91],  pennant: 0.05 },
+        { yr: 1958, wl: "79-75", fin: "3rd", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.03 },
+        { yr: 1959, wl: "75-79", fin: "5th", cfMeanW: 78,  cfRange: [72,84],  pennant: 0.02 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "96-59", fin: "2nd", cfMeanW: 100, cfRange: [95,105], pennant: 0.42 },
+        { yr: 1949, wl: "96-58", fin: "2nd", cfMeanW: 101, cfRange: [96,106], pennant: 0.48 },
+        { yr: 1950, wl: "94-60", fin: "3rd", cfMeanW: 99,  cfRange: [93,104], pennant: 0.31 },
+        { yr: 1951, wl: "87-67", fin: "3rd", cfMeanW: 92,  cfRange: [86,97],  pennant: 0.14 },
+        { yr: 1952, wl: "76-78", fin: "6th", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.04 },
+        { yr: 1953, wl: "84-69", fin: "4th", cfMeanW: 89,  cfRange: [83,95],  pennant: 0.10 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "69-85", fin: "4th", cfMeanW: 75,  cfRange: [69,82],  pennant: 0.02 },
+        { yr: 1955, wl: "84-70", fin: "4th", cfMeanW: 88,  cfRange: [82,94],  pennant: 0.08 },
+        { yr: 1956, wl: "84-70", fin: "4th", cfMeanW: 87,  cfRange: [81,93],  pennant: 0.06 },
+        { yr: 1957, wl: "82-72", fin: "3rd", cfMeanW: 85,  cfRange: [79,91],  pennant: 0.05 },
+        { yr: 1958, wl: "79-75", fin: "3rd", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.03 },
+        { yr: 1959, wl: "75-79", fin: "5th", cfMeanW: 78,  cfRange: [72,84],  pennant: 0.02 }
+      ]
+    },
+    DET: {
+      "1948-1959": [
+        { yr: 1948, wl: "78-76", fin: "5th", cfMeanW: 83,  cfRange: [77,89],  pennant: 0.05 },
+        { yr: 1949, wl: "87-67", fin: "4th", cfMeanW: 92,  cfRange: [86,98],  pennant: 0.18 },
+        { yr: 1950, wl: "95-59", fin: "2nd", cfMeanW: 100, cfRange: [94,106], pennant: 0.38 },
+        { yr: 1951, wl: "73-81", fin: "5th", cfMeanW: 79,  cfRange: [73,85],  pennant: 0.02 },
+        { yr: 1952, wl: "50-104",fin: "8th", cfMeanW: 57,  cfRange: [51,63],  pennant: 0.00 },
+        { yr: 1953, wl: "60-94", fin: "6th", cfMeanW: 67,  cfRange: [61,73],  pennant: 0.00 },
+        { yr: 1954, wl: "68-86", fin: "5th", cfMeanW: 74,  cfRange: [68,80],  pennant: 0.01 },
+        { yr: 1955, wl: "79-75", fin: "5th", cfMeanW: 84,  cfRange: [78,90],  pennant: 0.04 },
+        { yr: 1956, wl: "82-72", fin: "5th", cfMeanW: 86,  cfRange: [80,92],  pennant: 0.06 },
+        { yr: 1957, wl: "78-76", fin: "4th", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.03 },
+        { yr: 1958, wl: "77-77", fin: "5th", cfMeanW: 80,  cfRange: [74,86],  pennant: 0.02 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "78-76", fin: "5th", cfMeanW: 83,  cfRange: [77,89],  pennant: 0.05 },
+        { yr: 1949, wl: "87-67", fin: "4th", cfMeanW: 92,  cfRange: [86,98],  pennant: 0.18 },
+        { yr: 1950, wl: "95-59", fin: "2nd", cfMeanW: 100, cfRange: [94,106], pennant: 0.38 },
+        { yr: 1951, wl: "73-81", fin: "5th", cfMeanW: 79,  cfRange: [73,85],  pennant: 0.02 },
+        { yr: 1952, wl: "50-104",fin: "8th", cfMeanW: 57,  cfRange: [51,63],  pennant: 0.00 },
+        { yr: 1953, wl: "60-94", fin: "6th", cfMeanW: 67,  cfRange: [61,73],  pennant: 0.00 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "68-86", fin: "5th", cfMeanW: 74,  cfRange: [68,80],  pennant: 0.01 },
+        { yr: 1955, wl: "79-75", fin: "5th", cfMeanW: 84,  cfRange: [78,90],  pennant: 0.04 },
+        { yr: 1956, wl: "82-72", fin: "5th", cfMeanW: 86,  cfRange: [80,92],  pennant: 0.06 },
+        { yr: 1957, wl: "78-76", fin: "4th", cfMeanW: 82,  cfRange: [76,88],  pennant: 0.03 },
+        { yr: 1958, wl: "77-77", fin: "5th", cfMeanW: 80,  cfRange: [74,86],  pennant: 0.02 }
+      ]
+    },
+    NYY: {
+      "1948-1959": [
+        { yr: 1948, wl: "94-60", fin: "3rd", cfMeanW: 98,  cfRange: [92,104], pennant: 0.35 },
+        { yr: 1949, wl: "97-57", fin: "1st", cfMeanW: 101, cfRange: [95,107], pennant: 0.52 },
+        { yr: 1950, wl: "98-56", fin: "1st", cfMeanW: 102, cfRange: [96,108], pennant: 0.55 },
+        { yr: 1951, wl: "98-56", fin: "1st", cfMeanW: 102, cfRange: [96,108], pennant: 0.54 },
+        { yr: 1952, wl: "95-59", fin: "1st", cfMeanW: 99,  cfRange: [93,105], pennant: 0.44 },
+        { yr: 1953, wl: "99-52", fin: "1st", cfMeanW: 103, cfRange: [97,109], pennant: 0.58 },
+        { yr: 1954, wl: "103-51",fin: "2nd", cfMeanW: 107, cfRange: [101,113],pennant: 0.62 },
+        { yr: 1955, wl: "96-58", fin: "1st", cfMeanW: 99,  cfRange: [93,105], pennant: 0.46 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "94-60", fin: "3rd", cfMeanW: 98,  cfRange: [92,104], pennant: 0.35 },
+        { yr: 1949, wl: "97-57", fin: "1st", cfMeanW: 101, cfRange: [95,107], pennant: 0.52 },
+        { yr: 1950, wl: "98-56", fin: "1st", cfMeanW: 102, cfRange: [96,108], pennant: 0.55 },
+        { yr: 1951, wl: "98-56", fin: "1st", cfMeanW: 102, cfRange: [96,108], pennant: 0.54 },
+        { yr: 1952, wl: "95-59", fin: "1st", cfMeanW: 99,  cfRange: [93,105], pennant: 0.44 },
+        { yr: 1953, wl: "99-52", fin: "1st", cfMeanW: 103, cfRange: [97,109], pennant: 0.58 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "103-51",fin: "2nd", cfMeanW: 107, cfRange: [101,113],pennant: 0.62 },
+        { yr: 1955, wl: "96-58", fin: "1st", cfMeanW: 99,  cfRange: [93,105], pennant: 0.46 }
+      ]
+    },
+    PHI: {
+      "1948-1959": [
+        { yr: 1948, wl: "66-88", fin: "6th", cfMeanW: 71, cfRange: [65,77], pennant: 0.01 },
+        { yr: 1949, wl: "81-73", fin: "3rd", cfMeanW: 86, cfRange: [80,92], pennant: 0.07 },
+        { yr: 1950, wl: "91-63", fin: "1st", cfMeanW: 95, cfRange: [89,101],pennant: 0.38 },
+        { yr: 1951, wl: "73-81", fin: "5th", cfMeanW: 79, cfRange: [73,85], pennant: 0.02 },
+        { yr: 1952, wl: "87-67", fin: "4th", cfMeanW: 92, cfRange: [86,98], pennant: 0.12 },
+        { yr: 1953, wl: "83-71", fin: "3rd", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 },
+        { yr: 1954, wl: "75-79", fin: "4th", cfMeanW: 80, cfRange: [74,86], pennant: 0.02 },
+        { yr: 1955, wl: "77-77", fin: "4th", cfMeanW: 81, cfRange: [75,87], pennant: 0.03 },
+        { yr: 1956, wl: "71-83", fin: "5th", cfMeanW: 75, cfRange: [69,81], pennant: 0.01 },
+        { yr: 1957, wl: "77-77", fin: "5th", cfMeanW: 80, cfRange: [74,86], pennant: 0.02 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "66-88", fin: "6th", cfMeanW: 71, cfRange: [65,77], pennant: 0.01 },
+        { yr: 1949, wl: "81-73", fin: "3rd", cfMeanW: 86, cfRange: [80,92], pennant: 0.07 },
+        { yr: 1950, wl: "91-63", fin: "1st", cfMeanW: 95, cfRange: [89,101],pennant: 0.38 },
+        { yr: 1951, wl: "73-81", fin: "5th", cfMeanW: 79, cfRange: [73,85], pennant: 0.02 },
+        { yr: 1952, wl: "87-67", fin: "4th", cfMeanW: 92, cfRange: [86,98], pennant: 0.12 },
+        { yr: 1953, wl: "83-71", fin: "3rd", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "75-79", fin: "4th", cfMeanW: 80, cfRange: [74,86], pennant: 0.02 },
+        { yr: 1955, wl: "77-77", fin: "4th", cfMeanW: 81, cfRange: [75,87], pennant: 0.03 },
+        { yr: 1956, wl: "71-83", fin: "5th", cfMeanW: 75, cfRange: [69,81], pennant: 0.01 },
+        { yr: 1957, wl: "77-77", fin: "5th", cfMeanW: 80, cfRange: [74,86], pennant: 0.02 }
+      ]
+    },
+    STL: {
+      "1948-1959": [
+        { yr: 1948, wl: "85-69", fin: "2nd", cfMeanW: 90, cfRange: [84,96], pennant: 0.14 },
+        { yr: 1949, wl: "96-58", fin: "2nd", cfMeanW: 100,cfRange: [94,106],pennant: 0.38 },
+        { yr: 1950, wl: "78-75", fin: "5th", cfMeanW: 83, cfRange: [77,89], pennant: 0.04 },
+        { yr: 1951, wl: "81-73", fin: "3rd", cfMeanW: 86, cfRange: [80,92], pennant: 0.07 },
+        { yr: 1952, wl: "88-66", fin: "3rd", cfMeanW: 93, cfRange: [87,99], pennant: 0.15 },
+        { yr: 1953, wl: "83-71", fin: "3rd", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 },
+        { yr: 1954, wl: "72-82", fin: "6th", cfMeanW: 77, cfRange: [71,83], pennant: 0.01 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "85-69", fin: "2nd", cfMeanW: 90, cfRange: [84,96], pennant: 0.14 },
+        { yr: 1949, wl: "96-58", fin: "2nd", cfMeanW: 100,cfRange: [94,106],pennant: 0.38 },
+        { yr: 1950, wl: "78-75", fin: "5th", cfMeanW: 83, cfRange: [77,89], pennant: 0.04 },
+        { yr: 1951, wl: "81-73", fin: "3rd", cfMeanW: 86, cfRange: [80,92], pennant: 0.07 },
+        { yr: 1952, wl: "88-66", fin: "3rd", cfMeanW: 93, cfRange: [87,99], pennant: 0.15 },
+        { yr: 1953, wl: "83-71", fin: "3rd", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "72-82", fin: "6th", cfMeanW: 77, cfRange: [71,83], pennant: 0.01 }
+      ]
+    },
+    CIN: {
+      "1948-1959": [
+        { yr: 1948, wl: "64-89", fin: "7th", cfMeanW: 69, cfRange: [63,75], pennant: 0.00 },
+        { yr: 1949, wl: "62-92", fin: "7th", cfMeanW: 67, cfRange: [61,73], pennant: 0.00 },
+        { yr: 1950, wl: "66-87", fin: "6th", cfMeanW: 72, cfRange: [66,78], pennant: 0.01 },
+        { yr: 1951, wl: "68-86", fin: "6th", cfMeanW: 74, cfRange: [68,80], pennant: 0.01 },
+        { yr: 1952, wl: "69-85", fin: "6th", cfMeanW: 75, cfRange: [69,81], pennant: 0.01 },
+        { yr: 1953, wl: "68-86", fin: "6th", cfMeanW: 74, cfRange: [68,80], pennant: 0.01 },
+        { yr: 1954, wl: "74-80", fin: "5th", cfMeanW: 79, cfRange: [73,85], pennant: 0.02 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "64-89", fin: "7th", cfMeanW: 69, cfRange: [63,75], pennant: 0.00 },
+        { yr: 1949, wl: "62-92", fin: "7th", cfMeanW: 67, cfRange: [61,73], pennant: 0.00 },
+        { yr: 1950, wl: "66-87", fin: "6th", cfMeanW: 72, cfRange: [66,78], pennant: 0.01 },
+        { yr: 1951, wl: "68-86", fin: "6th", cfMeanW: 74, cfRange: [68,80], pennant: 0.01 },
+        { yr: 1952, wl: "69-85", fin: "6th", cfMeanW: 75, cfRange: [69,81], pennant: 0.01 },
+        { yr: 1953, wl: "68-86", fin: "6th", cfMeanW: 74, cfRange: [68,80], pennant: 0.01 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "74-80", fin: "5th", cfMeanW: 79, cfRange: [73,85], pennant: 0.02 }
+      ]
+    },
+    PIT: {
+      "1948-1959": [
+        { yr: 1948, wl: "83-71", fin: "4th", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 },
+        { yr: 1949, wl: "71-83", fin: "6th", cfMeanW: 76, cfRange: [70,82], pennant: 0.01 },
+        { yr: 1950, wl: "57-96", fin: "8th", cfMeanW: 63, cfRange: [57,69], pennant: 0.00 },
+        { yr: 1951, wl: "64-90", fin: "7th", cfMeanW: 70, cfRange: [64,76], pennant: 0.00 },
+        { yr: 1952, wl: "42-112",fin: "8th", cfMeanW: 49, cfRange: [43,55], pennant: 0.00 },
+        { yr: 1953, wl: "50-104",fin: "8th", cfMeanW: 57, cfRange: [51,63], pennant: 0.00 },
+        { yr: 1954, wl: "53-101",fin: "8th", cfMeanW: 59, cfRange: [53,65], pennant: 0.00 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "83-71", fin: "4th", cfMeanW: 88, cfRange: [82,94], pennant: 0.08 },
+        { yr: 1949, wl: "71-83", fin: "6th", cfMeanW: 76, cfRange: [70,82], pennant: 0.01 },
+        { yr: 1950, wl: "57-96", fin: "8th", cfMeanW: 63, cfRange: [57,69], pennant: 0.00 },
+        { yr: 1951, wl: "64-90", fin: "7th", cfMeanW: 70, cfRange: [64,76], pennant: 0.00 },
+        { yr: 1952, wl: "42-112",fin: "8th", cfMeanW: 49, cfRange: [43,55], pennant: 0.00 },
+        { yr: 1953, wl: "50-104",fin: "8th", cfMeanW: 57, cfRange: [51,63], pennant: 0.00 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "53-101",fin: "8th", cfMeanW: 59, cfRange: [53,65], pennant: 0.00 }
+      ]
+    },
+    WAS: {
+      "1948-1959": [
+        { yr: 1948, wl: "56-97", fin: "7th", cfMeanW: 62, cfRange: [56,68], pennant: 0.00 },
+        { yr: 1949, wl: "50-104",fin: "8th", cfMeanW: 56, cfRange: [50,62], pennant: 0.00 },
+        { yr: 1950, wl: "67-87", fin: "5th", cfMeanW: 73, cfRange: [67,79], pennant: 0.01 },
+        { yr: 1951, wl: "62-92", fin: "7th", cfMeanW: 68, cfRange: [62,74], pennant: 0.00 },
+        { yr: 1952, wl: "78-76", fin: "5th", cfMeanW: 84, cfRange: [78,90], pennant: 0.04 },
+        { yr: 1953, wl: "76-76", fin: "5th", cfMeanW: 82, cfRange: [76,88], pennant: 0.03 },
+        { yr: 1954, wl: "66-88", fin: "6th", cfMeanW: 72, cfRange: [66,78], pennant: 0.01 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "56-97", fin: "7th", cfMeanW: 62, cfRange: [56,68], pennant: 0.00 },
+        { yr: 1949, wl: "50-104",fin: "8th", cfMeanW: 56, cfRange: [50,62], pennant: 0.00 },
+        { yr: 1950, wl: "67-87", fin: "5th", cfMeanW: 73, cfRange: [67,79], pennant: 0.01 },
+        { yr: 1951, wl: "62-92", fin: "7th", cfMeanW: 68, cfRange: [62,74], pennant: 0.00 },
+        { yr: 1952, wl: "78-76", fin: "5th", cfMeanW: 84, cfRange: [78,90], pennant: 0.04 },
+        { yr: 1953, wl: "76-76", fin: "5th", cfMeanW: 82, cfRange: [76,88], pennant: 0.03 }
+      ],
+      "1954-1959": [
+        { yr: 1954, wl: "66-88", fin: "6th", cfMeanW: 72, cfRange: [66,78], pennant: 0.01 }
+      ]
+    },
+    CHW: {
+      "1948-1959": [
+        { yr: 1948, wl: "51-101",fin: "8th", cfMeanW: 57, cfRange: [51,63], pennant: 0.00 },
+        { yr: 1949, wl: "63-91", fin: "6th", cfMeanW: 69, cfRange: [63,75], pennant: 0.00 },
+        { yr: 1950, wl: "60-94", fin: "6th", cfMeanW: 66, cfRange: [60,72], pennant: 0.00 },
+        { yr: 1951, wl: "81-73", fin: "4th", cfMeanW: 85, cfRange: [79,91], pennant: 0.05 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "51-101",fin: "8th", cfMeanW: 57, cfRange: [51,63], pennant: 0.00 },
+        { yr: 1949, wl: "63-91", fin: "6th", cfMeanW: 69, cfRange: [63,75], pennant: 0.00 },
+        { yr: 1950, wl: "60-94", fin: "6th", cfMeanW: 66, cfRange: [60,72], pennant: 0.00 },
+        { yr: 1951, wl: "81-73", fin: "4th", cfMeanW: 85, cfRange: [79,91], pennant: 0.05 }
+      ],
+      "1954-1959": []
+    },
+    CHA: {
+      "1948-1959": [
+        { yr: 1948, wl: "84-70", fin: "4th", cfMeanW: 89, cfRange: [83,95], pennant: 0.10 },
+        { yr: 1949, wl: "81-73", fin: "5th", cfMeanW: 86, cfRange: [80,92], pennant: 0.06 },
+        { yr: 1950, wl: "52-102",fin: "8th", cfMeanW: 58, cfRange: [52,64], pennant: 0.00 },
+        { yr: 1951, wl: "70-84", fin: "6th", cfMeanW: 76, cfRange: [70,82], pennant: 0.01 },
+        { yr: 1952, wl: "79-75", fin: "4th", cfMeanW: 85, cfRange: [79,91], pennant: 0.05 },
+        { yr: 1953, wl: "59-95", fin: "7th", cfMeanW: 65, cfRange: [59,71], pennant: 0.00 }
+      ],
+      "1948-1953": [
+        { yr: 1948, wl: "84-70", fin: "4th", cfMeanW: 89, cfRange: [83,95], pennant: 0.10 },
+        { yr: 1949, wl: "81-73", fin: "5th", cfMeanW: 86, cfRange: [80,92], pennant: 0.06 },
+        { yr: 1950, wl: "52-102",fin: "8th", cfMeanW: 58, cfRange: [52,64], pennant: 0.00 },
+        { yr: 1951, wl: "70-84", fin: "6th", cfMeanW: 76, cfRange: [70,82], pennant: 0.01 },
+        { yr: 1952, wl: "79-75", fin: "4th", cfMeanW: 85, cfRange: [79,91], pennant: 0.05 },
+        { yr: 1953, wl: "59-95", fin: "7th", cfMeanW: 65, cfRange: [59,71], pennant: 0.00 }
+      ],
+      "1954-1959": []
+    }
+  };
+
+  var teamSel = document.getElementById("cf-team");
+  var rangeSel = document.getElementById("cf-range");
+  var tbody = document.getElementById("cf-tbody");
+
+  function renderCF() {
+    var team = teamSel.value;
+    var range = rangeSel.value;
+    var data = (cfData[team] && cfData[team][range]) || [];
+
+    var maxW = 120;
+    var html = "";
+
+    data.forEach(function(d) {
+      var barWidth = Math.round((d.cfMeanW / maxW) * 100);
+      var rangeWidth = Math.round(((d.cfRange[1] - d.cfRange[0]) / maxW) * 100);
+      var rangeLeft = Math.round((d.cfRange[0] / maxW) * 100);
+      var pennantPct = (d.pennant * 100).toFixed(0);
+      var isPennant = d.pennant >= 0.30;
+
+      html += '<tr>';
+      html += '<td>' + d.yr + '</td>';
+      html += '<td>' + d.wl + '</td>';
+      html += '<td>' + d.fin + '</td>';
+      html += '<td class="counterfactual__bar-cell">';
+      html += '<div style="position:relative;height:20px;background:var(--ink-3)">';
+      html += '<span class="counterfactual__bar' + (isPennant ? ' counterfactual__bar--pennant' : '') + '" style="width:' + barWidth + '%;position:absolute;left:0;top:0"></span>';
+      html += '<span style="position:absolute;left:' + rangeLeft + '%;width:' + rangeWidth + '%;top:6px;height:8px;background:rgba(232,224,207,0.12);"></span>';
+      html += '</div>';
+      html += '<div style="font-size:10px;color:var(--muted);margin-top:2px">' + d.cfMeanW + 'W (' + d.cfRange[0] + '--' + d.cfRange[1] + ')</div>';
+      html += '</td>';
+      html += '<td class="counterfactual__pennant-prob">' + (d.pennant > 0 ? pennantPct + '%' : '--') + '</td>';
+      html += '</tr>';
+    });
+
+    if (data.length === 0) {
+      html = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">Team integrated before this period. No counterfactual window.</td></tr>';
+    }
+
+    tbody.innerHTML = html;
+  }
+
+  teamSel.addEventListener("change", renderCF);
+  rangeSel.addEventListener("change", renderCF);
+
+  renderCF();
+})();
+
+/* ======================================================================
+   SCROLL-DRIVEN TAB HIGHLIGHT
+   ====================================================================== */
+
+(function() {
+  var tabs = document.querySelectorAll(".masthead__tab");
+  var sectionIds = ["hook", "riskset", "survival", "cox", "forfeited", "counterfactual", "method", "coda"];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!tabs.length || !sections.length) return;
+
+  function onScroll() {
+    var cur = sections[0] ? sections[0].id : "";
+    var y = window.scrollY + 220;
+    sections.forEach(function(s) {
+      if (s.offsetTop <= y) cur = s.id;
+    });
+    tabs.forEach(function(t) {
+      var href = t.getAttribute("href").replace("#", "");
+      if (href === cur) {
+        t.classList.add("masthead__tab--active");
+      } else {
+        t.classList.remove("masthead__tab--active");
+      }
+    });
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* ======================================================================
+   INTERSECTION OBSERVER -- FADE IN SECTIONS
+   ====================================================================== */
+
+(function() {
+  if (reducedMotion) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  var sectionEls = document.querySelectorAll(".section-head");
+  sectionEls.forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 600ms, transform 600ms";
+  });
+
+  var fadeObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        fadeObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sectionEls.forEach(function(el) { fadeObs.observe(el); });
+})();
+
+})();
+</script>
+</body>
+</html>

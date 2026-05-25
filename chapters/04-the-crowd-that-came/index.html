@@ -536,6 +536,59 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ==========================================================================
+   5b. Archival Photos
+   ========================================================================== */
+
+.archival-photo {
+  width: 100%;
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.archival-photo__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(0.3) contrast(1.05);
+  opacity: 0.88;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.archival-photo:hover .archival-photo__img {
+  opacity: 1;
+  filter: grayscale(0.1) contrast(1.1);
+}
+
+.archival-photo__caption {
+  padding: 12px 16px;
+  background: var(--ink-2);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.archival-photo__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--vellum-dim);
+  line-height: 1.4;
+}
+
+.archival-photo__source {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted-2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
    6. Fig 01 -- The Comparison (Centerpiece)
    ========================================================================== */
 
@@ -2047,6 +2100,14 @@ img { max-width: 100%; height: auto; display: block; }
      Fig 01 -- The Comparison (Centerpiece)
      ==================================================================== -->
 <section id="comparison" class="page comparison" aria-label="Attendance comparison chart">
+  <figure class="archival-photo" style="max-width:960px;margin-bottom:48px">
+    <img class="archival-photo__img" src="photos/1936-east-west-all-star-game.jpg" alt="The 1936 East-West All-Star Game at Comiskey Park, featuring Josh Gibson, Satchel Paige, and Cool Papa Bell" loading="lazy" />
+    <figcaption class="archival-photo__caption">
+      <span class="archival-photo__title">The 1936 East-West All-Star Game, Comiskey Park. Gibson, Paige, Bell, Brown, Mackey. The game the gold line measures.</span>
+      <span class="archival-photo__source">Public Domain -- Heritage Auctions</span>
+    </figcaption>
+  </figure>
+
   <div class="section-head">
     <div class="section-head__fig">Fig 01</div>
     <div class="section-head__kicker">The comparison</div>
@@ -2426,7 +2487,7 @@ img { max-width: 100%; height: auto; display: block; }
         Fifty-one thousand seven hundred and twenty-three people came to watch them play. The Black press counted every one. The next chapter looks at what the players on that field actually <em>did</em> -- the numbers behind the game, the statistics the official record refused to keep, and what happens when you keep them properly.
       </p>
       <a href="#" class="coda__next-link">
-        <span>Chapter 05 -- The Statistical Record</span>
+        <span>Chapter 05 -- The Winter Map</span>
         <span style="font-size:14px" aria-hidden="true">&#8594;</span>
       </a>
     </div>
