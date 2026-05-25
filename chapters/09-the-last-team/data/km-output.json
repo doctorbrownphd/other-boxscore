@@ -1,0 +1,339 @@
+{
+  "methodology": {
+    "model": "Kaplan-Meier non-parametric survival estimation",
+    "event": "First Black player rostered on MLB team",
+    "time_zero": "April 15, 1947 (Robinson debut)",
+    "n": 16,
+    "bootstrap_resamples": 1000,
+    "source": "integration-events.json (SABR, MLB.com verified)"
+  },
+  "survival_curve": [
+    {
+      "days": 0,
+      "years": 0,
+      "survival": 1.0,
+      "at_risk": 16,
+      "events": 0,
+      "survival_lo": 0.8125,
+      "survival_hi": 1.0
+    },
+    {
+      "days": 0,
+      "years": 0.0,
+      "survival": 0.9375,
+      "at_risk": 16,
+      "events": 1,
+      "teams": [
+        "Brooklyn Dodgers"
+      ],
+      "survival_lo": 0.625,
+      "survival_hi": 1.0
+    },
+    {
+      "days": 81,
+      "years": 0.22,
+      "survival": 0.875,
+      "at_risk": 15,
+      "events": 1,
+      "teams": [
+        "Cleveland Indians"
+      ],
+      "survival_lo": 0.5625,
+      "survival_hi": 1.0
+    },
+    {
+      "days": 93,
+      "years": 0.25,
+      "survival": 0.8125,
+      "at_risk": 14,
+      "events": 1,
+      "teams": [
+        "St. Louis Browns"
+      ],
+      "survival_lo": 0.5,
+      "survival_hi": 0.9375
+    },
+    {
+      "days": 815,
+      "years": 2.23,
+      "survival": 0.75,
+      "at_risk": 13,
+      "events": 1,
+      "teams": [
+        "New York Giants"
+      ],
+      "survival_lo": 0.4375,
+      "survival_hi": 0.9375
+    },
+    {
+      "days": 1099,
+      "years": 3.01,
+      "survival": 0.6875,
+      "at_risk": 12,
+      "events": 1,
+      "teams": [
+        "Boston Braves"
+      ],
+      "survival_lo": 0.375,
+      "survival_hi": 0.875
+    },
+    {
+      "days": 1477,
+      "years": 4.04,
+      "survival": 0.625,
+      "at_risk": 11,
+      "events": 1,
+      "teams": [
+        "Chicago White Sox"
+      ],
+      "survival_lo": 0.3125,
+      "survival_hi": 0.8125
+    },
+    {
+      "days": 2343,
+      "years": 6.41,
+      "survival": 0.5625,
+      "at_risk": 10,
+      "events": 1,
+      "teams": [
+        "Philadelphia Athletics"
+      ],
+      "survival_lo": 0.25,
+      "survival_hi": 0.75
+    },
+    {
+      "days": 2347,
+      "years": 6.43,
+      "survival": 0.5,
+      "at_risk": 9,
+      "events": 1,
+      "teams": [
+        "Chicago Cubs"
+      ],
+      "survival_lo": 0.1875,
+      "survival_hi": 0.6875
+    },
+    {
+      "days": 2555,
+      "years": 7.0,
+      "survival": 0.375,
+      "at_risk": 8,
+      "events": 2,
+      "teams": [
+        "Pittsburgh Pirates",
+        "St. Louis Cardinals"
+      ],
+      "survival_lo": 0.0625,
+      "survival_hi": 0.5625
+    },
+    {
+      "days": 2559,
+      "years": 7.01,
+      "survival": 0.3125,
+      "at_risk": 6,
+      "events": 1,
+      "teams": [
+        "Cincinnati Reds"
+      ],
+      "survival_lo": 0.0,
+      "survival_hi": 0.5
+    },
+    {
+      "days": 2701,
+      "years": 7.39,
+      "survival": 0.25,
+      "at_risk": 5,
+      "events": 1,
+      "teams": [
+        "Washington Senators"
+      ],
+      "survival_lo": 0.0,
+      "survival_hi": 0.375
+    },
+    {
+      "days": 2921,
+      "years": 8.0,
+      "survival": 0.1875,
+      "at_risk": 4,
+      "events": 1,
+      "teams": [
+        "New York Yankees"
+      ],
+      "survival_lo": 0.0,
+      "survival_hi": 0.3125
+    },
+    {
+      "days": 3660,
+      "years": 10.02,
+      "survival": 0.125,
+      "at_risk": 3,
+      "events": 1,
+      "teams": [
+        "Philadelphia Phillies"
+      ],
+      "survival_lo": -0.0625,
+      "survival_hi": 0.25
+    },
+    {
+      "days": 4070,
+      "years": 11.14,
+      "survival": 0.0625,
+      "at_risk": 2,
+      "events": 1,
+      "teams": [
+        "Detroit Tigers"
+      ],
+      "survival_lo": -0.0625,
+      "survival_hi": 0.125
+    },
+    {
+      "days": 4480,
+      "years": 12.27,
+      "survival": 0.0,
+      "at_risk": 1,
+      "events": 1,
+      "teams": [
+        "Boston Red Sox"
+      ],
+      "survival_lo": -0.0625,
+      "survival_hi": 0.0
+    }
+  ],
+  "hazard_function": [
+    {
+      "year": 0,
+      "yearLabel": "1947",
+      "atRisk": 16,
+      "events": 3,
+      "hazard": 0.1875,
+      "teams": [
+        "Brooklyn Dodgers",
+        "Cleveland Indians",
+        "St. Louis Browns"
+      ]
+    },
+    {
+      "year": 1,
+      "yearLabel": "1948",
+      "atRisk": 13,
+      "events": 0,
+      "hazard": 0.0,
+      "teams": []
+    },
+    {
+      "year": 2,
+      "yearLabel": "1949",
+      "atRisk": 13,
+      "events": 1,
+      "hazard": 0.0769,
+      "teams": [
+        "New York Giants"
+      ]
+    },
+    {
+      "year": 3,
+      "yearLabel": "1950",
+      "atRisk": 12,
+      "events": 1,
+      "hazard": 0.0833,
+      "teams": [
+        "Boston Braves"
+      ]
+    },
+    {
+      "year": 4,
+      "yearLabel": "1951",
+      "atRisk": 11,
+      "events": 1,
+      "hazard": 0.0909,
+      "teams": [
+        "Chicago White Sox"
+      ]
+    },
+    {
+      "year": 5,
+      "yearLabel": "1952",
+      "atRisk": 10,
+      "events": 0,
+      "hazard": 0.0,
+      "teams": []
+    },
+    {
+      "year": 6,
+      "yearLabel": "1953",
+      "atRisk": 10,
+      "events": 4,
+      "hazard": 0.4,
+      "teams": [
+        "Philadelphia Athletics",
+        "Chicago Cubs",
+        "Pittsburgh Pirates",
+        "St. Louis Cardinals"
+      ]
+    },
+    {
+      "year": 7,
+      "yearLabel": "1954",
+      "atRisk": 6,
+      "events": 3,
+      "hazard": 0.5,
+      "teams": [
+        "Cincinnati Reds",
+        "Washington Senators",
+        "New York Yankees"
+      ]
+    },
+    {
+      "year": 8,
+      "yearLabel": "1955",
+      "atRisk": 3,
+      "events": 0,
+      "hazard": 0.0,
+      "teams": []
+    },
+    {
+      "year": 9,
+      "yearLabel": "1956",
+      "atRisk": 3,
+      "events": 0,
+      "hazard": 0.0,
+      "teams": []
+    },
+    {
+      "year": 10,
+      "yearLabel": "1957",
+      "atRisk": 3,
+      "events": 1,
+      "hazard": 0.3333,
+      "teams": [
+        "Philadelphia Phillies"
+      ]
+    },
+    {
+      "year": 11,
+      "yearLabel": "1958",
+      "atRisk": 2,
+      "events": 1,
+      "hazard": 0.5,
+      "teams": [
+        "Detroit Tigers"
+      ]
+    },
+    {
+      "year": 12,
+      "yearLabel": "1959",
+      "atRisk": 1,
+      "events": 1,
+      "hazard": 1.0,
+      "teams": [
+        "Boston Red Sox"
+      ]
+    }
+  ],
+  "summary": {
+    "median_survival_days": 2451,
+    "mean_survival_days": 2109,
+    "last_event_days": 4480,
+    "last_team": "Boston Red Sox"
+  }
+}

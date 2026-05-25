@@ -1,0 +1,145 @@
+{
+  "methodology": {
+    "model": "Forfeited WAR estimation from NLB talent pool",
+    "nlb_war_source": "Seamheads (Ch 10 players.json)",
+    "approach": "Pool WAR/year * team share * wait years * discount",
+    "confidence": "Modeled -- rough estimate, not a precise counterfactual"
+  },
+  "teams": [
+    {
+      "team": "Boston Red Sox",
+      "league": "AL",
+      "waitYears": 12.27,
+      "daysFromRobinson": 4480,
+      "estimatedForfeitedWAR": 304.3,
+      "confidence": "Modeled",
+      "note": "Based on 12.3 years of delay, NLB talent pool WAR=165/yr, share=1.000"
+    },
+    {
+      "team": "Detroit Tigers",
+      "league": "AL",
+      "waitYears": 11.14,
+      "daysFromRobinson": 4070,
+      "estimatedForfeitedWAR": 138.1,
+      "confidence": "Modeled",
+      "note": "Based on 11.1 years of delay, NLB talent pool WAR=165/yr, share=0.500"
+    },
+    {
+      "team": "Philadelphia Phillies",
+      "league": "NL",
+      "waitYears": 10.02,
+      "daysFromRobinson": 3660,
+      "estimatedForfeitedWAR": 82.8,
+      "confidence": "Modeled",
+      "note": "Based on 10.0 years of delay, NLB talent pool WAR=165/yr, share=0.333"
+    },
+    {
+      "team": "New York Yankees",
+      "league": "AL",
+      "waitYears": 8.0,
+      "daysFromRobinson": 2921,
+      "estimatedForfeitedWAR": 49.6,
+      "confidence": "Modeled",
+      "note": "Based on 8.0 years of delay, NLB talent pool WAR=165/yr, share=0.250"
+    },
+    {
+      "team": "Washington Senators",
+      "league": "AL",
+      "waitYears": 7.39,
+      "daysFromRobinson": 2701,
+      "estimatedForfeitedWAR": 36.7,
+      "confidence": "Modeled",
+      "note": "Based on 7.4 years of delay, NLB talent pool WAR=165/yr, share=0.200"
+    },
+    {
+      "team": "Cincinnati Reds",
+      "league": "NL",
+      "waitYears": 7.01,
+      "daysFromRobinson": 2559,
+      "estimatedForfeitedWAR": 29.0,
+      "confidence": "Modeled",
+      "note": "Based on 7.0 years of delay, NLB talent pool WAR=165/yr, share=0.167"
+    },
+    {
+      "team": "Pittsburgh Pirates",
+      "league": "NL",
+      "waitYears": 7.0,
+      "daysFromRobinson": 2555,
+      "estimatedForfeitedWAR": 21.7,
+      "confidence": "Modeled",
+      "note": "Based on 7.0 years of delay, NLB talent pool WAR=165/yr, share=0.125"
+    },
+    {
+      "team": "St. Louis Cardinals",
+      "league": "NL",
+      "waitYears": 7.0,
+      "daysFromRobinson": 2555,
+      "estimatedForfeitedWAR": 21.7,
+      "confidence": "Modeled",
+      "note": "Based on 7.0 years of delay, NLB talent pool WAR=165/yr, share=0.125"
+    },
+    {
+      "team": "Chicago Cubs",
+      "league": "NL",
+      "waitYears": 6.43,
+      "daysFromRobinson": 2347,
+      "estimatedForfeitedWAR": 17.7,
+      "confidence": "Modeled",
+      "note": "Based on 6.4 years of delay, NLB talent pool WAR=165/yr, share=0.111"
+    },
+    {
+      "team": "Philadelphia Athletics",
+      "league": "AL",
+      "waitYears": 6.41,
+      "daysFromRobinson": 2343,
+      "estimatedForfeitedWAR": 15.9,
+      "confidence": "Modeled",
+      "note": "Based on 6.4 years of delay, NLB talent pool WAR=165/yr, share=0.100"
+    },
+    {
+      "team": "Chicago White Sox",
+      "league": "AL",
+      "waitYears": 4.04,
+      "daysFromRobinson": 1477,
+      "estimatedForfeitedWAR": 9.1,
+      "confidence": "Modeled",
+      "note": "Based on 4.0 years of delay, NLB talent pool WAR=165/yr, share=0.091"
+    },
+    {
+      "team": "Boston Braves",
+      "league": "NL",
+      "waitYears": 3.01,
+      "daysFromRobinson": 1099,
+      "estimatedForfeitedWAR": 6.2,
+      "confidence": "Modeled",
+      "note": "Based on 3.0 years of delay, NLB talent pool WAR=165/yr, share=0.083"
+    },
+    {
+      "team": "New York Giants",
+      "league": "NL",
+      "waitYears": 2.23,
+      "daysFromRobinson": 815,
+      "estimatedForfeitedWAR": 4.3,
+      "confidence": "Modeled",
+      "note": "Based on 2.2 years of delay, NLB talent pool WAR=165/yr, share=0.077"
+    },
+    {
+      "team": "Cleveland Indians",
+      "league": "AL",
+      "waitYears": 0.22,
+      "daysFromRobinson": 81,
+      "estimatedForfeitedWAR": 0.4,
+      "confidence": "Modeled",
+      "note": "Based on 0.2 years of delay, NLB talent pool WAR=165/yr, share=0.067"
+    },
+    {
+      "team": "St. Louis Browns",
+      "league": "AL",
+      "waitYears": 0.25,
+      "daysFromRobinson": 93,
+      "estimatedForfeitedWAR": 0.4,
+      "confidence": "Modeled",
+      "note": "Based on 0.2 years of delay, NLB talent pool WAR=165/yr, share=0.071"
+    }
+  ]
+}

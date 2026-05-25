@@ -1,0 +1,36 @@
+{
+  "methodology": "Simplified Cox-equivalent analysis (n=16 limits full Cox regression). Hazard ratios estimated from median survival time ratios. P-values from Mann-Whitney U test.",
+  "covariates": [
+    {
+      "name": "League (AL vs NL)",
+      "hazardRatio": 0.972,
+      "interpretation": "NL teams integrated 1.0x faster than AL teams. AL median: 2522 days, NL median: 2451 days.",
+      "pValue": 0.5632,
+      "significant": false,
+      "ci_lo": 0.486,
+      "ci_hi": 1.944,
+      "alTeams": 8,
+      "nlTeams": 8
+    },
+    {
+      "name": "Region (Northeast vs Midwest)",
+      "hazardRatio": 0.958,
+      "interpretation": "Northeast median: 2449 days, Midwest median: 2347 days.",
+      "pValue": null,
+      "significant": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "note": "Insufficient sample size for reliable inference"
+    },
+    {
+      "name": "Had documented tryout",
+      "hazardRatio": 0.919,
+      "interpretation": "Teams with tryouts: median 2555 days. Without: median 2347 days. Tryouts did not predict faster integration.",
+      "pValue": null,
+      "significant": null,
+      "ci_lo": null,
+      "ci_hi": null
+    }
+  ],
+  "caveat": "N=16 franchises. The small sample limits the power of any regression model. These results should be interpreted as descriptive patterns, not causal claims."
+}
