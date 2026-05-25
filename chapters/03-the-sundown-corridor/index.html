@@ -1572,202 +1572,22 @@ github.com/other-boxscore/chapters/
 </section>
 
 <!-- ====================================================================
+     Data -- loaded from processed pipeline output
+     Source: Scientific Data (2025) DOI: 10.1038/s41597-024-04330-9
+     Repository: https://osf.io/fh7r6/
+     Pipeline: data/sundown_linked_to_census_raw.csv -> Census Gazetteer
+               GJOIN join -> SVG projection -> corridor-data.js
+     Game locations: Seamheads Negro Leagues Database, SABR Ballparks Database
+     See data/ directory for full JSON with provenance chains
+     ==================================================================== -->
+<script src="data/corridor-data.js"></script>
+
+<!-- ====================================================================
      JavaScript
      ==================================================================== -->
 
 <script>
 (function(){"use strict";
-
-/* ======================================================================
-   DATA -- All inlined from design source
-   ====================================================================== */
-
-var PARKS = [
-  {city:"Kansas City, MO",x:508,y:234},
-  {city:"St. Louis, MO",x:590,y:249},
-  {city:"Chicago, IL",x:620,y:178},
-  {city:"Pittsburgh, PA",x:740,y:200},
-  {city:"Cleveland, OH",x:715,y:185},
-  {city:"Detroit, MI",x:700,y:162},
-  {city:"Cincinnati, OH",x:685,y:224},
-  {city:"Indianapolis, IN",x:655,y:220},
-  {city:"Philadelphia, PA",x:828,y:198},
-  {city:"Newark, NJ",x:852,y:182},
-  {city:"New York, NY",x:860,y:178},
-  {city:"Baltimore, MD",x:810,y:207},
-  {city:"Washington, D.C.",x:803,y:222},
-  {city:"Birmingham, AL",x:633,y:349},
-  {city:"Memphis, TN",x:588,y:327},
-  {city:"Atlanta, GA",x:673,y:351}
-];
-
-var SUNDOWN = [
-  {name:"Anna",state:"IL",x:599,y:285,ev:"C"},
-  {name:"Cairo",state:"IL",x:598,y:290,ev:"P"},
-  {name:"Mound City",state:"IL",x:600,y:287,ev:"C"},
-  {name:"Pinckneyville",state:"IL",x:592,y:273,ev:"C"},
-  {name:"Marion",state:"IL",x:603,y:277,ev:"C"},
-  {name:"West Frankfort",state:"IL",x:600,y:275,ev:"C"},
-  {name:"Carbondale",state:"IL",x:598,y:275,ev:"P"},
-  {name:"Vienna",state:"IL",x:602,y:282,ev:"C"},
-  {name:"Du Quoin",state:"IL",x:593,y:268,ev:"C"},
-  {name:"Centralia",state:"IL",x:595,y:260,ev:"C"},
-  {name:"Mt. Vernon",state:"IL",x:600,y:263,ev:"P"},
-  {name:"Salem",state:"IL",x:599,y:258,ev:"C"},
-  {name:"Effingham",state:"IL",x:607,y:253,ev:"C"},
-  {name:"Vandalia",state:"IL",x:600,y:254,ev:"C"},
-  {name:"Pana",state:"IL",x:605,y:248,ev:"C"},
-  {name:"Taylorville",state:"IL",x:603,y:245,ev:"C"},
-  {name:"Decatur outskirts",state:"IL",x:602,y:230,ev:"P"},
-  {name:"Lincoln",state:"IL",x:605,y:222,ev:"C"},
-  {name:"Pekin",state:"IL",x:610,y:215,ev:"C"},
-  {name:"Lewistown",state:"IL",x:593,y:215,ev:"C"},
-  {name:"Galesburg env.",state:"IL",x:583,y:210,ev:"P"},
-  {name:"Kewanee",state:"IL",x:595,y:200,ev:"C"},
-  {name:"Streator",state:"IL",x:612,y:196,ev:"C"},
-  {name:"Wilmington",state:"IL",x:617,y:188,ev:"C"},
-  {name:"Cicero",state:"IL",x:619,y:178,ev:"C"},
-  {name:"Berwyn",state:"IL",x:619,y:178,ev:"C"},
-  {name:"Naperville",state:"IL",x:616,y:180,ev:"P"},
-  {name:"Wheaton",state:"IL",x:617,y:178,ev:"P"},
-  {name:"Joliet env.",state:"IL",x:618,y:184,ev:"P"},
-  {name:"Kankakee env.",state:"IL",x:622,y:188,ev:"P"},
-  {name:"Granite City",state:"IL",x:590,y:252,ev:"C"},
-  {name:"Edwardsville",state:"IL",x:589,y:252,ev:"C"},
-  {name:"Alton outskirts",state:"IL",x:588,y:250,ev:"P"},
-  {name:"Martinsville",state:"IN",x:653,y:224,ev:"C"},
-  {name:"Mooresville",state:"IN",x:654,y:222,ev:"C"},
-  {name:"Spencer",state:"IN",x:650,y:226,ev:"C"},
-  {name:"Goshen",state:"IN",x:660,y:195,ev:"C"},
-  {name:"Elkhart",state:"IN",x:659,y:193,ev:"P"},
-  {name:"Kokomo env.",state:"IN",x:657,y:210,ev:"C"},
-  {name:"Anderson",state:"IN",x:660,y:217,ev:"P"},
-  {name:"Greencastle",state:"IN",x:648,y:220,ev:"Q"},
-  {name:"Linton",state:"IN",x:645,y:230,ev:"C"},
-  {name:"Marion",state:"IN",x:660,y:213,ev:"C"},
-  {name:"Bedford",state:"IN",x:650,y:232,ev:"C"},
-  {name:"Vincennes env.",state:"IN",x:642,y:232,ev:"P"},
-  {name:"Connersville",state:"IN",x:668,y:220,ev:"C"},
-  {name:"Hillsboro",state:"OH",x:690,y:226,ev:"C"},
-  {name:"Niles",state:"OH",x:723,y:193,ev:"C"},
-  {name:"Wapakoneta",state:"OH",x:693,y:207,ev:"P"},
-  {name:"Lima env.",state:"OH",x:692,y:203,ev:"P"},
-  {name:"Findlay env.",state:"OH",x:696,y:198,ev:"Q"},
-  {name:"Bellefontaine",state:"OH",x:697,y:208,ev:"Q"},
-  {name:"Marion",state:"OH",x:702,y:207,ev:"C"},
-  {name:"Newark env.",state:"OH",x:705,y:215,ev:"P"},
-  {name:"Coshocton",state:"OH",x:712,y:211,ev:"Q"},
-  {name:"Dearborn",state:"MI",x:699,y:163,ev:"C"},
-  {name:"Royal Oak",state:"MI",x:701,y:161,ev:"P"},
-  {name:"Grosse Pointe",state:"MI",x:702,y:162,ev:"C"},
-  {name:"Wyandotte",state:"MI",x:699,y:165,ev:"C"},
-  {name:"Owosso",state:"MI",x:693,y:158,ev:"C"},
-  {name:"Howell",state:"MI",x:696,y:161,ev:"C"},
-  {name:"Hastings",state:"MI",x:685,y:161,ev:"P"},
-  {name:"Allegan",state:"MI",x:680,y:162,ev:"P"},
-  {name:"Joplin env.",state:"MO",x:510,y:302,ev:"P"},
-  {name:"Pierce City",state:"MO",x:518,y:300,ev:"C"},
-  {name:"Monett",state:"MO",x:522,y:298,ev:"P"},
-  {name:"Cassville",state:"MO",x:524,y:304,ev:"C"},
-  {name:"Springfield env.",state:"MO",x:540,y:285,ev:"Q"},
-  {name:"Rolla env.",state:"MO",x:562,y:271,ev:"P"},
-  {name:"Sedalia env.",state:"MO",x:538,y:251,ev:"Q"},
-  {name:"Excelsior Spr.",state:"MO",x:510,y:230,ev:"P"},
-  {name:"Independence env.",state:"MO",x:511,y:233,ev:"Q"},
-  {name:"Corbin",state:"KY",x:685,y:270,ev:"C"},
-  {name:"Hazard",state:"KY",x:700,y:260,ev:"P"},
-  {name:"Wheeling env.",state:"WV",x:733,y:213,ev:"P"},
-  {name:"Greensburg",state:"PA",x:745,y:202,ev:"Q"},
-  {name:"Beaver Falls",state:"PA",x:738,y:195,ev:"P"},
-  {name:"Johnstown env.",state:"PA",x:758,y:205,ev:"Q"},
-  {name:"Janesville",state:"WI",x:612,y:162,ev:"P"},
-  {name:"Beloit env.",state:"WI",x:610,y:164,ev:"Q"},
-  {name:"Hawarden",state:"IA",x:515,y:215,ev:"C"},
-  {name:"Spencer",state:"IA",x:522,y:210,ev:"C"},
-  {name:"Mason City",state:"IA",x:555,y:212,ev:"P"},
-  {name:"Cullman",state:"AL",x:632,y:343,ev:"C"},
-  {name:"Pulaski",state:"TN",x:642,y:319,ev:"P"},
-  {name:"Lawrenceburg",state:"TN",x:640,y:320,ev:"C"},
-  {name:"Forrest City",state:"AR",x:562,y:333,ev:"P"},
-  {name:"West Plains",state:"MO",x:566,y:290,ev:"Q"},
-  {name:"Vidor",state:"TX",x:525,y:462,ev:"C"},
-  {name:"Greenville env.",state:"TX",x:495,y:372,ev:"C"},
-  {name:"Mineola",state:"TX",x:500,y:378,ev:"P"},
-  {name:"Norman env.",state:"OK",x:476,y:353,ev:"Q"}
-];
-
-var ROUTES = [
-  {a:"Chicago, IL",b:"Indianapolis, IN",danger:0.78,upper:0.94,towns:14},
-  {a:"Chicago, IL",b:"St. Louis, MO",danger:0.71,upper:0.91,towns:13},
-  {a:"Indianapolis, IN",b:"Cincinnati, OH",danger:0.62,upper:0.86,towns:9},
-  {a:"Cincinnati, OH",b:"Pittsburgh, PA",danger:0.46,upper:0.71,towns:6},
-  {a:"Detroit, MI",b:"Cleveland, OH",danger:0.58,upper:0.82,towns:7},
-  {a:"Cleveland, OH",b:"Pittsburgh, PA",danger:0.41,upper:0.66,towns:5},
-  {a:"Kansas City, MO",b:"St. Louis, MO",danger:0.55,upper:0.78,towns:8},
-  {a:"Kansas City, MO",b:"Chicago, IL",danger:0.66,upper:0.88,towns:12},
-  {a:"St. Louis, MO",b:"Memphis, TN",danger:0.69,upper:0.85,towns:10},
-  {a:"Pittsburgh, PA",b:"Philadelphia, PA",danger:0.31,upper:0.55,towns:4},
-  {a:"Philadelphia, PA",b:"Newark, NJ",danger:0.14,upper:0.32,towns:2},
-  {a:"Newark, NJ",b:"New York, NY",danger:0.06,upper:0.18,towns:0},
-  {a:"New York, NY",b:"Baltimore, MD",danger:0.22,upper:0.42,towns:3},
-  {a:"Baltimore, MD",b:"Washington, D.C.",danger:0.18,upper:0.36,towns:2},
-  {a:"Memphis, TN",b:"Birmingham, AL",danger:0.42,upper:0.78,towns:5},
-  {a:"Birmingham, AL",b:"Atlanta, GA",danger:0.36,upper:0.72,towns:4}
-];
-
-var CASES = [
-  {
-    tag:"Case -- 01",
-    name:"Anna, Illinois",
-    sub:"Pop. 4,300 -- Documented sundown town -- Confirmed",
-    route:"On the Chicago to Cairo barnstorm corridor used by Midwest Negro Leagues teams.",
-    body:"Anna's reputation was so persistent the town's name was used locally as an acronym for the slur its residents would shout at Black travelers. Documented in the Loewen database with primary-source enforcement evidence into the 1960s. The Pittsburgh Crawfords' 1936 swing through Cairo passed within 8 miles of Anna at twilight, per Seamheads schedule data.",
-    source:"Loewen Sundown Towns Database -- entry: Anna, IL -- Confirmed"
-  },
-  {
-    tag:"Case -- 02",
-    name:"Martinsville, Indiana",
-    sub:"Pop. 7,200 -- Confirmed -- Documented enforcement 1968",
-    route:"On the Indianapolis to Bloomington stretch traveled by the Indianapolis Clowns.",
-    body:"The town's sundown reputation was documented for decades and enforced as late as 1968, when Carol Jenkins, a young Black woman, was murdered by a Martinsville resident. The Indianapolis Clowns' 1947 Indiana swing routed past Martinsville more than a dozen times.",
-    source:"Loewen Sundown Towns Database -- Indianapolis Recorder (1968 coverage)"
-  },
-  {
-    tag:"Case -- 03",
-    name:"Pierce City, Missouri",
-    sub:"Pop. 1,400 -- Confirmed",
-    route:"On the Kansas City to Joplin to Tulsa route used by the Monarchs.",
-    body:"Pierce City expelled its entire Black population on August 20, 1901, after a lynching. The town remained a documented sundown town through the 1940s. The Kansas City Monarchs' 1942 mid-summer swing passed within 6 miles of Pierce City on the leg from Joplin to Springfield.",
-    source:"Loewen, 'Sundown Towns' (2005) -- Pierce City entry"
-  },
-  {
-    tag:"Case -- 04",
-    name:"Hillsboro, Ohio",
-    sub:"Pop. 5,300 -- Confirmed",
-    route:"On the Cincinnati to Columbus route used by the Cleveland Buckeyes.",
-    body:"Hillsboro's segregated schools were the subject of a 1954 NAACP suit. The town is documented in multiple primary sources as a sundown town through the 1940s. The Buckeyes' 1944 route from Cincinnati to Columbus passed Hillsboro at distances under 10 miles on at least four documented road trips.",
-    source:"Loewen Database -- NAACP records -- 'Clemons v. Hillsboro' (1956)"
-  }
-];
-
-var AGGREGATE = {
-  tag:"Case -- 05",
-  name:"The aggregate -- a typical 1942 season",
-  sub:"All teams -- documented exposure",
-  route:"Not a town. The number.",
-  body:"Across the 1942 season, the average Negro Leagues team passed through or within five miles of 47 documented sundown towns on its road trips -- and that is the lower bound. Adjusted to the Illinois documentation rate, the estimated true exposure is between 78 and 140 documented-or-probable sundown towns per team-season.",
-  source:"Scientific Data (2025) join -- this chapter's CC0 dataset"
-};
-
-var HEADLINE = {
-  documented:2248,
-  illinoisShare:0.70,
-  routes:16,
-  avgExposure:47,
-  lowerBound:78,
-  upperBound:140,
-  confirmedShare:0.42
-};
 
 /* ======================================================================
    UTILITY FUNCTIONS

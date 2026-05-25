@@ -1,0 +1,1084 @@
+{
+  "metadata": {
+    "title": "Negro Leagues Travel Corridor Danger Scores",
+    "description": "For each documented travel corridor between Negro Leagues cities, the density of documented sundown towns within 5 miles of the route centerline.",
+    "methodology": {
+      "corridor_radius_miles": 5,
+      "evidence_weights": {
+        "Confirmed": 1.0,
+        "Probable": 0.7,
+        "Possible": 0.4
+      },
+      "normalization": "Weighted town count per 100 route miles, scaled to 0-1 range (8 weighted towns per 100mi = 1.0)",
+      "upper_bound": "Danger score multiplied by 2.5x to estimate undocumented sundown towns, capped at 1.0",
+      "lower_bound": "Confirmed-only towns, same normalization",
+      "route_geometry": "Great-circle distance between city pairs. Period-accurate road routing would increase distances and potentially capture additional sundown towns near road curves."
+    },
+    "source": {
+      "sundown_towns": "Scientific Data (2025) geocoded dataset, DOI: 10.1038/s41597-024-04330-9",
+      "game_locations": "Seamheads Negro Leagues Database, SABR Ballparks Database",
+      "methodology_note": "Route distances use great-circle approximation. Actual 1936-1948 road distances were longer. Danger scores are lower-bound estimates."
+    },
+    "total_corridors": 16,
+    "processed_date": "2026-05-24"
+  },
+  "corridors": [
+    {
+      "from": "Indianapolis, IN",
+      "to": "Cincinnati, OH",
+      "from_lat": 39.7818,
+      "from_lng": -86.148,
+      "to_lat": 39.1042,
+      "to_lng": -84.508,
+      "route_distance_miles": 99.2,
+      "danger_score": 1.0,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 17,
+      "towns_confirmed": 0,
+      "towns_probable": 7,
+      "towns_possible": 10,
+      "weighted_count": 8.9,
+      "nearby_towns": [
+        {
+          "name": "Bridgetown",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Cheviot",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Bellevue",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Ludlow",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Harrison",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Beech Grove",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Dayton",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "New Palestine",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Park Hills",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Bromley",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Fort Thomas",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Southgate",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "St. Bernard",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        },
+        {
+          "name": "Morristown",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        },
+        {
+          "name": "Shawnee",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 4.6
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Baltimore, MD",
+      "to": "Washington, D.C.",
+      "from_lat": 39.2963,
+      "from_lng": -76.6218,
+      "to_lat": 38.912,
+      "to_lng": -77.0195,
+      "route_distance_miles": 34.1,
+      "danger_score": 1.0,
+      "danger_lower_bound": 0.734,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 2,
+      "towns_probable": 3,
+      "towns_possible": 0,
+      "weighted_count": 4.1,
+      "nearby_towns": [
+        {
+          "name": "University Park",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Mount Rainier",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Brentwood",
+          "state": "MD",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Savage",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 1.9
+        },
+        {
+          "name": "Greenbelt",
+          "state": "MD",
+          "evidence": "Confirmed",
+          "distance_miles": 2.0
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "Indianapolis, IN",
+      "from_lat": 41.8299,
+      "from_lng": -87.6338,
+      "to_lat": 39.7818,
+      "to_lng": -86.148,
+      "route_distance_miles": 161.4,
+      "danger_score": 0.883,
+      "danger_lower_bound": 0.387,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 15,
+      "towns_confirmed": 5,
+      "towns_probable": 8,
+      "towns_possible": 2,
+      "weighted_count": 11.4,
+      "nearby_towns": [
+        {
+          "name": "Frankfort",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Crown Point",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Rossville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Zionsville",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Highland",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 1.3
+        },
+        {
+          "name": "Whiting",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Monon",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.5
+        },
+        {
+          "name": "Merrillville",
+          "state": "IN",
+          "evidence": "Possible",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Schererville",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Delphi",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Hebron",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.0
+        },
+        {
+          "name": "Munster",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Whitestown",
+          "state": "IN",
+          "evidence": "Probable",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Monticello",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 3.6
+        },
+        {
+          "name": "Speedway",
+          "state": "IN",
+          "evidence": "Confirmed",
+          "distance_miles": 4.2
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Chicago, IL",
+      "to": "St. Louis, MO",
+      "from_lat": 41.8299,
+      "from_lng": -87.6338,
+      "to_lat": 38.6226,
+      "to_lng": -90.1928,
+      "route_distance_miles": 259.5,
+      "danger_score": 0.674,
+      "danger_lower_bound": 0.385,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 20,
+      "towns_confirmed": 8,
+      "towns_probable": 4,
+      "towns_possible": 8,
+      "weighted_count": 14.0,
+      "nearby_towns": [
+        {
+          "name": "Granite City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Granite City",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Roxana",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Manhattan",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Roxana",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Gillespie",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Oak Lawn",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Madison",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.8
+        },
+        {
+          "name": "Orland Park",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Le Roy",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.8
+        },
+        {
+          "name": "Kenney",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Wood River",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 3.5
+        },
+        {
+          "name": "Niantic",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Warrensburg",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Staunton",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.1
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Cincinnati, OH",
+      "to": "Pittsburgh, PA",
+      "from_lat": 39.1042,
+      "from_lng": -84.508,
+      "to_lat": 40.4468,
+      "to_lng": -80.012,
+      "route_distance_miles": 256.1,
+      "danger_score": 0.493,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 20,
+      "towns_confirmed": 0,
+      "towns_probable": 7,
+      "towns_possible": 13,
+      "weighted_count": 10.1,
+      "nearby_towns": [
+        {
+          "name": "Mariemont",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Dayton",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Bellevue",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Fairview",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Blanchester",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Fort Thomas",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "Ludlow",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.4
+        },
+        {
+          "name": "Norwood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Park Hills",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 2.9
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Southgate",
+          "state": "KY",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Bromley",
+          "state": "KY",
+          "evidence": "Possible",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "Crooksville",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.7
+        },
+        {
+          "name": "Mount Lebanon",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.8
+        },
+        {
+          "name": "Grove City",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 3.9
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Philadelphia, PA",
+      "to": "Newark, NJ",
+      "from_lat": 39.9085,
+      "from_lng": -75.1697,
+      "to_lat": 40.7185,
+      "to_lng": -74.1722,
+      "route_distance_miles": 76.8,
+      "danger_score": 0.488,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Levittown",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.8
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 1.1
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Cleveland, OH",
+      "to": "Pittsburgh, PA",
+      "from_lat": 41.496,
+      "from_lng": -81.6853,
+      "to_lat": 40.4468,
+      "to_lng": -80.012,
+      "route_distance_miles": 113.5,
+      "danger_score": 0.452,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 1.0,
+      "towns_within_5mi": 8,
+      "towns_confirmed": 0,
+      "towns_probable": 3,
+      "towns_possible": 5,
+      "weighted_count": 4.1,
+      "nearby_towns": [
+        {
+          "name": "Bedford",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 0.5
+        },
+        {
+          "name": "Columbiana",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Solon",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Warrensville Heights",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 3.1
+        },
+        {
+          "name": "Independence",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 4.4
+        },
+        {
+          "name": "University Heights",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.9
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Kansas City, MO",
+      "to": "Chicago, IL",
+      "from_lat": 39.0533,
+      "from_lng": -94.5833,
+      "to_lat": 41.8299,
+      "to_lng": -87.6338,
+      "route_distance_miles": 412.6,
+      "danger_score": 0.376,
+      "danger_lower_bound": 0.121,
+      "danger_upper_bound": 0.939,
+      "towns_within_5mi": 19,
+      "towns_confirmed": 4,
+      "towns_probable": 8,
+      "towns_possible": 7,
+      "weighted_count": 12.4,
+      "nearby_towns": [
+        {
+          "name": "Romeoville",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 0.9
+        },
+        {
+          "name": "Sugar Creek",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Carthage",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.2
+        },
+        {
+          "name": "Lemont",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.4
+        },
+        {
+          "name": "Henry",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Burr Ridge",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.0
+        },
+        {
+          "name": "Warsaw",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Bolingbrook",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Plainfield",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 2.7
+        },
+        {
+          "name": "Darien",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Lyons",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 3.4
+        },
+        {
+          "name": "Cicero",
+          "state": "IL",
+          "evidence": "Confirmed",
+          "distance_miles": 4.0
+        },
+        {
+          "name": "Oak Lawn",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 4.2
+        },
+        {
+          "name": "Woodridge",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 4.4
+        },
+        {
+          "name": "Buckner",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 4.6
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Newark, NJ",
+      "to": "New York, NY",
+      "from_lat": 40.7185,
+      "from_lng": -74.1722,
+      "to_lat": 40.8296,
+      "to_lng": -73.9262,
+      "route_distance_miles": 15.0,
+      "danger_score": 0.334,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.834,
+      "towns_within_5mi": 1,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 1,
+      "weighted_count": 0.4,
+      "nearby_towns": [
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 3.3
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "St. Louis, MO",
+      "to": "Memphis, TN",
+      "from_lat": 38.6226,
+      "from_lng": -90.1928,
+      "to_lat": 35.1395,
+      "to_lng": -90.049,
+      "route_distance_miles": 240.8,
+      "danger_score": 0.244,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.61,
+      "towns_within_5mi": 8,
+      "towns_confirmed": 0,
+      "towns_probable": 5,
+      "towns_possible": 3,
+      "weighted_count": 4.7,
+      "nearby_towns": [
+        {
+          "name": "Monroe County",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 0.0
+        },
+        {
+          "name": "Dupo",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Waterloo",
+          "state": "IL",
+          "evidence": "Possible",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Campbell",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 1.6
+        },
+        {
+          "name": "Columbia",
+          "state": "IL",
+          "evidence": "Probable",
+          "distance_miles": 1.7
+        },
+        {
+          "name": "St. Francis",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Senath",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.9
+        },
+        {
+          "name": "Manila",
+          "state": "AR",
+          "evidence": "Probable",
+          "distance_miles": 4.7
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "New York, NY",
+      "to": "Baltimore, MD",
+      "from_lat": 40.8296,
+      "from_lng": -73.9262,
+      "to_lat": 39.2963,
+      "to_lng": -76.6218,
+      "route_distance_miles": 177.6,
+      "danger_score": 0.211,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.528,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Somerset",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Clark",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 0.6
+        },
+        {
+          "name": "Hatboro",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Hillside",
+          "state": "NJ",
+          "evidence": "Possible",
+          "distance_miles": 2.1
+        },
+        {
+          "name": "Garwood",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 2.6
+        },
+        {
+          "name": "Carteret",
+          "state": "NJ",
+          "evidence": "Probable",
+          "distance_miles": 4.1
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Detroit, MI",
+      "to": "Cleveland, OH",
+      "from_lat": 42.339,
+      "from_lng": -83.0485,
+      "to_lat": 41.496,
+      "to_lng": -81.6853,
+      "route_distance_miles": 91.1,
+      "danger_score": 0.151,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.377,
+      "towns_within_5mi": 2,
+      "towns_confirmed": 0,
+      "towns_probable": 1,
+      "towns_possible": 1,
+      "weighted_count": 1.1,
+      "nearby_towns": [
+        {
+          "name": "Newburgh Heights",
+          "state": "OH",
+          "evidence": "Probable",
+          "distance_miles": 3.3
+        },
+        {
+          "name": "Lakewood",
+          "state": "OH",
+          "evidence": "Possible",
+          "distance_miles": 4.5
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Pittsburgh, PA",
+      "to": "Philadelphia, PA",
+      "from_lat": 40.4468,
+      "from_lng": -80.012,
+      "to_lat": 39.9085,
+      "to_lng": -75.1697,
+      "route_distance_miles": 258.3,
+      "danger_score": 0.145,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.363,
+      "towns_within_5mi": 6,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 4,
+      "weighted_count": 3.0,
+      "nearby_towns": [
+        {
+          "name": "Johnstown",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.1
+        },
+        {
+          "name": "Coatesville",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 0.3
+        },
+        {
+          "name": "Adams",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 1.5
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Folcroft",
+          "state": "PA",
+          "evidence": "Probable",
+          "distance_miles": 2.2
+        },
+        {
+          "name": "Millvale",
+          "state": "PA",
+          "evidence": "Possible",
+          "distance_miles": 2.7
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Kansas City, MO",
+      "to": "St. Louis, MO",
+      "from_lat": 39.0533,
+      "from_lng": -94.5833,
+      "to_lat": 38.6226,
+      "to_lng": -90.1928,
+      "route_distance_miles": 238.1,
+      "danger_score": 0.136,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.341,
+      "towns_within_5mi": 5,
+      "towns_confirmed": 0,
+      "towns_probable": 2,
+      "towns_possible": 3,
+      "weighted_count": 2.6,
+      "nearby_towns": [
+        {
+          "name": "Blue Springs",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 0.7
+        },
+        {
+          "name": "Creve Coeur",
+          "state": "MO",
+          "evidence": "Probable",
+          "distance_miles": 1.0
+        },
+        {
+          "name": "Concordia",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 2.3
+        },
+        {
+          "name": "Hermann",
+          "state": "MO",
+          "evidence": "Probable",
+          "distance_miles": 3.2
+        },
+        {
+          "name": "Shrewsbury",
+          "state": "MO",
+          "evidence": "Possible",
+          "distance_miles": 3.4
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Birmingham, AL",
+      "to": "Atlanta, GA",
+      "from_lat": 33.5207,
+      "from_lng": -86.8025,
+      "to_lat": 33.7578,
+      "to_lng": -84.3903,
+      "route_distance_miles": 139.7,
+      "danger_score": 0.036,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.089,
+      "towns_within_5mi": 1,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 1,
+      "weighted_count": 0.4,
+      "nearby_towns": [
+        {
+          "name": "Vestavia Hills",
+          "state": "AL",
+          "evidence": "Possible",
+          "distance_miles": 4.4
+        }
+      ],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    },
+    {
+      "from": "Memphis, TN",
+      "to": "Birmingham, AL",
+      "from_lat": 35.1395,
+      "from_lng": -90.049,
+      "to_lat": 33.5207,
+      "to_lng": -86.8025,
+      "route_distance_miles": 216.4,
+      "danger_score": 0.0,
+      "danger_lower_bound": 0.0,
+      "danger_upper_bound": 0.0,
+      "towns_within_5mi": 0,
+      "towns_confirmed": 0,
+      "towns_probable": 0,
+      "towns_possible": 0,
+      "weighted_count": 0.0,
+      "nearby_towns": [],
+      "source": "Computed from Scientific Data (2025) sundown towns dataset joined to Seamheads schedule routes. Corridor radius: 5 miles from route centerline (great-circle)."
+    }
+  ]
+}

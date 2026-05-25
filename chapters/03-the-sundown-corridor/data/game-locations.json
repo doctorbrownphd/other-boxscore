@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "title": "Negro Leagues Game Locations, 1920-1948",
+    "description": "Primary cities where Negro Leagues major league games were played, with ballpark coordinates. Derived from Seamheads Negro Leagues Database schedule data and SABR Ballparks Database coordinates.",
+    "source": {
+      "schedules": "Seamheads Negro Leagues Database (seamheads.com/NeuroPage/)",
+      "coordinates": "SABR Ballparks Database, cross-referenced with historical records",
+      "license": "Research use (Seamheads), Research use (SABR)"
+    },
+    "coverage": "Major Negro Leagues cities, 1920-1948",
+    "note": "Each city hosted games at one or more ballparks across the period. Coordinates represent the primary ballpark used by Negro Leagues teams in each city.",
+    "processed_date": "2026-05-24"
+  },
+  "locations": [
+    {
+      "city": "Kansas City",
+      "state": "MO",
+      "lat": 39.0533,
+      "lng": -94.5833,
+      "primary_ballpark": "Muehlebach Field (Municipal Stadium)",
+      "primary_team": "Kansas City Monarchs",
+      "years_active": "1920-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "St. Louis",
+      "state": "MO",
+      "lat": 38.6226,
+      "lng": -90.1928,
+      "primary_ballpark": "Stars Park / Sportsman's Park",
+      "primary_team": "St. Louis Stars",
+      "years_active": "1922-1931, 1937-1943",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "lat": 41.8299,
+      "lng": -87.6338,
+      "primary_ballpark": "Comiskey Park / Schorling Park",
+      "primary_team": "Chicago American Giants",
+      "years_active": "1920-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "lat": 40.4468,
+      "lng": -80.012,
+      "primary_ballpark": "Greenlee Field / Forbes Field",
+      "primary_team": "Pittsburgh Crawfords / Homestead Grays",
+      "years_active": "1920-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Cleveland",
+      "state": "OH",
+      "lat": 41.496,
+      "lng": -81.6853,
+      "primary_ballpark": "League Park",
+      "primary_team": "Cleveland Buckeyes",
+      "years_active": "1942-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Detroit",
+      "state": "MI",
+      "lat": 42.339,
+      "lng": -83.0485,
+      "primary_ballpark": "Mack Park / Hamtramck Stadium",
+      "primary_team": "Detroit Stars",
+      "years_active": "1920-1933, 1937",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "lat": 39.1042,
+      "lng": -84.508,
+      "primary_ballpark": "Crosley Field",
+      "primary_team": "Cincinnati Tigers / Ethiopian Clowns",
+      "years_active": "1937-1942",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "lat": 39.7818,
+      "lng": -86.148,
+      "primary_ballpark": "Perry Stadium (Victory Field)",
+      "primary_team": "Indianapolis ABCs / Indianapolis Clowns",
+      "years_active": "1920-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "lat": 39.9085,
+      "lng": -75.1697,
+      "primary_ballpark": "Shibe Park / Passon Field",
+      "primary_team": "Philadelphia Stars",
+      "years_active": "1934-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Newark",
+      "state": "NJ",
+      "lat": 40.7185,
+      "lng": -74.1722,
+      "primary_ballpark": "Ruppert Stadium",
+      "primary_team": "Newark Eagles",
+      "years_active": "1936-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "New York",
+      "state": "NY",
+      "lat": 40.8296,
+      "lng": -73.9262,
+      "primary_ballpark": "Polo Grounds / Yankee Stadium",
+      "primary_team": "New York Black Yankees / New York Cubans",
+      "years_active": "1932-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Baltimore",
+      "state": "MD",
+      "lat": 39.2963,
+      "lng": -76.6218,
+      "primary_ballpark": "Maryland Baseball Park / Bugle Field",
+      "primary_team": "Baltimore Elite Giants",
+      "years_active": "1938-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Washington",
+      "state": "D.C.",
+      "lat": 38.912,
+      "lng": -77.0195,
+      "primary_ballpark": "Griffith Stadium",
+      "primary_team": "Homestead Grays (DC games)",
+      "years_active": "1940-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "lat": 33.5207,
+      "lng": -86.8025,
+      "primary_ballpark": "Rickwood Field",
+      "primary_team": "Birmingham Black Barons",
+      "years_active": "1920-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Memphis",
+      "state": "TN",
+      "lat": 35.1395,
+      "lng": -90.049,
+      "primary_ballpark": "Martin Park / Russwood Park",
+      "primary_team": "Memphis Red Sox",
+      "years_active": "1924-1948",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    },
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "lat": 33.7578,
+      "lng": -84.3903,
+      "primary_ballpark": "Ponce de Leon Park",
+      "primary_team": "Atlanta Black Crackers",
+      "years_active": "1938-1942",
+      "source": "Seamheads NLB Database, SABR Ballparks Database"
+    }
+  ]
+}
