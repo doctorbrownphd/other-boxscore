@@ -23,7 +23,7 @@
   --rule: #2a261d; --rule-2: #3a3527;
   --vellum: #e8e0cf; --vellum-dim: #c4bda9;
   --muted: #8a8270; --muted-2: #5e5849;
-  --amber: #d4a64a; --chapter-accent: #8a8270; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
+  --amber: #d4a64a; --amber-2: #f0c878; --amber-dim: rgba(212,166,74,0.55);
   --oxblood: #a14545; --oxblood-2: #c25656;
   --slate: #6f8aa8; --moss: #8fa05a; --bronze: #b96f4a; --tan: #a08456;
   --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
@@ -152,13 +152,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-.masthead::before {
-  content: "";
-  display: block;
-  height: 3px;
-  background: var(--chapter-accent);
-  opacity: 0.6;
-}
 .masthead__mark { text-decoration: none;
   max-width: 1200px;
   margin: 0 auto;
@@ -192,7 +185,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 400;
-  color: var(--chapter-accent);
+  color: var(--slate);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -270,8 +263,8 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead__tab:hover { color: var(--vellum-dim); }
 
 .masthead__tab--active {
-  color: var(--chapter-accent);
-  border-bottom-color: var(--chapter-accent);
+  color: var(--slate);
+  border-bottom-color: var(--slate);
 }
 
 /* ==========================================================================
