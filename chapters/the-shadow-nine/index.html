@@ -116,6 +116,23 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .platform-nav__mark { width: 32px; height: 32px; display: none; display: none; flex-shrink: 0; }
+.platform-nav__picker {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 4px 8px;
+  margin-left: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.platform-nav__picker:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
 
 .platform-nav__title {
   font-family: var(--mono);
@@ -142,7 +159,7 @@ img { max-width: 100%; height: auto; display: block; }
 .platform-nav__links a:hover { color: var(--amber); }
 .platform-nav__sep { color: var(--muted-2); margin: 0 4px; }
 
-.masthead__mark {
+.masthead__mark { text-decoration: none; text-decoration: none;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 40px 0;
@@ -1422,7 +1439,7 @@ img { max-width: 100%; height: auto; display: block; }
    ========================================================================== */
 
 @media (max-width: 768px) {
-  .masthead__mark { padding: 24px 20px 0; }
+  .masthead__mark { text-decoration: none; text-decoration: none; padding: 24px 20px 0; }
   .masthead__mark-svg { width: 320px; }
 
   .shadow__cards-grid {
@@ -1531,6 +1548,25 @@ img { max-width: 100%; height: auto; display: block; }
     </svg>
     <span class="platform-nav__title">The Other Box Score</span>
   </a>
+    <select class="platform-nav__picker" aria-label="Jump to chapter" onchange="if(this.value)window.location=this.value">
+      <option value="">Jump to...</option>
+      <option value="/chapters/01-the-color-line/">01. The Color Line</option>
+      <option value="/chapters/02-the-green-book-route/">02. The Green Book Route</option>
+      <option value="/chapters/03-the-sundown-corridor/">03. The Sundown Corridor</option>
+      <option value="/chapters/04-the-crowd-that-came/">04. The Crowd That Came</option>
+      <option value="/chapters/05-the-winter-map/">05. The Winter Map</option>
+      <option value="/chapters/06-the-collapse/">06. The Collapse</option>
+      <option value="/chapters/07-the-unsigned-letter/">07. The Unsigned Letter</option>
+      <option value="/chapters/08-the-salary-ledger/">08. The Salary Ledger</option>
+      <option value="/chapters/09-the-last-team/">09. The Last Team</option>
+      <option value="/chapters/10-the-ledger/">10. The Ledger</option>
+      <option value="/chapters/11-cooperstown/">11. Cooperstown</option>
+      <option value="/chapters/12-the-other-hall/">12. The Other Hall</option>
+      <option value="/chapters/13-the-voice/">13. The Voice</option>
+      <option value="/chapters/14-the-courier-archive/">14. The Courier Archive</option>
+      <option value="/chapters/15-the-parallel-league/">15. The Parallel League</option>
+      <option value="/chapters/the-shadow-nine/">S9. The Shadow Nine</option>
+    </select>
   <div class="platform-nav__links">
     <a href="https://theotherboxscore.org">Home</a>
     <span class="platform-nav__sep">/</span>
@@ -1542,7 +1578,7 @@ img { max-width: 100%; height: auto; display: block; }
      Hero / Landing
      ==================================================================== -->
 
-<div class="masthead__mark">
+<a href="/site/" class="masthead__mark" aria-label="The Other Box Score -- return to home">
   <svg class="masthead__mark-svg" viewBox="0 0 680 200" role="img" aria-label="The Other Box Score">
     <title>The Other Box Score</title>
     <g transform="translate(72, 100)">
@@ -1781,7 +1817,7 @@ img { max-width: 100%; height: auto; display: block; }
     <svg class="drawer__radar-svg" id="drawer-radar" viewBox="0 0 220 220" aria-label="Similarity radar diagram">
       <!-- JS draws -->
     </svg>
-  </div>
+  </a>
   <div class="drawer__explanation" id="drawer-explanation">
     <!-- JS fills -->
   </div>
