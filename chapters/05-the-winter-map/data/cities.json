@@ -1,0 +1,27 @@
+{
+  "note": "City coordinates mapped to Wikimedia BlankMap-Americas.svg after matrix(2.224804,0,0,2.224804,67.40394,-773.9801). Source: https://commons.wikimedia.org/wiki/File:BlankMap-Americas.svg (Public Domain)",
+  "cities": {
+    "Chicago":          { "x": 1395, "y": 62,  "country": "US" },
+    "Pittsburgh":       { "x": 1524, "y": 94,  "country": "US" },
+    "Kansas City":      { "x": 1275, "y": 122, "country": "US" },
+    "Indianapolis":     { "x": 1418, "y": 100, "country": "US" },
+    "New York":         { "x": 1627, "y": 88,  "country": "US" },
+    "Newark":           { "x": 1620, "y": 90,  "country": "US" },
+    "St. Louis":        { "x": 1345, "y": 120, "country": "US" },
+    "Detroit":          { "x": 1440, "y": 58,  "country": "US" },
+    "Philadelphia":     { "x": 1600, "y": 100, "country": "US" },
+    "Baltimore":        { "x": 1585, "y": 110, "country": "US" },
+    "Memphis":          { "x": 1335, "y": 180, "country": "US" },
+    "Atlanta":          { "x": 1440, "y": 195, "country": "US" },
+    "Minneapolis":      { "x": 1310, "y": 10,  "country": "US" },
+    "Havana":           { "x": 1483, "y": 490, "country": "CU" },
+    "Mexico City":      { "x": 1198, "y": 530, "country": "MX" },
+    "Veracruz":         { "x": 1250, "y": 535, "country": "MX" },
+    "Torreon":          { "x": 1135, "y": 465, "country": "MX" },
+    "Nuevo Laredo":     { "x": 1170, "y": 440, "country": "MX" },
+    "Tampico":          { "x": 1210, "y": 490, "country": "MX" },
+    "San Juan":         { "x": 1763, "y": 565, "country": "PR" },
+    "Caracas":          { "x": 1762, "y": 790, "country": "VE" },
+    "Ciudad Trujillo":  { "x": 1702, "y": 554, "country": "DO" }
+  }
+}

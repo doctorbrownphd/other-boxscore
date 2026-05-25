@@ -6,7 +6,7 @@
 <title>The Other Box Score -- The Winter Map</title>
 <meta name="description" content="The color line was a US problem, not a baseball problem. The same players locked out of the American major leagues were welcomed everywhere else baseball was played. The map proves it.">
 <meta property="og:title" content="The Other Box Score -- The Winter Map">
-<meta property="og:description" content="Martin Dihigo is in the Hall of Fame in four countries. Cristobal Torriente outhit Babe Ruth in Havana. They could play anywhere. They did play everywhere. Except in the American major leagues.">
+<meta property="og:description" content="Martin Dihigo is in the Hall of Fame in three countries. Cristobal Torriente outhit Babe Ruth in Havana. They could play anywhere. They did play everywhere. Except in the American major leagues.">
 <meta property="og:url" content="https://theotherboxscore.org/chapters/the-winter-map/">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1747,164 +1747,39 @@ theotherboxscore.org/chapters/the-winter-map/.</pre>
 </section>
 
 <!-- ====================================================================
-     DATA
+     DATA -- loaded from JSON, enriched with display metadata
      ==================================================================== -->
 <script>
 window.TOBS = window.TOBS || {};
 
-/* Player data -- placeholder, Oscar and Elias finalize */
-window.TOBS.PLAYERS = [
-  {
-    id: "dihigo",
-    name: "Martin Dihigo",
+/* Display metadata not stored in JSON (photos, initials, hooks) */
+var PLAYER_DISPLAY = {
+  "dihigo": {
     initials: "MD",
     photo: "photos/dihigo-1922.jpg",
     photoAlt: "Martin Dihigo in Habana club uniform, 1922",
     photoCredit: "Public Domain -- RMY Auctions",
-    position: "P / IF / OF",
-    yearsLabel: "1923--1945",
-    yearsActive: [1923, 1945],
-    stat: "4",
-    statLabel: "Hall of Fame inductions",
-    note: "Inducted in Cuba (1953), Mexico (1964), Venezuela (1966), and the United States (1977). Played every position. The most complete player the sport has produced.",
-    confidence: "Documented",
-    hof: { cuba: true, mexico: true, venezuela: true, dr: false, usa: true },
-    monthsPlayed: 11,
-    seasons: [
-      { year: 1923, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: ".300 BA" },
-      { year: 1924, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: ".310 BA" },
-      { year: 1925, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".316 BA" },
-      { year: 1926, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: "11-2, 2.18 ERA" },
-      { year: 1927, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".370 BA" },
-      { year: 1928, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".415 BA" },
-      { year: 1929, city: "Pittsburgh", team: "Homestead Grays", league: "ANL", country: "US", stat: ".386 BA" },
-      { year: 1930, city: "Havana", team: "Habana", league: "Cuban Winter League", country: "CU", stat: "12-4, 1.89 ERA" },
-      { year: 1931, city: "New York", team: "Cuban Stars (East)", league: "ECL", country: "US", stat: ".321 BA" },
-      { year: 1932, city: "Havana", team: "Santa Clara", league: "Cuban Winter League", country: "CU", stat: ".333 BA" },
-      { year: 1935, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: "18-2, .387 BA" },
-      { year: 1936, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: ".351 BA" },
-      { year: 1937, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".340 BA" },
-      { year: 1938, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: "330 BA" },
-      { year: 1939, city: "Havana", team: "Marianao", league: "Cuban Winter League", country: "CU", stat: ".308 BA" },
-      { year: 1942, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".319 BA" },
-      { year: 1943, city: "Caracas", team: "Cerveceria Caracas", league: "Venezuelan League", country: "VE", stat: ".298 BA" },
-      { year: 1945, city: "Mexico City", team: "Aguila", league: "Liga Mexicana", country: "MX", stat: ".316 BA" }
-    ]
+    yearsLabel: "1923--1946",
+    monthsPlayed: 11
   },
-  {
-    id: "torriente",
-    name: "Cristobal Torriente",
+  "torriente": {
     initials: "CT",
-    position: "OF",
-    yearsLabel: "1913--1932",
-    yearsActive: [1913, 1932],
-    stat: ".352",
-    statLabel: "Career batting average",
-    note: "In October 1920, in Havana, he outhit Babe Ruth in a barnstorming series. Ruth batted .345. Torriente batted .433. Third all-time in career batting average.",
-    confidence: "Documented",
-    hof: { cuba: true, mexico: false, venezuela: false, dr: false, usa: true },
-    monthsPlayed: 10,
-    seasons: [
-      { year: 1913, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".310 BA" },
-      { year: 1914, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".324 BA" },
-      { year: 1915, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".338 BA" },
-      { year: 1916, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".350 BA" },
-      { year: 1918, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".339 BA" },
-      { year: 1919, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".360 BA" },
-      { year: 1920, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".433 BA" },
-      { year: 1921, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".338 BA" },
-      { year: 1922, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".370 BA" },
-      { year: 1923, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".389 BA" },
-      { year: 1924, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".311 BA" },
-      { year: 1925, city: "Kansas City", team: "Kansas City Monarchs", league: "NNL", country: "US", stat: ".286 BA" },
-      { year: 1926, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".301 BA" },
-      { year: 1928, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".292 BA" },
-      { year: 1932, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".275 BA" }
-    ]
+    yearsLabel: "1912--1932",
+    monthsPlayed: 10
   },
-  {
-    id: "wells",
-    name: "Willie Wells",
+  "wells": {
     initials: "WW",
-    position: "SS",
     yearsLabel: "1924--1948",
-    yearsActive: [1924, 1948],
-    stat: "5",
-    statLabel: "Countries played in",
-    note: "Played in the US, Mexico, Cuba, Puerto Rico, and Canada. Wore a batting helmet years before MLB adopted them. One of the greatest shortstops in baseball history.",
-    confidence: "Verified",
-    hof: { cuba: false, mexico: true, venezuela: false, dr: false, usa: true },
-    monthsPlayed: 11,
-    seasons: [
-      { year: 1924, city: "Indianapolis", team: "Indianapolis ABCs", league: "NNL", country: "US", stat: ".286 BA" },
-      { year: 1926, city: "Chicago", team: "Chicago American Giants", league: "NNL", country: "US", stat: ".310 BA" },
-      { year: 1928, city: "Indianapolis", team: "Indianapolis ABCs", league: "NNL", country: "US", stat: ".348 BA" },
-      { year: 1930, city: "Kansas City", team: "Kansas City Monarchs", league: "NNL", country: "US", stat: ".351 BA" },
-      { year: 1932, city: "Chicago", team: "Cole's American Giants", league: "NSL", country: "US", stat: ".331 BA" },
-      { year: 1934, city: "Pittsburgh", team: "Pittsburgh Crawfords", league: "NNL", country: "US", stat: ".340 BA" },
-      { year: 1936, city: "Havana", team: "Almendares", league: "Cuban Winter League", country: "CU", stat: ".328 BA" },
-      { year: 1937, city: "Ciudad Trujillo", team: "Dragones", league: "Dominican League", country: "DO", stat: ".300 BA" },
-      { year: 1938, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".385 BA" },
-      { year: 1940, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".345 BA" },
-      { year: 1941, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".325 BA" },
-      { year: 1942, city: "San Juan", team: "Senadores", league: "Puerto Rican Winter League", country: "PR", stat: ".330 BA" },
-      { year: 1944, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".290 BA" },
-      { year: 1945, city: "New York", team: "New York Black Yankees", league: "NNL", country: "US", stat: ".280 BA" },
-      { year: 1948, city: "Indianapolis", team: "Indianapolis Clowns", league: "NAL", country: "US", stat: ".259 BA" }
-    ]
+    monthsPlayed: 11
   },
-  {
-    id: "dandridge",
-    name: "Ray Dandridge",
+  "dandridge": {
     initials: "RD",
     photo: "photos/dandridge-newark.jpg",
     photoAlt: "Ray Dandridge in Newark Eagles jersey",
     photoCredit: "CC BY-NC 4.0 -- The Newark Public Library",
-    position: "3B",
-    yearsLabel: "1933--1953",
-    yearsActive: [1933, 1953],
-    stat: "12",
-    statLabel: "Winter league seasons in Mexico",
-    note: "Played in Mexico longer than any other country. The Mexican League counted him. He made the American Hall of Fame in 1987, thirty-four years after he retired.",
-    confidence: "Verified",
-    hof: { cuba: false, mexico: true, venezuela: false, dr: false, usa: true },
-    monthsPlayed: 10,
-    seasons: [
-      { year: 1933, city: "Pittsburgh", team: "Pittsburgh Crawfords", league: "NNL", country: "US", stat: ".310 BA" },
-      { year: 1934, city: "New York", team: "Newark Dodgers", league: "NNL", country: "US", stat: ".340 BA" },
-      { year: 1935, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".355 BA" },
-      { year: 1936, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".368 BA" },
-      { year: 1937, city: "New York", team: "Newark Eagles", league: "NNL", country: "US", stat: ".323 BA" },
-      { year: 1938, city: "Havana", team: "Marianao", league: "Cuban Winter League", country: "CU", stat: ".312 BA" },
-      { year: 1939, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".347 BA" },
-      { year: 1940, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".370 BA" },
-      { year: 1941, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".354 BA" },
-      { year: 1942, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".340 BA" },
-      { year: 1943, city: "Mexico City", team: "Agrario", league: "Liga Mexicana", country: "MX", stat: ".351 BA" },
-      { year: 1944, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".367 BA" },
-      { year: 1945, city: "Veracruz", team: "Veracruz Azules", league: "Liga Mexicana", country: "MX", stat: ".325 BA" },
-      { year: 1946, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".338 BA" },
-      { year: 1947, city: "Caracas", team: "Cerveceria Caracas", league: "Venezuelan League", country: "VE", stat: ".360 BA" },
-      { year: 1948, city: "Mexico City", team: "Mexico City Reds", league: "Liga Mexicana", country: "MX", stat: ".316 BA" }
-    ]
+    yearsLabel: "1933--1949",
+    monthsPlayed: 10
   }
-];
-
-/* City coordinates in transformed SVG space */
-/* Mapped to Wikimedia BlankMap-Americas.svg after matrix(2.224804,0,0,2.224804,67.40394,-773.9801) */
-/* Source: https://commons.wikimedia.org/wiki/File:BlankMap-Americas.svg (Public Domain) */
-window.TOBS.CITIES = {
-  "Chicago":          { x: 1395, y: 62,  country: "US" },
-  "Pittsburgh":       { x: 1524, y: 94,  country: "US" },
-  "Kansas City":      { x: 1275, y: 122, country: "US" },
-  "Indianapolis":     { x: 1418, y: 100, country: "US" },
-  "New York":         { x: 1627, y: 88,  country: "US" },
-  "Havana":           { x: 1483, y: 490, country: "CU" },
-  "Mexico City":      { x: 1198, y: 530, country: "MX" },
-  "Veracruz":         { x: 1250, y: 535, country: "MX" },
-  "San Juan":         { x: 1763, y: 565, country: "PR" },
-  "Caracas":          { x: 1762, y: 790, country: "VE" },
-  "Ciudad Trujillo":  { x: 1702, y: 554, country: "DO" }
 };
 
 /* MLB comparison data for career months chart */
@@ -1933,14 +1808,14 @@ window.TOBS.COUNTRY_NAMES = {
   "DO": "Dominican Rep."
 };
 
-/* Hook data */
+/* Hook data -- corrected per verified HOF research */
 window.TOBS.HOOKS = [
   {
     name: "Martin Dihigo",
     question: "Hey, have you heard of Martin Dihigo",
     lines: [
-      "He is in the Hall of Fame in Cuba, Mexico, Venezuela, and the United States. He played every position. He could not play in the major leagues.",
-      "Four countries counted him. The one that excluded him took thirty-two years after his death to put him in its Hall."
+      "He is in the Hall of Fame in Cuba, Mexico, and the United States. He played every position. He could not play in the major leagues.",
+      "Three countries counted him. The one that excluded him took thirty-two years after his death to put him in its Hall."
     ]
   },
   {
@@ -1948,7 +1823,7 @@ window.TOBS.HOOKS = [
     question: "Hey, have you heard of Cristobal Torriente",
     lines: [
       "In October 1920, in Havana, he outhit Babe Ruth in a barnstorming series. Ruth batted .345. Torriente batted .433.",
-      "He is third all-time in career batting average. He played in Cuba and the United States for two decades. He could not play in the major leagues."
+      "He holds the highest career batting average in Cuban Winter League history. He played in Cuba and the United States for two decades. He could not play in the major leagues."
     ]
   },
   {
@@ -1963,11 +1838,77 @@ window.TOBS.HOOKS = [
     name: "Ray Dandridge",
     question: "Hey, have you heard of Ray Dandridge",
     lines: [
-      "He played twelve seasons in Mexico. The Mexican League counted him. He made the American Hall of Fame in 1987, thirty-four years after he retired.",
+      "He played nine seasons in Mexico. The Mexican League counted him. He made the American Hall of Fame in 1987, thirty-four years after he retired.",
       "By the time Cooperstown called his name, he was seventy years old. He had waited his entire adult life."
     ]
   }
 ];
+
+/* Load player and city data from JSON files */
+(function loadData() {
+  var basePath = "data/";
+  var pending = 2;
+
+  function checkReady() {
+    pending--;
+    if (pending === 0) {
+      /* Merge display metadata into player records */
+      window.TOBS.PLAYERS.forEach(function(p) {
+        var d = PLAYER_DISPLAY[p.id];
+        if (d) {
+          p.initials = d.initials;
+          p.yearsLabel = d.yearsLabel;
+          p.monthsPlayed = d.monthsPlayed;
+          if (d.photo) p.photo = d.photo;
+          if (d.photoAlt) p.photoAlt = d.photoAlt;
+          if (d.photoCredit) p.photoCredit = d.photoCredit;
+        }
+      });
+      /* Signal ready */
+      document.dispatchEvent(new CustomEvent("tobs:data-ready"));
+    }
+  }
+
+  /* Fetch players.json */
+  var xhrP = new XMLHttpRequest();
+  xhrP.open("GET", basePath + "players.json", true);
+  xhrP.onload = function() {
+    if (xhrP.status === 200) {
+      var data = JSON.parse(xhrP.responseText);
+      window.TOBS.PLAYERS = data.players;
+    } else {
+      console.error("Failed to load players.json:", xhrP.status);
+      window.TOBS.PLAYERS = [];
+    }
+    checkReady();
+  };
+  xhrP.onerror = function() {
+    console.error("Network error loading players.json");
+    window.TOBS.PLAYERS = [];
+    checkReady();
+  };
+  xhrP.send();
+
+  /* Fetch cities.json */
+  var xhrC = new XMLHttpRequest();
+  xhrC.open("GET", basePath + "cities.json", true);
+  xhrC.onload = function() {
+    if (xhrC.status === 200) {
+      var data = JSON.parse(xhrC.responseText);
+      window.TOBS.CITIES = data.cities;
+    } else {
+      console.error("Failed to load cities.json:", xhrC.status);
+      window.TOBS.CITIES = {};
+    }
+    checkReady();
+  };
+  xhrC.onerror = function() {
+    console.error("Network error loading cities.json");
+    window.TOBS.CITIES = {};
+    checkReady();
+  };
+  xhrC.send();
+})();
 </script>
 
 <!-- ====================================================================
@@ -1976,6 +1917,8 @@ window.TOBS.HOOKS = [
 <script>
 (function() {
 "use strict";
+
+function initChapter() {
 
 var PLAYERS = window.TOBS.PLAYERS;
 var CITIES = window.TOBS.CITIES;
@@ -2912,6 +2855,15 @@ function fmt(n) {
 
   targets.forEach(function(el) { fadeObs.observe(el); });
 })();
+
+} /* end initChapter */
+
+/* Wait for JSON data to load, then initialize */
+if (window.TOBS.PLAYERS) {
+  initChapter();
+} else {
+  document.addEventListener("tobs:data-ready", initChapter);
+}
 
 })();
 </script>
