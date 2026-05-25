@@ -907,6 +907,11 @@ a:hover { color: var(--amber-2); }
   to   { opacity: 1; }
 }
 
+@media (max-width: 900px) {
+  .masthead__mark { padding: 24px 20px 0; }
+  .masthead__mark-svg { width: 320px; }
+}
+
 </style>
 </head>
 <body>
@@ -940,6 +945,26 @@ a:hover { color: var(--amber-2); }
      ==================================================================== -->
 
 <header id="top" class="masthead">
+  <div class="masthead__mark">
+    <svg class="masthead__mark-svg" viewBox="0 0 680 200" role="img" aria-label="The Other Box Score">
+      <title>The Other Box Score</title>
+      <g transform="translate(72, 100)">
+        <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+        <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+        <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+        <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+        <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/><line x1="0" y1="0" x2="10" y2="0" stroke="#d4a64a" stroke-width="1.4"/></g>
+        <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/><line x1="0" y1="0" x2="-10" y2="0" stroke="#d4a64a" stroke-width="1.4"/></g>
+        <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+        <line x1="-42" y1="-42" x2="42" y2="-42" stroke="#d4a64a" stroke-width="0.5" opacity="0.25"/>
+        <line x1="-42" y1="42" x2="42" y2="42" stroke="#d4a64a" stroke-width="0.5" opacity="0.25"/>
+        <line x1="-42" y1="-42" x2="-42" y2="42" stroke="#d4a64a" stroke-width="0.5" opacity="0.25"/>
+        <line x1="42" y1="-42" x2="42" y2="42" stroke="#d4a64a" stroke-width="0.5" opacity="0.25"/>
+      </g>
+      <text x="170" y="82" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="400" letter-spacing="8" fill="#d4a64a">THE OTHER</text>
+      <text x="165" y="148" font-family="'Playfair Display', Georgia, serif" font-size="72" font-weight="700" fill="#e8e0cf">Box Score</text>
+    </svg>
+  </div>
   <div class="masthead__inner">
     <div>
       <div class="masthead__part">Part One -- The World They Played In</div>
