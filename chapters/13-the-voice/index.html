@@ -2476,6 +2476,7 @@ window.TOBS.ch13 = {};
 
 window.TOBS.ARCHIVE = [];
 window.TOBS.ARCHIVE_META = {};
+window.TOBS.TRANSCRIPT_INDEX = {};
 
 (function() {
   var JSON_PATH = "data/archive-index.json";
@@ -2547,6 +2548,31 @@ window.TOBS.ARCHIVE_META = {};
   }
 
   loadJSON();
+
+  // Load transcript index
+  var txhr = new XMLHttpRequest();
+  txhr.open("GET", "data/transcript-index.json", true);
+  txhr.onreadystatechange = function() {
+    if (txhr.readyState !== 4 || txhr.status !== 200) return;
+    try {
+      var tdata = JSON.parse(txhr.responseText);
+      // Build speaker -> transcript files lookup
+      var idx = {};
+      (tdata.transcripts || []).forEach(function(t) {
+        var key = t.speaker.toLowerCase();
+        if (!idx[key]) idx[key] = [];
+        idx[key].push(t);
+      });
+      window.TOBS.TRANSCRIPT_INDEX = idx;
+      // Re-render archive if ready
+      if (window.TOBS.ch13 && window.TOBS.ch13.archiveRender) {
+        window.TOBS.ch13.archiveRender();
+      }
+    } catch (e) {
+      console.error("[TOBS] Failed to parse transcript-index.json:", e);
+    }
+  };
+  txhr.send();
 })();
 
 var TOPICS = [
@@ -2740,6 +2766,13 @@ function escHtml(s) {
       html += '<span class="archive__card-year">' + e.year + '</span>';
       html += '<span class="archive__card-length">' + e.length + '</span>';
       html += '<span class="archive__card-type">' + e.type + '</span>';
+      // Check for transcript
+      var txKey = e.speaker.toLowerCase();
+      var hasTx = window.TOBS.TRANSCRIPT_INDEX[txKey] && window.TOBS.TRANSCRIPT_INDEX[txKey].length > 0;
+      if (hasTx) {
+        var txInfo = window.TOBS.TRANSCRIPT_INDEX[txKey][0];
+        html += '<span class="archive__card-topic" style="color:var(--amber);border-color:rgba(212,166,74,0.3);background:rgba(212,166,74,0.06)">Transcript (' + txInfo.word_count.toLocaleString() + ' words)</span>';
+      }
       html += '</div>';
       html += '<div class="archive__card-topics">';
       e.topics.forEach(function(t) {
@@ -2757,6 +2790,16 @@ function escHtml(s) {
       } else {
         html += '<div class="archive__card-link" style="color:var(--muted-2)">Contact institution for access</div>';
       }
+      if (hasTx) {
+        html += '<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)">';
+        html += '<div style="font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Whisper transcript (AI-generated, unreviewed)</div>';
+        html += '<div style="font-family:var(--serif);font-size:14px;color:var(--muted);line-height:1.6;max-height:120px;overflow:hidden;position:relative" data-tx-speaker="' + txKey + '">';
+        html += escHtml(txInfo.preview) + '...';
+        html += '<div style="position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(transparent,var(--ink-2))"></div>';
+        html += '</div>';
+        html += '<button style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--amber);background:none;border:1px solid var(--rule);padding:6px 12px;cursor:pointer;letter-spacing:0.06em" data-load-tx="' + txKey + '">Read full transcript</button>';
+        html += '</div>';
+      }
       html += '</div>';
       html += '</div>';
     });
@@ -2764,14 +2807,57 @@ function escHtml(s) {
 
     // Expand/collapse on click
     grid.querySelectorAll(".archive__card").forEach(function(card) {
-      card.addEventListener("click", function() {
+      card.addEventListener("click", function(ev) {
+        if (ev.target.closest("a") || ev.target.closest("button")) return;
         card.classList.toggle("archive__card--expanded");
       });
       card.addEventListener("keydown", function(ev) {
         if (ev.key === "Enter" || ev.key === " ") {
+          if (ev.target.closest("button")) return;
           ev.preventDefault();
           card.classList.toggle("archive__card--expanded");
         }
+      });
+    });
+
+    // Transcript load buttons
+    grid.querySelectorAll("[data-load-tx]").forEach(function(btn) {
+      btn.addEventListener("click", function(ev) {
+        ev.stopPropagation();
+        var speaker = btn.getAttribute("data-load-tx");
+        var txFiles = window.TOBS.TRANSCRIPT_INDEX[speaker];
+        if (!txFiles || !txFiles.length) return;
+
+        btn.textContent = "Loading...";
+        btn.disabled = true;
+
+        // Load all transcript files for this speaker
+        var loaded = 0;
+        var fullText = [];
+        txFiles.forEach(function(txInfo, i) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "data/" + txInfo.file, true);
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status === 200) {
+              try {
+                var d = JSON.parse(xhr.responseText);
+                fullText[i] = d.text || "";
+              } catch(e) {}
+            }
+            loaded++;
+            if (loaded >= txFiles.length) {
+              var container = btn.parentElement.querySelector("[data-tx-speaker]");
+              if (container) {
+                container.style.maxHeight = "none";
+                container.innerHTML = escHtml(fullText.join("\n\n"));
+                container.querySelector("div") && container.querySelector("div").remove();
+              }
+              btn.textContent = "Transcript loaded";
+            }
+          };
+          xhr.send();
+        });
       });
     });
 
