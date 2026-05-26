@@ -173,7 +173,7 @@
 </section>
 
 <!-- ====================== EPIGRAPH ====================== -->
-<aside class="bb-epi">
+<aside class="bb-epi reveal">
   <p class="q">
     They were not waiting for someone to let them in.
     They had been playing the entire time, in front of crowds, on tour buses,
@@ -188,7 +188,7 @@
 
 
 <!-- ====================== THE RECORD BOOK · PARALLEL TRACKS ====================== -->
-<section class="section" id="record-book">
+<section class="section reveal" id="record-book">
   <div class="section-head">
     <div class="label" style="white-space:nowrap">Fig. 01  ·  The parallel tracks</div>
     <div class="rule"></div>
@@ -377,7 +377,7 @@
 
 
 <!-- ====================== INTEGRATION WAVE ====================== -->
-<section class="section" id="wave">
+<section class="section reveal" id="wave">
   <div class="section-head">
     <div class="label" style="white-space:nowrap">Fig. 02  ·  The wave, written out</div>
     <div class="rule"></div>
@@ -505,7 +505,7 @@
 </section>
 
 <!-- ====================== RESHUFFLED RECORD BOOK ====================== -->
-<section class="section" id="reshuffle">
+<section class="section reveal" id="reshuffle">
   <div class="section-head">
     <div class="label" style="white-space:nowrap">Fig. 03  ·  The record book, after</div>
     <div class="rule"></div>
@@ -587,7 +587,7 @@
 </section>
 
 <!-- ====================== INTEGRATION TIMELINE ====================== -->
-<section class="section" id="pipeline">
+<section class="section reveal" id="pipeline">
   <div class="section-head">
     <div class="label" style="white-space:nowrap">Fig. 04  ·  The pipeline</div>
     <div class="rule"></div>
@@ -659,7 +659,7 @@
 </section>
 
 <!-- ====================== CODA ====================== -->
-<section class="coda">
+<section class="coda reveal">
   <div class="body">
     <p class="dropcap">When MLB updated its books in May 2024, it did so by quietly elevating roughly 2,300 careers from leagues that had been declared "major" only four years earlier. Josh Gibson, who had been dead for seventy-seven years, became the holder of the single-season and career batting average records, the career slugging record, the career OPS record, and the single-season OPS record. The previous holders -- Cobb, Ruth, Bonds -- kept their seasons. They lost their place on the page.</p>
     <p>This report does not relitigate that decision. It treats it as done, and asks the smaller, harder question of what changed and what it cost -- a half-century of seasons unreported, of names not in the bookkeeping, of records held by men dead before the league that finally counted them had heard their last at-bat.</p>
@@ -706,6 +706,21 @@
 <script>
 function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme')||'dark',n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('colorline-theme',n);document.getElementById('theme-toggle').innerHTML=n==='dark'?'&#9728;':'&#9790;';}
 (function(){var s=localStorage.getItem('colorline-theme')||'dark';document.documentElement.setAttribute('data-theme',s);if(s==='light')document.getElementById('theme-toggle').innerHTML='&#9790;';})();
+</script>
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>

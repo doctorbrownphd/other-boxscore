@@ -98,6 +98,13 @@ body::before {
   html { scroll-behavior: auto; }
   .hook-slide { transition: none; }
   .hook-chip { transition: none; }
+  .hero__mark,
+  .hero__title,
+  .hero__tagline { animation: none; opacity: 1; }
+  .chapter-card { transition: none; }
+  .chapter-card.reveal { opacity: 1; }
+  .chapter-card.reveal.visible { animation: none; opacity: 1; }
+  .coda-card { transition: none; }
 }
 
 
@@ -332,7 +339,7 @@ body::before {
 
 .about {
   background: var(--ink-3);
-  padding: 56px 40px;
+  padding: 80px 40px;
   border-bottom: 1px solid rgba(212,166,74,0.08);
 }
 
@@ -382,29 +389,30 @@ body::before {
 .about__stats {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 32px;
   padding-top: 6px;
 }
 
 .stat {
-  border-left: 1px solid rgba(212,166,74,0.22);
-  padding-left: 18px;
+  border-left: 2px solid rgba(212,166,74,0.3);
+  padding-left: 22px;
 }
 
 .stat__value {
-  font-family: var(--mono);
-  font-size: 26px;
+  font-family: var(--display);
+  font-size: 38px;
   font-weight: 700;
   color: var(--amber);
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .stat__label {
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 
@@ -413,7 +421,7 @@ body::before {
    ========================================================================== */
 
 .chapters {
-  padding: 64px 40px 100px;
+  padding: 80px 40px 120px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -423,8 +431,8 @@ body::before {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 8px;
-  margin-top: 52px;
+  margin-bottom: 10px;
+  margin-top: 64px;
 }
 
 .part:first-of-type .part__header {
@@ -458,17 +466,18 @@ body::before {
 .chapter-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 18px;
 }
 
 /* Individual chapter card */
 .chapter-card {
   background: var(--ink-3);
   border: 1px solid var(--rule);
-  padding: 22px;
+  border-top: 2px solid rgba(212,166,74,0.25);
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
   color: inherit;
 }
@@ -476,10 +485,30 @@ body::before {
 .chapter-card--live:hover,
 .chapter-card--live:focus-visible {
   border-color: rgba(212,166,74,0.45);
+  border-top-color: var(--amber);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,166,74,0.12);
 }
 
 .chapter-card--locked {
   opacity: 0.5;
+  border-top-color: rgba(212,166,74,0.1);
+}
+
+/* Scroll reveal for cards */
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.chapter-card.reveal,
+.coda-card.reveal {
+  opacity: 0;
+}
+
+.chapter-card.reveal.visible,
+.coda-card.reveal.visible {
+  animation: cardReveal 0.5s ease-out forwards;
 }
 
 .chapter-card__top {
@@ -516,17 +545,17 @@ body::before {
 
 .chapter-card__title {
   font-family: var(--display);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--vellum);
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .chapter-card__desc {
   font-family: var(--serif);
   font-size: 13px;
-  line-height: 1.75;
+  line-height: 1.9;
   color: var(--muted);
   flex: 1;
   margin-bottom: 18px;
@@ -555,6 +584,11 @@ body::before {
 
 .chapter-card__cta--live {
   color: var(--amber);
+  transition: color 0.2s ease;
+}
+
+.chapter-card--live:hover .chapter-card__cta--live {
+  color: var(--amber-2);
 }
 
 .chapter-card__cta--locked {
@@ -568,11 +602,19 @@ body::before {
 .coda-card {
   background: var(--ink);
   border: 1px solid rgba(161,69,69,0.18);
-  padding: 28px 36px;
-  margin-top: 52px;
+  padding: 32px 40px;
+  margin-top: 60px;
   display: flex;
   align-items: flex-start;
   gap: 40px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coda-card:hover,
+.coda-card:focus-visible {
+  border-color: rgba(161,69,69,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .coda-card__label {
@@ -609,11 +651,22 @@ body::before {
 
 .site-footer {
   background: var(--ink);
-  border-top: 1px solid rgba(212,166,74,0.1);
-  padding: 28px 40px;
+  border-top: 1px solid rgba(212,166,74,0.15);
+  padding: 36px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,166,74,0.4) 30%, rgba(212,166,74,0.5) 50%, rgba(212,166,74,0.4) 70%, transparent 100%);
 }
 
 .site-footer__brand {
@@ -681,11 +734,17 @@ body::before {
    Hero
    ========================================================================== */
 
+/* Hero entrance animation */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 40px 56px;
+  padding: 100px 40px 80px;
   text-align: center;
   background: var(--ink);
   border-bottom: 1px solid rgba(212,166,74,0.12);
@@ -694,11 +753,15 @@ body::before {
 .hero__mark {
   width: 140px;
   height: 140px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.1s forwards;
 }
 
 .hero__title {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.3s forwards;
 }
 
 .hero__title-upper {
@@ -709,7 +772,7 @@ body::before {
   letter-spacing: 0.45em;
   color: var(--amber);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .hero__title-lower {
@@ -728,7 +791,10 @@ body::before {
   font-size: 17px;
   color: var(--vellum-dim);
   max-width: 520px;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-top: 8px;
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.55s forwards;
 }
 
 
@@ -746,21 +812,22 @@ body::before {
   .site-header { padding: 0 20px; }
   .hook { padding: 56px 20px 48px; }
   .hook__name { font-size: 36px; }
-  .about { padding: 40px 20px; }
-  .chapters { padding: 40px 20px 64px; }
+  .about { padding: 48px 20px; }
+  .chapters { padding: 48px 20px 72px; }
   .coda-card { flex-direction: column; gap: 16px; padding: 22px; }
   .site-footer {
     flex-direction: column;
     gap: 16px;
     text-align: center;
-    padding: 24px 20px;
+    padding: 28px 20px;
   }
   .site-footer__links { justify-content: center; }
-  .hero { padding: 64px 20px 48px; }
+  .hero { padding: 72px 20px 56px; }
   .hero__mark { width: 100px; height: 100px; }
   .hero__title-upper { font-size: 14px; letter-spacing: 0.35em; }
   .hero__title-lower { font-size: 48px; }
   .hero__tagline { font-size: 14px; }
+  .stat__value { font-size: 30px; }
 }
 
 </style>
@@ -1364,6 +1431,47 @@ body::before {
 
   /* Start */
   startTimer();
+})();
+</script>
+
+<!-- Scroll-reveal for chapter cards -->
+<script>
+(function () {
+  "use strict";
+
+  /* Respect reduced-motion preference */
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) return;
+
+  var cards = document.querySelectorAll(".chapter-card, .coda-card");
+
+  /* Mark all cards for reveal */
+  Array.prototype.forEach.call(cards, function (card) {
+    card.classList.add("reveal");
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        /* Stagger cards within the same grid row */
+        var card = entry.target;
+        var parent = card.parentElement;
+        var siblings = parent ? parent.querySelectorAll(".chapter-card.reveal:not(.visible)") : [];
+        var index = Array.prototype.indexOf.call(siblings, card);
+        var delay = Math.max(0, index) * 80;
+
+        setTimeout(function () {
+          card.classList.add("visible");
+        }, delay);
+
+        observer.unobserve(card);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  Array.prototype.forEach.call(cards, function (card) {
+    observer.observe(card);
+  });
 })();
 </script>
 
