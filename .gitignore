@@ -1,35 +1,15 @@
-# Dependencies
-node_modules/
-.env
-.env.local
+# Audio files (19GB, not deployed)
+chapters/13-the-voice/audio/
 
-# Build outputs
-dist/
-build/
-.vercel/
-.netlify/
+# Claude Code local config
+.claude/
 
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-*.egg-info/
+# Playwright MCP
+.playwright-mcp/
 
-# ML pipeline
-pipeline/models/checkpoints/
-pipeline/data/raw/
-pipeline/*.pkl
-pipeline/*.model
-
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
-# Editor
-.vscode/settings.json
-.idea/
-
-# Large data files (tracked via Git LFS if needed)
-*.parquet
-*.feather
+# Snapshots
+ch06-snapshot.md
