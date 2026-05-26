@@ -863,6 +863,134 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ==========================================================================
+   6b. Transcript Search -- Fig 02
+   ========================================================================== */
+
+.tsearch {
+  padding: 0 40px 140px;
+}
+
+.tsearch__controls {
+  margin-bottom: 24px;
+}
+
+.tsearch__input {
+  width: 100%;
+  max-width: 560px;
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 12px 16px;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  color: var(--vellum);
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s;
+}
+
+.tsearch__input:focus {
+  border-color: var(--amber);
+  outline: none;
+}
+
+.tsearch__input::placeholder {
+  color: var(--muted-2);
+}
+
+.tsearch__status {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+  min-height: 1.4em;
+}
+
+.tsearch__status-count {
+  color: var(--amber);
+}
+
+.tsearch__results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.tsearch__result {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  transition: border-color 0.2s;
+}
+
+.tsearch__result:hover {
+  border-color: var(--muted-2);
+}
+
+.tsearch__result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.tsearch__result-speaker {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vellum);
+}
+
+.tsearch__result-source {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tsearch__result-time {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+}
+
+.tsearch__result-text {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--vellum-dim);
+}
+
+.tsearch__result-text mark {
+  background: rgba(212,166,74,0.22);
+  color: var(--amber-2);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.tsearch__note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+  line-height: 1.6;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  max-width: 560px;
+}
+
+.tsearch__loading {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
    7. The Three Voices -- Fig 04
    ========================================================================== */
 
@@ -1585,6 +1713,9 @@ img { max-width: 100%; height: auto; display: block; }
 
   .topics__list { display: block; }
 
+  .tsearch { padding: 0 20px 100px; }
+  .tsearch__result { padding: 16px; }
+
   .gaps { padding: 0 20px 100px; }
 
   .gaps__entry-name { font-size: 24px; }
@@ -1712,6 +1843,7 @@ img { max-width: 100%; height: auto; display: block; }
   <nav class="masthead__tabs" role="tablist" aria-label="Chapter sections">
     <a class="masthead__tab masthead__tab--active" href="#hook" role="tab">The Hook</a>
     <a class="masthead__tab" href="#archive" role="tab">Archive Index</a>
+    <a class="masthead__tab" href="#tsearch" role="tab">Transcript Search</a>
     <a class="masthead__tab" href="#voices" role="tab">The Three Voices</a>
     <a class="masthead__tab" href="#topics" role="tab">Topic Map</a>
     <a class="masthead__tab" href="#gaps" role="tab">The Gaps</a>
@@ -1806,6 +1938,34 @@ img { max-width: 100%; height: auto; display: block; }
 
   <div class="archive__grid" id="archive-grid" role="list" aria-label="Archive recordings">
     <!-- JS populates -->
+  </div>
+</section>
+
+<!-- ====================================================================
+     Fig 02 -- Transcript Search
+     ==================================================================== -->
+<section id="tsearch" class="page tsearch reveal" aria-label="Transcript Search">
+  <div class="section-head">
+    <div class="section-head__fig">Fig 02</div>
+    <div class="section-head__kicker">Full-text search</div>
+    <h2 class="section-head__title">Transcript <em>Search</em></h2>
+    <p class="section-head__lede">
+      Search across every transcribed recording in the archive. Twenty-five Whisper-transcribed oral histories, broken into 333 passages and searchable by keyword.
+    </p>
+  </div>
+
+  <div class="tsearch__controls" role="search" aria-label="Search transcripts">
+    <input type="search" class="tsearch__input" id="tsearch-input" placeholder="Search across all transcripts..." aria-label="Search transcript text" />
+    <div class="tsearch__status" id="tsearch-status" aria-live="polite">
+      <span class="tsearch__loading" id="tsearch-loading">Loading transcript index...</span>
+    </div>
+  </div>
+
+  <div class="tsearch__results" id="tsearch-results" role="list" aria-label="Search results">
+  </div>
+
+  <div class="tsearch__note" id="tsearch-note" style="display:none;">
+    Keyword search across 333 transcript chunks from 25 Whisper-transcribed recordings. AI-generated transcripts, unreviewed.
   </div>
 </section>
 
@@ -3457,12 +3617,181 @@ function escHtml(s) {
 })();
 
 /* ======================================================================
+   TRANSCRIPT SEARCH -- keyword search across Whisper-transcribed chunks
+   ====================================================================== */
+
+(function() {
+  var SEARCH_JSON = "data/search-index.json";
+  var MAX_RESULTS = 20;
+  var MIN_QUERY = 2;
+  var chunks = [];
+  var loaded = false;
+  var debounceTimer = null;
+
+  var input = document.getElementById("tsearch-input");
+  var statusEl = document.getElementById("tsearch-status");
+  var resultsEl = document.getElementById("tsearch-results");
+  var loadingEl = document.getElementById("tsearch-loading");
+  var noteEl = document.getElementById("tsearch-note");
+
+  if (!input || !statusEl || !resultsEl) return;
+
+  /* ---- Load and strip embeddings ---- */
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", SEARCH_JSON, true);
+  xhr.onload = function() {
+    if (xhr.status !== 200) {
+      loadingEl.textContent = "Failed to load transcript index.";
+      return;
+    }
+    try {
+      var data = JSON.parse(xhr.responseText);
+      var raw = data.chunks || [];
+      chunks = raw.map(function(c) {
+        return {
+          speaker: c.speaker || "",
+          text: c.text || "",
+          start: c.start || 0,
+          end: c.end || 0,
+          source: c.source || "",
+          textLower: (c.text || "").toLowerCase()
+        };
+      });
+      loaded = true;
+      loadingEl.textContent = "Ready. " + chunks.length + " transcript passages indexed.";
+    } catch(e) {
+      loadingEl.textContent = "Error parsing transcript index.";
+    }
+  };
+  xhr.onerror = function() {
+    loadingEl.textContent = "Network error loading transcript index.";
+  };
+  xhr.send();
+
+  /* ---- Helpers ---- */
+  function escHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function formatTime(seconds) {
+    var m = Math.floor(seconds / 60);
+    var s = Math.floor(seconds % 60);
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  function highlightText(text, query) {
+    if (!query) return escHtml(text);
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var re = new RegExp("(" + escaped + ")", "gi");
+    // Split by matches, escape each part, wrap matches in <mark>
+    var parts = text.split(re);
+    return parts.map(function(part) {
+      if (part.toLowerCase() === query.toLowerCase()) {
+        return "<mark>" + escHtml(part) + "</mark>";
+      }
+      return escHtml(part);
+    }).join("");
+  }
+
+  function truncateAround(text, query, maxLen) {
+    maxLen = maxLen || 300;
+    if (text.length <= maxLen) return text;
+    var idx = text.toLowerCase().indexOf(query.toLowerCase());
+    if (idx === -1) return text.substring(0, maxLen) + "...";
+    var start = Math.max(0, idx - 80);
+    var end = Math.min(text.length, idx + query.length + 220);
+    var snippet = "";
+    if (start > 0) snippet += "...";
+    snippet += text.substring(start, end);
+    if (end < text.length) snippet += "...";
+    return snippet;
+  }
+
+  /* ---- Search ---- */
+  function doSearch(query) {
+    resultsEl.innerHTML = "";
+    noteEl.style.display = "none";
+
+    if (!loaded) {
+      statusEl.innerHTML = '<span class="tsearch__loading">Index still loading...</span>';
+      return;
+    }
+
+    query = query.trim();
+    if (query.length < MIN_QUERY) {
+      statusEl.textContent = chunks.length + " transcript passages indexed. Enter at least " + MIN_QUERY + " characters.";
+      return;
+    }
+
+    var qLower = query.toLowerCase();
+    var matches = [];
+    for (var i = 0; i < chunks.length; i++) {
+      if (chunks[i].textLower.indexOf(qLower) !== -1) {
+        matches.push(chunks[i]);
+      }
+      if (matches.length >= MAX_RESULTS) break;
+    }
+
+    var totalMatches = 0;
+    if (matches.length < MAX_RESULTS) {
+      totalMatches = matches.length;
+    } else {
+      // Count all matches
+      totalMatches = 0;
+      for (var j = 0; j < chunks.length; j++) {
+        if (chunks[j].textLower.indexOf(qLower) !== -1) totalMatches++;
+      }
+    }
+
+    if (totalMatches === 0) {
+      statusEl.textContent = 'No results for "' + query + '" across ' + chunks.length + " passages.";
+      return;
+    }
+
+    var countText = totalMatches <= MAX_RESULTS
+      ? '<span class="tsearch__status-count">' + totalMatches + "</span> result" + (totalMatches !== 1 ? "s" : "")
+      : '<span class="tsearch__status-count">' + totalMatches + "</span> results (showing first " + MAX_RESULTS + ")";
+    statusEl.innerHTML = countText + ' for "' + escHtml(query) + '"';
+
+    var html = "";
+    matches.forEach(function(chunk) {
+      var snippet = truncateAround(chunk.text, query, 300);
+      html += '<div class="tsearch__result" role="listitem">';
+      html += '<div class="tsearch__result-meta">';
+      html += '<div class="tsearch__result-speaker">' + escHtml(chunk.speaker) + '</div>';
+      html += '<div class="tsearch__result-source">' + escHtml(chunk.source) + '</div>';
+      html += '<div class="tsearch__result-time">' + formatTime(chunk.start) + " \u2013 " + formatTime(chunk.end) + '</div>';
+      html += '</div>';
+      html += '<div class="tsearch__result-text">' + highlightText(snippet, query) + '</div>';
+      html += '</div>';
+    });
+
+    resultsEl.innerHTML = html;
+    noteEl.style.display = "block";
+  }
+
+  input.addEventListener("input", function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+      doSearch(input.value);
+    }, 200);
+  });
+
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      clearTimeout(debounceTimer);
+      doSearch(input.value);
+    }
+  });
+})();
+
+/* ======================================================================
    SCROLL-DRIVEN TAB HIGHLIGHT
    ====================================================================== */
 
 (function() {
   var tabs = document.querySelectorAll(".masthead__tab");
-  var sectionIds = ["hook", "archive", "voices", "topics", "gaps", "institutions", "method", "coda"];
+  var sectionIds = ["hook", "archive", "tsearch", "voices", "topics", "gaps", "institutions", "method", "coda"];
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
   if (!tabs.length || !sections.length) return;
 
