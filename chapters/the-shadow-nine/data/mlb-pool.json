@@ -170,6 +170,196 @@
           "G": 1858
         },
         "rateWAR": 4.69
+      },
+      {
+        "name": "Bill Dickey",
+        "position": "C",
+        "years": "1928-1946",
+        "careerWAR": 55.8,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.313,
+          "OBP": 0.382,
+          "SLG": 0.486,
+          "OPS": 0.868,
+          "HR": 202,
+          "H": 1969,
+          "G": 1789
+        },
+        "rateWAR": 4.08
+      },
+      {
+        "name": "Gabby Hartnett",
+        "position": "C",
+        "years": "1922-1941",
+        "careerWAR": 53.5,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.297,
+          "OBP": 0.37,
+          "SLG": 0.489,
+          "OPS": 0.858,
+          "HR": 236,
+          "H": 1912,
+          "G": 1990
+        },
+        "rateWAR": 3.35
+      },
+      {
+        "name": "Roy Campanella",
+        "position": "C",
+        "years": "1948-1957",
+        "careerWAR": 34.1,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.276,
+          "OBP": 0.36,
+          "SLG": 0.5,
+          "OPS": 0.86,
+          "HR": 242,
+          "H": 1161,
+          "G": 1215
+        },
+        "rateWAR": 3.41
+      },
+      {
+        "name": "Thurman Munson",
+        "position": "C",
+        "years": "1969-1979",
+        "careerWAR": 46.1,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.292,
+          "OBP": 0.346,
+          "SLG": 0.41,
+          "OPS": 0.756,
+          "HR": 113,
+          "H": 1558,
+          "G": 1423
+        },
+        "rateWAR": 4.19
+      },
+      {
+        "name": "Jorge Posada",
+        "position": "C",
+        "years": "1995-2011",
+        "careerWAR": 42.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.273,
+          "OBP": 0.374,
+          "SLG": 0.474,
+          "OPS": 0.848,
+          "HR": 275,
+          "H": 1664,
+          "G": 1829
+        },
+        "rateWAR": 2.51
+      },
+      {
+        "name": "Buster Posey",
+        "position": "C",
+        "years": "2009-2021",
+        "careerWAR": 44.9,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.302,
+          "OBP": 0.372,
+          "SLG": 0.46,
+          "OPS": 0.831,
+          "HR": 158,
+          "H": 1500,
+          "G": 1370
+        },
+        "rateWAR": 3.45
+      },
+      {
+        "name": "Yadier Molina",
+        "position": "C",
+        "years": "2004-2022",
+        "careerWAR": 42.0,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.277,
+          "OBP": 0.327,
+          "SLG": 0.398,
+          "OPS": 0.725,
+          "HR": 176,
+          "H": 2168,
+          "G": 2125
+        },
+        "rateWAR": 2.21
+      },
+      {
+        "name": "Ted Simmons",
+        "position": "C",
+        "years": "1968-1988",
+        "careerWAR": 50.3,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.348,
+          "SLG": 0.437,
+          "OPS": 0.785,
+          "HR": 248,
+          "H": 2472,
+          "G": 2456
+        },
+        "rateWAR": 2.4
+      },
+      {
+        "name": "J.T. Realmuto",
+        "position": "C",
+        "years": "2014-present",
+        "careerWAR": 35.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.275,
+          "OBP": 0.331,
+          "SLG": 0.453,
+          "OPS": 0.784,
+          "HR": 176,
+          "H": 1188,
+          "G": 1211
+        },
+        "rateWAR": 3.2
+      },
+      {
+        "name": "Salvador Perez",
+        "position": "C",
+        "years": "2011-present",
+        "careerWAR": 25.7,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.271,
+          "OBP": 0.305,
+          "SLG": 0.473,
+          "OPS": 0.778,
+          "HR": 260,
+          "H": 1515,
+          "G": 1473
+        },
+        "rateWAR": 1.98
       }
     ],
     "1B": [
@@ -324,6 +514,234 @@
           "G": 2699
         },
         "rateWAR": 3.6
+      },
+      {
+        "name": "Cap Anson",
+        "position": "1B",
+        "years": "1871-1897",
+        "careerWAR": 94.3,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.334,
+          "OBP": 0.394,
+          "SLG": 0.447,
+          "OPS": 0.841,
+          "HR": 97,
+          "H": 3435,
+          "G": 2524
+        },
+        "rateWAR": 3.5
+      },
+      {
+        "name": "Jim Thome",
+        "position": "1B",
+        "years": "1991-2012",
+        "careerWAR": 72.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.276,
+          "OBP": 0.402,
+          "SLG": 0.554,
+          "OPS": 0.956,
+          "HR": 612,
+          "H": 2328,
+          "G": 2543
+        },
+        "rateWAR": 3.31
+      },
+      {
+        "name": "Todd Helton",
+        "position": "1B",
+        "years": "1997-2013",
+        "careerWAR": 61.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.316,
+          "OBP": 0.414,
+          "SLG": 0.539,
+          "OPS": 0.953,
+          "HR": 369,
+          "H": 2519,
+          "G": 2247
+        },
+        "rateWAR": 3.64
+      },
+      {
+        "name": "Willie McCovey",
+        "position": "1B",
+        "years": "1959-1980",
+        "careerWAR": 64.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.27,
+          "OBP": 0.374,
+          "SLG": 0.515,
+          "OPS": 0.889,
+          "HR": 521,
+          "H": 2211,
+          "G": 2588
+        },
+        "rateWAR": 2.93
+      },
+      {
+        "name": "Harmon Killebrew",
+        "position": "1B",
+        "years": "1954-1975",
+        "careerWAR": 60.4,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.256,
+          "OBP": 0.376,
+          "SLG": 0.509,
+          "OPS": 0.884,
+          "HR": 573,
+          "H": 2086,
+          "G": 2435
+        },
+        "rateWAR": 2.75
+      },
+      {
+        "name": "Mark McGwire",
+        "position": "1B",
+        "years": "1986-2001",
+        "careerWAR": 62.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.263,
+          "OBP": 0.394,
+          "SLG": 0.588,
+          "OPS": 0.982,
+          "HR": 583,
+          "H": 1626,
+          "G": 1874
+        },
+        "rateWAR": 3.89
+      },
+      {
+        "name": "Freddie Freeman",
+        "position": "1B",
+        "years": "2010-present",
+        "careerWAR": 62.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.299,
+          "OBP": 0.389,
+          "SLG": 0.51,
+          "OPS": 0.899,
+          "HR": 309,
+          "H": 2281,
+          "G": 2160
+        },
+        "rateWAR": 3.89
+      },
+      {
+        "name": "Paul Goldschmidt",
+        "position": "1B",
+        "years": "2011-present",
+        "careerWAR": 52.4,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.281,
+          "OBP": 0.377,
+          "SLG": 0.503,
+          "OPS": 0.880,
+          "HR": 316,
+          "H": 1936,
+          "G": 1903
+        },
+        "rateWAR": 3.74
+      },
+      {
+        "name": "George Sisler",
+        "position": "1B",
+        "years": "1915-1930",
+        "careerWAR": 50.4,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.34,
+          "OBP": 0.379,
+          "SLG": 0.468,
+          "OPS": 0.847,
+          "HR": 102,
+          "H": 2812,
+          "G": 2055
+        },
+        "rateWAR": 3.15
+      },
+      {
+        "name": "Rafael Palmeiro",
+        "position": "1B",
+        "years": "1986-2005",
+        "careerWAR": 71.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.288,
+          "OBP": 0.371,
+          "SLG": 0.515,
+          "OPS": 0.885,
+          "HR": 569,
+          "H": 3020,
+          "G": 2831
+        },
+        "rateWAR": 3.60
+      },
+      {
+        "name": "Joey Votto",
+        "position": "1B",
+        "years": "2007-2023",
+        "careerWAR": 64.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.294,
+          "OBP": 0.409,
+          "SLG": 0.503,
+          "OPS": 0.912,
+          "HR": 356,
+          "H": 2135,
+          "G": 2056
+        },
+        "rateWAR": 3.79
+      },
+      {
+        "name": "Dick Allen",
+        "position": "1B",
+        "years": "1963-1977",
+        "careerWAR": 58.7,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.292,
+          "OBP": 0.378,
+          "SLG": 0.534,
+          "OPS": 0.912,
+          "HR": 351,
+          "H": 1848,
+          "G": 1749
+        },
+        "rateWAR": 3.91
       }
     ],
     "2B": [
@@ -478,6 +896,234 @@
           "G": 1773
         },
         "rateWAR": 4.58
+      },
+      {
+        "name": "Nap Lajoie",
+        "position": "2B",
+        "years": "1896-1916",
+        "careerWAR": 107.5,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.338,
+          "OBP": 0.38,
+          "SLG": 0.467,
+          "OPS": 0.847,
+          "HR": 83,
+          "H": 3242,
+          "G": 2480
+        },
+        "rateWAR": 5.12
+      },
+      {
+        "name": "Eddie Collins",
+        "position": "2B",
+        "years": "1906-1930",
+        "careerWAR": 124.0,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.333,
+          "OBP": 0.424,
+          "SLG": 0.429,
+          "OPS": 0.853,
+          "HR": 47,
+          "H": 3315,
+          "G": 2826
+        },
+        "rateWAR": 5.32
+      },
+      {
+        "name": "Frankie Frisch",
+        "position": "2B",
+        "years": "1919-1937",
+        "careerWAR": 55.3,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.316,
+          "OBP": 0.369,
+          "SLG": 0.432,
+          "OPS": 0.801,
+          "HR": 105,
+          "H": 2880,
+          "G": 2311
+        },
+        "rateWAR": 2.91
+      },
+      {
+        "name": "Jeff Kent",
+        "position": "2B",
+        "years": "1992-2008",
+        "careerWAR": 55.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.29,
+          "OBP": 0.356,
+          "SLG": 0.5,
+          "OPS": 0.855,
+          "HR": 377,
+          "H": 2461,
+          "G": 2298
+        },
+        "rateWAR": 3.26
+      },
+      {
+        "name": "Robinson Cano",
+        "position": "2B",
+        "years": "2005-2022",
+        "careerWAR": 57.0,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.303,
+          "OBP": 0.352,
+          "SLG": 0.494,
+          "OPS": 0.846,
+          "HR": 335,
+          "H": 2632,
+          "G": 2336
+        },
+        "rateWAR": 3.17
+      },
+      {
+        "name": "Chase Utley",
+        "position": "2B",
+        "years": "2003-2018",
+        "careerWAR": 64.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.275,
+          "OBP": 0.358,
+          "SLG": 0.465,
+          "OPS": 0.823,
+          "HR": 259,
+          "H": 1885,
+          "G": 1937
+        },
+        "rateWAR": 4.03
+      },
+      {
+        "name": "Dustin Pedroia",
+        "position": "2B",
+        "years": "2006-2019",
+        "careerWAR": 51.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.299,
+          "OBP": 0.365,
+          "SLG": 0.439,
+          "OPS": 0.805,
+          "HR": 140,
+          "H": 1805,
+          "G": 1512
+        },
+        "rateWAR": 3.7
+      },
+      {
+        "name": "Bobby Grich",
+        "position": "2B",
+        "years": "1970-1986",
+        "careerWAR": 71.1,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.266,
+          "OBP": 0.371,
+          "SLG": 0.424,
+          "OPS": 0.794,
+          "HR": 224,
+          "H": 1833,
+          "G": 2008
+        },
+        "rateWAR": 4.18
+      },
+      {
+        "name": "Marcus Semien",
+        "position": "2B",
+        "years": "2013-present",
+        "careerWAR": 36.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.254,
+          "OBP": 0.326,
+          "SLG": 0.438,
+          "OPS": 0.764,
+          "HR": 203,
+          "H": 1373,
+          "G": 1478
+        },
+        "rateWAR": 3.03
+      },
+      {
+        "name": "Rod Carew",
+        "position": "2B",
+        "years": "1967-1985",
+        "careerWAR": 81.3,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.328,
+          "OBP": 0.393,
+          "SLG": 0.429,
+          "OPS": 0.822,
+          "HR": 92,
+          "H": 3053,
+          "G": 2469
+        },
+        "rateWAR": 4.28
+      },
+      {
+        "name": "Bill Mazeroski",
+        "position": "2B",
+        "years": "1956-1972",
+        "careerWAR": 36.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.26,
+          "OBP": 0.299,
+          "SLG": 0.367,
+          "OPS": 0.667,
+          "HR": 138,
+          "H": 2016,
+          "G": 2163
+        },
+        "rateWAR": 2.13
+      },
+      {
+        "name": "Ozzie Albies",
+        "position": "2B",
+        "years": "2017-present",
+        "careerWAR": 25.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.271,
+          "OBP": 0.319,
+          "SLG": 0.464,
+          "OPS": 0.783,
+          "HR": 137,
+          "H": 934,
+          "G": 865
+        },
+        "rateWAR": 3.22
       }
     ],
     "3B": [
@@ -613,6 +1259,253 @@
           "G": 1645
         },
         "rateWAR": 5.19
+      },
+      {
+        "name": "Eddie Mathews",
+        "position": "3B",
+        "years": "1952-1968",
+        "careerWAR": 96.1,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.271,
+          "OBP": 0.376,
+          "SLG": 0.509,
+          "OPS": 0.885,
+          "HR": 512,
+          "H": 2315,
+          "G": 2391
+        },
+        "rateWAR": 5.65
+      },
+      {
+        "name": "Home Run Baker",
+        "position": "3B",
+        "years": "1908-1922",
+        "careerWAR": 63.3,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.307,
+          "OBP": 0.363,
+          "SLG": 0.442,
+          "OPS": 0.805,
+          "HR": 96,
+          "H": 1838,
+          "G": 1575
+        },
+        "rateWAR": 4.52
+      },
+      {
+        "name": "Ron Santo",
+        "position": "3B",
+        "years": "1960-1974",
+        "careerWAR": 70.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.277,
+          "OBP": 0.362,
+          "SLG": 0.464,
+          "OPS": 0.826,
+          "HR": 342,
+          "H": 2254,
+          "G": 2243
+        },
+        "rateWAR": 4.7
+      },
+      {
+        "name": "Scott Rolen",
+        "position": "3B",
+        "years": "1996-2012",
+        "careerWAR": 70.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.281,
+          "OBP": 0.364,
+          "SLG": 0.49,
+          "OPS": 0.855,
+          "HR": 316,
+          "H": 2077,
+          "G": 2038
+        },
+        "rateWAR": 4.13
+      },
+      {
+        "name": "David Wright",
+        "position": "3B",
+        "years": "2004-2018",
+        "careerWAR": 49.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.296,
+          "OBP": 0.376,
+          "SLG": 0.491,
+          "OPS": 0.867,
+          "HR": 242,
+          "H": 1777,
+          "G": 1585
+        },
+        "rateWAR": 3.28
+      },
+      {
+        "name": "Graig Nettles",
+        "position": "3B",
+        "years": "1967-1988",
+        "careerWAR": 67.9,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.248,
+          "OBP": 0.329,
+          "SLG": 0.421,
+          "OPS": 0.75,
+          "HR": 390,
+          "H": 2225,
+          "G": 2700
+        },
+        "rateWAR": 3.27
+      },
+      {
+        "name": "Manny Machado",
+        "position": "3B",
+        "years": "2012-present",
+        "careerWAR": 55.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.276,
+          "OBP": 0.335,
+          "SLG": 0.483,
+          "OPS": 0.818,
+          "HR": 320,
+          "H": 1960,
+          "G": 1825
+        },
+        "rateWAR": 4.25
+      },
+      {
+        "name": "Evan Longoria",
+        "position": "3B",
+        "years": "2008-2022",
+        "careerWAR": 46.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.261,
+          "OBP": 0.328,
+          "SLG": 0.456,
+          "OPS": 0.784,
+          "HR": 299,
+          "H": 1803,
+          "G": 1920
+        },
+        "rateWAR": 3.09
+      },
+      {
+        "name": "Alex Bregman",
+        "position": "3B",
+        "years": "2016-present",
+        "careerWAR": 38.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.272,
+          "OBP": 0.366,
+          "SLG": 0.455,
+          "OPS": 0.821,
+          "HR": 168,
+          "H": 1063,
+          "G": 1065
+        },
+        "rateWAR": 4.31
+      },
+      {
+        "name": "Pie Traynor",
+        "position": "3B",
+        "years": "1920-1937",
+        "careerWAR": 36.2,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.32,
+          "OBP": 0.362,
+          "SLG": 0.435,
+          "OPS": 0.797,
+          "HR": 58,
+          "H": 2416,
+          "G": 1941
+        },
+        "rateWAR": 2.01
+      },
+      {
+        "name": "Jose Ramirez",
+        "position": "3B",
+        "years": "2013-present",
+        "careerWAR": 46.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.275,
+          "OBP": 0.349,
+          "SLG": 0.488,
+          "OPS": 0.837,
+          "HR": 223,
+          "H": 1472,
+          "G": 1519
+        },
+        "rateWAR": 3.85
+      },
+      {
+        "name": "Ken Caminiti",
+        "position": "3B",
+        "years": "1987-2001",
+        "careerWAR": 32.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.272,
+          "OBP": 0.347,
+          "SLG": 0.447,
+          "OPS": 0.795,
+          "HR": 239,
+          "H": 1710,
+          "G": 1710
+        },
+        "rateWAR": 2.18
+      },
+      {
+        "name": "Rafael Devers",
+        "position": "3B",
+        "years": "2017-present",
+        "careerWAR": 33.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.279,
+          "OBP": 0.337,
+          "SLG": 0.505,
+          "OPS": 0.842,
+          "HR": 197,
+          "H": 1122,
+          "G": 1024
+        },
+        "rateWAR": 4.16
       }
     ],
     "SS": [
@@ -767,6 +1660,234 @@
           "G": 2180
         },
         "rateWAR": 4.81
+      },
+      {
+        "name": "Joe Cronin",
+        "position": "SS",
+        "years": "1926-1945",
+        "careerWAR": 66.4,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.301,
+          "OBP": 0.39,
+          "SLG": 0.468,
+          "OPS": 0.857,
+          "HR": 170,
+          "H": 2285,
+          "G": 2124
+        },
+        "rateWAR": 3.32
+      },
+      {
+        "name": "Luke Appling",
+        "position": "SS",
+        "years": "1930-1950",
+        "careerWAR": 74.4,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.31,
+          "OBP": 0.399,
+          "SLG": 0.398,
+          "OPS": 0.798,
+          "HR": 45,
+          "H": 2749,
+          "G": 2422
+        },
+        "rateWAR": 3.54
+      },
+      {
+        "name": "Alan Trammell",
+        "position": "SS",
+        "years": "1977-1996",
+        "careerWAR": 70.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.352,
+          "SLG": 0.415,
+          "OPS": 0.767,
+          "HR": 185,
+          "H": 2365,
+          "G": 2293
+        },
+        "rateWAR": 3.54
+      },
+      {
+        "name": "Trea Turner",
+        "position": "SS",
+        "years": "2015-present",
+        "careerWAR": 37.0,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.290,
+          "OBP": 0.339,
+          "SLG": 0.479,
+          "OPS": 0.818,
+          "HR": 152,
+          "H": 1211,
+          "G": 1074
+        },
+        "rateWAR": 3.7
+      },
+      {
+        "name": "Corey Seager",
+        "position": "SS",
+        "years": "2015-present",
+        "careerWAR": 40.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.291,
+          "OBP": 0.361,
+          "SLG": 0.509,
+          "OPS": 0.870,
+          "HR": 195,
+          "H": 1167,
+          "G": 1047
+        },
+        "rateWAR": 4.02
+      },
+      {
+        "name": "Arky Vaughan",
+        "position": "SS",
+        "years": "1932-1948",
+        "careerWAR": 72.9,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.318,
+          "OBP": 0.406,
+          "SLG": 0.453,
+          "OPS": 0.859,
+          "HR": 96,
+          "H": 2103,
+          "G": 1817
+        },
+        "rateWAR": 5.21
+      },
+      {
+        "name": "Omar Vizquel",
+        "position": "SS",
+        "years": "1989-2012",
+        "careerWAR": 45.6,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.272,
+          "OBP": 0.336,
+          "SLG": 0.352,
+          "OPS": 0.688,
+          "HR": 80,
+          "H": 2877,
+          "G": 2968
+        },
+        "rateWAR": 1.9
+      },
+      {
+        "name": "Francisco Lindor",
+        "position": "SS",
+        "years": "2015-present",
+        "careerWAR": 46.9,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.267,
+          "OBP": 0.335,
+          "SLG": 0.461,
+          "OPS": 0.796,
+          "HR": 225,
+          "H": 1442,
+          "G": 1384
+        },
+        "rateWAR": 4.69
+      },
+      {
+        "name": "Jimmy Rollins",
+        "position": "SS",
+        "years": "2000-2016",
+        "careerWAR": 47.6,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.264,
+          "OBP": 0.324,
+          "SLG": 0.418,
+          "OPS": 0.742,
+          "HR": 231,
+          "H": 2455,
+          "G": 2275
+        },
+        "rateWAR": 2.80
+      },
+      {
+        "name": "Pee Wee Reese",
+        "position": "SS",
+        "years": "1940-1958",
+        "careerWAR": 66.4,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.269,
+          "OBP": 0.366,
+          "SLG": 0.377,
+          "OPS": 0.743,
+          "HR": 126,
+          "H": 2170,
+          "G": 2166
+        },
+        "rateWAR": 3.69
+      },
+      {
+        "name": "Nomar Garciaparra",
+        "position": "SS",
+        "years": "1996-2009",
+        "careerWAR": 44.3,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.313,
+          "OBP": 0.361,
+          "SLG": 0.521,
+          "OPS": 0.882,
+          "HR": 229,
+          "H": 1747,
+          "G": 1434
+        },
+        "rateWAR": 3.17
+      },
+      {
+        "name": "Hanley Ramirez",
+        "position": "SS",
+        "years": "2005-2019",
+        "careerWAR": 40.1,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.286,
+          "OBP": 0.356,
+          "SLG": 0.475,
+          "OPS": 0.83,
+          "HR": 271,
+          "H": 1899,
+          "G": 1717
+        },
+        "rateWAR": 2.67
       }
     ],
     "LF": [
@@ -902,6 +2023,253 @@
           "G": 2302
         },
         "rateWAR": 4.41
+      },
+      {
+        "name": "Goose Goslin",
+        "position": "LF",
+        "years": "1921-1938",
+        "careerWAR": 66.1,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.316,
+          "OBP": 0.387,
+          "SLG": 0.5,
+          "OPS": 0.887,
+          "HR": 248,
+          "H": 2735,
+          "G": 2287
+        },
+        "rateWAR": 3.67
+      },
+      {
+        "name": "Tim Raines",
+        "position": "LF",
+        "years": "1979-2002",
+        "careerWAR": 69.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.294,
+          "OBP": 0.385,
+          "SLG": 0.425,
+          "OPS": 0.81,
+          "HR": 170,
+          "H": 2605,
+          "G": 2502
+        },
+        "rateWAR": 3.18
+      },
+      {
+        "name": "Jim Rice",
+        "position": "LF",
+        "years": "1974-1989",
+        "careerWAR": 47.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.298,
+          "OBP": 0.352,
+          "SLG": 0.502,
+          "OPS": 0.854,
+          "HR": 382,
+          "H": 2452,
+          "G": 2089
+        },
+        "rateWAR": 2.98
+      },
+      {
+        "name": "Billy Williams",
+        "position": "LF",
+        "years": "1959-1976",
+        "careerWAR": 63.7,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.29,
+          "OBP": 0.361,
+          "SLG": 0.492,
+          "OPS": 0.853,
+          "HR": 426,
+          "H": 2711,
+          "G": 2488
+        },
+        "rateWAR": 3.54
+      },
+      {
+        "name": "Juan Soto",
+        "position": "LF",
+        "years": "2018-present",
+        "careerWAR": 40.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.281,
+          "OBP": 0.411,
+          "SLG": 0.519,
+          "OPS": 0.930,
+          "HR": 188,
+          "H": 952,
+          "G": 930
+        },
+        "rateWAR": 5.79
+      },
+      {
+        "name": "Ryan Braun",
+        "position": "LF",
+        "years": "2007-2020",
+        "careerWAR": 44.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.296,
+          "OBP": 0.358,
+          "SLG": 0.532,
+          "OPS": 0.89,
+          "HR": 352,
+          "H": 2281,
+          "G": 1766
+        },
+        "rateWAR": 3.18
+      },
+      {
+        "name": "Ed Delahanty",
+        "position": "LF",
+        "years": "1888-1903",
+        "careerWAR": 69.5,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.346,
+          "OBP": 0.411,
+          "SLG": 0.505,
+          "OPS": 0.916,
+          "HR": 101,
+          "H": 2596,
+          "G": 1835
+        },
+        "rateWAR": 4.34
+      },
+      {
+        "name": "Ralph Kiner",
+        "position": "LF",
+        "years": "1946-1955",
+        "careerWAR": 40.8,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.279,
+          "OBP": 0.398,
+          "SLG": 0.548,
+          "OPS": 0.946,
+          "HR": 369,
+          "H": 1451,
+          "G": 1472
+        },
+        "rateWAR": 4.08
+      },
+      {
+        "name": "Yordan Alvarez",
+        "position": "LF",
+        "years": "2019-present",
+        "careerWAR": 24.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.293,
+          "OBP": 0.390,
+          "SLG": 0.567,
+          "OPS": 0.957,
+          "HR": 166,
+          "H": 699,
+          "G": 674
+        },
+        "rateWAR": 4.13
+      },
+      {
+        "name": "Matt Holliday",
+        "position": "LF",
+        "years": "2004-2018",
+        "careerWAR": 44.6,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.299,
+          "OBP": 0.379,
+          "SLG": 0.507,
+          "OPS": 0.886,
+          "HR": 316,
+          "H": 2096,
+          "G": 1835
+        },
+        "rateWAR": 2.97
+      },
+      {
+        "name": "Zack Wheat",
+        "position": "LF",
+        "years": "1909-1927",
+        "careerWAR": 60.2,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.317,
+          "OBP": 0.367,
+          "SLG": 0.45,
+          "OPS": 0.817,
+          "HR": 132,
+          "H": 2884,
+          "G": 2410
+        },
+        "rateWAR": 3.17
+      },
+      {
+        "name": "Lou Brock",
+        "position": "LF",
+        "years": "1961-1979",
+        "careerWAR": 45.3,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.293,
+          "OBP": 0.343,
+          "SLG": 0.41,
+          "OPS": 0.753,
+          "HR": 149,
+          "H": 3023,
+          "G": 2616
+        },
+        "rateWAR": 2.38
+      },
+      {
+        "name": "Willie Stargell",
+        "position": "LF",
+        "years": "1962-1982",
+        "careerWAR": 57.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.282,
+          "OBP": 0.36,
+          "SLG": 0.529,
+          "OPS": 0.889,
+          "HR": 475,
+          "H": 2232,
+          "G": 2360
+        },
+        "rateWAR": 2.74
       }
     ],
     "CF": [
@@ -1037,6 +2405,253 @@
           "G": 2789
         },
         "rateWAR": 6.67
+      },
+      {
+        "name": "Duke Snider",
+        "position": "CF",
+        "years": "1947-1964",
+        "careerWAR": 66.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.295,
+          "OBP": 0.38,
+          "SLG": 0.54,
+          "OPS": 0.919,
+          "HR": 407,
+          "H": 2116,
+          "G": 2143
+        },
+        "rateWAR": 3.69
+      },
+      {
+        "name": "Andruw Jones",
+        "position": "CF",
+        "years": "1996-2012",
+        "careerWAR": 62.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.254,
+          "OBP": 0.337,
+          "SLG": 0.486,
+          "OPS": 0.823,
+          "HR": 434,
+          "H": 1933,
+          "G": 2196
+        },
+        "rateWAR": 3.69
+      },
+      {
+        "name": "Jim Edmonds",
+        "position": "CF",
+        "years": "1993-2010",
+        "careerWAR": 60.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.284,
+          "OBP": 0.376,
+          "SLG": 0.527,
+          "OPS": 0.903,
+          "HR": 393,
+          "H": 1949,
+          "G": 2011
+        },
+        "rateWAR": 3.36
+      },
+      {
+        "name": "Carlos Beltran",
+        "position": "CF",
+        "years": "1998-2017",
+        "careerWAR": 70.1,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.279,
+          "OBP": 0.35,
+          "SLG": 0.486,
+          "OPS": 0.837,
+          "HR": 435,
+          "H": 2725,
+          "G": 2586
+        },
+        "rateWAR": 3.51
+      },
+      {
+        "name": "Kenny Lofton",
+        "position": "CF",
+        "years": "1991-2007",
+        "careerWAR": 68.3,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.299,
+          "OBP": 0.372,
+          "SLG": 0.423,
+          "OPS": 0.794,
+          "HR": 130,
+          "H": 2428,
+          "G": 2103
+        },
+        "rateWAR": 4.02
+      },
+      {
+        "name": "Richie Ashburn",
+        "position": "CF",
+        "years": "1948-1962",
+        "careerWAR": 58.7,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.308,
+          "OBP": 0.396,
+          "SLG": 0.382,
+          "OPS": 0.778,
+          "HR": 29,
+          "H": 2574,
+          "G": 2189
+        },
+        "rateWAR": 3.91
+      },
+      {
+        "name": "Kirby Puckett",
+        "position": "CF",
+        "years": "1984-1995",
+        "careerWAR": 44.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.318,
+          "OBP": 0.36,
+          "SLG": 0.477,
+          "OPS": 0.837,
+          "HR": 207,
+          "H": 2304,
+          "G": 1783
+        },
+        "rateWAR": 3.73
+      },
+      {
+        "name": "Andrew McCutchen",
+        "position": "CF",
+        "years": "2009-present",
+        "careerWAR": 48.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.267,
+          "OBP": 0.358,
+          "SLG": 0.443,
+          "OPS": 0.801,
+          "HR": 297,
+          "H": 2072,
+          "G": 2128
+        },
+        "rateWAR": 3.03
+      },
+      {
+        "name": "Dale Murphy",
+        "position": "CF",
+        "years": "1976-1993",
+        "careerWAR": 46.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.265,
+          "OBP": 0.346,
+          "SLG": 0.469,
+          "OPS": 0.815,
+          "HR": 398,
+          "H": 2111,
+          "G": 2180
+        },
+        "rateWAR": 2.58
+      },
+      {
+        "name": "Bernie Williams",
+        "position": "CF",
+        "years": "1991-2006",
+        "careerWAR": 49.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.297,
+          "OBP": 0.381,
+          "SLG": 0.477,
+          "OPS": 0.858,
+          "HR": 287,
+          "H": 2336,
+          "G": 2076
+        },
+        "rateWAR": 3.12
+      },
+      {
+        "name": "Ronald Acuna Jr.",
+        "position": "CF",
+        "years": "2018-present",
+        "careerWAR": 32.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.281,
+          "OBP": 0.366,
+          "SLG": 0.524,
+          "OPS": 0.890,
+          "HR": 149,
+          "H": 761,
+          "G": 720
+        },
+        "rateWAR": 4.6
+      },
+      {
+        "name": "Fred Clarke",
+        "position": "CF",
+        "years": "1894-1915",
+        "careerWAR": 67.3,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.312,
+          "OBP": 0.386,
+          "SLG": 0.429,
+          "OPS": 0.815,
+          "HR": 67,
+          "H": 2672,
+          "G": 2242
+        },
+        "rateWAR": 3.06
+      },
+      {
+        "name": "Max Carey",
+        "position": "CF",
+        "years": "1910-1929",
+        "careerWAR": 52.8,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.361,
+          "SLG": 0.386,
+          "OPS": 0.747,
+          "HR": 70,
+          "H": 2665,
+          "G": 2476
+        },
+        "rateWAR": 2.64
       }
     ],
     "RF": [
@@ -1191,6 +2806,234 @@
           "G": 1370
         },
         "rateWAR": 6.89
+      },
+      {
+        "name": "Mel Ott",
+        "position": "RF",
+        "years": "1926-1947",
+        "careerWAR": 107.8,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.304,
+          "OBP": 0.414,
+          "SLG": 0.533,
+          "OPS": 0.947,
+          "HR": 511,
+          "H": 2876,
+          "G": 2730
+        },
+        "rateWAR": 5.08
+      },
+      {
+        "name": "Sammy Sosa",
+        "position": "RF",
+        "years": "1989-2007",
+        "careerWAR": 58.6,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.273,
+          "OBP": 0.344,
+          "SLG": 0.534,
+          "OPS": 0.878,
+          "HR": 609,
+          "H": 2408,
+          "G": 2354
+        },
+        "rateWAR": 3.08
+      },
+      {
+        "name": "Vladimir Guerrero",
+        "position": "RF",
+        "years": "1996-2011",
+        "careerWAR": 59.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.318,
+          "OBP": 0.379,
+          "SLG": 0.553,
+          "OPS": 0.931,
+          "HR": 449,
+          "H": 2590,
+          "G": 2147
+        },
+        "rateWAR": 3.71
+      },
+      {
+        "name": "Dave Winfield",
+        "position": "RF",
+        "years": "1973-1995",
+        "careerWAR": 64.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.283,
+          "OBP": 0.353,
+          "SLG": 0.475,
+          "OPS": 0.827,
+          "HR": 465,
+          "H": 3110,
+          "G": 2973
+        },
+        "rateWAR": 2.79
+      },
+      {
+        "name": "Paul Waner",
+        "position": "RF",
+        "years": "1926-1945",
+        "careerWAR": 72.8,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.333,
+          "OBP": 0.404,
+          "SLG": 0.473,
+          "OPS": 0.878,
+          "HR": 113,
+          "H": 3152,
+          "G": 2549
+        },
+        "rateWAR": 3.64
+      },
+      {
+        "name": "Larry Walker",
+        "position": "RF",
+        "years": "1989-2005",
+        "careerWAR": 72.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.313,
+          "OBP": 0.4,
+          "SLG": 0.565,
+          "OPS": 0.965,
+          "HR": 383,
+          "H": 2160,
+          "G": 1988
+        },
+        "rateWAR": 4.28
+      },
+      {
+        "name": "Gary Sheffield",
+        "position": "RF",
+        "years": "1988-2009",
+        "careerWAR": 60.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.292,
+          "OBP": 0.393,
+          "SLG": 0.514,
+          "OPS": 0.907,
+          "HR": 509,
+          "H": 2689,
+          "G": 2576
+        },
+        "rateWAR": 2.75
+      },
+      {
+        "name": "Aaron Judge",
+        "position": "RF",
+        "years": "2016-present",
+        "careerWAR": 47.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.275,
+          "OBP": 0.387,
+          "SLG": 0.583,
+          "OPS": 0.970,
+          "HR": 313,
+          "H": 1082,
+          "G": 1052
+        },
+        "rateWAR": 5.94
+      },
+      {
+        "name": "Giancarlo Stanton",
+        "position": "RF",
+        "years": "2010-present",
+        "careerWAR": 39.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.257,
+          "OBP": 0.342,
+          "SLG": 0.524,
+          "OPS": 0.866,
+          "HR": 404,
+          "H": 1496,
+          "G": 1572
+        },
+        "rateWAR": 2.61
+      },
+      {
+        "name": "Bryce Harper",
+        "position": "RF",
+        "years": "2012-present",
+        "careerWAR": 47.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.276,
+          "OBP": 0.384,
+          "SLG": 0.512,
+          "OPS": 0.896,
+          "HR": 285,
+          "H": 1509,
+          "G": 1525
+        },
+        "rateWAR": 3.64
+      },
+      {
+        "name": "Harry Heilmann",
+        "position": "RF",
+        "years": "1914-1932",
+        "careerWAR": 56.5,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.342,
+          "OBP": 0.41,
+          "SLG": 0.52,
+          "OPS": 0.93,
+          "HR": 183,
+          "H": 2660,
+          "G": 2148
+        },
+        "rateWAR": 2.97
+      },
+      {
+        "name": "Willie Keeler",
+        "position": "RF",
+        "years": "1892-1910",
+        "careerWAR": 64.0,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.341,
+          "OBP": 0.388,
+          "SLG": 0.415,
+          "OPS": 0.802,
+          "HR": 33,
+          "H": 2932,
+          "G": 2123
+        },
+        "rateWAR": 3.37
       }
     ],
     "P": [
@@ -1397,6 +3240,516 @@
           "L": 205
         },
         "rateWAR": 4.55
+      },
+      {
+        "name": "Warren Spahn",
+        "position": "P",
+        "years": "1942-1965",
+        "careerWAR": 101.7,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.09,
+          "W": 363,
+          "SO": 2583,
+          "IP": 5243.2,
+          "L": 245
+        },
+        "rateWAR": 4.25
+      },
+      {
+        "name": "Steve Carlton",
+        "position": "P",
+        "years": "1965-1988",
+        "careerWAR": 90.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.22,
+          "W": 329,
+          "SO": 4136,
+          "IP": 5217.2,
+          "L": 244
+        },
+        "rateWAR": 3.76
+      },
+      {
+        "name": "Gaylord Perry",
+        "position": "P",
+        "years": "1962-1983",
+        "careerWAR": 90.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.11,
+          "W": 314,
+          "SO": 3534,
+          "IP": 5350.0,
+          "L": 265
+        },
+        "rateWAR": 4.1
+      },
+      {
+        "name": "Phil Niekro",
+        "position": "P",
+        "years": "1964-1987",
+        "careerWAR": 97.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.35,
+          "W": 318,
+          "SO": 3342,
+          "IP": 5404.0,
+          "L": 274
+        },
+        "rateWAR": 4.05
+      },
+      {
+        "name": "John Smoltz",
+        "position": "P",
+        "years": "1988-2009",
+        "careerWAR": 66.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.33,
+          "W": 213,
+          "SO": 3084,
+          "IP": 3473.0,
+          "L": 155
+        },
+        "rateWAR": 3.02
+      },
+      {
+        "name": "Mariano Rivera",
+        "position": "P",
+        "years": "1995-2013",
+        "careerWAR": 56.3,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.21,
+          "W": 82,
+          "SO": 1173,
+          "IP": 1283.2,
+          "L": 60
+        },
+        "rateWAR": 2.96
+      },
+      {
+        "name": "Bob Feller",
+        "position": "P",
+        "years": "1936-1956",
+        "careerWAR": 65.5,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.25,
+          "W": 266,
+          "SO": 2581,
+          "IP": 3827.0,
+          "L": 162
+        },
+        "rateWAR": 3.93
+      },
+      {
+        "name": "Grover Cleveland Alexander",
+        "position": "P",
+        "years": "1911-1930",
+        "careerWAR": 116.9,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.56,
+          "W": 373,
+          "SO": 2198,
+          "IP": 5190.0,
+          "L": 208
+        },
+        "rateWAR": 5.85
+      },
+      {
+        "name": "Whitey Ford",
+        "position": "P",
+        "years": "1950-1967",
+        "careerWAR": 56.9,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.75,
+          "W": 236,
+          "SO": 1956,
+          "IP": 3170.1,
+          "L": 106
+        },
+        "rateWAR": 3.35
+      },
+      {
+        "name": "Juan Marichal",
+        "position": "P",
+        "years": "1960-1975",
+        "careerWAR": 62.4,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.89,
+          "W": 243,
+          "SO": 2303,
+          "IP": 3507.0,
+          "L": 142
+        },
+        "rateWAR": 3.9
+      },
+      {
+        "name": "Ferguson Jenkins",
+        "position": "P",
+        "years": "1965-1983",
+        "careerWAR": 84.0,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.34,
+          "W": 284,
+          "SO": 3192,
+          "IP": 4500.2,
+          "L": 226
+        },
+        "rateWAR": 4.42
+      },
+      {
+        "name": "Curt Schilling",
+        "position": "P",
+        "years": "1988-2007",
+        "careerWAR": 80.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "pitching": {
+          "ERA": 3.46,
+          "W": 216,
+          "SO": 3116,
+          "IP": 3261.0,
+          "L": 146
+        },
+        "rateWAR": 4.04
+      },
+      {
+        "name": "Mike Mussina",
+        "position": "P",
+        "years": "1991-2008",
+        "careerWAR": 82.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.68,
+          "W": 270,
+          "SO": 2813,
+          "IP": 3562.2,
+          "L": 153
+        },
+        "rateWAR": 4.59
+      },
+      {
+        "name": "Clayton Kershaw",
+        "position": "P",
+        "years": "2008-present",
+        "careerWAR": 75.6,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 2.48,
+          "W": 210,
+          "SO": 2807,
+          "IP": 2638.2,
+          "L": 92
+        },
+        "rateWAR": 4.45
+      },
+      {
+        "name": "Justin Verlander",
+        "position": "P",
+        "years": "2005-present",
+        "careerWAR": 72.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.24,
+          "W": 262,
+          "SO": 3416,
+          "IP": 3316.0,
+          "L": 133
+        },
+        "rateWAR": 3.64
+      },
+      {
+        "name": "Max Scherzer",
+        "position": "P",
+        "years": "2008-present",
+        "careerWAR": 72.6,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.16,
+          "W": 214,
+          "SO": 3378,
+          "IP": 2935.2,
+          "L": 102
+        },
+        "rateWAR": 4.27
+      },
+      {
+        "name": "Roy Halladay",
+        "position": "P",
+        "years": "1998-2013",
+        "careerWAR": 65.6,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.38,
+          "W": 203,
+          "SO": 2117,
+          "IP": 2749.1,
+          "L": 105
+        },
+        "rateWAR": 4.1
+      },
+      {
+        "name": "Tom Glavine",
+        "position": "P",
+        "years": "1987-2008",
+        "careerWAR": 74.0,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.54,
+          "W": 305,
+          "SO": 2607,
+          "IP": 4413.1,
+          "L": 203
+        },
+        "rateWAR": 3.36
+      },
+      {
+        "name": "CC Sabathia",
+        "position": "P",
+        "years": "2001-2019",
+        "careerWAR": 62.5,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.74,
+          "W": 251,
+          "SO": 3093,
+          "IP": 3577.1,
+          "L": 161
+        },
+        "rateWAR": 3.29
+      },
+      {
+        "name": "Don Drysdale",
+        "position": "P",
+        "years": "1956-1969",
+        "careerWAR": 61.4,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.95,
+          "W": 209,
+          "SO": 2486,
+          "IP": 3432.0,
+          "L": 166
+        },
+        "rateWAR": 4.39
+      },
+      {
+        "name": "Jacob deGrom",
+        "position": "P",
+        "years": "2014-present",
+        "careerWAR": 42.7,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 2.52,
+          "W": 82,
+          "SO": 1505,
+          "IP": 1326.0,
+          "L": 51
+        },
+        "rateWAR": 3.88
+      },
+      {
+        "name": "Zack Greinke",
+        "position": "P",
+        "years": "2004-2023",
+        "careerWAR": 77.6,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.47,
+          "W": 224,
+          "SO": 2907,
+          "IP": 3433.1,
+          "L": 137
+        },
+        "rateWAR": 3.88
+      },
+      {
+        "name": "Jim Palmer",
+        "position": "P",
+        "years": "1965-1984",
+        "careerWAR": 68.0,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.86,
+          "W": 268,
+          "SO": 2212,
+          "IP": 3948.0,
+          "L": 152
+        },
+        "rateWAR": 3.4
+      },
+      {
+        "name": "Bert Blyleven",
+        "position": "P",
+        "years": "1970-1992",
+        "careerWAR": 94.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.31,
+          "W": 287,
+          "SO": 3701,
+          "IP": 4970.0,
+          "L": 250
+        },
+        "rateWAR": 4.11
+      },
+      {
+        "name": "Dennis Eckersley",
+        "position": "P",
+        "years": "1975-1998",
+        "careerWAR": 62.1,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.5,
+          "W": 197,
+          "SO": 2401,
+          "IP": 3285.2,
+          "L": 171
+        },
+        "rateWAR": 2.59
+      },
+      {
+        "name": "Mordecai Brown",
+        "position": "P",
+        "years": "1903-1916",
+        "careerWAR": 55.1,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.06,
+          "W": 239,
+          "SO": 1375,
+          "IP": 3172.1,
+          "L": 130
+        },
+        "rateWAR": 3.94
+      },
+      {
+        "name": "Ed Walsh",
+        "position": "P",
+        "years": "1904-1917",
+        "careerWAR": 63.1,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 1.82,
+          "W": 195,
+          "SO": 1736,
+          "IP": 2964.1,
+          "L": 126
+        },
+        "rateWAR": 4.51
+      },
+      {
+        "name": "David Price",
+        "position": "P",
+        "years": "2008-2022",
+        "careerWAR": 55.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.32,
+          "W": 157,
+          "SO": 2076,
+          "IP": 2287.1,
+          "L": 82
+        },
+        "rateWAR": 3.72
+      },
+      {
+        "name": "Felix Hernandez",
+        "position": "P",
+        "years": "2005-2019",
+        "careerWAR": 50.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "pitching": {
+          "ERA": 3.42,
+          "W": 169,
+          "SO": 2524,
+          "IP": 2729.2,
+          "L": 136
+        },
+        "rateWAR": 3.35
+      },
+      {
+        "name": "Johan Santana",
+        "position": "P",
+        "years": "2000-2012",
+        "careerWAR": 51.7,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not inducted",
+        "pitching": {
+          "ERA": 3.2,
+          "W": 139,
+          "SO": 1988,
+          "IP": 2025.2,
+          "L": 78
+        },
+        "rateWAR": 3.98
       }
     ]
   }
