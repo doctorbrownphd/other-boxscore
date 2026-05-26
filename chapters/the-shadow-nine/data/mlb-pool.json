@@ -75,6 +75,101 @@
           "G": 1482
         },
         "rateWAR": 5.14
+      },
+      {
+        "name": "Mike Piazza",
+        "position": "C",
+        "years": "1992-2007",
+        "careerWAR": 59.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.308,
+          "OBP": 0.377,
+          "SLG": 0.545,
+          "OPS": 0.922,
+          "HR": 427,
+          "H": 2127,
+          "G": 1912
+        },
+        "rateWAR": 4.38
+      },
+      {
+        "name": "Ivan Rodriguez",
+        "position": "C",
+        "years": "1991-2011",
+        "careerWAR": 68.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.296,
+          "OBP": 0.334,
+          "SLG": 0.464,
+          "OPS": 0.798,
+          "HR": 311,
+          "H": 2844,
+          "G": 2543
+        },
+        "rateWAR": 3.73
+      },
+      {
+        "name": "Carlton Fisk",
+        "position": "C",
+        "years": "1969-1993",
+        "careerWAR": 68.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.269,
+          "OBP": 0.341,
+          "SLG": 0.457,
+          "OPS": 0.797,
+          "HR": 376,
+          "H": 2356,
+          "G": 2499
+        },
+        "rateWAR": 3.69
+      },
+      {
+        "name": "Gary Carter",
+        "position": "C",
+        "years": "1974-1992",
+        "careerWAR": 70.1,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.262,
+          "OBP": 0.335,
+          "SLG": 0.439,
+          "OPS": 0.773,
+          "HR": 324,
+          "H": 2092,
+          "G": 2296
+        },
+        "rateWAR": 4.24
+      },
+      {
+        "name": "Joe Mauer",
+        "position": "C",
+        "years": "2004-2018",
+        "careerWAR": 55.3,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.306,
+          "OBP": 0.388,
+          "SLG": 0.439,
+          "OPS": 0.827,
+          "HR": 143,
+          "H": 2123,
+          "G": 1858
+        },
+        "rateWAR": 4.69
       }
     ],
     "1B": [
@@ -115,6 +210,120 @@
           "G": 2317
         },
         "rateWAR": 5.88
+      },
+      {
+        "name": "Albert Pujols",
+        "position": "1B",
+        "years": "2001-2022",
+        "careerWAR": 101.0,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.296,
+          "OBP": 0.374,
+          "SLG": 0.544,
+          "OPS": 0.918,
+          "HR": 703,
+          "H": 3384,
+          "G": 3080
+        },
+        "rateWAR": 4.55
+      },
+      {
+        "name": "Jeff Bagwell",
+        "position": "1B",
+        "years": "1991-2005",
+        "careerWAR": 79.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.297,
+          "OBP": 0.408,
+          "SLG": 0.54,
+          "OPS": 0.948,
+          "HR": 449,
+          "H": 2314,
+          "G": 2150
+        },
+        "rateWAR": 5.33
+      },
+      {
+        "name": "Eddie Murray",
+        "position": "1B",
+        "years": "1977-1997",
+        "careerWAR": 68.7,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.287,
+          "OBP": 0.359,
+          "SLG": 0.476,
+          "OPS": 0.836,
+          "HR": 504,
+          "H": 3255,
+          "G": 3026
+        },
+        "rateWAR": 3.13
+      },
+      {
+        "name": "Hank Greenberg",
+        "position": "1B",
+        "years": "1930-1947",
+        "careerWAR": 57.5,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.313,
+          "OBP": 0.412,
+          "SLG": 0.605,
+          "OPS": 1.017,
+          "HR": 331,
+          "H": 1628,
+          "G": 1394
+        },
+        "rateWAR": 5.54
+      },
+      {
+        "name": "Frank Thomas",
+        "position": "1B",
+        "years": "1990-2008",
+        "careerWAR": 73.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.301,
+          "OBP": 0.419,
+          "SLG": 0.555,
+          "OPS": 0.974,
+          "HR": 521,
+          "H": 2468,
+          "G": 2322
+        },
+        "rateWAR": 4.52
+      },
+      {
+        "name": "Miguel Cabrera",
+        "position": "1B",
+        "years": "2003-2023",
+        "careerWAR": 69.4,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.306,
+          "OBP": 0.388,
+          "SLG": 0.532,
+          "OPS": 0.92,
+          "HR": 511,
+          "H": 3174,
+          "G": 2699
+        },
+        "rateWAR": 3.6
       }
     ],
     "2B": [
@@ -174,6 +383,101 @@
           "G": 1382
         },
         "rateWAR": 6.36
+      },
+      {
+        "name": "Craig Biggio",
+        "position": "2B",
+        "years": "1988-2007",
+        "careerWAR": 65.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.281,
+          "OBP": 0.363,
+          "SLG": 0.433,
+          "OPS": 0.796,
+          "HR": 291,
+          "H": 3060,
+          "G": 2850
+        },
+        "rateWAR": 3.16
+      },
+      {
+        "name": "Ryne Sandberg",
+        "position": "2B",
+        "years": "1981-1997",
+        "careerWAR": 68.0,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.344,
+          "SLG": 0.452,
+          "OPS": 0.795,
+          "HR": 282,
+          "H": 2386,
+          "G": 2164
+        },
+        "rateWAR": 4.4
+      },
+      {
+        "name": "Charlie Gehringer",
+        "position": "2B",
+        "years": "1924-1942",
+        "careerWAR": 80.7,
+        "warSource": "bbref",
+        "era": "live-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.32,
+          "OBP": 0.404,
+          "SLG": 0.48,
+          "OPS": 0.884,
+          "HR": 184,
+          "H": 2839,
+          "G": 2323
+        },
+        "rateWAR": 4.85
+      },
+      {
+        "name": "Roberto Alomar",
+        "position": "2B",
+        "years": "1988-2004",
+        "careerWAR": 67.1,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.3,
+          "OBP": 0.371,
+          "SLG": 0.443,
+          "OPS": 0.814,
+          "HR": 210,
+          "H": 2724,
+          "G": 2379
+        },
+        "rateWAR": 3.85
+      },
+      {
+        "name": "Jose Altuve",
+        "position": "2B",
+        "years": "2011-present",
+        "careerWAR": 48.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.306,
+          "OBP": 0.36,
+          "SLG": 0.468,
+          "OPS": 0.828,
+          "HR": 218,
+          "H": 2245,
+          "G": 1773
+        },
+        "rateWAR": 4.58
       }
     ],
     "3B": [
@@ -214,6 +518,101 @@
           "G": 2707
         },
         "rateWAR": 4.58
+      },
+      {
+        "name": "Wade Boggs",
+        "position": "3B",
+        "years": "1982-1999",
+        "careerWAR": 91.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.328,
+          "OBP": 0.415,
+          "SLG": 0.443,
+          "OPS": 0.858,
+          "HR": 118,
+          "H": 3010,
+          "G": 2440
+        },
+        "rateWAR": 5.21
+      },
+      {
+        "name": "Chipper Jones",
+        "position": "3B",
+        "years": "1993-2012",
+        "careerWAR": 85.3,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.303,
+          "OBP": 0.401,
+          "SLG": 0.529,
+          "OPS": 0.93,
+          "HR": 468,
+          "H": 2726,
+          "G": 2499
+        },
+        "rateWAR": 4.9
+      },
+      {
+        "name": "Brooks Robinson",
+        "position": "3B",
+        "years": "1955-1977",
+        "careerWAR": 78.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.267,
+          "OBP": 0.322,
+          "SLG": 0.401,
+          "OPS": 0.723,
+          "HR": 268,
+          "H": 2848,
+          "G": 2896
+        },
+        "rateWAR": 3.71
+      },
+      {
+        "name": "Adrian Beltre",
+        "position": "3B",
+        "years": "1998-2018",
+        "careerWAR": 93.5,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.286,
+          "OBP": 0.339,
+          "SLG": 0.48,
+          "OPS": 0.819,
+          "HR": 477,
+          "H": 3166,
+          "G": 2933
+        },
+        "rateWAR": 4.33
+      },
+      {
+        "name": "Nolan Arenado",
+        "position": "3B",
+        "years": "2013-present",
+        "careerWAR": 52.1,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.28,
+          "OBP": 0.339,
+          "SLG": 0.5,
+          "OPS": 0.839,
+          "HR": 333,
+          "H": 1870,
+          "G": 1645
+        },
+        "rateWAR": 5.19
       }
     ],
     "SS": [
@@ -273,6 +672,101 @@
           "G": 2528
         },
         "rateWAR": 3.9
+      },
+      {
+        "name": "Alex Rodriguez",
+        "position": "SS",
+        "years": "1994-2016",
+        "careerWAR": 117.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.295,
+          "OBP": 0.38,
+          "SLG": 0.55,
+          "OPS": 0.93,
+          "HR": 696,
+          "H": 3115,
+          "G": 2784
+        },
+        "rateWAR": 5.92
+      },
+      {
+        "name": "Derek Jeter",
+        "position": "SS",
+        "years": "1995-2014",
+        "careerWAR": 72.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.31,
+          "OBP": 0.377,
+          "SLG": 0.44,
+          "OPS": 0.817,
+          "HR": 260,
+          "H": 3465,
+          "G": 2747
+        },
+        "rateWAR": 3.63
+      },
+      {
+        "name": "Ozzie Smith",
+        "position": "SS",
+        "years": "1978-1996",
+        "careerWAR": 76.9,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.262,
+          "OBP": 0.337,
+          "SLG": 0.328,
+          "OPS": 0.666,
+          "HR": 28,
+          "H": 2460,
+          "G": 2573
+        },
+        "rateWAR": 4.1
+      },
+      {
+        "name": "Robin Yount",
+        "position": "SS",
+        "years": "1974-1993",
+        "careerWAR": 77.3,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.342,
+          "SLG": 0.43,
+          "OPS": 0.772,
+          "HR": 251,
+          "H": 3142,
+          "G": 2856
+        },
+        "rateWAR": 3.72
+      },
+      {
+        "name": "Barry Larkin",
+        "position": "SS",
+        "years": "1986-2004",
+        "careerWAR": 70.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.295,
+          "OBP": 0.371,
+          "SLG": 0.444,
+          "OPS": 0.815,
+          "HR": 198,
+          "H": 2340,
+          "G": 2180
+        },
+        "rateWAR": 4.81
       }
     ],
     "LF": [
@@ -313,6 +807,101 @@
           "G": 2292
         },
         "rateWAR": 7.46
+      },
+      {
+        "name": "Barry Bonds",
+        "position": "LF",
+        "years": "1986-2007",
+        "careerWAR": 162.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.298,
+          "OBP": 0.444,
+          "SLG": 0.607,
+          "OPS": 1.051,
+          "HR": 762,
+          "H": 2935,
+          "G": 2986
+        },
+        "rateWAR": 7.74
+      },
+      {
+        "name": "Rickey Henderson",
+        "position": "LF",
+        "years": "1979-2003",
+        "careerWAR": 111.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.279,
+          "OBP": 0.401,
+          "SLG": 0.419,
+          "OPS": 0.82,
+          "HR": 297,
+          "H": 3055,
+          "G": 3081
+        },
+        "rateWAR": 5.14
+      },
+      {
+        "name": "Carl Yastrzemski",
+        "position": "LF",
+        "years": "1961-1983",
+        "careerWAR": 96.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.285,
+          "OBP": 0.379,
+          "SLG": 0.462,
+          "OPS": 0.841,
+          "HR": 452,
+          "H": 3419,
+          "G": 3308
+        },
+        "rateWAR": 4.09
+      },
+      {
+        "name": "Al Kaline",
+        "position": "LF",
+        "years": "1953-1974",
+        "careerWAR": 92.8,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.297,
+          "OBP": 0.376,
+          "SLG": 0.48,
+          "OPS": 0.855,
+          "HR": 399,
+          "H": 3007,
+          "G": 2834
+        },
+        "rateWAR": 4.51
+      },
+      {
+        "name": "Manny Ramirez",
+        "position": "LF",
+        "years": "1993-2011",
+        "careerWAR": 69.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "batting": {
+          "BA": 0.312,
+          "OBP": 0.411,
+          "SLG": 0.585,
+          "OPS": 0.996,
+          "HR": 555,
+          "H": 2574,
+          "G": 2302
+        },
+        "rateWAR": 4.41
       }
     ],
     "CF": [
@@ -391,6 +980,63 @@
           "G": 1736
         },
         "rateWAR": 6.19
+      },
+      {
+        "name": "Ken Griffey Jr.",
+        "position": "CF",
+        "years": "1989-2010",
+        "careerWAR": 83.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.284,
+          "OBP": 0.37,
+          "SLG": 0.538,
+          "OPS": 0.907,
+          "HR": 630,
+          "H": 2781,
+          "G": 2671
+        },
+        "rateWAR": 4.41
+      },
+      {
+        "name": "Mike Trout",
+        "position": "CF",
+        "years": "2011-present",
+        "careerWAR": 85.2,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.303,
+          "OBP": 0.412,
+          "SLG": 0.587,
+          "OPS": 0.999,
+          "HR": 378,
+          "H": 1543,
+          "G": 1553
+        },
+        "rateWAR": 8.28
+      },
+      {
+        "name": "Tris Speaker",
+        "position": "CF",
+        "years": "1907-1928",
+        "careerWAR": 134.8,
+        "warSource": "bbref",
+        "era": "dead-ball",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.345,
+          "OBP": 0.428,
+          "SLG": 0.5,
+          "OPS": 0.928,
+          "HR": 117,
+          "H": 3514,
+          "G": 2789
+        },
+        "rateWAR": 6.67
       }
     ],
     "RF": [
@@ -469,6 +1115,82 @@
           "G": 2433
         },
         "rateWAR": 5.41
+      },
+      {
+        "name": "Ichiro Suzuki",
+        "position": "RF",
+        "years": "2001-2019",
+        "careerWAR": 60.0,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.311,
+          "OBP": 0.355,
+          "SLG": 0.402,
+          "OPS": 0.757,
+          "HR": 117,
+          "H": 3089,
+          "G": 2653
+        },
+        "rateWAR": 3.22
+      },
+      {
+        "name": "Tony Gwynn",
+        "position": "RF",
+        "years": "1982-2001",
+        "careerWAR": 69.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.338,
+          "OBP": 0.388,
+          "SLG": 0.459,
+          "OPS": 0.847,
+          "HR": 135,
+          "H": 3141,
+          "G": 2440
+        },
+        "rateWAR": 4.08
+      },
+      {
+        "name": "Reggie Jackson",
+        "position": "RF",
+        "years": "1967-1987",
+        "careerWAR": 73.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "batting": {
+          "BA": 0.262,
+          "OBP": 0.356,
+          "SLG": 0.49,
+          "OPS": 0.846,
+          "HR": 563,
+          "H": 2584,
+          "G": 2820
+        },
+        "rateWAR": 3.57
+      },
+      {
+        "name": "Mookie Betts",
+        "position": "RF",
+        "years": "2014-present",
+        "careerWAR": 56.8,
+        "warSource": "bbref",
+        "era": "contemporary",
+        "hof": "not yet",
+        "batting": {
+          "BA": 0.293,
+          "OBP": 0.37,
+          "SLG": 0.52,
+          "OPS": 0.89,
+          "HR": 258,
+          "H": 1466,
+          "G": 1370
+        },
+        "rateWAR": 6.89
       }
     ],
     "P": [
@@ -556,6 +1278,125 @@
           "L": 174
         },
         "rateWAR": 4.22
+      },
+      {
+        "name": "Pedro Martinez",
+        "position": "P",
+        "years": "1992-2009",
+        "careerWAR": 84.4,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.93,
+          "W": 219,
+          "SO": 3154,
+          "IP": 2827.1,
+          "L": 100
+        },
+        "rateWAR": 6.9
+      },
+      {
+        "name": "Roger Clemens",
+        "position": "P",
+        "years": "1984-2007",
+        "careerWAR": 139.2,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "not inducted",
+        "pitching": {
+          "ERA": 3.12,
+          "W": 354,
+          "SO": 4672,
+          "IP": 4916.2,
+          "L": 184
+        },
+        "rateWAR": 5.34
+      },
+      {
+        "name": "Greg Maddux",
+        "position": "P",
+        "years": "1986-2008",
+        "careerWAR": 106.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.16,
+          "W": 355,
+          "SO": 3371,
+          "IP": 5008.1,
+          "L": 227
+        },
+        "rateWAR": 3.74
+      },
+      {
+        "name": "Sandy Koufax",
+        "position": "P",
+        "years": "1955-1966",
+        "careerWAR": 53.2,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.76,
+          "W": 165,
+          "SO": 2396,
+          "IP": 2324.1,
+          "L": 87
+        },
+        "rateWAR": 5.32
+      },
+      {
+        "name": "Nolan Ryan",
+        "position": "P",
+        "years": "1966-1993",
+        "careerWAR": 81.8,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.19,
+          "W": 324,
+          "SO": 5714,
+          "IP": 5386.0,
+          "L": 292
+        },
+        "rateWAR": 3.03
+      },
+      {
+        "name": "Randy Johnson",
+        "position": "P",
+        "years": "1988-2009",
+        "careerWAR": 101.1,
+        "warSource": "bbref",
+        "era": "modern",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 3.29,
+          "W": 303,
+          "SO": 4875,
+          "IP": 4135.1,
+          "L": 166
+        },
+        "rateWAR": 5.28
+      },
+      {
+        "name": "Tom Seaver",
+        "position": "P",
+        "years": "1967-1986",
+        "careerWAR": 110.5,
+        "warSource": "bbref",
+        "era": "post-integration",
+        "hof": "inducted",
+        "pitching": {
+          "ERA": 2.86,
+          "W": 311,
+          "SO": 3640,
+          "IP": 4783.0,
+          "L": 205
+        },
+        "rateWAR": 4.55
       }
     ]
   }
