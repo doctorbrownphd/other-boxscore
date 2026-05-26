@@ -1729,6 +1729,7 @@ img { max-width: 100%; height: auto; display: block; }
     <a class="masthead__tab masthead__tab--active" href="#hook" role="tab">The Hook</a>
     <a class="masthead__tab" href="#ledger" role="tab">The Ledger</a>
     <a class="masthead__tab" href="#aggregate" role="tab">The Aggregate</a>
+    <a class="masthead__tab" href="#estate" role="tab">Estate</a>
     <a class="masthead__tab" href="#individual" role="tab">Individual</a>
     <a class="masthead__tab" href="#teams" role="tab">Teams</a>
     <a class="masthead__tab" href="#dashboard" role="tab">Dashboard</a>
@@ -1974,8 +1975,67 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="aggregate__variant-num">$8.4B</div>
         <div class="aggregate__variant-label">GDP Share</div>
       </div>
+      <div class="aggregate__variant" id="estate-variant">
+        <div class="aggregate__variant-num" id="estate-variant-num">$13.9B</div>
+        <div class="aggregate__variant-label">Compounded Estate</div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- ======================================================================
+     THE ESTATE SECTION -- COMPOUNDED WEALTH TRANSFER
+     ====================================================================== -->
+
+<section id="estate" class="section" aria-label="Compounded Estate Value">
+  <div class="section-head">
+    <div class="section-head__fig">THE ESTATE</div>
+    <h2 class="section-head__title">The Compounded <em>Transfer</em></h2>
+    <p class="section-head__lede">The wage gap was not a one-time event. Every dollar stolen continued to grow. If those wages had been paid and invested in the S&amp;P 500, the compounded estate value for the top 50 Negro Leagues players would be worth nearly $14 billion in 2024. Not salary. Not inflation adjustment. Compounded wealth, denied across generations.</p>
+  </div>
+
+  <div class="estate__headline-card" style="background:var(--ink-2);border:1px solid rgba(212,166,74,0.15);border-radius:4px;padding:32px;margin-bottom:32px;text-align:center;">
+    <div class="estate__headline-kicker" style="font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Compounded Estate Value, Top 50 NLB Players, 2024</div>
+    <div class="estate__headline-number" id="estate-headline" style="font-family:var(--serif);font-size:clamp(36px,6vw,56px);color:var(--amber);font-weight:700;line-height:1.1;">$13.9 billion</div>
+    <div class="estate__headline-ci" id="estate-ci" style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;">90% credible interval: $9.0B to $20.1B</div>
+    <div class="estate__headline-note" style="font-family:var(--mono);font-size:10px;color:var(--oxblood);letter-spacing:0.08em;text-transform:uppercase;margin-top:12px;">Modeled: S&amp;P 500 total returns (Shiller series), year-by-year compounding from season of theft to 2024</div>
+  </div>
+
+  <div class="estate__context" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px;">
+    <div style="background:var(--ink-2);border:1px solid rgba(212,166,74,0.08);border-radius:4px;padding:20px;text-align:center;">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">CPI Wage Gap</div>
+      <div id="estate-cpi-gap" style="font-family:var(--serif);font-size:24px;color:var(--vellum);">$82.6M</div>
+    </div>
+    <div style="background:var(--ink-2);border:1px solid rgba(212,166,74,0.08);border-radius:4px;padding:20px;text-align:center;">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Estate Multiplier</div>
+      <div id="estate-multiplier" style="font-family:var(--serif);font-size:24px;color:var(--amber);">168x</div>
+    </div>
+    <div style="background:var(--ink-2);border:1px solid rgba(212,166,74,0.08);border-radius:4px;padding:20px;text-align:center;">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Per Player Average</div>
+      <div id="estate-per-player" style="font-family:var(--serif);font-size:24px;color:var(--vellum);">$277M</div>
+    </div>
+  </div>
+
+  <!-- Top 10 estate value table -->
+  <div style="overflow-x:auto;">
+    <table class="individual__table" id="estate-table" aria-label="Top estate values by player" style="width:100%;">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">#</th>
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">Player</th>
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">Pos</th>
+          <th style="text-align:right;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">WAR</th>
+          <th style="text-align:right;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">CPI Gap</th>
+          <th style="text-align:right;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">Estate (2024$)</th>
+          <th style="text-align:right;padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(212,166,74,0.15);">Multiplier</th>
+        </tr>
+      </thead>
+      <tbody id="estate-table-body">
+        <!-- Populated by estate-values.json loader -->
+      </tbody>
+    </table>
+  </div>
+  <p style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:12px;letter-spacing:0.05em;">Confidence: Modeled. Estate values compound the Bayesian wage gap estimate at historical S&amp;P 500 total returns (Shiller series). The 90% credible interval propagates from the underlying wage gap model. Top 50 documented NLB players only.</p>
 </section>
 
 <!-- ======================================================================
@@ -2425,7 +2485,7 @@ var _salaryFetch = fetch("data/salary-imputed.json")
         earned: Math.round(p.careerNLBEarned),
         counter: Math.round(p.careerMLBCounterfactual),
         gap: Math.round(p.careerGap2024),
-        estate: Math.round(p.careerGap2024 * 25), /* rough estate multiplier */
+        estate: Math.round(p.careerGap2024 * 25), /* fallback; overwritten by estate-values.json when loaded */
         conf: (p.confidence || "Modeled").toLowerCase(),
         seasons: seasons
       };
@@ -2478,6 +2538,84 @@ var _wageGapFetch = fetch("data/wage-gap.json")
   })
   .catch(function(err) {
     console.warn("[ch08] Failed to load wage-gap.json:", err);
+  });
+
+/* Load estate-values.json for compounded wealth transfer section */
+fetch("data/estate-values.json")
+  .then(function(res) { return res.json(); })
+  .then(function(ev) {
+    var agg = ev.aggregate;
+
+    /* Wire aggregate headline */
+    var headlineEl = document.getElementById("estate-headline");
+    if (headlineEl) {
+      headlineEl.textContent = "$" + (agg.total_estate_2024 / 1e9).toFixed(1) + " billion";
+    }
+    var ciEl = document.getElementById("estate-ci");
+    if (ciEl) {
+      ciEl.textContent = "90% credible interval: $"
+        + (agg.total_estate_2024_lo / 1e9).toFixed(1) + "B to $"
+        + (agg.total_estate_2024_hi / 1e9).toFixed(1) + "B";
+    }
+    var variantNum = document.getElementById("estate-variant-num");
+    if (variantNum) {
+      variantNum.textContent = "$" + (agg.total_estate_2024 / 1e9).toFixed(1) + "B";
+    }
+
+    /* Wire context cards */
+    var cpiGapEl = document.getElementById("estate-cpi-gap");
+    if (cpiGapEl) {
+      cpiGapEl.textContent = "$" + (agg.total_cpi_gap_2024 / 1e6).toFixed(1) + "M";
+    }
+    var multEl = document.getElementById("estate-multiplier");
+    if (multEl) {
+      multEl.textContent = Math.round(agg.estate_multiplier_over_cpi) + "x";
+    }
+    var perPlayerEl = document.getElementById("estate-per-player");
+    if (perPlayerEl) {
+      perPlayerEl.textContent = "$" + Math.round(agg.per_player_average / 1e6) + "M";
+    }
+
+    /* Wire estate table (top 10 by estate value) */
+    var players = (ev.players || []).slice();
+    players.sort(function(a, b) { return b.estateValue2024 - a.estateValue2024; });
+    var top10 = players.slice(0, 10);
+    var tbody = document.getElementById("estate-table-body");
+    if (tbody) {
+      var html = "";
+      top10.forEach(function(p, i) {
+        var tdStyle = "padding:8px 12px;font-family:var(--mono);font-size:12px;border-bottom:1px solid rgba(42,38,29,0.3);";
+        html += "<tr>"
+          + '<td style="' + tdStyle + 'color:var(--muted);">' + (i + 1) + "</td>"
+          + '<td style="' + tdStyle + 'color:var(--vellum);font-family:var(--serif);font-size:14px;">' + p.name + "</td>"
+          + '<td style="' + tdStyle + 'color:var(--muted);">' + p.position + "</td>"
+          + '<td style="' + tdStyle + 'color:var(--vellum);text-align:right;">' + p.careerWAR.toFixed(1) + "</td>"
+          + '<td style="' + tdStyle + 'color:var(--vellum);text-align:right;">$' + (p.careerGap2024_cpi / 1e6).toFixed(1) + "M</td>"
+          + '<td style="' + tdStyle + 'color:var(--amber);text-align:right;font-weight:700;">$' + (p.estateValue2024 / 1e6).toFixed(0) + "M</td>"
+          + '<td style="' + tdStyle + 'color:var(--muted);text-align:right;">' + Math.round(p.estateMultiplier) + "x</td>"
+          + "</tr>";
+      });
+      tbody.innerHTML = html;
+    }
+
+    /* Wire real estate values into the individual ledger PLAYERS array */
+    if (typeof PLAYERS !== "undefined" && PLAYERS.length) {
+      var estateIndex = {};
+      (ev.players || []).forEach(function(ep) {
+        estateIndex[ep.name] = ep;
+      });
+      PLAYERS.forEach(function(p) {
+        var ep = estateIndex[p.name];
+        if (ep) {
+          p.estate = Math.round(ep.estateValue2024);
+        }
+      });
+    }
+
+    console.log("[ch08] Estate-values.json loaded: $" + (agg.total_estate_2024 / 1e9).toFixed(1) + "B total estate");
+  })
+  .catch(function(err) {
+    console.warn("[ch08] Failed to load estate-values.json:", err);
   });
 
 /* ======================================================================
@@ -3053,7 +3191,7 @@ _salaryFetch.then(function() {
 
 (function() {
   var tabs = document.querySelectorAll(".masthead__tab");
-  var sectionIds = ["hook", "ledger", "aggregate", "individual", "teams", "dashboard", "share", "method", "coda"];
+  var sectionIds = ["hook", "ledger", "aggregate", "estate", "individual", "teams", "dashboard", "share", "method", "coda"];
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
   if (!tabs.length || !sections.length) return;
 

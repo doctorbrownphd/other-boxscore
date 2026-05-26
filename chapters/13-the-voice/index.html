@@ -1782,6 +1782,18 @@ img { max-width: 100%; height: auto; display: block; }
       <button class="archive__filter-btn" data-access="restricted" aria-pressed="false">Restricted</button>
       <button class="archive__filter-btn" data-access="by-request" aria-pressed="false">By Request</button>
     </div>
+    <select class="archive__sort archive__institution-filter" id="archive-institution" aria-label="Filter by institution">
+      <option value="all">Institution: All</option>
+    </select>
+    <div class="archive__filter-group" id="archive-era-filters" role="group" aria-label="Filter by era">
+      <button class="archive__filter-btn archive__filter-btn--active" data-era="all" aria-pressed="true">All Eras</button>
+      <button class="archive__filter-btn" data-era="1960s" aria-pressed="false">1960s</button>
+      <button class="archive__filter-btn" data-era="1970s" aria-pressed="false">1970s</button>
+      <button class="archive__filter-btn" data-era="1980s" aria-pressed="false">1980s</button>
+      <button class="archive__filter-btn" data-era="1990s" aria-pressed="false">1990s</button>
+      <button class="archive__filter-btn" data-era="2000s" aria-pressed="false">2000s</button>
+      <button class="archive__filter-btn" data-era="2010s+" aria-pressed="false">2010s+</button>
+    </div>
     <select class="archive__sort" id="archive-sort" aria-label="Sort recordings">
       <option value="speaker">Sort: Speaker</option>
       <option value="year">Sort: Year</option>
@@ -2685,12 +2697,55 @@ function escHtml(s) {
   var sortSelect = document.getElementById("archive-sort");
   var countEl = document.getElementById("archive-count");
   var accessBtns = document.querySelectorAll("[data-access]");
+  var institutionSelect = document.getElementById("archive-institution");
+  var eraBtns = document.querySelectorAll("[data-era]");
 
   var state = {
     query: "",
     access: "all",
+    institution: "all",
+    era: "all",
     sort: "speaker"
   };
+
+  /* Populate institution dropdown from loaded data */
+  function populateInstitutions() {
+    var ARCHIVE = window.TOBS.ARCHIVE;
+    if (!ARCHIVE || !ARCHIVE.length) return;
+    var seen = {};
+    var institutions = [];
+    ARCHIVE.forEach(function(e) {
+      if (!seen[e.institution]) {
+        seen[e.institution] = true;
+        institutions.push(e.institution);
+      }
+    });
+    institutions.sort();
+    /* Clear existing options beyond "All" */
+    while (institutionSelect.options.length > 1) {
+      institutionSelect.remove(1);
+    }
+    institutions.forEach(function(inst) {
+      var opt = document.createElement("option");
+      opt.value = inst;
+      opt.textContent = inst;
+      institutionSelect.appendChild(opt);
+    });
+    if (state.institution !== "all") {
+      institutionSelect.value = state.institution;
+    }
+  }
+
+  function matchesEra(year, era) {
+    if (era === "all") return true;
+    if (era === "1960s") return year >= 1960 && year < 1970;
+    if (era === "1970s") return year >= 1970 && year < 1980;
+    if (era === "1980s") return year >= 1980 && year < 1990;
+    if (era === "1990s") return year >= 1990 && year < 2000;
+    if (era === "2000s") return year >= 2000 && year < 2010;
+    if (era === "2010s+") return year >= 2010;
+    return true;
+  }
 
   function parseUrl() {
     var params = new URLSearchParams(window.location.search);
@@ -2704,12 +2759,26 @@ function escHtml(s) {
       });
     }
     if (params.get("sort")) { state.sort = params.get("sort"); sortSelect.value = state.sort; }
+    if (params.get("institution")) {
+      state.institution = params.get("institution");
+      institutionSelect.value = state.institution;
+    }
+    if (params.get("era")) {
+      state.era = params.get("era");
+      eraBtns.forEach(function(btn) {
+        var isActive = btn.getAttribute("data-era") === state.era;
+        btn.classList.toggle("archive__filter-btn--active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
   }
 
   function pushUrl() {
     var params = new URLSearchParams();
     if (state.query) params.set("q", state.query);
     if (state.access !== "all") params.set("access", state.access);
+    if (state.institution !== "all") params.set("institution", state.institution);
+    if (state.era !== "all") params.set("era", state.era);
     if (state.sort !== "speaker") params.set("sort", state.sort);
     var qs = params.toString();
     var url = window.location.pathname + (qs ? "?" + qs : "");
@@ -2735,6 +2804,7 @@ function escHtml(s) {
   }
 
   function render() {
+    populateInstitutions();
     var ARCHIVE = window.TOBS.ARCHIVE;
     var filtered = ARCHIVE.filter(function(e) {
       if (!matchesQuery(e, state.query)) return false;
@@ -2742,6 +2812,8 @@ function escHtml(s) {
         var access = e.access.replace(/-/g, "-");
         if (access !== state.access) return false;
       }
+      if (state.institution !== "all" && e.institution !== state.institution) return false;
+      if (!matchesEra(e.year, state.era)) return false;
       return true;
     });
     var sorted = sortEntries(filtered);
@@ -2879,6 +2951,23 @@ function escHtml(s) {
     btn.addEventListener("click", function() {
       state.access = btn.getAttribute("data-access");
       accessBtns.forEach(function(b) {
+        var isActive = b === btn;
+        b.classList.toggle("archive__filter-btn--active", isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      render();
+    });
+  });
+
+  institutionSelect.addEventListener("change", function() {
+    state.institution = institutionSelect.value;
+    render();
+  });
+
+  eraBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      state.era = btn.getAttribute("data-era");
+      eraBtns.forEach(function(b) {
         var isActive = b === btn;
         b.classList.toggle("archive__filter-btn--active", isActive);
         b.setAttribute("aria-pressed", isActive ? "true" : "false");

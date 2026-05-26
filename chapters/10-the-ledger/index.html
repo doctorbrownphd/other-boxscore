@@ -2011,29 +2011,60 @@ function computeDerived(p) {
 }
 
 /*
- * Deterministic UMAP-like placement for the comparable universe scatter.
- * Uses position and rate WAR to place players in 2D space.
- * Catchers cluster around (2, 3.5), 1B around (4, 2), etc.
+ * UMAP embedding lookup: loads real 2D coordinates from umap-embedding.json.
+ * Falls back to position-based deterministic placement if the embedding
+ * has not loaded yet or the player is not found in the embedding index.
  */
-function computeUMAP(pos, rateWAR, careerWAR, idx) {
+var _umapEmbeddingIndex = {};
+var _umapEmbeddingLoaded = false;
+
+(function loadUMAPEmbedding() {
+  fetch("data/umap-embedding.json")
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      (data.players || []).forEach(function(p) {
+        _umapEmbeddingIndex[p.name] = { ux: p.x, uy: p.y };
+      });
+      _umapEmbeddingLoaded = true;
+      console.log("[ch10] UMAP embedding loaded: " + Object.keys(_umapEmbeddingIndex).length + " players");
+      /* Re-apply coordinates to any players already loaded */
+      if (NS.PLAYERS && NS.PLAYERS.length) {
+        NS.PLAYERS.forEach(function(p) {
+          var emb = _umapEmbeddingIndex[p.name];
+          if (emb) { p.ux = emb.ux; p.uy = emb.uy; }
+        });
+        /* Signal the canvas to redraw with real coordinates */
+        window.dispatchEvent(new Event("umap-ready"));
+      }
+    })
+    .catch(function(err) {
+      console.warn("[ch10] UMAP embedding not loaded, using fallback:", err);
+    });
+})();
+
+function computeUMAP(pos, rateWAR, careerWAR, idx, playerName) {
+  /* Check the real embedding index first */
+  if (_umapEmbeddingLoaded && playerName && _umapEmbeddingIndex[playerName]) {
+    return _umapEmbeddingIndex[playerName];
+  }
+  /* Fallback: deterministic position-based placement */
   var posAnchors = {
-    C:  [2.1, 3.5],
-    "1B": [4.1, 2.2],
-    "2B": [5.1, 4.0],
-    SS: [6.0, 5.0],
-    "3B": [7.1, 3.1],
-    OF: [1.0, 5.5],
-    CF: [1.0, 5.5],
-    RF: [1.2, 5.2],
-    LF: [1.4, 5.0],
-    P:  [8.3, 6.0]
+    C:  [0.05, 0.14],
+    "1B": [0.07, 0.09],
+    "2B": [0.04, 0.07],
+    SS: [0.05, 0.15],
+    "3B": [0.08, 0.15],
+    OF: [0.06, 0.25],
+    CF: [0.06, 0.25],
+    RF: [0.06, 0.22],
+    LF: [0.06, 0.20],
+    P:  [0.93, 0.88]
   };
-  var anchor = posAnchors[pos] || [5, 5];
-  /* Spread by rate WAR and a seed offset */
+  var anchor = posAnchors[pos] || [0.5, 0.5];
   var seed = ((idx * 7 + 3) % 17) / 17;
-  var ux = anchor[0] + (rateWAR - 6) * 0.15 + (seed - 0.5) * 0.8;
-  var uy = anchor[1] + (rateWAR - 6) * 0.1 + (seed - 0.5) * 0.6;
-  return { ux: Math.round(ux * 10) / 10, uy: Math.round(uy * 10) / 10 };
+  var ux = anchor[0] + (rateWAR - 6) * 0.005 + (seed - 0.5) * 0.05;
+  var uy = anchor[1] + (rateWAR - 6) * 0.005 + (seed - 0.5) * 0.05;
+  return { ux: Math.max(0, Math.min(1, ux)), uy: Math.max(0, Math.min(1, uy)) };
 }
 
 function transformNLPlayer(raw, idx) {
@@ -2060,7 +2091,7 @@ function transformNLPlayer(raw, idx) {
   p.rateJAWS = derived.rateJAWS;
   p.ci = derived.ci;
 
-  var umap = computeUMAP(pos, rateWAR, careerWAR, idx);
+  var umap = computeUMAP(pos, rateWAR, careerWAR, idx, raw.name);
   p.ux = umap.ux;
   p.uy = umap.uy;
 
@@ -2095,7 +2126,7 @@ function transformMLBPlayer(raw, idx) {
   p.rateJAWS = derived.rateJAWS;
   p.ci = derived.ci;
 
-  var umap = computeUMAP(pos, rateWAR, careerWAR, idx + 100);
+  var umap = computeUMAP(pos, rateWAR, careerWAR, idx + 100, raw.name);
   p.ux = umap.ux;
   p.uy = umap.uy;
 
@@ -2685,12 +2716,12 @@ onDataReady(function() {
   var posColors = { C: "#d4a64a", "1B": "#b96f4a", "2B": "#8fa05a", SS: "#6f8aa8", "3B": "#a08456", OF: "#a14545", P: "#c4bda9" };
   var eraColors = { "NL": "#d4a64a", "NL-MLB": "#f0c878", "1900s-10s": "#6f8aa8", "1910s-30s": "#6f8aa8", "1920s-30s": "#6f8aa8", "1930s-40s": "#6f8aa8", "1930s-60s": "#8fa05a", "1940s-50s": "#8fa05a", "1950s-60s": "#8fa05a", "1950s-70s": "#8fa05a", "1960s-70s": "#b96f4a", "1960s-90s": "#b96f4a", "1970s-80s": "#b96f4a", "1970s-90s": "#b96f4a", "1980s-00s": "#a14545", "1990s-00s": "#a14545", "1990s-10s": "#a14545", "2000s-20s": "#c4bda9", "2010s-20s": "#c4bda9" };
 
-  /* Clusters to annotate */
+  /* Clusters to annotate (coordinates in 0-1 UMAP embedding space) */
   var clusters = [
-    { label: "Gibson -- Piazza -- Bench", x: 2.2, y: 3.5 },
-    { label: "Charleston -- Mays -- Cobb", x: 1.0, y: 6.0 },
-    { label: "Bell -- Brock -- Henderson", x: 1.7, y: 4.0 },
-    { label: "Paige -- W. Johnson -- S.J. Williams", x: 8.2, y: 6.4 }
+    { label: "Gibson -- Bench -- DiMaggio", x: 0.08, y: 0.27 },
+    { label: "Charleston -- Mays -- Ruth", x: 0.15, y: 0.37 },
+    { label: "Bell -- Mackey -- Cochrane", x: 0.03, y: 0.05 },
+    { label: "Paige -- W. Johnson -- Mathewson", x: 0.91, y: 0.86 }
   ];
 
   function resize() {
@@ -2707,15 +2738,20 @@ onDataReady(function() {
   }
 
   /* Transform UMAP coords to canvas coords */
-  var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-  NS.PLAYERS.forEach(function(p) {
-    minX = Math.min(minX, p.ux); maxX = Math.max(maxX, p.ux);
-    minY = Math.min(minY, p.uy); maxY = Math.max(maxY, p.uy);
-  });
-  var padX = (maxX - minX) * 0.1;
-  var padY = (maxY - minY) * 0.1;
-  minX -= padX; maxX += padX;
-  minY -= padY; maxY += padY;
+  var minX, maxX, minY, maxY;
+
+  function recomputeBounds() {
+    minX = Infinity; maxX = -Infinity; minY = Infinity; maxY = -Infinity;
+    NS.PLAYERS.forEach(function(p) {
+      minX = Math.min(minX, p.ux); maxX = Math.max(maxX, p.ux);
+      minY = Math.min(minY, p.uy); maxY = Math.max(maxY, p.uy);
+    });
+    var padX = (maxX - minX) * 0.1;
+    var padY = (maxY - minY) * 0.1;
+    minX -= padX; maxX += padX;
+    minY -= padY; maxY += padY;
+  }
+  recomputeBounds();
 
   function toCanvas(ux, uy) {
     var rect = container.getBoundingClientRect();
@@ -2753,6 +2789,10 @@ onDataReady(function() {
 
   draw();
   window.addEventListener("resize", draw);
+  window.addEventListener("umap-ready", function() {
+    recomputeBounds();
+    draw();
+  });
 
   /* Hover / tap to identify */
   function findNearest(ex, ey) {

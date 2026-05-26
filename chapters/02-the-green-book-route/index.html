@@ -2189,13 +2189,13 @@ a:hover { color: var(--amber-2); }
   <h2 class="section__heading">What the <em>data</em> says, season by season.</h2>
 
   <div class="ai-disclosure">
-    <div class="ai-disclosure__label">AI-Generated Content</div>
+    <div class="ai-disclosure__label">Data-Driven Content</div>
     <div class="ai-disclosure__body">
-      The narratives below are <strong>AI-generated</strong> by Claude (claude-sonnet-4-20250514). Each narrative synthesizes
-      schedule data, Green Book listing counts, and safety scores into prose. The underlying data is documented and verified,
-      but the prose itself is machine-generated. <strong>Model:</strong> Claude Sonnet 4. <strong>Confidence:</strong> varies per narrative
-      (labeled individually). <strong>Oscar review:</strong> pending for all 171 narratives. These are placeholders awaiting API
-      generation -- the current text is structural, not final. No narrative ships without Oscar sign-off.
+      The narratives below are <strong>data-driven template text</strong> computed from Seamheads schedule data and NYPL Green Book
+      listings. Each narrative synthesizes game counts, travel distances, Green Book listing counts, and safety scores into
+      structured prose using deterministic templates, not generative AI. The underlying data is documented and verified.
+      <strong>Model:</strong> template (data-driven). <strong>Confidence:</strong> Documented.
+      <strong>Oscar review:</strong> pending for all 171 narratives. No narrative ships without Oscar sign-off.
     </div>
   </div>
 
@@ -3053,16 +3053,15 @@ function renderNarratives(team) {
   filtered.forEach(function(n) {
     var card = document.createElement('div');
     card.className = 'narrative-card';
-    var isPlaceholder = n.source === 'placeholder';
     var confLabel = n.confidence || 'N/A';
-    var modelLabel = n.model || 'awaiting generation';
+    var modelLabel = n.model || 'template (data-driven)';
 
     card.innerHTML =
       '<div class="narrative-card__header">' +
         '<span class="narrative-card__season">' + n.team + ' -- ' + n.season + '</span>' +
         '<span class="narrative-card__confidence">Confidence: ' + confLabel + '</span>' +
       '</div>' +
-      '<p class="narrative-card__text' + (isPlaceholder ? ' narrative-card__placeholder' : '') + '">' +
+      '<p class="narrative-card__text">' +
         n.narrative +
       '</p>' +
       '<div class="narrative-card__meta">' +
