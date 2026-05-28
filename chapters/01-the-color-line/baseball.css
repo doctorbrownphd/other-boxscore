@@ -47,7 +47,7 @@
 }
 .bb-epi .attr {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -65,7 +65,7 @@
   padding: 22px 0 26px;
 }
 .tl svg { display: block; width: 100%; height: auto; }
-.tl text { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; fill: var(--muted); }
+.tl text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; fill: var(--muted); }
 .tl text.team {
   font-family: var(--serif);
   font-size: 13px;
@@ -75,11 +75,11 @@
 .tl text.team.late { fill: var(--muted); }
 .tl text.team-meta {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   fill: var(--vellum-dim);
 }
-.tl text.year-axis { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; fill: var(--vellum-dim); }
+.tl text.year-axis { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; fill: var(--vellum-dim); }
 .tl text.banner {
   font-family: var(--mono);
   font-size: 12px;
@@ -97,7 +97,7 @@
 }
 .tl text.event-tag {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   fill: var(--muted);
   text-transform: uppercase;
@@ -147,7 +147,7 @@
 }
 .wave-row:last-child { border-bottom: none; }
 .wave-row .idx {
-  font-family: var(--mono); font-size: 10px; color: var(--muted-2); letter-spacing: 0.14em;
+  font-family: var(--mono); font-size: 11px; color: var(--muted-2); letter-spacing: 0.14em;
 }
 .wave-row .dt {
   font-family: var(--mono); font-size: 12px; color: var(--amber); letter-spacing: 0.04em;
@@ -163,7 +163,7 @@
   font-family: var(--serif); font-size: 13px; color: var(--muted); text-align: right; max-width: 360px;
 }
 .wave-row .lag {
-  font-family: var(--mono); font-size: 10px; color: var(--muted-2); letter-spacing: 0.04em;
+  font-family: var(--mono); font-size: 11px; color: var(--muted-2); letter-spacing: 0.04em;
   margin-left: 10px;
 }
 .wave-row.first .dt { color: var(--amber-2); }
@@ -180,7 +180,7 @@
   padding: 10px 0 12px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-2);
@@ -199,7 +199,7 @@
 .shuf-row:last-child { border-bottom: none; }
 .shuf-row .cat {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--vellum-dim);
@@ -220,7 +220,7 @@
 }
 .shuf-row .side .val .yr {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--muted);
   margin-left: 10px;
   letter-spacing: 0.06em;
@@ -264,7 +264,7 @@
 }
 .coda .sidenote {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 11.5px;
   line-height: 1.6;
   color: var(--muted);
   letter-spacing: 0.04em;
@@ -274,7 +274,7 @@
 }
 .coda .sidenote .h {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--amber);
@@ -292,7 +292,7 @@
   grid-template-columns: 1fr auto;
   gap: 20px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   color: var(--muted);
   text-transform: uppercase;
@@ -360,7 +360,7 @@
   .bb-epi .q { font-size: 19px; line-height: 1.35; }
   .bb-epi .q::before { font-size: 44px; vertical-align: -12px; }
   .wave-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
-  .wave-row .idx { font-size: 9px; }
+  .wave-row .idx { font-size: 11px; }
   .wave-row .dt { grid-column: auto; }
   .wave-row .tm { grid-column: auto; font-size: 17px; }
   .wave-row .pl { grid-column: auto; }

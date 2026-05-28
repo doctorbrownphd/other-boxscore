@@ -16,7 +16,7 @@
 }
 .pc-head .label {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--amber);
@@ -78,7 +78,7 @@
 }
 .player-pick button .role {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted-2);
@@ -109,7 +109,7 @@
 .player-pick button.on .role { color: var(--amber); }
 .player-pick button .role {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-2);
@@ -123,7 +123,7 @@
 }
 .player-pick button .stolen {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   color: var(--barrier-hot);
   letter-spacing: 0.1em;
   margin-top: 2px;
@@ -137,14 +137,14 @@
 }
 .fan-svg-wrap svg { display: block; width: 100%; height: auto; }
 
-.fan text { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
+.fan text { font-family: var(--mono); font-size: 11px; fill: var(--muted); letter-spacing: 0.04em; }
 .fan .axis-line { stroke: var(--rule); stroke-width: 1; }
 .fan .axis-tick { stroke: var(--muted-2); stroke-width: 1; }
 .fan .axis-num  { fill: var(--muted); }
 .fan .grid-line { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
 .fan .axis-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   fill: var(--muted-2);
@@ -169,7 +169,7 @@
 }
 .fan .barrier-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   fill: var(--barrier-hot);
   text-transform: uppercase;
@@ -186,7 +186,7 @@
 }
 .pc-side .ribbon {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--amber);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -203,7 +203,7 @@
 }
 .pc-side .role {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -226,7 +226,7 @@
 }
 .pc-side .stat-block .row .k {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   color: var(--muted-2);
   text-transform: uppercase;
@@ -242,7 +242,7 @@
   font-variant-numeric: tabular-nums;
 }
 .pc-side .stat-block .row .v.red { color: var(--barrier-hot); }
-.pc-side .stat-block .row .v .u { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 6px; letter-spacing: 0.06em; }
+.pc-side .stat-block .row .v .u { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: 6px; letter-spacing: 0.06em; }
 
 /* === Legend === */
 .fan-legend {
@@ -251,7 +251,7 @@
   margin: 10px 0 4px;
   padding: 0;
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -277,7 +277,7 @@
 }
 .pc-scatter .h {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--amber);
@@ -306,8 +306,8 @@
 
 .scat .grid { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
 .scat .axis { stroke: var(--muted-2); stroke-width: 1; }
-.scat text  { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
-.scat .axis-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; fill: var(--muted-2); text-transform: uppercase; }
+.scat text  { font-family: var(--mono); font-size: 11px; fill: var(--muted); letter-spacing: 0.04em; }
+.scat .axis-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; fill: var(--muted-2); text-transform: uppercase; }
 .scat .pt-mlb { fill: rgba(196, 189, 169, 0.55); }
 .scat .pt-int { fill: var(--amber); }
 .scat .pt-int-late { fill: var(--barrier-hot); }
@@ -326,7 +326,7 @@
 }
 .pc-validation .h-col {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-2);
@@ -345,14 +345,14 @@
 }
 .pc-validation .val-card .resid {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--muted);
   letter-spacing: 0.04em;
   line-height: 1.5;
 }
 .pc-validation .val-card .ok {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   color: var(--amber);
   margin-top: 8px;
@@ -395,5 +395,5 @@
   .pc-validation .val-card .nm { font-size: 16px; }
   .pc-scatter h3 { font-size: 20px; }
   .pc-scatter .lede { font-size: 14px; }
-  .fan-legend { gap: 8px 16px; font-size: 9px; }
+  .fan-legend { gap: 8px 16px; font-size: 11px; }
 }
