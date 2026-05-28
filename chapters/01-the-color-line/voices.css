@@ -187,3 +187,36 @@
 [data-theme="light"] .era-header .era-title { color: var(--ink); }
 [data-theme="light"] .voice .attr .year-tag { color: var(--ink); }
 [data-theme="light"] .voices-coda .pull { color: var(--ink); }
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .voices-head { grid-template-columns: 1fr; gap: 18px; }
+  .voices-head h2 { font-size: 32px; }
+  .voices-head .deck { font-size: 16px; }
+  .voices-head .key { text-align: left; }
+  .voice { grid-template-columns: 1fr; gap: 18px; }
+  .voice .attr { text-align: left; display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
+  .voice .attr .year-tag { margin-bottom: 0; }
+  .voice .quote { font-size: 18px; padding-left: 24px; }
+  .voice .quote::before { font-size: 34px; top: -4px; }
+  .era-header .era-title { font-size: 22px; }
+  .voices-coda { grid-template-columns: 1fr; gap: 24px; }
+  .voices-coda .pull { font-size: 20px; }
+  .voices-coda .attr { text-align: left; }
+}
+
+@media (max-width: 600px) {
+  .voices-head h2 { font-size: 26px; }
+  .voices-head .deck { font-size: 15px; }
+  .voice .quote { font-size: 16px; padding-left: 20px; }
+  .voice .quote::before { font-size: 28px; top: -2px; }
+  .voice { padding: 20px 0; }
+  .era-header { gap: 12px; padding: 16px 0 10px; margin-top: 24px; }
+  .era-header .era-years { font-size: 11px; }
+  .era-header .era-title { font-size: 20px; }
+  .voices-coda .pull { font-size: 18px; }
+  .voices-coda { margin-top: 32px; gap: 18px; }
+}

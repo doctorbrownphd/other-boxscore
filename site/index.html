@@ -809,25 +809,42 @@ body::before {
 
 @media (max-width: 600px) {
   .chapter-grid { grid-template-columns: 1fr; }
-  .site-header { padding: 0 20px; }
-  .hook { padding: 56px 20px 48px; }
-  .hook__name { font-size: 36px; }
-  .about { padding: 48px 20px; }
-  .chapters { padding: 48px 20px 72px; }
-  .coda-card { flex-direction: column; gap: 16px; padding: 22px; }
+  .site-header { padding: 0 16px; height: 48px; }
+  .site-header__name { font-size: 10px; letter-spacing: 0.15em; }
+  .site-header__meta { display: none; }
+  .hook { padding: 48px 18px 40px; }
+  .hook__name { font-size: 30px; }
+  .hook__carousel { min-height: 340px; }
+  .hook__tagline { font-size: 16px; }
+  .hook__body { font-size: 14px; }
+  .hook__chip { font-size: 9px; padding: 3px 8px; }
+  .hook__cta { padding: 10px 20px; font-size: 10px; margin-top: 24px; }
+  .about { padding: 40px 18px; }
+  .about__heading { font-size: 24px; }
+  .about__prose { font-size: 13px; }
+  .chapters { padding: 40px 18px 60px; }
+  .part__header { margin-top: 40px; }
+  .part__label { font-size: 9px; letter-spacing: 0.2em; }
+  .part__hook { font-size: 12px; }
+  .chapter-card { padding: 18px; }
+  .chapter-card__title { font-size: 17px; }
+  .chapter-card__desc { font-size: 12.5px; margin-bottom: 14px; }
+  .coda-card { flex-direction: column; gap: 12px; padding: 18px; margin-top: 40px; }
+  .coda-card__title { font-size: 18px; }
+  .coda-card__desc { font-size: 12.5px; }
   .site-footer {
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     text-align: center;
-    padding: 28px 20px;
+    padding: 24px 18px;
   }
-  .site-footer__links { justify-content: center; }
-  .hero { padding: 72px 20px 56px; }
-  .hero__mark { width: 100px; height: 100px; }
-  .hero__title-upper { font-size: 14px; letter-spacing: 0.35em; }
-  .hero__title-lower { font-size: 48px; }
-  .hero__tagline { font-size: 14px; }
-  .stat__value { font-size: 30px; }
+  .site-footer__links { justify-content: center; flex-wrap: wrap; gap: 12px; }
+  .hero { padding: 56px 18px 44px; }
+  .hero__mark { width: 90px; height: 90px; margin-bottom: 28px; }
+  .hero__title-upper { font-size: 13px; letter-spacing: 0.3em; }
+  .hero__title-lower { font-size: 42px; }
+  .hero__tagline { font-size: 14px; max-width: 340px; }
+  .stat__value { font-size: 28px; }
 }
 
 </style>

@@ -43,7 +43,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
 }
-body { min-height: 100vh; }
+body { min-height: 100vh; overflow-x: hidden; }
 
 /* Subtle paper grain */
 body::before {
@@ -900,4 +900,92 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 
 .chapter-next:hover .chapter-next-title {
   color: var(--amber-2);
+}
+
+/* ==========================================================================
+   Mobile Responsive · 375px minimum, no degradation
+   Two breakpoints: 768px (tablet) and 600px (phone)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .shell { padding: 28px 28px 64px; }
+  .masthead { grid-template-columns: 1fr; gap: 18px; }
+  .masthead .meta { text-align: left; }
+  .masthead h1 { font-size: 40px; }
+  .masthead .sub { font-size: 17px; }
+  .statrow { grid-template-columns: repeat(3, 1fr); }
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .ribbon { grid-template-columns: repeat(3, 1fr); }
+  .ribbon .era:nth-child(3) { border-right: none; }
+  .triple { grid-template-columns: 1fr; }
+  .feat { border-right: none; border-bottom: 1px solid var(--rule); }
+  .feat:last-child { border-bottom: none; }
+  .pipeline { grid-template-columns: repeat(5, 1fr); }
+  .pipe-step:nth-child(5) { border-right: none; }
+  .heatmap-wrap { grid-template-columns: 1fr; gap: 18px; }
+  .search-shell { grid-template-columns: 1fr; gap: 24px; }
+  .search-input { font-size: 36px; }
+  .smallmult { grid-template-columns: repeat(3, 1fr); }
+  .smallmult .panel:nth-child(3n) { border-right: none; }
+  .wave-card { grid-template-columns: 80px 1fr; gap: 18px; }
+  .wave-card .yr { font-size: 28px; }
+  .wave-card > :nth-child(3) { grid-column: 1 / -1; }
+  .twocol { grid-template-columns: 1fr; gap: 24px; }
+  .colophon { grid-template-columns: 1fr; gap: 12px; }
+  .section-title { font-size: 26px; }
+  .stat .value { font-size: 32px; }
+  .feat .name { font-size: 28px; }
+  .detail { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 18px; }
+  .chapter-close { margin: 48px auto 28px; }
+}
+
+@media (max-width: 600px) {
+  .shell { padding: 20px 18px 48px; }
+  .masthead__mark { padding-bottom: 32px; }
+  .masthead__mark-svg { width: 260px; }
+  .masthead h1 { font-size: 32px; }
+  .masthead .series { font-size: 9.5px; margin-bottom: 10px; }
+  .masthead .sub { font-size: 15px; margin-top: 12px; }
+  .section-head { grid-template-columns: auto 1fr; gap: 12px; }
+  .section-head .aside { display: none; }
+  .section-title { font-size: 22px; }
+  .section-lede { font-size: 15px; }
+  .statrow { grid-template-columns: repeat(2, 1fr); }
+  .stat { padding: 16px 14px 18px; }
+  .stat .value { font-size: 28px; }
+  .stat .label { font-size: 9px; margin-bottom: 6px; }
+  .hero-aside .pull { font-size: 15px; }
+  .ribbon { grid-template-columns: 1fr 1fr; }
+  .ribbon .era { padding: 12px 14px 14px; }
+  .ribbon .era:nth-child(2n) { border-right: none; }
+  .ribbon .era:nth-child(3) { border-right: 1px solid var(--rule); }
+  .ribbon .era .name { font-size: 16px; }
+  .ribbon .era .desc { font-size: 12px; }
+  .feat .name { font-size: 24px; }
+  .feat .by { font-size: 13px; }
+  .pipeline { grid-template-columns: repeat(2, 1fr); }
+  .pipe-step:nth-child(5) { border-right: 1px solid var(--rule); }
+  .pipe-step:nth-child(2n) { border-right: none; }
+  .pipe-step .nm { font-size: 13px; }
+  .search-input { font-size: 28px; padding: 10px 0 12px; }
+  .smallmult { grid-template-columns: repeat(2, 1fr); }
+  .smallmult .panel:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .smallmult .panel:nth-child(2n) { border-right: none; }
+  .wave-card { grid-template-columns: 1fr; gap: 8px; }
+  .wave-card .yr { font-size: 24px; }
+  .wave-card .body .ttl { font-size: 18px; }
+  .detail h3 { font-size: 22px; }
+  .detail .stats div .v { font-size: 18px; }
+  .valid-table { font-size: 13px; }
+  .valid-table th, .valid-table td { padding: 8px 8px 8px 0; }
+  .colophon { margin-top: 48px; font-size: 12px; }
+  .chapter-close { font-size: 16px; margin: 36px auto 20px; padding-top: 28px; }
+
+  /* Tabs: horizontal scroll instead of wrapping */
+  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { padding: 10px 14px 12px; font-size: 10px; }
+
+  /* Splash screen adjustments */
+  .splash-ruler { top: 16px; left: 16px; }
 }

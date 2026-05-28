@@ -279,6 +279,53 @@
 }
 .dist svg { width: 100%; height: auto; display: block; }
 
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .ls-head { grid-template-columns: 1fr; gap: 18px; }
+  .ls-head h2 { font-size: 32px; }
+  .ls-head .deck { font-size: 16px; }
+  .ls-head .key { text-align: left; }
+  .ls-head .key .row { grid-template-columns: auto 1fr; }
+  .ls-tally { grid-template-columns: auto 1fr; gap: 18px; }
+  .ls-tally .big { font-size: 40px; }
+  .ls-tally .right { grid-column: 1 / -1; text-align: left; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .cards.featured { grid-template-columns: repeat(3, 1fr); }
+  .card { min-height: 200px; padding: 18px 14px 16px; }
+  .card .lost-num { font-size: 48px; }
+  .card.feature .lost-num { font-size: 64px; }
+  .card.feature { min-height: 260px; padding: 22px 18px 20px; }
+  .card.feature .name { font-size: 22px; }
+  .ls-coda { grid-template-columns: 1fr; gap: 24px; }
+  .ls-coda .pull { font-size: 22px; }
+  .ls-coda .attr { text-align: left; }
+}
+
+@media (max-width: 600px) {
+  .ls-head h2 { font-size: 26px; }
+  .ls-head .deck { font-size: 15px; }
+  .ls-head .key .v { font-size: 20px; }
+  .ls-tally .big { font-size: 32px; }
+  .ls-tally .big .unit { font-size: 11px; margin-left: 6px; vertical-align: 4px; }
+  .ls-tally .mid { font-size: 15px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards.featured { grid-template-columns: repeat(2, 1fr); }
+  .card { min-height: 180px; padding: 14px 12px 14px; }
+  .card .name { font-size: 16px; }
+  .card .lost-num { font-size: 40px; }
+  .card .lost-num .yr { font-size: 10px; vertical-align: 10px; }
+  .card .note { font-size: 10px; }
+  .card.feature { min-height: 200px; padding: 16px 14px 16px; }
+  .card.feature .name { font-size: 20px; }
+  .card.feature .lost-num { font-size: 52px; }
+  .card.feature .lost-num .yr { vertical-align: 16px; }
+  .card.feature .note { font-size: 11px; }
+  .ls-coda .pull { font-size: 19px; }
+}
+
 /* === Player photo -- baseball-card treatment === */
 .card-photo {
   width: 100%;

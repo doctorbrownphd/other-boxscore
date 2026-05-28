@@ -357,3 +357,43 @@
   color: var(--amber);
   margin-top: 8px;
 }
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .pc-head { grid-template-columns: 1fr; gap: 18px; }
+  .pc-head h2 { font-size: 32px; }
+  .pc-head .deck { font-size: 16px; }
+  .player-pick { grid-template-columns: repeat(3, 1fr); }
+  .player-pick button:nth-child(3n) { border-right: none; }
+  .player-pick button:nth-child(-n+3) { border-bottom: 1px solid var(--rule); }
+  .pc-validation { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pc-validation .h-col { grid-column: 1 / -1; }
+  .pc-side h3 { font-size: 26px; }
+  .pc-scatter h3 { font-size: 22px; }
+  .fan-legend { flex-wrap: wrap; gap: 12px 20px; }
+}
+
+@media (max-width: 600px) {
+  .pc-head h2 { font-size: 26px; }
+  .pc-head .deck { font-size: 15px; }
+  .player-pick { grid-template-columns: repeat(2, 1fr); }
+  .player-pick button { min-height: 72px; padding: 14px 12px 12px; }
+  .player-pick button .nm { font-size: 15px; }
+  .player-pick button:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .player-pick button:nth-child(2n) { border-right: none; }
+  .player-pick button:nth-child(-n+3) { border-bottom: none; }
+  .player-pick button:nth-child(-n+4) { border-bottom: 1px solid var(--rule); }
+  .fan-wrap { grid-template-columns: 1fr; gap: 24px; }
+  .pc-side h3 { font-size: 24px; }
+  .pc-side .stat-block { gap: 12px 16px; }
+  .pc-side .stat-block .row .v { font-size: 18px; }
+  .pc-validation { grid-template-columns: 1fr; gap: 18px; }
+  .pc-validation .val-card { border-left: none; padding-left: 0; border-top: 1px dotted var(--rule); padding-top: 14px; }
+  .pc-validation .val-card .nm { font-size: 16px; }
+  .pc-scatter h3 { font-size: 20px; }
+  .pc-scatter .lede { font-size: 14px; }
+  .fan-legend { gap: 8px 16px; font-size: 9px; }
+}

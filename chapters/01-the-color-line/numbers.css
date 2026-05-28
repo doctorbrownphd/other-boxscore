@@ -267,3 +267,30 @@
   line-height: 1.7;
 }
 .lanes-quote .attr .nm { color: var(--vellum-dim); }
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .lanes-head h2 { font-size: 32px; }
+  .lanes-head .deck { font-size: 16px; }
+  .ledger-row { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ledger-row .cat { grid-column: 1 / -1; margin-bottom: -4px; }
+  .lanes-quote { grid-template-columns: 1fr; gap: 24px; }
+  .lanes-quote .q { font-size: 22px; }
+  .lanes-quote .q::before { font-size: 40px; vertical-align: -12px; }
+  .lanes-quote .attr { text-align: left; }
+}
+
+@media (max-width: 600px) {
+  .lanes-head h2 { font-size: 26px; }
+  .lanes-head .deck { font-size: 15px; }
+  .toggle button { padding: 11px 16px; font-size: 10px; letter-spacing: 0.12em; }
+  .ledger-row { grid-template-columns: 1fr; gap: 10px; padding: 14px 0; }
+  .ledger-row .side { gap: 10px; }
+  .ledger-row .nm { font-size: 14px; }
+  .lanes-quote .q { font-size: 19px; }
+  .lanes-quote .q::before { font-size: 32px; vertical-align: -8px; margin-right: 4px; }
+  .lanes-quote { margin-top: 36px; padding: 22px 0 20px; }
+}
