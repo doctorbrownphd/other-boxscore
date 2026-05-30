@@ -10,20 +10,47 @@
 </head>
 <body>
 <!-- Platform navigation -->
-<div class="platform-nav" style="display:flex;align-items:center;padding:0 24px;height:36px;background:#13110d;border-bottom:1px solid rgba(212,166,74,0.08);">
-  <a href="https://theotherboxscore.org" class="platform-nav-link" aria-label="The Other Box Score -- return to home" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-    <svg width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
-  <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
-  <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
-  <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
-  <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
-  <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
-  <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
-  <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
-</svg>
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.18em;color:rgba(212,166,74,0.45);text-transform:uppercase;">The Other Box Score</span>
-  </a>
-</div>
+<nav class="platform-nav" role="navigation" aria-label="Platform navigation" style="position:fixed;top:0;left:0;right:0;height:36px;background:#13110d;border-bottom:1px solid #2a261d;display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:1000;">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <a href="/" style="display:flex;align-items:center;text-decoration:none;">
+      <svg width="20" height="20" viewBox="-80 -80 160 160" aria-hidden="true" focusable="false">
+        <polygon points="0,-58 58,0 0,58 -58,0" fill="none" stroke="#d4a64a" stroke-width="2.2"/>
+        <rect x="-7" y="48" width="14" height="14" fill="#d4a64a"/>
+        <polygon points="0,-48 6,-42 -6,-42" fill="none" stroke="#d4a64a" stroke-width="1.8"/>
+        <rect x="-3" y="-52" width="6" height="6" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+        <g transform="translate(58,0)"><polygon points="6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+        <g transform="translate(-58,0)"><polygon points="-6,0 0,-5 0,5" fill="none" stroke="#d4a64a" stroke-width="1.6"/></g>
+        <circle cx="0" cy="0" r="5" fill="#d4a64a"/>
+      </svg>
+    </a>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#e8e0cf;text-transform:uppercase;">The Other Box Score</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9e9684;">
+    <a href="/" style="color:#9e9684;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#d4a64a'" onmouseout="this.style.color='#9e9684'">Home</a>
+    <select aria-label="Jump to chapter" onchange="if(this.value)window.location=this.value" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#9e9684;background:#13110d;border:1px solid #2a261d;padding:4px 8px;cursor:pointer;text-transform:uppercase;">
+      <option value="">Jump to...</option>
+      <option value="/chapters/01-the-color-line/">01. The Color Line</option>
+      <option value="/chapters/02-the-green-book-route/">02. The Green Book Route</option>
+      <option value="/chapters/03-the-sundown-corridor/">03. The Sundown Corridor</option>
+      <option value="/chapters/04-the-crowd-that-came/">04. The Crowd That Came</option>
+      <option value="/chapters/05-the-winter-map/">05. The Winter Map</option>
+      <option value="/chapters/06-the-collapse/">06. The Collapse</option>
+      <option value="/chapters/07-the-unsigned-letter/">07. The Unsigned Letter</option>
+      <option value="/chapters/08-the-salary-ledger/">08. The Salary Ledger</option>
+      <option value="/chapters/09-the-last-team/">09. The Last Team</option>
+      <option value="/chapters/10-the-ledger/">10. The Ledger</option>
+      <option value="/chapters/11-cooperstown/">11. Cooperstown</option>
+      <option value="/chapters/12-the-other-hall/">12. The Other Hall</option>
+      <option value="/chapters/13-the-voice/">13. The Voice</option>
+      <option value="/chapters/14-the-courier-archive/">14. The Courier Archive</option>
+      <option value="/chapters/15-the-parallel-league/">15. The Parallel League</option>
+      <option value="/chapters/the-shadow-nine/">S9. The Shadow Nine</option>
+    </select>
+    <span style="color:#78715e;margin:0 4px;">.</span>
+    <a href="/chapters/02-the-green-book-route/" style="color:#9e9684;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#d4a64a'" onmouseout="this.style.color='#9e9684'">Ch. 02 The Green Book Route</a>
+  </div>
+</nav>
+<div style="height:36px;" aria-hidden="true"></div>
 <main class="shell">
 
 <!-- ====================== MASTHEAD ====================== -->
