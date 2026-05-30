@@ -68,21 +68,21 @@
 .tl text { font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; fill: var(--muted); }
 .tl text.team {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0;
   fill: var(--vellum-dim);
 }
 .tl text.team.late { fill: var(--muted); }
 .tl text.team-meta {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   fill: var(--vellum-dim);
 }
-.tl text.year-axis { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em; fill: var(--vellum-dim); }
+.tl text.year-axis { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; fill: var(--vellum-dim); }
 .tl text.banner {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.26em;
   fill: var(--vellum-dim);
   text-transform: uppercase;
@@ -92,12 +92,12 @@
 .tl text.event {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 13px;
+  font-size: 14px;
   fill: var(--vellum);
 }
 .tl text.event-tag {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   fill: var(--muted);
   text-transform: uppercase;
@@ -139,7 +139,7 @@
 }
 .wave-row {
   display: grid;
-  grid-template-columns: 32px 156px 1.1fr 1fr auto;
+  grid-template-columns: 32px 220px 1.1fr 1fr auto;
   gap: 18px;
   align-items: baseline;
   padding: 13px 0;
@@ -175,8 +175,8 @@
 .shuf { margin-top: 8px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .shuf-head {
   display: grid;
-  grid-template-columns: 170px 1fr 60px 1fr;
-  gap: 22px;
+  grid-template-columns: 170px 260px 40px 260px;
+  gap: 18px;
   padding: 10px 0 12px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--mono);
@@ -190,8 +190,8 @@
 
 .shuf-row {
   display: grid;
-  grid-template-columns: 170px 1fr 60px 1fr;
-  gap: 22px;
+  grid-template-columns: 170px 260px 40px 260px;
+  gap: 18px;
   align-items: center;
   padding: 18px 0;
   border-bottom: 1px dotted var(--rule);
