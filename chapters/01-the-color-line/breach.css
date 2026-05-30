@@ -498,8 +498,8 @@
   .cell .team { font-size: 13px; margin-top: 8px; }
   .cell .date { font-size: 12px; }
   .cell .player { font-size: 12.5px; }
-  .cell .seq { font-size: 8px; top: 5px; right: 6px; }
-  .cell.resistant.lit::before { font-size: 7.5px; top: 4px; left: 4px; }
+  .cell .seq { font-size: 12px; top: 5px; right: 6px; }
+  .cell.resistant.lit::before { font-size: 12px; top: 4px; left: 4px; }
 
   /* Tooltip: full-width overlay on mobile */
   .cell .tip { padding: 10px; }

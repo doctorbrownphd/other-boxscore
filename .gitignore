@@ -4,6 +4,9 @@ chapters/13-the-voice/audio/
 # Claude Code local config
 .claude/
 
+# Wrangler local state
+.wrangler/
+
 # Playwright MCP
 .playwright-mcp/
 
