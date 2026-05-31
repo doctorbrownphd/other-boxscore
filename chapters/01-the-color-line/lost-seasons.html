@@ -108,6 +108,7 @@
   <div class="ls-head">
     <div>
       <div class="label">Fig. 02  ·  50 players, in WAR-equivalent order  ·  No charts</div>
+      <!-- DISCREPANCY: headline says 888, JS tally computes 889. Surface for author decision. -->
       <h2>Fifty men. <em>Eight hundred and eighty-eight seasons.</em></h2>
       <p class="deck">
         Each card lists what is on record -- name, position, years active, one statistic that
@@ -221,8 +222,8 @@
     const cls = "card" + (feature ? " feature" : "");
     const zeroCls = p.lost === 0 ? " zero" : "";
     const photoHTML = p.photo
-      ? `<div class="card-photo"><img src="${p.photo}" alt="${p.name}" loading="lazy" /><span class="photo-credit">${p.credit || ""}</span></div>`
-      : "";
+      ? `<div class="card-photo"><img src="${p.photo}" alt="${p.name}, ${p.pos}, ${p.yrs}" loading="lazy" /><span class="photo-credit">${p.credit || ""}</span></div>`
+      : (feature ? `<div class="card-photo card-photo--absent"><span class="photo-absent-label">No known photograph</span></div>` : "");
     return `
       <article class="${cls}">
         ${photoHTML}
@@ -264,7 +265,7 @@
       const y = H - padB - h;
       if (n > 0) {
         // Bar
-        s += `<rect x="${x + 2}" y="${y}" width="${barW - 4}" height="${h}" fill="#c25555" opacity="0.75" />`;
+        s += `<rect x="${x + 2}" y="${y}" width="${barW - 4}" height="${h}" fill="#a14545" opacity="0.75" />`;
         // count label
         s += `<text x="${x + barW/2}" y="${y - 6}" fill="#d0c9b7" font-family="IBM Plex Mono, monospace" font-size="12" text-anchor="middle">${n}</text>`;
       }
