@@ -6,21 +6,24 @@
   const REAL_SECONDS = 30;       // animation duration at 1x
   const SCALE = REAL_SECONDS * 1000 / MAX_DAY; // ms per day
 
-  // === Build cells ===
-  const colNL = document.getElementById("col-nl");
-  const colAL = document.getElementById("col-al");
+  // === Build cells in diamond layout ===
+  const grid = document.getElementById("diamond-grid");
 
-  // Order within each league: by integration date (so the first ones are at top).
-  const nl = TEAMS.filter(t => t.league === "NL").sort((a,b) => a.day - b.day);
-  const al = TEAMS.filter(t => t.league === "AL").sort((a,b) => a.day - b.day);
+  // Sort all teams by integration date
+  const globalOrder = [...TEAMS].sort((a,b) => a.day - b.day);
+  const seqOf = Object.fromEntries(globalOrder.map((t, i) => [t.id, i + 1]));
+
+  // Diamond row sizes: 1, 2, 3, 4, 3, 2, 1 = 16
+  const rowSizes = [1, 2, 3, 4, 3, 2, 1];
 
   function cellHTML(t, seq) {
     const res = t.resistant ? " resistant" : "";
+    const last = t.day === MAX_DAY ? " last-cell" : "";
     const passedHTML = t.passed
       ? `<div class="passed"><strong>Passed on:</strong> ${t.passed}</div>`
       : "";
     return `
-      <div class="cell${res}" data-id="${t.id}" data-day="${t.day}">
+      <div class="cell${res}${last}" data-id="${t.id}" data-day="${t.day}">
         <span class="seq">${String(seq).padStart(2,"0")}</span>
         <div class="glyph">
           <svg viewBox="-50 -50 100 100" aria-hidden="true">
@@ -56,12 +59,18 @@
     return `+${yr} years ${mo} months`;
   }
 
-  // Sequence numbers are global integration order
-  const globalOrder = [...TEAMS].sort((a,b) => a.day - b.day);
-  const seqOf = Object.fromEntries(globalOrder.map((t, i) => [t.id, i + 1]));
-
-  colNL.innerHTML = nl.map(t => cellHTML(t, seqOf[t.id])).join("");
-  colAL.innerHTML = al.map(t => cellHTML(t, seqOf[t.id])).join("");
+  // Build diamond rows
+  let idx = 0;
+  let html = "";
+  for (let r = 0; r < rowSizes.length; r++) {
+    html += '<div class="diamond-row">';
+    for (let c = 0; c < rowSizes[r]; c++) {
+      html += cellHTML(globalOrder[idx], idx + 1);
+      idx++;
+    }
+    html += '</div>';
+  }
+  grid.innerHTML = html;
 
   // === Scrubber: year tick marks ===
   const scrub = document.getElementById("scrub");
@@ -105,7 +114,7 @@
     // Convert dayOfYr to month label (rough -- calendar dates per team are authoritative on the cells)
     let monthLabel;
     if (day === 0) { monthLabel = "April · pre-play"; }
-    else if (day >= MAX_DAY) { monthLabel = "July · the last cell"; }
+    else if (day >= MAX_DAY) { monthLabel = "July 21, 1959 -- the last cell"; }
     else {
       const monthIdx = Math.floor((dayOfYr / 365.25) * 12);
       const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -141,7 +150,7 @@
     setDay(d);
     if (d >= MAX_DAY) {
       pause();
-      document.getElementById("clk-mo").textContent = "July  \u00b7  the last cell";
+      document.getElementById("clk-mo").textContent = "July 21, 1959 -- the last cell";
       return;
     }
   }

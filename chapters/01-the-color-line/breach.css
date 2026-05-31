@@ -192,57 +192,20 @@
 
 /* === The diamond grid === */
 .diamonds {
-  display: grid;
-  grid-template-columns: 1fr 88px 1fr;   /* NL · spine · AL */
-  gap: 0;
-  align-items: stretch;
-  margin-top: 8px;
-}
-.diamonds .league-label {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.diamonds .league-label .pl {
-  display: block;
-  margin-top: 4px;
-  color: var(--amber);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-.diamonds .left  .league-label { text-align: left; }
-.diamonds .right .league-label { text-align: right; }
-
-.diamonds .col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  align-content: start;
-}
-
-.diamonds .spine {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 28px;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: var(--muted-2);
-  text-transform: uppercase;
-  position: relative;
+  gap: 12px;
+  margin-top: 12px;
 }
-.diamonds .spine .line {
-  width: 1px;
-  background: var(--rule);
-  flex: 1;
-  margin-top: 14px;
+.diamond-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.diamond-row .cell {
+  width: 160px;
+  flex-shrink: 0;
 }
 
 /* === Team cell === */
@@ -319,6 +282,25 @@
 .cell .glyph .base  { fill: var(--ink-2); stroke: var(--muted-2); stroke-width: 1; }
 .cell.lit .glyph .field { stroke: var(--amber); stroke-width: 1.4; }
 .cell.lit .glyph .base  { fill: var(--amber); stroke: var(--amber-2); }
+
+/* Last cell (Red Sox) lights red, not gold */
+.cell.last-cell.lit {
+  background: rgba(161, 69, 69, 0.12);
+  border-color: rgba(161, 69, 69, 0.6);
+}
+.cell.last-cell.lit .team { color: var(--barrier-hot); }
+.cell.last-cell.lit .date { color: var(--barrier-hot); }
+.cell.last-cell.lit .seq  { color: var(--barrier-hot); }
+.cell.last-cell.lit .glyph .field { stroke: var(--barrier-hot); stroke-width: 1.4; }
+.cell.last-cell.lit .glyph .base  { fill: var(--barrier-hot); stroke: var(--barrier-hot); }
+.cell.last-cell.justlit {
+  animation: pulse-red 1.6s ease-out;
+}
+@keyframes pulse-red {
+  0%   { background: rgba(161, 69, 69, 0.55); box-shadow: 0 0 0 0 rgba(161, 69, 69, 0.6); }
+  60%  { background: rgba(161, 69, 69, 0.25); box-shadow: 0 0 0 14px rgba(161, 69, 69, 0); }
+  100% { background: rgba(161, 69, 69, 0.12); border-color: rgba(161, 69, 69, 0.6); }
+}
 
 /* Resistant teams (lit but late) get a subtle inner rule on the top */
 .cell.resistant.lit::before {
@@ -447,6 +429,7 @@
   font-size: 12px;
   line-height: 1;
 }
+.argument .legend .sw.last { border: 1px solid rgba(161,69,69,0.6); background: rgba(161,69,69,0.12); }
 
 /* ==========================================================================
    Mobile Responsive
@@ -463,13 +446,10 @@
   .clock .count .num { font-size: 36px; }
   .clock > :nth-child(4) { grid-column: 1 / -1; }
 
-  /* Diamond grid: stack vertically */
-  .diamonds { grid-template-columns: 1fr; gap: 0; }
-  .diamonds .spine { flex-direction: row; padding: 18px 0; gap: 12px; }
-  .diamonds .spine .line { width: auto; height: 1px; flex: 1; margin-top: 0; margin-left: 14px; }
-  .diamonds .left .league-label,
-  .diamonds .right .league-label { text-align: left; }
-  .diamonds .col { grid-template-columns: 1fr 1fr; gap: 12px; }
+  /* Diamond grid: stack to single column on mobile */
+  .diamonds { gap: 8px; }
+  .diamond-row { flex-direction: column; align-items: center; gap: 8px; }
+  .diamond-row .cell { width: 100%; max-width: 320px; }
   .cell { min-height: 150px; padding: 14px 10px 12px; }
   .cell .glyph { width: 44px; height: 44px; }
   .cell .team { font-size: 13px; }
@@ -492,7 +472,7 @@
   .clock .count { text-align: left; }
   .clock .count .num { font-size: 32px; }
 
-  .diamonds .col { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .diamond-row .cell { max-width: 280px; }
   .cell { min-height: 130px; padding: 12px 8px 10px; }
   .cell .glyph { width: 36px; height: 36px; }
   .cell .team { font-size: 13px; margin-top: 8px; }
