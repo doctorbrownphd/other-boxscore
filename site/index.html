@@ -58,6 +58,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #232318;
 }
 
 body {
@@ -180,7 +181,7 @@ body::before {
 
 .hook__carousel {
   position: relative;
-  min-height: 310px;
+  min-height: 400px;
   width: 100%;
   max-width: 680px;
 }
@@ -279,7 +280,7 @@ body::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(212,166,74,0.22);
+  background: rgba(212,166,74,0.4);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -299,7 +300,7 @@ body::before {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.12em;
-  color: rgba(212,166,74,0.45);
+  color: rgba(212,166,74,0.65);
   text-transform: uppercase;
   background: none;
   border: none;
@@ -407,6 +408,7 @@ body::before {
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat__label {
@@ -524,6 +526,7 @@ body::before {
   font-size: 13px;
   color: rgba(212,166,74,0.55);
   letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
 }
 
 .badge {
@@ -596,6 +599,11 @@ body::before {
   color: rgba(161,69,69,0.55);
 }
 
+/* Shadow Nine -- distinct amber accent within the Part Five grid */
+.chapter-card--shadow-nine {
+  border-top: 2px solid var(--amber);
+  background: var(--ink-2);
+}
 
 
 
@@ -815,7 +823,7 @@ body::before {
   .site-header__meta { display: none; }
   .hook { padding: 48px 18px 40px; }
   .hook__name { font-size: 30px; }
-  .hook__carousel { min-height: 370px; }
+  .hook__carousel { min-height: 420px; }
   .hook__tagline { font-size: 16px; }
   .hook__body { font-size: 15px; }
   .hook__chip { font-size: 12px; padding: 3px 8px; }
@@ -1223,18 +1231,7 @@ body::before {
         <p class="chapter-card__meta">NLP . 75yr corpus . Semantic search</p>
         <span class="chapter-card__cta chapter-card__cta--live">Enter the record &#8594;</span>
       </a>
-    </div>
-  </section>
-
-  <!-- The Shadow Nine -->
-  <section class="part" aria-label="The Shadow Nine">
-    <div class="part__header">
-      <h3 class="part__label">Signature Feature</h3>
-      <div class="part__rule" aria-hidden="true"></div>
-    </div>
-    <p class="part__hook">"Build your nine. Find theirs."</p>
-    <div class="chapter-grid">
-      <a href="/chapters/the-shadow-nine/" class="chapter-card chapter-card--live" style="grid-column:1/-1;border-color:rgba(212,166,74,0.3)">
+      <a href="/chapters/the-shadow-nine/" class="chapter-card chapter-card--live chapter-card--shadow-nine">
         <div class="chapter-card__top">
           <span class="chapter-card__number" style="color:#d4a64a">THE SHADOW NINE</span>
           <span class="badge badge--live">Live</span>
