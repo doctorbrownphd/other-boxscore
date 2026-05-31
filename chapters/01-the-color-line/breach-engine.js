@@ -63,30 +63,8 @@
 
   // Build 4x4 grid with baseball diamond watermark
   let html = '';
-  // Baseball watermark (simple ball with stitching, CC0)
-  html += `<svg class="diamond-watermark" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <circle cx="100" cy="100" r="90" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
-    <path d="M 55,25 Q 30,60 35,100 Q 38,140 65,175" fill="none" stroke="#d4a64a" stroke-width="1"/>
-    <path d="M 145,25 Q 170,60 165,100 Q 162,140 135,175" fill="none" stroke="#d4a64a" stroke-width="1"/>
-    <!-- Stitching marks left -->
-    <line x1="48" y1="35" x2="58" y2="40" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="38" y1="55" x2="48" y2="58" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="33" y1="75" x2="43" y2="76" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="33" y1="95" x2="43" y2="95" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="35" y1="115" x2="45" y2="113" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="40" y1="135" x2="50" y2="131" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="50" y1="153" x2="60" y2="148" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="58" y1="168" x2="68" y2="162" stroke="#d4a64a" stroke-width="0.6"/>
-    <!-- Stitching marks right -->
-    <line x1="152" y1="35" x2="142" y2="40" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="162" y1="55" x2="152" y2="58" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="167" y1="75" x2="157" y2="76" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="167" y1="95" x2="157" y2="95" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="165" y1="115" x2="155" y2="113" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="160" y1="135" x2="150" y2="131" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="150" y1="153" x2="140" y2="148" stroke="#d4a64a" stroke-width="0.6"/>
-    <line x1="142" y1="168" x2="132" y2="162" stroke="#d4a64a" stroke-width="0.6"/>
-  </svg>`;
+  // Baseball grip watermark (fades in as cells light)
+  html += `<div class="breach-watermark" aria-hidden="true"></div>`;
   // Cell grid
   html += '<div class="breach-grid">';
   globalOrder.forEach((t, i) => {
@@ -166,9 +144,9 @@
       }
     });
     document.getElementById("cnt-n").textContent = count;
-    // Diamond watermark fades in as cells light
-    const wm = document.querySelector(".diamond-watermark");
-    if (wm) wm.style.opacity = Math.min(0.25, count / 16 * 0.25);
+    // Grip watermark fades in as cells light
+    const wm = document.querySelector(".breach-watermark");
+    if (wm) wm.style.opacity = Math.min(0.12, count / 16 * 0.12);
   }
 
   function loop() {

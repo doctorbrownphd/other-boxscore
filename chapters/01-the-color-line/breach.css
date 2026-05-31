@@ -196,12 +196,17 @@
   margin-top: 12px;
 }
 .diamond-watermark {
+  display: none;
+}
+.breach-watermark {
   position: absolute;
   inset: 0;
   margin: auto;
-  width: 80%;
-  max-width: 580px;
-  max-height: 90%;
+  width: 50%;
+  max-width: 400px;
+  height: 80%;
+  background: url('photos/baseball-grip.png') center / contain no-repeat;
+  filter: invert(1) brightness(0.6) sepia(1) hue-rotate(5deg) saturate(3);
   opacity: 0;
   pointer-events: none;
   transition: opacity 800ms ease;
