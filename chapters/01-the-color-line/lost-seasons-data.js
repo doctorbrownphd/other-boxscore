@@ -8,7 +8,7 @@ window.LOST_SEASONS = [
     photo:"photos/gibson.jpg", credit:"PD-US, c. 1931",
     note:"Died 85 days before the door opened. Now holds the MLB career batting average record." },
   { rank:2,  name:"Satchel Paige",          pos:"RHP",    yrs:"1926 – 1953", stat:"Debut MLB at 42",            lost:21,
-    photo:"photos/paige.jpg", credit:"LOC FSA/OWI, c. 1940",
+    photo:"photos/paige.jpg", credit:"LA Daily News, 1942 · PD",
     note:"Then led the American League in ERA at 45." },
   { rank:3,  name:"Oscar Charleston",       pos:"OF · 1B",yrs:"1915 – 1941", stat:".339 career avg",            lost:27,
     photo:"photos/charleston.jpg", credit:"PD-USGov, c. 1920",
