@@ -13,8 +13,8 @@
   const globalOrder = [...TEAMS].sort((a,b) => a.day - b.day);
   const seqOf = Object.fromEntries(globalOrder.map((t, i) => [t.id, i + 1]));
 
-  // Diamond row sizes: 1, 2, 3, 4, 3, 2, 1 = 16
-  const rowSizes = [1, 2, 3, 4, 3, 2, 1];
+  // Diamond row sizes: 2, 3, 4, 4, 2, 1 = 16 (squatter diamond)
+  const rowSizes = [2, 3, 4, 4, 2, 1];
 
   function cellHTML(t, seq) {
     const res = t.resistant ? " resistant" : "";

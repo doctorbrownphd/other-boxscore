@@ -195,28 +195,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   margin-top: 12px;
 }
 .diamond-row {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   justify-content: center;
 }
 .diamond-row .cell {
-  width: 160px;
+  width: 150px;
   flex-shrink: 0;
 }
 
 /* === Team cell === */
 .cell {
   position: relative;
-  padding: 12px 10px 10px;
+  padding: 10px 8px 8px;
   border: 1px solid var(--rule);
   background: rgba(232, 224, 207, 0.012);
   transition: background 240ms ease, border-color 240ms ease;
   cursor: default;
-  min-height: 140px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -272,8 +272,8 @@
 
 /* The diamond glyph itself */
 .cell .glyph {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   position: relative;
 }
 .cell .glyph svg { width: 100%; height: 100%; display: block; }
