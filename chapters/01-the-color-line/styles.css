@@ -2,6 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
+  /* Color semantics:
+     amber/gold = the Negro Leagues record, the affirmative, careers counted
+     red (oxblood/barrier-hot) = the cost, the barrier, the decline
+     vellum = primary text on dark
+     vellum-dim = secondary text
+     muted = tertiary text, metadata
+     muted-2 = quaternary, dimmest labels
+     slate = neutral accent, archival blue
+  */
   --ink:        #13110d;
   --ink-2:      #1a1812;
   --ink-3:      #221f17;
@@ -29,6 +38,29 @@
 
   --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
   --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Spacing scale (8px base) */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Type scale */
+  --text-xs:  12px;
+  --text-sm:  13px;
+  --text-base: 16px;
+  --text-lg:  19px;
+  --text-xl:  22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
+
+  /* Content width */
+  --content-max: 1080px;
 }
 
 * { box-sizing: border-box; }
@@ -40,6 +72,7 @@ html, body {
   font-size: 19px;
   line-height: 1.65;
   font-feature-settings: "kern", "liga", "onum";
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
 }
@@ -107,7 +140,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-family: var(--serif);
   font-weight: 500;
   font-size: 56px;
-  line-height: 0.95;
+  line-height: 1.05;
   margin: 0;
   letter-spacing: -0.012em;
 }
@@ -160,13 +193,13 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 .tab.active .num { color: var(--amber); }
 
 /* === Section headers === */
-.section { margin-top: 44px; }
+.section { margin-top: var(--space-4xl); }
 .section-head {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: baseline;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: var(--space-md);
 }
 .section-head .label {
   font-family: var(--mono);
@@ -189,8 +222,8 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-family: var(--serif);
   font-weight: 500;
   font-size: 32px;
-  line-height: 1.05;
-  margin: 0 0 4px;
+  line-height: 1.3;
+  margin: 0 0 var(--space-xs);
   letter-spacing: -0.005em;
 }
 .section-lede {
@@ -198,8 +231,9 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-style: italic;
   color: var(--vellum-dim);
   font-size: 17px;
+  line-height: 1.65;
   max-width: 680px;
-  margin: 0 0 22px;
+  margin: 0 0 var(--space-lg);
 }
 
 /* === Stat row === */
@@ -231,6 +265,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-weight: 500;
   letter-spacing: -0.015em;
   color: var(--vellum);
+  font-variant-numeric: tabular-nums;
 }
 .stat .value .unit {
   font-family: var(--mono);
@@ -266,7 +301,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 .hero-aside {
   font-family: var(--serif);
   font-size: 14.5px;
-  line-height: 1.55;
+  line-height: 1.65;
   color: var(--vellum-dim);
 }
 .hero-aside p { margin: 0 0 14px; }
@@ -363,6 +398,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   line-height: 1;
   margin-bottom: 4px;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 .feat .by {
   font-family: var(--serif);
@@ -381,7 +417,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 }
 .feat .nums div { font-family: var(--mono); font-size: 12.5px; }
 .feat .nums .k { color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; }
-.feat .nums .v { color: var(--vellum); font-size: 15px; font-family: var(--serif); margin-top: 2px; }
+.feat .nums .v { color: var(--vellum); font-size: 15px; font-family: var(--serif); margin-top: 2px; font-variant-numeric: tabular-nums; }
 
 /* === Pipeline stepper === */
 .pipeline {
@@ -508,7 +544,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 .detail {
   font-family: var(--serif);
   font-size: 14.5px;
-  line-height: 1.55;
+  line-height: 1.65;
   color: var(--vellum-dim);
   border-left: 1px solid var(--rule);
   padding-left: 22px;
@@ -517,6 +553,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 500;
+  line-height: 1.3;
   margin: 0 0 4px;
   color: var(--vellum);
   letter-spacing: -0.01em;
@@ -539,7 +576,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   padding: 12px 0;
 }
 .detail .stats div .k { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-.detail .stats div .v { font-family: var(--serif); font-size: 22px; color: var(--vellum); }
+.detail .stats div .v { font-family: var(--serif); font-size: 22px; color: var(--vellum); font-variant-numeric: tabular-nums; }
 .detail p { margin: 8px 0; }
 
 /* === Suffix small multiples === */
@@ -561,6 +598,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 .smallmult .panel .ex {
   font-family: var(--serif);
@@ -635,7 +673,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 .search-narrative {
   font-family: var(--serif);
   font-size: 17px;
-  line-height: 1.55;
+  line-height: 1.65;
   color: var(--vellum-dim);
   max-width: 620px;
   margin: 18px 0 0;
@@ -666,7 +704,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 }
 .search-aside .rel .nm { color: var(--vellum); cursor: pointer; }
 .search-aside .rel .nm:hover { color: var(--amber); }
-.search-aside .rel .v { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.search-aside .rel .v { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .search-aside section { margin-bottom: 22px; }
 
 /* === Validation table === */
@@ -692,8 +730,8 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-weight: 400;
   border-bottom: 1px solid var(--rule);
 }
-.valid-table td.num { font-family: var(--mono); font-size: 13px; color: var(--vellum-dim); }
-.valid-table td.delta { font-family: var(--mono); font-size: 12.5px; color: var(--amber); letter-spacing: 0.02em; }
+.valid-table td.num { font-family: var(--mono); font-size: 13px; color: var(--vellum-dim); font-variant-numeric: tabular-nums; }
+.valid-table td.delta { font-family: var(--mono); font-size: 12.5px; color: var(--amber); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
 .valid-table td.check { font-family: var(--mono); color: var(--moss); font-size: 13px; }
 
 /* === Waves cards === */
@@ -712,6 +750,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   color: var(--amber);
   font-weight: 500;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .wave-card .yr .sub { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.1em; margin-top: 6px; }
 .wave-card .body .ttl { font-family: var(--serif); font-size: 22px; margin-bottom: 4px; }
@@ -736,8 +775,8 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
 
 /* === Footnote / colophon === */
 .colophon {
-  margin-top: 80px;
-  padding-top: 22px;
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-lg);
   border-top: 1px solid var(--rule);
   font-family: var(--serif);
   font-style: italic;
@@ -766,6 +805,7 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 600ms ease, transform 600ms ease;
+  margin-bottom: var(--space-2xl);
 }
 .reveal.visible {
   opacity: 1;
@@ -865,10 +905,10 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-size: 18px;
   font-style: italic;
   color: var(--vellum-dim);
-  line-height: 1.75;
+  line-height: 1.7;
   max-width: 600px;
-  margin: 64px auto 40px;
-  padding-top: 40px;
+  margin: var(--space-3xl) auto var(--space-xl);
+  padding-top: var(--space-xl);
   border-top: 1px solid var(--rule);
 }
 
