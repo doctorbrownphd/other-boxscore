@@ -131,6 +131,12 @@
   <!-- The reshuffle ledger -->
   <section class="ledger">
     <div class="h">Fig. 04b  ·  How the rankings rearranged</div>
+    <div class="ledger-header">
+      <div class="ledger-hcol cat-col"></div>
+      <div class="ledger-hcol">Held the record</div>
+      <div class="ledger-hcol" style="text-align:center;">→</div>
+      <div class="ledger-hcol" style="color:var(--amber);">Holds the record now</div>
+    </div>
     <div id="ledger-rows"></div>
   </section>
 
@@ -309,15 +315,16 @@
       return `
         <div class="ledger-row">
           <div class="cat">${lane.cat}</div>
-          <div class="side">
-            <div class="pos">${swap ? "→ #" + preTopRankInPost : "#1"}</div>
+          <div class="side old">
             <div class="nm">${preTop.name}</div>
             <div class="v">${lane.fmt(preTop.v)}${yrPre}</div>
+            <div class="pos">${swap ? "now #" + preTopRankInPost : "#1"}</div>
           </div>
-          <div class="side">
-            <div class="pos new">#1 ${swap ? "↑" : ""}</div>
+          <div class="arrow">→</div>
+          <div class="side new-side">
             <div class="nm ${postTop.league === "nl" ? "gibson" : ""}">${postTop.name}</div>
             <div class="v">${lane.fmt(postTop.v)}${yrPost}</div>
+            <div class="pos new">#1</div>
           </div>
         </div>
       `;

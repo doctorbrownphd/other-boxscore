@@ -185,27 +185,47 @@
   color: var(--amber);
   margin-bottom: 14px;
 }
+.ledger-header {
+  display: grid;
+  grid-template-columns: 180px 1fr 40px 1fr;
+  gap: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
 .ledger-row {
   display: grid;
-  grid-template-columns: 180px auto auto;
-  gap: 24px;
+  grid-template-columns: 180px 1fr 40px 1fr;
+  gap: 0;
   padding: 14px 0;
   border-bottom: 1px dotted var(--rule);
-  align-items: baseline;
+  align-items: center;
 }
-.ledger-row:first-of-type { border-top: 1px solid var(--rule); }
+.ledger-row:first-of-type { border-top: none; }
 .ledger-row .cat {
   font-family: var(--mono);
-  font-size: 12.5px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--vellum-dim);
+}
+.ledger-row .arrow {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--muted-2);
+  text-align: center;
 }
 .ledger-row .side {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 16px;
+  display: flex;
   align-items: baseline;
+  gap: 12px;
+}
+.ledger-row .side.new-side {
+  padding-left: 12px;
 }
 .ledger-row .pos {
   font-family: var(--mono);
@@ -215,63 +235,53 @@
   font-variant-numeric: tabular-nums;
 }
 .ledger-row .pos.new { color: var(--amber); }
-.ledger-row .pos.dropped { color: var(--barrier-hot); }
 .ledger-row .nm {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: 17px;
   color: var(--vellum-dim);
 }
-.ledger-row .nm.gibson { color: var(--amber); font-style: italic; }
+.ledger-row .nm.gibson { color: var(--amber); }
 .ledger-row .v {
   font-family: var(--mono);
-  font-size: 13px;
-  color: var(--vellum-dim);
+  font-size: 14px;
+  color: var(--vellum);
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
+  font-weight: 500;
 }
 
 /* === Pull quote === */
 .lanes-quote {
-  margin: 56px 0 0;
-  padding: 30px 0 26px;
+  margin: 48px 0 0;
+  padding: 36px 0 32px;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 56px;
-  align-items: end;
+  border-left: 3px solid var(--amber);
+  padding-left: 28px;
 }
 .lanes-quote .q {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 30px;
-  line-height: 1.22;
+  font-size: 28px;
+  line-height: 1.35;
   color: var(--vellum);
   letter-spacing: -0.008em;
-  max-width: 920px;
-  margin: 0;
+  max-width: 720px;
+  margin: 0 0 20px;
 }
 .lanes-quote .q::before {
-  content: "\201C";
-  display: inline-block;
-  font-size: 56px;
-  line-height: 0;
-  color: var(--amber);
-  vertical-align: -16px;
-  margin-right: 8px;
-  font-style: normal;
+  content: none;
 }
 .lanes-quote .attr {
   font-family: var(--mono);
-  font-size: 12.5px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  text-align: right;
   line-height: 1.7;
 }
-.lanes-quote .attr .nm { color: var(--vellum-dim); }
+.lanes-quote .attr .nm { color: var(--amber); }
 
 /* ==========================================================================
    Mobile Responsive
