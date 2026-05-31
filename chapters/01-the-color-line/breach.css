@@ -243,13 +243,25 @@
   100% { background: rgba(212, 166, 74, 0.06); border-color: rgba(212, 166, 74, 0.5); }
 }
 
+.cell .monogram {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--muted-2);
+  margin-bottom: 4px;
+  transition: color 240ms ease;
+}
+.cell.lit .monogram { color: var(--amber); }
+.cell.last-cell.lit .monogram { color: var(--barrier-hot); }
+
 .cell .team {
   font-family: var(--serif);
-  font-size: 14.5px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--muted);
   letter-spacing: -0.005em;
-  margin-top: 12px;
+  margin-top: 4px;
   line-height: 1.15;
   text-wrap: balance;
   min-height: 2.3em;

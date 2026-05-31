@@ -14,7 +14,7 @@
   const seqOf = Object.fromEntries(globalOrder.map((t, i) => [t.id, i + 1]));
 
   // 4x4 grid, integration order left-to-right top-to-bottom
-  function cellHTML(t, seq) {
+  function cellHTML(t, seq, abbr) {
     const res = t.resistant ? " resistant" : "";
     const last = t.day === MAX_DAY ? " last-cell" : "";
     const passedHTML = t.passed
@@ -23,6 +23,7 @@
     return `
       <div class="cell${res}${last}" data-id="${t.id}" data-day="${t.day}">
         <span class="seq">${String(seq).padStart(2,"0")}</span>
+        <div class="monogram">${abbr}</div>
         <div class="team">${t.team}</div>
         <div class="date">${t.dt}</div>
         <div class="player">${t.player}</div>
@@ -44,18 +45,41 @@
     return `+${yr} years ${mo} months`;
   }
 
-  // Build 4x4 grid with diamond watermark
+  // Team abbreviations for monogram badges
+  const ABBR = {
+    bro:"BKN", cle:"CLE", slb:"STL", nyg:"NYG", bsn:"BSN",
+    chw:"CWS", phi:"PHA", chc:"CHC", pit:"PIT", stl:"STL",
+    cin:"CIN", was:"WSH", nyy:"NYY", phl:"PHI", det:"DET", bos:"BOS"
+  };
+
+  // Build 4x4 grid with baseball diamond watermark
   let html = '';
-  // Diamond watermark SVG behind the grid
-  html += `<svg class="diamond-watermark" viewBox="-80 -80 160 160" aria-hidden="true">
-    <polygon points="0,-68 68,0 0,68 -68,0" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
-    <rect x="-5" y="58" width="10" height="10" fill="#d4a64a"/>
-    <polygon points="0,-56 5,-50 -5,-50" fill="none" stroke="#d4a64a" stroke-width="1.2"/>
-    <circle cx="0" cy="0" r="4" fill="#d4a64a"/>
+  // Baseball field watermark
+  html += `<svg class="diamond-watermark" viewBox="0 0 400 420" aria-hidden="true">
+    <!-- Outfield arc -->
+    <path d="M 30,350 Q 200,20 370,350" fill="none" stroke="#d4a64a" stroke-width="1"/>
+    <!-- Foul lines -->
+    <line x1="200" y1="380" x2="30" y2="100" stroke="#d4a64a" stroke-width="0.8"/>
+    <line x1="200" y1="380" x2="370" y2="100" stroke="#d4a64a" stroke-width="0.8"/>
+    <!-- Infield diamond -->
+    <polygon points="200,230 280,310 200,390 120,310" fill="none" stroke="#d4a64a" stroke-width="1.2"/>
+    <!-- Bases -->
+    <rect x="196" y="226" width="8" height="8" fill="#d4a64a" transform="rotate(45,200,230)"/>
+    <rect x="276" y="306" width="8" height="8" fill="#d4a64a" transform="rotate(45,280,310)"/>
+    <rect x="116" y="306" width="8" height="8" fill="#d4a64a" transform="rotate(45,120,310)"/>
+    <!-- Home plate -->
+    <polygon points="200,386 195,392 195,398 205,398 205,392" fill="#d4a64a"/>
+    <!-- Mound -->
+    <circle cx="200" cy="310" r="4" fill="#d4a64a"/>
+    <!-- Infield arc -->
+    <path d="M 140,340 Q 200,280 260,340" fill="none" stroke="#d4a64a" stroke-width="0.6"/>
   </svg>`;
   // Cell grid
   html += '<div class="breach-grid">';
-  globalOrder.forEach((t, i) => { html += cellHTML(t, i + 1); });
+  globalOrder.forEach((t, i) => {
+    const abbr = ABBR[t.id] || t.id.toUpperCase();
+    html += cellHTML(t, i + 1, abbr);
+  });
   html += '</div>';
   grid.innerHTML = html;
 
