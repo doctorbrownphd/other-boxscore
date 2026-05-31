@@ -54,39 +54,29 @@
 
   // Build 4x4 grid with baseball diamond watermark
   let html = '';
-  // Baseball field watermark (based on Wikimedia Commons field overview, PD by Robert Merkel)
-  html += `<svg class="diamond-watermark" viewBox="0 0 500 500" aria-hidden="true">
-    <!-- Outfield grass arc -->
-    <path d="M 50,420 A 280,280 0 0,1 450,420" fill="none" stroke="#d4a64a" stroke-width="1.2"/>
-    <!-- Foul lines from home plate to outfield -->
-    <line x1="250" y1="430" x2="50" y2="130" stroke="#d4a64a" stroke-width="0.8"/>
-    <line x1="250" y1="430" x2="450" y2="130" stroke="#d4a64a" stroke-width="0.8"/>
-    <!-- Infield diamond (90-foot basepaths, rotated square) -->
-    <polygon points="250,280 330,360 250,440 170,360" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
-    <!-- Second base -->
-    <rect x="245" y="275" width="10" height="10" fill="#d4a64a" transform="rotate(45,250,280)"/>
-    <!-- First base -->
-    <rect x="325" y="355" width="10" height="10" fill="#d4a64a" transform="rotate(45,330,360)"/>
-    <!-- Third base -->
-    <rect x="165" y="355" width="10" height="10" fill="#d4a64a" transform="rotate(45,170,360)"/>
-    <!-- Home plate (pentagon) -->
-    <polygon points="250,436 244,442 244,450 256,450 256,442" fill="#d4a64a"/>
+  // Baseball field watermark (geometry ref: Wikimedia Commons, PD by Robert Merkel)
+  // Centered at 250,250 with home plate at bottom, second base at top
+  html += `<svg class="diamond-watermark" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <!-- Outfield arc -->
+    <path d="M 40,340 A 300,300 0 0,1 460,340" fill="none" stroke="#d4a64a" stroke-width="1"/>
+    <!-- Foul lines -->
+    <line x1="250" y1="400" x2="40" y2="90" stroke="#d4a64a" stroke-width="0.7"/>
+    <line x1="250" y1="400" x2="460" y2="90" stroke="#d4a64a" stroke-width="0.7"/>
+    <!-- Infield diamond -->
+    <polygon points="250,240 340,330 250,420 160,330" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+    <!-- Second base (top) -->
+    <rect x="244" y="234" width="12" height="12" fill="#d4a64a" transform="rotate(45,250,240)"/>
+    <!-- First base (right) -->
+    <rect x="334" y="324" width="12" height="12" fill="#d4a64a" transform="rotate(45,340,330)"/>
+    <!-- Third base (left) -->
+    <rect x="154" y="324" width="12" height="12" fill="#d4a64a" transform="rotate(45,160,330)"/>
+    <!-- Home plate -->
+    <polygon points="250,416 243,423 243,430 257,430 257,423" fill="#d4a64a"/>
     <!-- Pitcher's mound -->
-    <circle cx="250" cy="360" r="5" fill="none" stroke="#d4a64a" stroke-width="1"/>
-    <circle cx="250" cy="360" r="1.5" fill="#d4a64a"/>
-    <!-- Pitcher's rubber -->
-    <rect x="246" y="358" width="8" height="2" fill="#d4a64a" rx="0.5"/>
+    <circle cx="250" cy="330" r="12" fill="none" stroke="#d4a64a" stroke-width="0.6"/>
+    <rect x="244" y="328" width="12" height="3" fill="#d4a64a" rx="1"/>
     <!-- Infield dirt arc -->
-    <path d="M 180,400 Q 250,320 320,400" fill="none" stroke="#d4a64a" stroke-width="0.7"/>
-    <!-- Batter's boxes (left and right) -->
-    <rect x="228" y="436" width="14" height="24" fill="none" stroke="#d4a64a" stroke-width="0.5" rx="1"/>
-    <rect x="258" y="436" width="14" height="24" fill="none" stroke="#d4a64a" stroke-width="0.5" rx="1"/>
-    <!-- On-deck circles -->
-    <circle cx="200" cy="460" r="8" fill="none" stroke="#d4a64a" stroke-width="0.4"/>
-    <circle cx="300" cy="460" r="8" fill="none" stroke="#d4a64a" stroke-width="0.4"/>
-    <!-- Coach's boxes -->
-    <rect x="148" y="390" width="14" height="28" fill="none" stroke="#d4a64a" stroke-width="0.4" rx="1"/>
-    <rect x="338" y="390" width="14" height="28" fill="none" stroke="#d4a64a" stroke-width="0.4" rx="1"/>
+    <path d="M 175,375 Q 250,290 325,375" fill="none" stroke="#d4a64a" stroke-width="0.6"/>
   </svg>`;
   // Cell grid
   html += '<div class="breach-grid">';
