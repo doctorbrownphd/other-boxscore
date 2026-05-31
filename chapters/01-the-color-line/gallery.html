@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="baseball.css" />
 <style>
+html { background: #13110d; }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -20,9 +22,15 @@
   overflow: hidden;
   background: var(--ink-2);
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
 }
-.gallery-card:hover { border-color: var(--amber); }
+.gallery-card:hover,
+.gallery-card:focus-within {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 1px var(--amber);
+}
 .gallery-card img {
   width: 100%;
   aspect-ratio: 1;
@@ -30,8 +38,20 @@
   display: block;
   filter: sepia(15%) contrast(1.05);
 }
+.gallery-card-credit {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted-2);
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-top: 1px solid var(--rule);
+  background: var(--ink-3);
+}
 .gallery-card-info {
   padding: 12px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .gallery-card-name {
   font-family: var(--serif);
@@ -45,12 +65,14 @@
   font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
 }
 .gallery-card-stat {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--amber);
   margin-top: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Search */
@@ -91,6 +113,7 @@
   font-family: var(--mono); font-size: 12px;
   color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
   margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
 }
 .gallery-detail-stat-row {
   display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px;
@@ -100,6 +123,7 @@
 }
 .gallery-detail-stat .val {
   font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--amber);
+  font-variant-numeric: tabular-nums;
 }
 .gallery-detail-stat .lbl {
   font-family: var(--mono); font-size: 12px; color: var(--muted);
@@ -125,6 +149,7 @@
   font-family: var(--mono); font-size: 12px; color: var(--vellum-dim);
   padding: 6px 10px; background: var(--ink-3); border-radius: 3px;
   display: flex; justify-content: space-between;
+  font-variant-numeric: tabular-nums;
 }
 .gallery-match .score {
   color: var(--amber); font-weight: 500;
@@ -134,7 +159,11 @@
   cursor: pointer; padding: 4px 10px; border: 1px solid var(--rule);
   border-radius: 3px; background: var(--ink-2); float: right;
 }
-.gallery-close:hover { color: var(--vellum); border-color: var(--muted); }
+.gallery-close:hover,
+.gallery-close:focus {
+  color: var(--vellum); border-color: var(--muted);
+  outline: none;
+}
 .credit-line {
   font-family: var(--mono); font-size: 12px; color: var(--muted-2);
   margin-top: 6px; letter-spacing: 0.04em;
@@ -210,7 +239,7 @@
   </div>
   <div class="meta" style="white-space:nowrap">
     <div><span class="k">Section</span> &nbsp; <span class="v">10 / 10</span></div>
-    <div><span class="k">Photos</span> &nbsp; <span class="v">37</span></div>
+    <div><span class="k">Photos</span> &nbsp; <span class="v">37 across 32 players</span></div>
     <div><span class="k">Texts</span> &nbsp; <span class="v">522</span></div>
     <div><span class="k">Model</span> &nbsp; <span class="v">CLIP ViT-B/32</span></div>
   </div>
@@ -311,9 +340,15 @@ function renderGallery(filter) {
   players.forEach(function(p) {
     var card = document.createElement('div');
     card.className = 'gallery-card';
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'View details for ' + p.name);
     card.onclick = function() { showDetail(p); };
+    card.onkeydown = function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDetail(p); } };
+    var altText = 'Photograph of ' + p.name + ', ' + p.pos + ', ' + p.yrs;
     card.innerHTML =
-      '<img src="' + p.photo + '" alt="' + p.name + '" loading="lazy" />' +
+      '<img src="' + p.photo + '" alt="' + altText + '" loading="lazy" />' +
+      '<div class="gallery-card-credit">' + (p.credit || 'Public Domain') + '</div>' +
       '<div class="gallery-card-info">' +
         '<div class="gallery-card-name">' + p.name + '</div>' +
         '<div class="gallery-card-meta">' + p.pos + ' · ' + p.yrs + '</div>' +
@@ -328,7 +363,7 @@ function showDetail(p) {
   panel.classList.add('active');
 
   document.getElementById('detail-img').src = p.photo;
-  document.getElementById('detail-img').alt = p.name;
+  document.getElementById('detail-img').alt = 'Photograph of ' + p.name + ', ' + p.pos + ', ' + p.yrs;
   document.getElementById('detail-name').textContent = p.name;
   document.getElementById('detail-pos').textContent = p.pos + ' · ' + p.yrs;
   document.getElementById('detail-credit').textContent = p.credit || '';

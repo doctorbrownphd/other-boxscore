@@ -1,3 +1,6 @@
+/* === White-band fix === */
+html { background: #13110d; }
+
 /* === The Parallel Careers · fan charts === */
 
 .pc-shell {
@@ -104,6 +107,7 @@
 .player-pick button.on {
   background: rgba(212,166,74,0.10);
   color: var(--vellum);
+  border-bottom: 3px solid var(--amber);
 }
 .player-pick button.on .nm { color: var(--vellum); }
 .player-pick button.on .role { color: var(--amber); }
@@ -140,7 +144,7 @@
 .fan text { font-family: var(--mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; }
 .fan .axis-line { stroke: var(--rule); stroke-width: 1; }
 .fan .axis-tick { stroke: var(--muted-2); stroke-width: 1; }
-.fan .axis-num  { fill: var(--muted); }
+.fan .axis-num  { fill: var(--muted); font-variant-numeric: tabular-nums; }
 .fan .grid-line { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
 .fan .axis-label {
   font-family: var(--mono);
@@ -306,7 +310,7 @@
 
 .scat .grid { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 1 4; }
 .scat .axis { stroke: var(--muted-2); stroke-width: 1; }
-.scat text  { font-family: var(--mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; }
+.scat text  { font-family: var(--mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
 .scat .axis-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; fill: var(--muted-2); text-transform: uppercase; }
 .scat .pt-mlb { fill: rgba(196, 189, 169, 0.55); }
 .scat .pt-int { fill: var(--amber); }
@@ -333,7 +337,7 @@
   align-self: start;
 }
 .pc-validation .val-card {
-  border-left: 1px dotted var(--rule);
+  border-left: 1px solid var(--rule);
   padding-left: 22px;
 }
 .pc-validation .val-card .nm {
@@ -349,6 +353,7 @@
   color: var(--muted);
   letter-spacing: 0.04em;
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 .pc-validation .val-card .ok {
   font-family: var(--mono);
@@ -391,7 +396,7 @@
   .pc-side .stat-block { gap: 12px 16px; }
   .pc-side .stat-block .row .v { font-size: 18px; }
   .pc-validation { grid-template-columns: 1fr; gap: 18px; }
-  .pc-validation .val-card { border-left: none; padding-left: 0; border-top: 1px dotted var(--rule); padding-top: 14px; }
+  .pc-validation .val-card { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 14px; }
   .pc-validation .val-card .nm { font-size: 16px; }
   .pc-scatter h3 { font-size: 20px; }
   .pc-scatter .lede { font-size: 14px; }

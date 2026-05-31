@@ -172,7 +172,7 @@
   <div class="val-card">
     <div class="nm">Jackie Robinson</div>
     <div class="resid">Fit window: 1945 (47 games, KC).<br>Projected: 59.0 WAR · Actual: 61.7<br>Residual: <strong style="color:var(--amber)">−4.4%</strong></div>
-    <div class="ok">CANDIDATE</div>
+    <div class="ok">MODERATE CONFIDENCE</div>
   </div>
 </section>
 
@@ -344,12 +344,22 @@
     for (let y = 20; y <= 160; y += 20) s += `<line class="grid" x1="${padL}" y1="${yOf(y)}" x2="${W - padR}" y2="${yOf(y)}" />`;
 
     // Points
+    // Label offsets to avoid collisions (Mays/Aaron share x=20)
+    const labelOffsets = {
+      "Mays":       { dx: 8,  dy: -6 },
+      "Aaron":      { dx: 8,  dy: 14 },
+      "Robinson":   { dx: 8,  dy: 4 },
+      "Doby":       { dx: 8,  dy: 4 },
+      "Campanella": { dx: 8,  dy: 4 },
+      "Banks":      { dx: 8,  dy: 4 }
+    };
     SCATTER.forEach(p => {
       const cls = p.c === "mlb" ? "pt-mlb" : (p.c === "int" ? "pt-int" : "pt-int-late");
       const r = p.label ? 5 : 3.2;
       s += `<circle class="${cls}" cx="${xOf(p.x)}" cy="${yOf(p.y)}" r="${r}" />`;
       if (p.label) {
-        s += `<text class="cluster-label" x="${xOf(p.x) + 8}" y="${yOf(p.y) + 4}">${p.label}</text>`;
+        const off = labelOffsets[p.label] || { dx: 8, dy: 4 };
+        s += `<text class="cluster-label" x="${xOf(p.x) + off.dx}" y="${yOf(p.y) + off.dy}">${p.label}</text>`;
       }
     });
 
