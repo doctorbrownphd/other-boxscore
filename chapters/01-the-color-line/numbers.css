@@ -104,7 +104,7 @@
 .lane text { font-family: var(--mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; }
 .lane .cat-label {
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 14px;
   fill: var(--vellum-dim);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -127,7 +127,7 @@
 
 .lane .name {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 14px;
   fill: var(--vellum-dim);
   letter-spacing: 0;
   transition: x 1500ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -140,7 +140,7 @@
 
 .lane .val {
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 13px;
   fill: var(--muted);
   letter-spacing: 0.04em;
 }

@@ -124,7 +124,7 @@
   </div>
 
   <div class="lane-svg-wrap">
-    <svg id="lanes-svg" class="lane" viewBox="0 0 1480 720" role="img" aria-label="Leaderboard lane chart, five categories, before and after the May 2024 statistical merger"></svg>
+    <svg id="lanes-svg" class="lane" viewBox="0 0 1480 960" role="img" aria-label="Leaderboard lane chart, five categories, before and after the May 2024 statistical merger"></svg>
   </div>
 
   <!-- The reshuffle ledger -->
@@ -179,7 +179,7 @@
 (function() {
   const svg = document.getElementById("lanes-svg");
   const LANES = window.LANES;
-  const W = 1480, H = 720;
+  const W = 1480, H = 960;
   const padL = 260, padR = 200, padT = 50, padB = 36;
   const innerW = W - padL - padR;
   const laneH = (H - padT - padB) / LANES.length;
@@ -240,8 +240,8 @@
         // Alternate above/below for labeled players
         const above = (labelCount % 2 === 0);
         labelCount++;
-        const labY = above ? (y - 20) : (y + 30);
-        const valY = above ? (labY + 12) : (labY + 12);
+        const labY = above ? (y - 26) : (y + 34);
+        const valY = labY + 14;
         const yearStr = p.year ? `  ${p.year}` : "";
 
         html += `<text class="name ${leagueCls}" data-li="${li}" data-i="${i}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
