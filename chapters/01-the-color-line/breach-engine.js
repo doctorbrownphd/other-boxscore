@@ -23,7 +23,16 @@
     return `
       <div class="cell${res}${last}" data-id="${t.id}" data-day="${t.day}">
         <span class="seq">${String(seq).padStart(2,"0")}</span>
-        <div class="monogram">${abbr}</div>
+        <div class="glyph">
+          <svg viewBox="-50 -50 100 100" aria-hidden="true">
+            <polygon class="field" points="0,-40 40,0 0,40 -40,0" />
+            <rect class="base" x="-4" y="36" width="8" height="8" />
+            <rect class="base" x="36" y="-4" width="8" height="8" />
+            <rect class="base" x="-4" y="-44" width="8" height="8" />
+            <rect class="base" x="-44" y="-4" width="8" height="8" />
+            <circle class="base" cx="0" cy="0" r="3" />
+          </svg>
+        </div>
         <div class="team">${t.team}</div>
         <div class="date">${t.dt}</div>
         <div class="player">${t.player}</div>
@@ -54,29 +63,29 @@
 
   // Build 4x4 grid with baseball diamond watermark
   let html = '';
-  // Baseball field watermark (geometry ref: Wikimedia Commons, PD by Robert Merkel)
-  // Centered at 250,250 with home plate at bottom, second base at top
-  html += `<svg class="diamond-watermark" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <!-- Outfield arc -->
-    <path d="M 40,340 A 300,300 0 0,1 460,340" fill="none" stroke="#d4a64a" stroke-width="1"/>
-    <!-- Foul lines -->
-    <line x1="250" y1="400" x2="40" y2="90" stroke="#d4a64a" stroke-width="0.7"/>
-    <line x1="250" y1="400" x2="460" y2="90" stroke="#d4a64a" stroke-width="0.7"/>
-    <!-- Infield diamond -->
-    <polygon points="250,240 340,330 250,420 160,330" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
-    <!-- Second base (top) -->
-    <rect x="244" y="234" width="12" height="12" fill="#d4a64a" transform="rotate(45,250,240)"/>
-    <!-- First base (right) -->
-    <rect x="334" y="324" width="12" height="12" fill="#d4a64a" transform="rotate(45,340,330)"/>
-    <!-- Third base (left) -->
-    <rect x="154" y="324" width="12" height="12" fill="#d4a64a" transform="rotate(45,160,330)"/>
-    <!-- Home plate -->
-    <polygon points="250,416 243,423 243,430 257,430 257,423" fill="#d4a64a"/>
-    <!-- Pitcher's mound -->
-    <circle cx="250" cy="330" r="12" fill="none" stroke="#d4a64a" stroke-width="0.6"/>
-    <rect x="244" y="328" width="12" height="3" fill="#d4a64a" rx="1"/>
-    <!-- Infield dirt arc -->
-    <path d="M 175,375 Q 250,290 325,375" fill="none" stroke="#d4a64a" stroke-width="0.6"/>
+  // Baseball watermark (simple ball with stitching, CC0)
+  html += `<svg class="diamond-watermark" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+    <path d="M 55,25 Q 30,60 35,100 Q 38,140 65,175" fill="none" stroke="#d4a64a" stroke-width="1"/>
+    <path d="M 145,25 Q 170,60 165,100 Q 162,140 135,175" fill="none" stroke="#d4a64a" stroke-width="1"/>
+    <!-- Stitching marks left -->
+    <line x1="48" y1="35" x2="58" y2="40" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="38" y1="55" x2="48" y2="58" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="33" y1="75" x2="43" y2="76" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="33" y1="95" x2="43" y2="95" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="35" y1="115" x2="45" y2="113" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="40" y1="135" x2="50" y2="131" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="50" y1="153" x2="60" y2="148" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="58" y1="168" x2="68" y2="162" stroke="#d4a64a" stroke-width="0.6"/>
+    <!-- Stitching marks right -->
+    <line x1="152" y1="35" x2="142" y2="40" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="162" y1="55" x2="152" y2="58" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="167" y1="75" x2="157" y2="76" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="167" y1="95" x2="157" y2="95" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="165" y1="115" x2="155" y2="113" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="160" y1="135" x2="150" y2="131" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="150" y1="153" x2="140" y2="148" stroke="#d4a64a" stroke-width="0.6"/>
+    <line x1="142" y1="168" x2="132" y2="162" stroke="#d4a64a" stroke-width="0.6"/>
   </svg>`;
   // Cell grid
   html += '<div class="breach-grid">';

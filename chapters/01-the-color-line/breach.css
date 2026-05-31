@@ -242,21 +242,9 @@
   100% { background: rgba(212, 166, 74, 0.06); border-color: rgba(212, 166, 74, 0.5); }
 }
 
-.cell .monogram {
-  font-family: var(--mono);
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--muted-2);
-  margin-bottom: 4px;
-  transition: color 240ms ease;
-}
-.cell.lit .monogram { color: var(--amber); }
-.cell.last-cell.lit .monogram { color: var(--barrier-hot); }
-
 .cell .team {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--muted);
   letter-spacing: -0.005em;
