@@ -19,43 +19,30 @@
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   border-left: 3px solid var(--amber);
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 56px;
-  align-items: end;
 }
 .bb-epi .q {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 30px;
-  line-height: 1.28;
+  font-size: 28px;
+  line-height: 1.35;
   color: var(--vellum);
   letter-spacing: -0.008em;
-  max-width: 920px;
-  margin: 0;
+  max-width: 720px;
+  margin: 0 0 20px;
 }
 .bb-epi .q::before {
-  content: "“";
-  display: inline-block;
-  font-size: 80px;
-  line-height: 0;
-  color: var(--amber);
-  vertical-align: -22px;
-  margin-right: 10px;
-  font-style: normal;
-  opacity: 0.85;
+  content: none;
 }
 .bb-epi .attr {
   font-family: var(--mono);
-  font-size: 12.5px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  text-align: right;
   line-height: 1.7;
 }
-.bb-epi .attr .nm { color: var(--vellum-dim); }
-.bb-epi .attr .ds { color: var(--muted-2); }
+.bb-epi .attr .nm { color: var(--amber); }
+.bb-epi .attr .ds { color: var(--muted); }
 
 /* === The Record Book chart === */
 .tl {
@@ -139,10 +126,10 @@
 }
 .wave-row {
   display: grid;
-  grid-template-columns: 32px 220px 1.1fr 1fr auto;
-  gap: 18px;
+  grid-template-columns: 32px 200px 1.1fr 1fr auto;
+  gap: 14px;
   align-items: baseline;
-  padding: 13px 0;
+  padding: 8px 0;
   border-bottom: 1px dotted var(--rule);
 }
 .wave-row:last-child { border-bottom: none; }
