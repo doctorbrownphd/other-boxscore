@@ -101,15 +101,20 @@
 }
 .lane-svg-wrap svg { display: block; width: 100%; height: auto; }
 
-.lane text { font-family: var(--mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.04em; }
+.lane text { font-family: var(--mono); font-size: 13px; fill: var(--muted); letter-spacing: 0.04em; }
+.lane .cat-num {
+  font-size: 13px;
+  fill: var(--muted-2);
+}
 .lane .cat-label {
   font-family: var(--mono);
   font-size: 14px;
-  fill: var(--vellum-dim);
+  fill: var(--vellum);
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  font-weight: 500;
 }
-.lane .lane-line { stroke: var(--rule); stroke-width: 1; }
+.lane .lane-line { stroke: var(--rule); stroke-width: 1.5; }
 .lane .lane-tick { stroke: var(--muted-2); stroke-width: 1; }
 .lane .axis-num { fill: var(--muted); }
 .lane .dot {

@@ -193,15 +193,24 @@
   function fmt(lane, v) { return lane.fmt(v); }
 
   // === Render lanes ===
-  // We pre-render every node and just toggle classes / styles.
   let html = "";
 
   LANES.forEach((lane, li) => {
-    const y = padT + li * laneH + laneH / 2;
+    const laneTop = padT + li * laneH;
+    const y = laneTop + laneH / 2;
+
+    // Lane background band (alternating)
+    if (li % 2 === 0) {
+      html += `<rect class="lane-bg" x="0" y="${laneTop}" width="${W}" height="${laneH}" fill="rgba(232,224,207,0.02)" />`;
+    }
+
+    // Lane separator
+    html += `<line class="lane-divider" x1="0" y1="${laneTop}" x2="${W}" y2="${laneTop}" stroke="rgba(212,166,74,0.08)" stroke-width="1" />`;
+
     // Category label (left)
-    html += `<text class="cat-label" x="${padL - 24}" y="${y - laneH/2 + 22}" text-anchor="end">${String(li+1).padStart(2,"0")}</text>`;
-    html += `<text class="cat-label" x="${padL - 24}" y="${y - 8}" text-anchor="end">${lane.cat}</text>`;
-    html += `<text class="axis-label" x="${padL - 24}" y="${y + 10}" text-anchor="end">${lane.unit}</text>`;
+    html += `<text class="cat-label cat-num" x="${padL - 24}" y="${y - 22}" text-anchor="end">${String(li+1).padStart(2,"0")}</text>`;
+    html += `<text class="cat-label" x="${padL - 24}" y="${y - 4}" text-anchor="end">${lane.cat}</text>`;
+    html += `<text class="axis-label" x="${padL - 24}" y="${y + 14}" text-anchor="end">${lane.unit}</text>`;
 
     // The lane line
     html += `<line class="lane-line" x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" />`;
@@ -212,43 +221,37 @@
       const v = lane.min + (lane.max - lane.min) * i / steps;
       const x = xOf(lane, v);
       html += `<line class="lane-tick" x1="${x}" y1="${y - 4}" x2="${x}" y2="${y + 4}" />`;
-      html += `<text class="axis-num" x="${x}" y="${y + 18}" text-anchor="middle">${lane.fmt(v)}</text>`;
+      html += `<text class="axis-num" x="${x}" y="${y + 22}" text-anchor="middle">${lane.fmt(v)}</text>`;
     }
 
-    // === Sort players by value descending for ranking ===
+    // === Only show labeled players (top 3 MLB + top 2 NL) ===
     const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => b.v - a.v);
-
-    // Only label the top 3 MLB + top 2 NL players per lane; rest are unlabeled dots
     const mlbLabeled = sorted.filter(p => p.league !== "nl").slice(0, 3);
     const nlLabeled = sorted.filter(p => p.league === "nl").slice(0, 2);
-    const labeledSet = new Set([...mlbLabeled, ...nlLabeled].map(p => p.name + "|" + p.v));
+    const labeled = [...mlbLabeled, ...nlLabeled].sort((a, b) => a.v - b.v);
 
-    // Re-sort ascending for placement
-    const byVal = [...sorted].sort((a, b) => a.v - b.v);
-    let labelCount = 0;
-
-    byVal.forEach((p, i) => {
+    labeled.forEach((p, i) => {
       const x = xOf(lane, p.v);
       const isNL = p.league === "nl";
       const leagueCls = isNL ? "nl" : "mlb";
-      const showLabel = labeledSet.has(p.name + "|" + p.v);
+      const isLead = (i === labeled.length - 1) || (isNL && p === nlLabeled[0]);
 
-      // Dot -- always shown
-      html += `<circle class="dot ${leagueCls}" data-li="${li}" data-i="${i}" data-league="${p.league}" cx="${x}" cy="${y}" r="${showLabel ? 5 : 3.5}" />`;
+      // Dot
+      html += `<circle class="dot ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" data-league="${p.league}" cx="${x}" cy="${y}" r="6" />`;
 
-      if (showLabel) {
-        // Alternate above/below for labeled players
-        const above = (labelCount % 2 === 0);
-        labelCount++;
-        const labY = above ? (y - 26) : (y + 34);
-        const valY = labY + 14;
-        const yearStr = p.year ? `  ${p.year}` : "";
+      // Alternate above/below
+      const above = (i % 2 === 0);
+      const labY = above ? (y - 30) : (y + 38);
+      const valY = labY + 15;
+      const yearStr = p.year ? `  ${p.year}` : "";
 
-        html += `<text class="name ${leagueCls}" data-li="${li}" data-i="${i}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
-        html += `<text class="val ${leagueCls}" data-li="${li}" data-i="${i}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearStr}</text>`;
-      }
+      html += `<text class="name ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
+      html += `<text class="val ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearStr}</text>`;
     });
   });
+
+  // Bottom lane divider
+  html += `<line class="lane-divider" x1="0" y1="${padT + LANES.length * laneH}" x2="${W}" y2="${padT + LANES.length * laneH}" stroke="rgba(212,166,74,0.08)" stroke-width="1" />`;
 
   svg.innerHTML = html;
 
@@ -260,36 +263,32 @@
 
     LANES.forEach((lane, li) => {
       const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => a.v - b.v);
-      // In pre mode: hide NL nodes; in post: show
-      sorted.forEach((p, i) => {
-        const dot   = svg.querySelector(`.dot[data-li="${li}"][data-i="${i}"]`);
-        const name  = svg.querySelector(`.name[data-li="${li}"][data-i="${i}"]`);
-        const val   = svg.querySelector(`.val[data-li="${li}"][data-i="${i}"]`);
-        const isNL = p.league === "nl";
-        if (isNL) {
-          dot.style.opacity  = (m === "post") ? "1" : "0";
-          name.style.opacity = (m === "post") ? "1" : "0";
-          val.style.opacity  = (m === "post") ? "1" : "0";
-        }
-      });
-
       // Determine the leader in current mode
       const visible = sorted.filter(p => m === "post" || p.league !== "nl");
       const leader = visible.reduce((a, b) => a.v > b.v ? a : b);
-      // Toggle 'lead' class on leader's elements, clear others
+
       sorted.forEach((p, i) => {
-        const dot   = svg.querySelector(`.dot[data-li="${li}"][data-i="${i}"]`);
-        const name  = svg.querySelector(`.name[data-li="${li}"][data-i="${i}"]`);
-        const val   = svg.querySelector(`.val[data-li="${li}"][data-i="${i}"]`);
+        const dot  = svg.querySelector(`.dot[data-li="${li}"][data-i="${p.idx}"]`);
+        const name = svg.querySelector(`.name[data-li="${li}"][data-i="${p.idx}"]`);
+        const val  = svg.querySelector(`.val[data-li="${li}"][data-i="${p.idx}"]`);
+        if (!dot) return; // skip unlabeled players not in the SVG
+
+        const isNL = p.league === "nl";
+        if (isNL) {
+          dot.style.opacity  = (m === "post") ? "1" : "0";
+          if (name) name.style.opacity = (m === "post") ? "1" : "0";
+          if (val)  val.style.opacity  = (m === "post") ? "1" : "0";
+        }
+
         const isLeader = (p.name === leader.name && p.v === leader.v && p.year === leader.year);
         dot.classList.toggle("lead", isLeader);
-        name.classList.toggle("lead", isLeader);
-        val.classList.toggle("lead", isLeader);
-        // demoted = was top MLB and post mode now shows NL ahead
+        if (name) name.classList.toggle("lead", isLeader);
+        if (val)  val.classList.toggle("lead", isLeader);
+
         const wasMLBLeader = m === "post" && p.league === "mlb" &&
             p.v === sorted.filter(q => q.league === "mlb").reduce((a, b) => a.v > b.v ? a : b).v;
         dot.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
-        name.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
+        if (name) name.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
       });
     });
 
