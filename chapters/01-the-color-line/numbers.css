@@ -128,7 +128,12 @@
 .lane .dot.mlb.lead{ fill: var(--vellum); }
 .lane .dot.nl      { fill: var(--amber); }
 .lane .dot.nl.dim  { opacity: 0; pointer-events: none; }
-.lane .dot.demoted { fill: var(--mlb-post); opacity: 0.45; }
+.lane .dot.demoted {
+  fill: none;
+  stroke: var(--vellum-dim);
+  stroke-width: 1.5;
+  opacity: 1;
+}
 
 .lane .name {
   font-family: var(--serif);
@@ -152,6 +157,10 @@
 .lane .val.lead { fill: var(--vellum); }
 .lane .val.nl   { fill: var(--amber); }
 .lane .val.nl.hidden { opacity: 0; }
+.lane .val .yr-suffix {
+  font-size: 11px;
+  fill: var(--muted);
+}
 
 .lane .new-leader-ring {
   fill: none;

@@ -82,7 +82,7 @@
   </div>
   </div>
   <div class="meta" style="white-space:nowrap">
-    <div><span class="k">Section</span> &nbsp; <span class="v">04 / 07</span></div>
+    <div><span class="k">Section</span> &nbsp; <span class="v">04 / 10</span></div>
     <div><span class="k">Categories</span> &nbsp; <span class="v">5</span></div>
     <div><span class="k">Source</span> &nbsp; <span class="v">MLB · 29 May 2024</span></div>
     <div><span class="k">New entries</span> &nbsp; <span class="v">2,300+</span></div>
@@ -237,23 +237,59 @@
     const nlLabeled = sorted.filter(p => p.league === "nl").slice(0, 2);
     const labeled = [...mlbLabeled, ...nlLabeled].sort((a, b) => a.v - b.v);
 
+    // Compute x positions for beeswarm separation
+    const xPositions = labeled.map(p => xOf(lane, p.v));
+
+    // Beeswarm: nudge dots vertically when they overlap horizontally
+    const DOT_PROXIMITY = 30;
+    const DOT_NUDGE = 12;
+    const dotOffsets = new Array(labeled.length).fill(0);
+    for (let i = 0; i < labeled.length; i++) {
+      for (let j = i + 1; j < labeled.length; j++) {
+        if (Math.abs(xPositions[i] - xPositions[j]) < DOT_PROXIMITY) {
+          dotOffsets[i] = -DOT_NUDGE;
+          dotOffsets[j] = DOT_NUDGE;
+        }
+      }
+    }
+
+    // Label collision avoidance: assign above/below based on proximity
+    const LABEL_MIN_GAP = 80;
+    const labelSides = new Array(labeled.length).fill(0); // 0 = above, 1 = below
+    for (let i = 0; i < labeled.length; i++) {
+      if (i === 0) {
+        labelSides[i] = 0; // first label above
+      } else {
+        const prevX = xPositions[i - 1];
+        const currX = xPositions[i];
+        if (Math.abs(currX - prevX) < LABEL_MIN_GAP) {
+          // Too close: force opposite side from previous
+          labelSides[i] = labelSides[i - 1] === 0 ? 1 : 0;
+        } else {
+          // Enough room: alternate by index for visual balance
+          labelSides[i] = i % 2;
+        }
+      }
+    }
+
     labeled.forEach((p, i) => {
-      const x = xOf(lane, p.v);
+      const x = xPositions[i];
+      const dotY = y + dotOffsets[i];
       const isNL = p.league === "nl";
       const leagueCls = isNL ? "nl" : "mlb";
       const isLead = (i === labeled.length - 1) || (isNL && p === nlLabeled[0]);
 
-      // Dot
-      html += `<circle class="dot ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" data-league="${p.league}" cx="${x}" cy="${y}" r="6" />`;
+      // Dot (with beeswarm offset)
+      html += `<circle class="dot ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" data-league="${p.league}" cx="${x}" cy="${dotY}" r="6" />`;
 
-      // Alternate above/below
-      const above = (i % 2 === 0);
+      // Label placement
+      const above = (labelSides[i] === 0);
       const labY = above ? (y - 30) : (y + 38);
       const valY = labY + 15;
-      const yearStr = p.year ? `  ${p.year}` : "";
+      const yearTspan = p.year ? `<tspan class="yr-suffix"> ${p.year}</tspan>` : "";
 
       html += `<text class="name ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
-      html += `<text class="val ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearStr}</text>`;
+      html += `<text class="val ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearTspan}</text>`;
     });
   });
 
