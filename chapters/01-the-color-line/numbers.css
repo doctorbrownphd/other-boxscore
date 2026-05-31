@@ -124,9 +124,9 @@
               fill 800ms ease,
               r 600ms ease;
 }
-.lane .dot.mlb     { fill: var(--mlb-post); }
-.lane .dot.mlb.lead{ fill: var(--vellum); r: 7; }
-.lane .dot.nl      { fill: var(--amber); r: 7; }
+.lane .dot.mlb     { fill: var(--vellum-dim); }
+.lane .dot.mlb.lead{ fill: var(--vellum); }
+.lane .dot.nl      { fill: var(--amber); }
 .lane .dot.nl.dim  { opacity: 0; pointer-events: none; }
 .lane .dot.demoted { fill: var(--mlb-post); opacity: 0.45; }
 
