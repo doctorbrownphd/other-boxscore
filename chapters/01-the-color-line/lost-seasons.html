@@ -149,8 +149,17 @@
   <!-- Cards · top row (featured) -->
   <div class="cards featured" id="grid-feat"></div>
 
-  <!-- Cards · the rest -->
-  <div class="cards" id="grid-rest"></div>
+  <!-- Cards · with photographs -->
+  <div class="cards" id="grid-photo"></div>
+
+  <!-- Divider · no photographs -->
+  <div id="no-photo-divider" style="margin:48px 0 24px;padding:24px 0;border-top:1px solid var(--rule);">
+    <p style="font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">No known public domain photograph</p>
+    <p style="font-family:var(--serif);font-size:16px;color:var(--vellum-dim);line-height:1.6;max-width:720px;">The players below have no verified public domain photograph available. The photographic record of the Negro Leagues was not preserved with the same institutional care as the major leagues. That absence is part of what was lost.</p>
+  </div>
+
+  <!-- Cards · without photographs -->
+  <div class="cards" id="grid-nophoto"></div>
 </section>
 
 <!-- ====================== CODA ====================== -->
@@ -204,6 +213,8 @@
   const data = window.LOST_SEASONS;
   const top5 = data.slice(0, 5);
   const rest = data.slice(5);
+  const withPhoto = rest.filter(p => p.photo);
+  const noPhoto = rest.filter(p => !p.photo);
 
   function cardHTML(p, feature) {
     const cls = "card" + (feature ? " feature" : "");
@@ -226,7 +237,8 @@
   }
 
   document.getElementById("grid-feat").innerHTML = top5.map(p => cardHTML(p, true)).join("");
-  document.getElementById("grid-rest").innerHTML = rest.map(p => cardHTML(p, false)).join("");
+  document.getElementById("grid-photo").innerHTML = withPhoto.map(p => cardHTML(p, false)).join("");
+  document.getElementById("grid-nophoto").innerHTML = noPhoto.map(p => cardHTML(p, false)).join("");
 
   // === Distribution histogram (bottom Fig. 02b) ===
   (function() {
