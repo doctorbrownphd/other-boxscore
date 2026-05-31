@@ -190,22 +190,30 @@
   margin-top: 8px;
 }
 
-/* === The diamond grid === */
+/* === The grid + diamond watermark === */
 .diamonds {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  position: relative;
   margin-top: 12px;
 }
-.diamond-row {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
+.diamond-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 520px;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 800ms ease;
+  z-index: 0;
 }
-.diamond-row .cell {
-  width: 150px;
-  flex-shrink: 0;
+.breach-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
 }
 
 /* === Team cell === */
@@ -446,10 +454,8 @@
   .clock .count .num { font-size: 36px; }
   .clock > :nth-child(4) { grid-column: 1 / -1; }
 
-  /* Diamond grid: stack to single column on mobile */
-  .diamonds { gap: 8px; }
-  .diamond-row { flex-direction: column; align-items: center; gap: 8px; }
-  .diamond-row .cell { width: 100%; max-width: 320px; }
+  /* Grid: 2-up on tablet */
+  .breach-grid { grid-template-columns: repeat(2, 1fr); }
   .cell { min-height: 150px; padding: 14px 10px 12px; }
   .cell .glyph { width: 44px; height: 44px; }
   .cell .team { font-size: 13px; }
@@ -472,7 +478,7 @@
   .clock .count { text-align: left; }
   .clock .count .num { font-size: 32px; }
 
-  .diamond-row .cell { max-width: 280px; }
+  .breach-grid { grid-template-columns: repeat(2, 1fr); }
   .cell { min-height: 130px; padding: 12px 8px 10px; }
   .cell .glyph { width: 36px; height: 36px; }
   .cell .team { font-size: 13px; margin-top: 8px; }

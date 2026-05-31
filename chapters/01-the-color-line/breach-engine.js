@@ -13,9 +13,7 @@
   const globalOrder = [...TEAMS].sort((a,b) => a.day - b.day);
   const seqOf = Object.fromEntries(globalOrder.map((t, i) => [t.id, i + 1]));
 
-  // Diamond row sizes: 2, 3, 4, 4, 2, 1 = 16 (squatter diamond)
-  const rowSizes = [2, 3, 4, 4, 2, 1];
-
+  // 4x4 grid, integration order left-to-right top-to-bottom
   function cellHTML(t, seq) {
     const res = t.resistant ? " resistant" : "";
     const last = t.day === MAX_DAY ? " last-cell" : "";
@@ -25,19 +23,6 @@
     return `
       <div class="cell${res}${last}" data-id="${t.id}" data-day="${t.day}">
         <span class="seq">${String(seq).padStart(2,"0")}</span>
-        <div class="glyph">
-          <svg viewBox="-50 -50 100 100" aria-hidden="true">
-            <!-- field: rotated square -->
-            <polygon class="field" points="0,-40 40,0 0,40 -40,0" />
-            <!-- bases -->
-            <rect class="base" x="-4" y="36" width="8" height="8" />
-            <rect class="base" x="36" y="-4" width="8" height="8" />
-            <rect class="base" x="-4" y="-44" width="8" height="8" />
-            <rect class="base" x="-44" y="-4" width="8" height="8" />
-            <!-- mound -->
-            <circle class="base" cx="0" cy="0" r="3" />
-          </svg>
-        </div>
         <div class="team">${t.team}</div>
         <div class="date">${t.dt}</div>
         <div class="player">${t.player}</div>
@@ -59,17 +44,19 @@
     return `+${yr} years ${mo} months`;
   }
 
-  // Build diamond rows
-  let idx = 0;
-  let html = "";
-  for (let r = 0; r < rowSizes.length; r++) {
-    html += '<div class="diamond-row">';
-    for (let c = 0; c < rowSizes[r]; c++) {
-      html += cellHTML(globalOrder[idx], idx + 1);
-      idx++;
-    }
-    html += '</div>';
-  }
+  // Build 4x4 grid with diamond watermark
+  let html = '';
+  // Diamond watermark SVG behind the grid
+  html += `<svg class="diamond-watermark" viewBox="-80 -80 160 160" aria-hidden="true">
+    <polygon points="0,-68 68,0 0,68 -68,0" fill="none" stroke="#d4a64a" stroke-width="1.5"/>
+    <rect x="-5" y="58" width="10" height="10" fill="#d4a64a"/>
+    <polygon points="0,-56 5,-50 -5,-50" fill="none" stroke="#d4a64a" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="4" fill="#d4a64a"/>
+  </svg>`;
+  // Cell grid
+  html += '<div class="breach-grid">';
+  globalOrder.forEach((t, i) => { html += cellHTML(t, i + 1); });
+  html += '</div>';
   grid.innerHTML = html;
 
   // === Scrubber: year tick marks ===
@@ -142,6 +129,9 @@
       }
     });
     document.getElementById("cnt-n").textContent = count;
+    // Diamond watermark fades in as cells light
+    const wm = document.querySelector(".diamond-watermark");
+    if (wm) wm.style.opacity = Math.min(0.25, count / 16 * 0.25);
   }
 
   function loop() {
