@@ -32,7 +32,7 @@ html { background: #13110d; }
   line-height: 1.02;
   margin: 0;
   letter-spacing: -0.012em;
-  max-width: 940px;
+  max-width: none;
 }
 .pc-head h2 em { color: var(--amber); font-style: italic; }
 .pc-head .deck {
