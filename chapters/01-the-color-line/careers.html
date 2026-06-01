@@ -253,19 +253,32 @@
       s += `<text class="barrier-label" x="${(sx + ex) / 2}" y="${padT - 10}" text-anchor="middle">Stolen years  ·  ${c.stolen}</text>`;
     }
 
-    // === Fan: build 90% band, then 50% band, then median path ===
+    // === Fan: taper the projection bands after career end ===
+    // Add 3 extra points that decay toward zero for a natural fade-out
+    const fanExt = c.fan.slice();
+    const lastPt = fanExt[fanExt.length - 1];
+    for (let t = 1; t <= 3; t++) {
+      const decay = Math.pow(0.35, t);
+      fanExt.push({
+        age: lastPt.age + t,
+        p05: lastPt.p05 * decay, p25: lastPt.p25 * decay,
+        median: lastPt.median * decay,
+        p75: lastPt.p75 * decay, p95: lastPt.p95 * decay
+      });
+    }
+
     function bandPath(loKey, hiKey) {
-      const top = c.fan.map(p => `${xOf(p.age)},${yOf(p[hiKey])}`).join(" L ");
-      const bot = c.fan.slice().reverse().map(p => `${xOf(p.age)},${yOf(p[loKey])}`).join(" L ");
+      const top = fanExt.map(p => `${xOf(p.age)},${yOf(p[hiKey])}`).join(" L ");
+      const bot = fanExt.slice().reverse().map(p => `${xOf(p.age)},${yOf(p[loKey])}`).join(" L ");
       return `M ${top} L ${bot} Z`;
     }
     s += `<path class="band-90" d="${bandPath("p05","p95")}" />`;
     s += `<path class="band-50" d="${bandPath("p25","p75")}" />`;
 
-    // Sample some individual trajectories for visual richness -- 20 thin paths jittered around median
+    // Sample some individual trajectories for visual richness -- 22 thin paths jittered around median
     for (let k = 0; k < 22; k++) {
       let path = "";
-      c.fan.forEach((p, i) => {
+      fanExt.forEach((p, i) => {
         const jitter = ((Math.sin(k * 1.7 + p.age * 0.4) + Math.sin(k * 0.6 + p.age * 0.9)) / 2);
         const w = Math.max(0, p.median + jitter * (p.p75 - p.p25) * 0.6);
         path += (i === 0 ? "M " : " L ") + xOf(p.age) + "," + yOf(w);
@@ -275,7 +288,7 @@
 
     // Median dashed
     let medianPath = "";
-    c.fan.forEach((p, i) => {
+    fanExt.forEach((p, i) => {
       medianPath += (i === 0 ? "M " : " L ") + xOf(p.age) + "," + yOf(p.median);
     });
     s += `<path class="median" d="${medianPath}" />`;
