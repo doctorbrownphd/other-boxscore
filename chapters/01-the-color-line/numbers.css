@@ -317,8 +317,7 @@
   line-height: 1.35;
   color: var(--vellum);
   letter-spacing: -0.008em;
-  max-width: 720px;
-  margin: 0 0 20px;
+  margin: 0;
 }
 .lanes-quote .q::before {
   content: none;
@@ -330,6 +329,8 @@
   text-transform: uppercase;
   color: var(--muted);
   line-height: 1.7;
+  text-align: right;
+  white-space: nowrap;
 }
 .lanes-quote .attr .nm { color: var(--amber); }
 
