@@ -40,7 +40,7 @@ html { background: #13110d; }
   font-style: italic;
   color: var(--vellum-dim);
   font-size: 18px;
-  max-width: 720px;
+  max-width: none;
   margin: 14px 0 0;
   line-height: 1.42;
 }
