@@ -37,7 +37,7 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; background: #13110d; }
 
 body {
   background: var(--ink);
@@ -503,6 +503,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--amber);
   line-height: 1;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-row__label {
@@ -554,7 +555,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .what__timeline-item + .what__timeline-item {
-  border-top: 1px dotted var(--rule);
+  border-top: 1px solid var(--rule);
 }
 
 .what__timeline-date {
@@ -690,6 +691,7 @@ img { max-width: 100%; height: auto; display: block; }
 .kpi__value {
   font-family: var(--mono);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .kpi__value--big { font-size: 30px; font-weight: 500; }
@@ -781,7 +783,7 @@ img { max-width: 100%; height: auto; display: block; }
 .comparison__detail-quote {
   margin-top: 16px;
   padding-top: 14px;
-  border-top: 1px dotted var(--rule);
+  border-top: 1px solid var(--rule);
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
@@ -910,7 +912,7 @@ img { max-width: 100%; height: auto; display: block; }
   grid-template-columns: 32px 1fr 110px 60px 1fr;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px dotted #8a8270;
+  border-bottom: 1px solid #8a8270;
   font-family: var(--serif);
   font-size: 15px;
   color: #1d1a13;
@@ -1130,7 +1132,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--vellum-dim);
   text-align: center;
   padding: 10px 4px;
-  border-bottom: 1px dotted var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 .line-score td:first-child { text-align: left; }
@@ -1157,7 +1159,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .celeb-list__item + .celeb-list__item {
-  border-top: 1px dotted var(--rule);
+  border-top: 1px solid var(--rule);
 }
 
 .celeb-list__name {
@@ -1274,7 +1276,7 @@ img { max-width: 100%; height: auto; display: block; }
   grid-template-columns: 42px 1fr 44px;
   align-items: center;
   padding: 12px 24px;
-  border-bottom: 1px dotted var(--rule);
+  border-bottom: 1px solid var(--rule);
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.5s, transform 0.5s;

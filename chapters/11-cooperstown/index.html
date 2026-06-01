@@ -37,7 +37,7 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; background: #13110d; }
 
 body {
   background: var(--ink);
@@ -493,6 +493,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--amber);
   line-height: 1;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-row__num--oxblood { color: var(--oxblood); }
@@ -734,7 +735,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .slate-card__prob-label {
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -893,6 +894,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 12px;
   text-align: right;
   min-width: 40px;
+  font-variant-numeric: tabular-nums;
 }
 
 .retro__pctile--high { color: var(--amber); }

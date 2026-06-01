@@ -37,7 +37,7 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; background: #13110d; }
 
 body {
   background: var(--ink);
@@ -671,6 +671,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .player-card__stat-value {
   color: var(--vellum);
+  font-variant-numeric: tabular-nums;
 }
 
 .player-card__stat-value--amber { color: var(--amber); }
@@ -803,7 +804,7 @@ img { max-width: 100%; height: auto; display: block; }
 .database__table th .sort-arrow {
   display: inline-block;
   margin-left: 4px;
-  font-size: 8px;
+  font-size: 12px;
   color: var(--amber);
 }
 
@@ -1124,7 +1125,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--vellum-dim);
   line-height: 1.5;
   padding: 6px 0;
-  border-bottom: 1px dotted var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 /* ==========================================================================

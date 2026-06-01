@@ -38,7 +38,7 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; background: #13110d; }
 
 body {
   background: var(--ink);
@@ -484,6 +484,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ==========================================================================
@@ -848,6 +849,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--amber);
   line-height: 1;
   letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .profile-card__stat-label {
@@ -1155,7 +1157,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .method__confidence-item + .method__confidence-item {
-  border-top: 1px dotted var(--rule);
+  border-top: 1px solid var(--rule);
 }
 
 .method__confidence-term {
