@@ -214,6 +214,9 @@ a:hover { color: var(--amber-2); }
 
 .masthead__meta {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .masthead__meta-item {
@@ -223,6 +226,10 @@ a:hover { color: var(--amber-2); }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 12px;
+  align-items: baseline;
 }
 
 .masthead__meta-value {
@@ -230,8 +237,8 @@ a:hover { color: var(--amber-2); }
   font-size: 14px;
   font-weight: 500;
   color: var(--amber);
-  display: block;
-  margin-top: 2px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Tab nav */
