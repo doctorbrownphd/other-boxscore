@@ -2869,14 +2869,25 @@ function renderLeagueMap(year) {
 
     leagueCitiesGroup.appendChild(circle);
 
-    // Labels for top 8
+    // Labels for top 8, with offsets to prevent overlap in NE cluster
     if (i < 8) {
+      var offsets = {
+        'New York':     { dx: 60, dy: -8, anchor: 'start' },
+        'Newark':       { dx: 60, dy: 8, anchor: 'start' },
+        'Philadelphia': { dx: 60, dy: 4, anchor: 'start' },
+        'Baltimore':    { dx: 60, dy: 4, anchor: 'start' },
+        'Chicago':      { dx: 0, dy: -10, anchor: 'middle' },
+        'Kansas City':  { dx: -10, dy: -10, anchor: 'end' },
+        'Memphis':      { dx: -10, dy: -6, anchor: 'end' },
+        'Birmingham':   { dx: -10, dy: -6, anchor: 'end' }
+      };
+      var off = offsets[c.city] || { dx: 0, dy: -10, anchor: 'middle' };
       var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', pt[0]);
-      label.setAttribute('y', pt[1] - radius - 4);
-      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('x', pt[0] + off.dx);
+      label.setAttribute('y', pt[1] + off.dy);
+      label.setAttribute('text-anchor', off.anchor);
       label.setAttribute('font-family', 'IBM Plex Mono, monospace');
-      label.setAttribute('font-size', '14');
+      label.setAttribute('font-size', '13');
       label.setAttribute('fill', 'rgba(232,224,207,0.75)');
       label.setAttribute('letter-spacing', '0.05em');
       label.textContent = c.city;
