@@ -159,11 +159,15 @@ a:hover { color: var(--amber-2); border-bottom-color: var(--amber-2); }
   font-size: 12.5px;
   letter-spacing: 0.1em;
   color: var(--muted);
-  text-align: right;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2px 16px;
+  justify-content: end;
   line-height: 1.7;
+  font-variant-numeric: tabular-nums;
 }
-.masthead .meta .k { color: var(--muted-2); }
-.masthead .meta .v { color: var(--vellum-dim); }
+.masthead .meta .k { color: var(--muted-2); text-align: right; }
+.masthead .meta .v { color: var(--vellum-dim); text-align: left; }
 
 /* === Tab strip === */
 .tabs {
