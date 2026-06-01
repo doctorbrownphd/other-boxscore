@@ -107,12 +107,12 @@
 <section class="lanes-shell">
   <div class="lanes-head">
     <div>
-      <div class="label">Fig. 04  ·  Five categories, drawn as lanes</div>
+      <div class="label">Fig. 04  ·  Five categories, the record book</div>
       <h2>The names on the left held the records. <em>The names on the right always earned them.</em></h2>
       <p class="deck">
-        Each lane is a category. Each dot is a player, placed at the position his number puts him on the axis.
-        Pre-2024, the lanes carry only Major League players. Flip the switch, and the dots appear that
-        the bookkeepers had not been counting. None of them moves. They were already there.
+        Five leaderboards, five categories. Pre-2024, the columns carry only Major League names.
+        Flip the switch, and the gold rows expand into the standings at their true positions,
+        pushing the old record holders down the list. None of the numbers changed. The bookkeepers just started counting.
       </p>
     </div>
     <div class="toggle-block">
@@ -124,9 +124,7 @@
     </div>
   </div>
 
-  <div class="lane-svg-wrap">
-    <svg id="lanes-svg" class="lane" viewBox="0 0 1480 960" role="img" aria-label="Leaderboard lane chart, five categories, before and after the May 2024 statistical merger"></svg>
-  </div>
+  <div id="record-book" role="img" aria-label="Record book leaderboard, five categories, before and after the May 2024 statistical merger"></div>
 
   <!-- The reshuffle ledger -->
   <section class="ledger">
@@ -184,199 +182,241 @@
 <script src="numbers-data.js"></script>
 <script>
 (function() {
-  const svg = document.getElementById("lanes-svg");
-  const LANES = window.LANES;
-  const W = 1480, H = 960;
-  const padL = 260, padR = 200, padT = 50, padB = 36;
-  const innerW = W - padL - padR;
-  const laneH = (H - padT - padB) / LANES.length;
+  /* ================================================================
+     BOX data: five record-book categories, five players each
+     ================================================================ */
+  var BOX = [
+    {
+      index: '01',
+      title: 'Career Batting Average',
+      unit: 'AVG',
+      kind: 'avg',
+      players: [
+        { name: 'Josh Gibson',    value: 0.402, league: 'negro' },
+        { name: 'Willard Brown',  value: 0.394, league: 'negro' },
+        { name: 'Ty Cobb',        value: 0.366, league: 'mlb', record: true },
+        { name: 'Rogers Hornsby', value: 0.359, league: 'mlb' },
+        { name: 'Ross Barnes',    value: 0.358, league: 'mlb' },
+      ],
+    },
+    {
+      index: '02',
+      title: 'Single-Season Average',
+      unit: 'AVG \u00b7 1 YEAR',
+      kind: 'avg',
+      players: [
+        { name: 'Willard Brown', value: 0.518, league: 'negro', year: 1948 },
+        { name: 'Josh Gibson',   value: 0.512, league: 'negro', year: 1943 },
+        { name: 'Hugh Duffy',    value: 0.440, league: 'mlb', record: true, year: 1894 },
+        { name: "Tip O'Neill",   value: 0.435, league: 'mlb', year: 1887 },
+        { name: 'Ross Barnes',   value: 0.432, league: 'mlb', year: 1872 },
+      ],
+    },
+    {
+      index: '03',
+      title: 'Career Slugging',
+      unit: 'SLG',
+      kind: 'avg',
+      players: [
+        { name: 'Josh Gibson',   value: 0.782, league: 'negro' },
+        { name: 'Willard Brown', value: 0.702, league: 'negro' },
+        { name: 'Babe Ruth',     value: 0.690, league: 'mlb', record: true },
+        { name: 'Ted Williams',  value: 0.634, league: 'mlb' },
+        { name: 'Lou Gehrig',    value: 0.632, league: 'mlb' },
+      ],
+    },
+    {
+      index: '04',
+      title: 'Career OPS',
+      unit: 'OPS',
+      kind: 'ops',
+      players: [
+        { name: 'Josh Gibson',  value: 1.273, league: 'negro' },
+        { name: 'Babe Ruth',    value: 1.162, league: 'mlb', record: true },
+        { name: 'Buck Leonard', value: 1.148, league: 'negro' },
+        { name: 'Ted Williams', value: 1.114, league: 'mlb' },
+        { name: 'Lou Gehrig',   value: 1.077, league: 'mlb' },
+      ],
+    },
+    {
+      index: '05',
+      title: 'Single-Season OPS',
+      unit: 'OPS \u00b7 1 YEAR',
+      kind: 'ops',
+      players: [
+        { name: 'Willard Brown', value: 1.588, league: 'negro', year: 1948 },
+        { name: 'Josh Gibson',   value: 1.561, league: 'negro', year: 1943 },
+        { name: 'Barry Bonds',   value: 1.422, league: 'mlb', record: true, year: 2004 },
+        { name: 'Babe Ruth',     value: 1.382, league: 'mlb', year: 1920 },
+        { name: 'Barry Bonds',   value: 1.381, league: 'mlb', year: 2002 },
+      ],
+    },
+  ];
 
-  let mode = "pre";
-
-  function xOf(lane, v) {
-    return padL + (v - lane.min) / (lane.max - lane.min) * innerW;
+  /* ---- formatting helpers ---- */
+  function fmtVal(v, kind) {
+    if (kind === 'ops') return v.toFixed(3);
+    return '.' + Math.round(v * 1000).toString().padStart(3, '0');
   }
 
-  function fmt(lane, v) { return lane.fmt(v); }
+  function playersFor(cat, era) {
+    return era === 'post' ? cat.players : cat.players.filter(function(p) { return p.league === 'mlb'; });
+  }
 
-  // === Render lanes ===
-  let html = "";
+  function rankedFor(cat, era) {
+    return playersFor(cat, era)
+      .slice()
+      .sort(function(a, b) { return b.value - a.value; })
+      .map(function(p, i) { return Object.assign({}, p, { rank: i + 1 }); });
+  }
 
-  LANES.forEach((lane, li) => {
-    const laneTop = padT + li * laneH;
-    const y = laneTop + laneH / 2;
+  /* ================================================================
+     Record Book renderer
+     ================================================================ */
+  function rbKey(p) { return p.name + '|' + p.value + '|' + (p.year || ''); }
 
-    // Lane background band (alternating)
-    if (li % 2 === 0) {
-      html += `<rect class="lane-bg" x="0" y="${laneTop}" width="${W}" height="${laneH}" fill="rgba(232,224,207,0.02)" />`;
-    }
+  function buildRecordBook(root) {
+    root.innerHTML = '';
+    var grid = document.createElement('div');
+    grid.className = 'rb-grid';
 
-    // Lane separator
-    html += `<line class="lane-divider" x1="0" y1="${laneTop}" x2="${W}" y2="${laneTop}" stroke="rgba(212,166,74,0.08)" stroke-width="1" />`;
+    BOX.forEach(function(cat) {
+      var postRanked = rankedFor(cat, 'post');
+      var preRanked = rankedFor(cat, 'pre');
+      var preRankByKey = {};
+      preRanked.forEach(function(p) { preRankByKey[rbKey(p)] = p.rank; });
 
-    // Category label (left)
-    html += `<text class="cat-label cat-num" x="${padL - 24}" y="${y - 22}" text-anchor="end">${String(li+1).padStart(2,"0")}</text>`;
-    html += `<text class="cat-label" x="${padL - 24}" y="${y - 4}" text-anchor="end">${lane.cat}</text>`;
-    html += `<text class="axis-label" x="${padL - 24}" y="${y + 14}" text-anchor="end">${lane.unit}</text>`;
+      var preLeader = preRanked[0];
+      var postLeader = postRanked[0];
 
-    // The lane line
-    html += `<line class="lane-line" x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" />`;
+      var col = document.createElement('div');
+      col.className = 'rb-col';
 
-    // axis ticks (5)
-    const steps = 5;
-    for (let i = 0; i <= steps; i++) {
-      const v = lane.min + (lane.max - lane.min) * i / steps;
-      const x = xOf(lane, v);
-      html += `<line class="lane-tick" x1="${x}" y1="${y - 4}" x2="${x}" y2="${y + 4}" />`;
-      html += `<text class="axis-num" x="${x}" y="${y + 22}" text-anchor="middle">${lane.fmt(v)}</text>`;
-    }
+      var head = document.createElement('div');
+      head.className = 'rb-head';
+      head.innerHTML =
+        '<span class="rb-idx">' + cat.index + '</span>' +
+        '<h3 class="rb-title">' + cat.title + '</h3>' +
+        '<span class="rb-unit">' + cat.unit + '</span>';
+      col.appendChild(head);
 
-    // === Only show labeled players (top 3 MLB + top 2 NL) ===
-    const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => b.v - a.v);
-    const mlbLabeled = sorted.filter(p => p.league !== "nl").slice(0, 3);
-    const nlLabeled = sorted.filter(p => p.league === "nl").slice(0, 2);
-    const labeled = [...mlbLabeled, ...nlLabeled].sort((a, b) => a.v - b.v);
+      var list = document.createElement('div');
+      list.className = 'rb-list';
+      postRanked.forEach(function(p) {
+        var pre = preRankByKey[rbKey(p)];
+        var row = document.createElement('div');
+        row.className = 'rb-row';
+        row.dataset.league = p.league;
+        if (p.league === 'negro') row.classList.add('rb-hidden-pre');
+        if (p.record) row.classList.add('rb-record');
+        row.innerHTML =
+          '<span class="rb-rank" data-pre="' + (pre || '') + '" data-post="' + p.rank + '"></span>' +
+          '<span class="rb-name">' + p.name + '</span>' +
+          '<span class="rb-val">' + fmtVal(p.value, cat.kind) + '</span>';
+        list.appendChild(row);
+      });
+      col.appendChild(list);
 
-    // Compute x positions for beeswarm separation
-    const xPositions = labeled.map(p => xOf(lane, p.v));
+      var cap = document.createElement('div');
+      cap.className = 'rb-cap';
+      cap.innerHTML =
+        '<span class="rb-cap-k">MARK</span>' +
+        '<span class="rb-cap-v" ' +
+          'data-pre="' + preLeader.name + ' ' + fmtVal(preLeader.value, cat.kind) + '" ' +
+          'data-post="' + postLeader.name + ' ' + fmtVal(postLeader.value, cat.kind) + '"></span>';
+      col.appendChild(cap);
 
-    // Beeswarm: nudge dots vertically when they overlap horizontally
-    const DOT_PROXIMITY = 30;
-    const DOT_NUDGE = 12;
-    const dotOffsets = new Array(labeled.length).fill(0);
-    for (let i = 0; i < labeled.length; i++) {
-      for (let j = i + 1; j < labeled.length; j++) {
-        if (Math.abs(xPositions[i] - xPositions[j]) < DOT_PROXIMITY) {
-          dotOffsets[i] = -DOT_NUDGE;
-          dotOffsets[j] = DOT_NUDGE;
-        }
-      }
-    }
-
-    // Label collision avoidance: assign above/below based on proximity
-    const LABEL_MIN_GAP = 80;
-    const labelSides = new Array(labeled.length).fill(0); // 0 = above, 1 = below
-    for (let i = 0; i < labeled.length; i++) {
-      if (i === 0) {
-        labelSides[i] = 0; // first label above
-      } else {
-        const prevX = xPositions[i - 1];
-        const currX = xPositions[i];
-        if (Math.abs(currX - prevX) < LABEL_MIN_GAP) {
-          // Too close: force opposite side from previous
-          labelSides[i] = labelSides[i - 1] === 0 ? 1 : 0;
-        } else {
-          // Enough room: alternate by index for visual balance
-          labelSides[i] = i % 2;
-        }
-      }
-    }
-
-    labeled.forEach((p, i) => {
-      const x = xPositions[i];
-      const dotY = y + dotOffsets[i];
-      const isNL = p.league === "nl";
-      const leagueCls = isNL ? "nl" : "mlb";
-      const isLead = (i === labeled.length - 1) || (isNL && p === nlLabeled[0]);
-
-      // Dot (with beeswarm offset)
-      html += `<circle class="dot ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" data-league="${p.league}" cx="${x}" cy="${dotY}" r="6" />`;
-
-      // Label placement
-      const above = (labelSides[i] === 0);
-      const labY = above ? (y - 30) : (y + 38);
-      const valY = labY + 15;
-      const yearTspan = p.year ? `<tspan class="yr-suffix"> ${p.year}</tspan>` : "";
-
-      html += `<text class="name ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${labY}" text-anchor="middle">${p.name}</text>`;
-      html += `<text class="val ${leagueCls}${isLead ? ' lead' : ''}" data-li="${li}" data-i="${p.idx}" x="${x}" y="${valY}" text-anchor="middle">${lane.fmt(p.v)}${yearTspan}</text>`;
+      grid.appendChild(col);
     });
-  });
 
-  // Bottom lane divider
-  html += `<line class="lane-divider" x1="0" y1="${padT + LANES.length * laneH}" x2="${W}" y2="${padT + LANES.length * laneH}" stroke="rgba(212,166,74,0.08)" stroke-width="1" />`;
+    root.appendChild(grid);
+  }
 
-  svg.innerHTML = html;
-
-  // === Apply mode ===
-  function applyMode(m) {
-    mode = m;
-    document.getElementById("btn-pre").classList.toggle("on",  m === "pre");
-    document.getElementById("btn-post").classList.toggle("on", m === "post");
-
-    LANES.forEach((lane, li) => {
-      const sorted = [...lane.players].map((p, idx) => ({ ...p, idx })).sort((a, b) => a.v - b.v);
-      // Determine the leader in current mode
-      const visible = sorted.filter(p => m === "post" || p.league !== "nl");
-      const leader = visible.reduce((a, b) => a.v > b.v ? a : b);
-
-      sorted.forEach((p, i) => {
-        const dot  = svg.querySelector(`.dot[data-li="${li}"][data-i="${p.idx}"]`);
-        const name = svg.querySelector(`.name[data-li="${li}"][data-i="${p.idx}"]`);
-        const val  = svg.querySelector(`.val[data-li="${li}"][data-i="${p.idx}"]`);
-        if (!dot) return; // skip unlabeled players not in the SVG
-
-        const isNL = p.league === "nl";
-        if (isNL) {
-          dot.style.opacity  = (m === "post") ? "1" : "0";
-          if (name) name.style.opacity = (m === "post") ? "1" : "0";
-          if (val)  val.style.opacity  = (m === "post") ? "1" : "0";
-        }
-
-        const isLeader = (p.name === leader.name && p.v === leader.v && p.year === leader.year);
-        dot.classList.toggle("lead", isLeader);
-        if (name) name.classList.toggle("lead", isLeader);
-        if (val)  val.classList.toggle("lead", isLeader);
-
-        const wasMLBLeader = m === "post" && p.league === "mlb" &&
-            p.v === sorted.filter(q => q.league === "mlb").reduce((a, b) => a.v > b.v ? a : b).v;
-        dot.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
-        if (name) name.classList.toggle("demoted", wasMLBLeader && leader.league === "nl");
+  function setRecordBookEra(root, era) {
+    var grid = root.querySelector('.rb-grid');
+    if (!grid) return;
+    grid.classList.toggle('era-post', era === 'post');
+    root.querySelectorAll('.rb-rank').forEach(function(s) { s.textContent = s.dataset[era] || ''; });
+    root.querySelectorAll('.rb-cap-v').forEach(function(s) { s.textContent = s.dataset[era] || ''; });
+    root.querySelectorAll('.rb-row.rb-hidden-pre').forEach(function(r) {
+      if (era === 'pre') {
+        r.style.setProperty('max-height', '0px', 'important');
+        r.style.setProperty('opacity', '0', 'important');
+        r.style.setProperty('padding-top', '0px', 'important');
+        r.style.setProperty('padding-bottom', '0px', 'important');
+        r.style.setProperty('border-top-color', 'transparent', 'important');
+      } else {
+        r.style.setProperty('max-height', '3.6em', 'important');
+        r.style.setProperty('opacity', '1', 'important');
+        r.style.removeProperty('padding-top');
+        r.style.removeProperty('padding-bottom');
+        r.style.removeProperty('border-top-color');
+      }
+    });
+    root.querySelectorAll('.rb-col').forEach(function(col) {
+      col.querySelectorAll('.rb-row').forEach(function(r) {
+        var rk = r.querySelector('.rb-rank').dataset[era];
+        r.classList.toggle('is-leader', rk === '1');
       });
     });
+  }
 
-    // Update ledger
+  /* ================================================================
+     Ledger (Fig 04b), still uses LANES data from numbers-data.js
+     ================================================================ */
+  var LANES = window.LANES;
+
+  function renderLedger() {
+    var rows = LANES.map(function(lane) {
+      var sortedDesc = lane.players.slice().sort(function(a, b) { return b.v - a.v; });
+      var preTop  = sortedDesc.filter(function(p) { return p.league === 'mlb'; })[0];
+      var postTop = sortedDesc[0];
+      var preTopRankInPost = sortedDesc.indexOf(preTop) + 1;
+      var yrPre  = preTop.year  ? '  (' + preTop.year + ')'  : '';
+      var yrPost = postTop.year ? '  (' + postTop.year + ')' : '';
+      var swap = preTop !== postTop;
+      return '<div class="ledger-row">' +
+        '<div class="cat">' + lane.cat + '</div>' +
+        '<div class="side old">' +
+          '<div class="nm">' + preTop.name + '</div>' +
+          '<div class="v">' + lane.fmt(preTop.v) + yrPre + '</div>' +
+          '<div class="pos">' + (swap ? 'now #' + preTopRankInPost : '#1') + '</div>' +
+        '</div>' +
+        '<div class="arrow">\u2192</div>' +
+        '<div class="side new-side">' +
+          '<div class="nm ' + (postTop.league === 'nl' ? 'gibson' : '') + '">' + postTop.name + '</div>' +
+          '<div class="v">' + lane.fmt(postTop.v) + yrPost + '</div>' +
+          '<div class="pos new">#1</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    document.getElementById('ledger-rows').innerHTML = rows;
+  }
+
+  /* ================================================================
+     Wire toggle and initialize
+     ================================================================ */
+  var rbRoot = document.getElementById('record-book');
+  var mode = 'pre';
+
+  buildRecordBook(rbRoot);
+
+  function applyMode(m) {
+    mode = m;
+    document.getElementById('btn-pre').classList.toggle('on', m === 'pre');
+    document.getElementById('btn-post').classList.toggle('on', m === 'post');
+    setRecordBookEra(rbRoot, m);
     renderLedger();
   }
 
-  function renderLedger() {
-    const rows = LANES.map((lane, li) => {
-      const sortedDesc = [...lane.players].sort((a, b) => b.v - a.v);
-      const preTop  = sortedDesc.filter(p => p.league === "mlb")[0];
-      const postTop = sortedDesc[0];
-      const preTopRankInPost = sortedDesc.findIndex(p => p === preTop) + 1;
-      const yrPre  = preTop.year  ? `  (${preTop.year})`  : "";
-      const yrPost = postTop.year ? `  (${postTop.year})` : "";
-      const swap = preTop !== postTop;
-      return `
-        <div class="ledger-row">
-          <div class="cat">${lane.cat}</div>
-          <div class="side old">
-            <div class="nm">${preTop.name}</div>
-            <div class="v">${lane.fmt(preTop.v)}${yrPre}</div>
-            <div class="pos">${swap ? "now #" + preTopRankInPost : "#1"}</div>
-          </div>
-          <div class="arrow">→</div>
-          <div class="side new-side">
-            <div class="nm ${postTop.league === "nl" ? "gibson" : ""}">${postTop.name}</div>
-            <div class="v">${lane.fmt(postTop.v)}${yrPost}</div>
-            <div class="pos new">#1</div>
-          </div>
-        </div>
-      `;
-    }).join("");
-    document.getElementById("ledger-rows").innerHTML = rows;
-  }
+  document.getElementById('btn-pre').addEventListener('click', function() { applyMode('pre'); });
+  document.getElementById('btn-post').addEventListener('click', function() { applyMode('post'); });
 
-  document.getElementById("btn-pre").addEventListener("click", () => applyMode("pre"));
-  document.getElementById("btn-post").addEventListener("click", () => applyMode("post"));
+  applyMode('pre');
 
-  // Initial
-  applyMode("pre");
-
-  // After 1.5s, auto-flip to "post" once for first impression (cool reveal)
-  setTimeout(() => {
-    if (mode === "pre") applyMode("post");
+  // Auto-flip to post after brief delay for the reveal
+  setTimeout(function() {
+    if (mode === 'pre') applyMode('post');
   }, 2200);
 })();
 </script>

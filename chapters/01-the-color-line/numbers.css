@@ -93,93 +93,131 @@
   color: var(--vellum);
 }
 
-/* === The lane chart === */
-.lane-svg-wrap {
+/* === The Record Book (Option A) === */
+#record-book {
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  padding: 22px 0;
+  padding: 32px 0;
 }
-.lane-svg-wrap svg { display: block; width: 100%; height: auto; }
-
-.lane text { font-family: var(--mono); font-size: 13px; fill: var(--muted); letter-spacing: 0.04em; }
-.lane .cat-num {
-  font-size: 13px;
-  fill: var(--muted-2);
+.rb-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 30px);
 }
-.lane .cat-label {
+.rb-col { min-width: 0; }
+.rb-head {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 88px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(232,224,207,0.13);
+}
+.rb-idx {
   font-family: var(--mono);
-  font-size: 14px;
-  fill: var(--vellum);
+  font-size: 12px;
   letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 500;
+  color: rgba(212,166,74,0.55);
 }
-.lane .lane-line { stroke: var(--rule); stroke-width: 1.5; }
-.lane .lane-tick { stroke: var(--muted-2); stroke-width: 1; }
-.lane .axis-num { fill: var(--muted); }
-.lane .dot {
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  transition: cx 1500ms cubic-bezier(0.4, 0, 0.2, 1),
-              fill 800ms ease,
-              r 600ms ease;
+.rb-title {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.12;
+  color: var(--vellum);
+  margin: 0;
 }
-.lane .dot.mlb     { fill: var(--vellum-dim); }
-.lane .dot.mlb.lead{ fill: var(--vellum); }
-.lane .dot.nl      { fill: var(--amber); }
-.lane .dot.nl.dim  { opacity: 0; pointer-events: none; }
-.lane .dot.demoted {
-  fill: none;
-  stroke: var(--vellum-dim);
-  stroke-width: 1.5;
-  opacity: 1;
-}
-
-.lane .name {
-  font-family: var(--serif);
-  font-size: 14px;
-  fill: var(--vellum-dim);
-  letter-spacing: 0;
-  transition: x 1500ms cubic-bezier(0.4, 0, 0.2, 1),
-              fill 800ms ease;
-}
-.lane .name.lead { fill: var(--vellum); font-style: italic; }
-.lane .name.nl   { fill: var(--amber); font-style: italic; }
-.lane .name.nl.hidden { opacity: 0; }
-.lane .name.demoted { fill: var(--muted-2); }
-
-.lane .val {
+.rb-unit {
   font-family: var(--mono);
-  font-size: 13px;
-  fill: var(--muted);
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--vellum-dim);
+  text-transform: uppercase;
 }
-.lane .val.lead { fill: var(--vellum); }
-.lane .val.nl   { fill: var(--amber); }
-.lane .val.nl.hidden { opacity: 0; }
-.lane .val .yr-suffix {
-  font-size: 11px;
-  fill: var(--muted);
+.rb-list { margin-top: 2px; }
+.rb-row {
+  display: grid;
+  grid-template-columns: 1.6em 1fr auto;
+  align-items: baseline;
+  gap: 0.45em;
+  padding: 0.6em 0;
+  border-top: 1px solid rgba(232,224,207,0.11);
+  overflow: hidden;
+  max-height: 3.6em;
+  opacity: 1;
+  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease;
 }
-
-.lane .new-leader-ring {
-  fill: none;
-  stroke: var(--amber);
-  stroke-width: 1;
-  opacity: 0;
-  transition: opacity 600ms ease;
+.rb-row:first-child { border-top: none; }
+.rb-rank {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--vellum-dim);
+  font-variant-numeric: tabular-nums;
 }
-.lane .new-leader-ring.on { opacity: 0.8; }
-
-.lane .barrier-zone {
-  fill: rgba(212,166,74,0.04);
+.rb-name {
+  font-size: 15px;
+  color: var(--vellum);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.lane .axis-label {
+.rb-val {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--vellum);
+  font-variant-numeric: tabular-nums;
+}
+.rb-was {
+  display: none;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.12em;
-  fill: var(--muted-2);
+  color: var(--vellum-dim);
   text-transform: uppercase;
+  margin-left: 7px;
+}
+.rb-row[data-league="negro"] .rb-name { color: var(--amber); }
+.rb-row[data-league="negro"] .rb-val  { color: var(--amber); }
+.rb-row[data-league="negro"] .rb-rank { color: rgba(212,166,74,0.55); }
+.rb-row.is-leader .rb-val  { font-weight: 600; }
+.rb-row.is-leader .rb-rank { color: var(--amber); }
+.rb-grid:not(.era-post) .rb-hidden-pre {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top-color: transparent;
+}
+.rb-grid.era-post .rb-record .rb-was { display: inline; }
+.rb-grid.era-post .rb-record .rb-name,
+.rb-grid.era-post .rb-record .rb-val { color: var(--vellum-dim); }
+.rb-cap {
+  margin-top: 15px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(232,224,207,0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rb-cap-k {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--vellum-dim);
+}
+.rb-cap-v {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--vellum);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.4s;
+}
+.rb-grid.era-post .rb-cap-v { color: var(--amber); }
+
+@media (max-width: 880px) {
+  .rb-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .rb-grid { grid-template-columns: 1fr; }
 }
 
 /* === The reshuffle ledger === */
@@ -263,11 +301,14 @@
 /* === Pull quote === */
 .lanes-quote {
   margin: 48px 0 0;
-  padding: 36px 0 32px;
+  padding: 36px 28px 32px;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   border-left: 3px solid var(--amber);
-  padding-left: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
 }
 .lanes-quote .q {
   font-family: var(--serif);
