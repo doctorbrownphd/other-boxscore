@@ -174,8 +174,8 @@ a:hover { color: var(--amber-2); }
 
 .masthead__title {
   font-family: var(--display);
-  font-size: 56px;
-  font-weight: 700;
+  font-size: 72px;
+  font-weight: 900;
   line-height: 1.1;
   color: var(--vellum);
   margin-bottom: 20px;
@@ -185,7 +185,7 @@ a:hover { color: var(--amber-2); }
   color: var(--amber);
   font-style: italic;
   font-weight: 400;
-  font-size: 56px;
+  font-size: 72px;
 }
 
 .masthead__subtitle {
@@ -1674,12 +1674,17 @@ a:hover { color: var(--amber-2); }
   .masthead { padding: 60px 24px 0; }
   .section { padding: 48px 24px; }
   .coda { padding: 48px 24px; }
-  .masthead__title { font-size: 36px; }
-  .masthead__title em { font-size: 36px; }
+  .masthead__title { font-size: 48px; }
+  .masthead__title em { font-size: 48px; }
   .masthead__mark { text-decoration: none; padding: 24px 20px 0; }
   .masthead__mark-svg { width: 320px; }
   .platform-nav__links { display: none; }
   .narratives__controls { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .masthead__title { font-size: 36px; }
+  .masthead__title em { font-size: 36px; }
 }
 
 </style>
