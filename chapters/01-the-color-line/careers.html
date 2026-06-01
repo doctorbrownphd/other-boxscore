@@ -356,7 +356,7 @@
       "Aaron":      { dx: 8,  dy: 14 },
       "Robinson":   { dx: 8,  dy: 4 },
       "Doby":       { dx: 8,  dy: 4 },
-      "Campanella": { dx: 8,  dy: 4 },
+      "Campanella": { dx: 8,  dy: -10 },
       "Banks":      { dx: 8,  dy: 4 }
     };
     SCATTER.forEach(p => {
@@ -371,10 +371,10 @@
 
     // Cluster rings
     s += `<ellipse class="cluster-ring" cx="${xOf(20)}" cy="${yOf(50)}" rx="90" ry="100" />`;
-    s += `<text class="cluster-label" x="${xOf(20.0) - 90}" y="${yOf(120)}">pre-integration white players</text>`;
+    s += `<text class="cluster-label" x="${xOf(20.0)}" y="${yOf(120)}" text-anchor="middle">pre-integration white players</text>`;
 
     s += `<ellipse class="cluster-ring" cx="${xOf(27)}" cy="${yOf(12)}" rx="90" ry="60" />`;
-    s += `<text class="cluster-label" x="${xOf(27) - 80}" y="${yOf(40)}" >late-integration players</text>`;
+    s += `<text class="cluster-label" x="${xOf(27)}" y="${yOf(45)}" text-anchor="middle">late-integration players</text>`;
 
     // Axes
     s += `<line class="axis" x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" />`;
@@ -386,7 +386,7 @@
       s += `<text x="${padL - 10}" y="${yOf(y) + 4}" text-anchor="end">${y}</text>`;
     }
     s += `<text class="axis-label" x="${(padL + W - padR) / 2}" y="${H - 14}" text-anchor="middle">age at major-league debut  →</text>`;
-    s += `<text class="axis-label" x="${24}" y="${(padT + H - padB) / 2}" text-anchor="middle" transform="rotate(-90 24 ${(padT + H - padB) / 2})">career WAR  →</text>`;
+    s += `<text class="axis-label" x="${24}" y="${(padT + H - padB) / 2}" text-anchor="middle" transform="rotate(-90 24 ${(padT + H - padB) / 2})">career WAR  ↑</text>`;
 
     svg.innerHTML = s;
   })();
